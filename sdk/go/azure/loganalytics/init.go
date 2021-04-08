@@ -22,27 +22,28 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:loganalytics/cluster:Cluster":
-		r, err = NewCluster(ctx, name, nil, pulumi.URN_(urn))
+		r = &Cluster{}
 	case "azure:loganalytics/clusterCustomerManagedKey:ClusterCustomerManagedKey":
-		r, err = NewClusterCustomerManagedKey(ctx, name, nil, pulumi.URN_(urn))
+		r = &ClusterCustomerManagedKey{}
 	case "azure:loganalytics/dataExportRule:DataExportRule":
-		r, err = NewDataExportRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &DataExportRule{}
 	case "azure:loganalytics/dataSourceWindowsEvent:DataSourceWindowsEvent":
-		r, err = NewDataSourceWindowsEvent(ctx, name, nil, pulumi.URN_(urn))
+		r = &DataSourceWindowsEvent{}
 	case "azure:loganalytics/dataSourceWindowsPerformanceCounter:DataSourceWindowsPerformanceCounter":
-		r, err = NewDataSourceWindowsPerformanceCounter(ctx, name, nil, pulumi.URN_(urn))
+		r = &DataSourceWindowsPerformanceCounter{}
 	case "azure:loganalytics/linkedService:LinkedService":
-		r, err = NewLinkedService(ctx, name, nil, pulumi.URN_(urn))
+		r = &LinkedService{}
 	case "azure:loganalytics/linkedStorageAccount:LinkedStorageAccount":
-		r, err = NewLinkedStorageAccount(ctx, name, nil, pulumi.URN_(urn))
+		r = &LinkedStorageAccount{}
 	case "azure:loganalytics/savedSearch:SavedSearch":
-		r, err = NewSavedSearch(ctx, name, nil, pulumi.URN_(urn))
+		r = &SavedSearch{}
 	case "azure:loganalytics/storageInsights:StorageInsights":
-		r, err = NewStorageInsights(ctx, name, nil, pulumi.URN_(urn))
+		r = &StorageInsights{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

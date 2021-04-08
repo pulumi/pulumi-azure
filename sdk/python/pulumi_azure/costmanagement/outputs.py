@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'ResourceGroupExportDeliveryInfo',
@@ -15,6 +15,27 @@ __all__ = [
 
 @pulumi.output_type
 class ResourceGroupExportDeliveryInfo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerName":
+            suggest = "container_name"
+        elif key == "rootFolderPath":
+            suggest = "root_folder_path"
+        elif key == "storageAccountId":
+            suggest = "storage_account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceGroupExportDeliveryInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceGroupExportDeliveryInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceGroupExportDeliveryInfo.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  container_name: str,
                  root_folder_path: str,
@@ -52,12 +73,26 @@ class ResourceGroupExportDeliveryInfo(dict):
         """
         return pulumi.get(self, "storage_account_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ResourceGroupExportQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeFrame":
+            suggest = "time_frame"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceGroupExportQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceGroupExportQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceGroupExportQuery.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  time_frame: str,
                  type: str):
@@ -83,8 +118,5 @@ class ResourceGroupExportQuery(dict):
         The type of the query.
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

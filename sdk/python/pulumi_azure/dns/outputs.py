@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'CaaRecordRecord',
@@ -55,9 +55,6 @@ class CaaRecordRecord(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MxRecordRecord(dict):
@@ -86,9 +83,6 @@ class MxRecordRecord(dict):
         String representing the "preference” value of the MX records. Records with lower preference value take priority.
         """
         return pulumi.get(self, "preference")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -141,9 +135,6 @@ class SrvRecordRecord(dict):
         """
         return pulumi.get(self, "weight")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TxtRecordRecord(dict):
@@ -162,12 +153,36 @@ class TxtRecordRecord(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ZoneSoaRecord(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostName":
+            suggest = "host_name"
+        elif key == "expireTime":
+            suggest = "expire_time"
+        elif key == "minimumTtl":
+            suggest = "minimum_ttl"
+        elif key == "refreshTime":
+            suggest = "refresh_time"
+        elif key == "retryTime":
+            suggest = "retry_time"
+        elif key == "serialNumber":
+            suggest = "serial_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ZoneSoaRecord. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ZoneSoaRecord.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ZoneSoaRecord.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  email: str,
                  host_name: str,
@@ -285,8 +300,5 @@ class ZoneSoaRecord(dict):
         The Time To Live of the SOA Record in seconds. Defaults to `3600`.
         """
         return pulumi.get(self, "ttl")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

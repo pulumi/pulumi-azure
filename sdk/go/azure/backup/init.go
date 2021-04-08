@@ -22,19 +22,20 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:backup/containerStorageAccount:ContainerStorageAccount":
-		r, err = NewContainerStorageAccount(ctx, name, nil, pulumi.URN_(urn))
+		r = &ContainerStorageAccount{}
 	case "azure:backup/policyFileShare:PolicyFileShare":
-		r, err = NewPolicyFileShare(ctx, name, nil, pulumi.URN_(urn))
+		r = &PolicyFileShare{}
 	case "azure:backup/policyVM:PolicyVM":
-		r, err = NewPolicyVM(ctx, name, nil, pulumi.URN_(urn))
+		r = &PolicyVM{}
 	case "azure:backup/protectedFileShare:ProtectedFileShare":
-		r, err = NewProtectedFileShare(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProtectedFileShare{}
 	case "azure:backup/protectedVM:ProtectedVM":
-		r, err = NewProtectedVM(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProtectedVM{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

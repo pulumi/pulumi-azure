@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -52,6 +52,33 @@ __all__ = [
 
 @pulumi.output_type
 class ContentKeyPolicyPolicyOption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clearKeyConfigurationEnabled":
+            suggest = "clear_key_configuration_enabled"
+        elif key == "fairplayConfiguration":
+            suggest = "fairplay_configuration"
+        elif key == "openRestrictionEnabled":
+            suggest = "open_restriction_enabled"
+        elif key == "playreadyConfigurationLicenses":
+            suggest = "playready_configuration_licenses"
+        elif key == "tokenRestriction":
+            suggest = "token_restriction"
+        elif key == "widevineConfigurationTemplate":
+            suggest = "widevine_configuration_template"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentKeyPolicyPolicyOption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentKeyPolicyPolicyOption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentKeyPolicyPolicyOption.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  clear_key_configuration_enabled: Optional[bool] = None,
@@ -139,12 +166,32 @@ class ContentKeyPolicyPolicyOption(dict):
         """
         return pulumi.get(self, "widevine_configuration_template")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContentKeyPolicyPolicyOptionFairplayConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "offlineRentalConfiguration":
+            suggest = "offline_rental_configuration"
+        elif key == "pfxPassword":
+            suggest = "pfx_password"
+        elif key == "rentalAndLeaseKeyType":
+            suggest = "rental_and_lease_key_type"
+        elif key == "rentalDurationSeconds":
+            suggest = "rental_duration_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentKeyPolicyPolicyOptionFairplayConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentKeyPolicyPolicyOptionFairplayConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentKeyPolicyPolicyOptionFairplayConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ask: Optional[str] = None,
                  offline_rental_configuration: Optional['outputs.ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration'] = None,
@@ -221,12 +268,28 @@ class ContentKeyPolicyPolicyOptionFairplayConfiguration(dict):
         """
         return pulumi.get(self, "rental_duration_seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "playbackDurationSeconds":
+            suggest = "playback_duration_seconds"
+        elif key == "storageDurationSeconds":
+            suggest = "storage_duration_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  playback_duration_seconds: Optional[int] = None,
                  storage_duration_seconds: Optional[int] = None):
@@ -255,12 +318,46 @@ class ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguratio
         """
         return pulumi.get(self, "storage_duration_seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowTestDevices":
+            suggest = "allow_test_devices"
+        elif key == "beginDate":
+            suggest = "begin_date"
+        elif key == "contentKeyLocationFromHeaderEnabled":
+            suggest = "content_key_location_from_header_enabled"
+        elif key == "contentKeyLocationFromKeyId":
+            suggest = "content_key_location_from_key_id"
+        elif key == "contentType":
+            suggest = "content_type"
+        elif key == "expirationDate":
+            suggest = "expiration_date"
+        elif key == "gracePeriod":
+            suggest = "grace_period"
+        elif key == "licenseType":
+            suggest = "license_type"
+        elif key == "playRight":
+            suggest = "play_right"
+        elif key == "relativeBeginDate":
+            suggest = "relative_begin_date"
+        elif key == "relativeExpirationDate":
+            suggest = "relative_expiration_date"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allow_test_devices: Optional[bool] = None,
                  begin_date: Optional[str] = None,
@@ -397,12 +494,46 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense(dict):
         """
         return pulumi.get(self, "relative_expiration_date")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agcAndColorStripeRestriction":
+            suggest = "agc_and_color_stripe_restriction"
+        elif key == "allowPassingVideoContentToUnknownOutput":
+            suggest = "allow_passing_video_content_to_unknown_output"
+        elif key == "analogVideoOpl":
+            suggest = "analog_video_opl"
+        elif key == "compressedDigitalAudioOpl":
+            suggest = "compressed_digital_audio_opl"
+        elif key == "digitalVideoOnlyContentRestriction":
+            suggest = "digital_video_only_content_restriction"
+        elif key == "firstPlayExpiration":
+            suggest = "first_play_expiration"
+        elif key == "imageConstraintForAnalogComponentVideoRestriction":
+            suggest = "image_constraint_for_analog_component_video_restriction"
+        elif key == "imageConstraintForAnalogComputerMonitorRestriction":
+            suggest = "image_constraint_for_analog_computer_monitor_restriction"
+        elif key == "scmsRestriction":
+            suggest = "scms_restriction"
+        elif key == "uncompressedDigitalAudioOpl":
+            suggest = "uncompressed_digital_audio_opl"
+        elif key == "uncompressedDigitalVideoOpl":
+            suggest = "uncompressed_digital_video_opl"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  agc_and_color_stripe_restriction: Optional[int] = None,
                  allow_passing_video_content_to_unknown_output: Optional[str] = None,
@@ -539,12 +670,38 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight(dict):
         """
         return pulumi.get(self, "uncompressed_digital_video_opl")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContentKeyPolicyPolicyOptionTokenRestriction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "openIdConnectDiscoveryDocument":
+            suggest = "open_id_connect_discovery_document"
+        elif key == "primaryRsaTokenKeyExponent":
+            suggest = "primary_rsa_token_key_exponent"
+        elif key == "primaryRsaTokenKeyModulus":
+            suggest = "primary_rsa_token_key_modulus"
+        elif key == "primarySymmetricTokenKey":
+            suggest = "primary_symmetric_token_key"
+        elif key == "primaryX509TokenKeyRaw":
+            suggest = "primary_x509_token_key_raw"
+        elif key == "requiredClaims":
+            suggest = "required_claims"
+        elif key == "tokenType":
+            suggest = "token_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentKeyPolicyPolicyOptionTokenRestriction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentKeyPolicyPolicyOptionTokenRestriction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentKeyPolicyPolicyOptionTokenRestriction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  audience: Optional[str] = None,
                  issuer: Optional[str] = None,
@@ -657,9 +814,6 @@ class ContentKeyPolicyPolicyOptionTokenRestriction(dict):
         """
         return pulumi.get(self, "token_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim(dict):
@@ -691,9 +845,6 @@ class ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class JobInputAsset(dict):
@@ -723,9 +874,6 @@ class JobInputAsset(dict):
         A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
         """
         return pulumi.get(self, "label")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -757,12 +905,28 @@ class JobOutputAsset(dict):
         """
         return pulumi.get(self, "label")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LiveEventCrossSiteAccessPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientAccessPolicy":
+            suggest = "client_access_policy"
+        elif key == "crossDomainPolicy":
+            suggest = "cross_domain_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LiveEventCrossSiteAccessPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LiveEventCrossSiteAccessPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LiveEventCrossSiteAccessPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_access_policy: Optional[str] = None,
                  cross_domain_policy: Optional[str] = None):
@@ -791,12 +955,30 @@ class LiveEventCrossSiteAccessPolicy(dict):
         """
         return pulumi.get(self, "cross_domain_policy")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LiveEventEncoding(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyFrameInterval":
+            suggest = "key_frame_interval"
+        elif key == "presetName":
+            suggest = "preset_name"
+        elif key == "stretchMode":
+            suggest = "stretch_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LiveEventEncoding. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LiveEventEncoding.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LiveEventEncoding.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_frame_interval: Optional[str] = None,
                  preset_name: Optional[str] = None,
@@ -849,12 +1031,32 @@ class LiveEventEncoding(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LiveEventInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessToken":
+            suggest = "access_token"
+        elif key == "ipAccessControlAllows":
+            suggest = "ip_access_control_allows"
+        elif key == "keyFrameIntervalDuration":
+            suggest = "key_frame_interval_duration"
+        elif key == "streamingProtocol":
+            suggest = "streaming_protocol"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LiveEventInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LiveEventInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LiveEventInput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  access_token: Optional[str] = None,
                  endpoints: Optional[Sequence['outputs.LiveEventInputEndpoint']] = None,
@@ -915,9 +1117,6 @@ class LiveEventInput(dict):
         """
         return pulumi.get(self, "streaming_protocol")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LiveEventInputEndpoint(dict):
@@ -939,12 +1138,26 @@ class LiveEventInputEndpoint(dict):
     def url(self) -> Optional[str]:
         return pulumi.get(self, "url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LiveEventInputIpAccessControlAllow(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetPrefixLength":
+            suggest = "subnet_prefix_length"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LiveEventInputIpAccessControlAllow. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LiveEventInputIpAccessControlAllow.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LiveEventInputIpAccessControlAllow.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address: Optional[str] = None,
                  name: Optional[str] = None,
@@ -985,12 +1198,32 @@ class LiveEventInputIpAccessControlAllow(dict):
         """
         return pulumi.get(self, "subnet_prefix_length")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LiveEventPreview(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alternativeMediaId":
+            suggest = "alternative_media_id"
+        elif key == "ipAccessControlAllows":
+            suggest = "ip_access_control_allows"
+        elif key == "previewLocator":
+            suggest = "preview_locator"
+        elif key == "streamingPolicyName":
+            suggest = "streaming_policy_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LiveEventPreview. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LiveEventPreview.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LiveEventPreview.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  alternative_media_id: Optional[str] = None,
                  endpoints: Optional[Sequence['outputs.LiveEventPreviewEndpoint']] = None,
@@ -1051,9 +1284,6 @@ class LiveEventPreview(dict):
         """
         return pulumi.get(self, "streaming_policy_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LiveEventPreviewEndpoint(dict):
@@ -1075,12 +1305,26 @@ class LiveEventPreviewEndpoint(dict):
     def url(self) -> Optional[str]:
         return pulumi.get(self, "url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LiveEventPreviewIpAccessControlAllow(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetPrefixLength":
+            suggest = "subnet_prefix_length"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LiveEventPreviewIpAccessControlAllow. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LiveEventPreviewIpAccessControlAllow.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LiveEventPreviewIpAccessControlAllow.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address: Optional[str] = None,
                  name: Optional[str] = None,
@@ -1121,12 +1365,28 @@ class LiveEventPreviewIpAccessControlAllow(dict):
         """
         return pulumi.get(self, "subnet_prefix_length")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceAccountIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceAccountIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceAccountIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceAccountIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None,
@@ -1167,12 +1427,26 @@ class ServiceAccountIdentity(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceAccountStorageAccount(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isPrimary":
+            suggest = "is_primary"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceAccountStorageAccount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceAccountStorageAccount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceAccountStorageAccount.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  is_primary: Optional[bool] = None):
@@ -1200,12 +1474,28 @@ class ServiceAccountStorageAccount(dict):
         """
         return pulumi.get(self, "is_primary")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StreamingEndpointAccessControl(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "akamaiSignatureHeaderAuthenticationKeys":
+            suggest = "akamai_signature_header_authentication_keys"
+        elif key == "ipAllows":
+            suggest = "ip_allows"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamingEndpointAccessControl. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamingEndpointAccessControl.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamingEndpointAccessControl.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  akamai_signature_header_authentication_keys: Optional[Sequence['outputs.StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey']] = None,
                  ip_allows: Optional[Sequence['outputs.StreamingEndpointAccessControlIpAllow']] = None):
@@ -1234,12 +1524,26 @@ class StreamingEndpointAccessControl(dict):
         """
         return pulumi.get(self, "ip_allows")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "base64Key":
+            suggest = "base64_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  base64_key: Optional[str] = None,
                  expiration: Optional[str] = None,
@@ -1280,12 +1584,26 @@ class StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey(dict)
         """
         return pulumi.get(self, "identifier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StreamingEndpointAccessControlIpAllow(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetPrefixLength":
+            suggest = "subnet_prefix_length"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamingEndpointAccessControlIpAllow. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamingEndpointAccessControlIpAllow.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamingEndpointAccessControlIpAllow.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address: Optional[str] = None,
                  name: Optional[str] = None,
@@ -1326,12 +1644,28 @@ class StreamingEndpointAccessControlIpAllow(dict):
         """
         return pulumi.get(self, "subnet_prefix_length")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StreamingEndpointCrossSiteAccessPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientAccessPolicy":
+            suggest = "client_access_policy"
+        elif key == "crossDomainPolicy":
+            suggest = "cross_domain_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamingEndpointCrossSiteAccessPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamingEndpointCrossSiteAccessPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamingEndpointCrossSiteAccessPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_access_policy: Optional[str] = None,
                  cross_domain_policy: Optional[str] = None):
@@ -1360,12 +1694,30 @@ class StreamingEndpointCrossSiteAccessPolicy(dict):
         """
         return pulumi.get(self, "cross_domain_policy")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StreamingLocatorContentKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentKeyId":
+            suggest = "content_key_id"
+        elif key == "labelReferenceInStreamingPolicy":
+            suggest = "label_reference_in_streaming_policy"
+        elif key == "policyName":
+            suggest = "policy_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamingLocatorContentKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamingLocatorContentKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamingLocatorContentKey.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  content_key_id: Optional[str] = None,
                  label_reference_in_streaming_policy: Optional[str] = None,
@@ -1430,12 +1782,30 @@ class StreamingLocatorContentKey(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StreamingPolicyCommonEncryptionCbcs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultContentKey":
+            suggest = "default_content_key"
+        elif key == "drmFairplay":
+            suggest = "drm_fairplay"
+        elif key == "enabledProtocols":
+            suggest = "enabled_protocols"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamingPolicyCommonEncryptionCbcs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamingPolicyCommonEncryptionCbcs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamingPolicyCommonEncryptionCbcs.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_content_key: Optional['outputs.StreamingPolicyCommonEncryptionCbcsDefaultContentKey'] = None,
                  drm_fairplay: Optional['outputs.StreamingPolicyCommonEncryptionCbcsDrmFairplay'] = None,
@@ -1476,12 +1846,26 @@ class StreamingPolicyCommonEncryptionCbcs(dict):
         """
         return pulumi.get(self, "enabled_protocols")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StreamingPolicyCommonEncryptionCbcsDefaultContentKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyName":
+            suggest = "policy_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamingPolicyCommonEncryptionCbcsDefaultContentKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamingPolicyCommonEncryptionCbcsDefaultContentKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamingPolicyCommonEncryptionCbcsDefaultContentKey.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  label: Optional[str] = None,
                  policy_name: Optional[str] = None):
@@ -1510,12 +1894,28 @@ class StreamingPolicyCommonEncryptionCbcsDefaultContentKey(dict):
         """
         return pulumi.get(self, "policy_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StreamingPolicyCommonEncryptionCbcsDrmFairplay(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowPersistentLicense":
+            suggest = "allow_persistent_license"
+        elif key == "customLicenseAcquisitionUrlTemplate":
+            suggest = "custom_license_acquisition_url_template"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamingPolicyCommonEncryptionCbcsDrmFairplay. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamingPolicyCommonEncryptionCbcsDrmFairplay.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamingPolicyCommonEncryptionCbcsDrmFairplay.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allow_persistent_license: Optional[bool] = None,
                  custom_license_acquisition_url_template: Optional[str] = None):
@@ -1544,12 +1944,26 @@ class StreamingPolicyCommonEncryptionCbcsDrmFairplay(dict):
         """
         return pulumi.get(self, "custom_license_acquisition_url_template")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StreamingPolicyCommonEncryptionCbcsEnabledProtocols(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "smoothStreaming":
+            suggest = "smooth_streaming"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamingPolicyCommonEncryptionCbcsEnabledProtocols. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamingPolicyCommonEncryptionCbcsEnabledProtocols.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamingPolicyCommonEncryptionCbcsEnabledProtocols.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dash: Optional[bool] = None,
                  download: Optional[bool] = None,
@@ -1602,12 +2016,32 @@ class StreamingPolicyCommonEncryptionCbcsEnabledProtocols(dict):
         """
         return pulumi.get(self, "smooth_streaming")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StreamingPolicyCommonEncryptionCenc(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultContentKey":
+            suggest = "default_content_key"
+        elif key == "drmPlayready":
+            suggest = "drm_playready"
+        elif key == "drmWidevineCustomLicenseAcquisitionUrlTemplate":
+            suggest = "drm_widevine_custom_license_acquisition_url_template"
+        elif key == "enabledProtocols":
+            suggest = "enabled_protocols"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamingPolicyCommonEncryptionCenc. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamingPolicyCommonEncryptionCenc.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamingPolicyCommonEncryptionCenc.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_content_key: Optional['outputs.StreamingPolicyCommonEncryptionCencDefaultContentKey'] = None,
                  drm_playready: Optional['outputs.StreamingPolicyCommonEncryptionCencDrmPlayready'] = None,
@@ -1660,12 +2094,26 @@ class StreamingPolicyCommonEncryptionCenc(dict):
         """
         return pulumi.get(self, "enabled_protocols")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StreamingPolicyCommonEncryptionCencDefaultContentKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyName":
+            suggest = "policy_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamingPolicyCommonEncryptionCencDefaultContentKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamingPolicyCommonEncryptionCencDefaultContentKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamingPolicyCommonEncryptionCencDefaultContentKey.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  label: Optional[str] = None,
                  policy_name: Optional[str] = None):
@@ -1694,12 +2142,28 @@ class StreamingPolicyCommonEncryptionCencDefaultContentKey(dict):
         """
         return pulumi.get(self, "policy_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StreamingPolicyCommonEncryptionCencDrmPlayready(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customAttributes":
+            suggest = "custom_attributes"
+        elif key == "customLicenseAcquisitionUrlTemplate":
+            suggest = "custom_license_acquisition_url_template"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamingPolicyCommonEncryptionCencDrmPlayready. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamingPolicyCommonEncryptionCencDrmPlayready.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamingPolicyCommonEncryptionCencDrmPlayready.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_attributes: Optional[str] = None,
                  custom_license_acquisition_url_template: Optional[str] = None):
@@ -1728,12 +2192,26 @@ class StreamingPolicyCommonEncryptionCencDrmPlayready(dict):
         """
         return pulumi.get(self, "custom_license_acquisition_url_template")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StreamingPolicyCommonEncryptionCencEnabledProtocols(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "smoothStreaming":
+            suggest = "smooth_streaming"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamingPolicyCommonEncryptionCencEnabledProtocols. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamingPolicyCommonEncryptionCencEnabledProtocols.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamingPolicyCommonEncryptionCencEnabledProtocols.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dash: Optional[bool] = None,
                  download: Optional[bool] = None,
@@ -1785,13 +2263,27 @@ class StreamingPolicyCommonEncryptionCencEnabledProtocols(dict):
         Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
         """
         return pulumi.get(self, "smooth_streaming")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class StreamingPolicyNoEncryptionEnabledProtocols(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "smoothStreaming":
+            suggest = "smooth_streaming"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamingPolicyNoEncryptionEnabledProtocols. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamingPolicyNoEncryptionEnabledProtocols.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamingPolicyNoEncryptionEnabledProtocols.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dash: Optional[bool] = None,
                  download: Optional[bool] = None,
@@ -1844,12 +2336,36 @@ class StreamingPolicyNoEncryptionEnabledProtocols(dict):
         """
         return pulumi.get(self, "smooth_streaming")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TransformOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "audioAnalyzerPreset":
+            suggest = "audio_analyzer_preset"
+        elif key == "builtinPreset":
+            suggest = "builtin_preset"
+        elif key == "faceDetectorPreset":
+            suggest = "face_detector_preset"
+        elif key == "onErrorAction":
+            suggest = "on_error_action"
+        elif key == "relativePriority":
+            suggest = "relative_priority"
+        elif key == "videoAnalyzerPreset":
+            suggest = "video_analyzer_preset"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformOutput.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  audio_analyzer_preset: Optional['outputs.TransformOutputAudioAnalyzerPreset'] = None,
                  builtin_preset: Optional['outputs.TransformOutputBuiltinPreset'] = None,
@@ -1926,12 +2442,28 @@ class TransformOutput(dict):
         """
         return pulumi.get(self, "video_analyzer_preset")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TransformOutputAudioAnalyzerPreset(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "audioAnalysisMode":
+            suggest = "audio_analysis_mode"
+        elif key == "audioLanguage":
+            suggest = "audio_language"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformOutputAudioAnalyzerPreset. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformOutputAudioAnalyzerPreset.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformOutputAudioAnalyzerPreset.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  audio_analysis_mode: Optional[str] = None,
                  audio_language: Optional[str] = None):
@@ -1960,12 +2492,26 @@ class TransformOutputAudioAnalyzerPreset(dict):
         """
         return pulumi.get(self, "audio_language")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TransformOutputBuiltinPreset(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "presetName":
+            suggest = "preset_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformOutputBuiltinPreset. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformOutputBuiltinPreset.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformOutputBuiltinPreset.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  preset_name: Optional[str] = None):
         """
@@ -1982,12 +2528,26 @@ class TransformOutputBuiltinPreset(dict):
         """
         return pulumi.get(self, "preset_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TransformOutputFaceDetectorPreset(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "analysisResolution":
+            suggest = "analysis_resolution"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformOutputFaceDetectorPreset. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformOutputFaceDetectorPreset.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformOutputFaceDetectorPreset.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  analysis_resolution: Optional[str] = None):
         """
@@ -2004,12 +2564,30 @@ class TransformOutputFaceDetectorPreset(dict):
         """
         return pulumi.get(self, "analysis_resolution")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TransformOutputVideoAnalyzerPreset(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "audioAnalysisMode":
+            suggest = "audio_analysis_mode"
+        elif key == "audioLanguage":
+            suggest = "audio_language"
+        elif key == "insightsType":
+            suggest = "insights_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformOutputVideoAnalyzerPreset. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformOutputVideoAnalyzerPreset.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformOutputVideoAnalyzerPreset.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  audio_analysis_mode: Optional[str] = None,
                  audio_language: Optional[str] = None,
@@ -2049,8 +2627,5 @@ class TransformOutputVideoAnalyzerPreset(dict):
         Defines the type of insights that you want the service to generate. The allowed values are `AudioInsightsOnly`, `VideoInsightsOnly`, and `AllInsights`. If you set this to `AllInsights` and the input is audio only, then only audio insights are generated. Similarly if the input is video only, then only video insights are generated. It is recommended that you not use `AudioInsightsOnly` if you expect some of your inputs to be video only; or use `VideoInsightsOnly` if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out.
         """
         return pulumi.get(self, "insights_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

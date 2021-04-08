@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'AccountNetworkAcls',
@@ -14,6 +14,27 @@ __all__ = [
 
 @pulumi.output_type
 class AccountNetworkAcls(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultAction":
+            suggest = "default_action"
+        elif key == "ipRules":
+            suggest = "ip_rules"
+        elif key == "virtualNetworkSubnetIds":
+            suggest = "virtual_network_subnet_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountNetworkAcls. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountNetworkAcls.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountNetworkAcls.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_action: str,
                  ip_rules: Optional[Sequence[str]] = None,
@@ -52,8 +73,5 @@ class AccountNetworkAcls(dict):
         One or more Subnet ID's which should be able to access this Cognitive Account.
         """
         return pulumi.get(self, "virtual_network_subnet_ids")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

@@ -22,25 +22,26 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:hdinsight/hBaseCluster:HBaseCluster":
-		r, err = NewHBaseCluster(ctx, name, nil, pulumi.URN_(urn))
+		r = &HBaseCluster{}
 	case "azure:hdinsight/hadoopCluster:HadoopCluster":
-		r, err = NewHadoopCluster(ctx, name, nil, pulumi.URN_(urn))
+		r = &HadoopCluster{}
 	case "azure:hdinsight/interactiveQueryCluster:InteractiveQueryCluster":
-		r, err = NewInteractiveQueryCluster(ctx, name, nil, pulumi.URN_(urn))
+		r = &InteractiveQueryCluster{}
 	case "azure:hdinsight/kafkaCluster:KafkaCluster":
-		r, err = NewKafkaCluster(ctx, name, nil, pulumi.URN_(urn))
+		r = &KafkaCluster{}
 	case "azure:hdinsight/mLServicesCluster:MLServicesCluster":
-		r, err = NewMLServicesCluster(ctx, name, nil, pulumi.URN_(urn))
+		r = &MLServicesCluster{}
 	case "azure:hdinsight/rServerCluster:RServerCluster":
-		r, err = NewRServerCluster(ctx, name, nil, pulumi.URN_(urn))
+		r = &RServerCluster{}
 	case "azure:hdinsight/sparkCluster:SparkCluster":
-		r, err = NewSparkCluster(ctx, name, nil, pulumi.URN_(urn))
+		r = &SparkCluster{}
 	case "azure:hdinsight/stormCluster:StormCluster":
-		r, err = NewStormCluster(ctx, name, nil, pulumi.URN_(urn))
+		r = &StormCluster{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

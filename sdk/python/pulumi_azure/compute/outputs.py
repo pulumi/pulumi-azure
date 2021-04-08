@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -139,6 +139,25 @@ __all__ = [
 
 @pulumi.output_type
 class BastionHostIpConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicIpAddressId":
+            suggest = "public_ip_address_id"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BastionHostIpConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BastionHostIpConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BastionHostIpConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  public_ip_address_id: str,
@@ -176,12 +195,28 @@ class BastionHostIpConfiguration(dict):
         """
         return pulumi.get(self, "subnet_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DiskEncryptionSetIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiskEncryptionSetIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiskEncryptionSetIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiskEncryptionSetIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  principal_id: Optional[str] = None,
@@ -221,12 +256,30 @@ class DiskEncryptionSetIdentity(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImageDataDisk(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blobUri":
+            suggest = "blob_uri"
+        elif key == "managedDiskId":
+            suggest = "managed_disk_id"
+        elif key == "sizeGb":
+            suggest = "size_gb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageDataDisk. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageDataDisk.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageDataDisk.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  blob_uri: Optional[str] = None,
                  caching: Optional[str] = None,
@@ -291,12 +344,34 @@ class ImageDataDisk(dict):
         """
         return pulumi.get(self, "size_gb")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ImageOsDisk(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blobUri":
+            suggest = "blob_uri"
+        elif key == "managedDiskId":
+            suggest = "managed_disk_id"
+        elif key == "osState":
+            suggest = "os_state"
+        elif key == "osType":
+            suggest = "os_type"
+        elif key == "sizeGb":
+            suggest = "size_gb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageOsDisk. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageOsDisk.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageOsDisk.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  blob_uri: Optional[str] = None,
                  caching: Optional[str] = None,
@@ -373,12 +448,26 @@ class ImageOsDisk(dict):
         """
         return pulumi.get(self, "size_gb")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinuxVirtualMachineAdditionalCapabilities(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ultraSsdEnabled":
+            suggest = "ultra_ssd_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinuxVirtualMachineAdditionalCapabilities. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinuxVirtualMachineAdditionalCapabilities.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinuxVirtualMachineAdditionalCapabilities.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ultra_ssd_enabled: Optional[bool] = None):
         """
@@ -395,12 +484,26 @@ class LinuxVirtualMachineAdditionalCapabilities(dict):
         """
         return pulumi.get(self, "ultra_ssd_enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinuxVirtualMachineAdminSshKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicKey":
+            suggest = "public_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinuxVirtualMachineAdminSshKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinuxVirtualMachineAdminSshKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinuxVirtualMachineAdminSshKey.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  public_key: str,
                  username: str):
@@ -427,12 +530,26 @@ class LinuxVirtualMachineAdminSshKey(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinuxVirtualMachineBootDiagnostics(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageAccountUri":
+            suggest = "storage_account_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinuxVirtualMachineBootDiagnostics. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinuxVirtualMachineBootDiagnostics.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinuxVirtualMachineBootDiagnostics.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  storage_account_uri: Optional[str] = None):
         """
@@ -449,12 +566,30 @@ class LinuxVirtualMachineBootDiagnostics(dict):
         """
         return pulumi.get(self, "storage_account_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinuxVirtualMachineIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinuxVirtualMachineIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinuxVirtualMachineIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinuxVirtualMachineIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  identity_ids: Optional[Sequence[str]] = None,
@@ -506,12 +641,34 @@ class LinuxVirtualMachineIdentity(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinuxVirtualMachineOsDisk(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageAccountType":
+            suggest = "storage_account_type"
+        elif key == "diffDiskSettings":
+            suggest = "diff_disk_settings"
+        elif key == "diskEncryptionSetId":
+            suggest = "disk_encryption_set_id"
+        elif key == "diskSizeGb":
+            suggest = "disk_size_gb"
+        elif key == "writeAcceleratorEnabled":
+            suggest = "write_accelerator_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinuxVirtualMachineOsDisk. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinuxVirtualMachineOsDisk.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinuxVirtualMachineOsDisk.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  caching: str,
                  storage_account_type: str,
@@ -598,9 +755,6 @@ class LinuxVirtualMachineOsDisk(dict):
         """
         return pulumi.get(self, "write_accelerator_enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinuxVirtualMachineOsDiskDiffDiskSettings(dict):
@@ -618,9 +772,6 @@ class LinuxVirtualMachineOsDiskDiffDiskSettings(dict):
         Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "option")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -662,12 +813,26 @@ class LinuxVirtualMachinePlan(dict):
         """
         return pulumi.get(self, "publisher")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinuxVirtualMachineScaleSetAdditionalCapabilities(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ultraSsdEnabled":
+            suggest = "ultra_ssd_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinuxVirtualMachineScaleSetAdditionalCapabilities. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinuxVirtualMachineScaleSetAdditionalCapabilities.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinuxVirtualMachineScaleSetAdditionalCapabilities.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ultra_ssd_enabled: Optional[bool] = None):
         """
@@ -684,12 +849,26 @@ class LinuxVirtualMachineScaleSetAdditionalCapabilities(dict):
         """
         return pulumi.get(self, "ultra_ssd_enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinuxVirtualMachineScaleSetAdminSshKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicKey":
+            suggest = "public_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinuxVirtualMachineScaleSetAdminSshKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinuxVirtualMachineScaleSetAdminSshKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinuxVirtualMachineScaleSetAdminSshKey.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  public_key: str,
                  username: str):
@@ -716,12 +895,26 @@ class LinuxVirtualMachineScaleSetAdminSshKey(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinuxVirtualMachineScaleSetAutomaticInstanceRepair(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "gracePeriod":
+            suggest = "grace_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinuxVirtualMachineScaleSetAutomaticInstanceRepair. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinuxVirtualMachineScaleSetAutomaticInstanceRepair.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinuxVirtualMachineScaleSetAutomaticInstanceRepair.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: bool,
                  grace_period: Optional[str] = None):
@@ -749,12 +942,28 @@ class LinuxVirtualMachineScaleSetAutomaticInstanceRepair(dict):
         """
         return pulumi.get(self, "grace_period")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableAutomaticRollback":
+            suggest = "disable_automatic_rollback"
+        elif key == "enableAutomaticOsUpgrade":
+            suggest = "enable_automatic_os_upgrade"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  disable_automatic_rollback: bool,
                  enable_automatic_os_upgrade: bool):
@@ -781,12 +990,26 @@ class LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy(dict):
         """
         return pulumi.get(self, "enable_automatic_os_upgrade")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinuxVirtualMachineScaleSetBootDiagnostics(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageAccountUri":
+            suggest = "storage_account_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinuxVirtualMachineScaleSetBootDiagnostics. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinuxVirtualMachineScaleSetBootDiagnostics.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinuxVirtualMachineScaleSetBootDiagnostics.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  storage_account_uri: Optional[str] = None):
         """
@@ -803,12 +1026,38 @@ class LinuxVirtualMachineScaleSetBootDiagnostics(dict):
         """
         return pulumi.get(self, "storage_account_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinuxVirtualMachineScaleSetDataDisk(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskSizeGb":
+            suggest = "disk_size_gb"
+        elif key == "storageAccountType":
+            suggest = "storage_account_type"
+        elif key == "createOption":
+            suggest = "create_option"
+        elif key == "diskEncryptionSetId":
+            suggest = "disk_encryption_set_id"
+        elif key == "diskIopsReadWrite":
+            suggest = "disk_iops_read_write"
+        elif key == "diskMbpsReadWrite":
+            suggest = "disk_mbps_read_write"
+        elif key == "writeAcceleratorEnabled":
+            suggest = "write_accelerator_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinuxVirtualMachineScaleSetDataDisk. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinuxVirtualMachineScaleSetDataDisk.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinuxVirtualMachineScaleSetDataDisk.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  caching: str,
                  disk_size_gb: int,
@@ -917,12 +1166,34 @@ class LinuxVirtualMachineScaleSetDataDisk(dict):
         """
         return pulumi.get(self, "write_accelerator_enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinuxVirtualMachineScaleSetExtension(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "typeHandlerVersion":
+            suggest = "type_handler_version"
+        elif key == "autoUpgradeMinorVersion":
+            suggest = "auto_upgrade_minor_version"
+        elif key == "forceUpdateTag":
+            suggest = "force_update_tag"
+        elif key == "protectedSettings":
+            suggest = "protected_settings"
+        elif key == "provisionAfterExtensions":
+            suggest = "provision_after_extensions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinuxVirtualMachineScaleSetExtension. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinuxVirtualMachineScaleSetExtension.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinuxVirtualMachineScaleSetExtension.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  publisher: str,
@@ -1031,12 +1302,28 @@ class LinuxVirtualMachineScaleSetExtension(dict):
         """
         return pulumi.get(self, "settings")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinuxVirtualMachineScaleSetIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinuxVirtualMachineScaleSetIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinuxVirtualMachineScaleSetIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinuxVirtualMachineScaleSetIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  identity_ids: Optional[Sequence[str]] = None,
@@ -1076,12 +1363,34 @@ class LinuxVirtualMachineScaleSetIdentity(dict):
         """
         return pulumi.get(self, "principal_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinuxVirtualMachineScaleSetNetworkInterface(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipConfigurations":
+            suggest = "ip_configurations"
+        elif key == "dnsServers":
+            suggest = "dns_servers"
+        elif key == "enableAcceleratedNetworking":
+            suggest = "enable_accelerated_networking"
+        elif key == "enableIpForwarding":
+            suggest = "enable_ip_forwarding"
+        elif key == "networkSecurityGroupId":
+            suggest = "network_security_group_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinuxVirtualMachineScaleSetNetworkInterface. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinuxVirtualMachineScaleSetNetworkInterface.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinuxVirtualMachineScaleSetNetworkInterface.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ip_configurations: Sequence['outputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration'],
                  name: str,
@@ -1168,12 +1477,36 @@ class LinuxVirtualMachineScaleSetNetworkInterface(dict):
         """
         return pulumi.get(self, "primary")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationGatewayBackendAddressPoolIds":
+            suggest = "application_gateway_backend_address_pool_ids"
+        elif key == "applicationSecurityGroupIds":
+            suggest = "application_security_group_ids"
+        elif key == "loadBalancerBackendAddressPoolIds":
+            suggest = "load_balancer_backend_address_pool_ids"
+        elif key == "loadBalancerInboundNatRulesIds":
+            suggest = "load_balancer_inbound_nat_rules_ids"
+        elif key == "publicIpAddresses":
+            suggest = "public_ip_addresses"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  application_gateway_backend_address_pool_ids: Optional[Sequence[str]] = None,
@@ -1285,12 +1618,32 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainNameLabel":
+            suggest = "domain_name_label"
+        elif key == "idleTimeoutInMinutes":
+            suggest = "idle_timeout_in_minutes"
+        elif key == "ipTags":
+            suggest = "ip_tags"
+        elif key == "publicIpPrefixId":
+            suggest = "public_ip_prefix_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  domain_name_label: Optional[str] = None,
@@ -1354,9 +1707,6 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress(
         """
         return pulumi.get(self, "public_ip_prefix_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag(dict):
@@ -1386,12 +1736,34 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressI
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinuxVirtualMachineScaleSetOsDisk(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageAccountType":
+            suggest = "storage_account_type"
+        elif key == "diffDiskSettings":
+            suggest = "diff_disk_settings"
+        elif key == "diskEncryptionSetId":
+            suggest = "disk_encryption_set_id"
+        elif key == "diskSizeGb":
+            suggest = "disk_size_gb"
+        elif key == "writeAcceleratorEnabled":
+            suggest = "write_accelerator_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinuxVirtualMachineScaleSetOsDisk. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinuxVirtualMachineScaleSetOsDisk.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinuxVirtualMachineScaleSetOsDisk.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  caching: str,
                  storage_account_type: str,
@@ -1466,9 +1838,6 @@ class LinuxVirtualMachineScaleSetOsDisk(dict):
         """
         return pulumi.get(self, "write_accelerator_enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings(dict):
@@ -1480,9 +1849,6 @@ class LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings(dict):
     @pulumi.getter
     def option(self) -> str:
         return pulumi.get(self, "option")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1524,12 +1890,32 @@ class LinuxVirtualMachineScaleSetPlan(dict):
         """
         return pulumi.get(self, "publisher")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinuxVirtualMachineScaleSetRollingUpgradePolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxBatchInstancePercent":
+            suggest = "max_batch_instance_percent"
+        elif key == "maxUnhealthyInstancePercent":
+            suggest = "max_unhealthy_instance_percent"
+        elif key == "maxUnhealthyUpgradedInstancePercent":
+            suggest = "max_unhealthy_upgraded_instance_percent"
+        elif key == "pauseTimeBetweenBatches":
+            suggest = "pause_time_between_batches"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinuxVirtualMachineScaleSetRollingUpgradePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinuxVirtualMachineScaleSetRollingUpgradePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinuxVirtualMachineScaleSetRollingUpgradePolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_batch_instance_percent: int,
                  max_unhealthy_instance_percent: int,
@@ -1578,12 +1964,26 @@ class LinuxVirtualMachineScaleSetRollingUpgradePolicy(dict):
         """
         return pulumi.get(self, "pause_time_between_batches")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinuxVirtualMachineScaleSetSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultId":
+            suggest = "key_vault_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinuxVirtualMachineScaleSetSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinuxVirtualMachineScaleSetSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinuxVirtualMachineScaleSetSecret.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificates: Sequence['outputs.LinuxVirtualMachineScaleSetSecretCertificate'],
                  key_vault_id: str):
@@ -1610,9 +2010,6 @@ class LinuxVirtualMachineScaleSetSecret(dict):
         """
         return pulumi.get(self, "key_vault_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinuxVirtualMachineScaleSetSecretCertificate(dict):
@@ -1630,9 +2027,6 @@ class LinuxVirtualMachineScaleSetSecretCertificate(dict):
         The Secret URL of a Key Vault Certificate.
         """
         return pulumi.get(self, "url")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1685,9 +2079,6 @@ class LinuxVirtualMachineScaleSetSourceImageReference(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinuxVirtualMachineScaleSetTerminateNotification(dict):
@@ -1718,12 +2109,26 @@ class LinuxVirtualMachineScaleSetTerminateNotification(dict):
         """
         return pulumi.get(self, "timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinuxVirtualMachineSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultId":
+            suggest = "key_vault_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinuxVirtualMachineSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinuxVirtualMachineSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinuxVirtualMachineSecret.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificates: Sequence['outputs.LinuxVirtualMachineSecretCertificate'],
                  key_vault_id: str):
@@ -1750,9 +2155,6 @@ class LinuxVirtualMachineSecret(dict):
         """
         return pulumi.get(self, "key_vault_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinuxVirtualMachineSecretCertificate(dict):
@@ -1770,9 +2172,6 @@ class LinuxVirtualMachineSecretCertificate(dict):
         The Secret URL of a Key Vault Certificate.
         """
         return pulumi.get(self, "url")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1825,12 +2224,28 @@ class LinuxVirtualMachineSourceImageReference(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedDiskEncryptionSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskEncryptionKey":
+            suggest = "disk_encryption_key"
+        elif key == "keyEncryptionKey":
+            suggest = "key_encryption_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedDiskEncryptionSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedDiskEncryptionSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedDiskEncryptionSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: bool,
                  disk_encryption_key: Optional['outputs.ManagedDiskEncryptionSettingsDiskEncryptionKey'] = None,
@@ -1870,12 +2285,28 @@ class ManagedDiskEncryptionSettings(dict):
         """
         return pulumi.get(self, "key_encryption_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedDiskEncryptionSettingsDiskEncryptionKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretUrl":
+            suggest = "secret_url"
+        elif key == "sourceVaultId":
+            suggest = "source_vault_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedDiskEncryptionSettingsDiskEncryptionKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedDiskEncryptionSettingsDiskEncryptionKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedDiskEncryptionSettingsDiskEncryptionKey.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  secret_url: str,
                  source_vault_id: str):
@@ -1902,12 +2333,28 @@ class ManagedDiskEncryptionSettingsDiskEncryptionKey(dict):
         """
         return pulumi.get(self, "source_vault_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagedDiskEncryptionSettingsKeyEncryptionKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyUrl":
+            suggest = "key_url"
+        elif key == "sourceVaultId":
+            suggest = "source_vault_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedDiskEncryptionSettingsKeyEncryptionKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedDiskEncryptionSettingsKeyEncryptionKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedDiskEncryptionSettingsKeyEncryptionKey.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_url: str,
                  source_vault_id: str):
@@ -1934,12 +2381,26 @@ class ManagedDiskEncryptionSettingsKeyEncryptionKey(dict):
         """
         return pulumi.get(self, "source_vault_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScaleSetBootDiagnostics(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageUri":
+            suggest = "storage_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScaleSetBootDiagnostics. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScaleSetBootDiagnostics.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScaleSetBootDiagnostics.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  storage_uri: str,
                  enabled: Optional[bool] = None):
@@ -1957,12 +2418,32 @@ class ScaleSetBootDiagnostics(dict):
     def enabled(self) -> Optional[bool]:
         return pulumi.get(self, "enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScaleSetExtension(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "typeHandlerVersion":
+            suggest = "type_handler_version"
+        elif key == "autoUpgradeMinorVersion":
+            suggest = "auto_upgrade_minor_version"
+        elif key == "protectedSettings":
+            suggest = "protected_settings"
+        elif key == "provisionAfterExtensions":
+            suggest = "provision_after_extensions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScaleSetExtension. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScaleSetExtension.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScaleSetExtension.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  publisher: str,
@@ -2059,12 +2540,28 @@ class ScaleSetExtension(dict):
         """
         return pulumi.get(self, "settings")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScaleSetIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScaleSetIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScaleSetIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScaleSetIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  identity_ids: Optional[Sequence[str]] = None,
@@ -2100,12 +2597,34 @@ class ScaleSetIdentity(dict):
     def principal_id(self) -> Optional[str]:
         return pulumi.get(self, "principal_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScaleSetNetworkProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipConfigurations":
+            suggest = "ip_configurations"
+        elif key == "acceleratedNetworking":
+            suggest = "accelerated_networking"
+        elif key == "dnsSettings":
+            suggest = "dns_settings"
+        elif key == "ipForwarding":
+            suggest = "ip_forwarding"
+        elif key == "networkSecurityGroupId":
+            suggest = "network_security_group_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScaleSetNetworkProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScaleSetNetworkProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScaleSetNetworkProfile.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ip_configurations: Sequence['outputs.ScaleSetNetworkProfileIpConfiguration'],
                  name: str,
@@ -2191,12 +2710,26 @@ class ScaleSetNetworkProfile(dict):
         """
         return pulumi.get(self, "network_security_group_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScaleSetNetworkProfileDnsSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsServers":
+            suggest = "dns_servers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScaleSetNetworkProfileDnsSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScaleSetNetworkProfileDnsSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScaleSetNetworkProfileDnsSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dns_servers: Sequence[str]):
         """
@@ -2212,12 +2745,36 @@ class ScaleSetNetworkProfileDnsSettings(dict):
         """
         return pulumi.get(self, "dns_servers")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScaleSetNetworkProfileIpConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "applicationGatewayBackendAddressPoolIds":
+            suggest = "application_gateway_backend_address_pool_ids"
+        elif key == "applicationSecurityGroupIds":
+            suggest = "application_security_group_ids"
+        elif key == "loadBalancerBackendAddressPoolIds":
+            suggest = "load_balancer_backend_address_pool_ids"
+        elif key == "loadBalancerInboundNatRulesIds":
+            suggest = "load_balancer_inbound_nat_rules_ids"
+        elif key == "publicIpAddressConfiguration":
+            suggest = "public_ip_address_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScaleSetNetworkProfileIpConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScaleSetNetworkProfileIpConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScaleSetNetworkProfileIpConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  primary: bool,
@@ -2315,12 +2872,28 @@ class ScaleSetNetworkProfileIpConfiguration(dict):
         """
         return pulumi.get(self, "public_ip_address_configuration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainNameLabel":
+            suggest = "domain_name_label"
+        elif key == "idleTimeout":
+            suggest = "idle_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  domain_name_label: str,
                  idle_timeout: int,
@@ -2358,12 +2931,32 @@ class ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScaleSetOsProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adminUsername":
+            suggest = "admin_username"
+        elif key == "computerNamePrefix":
+            suggest = "computer_name_prefix"
+        elif key == "adminPassword":
+            suggest = "admin_password"
+        elif key == "customData":
+            suggest = "custom_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScaleSetOsProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScaleSetOsProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScaleSetOsProfile.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  admin_username: str,
                  computer_name_prefix: str,
@@ -2414,12 +3007,28 @@ class ScaleSetOsProfile(dict):
         """
         return pulumi.get(self, "custom_data")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScaleSetOsProfileLinuxConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disablePasswordAuthentication":
+            suggest = "disable_password_authentication"
+        elif key == "sshKeys":
+            suggest = "ssh_keys"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScaleSetOsProfileLinuxConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScaleSetOsProfileLinuxConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScaleSetOsProfileLinuxConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  disable_password_authentication: Optional[bool] = None,
                  ssh_keys: Optional[Sequence['outputs.ScaleSetOsProfileLinuxConfigSshKey']] = None):
@@ -2448,12 +3057,26 @@ class ScaleSetOsProfileLinuxConfig(dict):
         """
         return pulumi.get(self, "ssh_keys")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScaleSetOsProfileLinuxConfigSshKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyData":
+            suggest = "key_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScaleSetOsProfileLinuxConfigSshKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScaleSetOsProfileLinuxConfigSshKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScaleSetOsProfileLinuxConfigSshKey.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  path: str,
                  key_data: Optional[str] = None):
@@ -2471,12 +3094,28 @@ class ScaleSetOsProfileLinuxConfigSshKey(dict):
     def key_data(self) -> Optional[str]:
         return pulumi.get(self, "key_data")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScaleSetOsProfileSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceVaultId":
+            suggest = "source_vault_id"
+        elif key == "vaultCertificates":
+            suggest = "vault_certificates"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScaleSetOsProfileSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScaleSetOsProfileSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScaleSetOsProfileSecret.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  source_vault_id: str,
                  vault_certificates: Optional[Sequence['outputs.ScaleSetOsProfileSecretVaultCertificate']] = None):
@@ -2504,12 +3143,28 @@ class ScaleSetOsProfileSecret(dict):
         """
         return pulumi.get(self, "vault_certificates")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScaleSetOsProfileSecretVaultCertificate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateUrl":
+            suggest = "certificate_url"
+        elif key == "certificateStore":
+            suggest = "certificate_store"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScaleSetOsProfileSecretVaultCertificate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScaleSetOsProfileSecretVaultCertificate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScaleSetOsProfileSecretVaultCertificate.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_url: str,
                  certificate_store: Optional[str] = None):
@@ -2537,12 +3192,30 @@ class ScaleSetOsProfileSecretVaultCertificate(dict):
         """
         return pulumi.get(self, "certificate_store")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScaleSetOsProfileWindowsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalUnattendConfigs":
+            suggest = "additional_unattend_configs"
+        elif key == "enableAutomaticUpgrades":
+            suggest = "enable_automatic_upgrades"
+        elif key == "provisionVmAgent":
+            suggest = "provision_vm_agent"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScaleSetOsProfileWindowsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScaleSetOsProfileWindowsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScaleSetOsProfileWindowsConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  additional_unattend_configs: Optional[Sequence['outputs.ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig']] = None,
                  enable_automatic_upgrades: Optional[bool] = None,
@@ -2595,12 +3268,28 @@ class ScaleSetOsProfileWindowsConfig(dict):
         """
         return pulumi.get(self, "winrms")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pass":
+            suggest = "pass_"
+        elif key == "settingName":
+            suggest = "setting_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  component: str,
                  content: str,
@@ -2649,12 +3338,26 @@ class ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig(dict):
         """
         return pulumi.get(self, "setting_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScaleSetOsProfileWindowsConfigWinrm(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateUrl":
+            suggest = "certificate_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScaleSetOsProfileWindowsConfigWinrm. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScaleSetOsProfileWindowsConfigWinrm.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScaleSetOsProfileWindowsConfigWinrm.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  protocol: str,
                  certificate_url: Optional[str] = None):
@@ -2681,9 +3384,6 @@ class ScaleSetOsProfileWindowsConfigWinrm(dict):
         Specifies URL of the certificate with which new Virtual Machines is provisioned.
         """
         return pulumi.get(self, "certificate_url")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2725,12 +3425,32 @@ class ScaleSetPlan(dict):
         """
         return pulumi.get(self, "publisher")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScaleSetRollingUpgradePolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxBatchInstancePercent":
+            suggest = "max_batch_instance_percent"
+        elif key == "maxUnhealthyInstancePercent":
+            suggest = "max_unhealthy_instance_percent"
+        elif key == "maxUnhealthyUpgradedInstancePercent":
+            suggest = "max_unhealthy_upgraded_instance_percent"
+        elif key == "pauseTimeBetweenBatches":
+            suggest = "pause_time_between_batches"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScaleSetRollingUpgradePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScaleSetRollingUpgradePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScaleSetRollingUpgradePolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_batch_instance_percent: Optional[int] = None,
                  max_unhealthy_instance_percent: Optional[int] = None,
@@ -2783,9 +3503,6 @@ class ScaleSetRollingUpgradePolicy(dict):
         """
         return pulumi.get(self, "pause_time_between_batches")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScaleSetSku(dict):
@@ -2827,12 +3544,30 @@ class ScaleSetSku(dict):
         """
         return pulumi.get(self, "tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScaleSetStorageProfileDataDisk(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createOption":
+            suggest = "create_option"
+        elif key == "diskSizeGb":
+            suggest = "disk_size_gb"
+        elif key == "managedDiskType":
+            suggest = "managed_disk_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScaleSetStorageProfileDataDisk. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScaleSetStorageProfileDataDisk.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScaleSetStorageProfileDataDisk.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  create_option: str,
                  lun: int,
@@ -2894,9 +3629,6 @@ class ScaleSetStorageProfileDataDisk(dict):
         Specifies the type of managed disk to create. Value must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
         """
         return pulumi.get(self, "managed_disk_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2967,12 +3699,32 @@ class ScaleSetStorageProfileImageReference(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScaleSetStorageProfileOsDisk(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createOption":
+            suggest = "create_option"
+        elif key == "managedDiskType":
+            suggest = "managed_disk_type"
+        elif key == "osType":
+            suggest = "os_type"
+        elif key == "vhdContainers":
+            suggest = "vhd_containers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScaleSetStorageProfileOsDisk. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScaleSetStorageProfileOsDisk.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScaleSetStorageProfileOsDisk.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  create_option: str,
                  caching: Optional[str] = None,
@@ -3064,9 +3816,6 @@ class ScaleSetStorageProfileOsDisk(dict):
         """
         return pulumi.get(self, "vhd_containers")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SharedImageIdentifier(dict):
@@ -3106,9 +3855,6 @@ class SharedImageIdentifier(dict):
         The Name of the SKU for this Gallery Image.
         """
         return pulumi.get(self, "sku")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -3152,12 +3898,28 @@ class SharedImagePurchasePlan(dict):
         """
         return pulumi.get(self, "publisher")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SharedImageVersionTargetRegion(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "regionalReplicaCount":
+            suggest = "regional_replica_count"
+        elif key == "storageAccountType":
+            suggest = "storage_account_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SharedImageVersionTargetRegion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SharedImageVersionTargetRegion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SharedImageVersionTargetRegion.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  regional_replica_count: int,
@@ -3196,12 +3958,28 @@ class SharedImageVersionTargetRegion(dict):
         """
         return pulumi.get(self, "storage_account_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SnapshotEncryptionSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskEncryptionKey":
+            suggest = "disk_encryption_key"
+        elif key == "keyEncryptionKey":
+            suggest = "key_encryption_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SnapshotEncryptionSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SnapshotEncryptionSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SnapshotEncryptionSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: bool,
                  disk_encryption_key: Optional['outputs.SnapshotEncryptionSettingsDiskEncryptionKey'] = None,
@@ -3227,12 +4005,28 @@ class SnapshotEncryptionSettings(dict):
     def key_encryption_key(self) -> Optional['outputs.SnapshotEncryptionSettingsKeyEncryptionKey']:
         return pulumi.get(self, "key_encryption_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SnapshotEncryptionSettingsDiskEncryptionKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretUrl":
+            suggest = "secret_url"
+        elif key == "sourceVaultId":
+            suggest = "source_vault_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SnapshotEncryptionSettingsDiskEncryptionKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SnapshotEncryptionSettingsDiskEncryptionKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SnapshotEncryptionSettingsDiskEncryptionKey.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  secret_url: str,
                  source_vault_id: str):
@@ -3249,12 +4043,28 @@ class SnapshotEncryptionSettingsDiskEncryptionKey(dict):
     def source_vault_id(self) -> str:
         return pulumi.get(self, "source_vault_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SnapshotEncryptionSettingsKeyEncryptionKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyUrl":
+            suggest = "key_url"
+        elif key == "sourceVaultId":
+            suggest = "source_vault_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SnapshotEncryptionSettingsKeyEncryptionKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SnapshotEncryptionSettingsKeyEncryptionKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SnapshotEncryptionSettingsKeyEncryptionKey.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_url: str,
                  source_vault_id: str):
@@ -3271,12 +4081,26 @@ class SnapshotEncryptionSettingsKeyEncryptionKey(dict):
     def source_vault_id(self) -> str:
         return pulumi.get(self, "source_vault_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineAdditionalCapabilities(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ultraSsdEnabled":
+            suggest = "ultra_ssd_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineAdditionalCapabilities. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineAdditionalCapabilities.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineAdditionalCapabilities.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ultra_ssd_enabled: bool):
         """
@@ -3292,12 +4116,26 @@ class VirtualMachineAdditionalCapabilities(dict):
         """
         return pulumi.get(self, "ultra_ssd_enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineBootDiagnostics(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageUri":
+            suggest = "storage_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineBootDiagnostics. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineBootDiagnostics.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineBootDiagnostics.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: bool,
                  storage_uri: str):
@@ -3324,12 +4162,28 @@ class VirtualMachineBootDiagnostics(dict):
         """
         return pulumi.get(self, "storage_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  identity_ids: Optional[Sequence[str]] = None,
@@ -3369,12 +4223,32 @@ class VirtualMachineIdentity(dict):
         """
         return pulumi.get(self, "principal_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineOsProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adminUsername":
+            suggest = "admin_username"
+        elif key == "computerName":
+            suggest = "computer_name"
+        elif key == "adminPassword":
+            suggest = "admin_password"
+        elif key == "customData":
+            suggest = "custom_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineOsProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineOsProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineOsProfile.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  admin_username: str,
                  computer_name: str,
@@ -3425,12 +4299,28 @@ class VirtualMachineOsProfile(dict):
         """
         return pulumi.get(self, "custom_data")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineOsProfileLinuxConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disablePasswordAuthentication":
+            suggest = "disable_password_authentication"
+        elif key == "sshKeys":
+            suggest = "ssh_keys"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineOsProfileLinuxConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineOsProfileLinuxConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineOsProfileLinuxConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  disable_password_authentication: bool,
                  ssh_keys: Optional[Sequence['outputs.VirtualMachineOsProfileLinuxConfigSshKey']] = None):
@@ -3458,12 +4348,26 @@ class VirtualMachineOsProfileLinuxConfig(dict):
         """
         return pulumi.get(self, "ssh_keys")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineOsProfileLinuxConfigSshKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyData":
+            suggest = "key_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineOsProfileLinuxConfigSshKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineOsProfileLinuxConfigSshKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineOsProfileLinuxConfigSshKey.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_data: str,
                  path: str):
@@ -3490,12 +4394,28 @@ class VirtualMachineOsProfileLinuxConfigSshKey(dict):
         """
         return pulumi.get(self, "path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineOsProfileSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceVaultId":
+            suggest = "source_vault_id"
+        elif key == "vaultCertificates":
+            suggest = "vault_certificates"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineOsProfileSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineOsProfileSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineOsProfileSecret.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  source_vault_id: str,
                  vault_certificates: Optional[Sequence['outputs.VirtualMachineOsProfileSecretVaultCertificate']] = None):
@@ -3523,12 +4443,28 @@ class VirtualMachineOsProfileSecret(dict):
         """
         return pulumi.get(self, "vault_certificates")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineOsProfileSecretVaultCertificate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateUrl":
+            suggest = "certificate_url"
+        elif key == "certificateStore":
+            suggest = "certificate_store"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineOsProfileSecretVaultCertificate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineOsProfileSecretVaultCertificate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineOsProfileSecretVaultCertificate.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_url: str,
                  certificate_store: Optional[str] = None):
@@ -3556,12 +4492,30 @@ class VirtualMachineOsProfileSecretVaultCertificate(dict):
         """
         return pulumi.get(self, "certificate_store")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineOsProfileWindowsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalUnattendConfigs":
+            suggest = "additional_unattend_configs"
+        elif key == "enableAutomaticUpgrades":
+            suggest = "enable_automatic_upgrades"
+        elif key == "provisionVmAgent":
+            suggest = "provision_vm_agent"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineOsProfileWindowsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineOsProfileWindowsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineOsProfileWindowsConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  additional_unattend_configs: Optional[Sequence['outputs.VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig']] = None,
                  enable_automatic_upgrades: Optional[bool] = None,
@@ -3626,12 +4580,28 @@ class VirtualMachineOsProfileWindowsConfig(dict):
         """
         return pulumi.get(self, "winrms")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pass":
+            suggest = "pass_"
+        elif key == "settingName":
+            suggest = "setting_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  component: str,
                  content: str,
@@ -3680,12 +4650,26 @@ class VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig(dict):
         """
         return pulumi.get(self, "setting_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineOsProfileWindowsConfigWinrm(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateUrl":
+            suggest = "certificate_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineOsProfileWindowsConfigWinrm. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineOsProfileWindowsConfigWinrm.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineOsProfileWindowsConfigWinrm.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  protocol: str,
                  certificate_url: Optional[str] = None):
@@ -3712,9 +4696,6 @@ class VirtualMachineOsProfileWindowsConfigWinrm(dict):
         The ID of the Key Vault Secret which contains the encrypted Certificate which should be installed on the Virtual Machine. This certificate must also be specified in the `vault_certificates` block within the `os_profile_secrets` block.
         """
         return pulumi.get(self, "certificate_url")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -3756,12 +4737,36 @@ class VirtualMachinePlan(dict):
         """
         return pulumi.get(self, "publisher")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineStorageDataDisk(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createOption":
+            suggest = "create_option"
+        elif key == "diskSizeGb":
+            suggest = "disk_size_gb"
+        elif key == "managedDiskId":
+            suggest = "managed_disk_id"
+        elif key == "managedDiskType":
+            suggest = "managed_disk_type"
+        elif key == "vhdUri":
+            suggest = "vhd_uri"
+        elif key == "writeAcceleratorEnabled":
+            suggest = "write_accelerator_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineStorageDataDisk. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineStorageDataDisk.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineStorageDataDisk.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  create_option: str,
                  lun: int,
@@ -3871,9 +4876,6 @@ class VirtualMachineStorageDataDisk(dict):
         """
         return pulumi.get(self, "write_accelerator_enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineStorageImageReference(dict):
@@ -3941,12 +4943,40 @@ class VirtualMachineStorageImageReference(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineStorageOsDisk(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createOption":
+            suggest = "create_option"
+        elif key == "diskSizeGb":
+            suggest = "disk_size_gb"
+        elif key == "imageUri":
+            suggest = "image_uri"
+        elif key == "managedDiskId":
+            suggest = "managed_disk_id"
+        elif key == "managedDiskType":
+            suggest = "managed_disk_type"
+        elif key == "osType":
+            suggest = "os_type"
+        elif key == "vhdUri":
+            suggest = "vhd_uri"
+        elif key == "writeAcceleratorEnabled":
+            suggest = "write_accelerator_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineStorageOsDisk. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineStorageOsDisk.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineStorageOsDisk.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  create_option: str,
                  name: str,
@@ -4069,12 +5099,26 @@ class VirtualMachineStorageOsDisk(dict):
         """
         return pulumi.get(self, "write_accelerator_enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WindowsVirtualMachineAdditionalCapabilities(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ultraSsdEnabled":
+            suggest = "ultra_ssd_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsVirtualMachineAdditionalCapabilities. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsVirtualMachineAdditionalCapabilities.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsVirtualMachineAdditionalCapabilities.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ultra_ssd_enabled: Optional[bool] = None):
         """
@@ -4090,9 +5134,6 @@ class WindowsVirtualMachineAdditionalCapabilities(dict):
         Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
         """
         return pulumi.get(self, "ultra_ssd_enabled")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -4123,12 +5164,26 @@ class WindowsVirtualMachineAdditionalUnattendContent(dict):
         """
         return pulumi.get(self, "setting")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WindowsVirtualMachineBootDiagnostics(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageAccountUri":
+            suggest = "storage_account_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsVirtualMachineBootDiagnostics. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsVirtualMachineBootDiagnostics.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsVirtualMachineBootDiagnostics.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  storage_account_uri: Optional[str] = None):
         """
@@ -4145,12 +5200,30 @@ class WindowsVirtualMachineBootDiagnostics(dict):
         """
         return pulumi.get(self, "storage_account_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WindowsVirtualMachineIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsVirtualMachineIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsVirtualMachineIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsVirtualMachineIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  identity_ids: Optional[Sequence[str]] = None,
@@ -4202,12 +5275,34 @@ class WindowsVirtualMachineIdentity(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WindowsVirtualMachineOsDisk(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageAccountType":
+            suggest = "storage_account_type"
+        elif key == "diffDiskSettings":
+            suggest = "diff_disk_settings"
+        elif key == "diskEncryptionSetId":
+            suggest = "disk_encryption_set_id"
+        elif key == "diskSizeGb":
+            suggest = "disk_size_gb"
+        elif key == "writeAcceleratorEnabled":
+            suggest = "write_accelerator_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsVirtualMachineOsDisk. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsVirtualMachineOsDisk.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsVirtualMachineOsDisk.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  caching: str,
                  storage_account_type: str,
@@ -4294,9 +5389,6 @@ class WindowsVirtualMachineOsDisk(dict):
         """
         return pulumi.get(self, "write_accelerator_enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WindowsVirtualMachineOsDiskDiffDiskSettings(dict):
@@ -4314,9 +5406,6 @@ class WindowsVirtualMachineOsDiskDiffDiskSettings(dict):
         Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "option")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -4358,12 +5447,26 @@ class WindowsVirtualMachinePlan(dict):
         """
         return pulumi.get(self, "publisher")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WindowsVirtualMachineScaleSetAdditionalCapabilities(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ultraSsdEnabled":
+            suggest = "ultra_ssd_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsVirtualMachineScaleSetAdditionalCapabilities. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsVirtualMachineScaleSetAdditionalCapabilities.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsVirtualMachineScaleSetAdditionalCapabilities.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ultra_ssd_enabled: Optional[bool] = None):
         """
@@ -4379,9 +5482,6 @@ class WindowsVirtualMachineScaleSetAdditionalCapabilities(dict):
         Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ultra_ssd_enabled")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -4412,12 +5512,26 @@ class WindowsVirtualMachineScaleSetAdditionalUnattendContent(dict):
         """
         return pulumi.get(self, "setting")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WindowsVirtualMachineScaleSetAutomaticInstanceRepair(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "gracePeriod":
+            suggest = "grace_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsVirtualMachineScaleSetAutomaticInstanceRepair. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsVirtualMachineScaleSetAutomaticInstanceRepair.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsVirtualMachineScaleSetAutomaticInstanceRepair.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: bool,
                  grace_period: Optional[str] = None):
@@ -4445,12 +5559,28 @@ class WindowsVirtualMachineScaleSetAutomaticInstanceRepair(dict):
         """
         return pulumi.get(self, "grace_period")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableAutomaticRollback":
+            suggest = "disable_automatic_rollback"
+        elif key == "enableAutomaticOsUpgrade":
+            suggest = "enable_automatic_os_upgrade"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  disable_automatic_rollback: bool,
                  enable_automatic_os_upgrade: bool):
@@ -4477,12 +5607,26 @@ class WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy(dict):
         """
         return pulumi.get(self, "enable_automatic_os_upgrade")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WindowsVirtualMachineScaleSetBootDiagnostics(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageAccountUri":
+            suggest = "storage_account_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsVirtualMachineScaleSetBootDiagnostics. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsVirtualMachineScaleSetBootDiagnostics.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsVirtualMachineScaleSetBootDiagnostics.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  storage_account_uri: Optional[str] = None):
         """
@@ -4499,12 +5643,38 @@ class WindowsVirtualMachineScaleSetBootDiagnostics(dict):
         """
         return pulumi.get(self, "storage_account_uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WindowsVirtualMachineScaleSetDataDisk(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskSizeGb":
+            suggest = "disk_size_gb"
+        elif key == "storageAccountType":
+            suggest = "storage_account_type"
+        elif key == "createOption":
+            suggest = "create_option"
+        elif key == "diskEncryptionSetId":
+            suggest = "disk_encryption_set_id"
+        elif key == "diskIopsReadWrite":
+            suggest = "disk_iops_read_write"
+        elif key == "diskMbpsReadWrite":
+            suggest = "disk_mbps_read_write"
+        elif key == "writeAcceleratorEnabled":
+            suggest = "write_accelerator_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsVirtualMachineScaleSetDataDisk. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsVirtualMachineScaleSetDataDisk.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsVirtualMachineScaleSetDataDisk.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  caching: str,
                  disk_size_gb: int,
@@ -4613,12 +5783,34 @@ class WindowsVirtualMachineScaleSetDataDisk(dict):
         """
         return pulumi.get(self, "write_accelerator_enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WindowsVirtualMachineScaleSetExtension(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "typeHandlerVersion":
+            suggest = "type_handler_version"
+        elif key == "autoUpgradeMinorVersion":
+            suggest = "auto_upgrade_minor_version"
+        elif key == "forceUpdateTag":
+            suggest = "force_update_tag"
+        elif key == "protectedSettings":
+            suggest = "protected_settings"
+        elif key == "provisionAfterExtensions":
+            suggest = "provision_after_extensions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsVirtualMachineScaleSetExtension. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsVirtualMachineScaleSetExtension.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsVirtualMachineScaleSetExtension.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  publisher: str,
@@ -4727,12 +5919,28 @@ class WindowsVirtualMachineScaleSetExtension(dict):
         """
         return pulumi.get(self, "settings")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WindowsVirtualMachineScaleSetIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsVirtualMachineScaleSetIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsVirtualMachineScaleSetIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsVirtualMachineScaleSetIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  identity_ids: Optional[Sequence[str]] = None,
@@ -4772,12 +5980,34 @@ class WindowsVirtualMachineScaleSetIdentity(dict):
         """
         return pulumi.get(self, "principal_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WindowsVirtualMachineScaleSetNetworkInterface(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipConfigurations":
+            suggest = "ip_configurations"
+        elif key == "dnsServers":
+            suggest = "dns_servers"
+        elif key == "enableAcceleratedNetworking":
+            suggest = "enable_accelerated_networking"
+        elif key == "enableIpForwarding":
+            suggest = "enable_ip_forwarding"
+        elif key == "networkSecurityGroupId":
+            suggest = "network_security_group_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsVirtualMachineScaleSetNetworkInterface. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsVirtualMachineScaleSetNetworkInterface.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsVirtualMachineScaleSetNetworkInterface.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ip_configurations: Sequence['outputs.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration'],
                  name: str,
@@ -4864,12 +6094,36 @@ class WindowsVirtualMachineScaleSetNetworkInterface(dict):
         """
         return pulumi.get(self, "primary")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationGatewayBackendAddressPoolIds":
+            suggest = "application_gateway_backend_address_pool_ids"
+        elif key == "applicationSecurityGroupIds":
+            suggest = "application_security_group_ids"
+        elif key == "loadBalancerBackendAddressPoolIds":
+            suggest = "load_balancer_backend_address_pool_ids"
+        elif key == "loadBalancerInboundNatRulesIds":
+            suggest = "load_balancer_inbound_nat_rules_ids"
+        elif key == "publicIpAddresses":
+            suggest = "public_ip_addresses"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  application_gateway_backend_address_pool_ids: Optional[Sequence[str]] = None,
@@ -4981,12 +6235,32 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainNameLabel":
+            suggest = "domain_name_label"
+        elif key == "idleTimeoutInMinutes":
+            suggest = "idle_timeout_in_minutes"
+        elif key == "ipTags":
+            suggest = "ip_tags"
+        elif key == "publicIpPrefixId":
+            suggest = "public_ip_prefix_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  domain_name_label: Optional[str] = None,
@@ -5050,9 +6324,6 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
         """
         return pulumi.get(self, "public_ip_prefix_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag(dict):
@@ -5082,12 +6353,34 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WindowsVirtualMachineScaleSetOsDisk(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageAccountType":
+            suggest = "storage_account_type"
+        elif key == "diffDiskSettings":
+            suggest = "diff_disk_settings"
+        elif key == "diskEncryptionSetId":
+            suggest = "disk_encryption_set_id"
+        elif key == "diskSizeGb":
+            suggest = "disk_size_gb"
+        elif key == "writeAcceleratorEnabled":
+            suggest = "write_accelerator_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsVirtualMachineScaleSetOsDisk. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsVirtualMachineScaleSetOsDisk.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsVirtualMachineScaleSetOsDisk.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  caching: str,
                  storage_account_type: str,
@@ -5162,9 +6455,6 @@ class WindowsVirtualMachineScaleSetOsDisk(dict):
         """
         return pulumi.get(self, "write_accelerator_enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings(dict):
@@ -5176,9 +6466,6 @@ class WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings(dict):
     @pulumi.getter
     def option(self) -> str:
         return pulumi.get(self, "option")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -5220,12 +6507,32 @@ class WindowsVirtualMachineScaleSetPlan(dict):
         """
         return pulumi.get(self, "publisher")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WindowsVirtualMachineScaleSetRollingUpgradePolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxBatchInstancePercent":
+            suggest = "max_batch_instance_percent"
+        elif key == "maxUnhealthyInstancePercent":
+            suggest = "max_unhealthy_instance_percent"
+        elif key == "maxUnhealthyUpgradedInstancePercent":
+            suggest = "max_unhealthy_upgraded_instance_percent"
+        elif key == "pauseTimeBetweenBatches":
+            suggest = "pause_time_between_batches"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsVirtualMachineScaleSetRollingUpgradePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsVirtualMachineScaleSetRollingUpgradePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsVirtualMachineScaleSetRollingUpgradePolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_batch_instance_percent: int,
                  max_unhealthy_instance_percent: int,
@@ -5274,12 +6581,26 @@ class WindowsVirtualMachineScaleSetRollingUpgradePolicy(dict):
         """
         return pulumi.get(self, "pause_time_between_batches")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WindowsVirtualMachineScaleSetSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultId":
+            suggest = "key_vault_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsVirtualMachineScaleSetSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsVirtualMachineScaleSetSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsVirtualMachineScaleSetSecret.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificates: Sequence['outputs.WindowsVirtualMachineScaleSetSecretCertificate'],
                  key_vault_id: str):
@@ -5305,9 +6626,6 @@ class WindowsVirtualMachineScaleSetSecret(dict):
         The ID of the Key Vault from which all Secrets should be sourced.
         """
         return pulumi.get(self, "key_vault_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -5337,9 +6655,6 @@ class WindowsVirtualMachineScaleSetSecretCertificate(dict):
         The Secret URL of a Key Vault Certificate.
         """
         return pulumi.get(self, "url")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -5392,9 +6707,6 @@ class WindowsVirtualMachineScaleSetSourceImageReference(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WindowsVirtualMachineScaleSetTerminateNotification(dict):
@@ -5425,12 +6737,26 @@ class WindowsVirtualMachineScaleSetTerminateNotification(dict):
         """
         return pulumi.get(self, "timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WindowsVirtualMachineScaleSetWinrmListener(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateUrl":
+            suggest = "certificate_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsVirtualMachineScaleSetWinrmListener. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsVirtualMachineScaleSetWinrmListener.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsVirtualMachineScaleSetWinrmListener.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  protocol: str,
                  certificate_url: Optional[str] = None):
@@ -5458,12 +6784,26 @@ class WindowsVirtualMachineScaleSetWinrmListener(dict):
         """
         return pulumi.get(self, "certificate_url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WindowsVirtualMachineSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultId":
+            suggest = "key_vault_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsVirtualMachineSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsVirtualMachineSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsVirtualMachineSecret.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificates: Sequence['outputs.WindowsVirtualMachineSecretCertificate'],
                  key_vault_id: str):
@@ -5489,9 +6829,6 @@ class WindowsVirtualMachineSecret(dict):
         The ID of the Key Vault from which all Secrets should be sourced.
         """
         return pulumi.get(self, "key_vault_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -5521,9 +6858,6 @@ class WindowsVirtualMachineSecretCertificate(dict):
         The Secret URL of a Key Vault Certificate.
         """
         return pulumi.get(self, "url")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -5576,12 +6910,26 @@ class WindowsVirtualMachineSourceImageReference(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WindowsVirtualMachineWinrmListener(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateUrl":
+            suggest = "certificate_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsVirtualMachineWinrmListener. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsVirtualMachineWinrmListener.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsVirtualMachineWinrmListener.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  protocol: str,
                  certificate_url: Optional[str] = None):
@@ -5604,9 +6952,6 @@ class WindowsVirtualMachineWinrmListener(dict):
         The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
         """
         return pulumi.get(self, "certificate_url")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

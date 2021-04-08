@@ -22,19 +22,20 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:datalake/analyticsAccount:AnalyticsAccount":
-		r, err = NewAnalyticsAccount(ctx, name, nil, pulumi.URN_(urn))
+		r = &AnalyticsAccount{}
 	case "azure:datalake/analyticsFirewallRule:AnalyticsFirewallRule":
-		r, err = NewAnalyticsFirewallRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &AnalyticsFirewallRule{}
 	case "azure:datalake/store:Store":
-		r, err = NewStore(ctx, name, nil, pulumi.URN_(urn))
+		r = &Store{}
 	case "azure:datalake/storeFile:StoreFile":
-		r, err = NewStoreFile(ctx, name, nil, pulumi.URN_(urn))
+		r = &StoreFile{}
 	case "azure:datalake/storeFirewallRule:StoreFirewallRule":
-		r, err = NewStoreFirewallRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &StoreFirewallRule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

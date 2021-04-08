@@ -22,31 +22,32 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:mssql/database:Database":
-		r, err = NewDatabase(ctx, name, nil, pulumi.URN_(urn))
+		r = &Database{}
 	case "azure:mssql/databaseExtendedAuditingPolicy:DatabaseExtendedAuditingPolicy":
-		r, err = NewDatabaseExtendedAuditingPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatabaseExtendedAuditingPolicy{}
 	case "azure:mssql/databaseVulnerabilityAssessmentRuleBaseline:DatabaseVulnerabilityAssessmentRuleBaseline":
-		r, err = NewDatabaseVulnerabilityAssessmentRuleBaseline(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatabaseVulnerabilityAssessmentRuleBaseline{}
 	case "azure:mssql/elasticPool:ElasticPool":
-		r, err = NewElasticPool(ctx, name, nil, pulumi.URN_(urn))
+		r = &ElasticPool{}
 	case "azure:mssql/firewallRule:FirewallRule":
-		r, err = NewFirewallRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &FirewallRule{}
 	case "azure:mssql/server:Server":
-		r, err = NewServer(ctx, name, nil, pulumi.URN_(urn))
+		r = &Server{}
 	case "azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy":
-		r, err = NewServerExtendedAuditingPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServerExtendedAuditingPolicy{}
 	case "azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy":
-		r, err = NewServerSecurityAlertPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServerSecurityAlertPolicy{}
 	case "azure:mssql/serverVulnerabilityAssessment:ServerVulnerabilityAssessment":
-		r, err = NewServerVulnerabilityAssessment(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServerVulnerabilityAssessment{}
 	case "azure:mssql/virtualMachine:VirtualMachine":
-		r, err = NewVirtualMachine(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualMachine{}
 	case "azure:mssql/virtualNetworkRule:VirtualNetworkRule":
-		r, err = NewVirtualNetworkRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualNetworkRule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

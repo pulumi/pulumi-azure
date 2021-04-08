@@ -22,19 +22,20 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:redis/cache:Cache":
-		r, err = NewCache(ctx, name, nil, pulumi.URN_(urn))
+		r = &Cache{}
 	case "azure:redis/enterpriseCluster:EnterpriseCluster":
-		r, err = NewEnterpriseCluster(ctx, name, nil, pulumi.URN_(urn))
+		r = &EnterpriseCluster{}
 	case "azure:redis/enterpriseDatabase:EnterpriseDatabase":
-		r, err = NewEnterpriseDatabase(ctx, name, nil, pulumi.URN_(urn))
+		r = &EnterpriseDatabase{}
 	case "azure:redis/firewallRule:FirewallRule":
-		r, err = NewFirewallRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &FirewallRule{}
 	case "azure:redis/linkedServer:LinkedServer":
-		r, err = NewLinkedServer(ctx, name, nil, pulumi.URN_(urn))
+		r = &LinkedServer{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

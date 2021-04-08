@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'NamespaceNetworkRuleSetNetworkRule',
@@ -15,6 +15,25 @@ __all__ = [
 
 @pulumi.output_type
 class NamespaceNetworkRuleSetNetworkRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "ignoreMissingVnetServiceEndpoint":
+            suggest = "ignore_missing_vnet_service_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NamespaceNetworkRuleSetNetworkRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NamespaceNetworkRuleSetNetworkRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NamespaceNetworkRuleSetNetworkRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  subnet_id: str,
                  ignore_missing_vnet_service_endpoint: Optional[bool] = None):
@@ -42,12 +61,36 @@ class NamespaceNetworkRuleSetNetworkRule(dict):
         """
         return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SubscriptionRuleCorrelationFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentType":
+            suggest = "content_type"
+        elif key == "correlationId":
+            suggest = "correlation_id"
+        elif key == "messageId":
+            suggest = "message_id"
+        elif key == "replyTo":
+            suggest = "reply_to"
+        elif key == "replyToSessionId":
+            suggest = "reply_to_session_id"
+        elif key == "sessionId":
+            suggest = "session_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SubscriptionRuleCorrelationFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SubscriptionRuleCorrelationFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SubscriptionRuleCorrelationFilter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  content_type: Optional[str] = None,
                  correlation_id: Optional[str] = None,
@@ -159,8 +202,5 @@ class SubscriptionRuleCorrelationFilter(dict):
         Address to send to.
         """
         return pulumi.get(self, "to")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

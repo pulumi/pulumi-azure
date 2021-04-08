@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -68,12 +68,26 @@ class AccountKeyVaultReference(dict):
         """
         return pulumi.get(self, "url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PoolAutoScale(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "evaluationInterval":
+            suggest = "evaluation_interval"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PoolAutoScale. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PoolAutoScale.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PoolAutoScale.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  formula: str,
                  evaluation_interval: Optional[str] = None):
@@ -101,12 +115,28 @@ class PoolAutoScale(dict):
         """
         return pulumi.get(self, "evaluation_interval")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PoolCertificate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storeLocation":
+            suggest = "store_location"
+        elif key == "storeName":
+            suggest = "store_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PoolCertificate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PoolCertificate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PoolCertificate.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  store_location: str,
@@ -157,12 +187,28 @@ class PoolCertificate(dict):
         """
         return pulumi.get(self, "visibilities")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PoolContainerConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerImageNames":
+            suggest = "container_image_names"
+        elif key == "containerRegistries":
+            suggest = "container_registries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PoolContainerConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PoolContainerConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PoolContainerConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  container_image_names: Optional[Sequence[str]] = None,
                  container_registries: Optional[Sequence['outputs.PoolContainerConfigurationContainerRegistry']] = None,
@@ -203,12 +249,28 @@ class PoolContainerConfiguration(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PoolContainerConfigurationContainerRegistry(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "registryServer":
+            suggest = "registry_server"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PoolContainerConfigurationContainerRegistry. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PoolContainerConfigurationContainerRegistry.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PoolContainerConfigurationContainerRegistry.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  password: str,
                  registry_server: str,
@@ -246,12 +308,30 @@ class PoolContainerConfigurationContainerRegistry(dict):
         """
         return pulumi.get(self, "user_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PoolFixedScale(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resizeTimeout":
+            suggest = "resize_timeout"
+        elif key == "targetDedicatedNodes":
+            suggest = "target_dedicated_nodes"
+        elif key == "targetLowPriorityNodes":
+            suggest = "target_low_priority_nodes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PoolFixedScale. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PoolFixedScale.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PoolFixedScale.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resize_timeout: Optional[str] = None,
                  target_dedicated_nodes: Optional[int] = None,
@@ -292,12 +372,32 @@ class PoolFixedScale(dict):
         """
         return pulumi.get(self, "target_low_priority_nodes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PoolNetworkConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "endpointConfigurations":
+            suggest = "endpoint_configurations"
+        elif key == "publicAddressProvisioningType":
+            suggest = "public_address_provisioning_type"
+        elif key == "publicIps":
+            suggest = "public_ips"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PoolNetworkConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PoolNetworkConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PoolNetworkConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  subnet_id: str,
                  endpoint_configurations: Optional[Sequence['outputs.PoolNetworkConfigurationEndpointConfiguration']] = None,
@@ -349,12 +449,30 @@ class PoolNetworkConfiguration(dict):
         """
         return pulumi.get(self, "public_ips")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PoolNetworkConfigurationEndpointConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backendPort":
+            suggest = "backend_port"
+        elif key == "frontendPortRange":
+            suggest = "frontend_port_range"
+        elif key == "networkSecurityGroupRules":
+            suggest = "network_security_group_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PoolNetworkConfigurationEndpointConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PoolNetworkConfigurationEndpointConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PoolNetworkConfigurationEndpointConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backend_port: int,
                  frontend_port_range: str,
@@ -415,12 +533,26 @@ class PoolNetworkConfigurationEndpointConfiguration(dict):
         """
         return pulumi.get(self, "network_security_group_rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceAddressPrefix":
+            suggest = "source_address_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  access: str,
                  priority: int,
@@ -458,12 +590,34 @@ class PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule(dict
         """
         return pulumi.get(self, "source_address_prefix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PoolStartTask(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "commandLine":
+            suggest = "command_line"
+        elif key == "userIdentity":
+            suggest = "user_identity"
+        elif key == "maxTaskRetryCount":
+            suggest = "max_task_retry_count"
+        elif key == "resourceFiles":
+            suggest = "resource_files"
+        elif key == "waitForSuccess":
+            suggest = "wait_for_success"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PoolStartTask. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PoolStartTask.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PoolStartTask.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  command_line: str,
                  user_identity: 'outputs.PoolStartTaskUserIdentity',
@@ -538,12 +692,36 @@ class PoolStartTask(dict):
         """
         return pulumi.get(self, "wait_for_success")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PoolStartTaskResourceFile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoStorageContainerName":
+            suggest = "auto_storage_container_name"
+        elif key == "blobPrefix":
+            suggest = "blob_prefix"
+        elif key == "fileMode":
+            suggest = "file_mode"
+        elif key == "filePath":
+            suggest = "file_path"
+        elif key == "httpUrl":
+            suggest = "http_url"
+        elif key == "storageContainerUrl":
+            suggest = "storage_container_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PoolStartTaskResourceFile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PoolStartTaskResourceFile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PoolStartTaskResourceFile.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  auto_storage_container_name: Optional[str] = None,
                  blob_prefix: Optional[str] = None,
@@ -620,12 +798,28 @@ class PoolStartTaskResourceFile(dict):
         """
         return pulumi.get(self, "storage_container_url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PoolStartTaskUserIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoUser":
+            suggest = "auto_user"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PoolStartTaskUserIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PoolStartTaskUserIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PoolStartTaskUserIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  auto_user: Optional['outputs.PoolStartTaskUserIdentityAutoUser'] = None,
                  user_name: Optional[str] = None):
@@ -654,12 +848,26 @@ class PoolStartTaskUserIdentity(dict):
         """
         return pulumi.get(self, "user_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PoolStartTaskUserIdentityAutoUser(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "elevationLevel":
+            suggest = "elevation_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PoolStartTaskUserIdentityAutoUser. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PoolStartTaskUserIdentityAutoUser.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PoolStartTaskUserIdentityAutoUser.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  elevation_level: Optional[str] = None,
                  scope: Optional[str] = None):
@@ -687,9 +895,6 @@ class PoolStartTaskUserIdentityAutoUser(dict):
         The scope of the user identity under which the start task runs. Possible values are `Task` or `Pool`. Defaults to `Task`.
         """
         return pulumi.get(self, "scope")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -759,9 +964,6 @@ class PoolStorageImageReference(dict):
         Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "version")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

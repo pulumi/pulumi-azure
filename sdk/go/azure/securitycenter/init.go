@@ -22,31 +22,32 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection":
-		r, err = NewAdvancedThreatProtection(ctx, name, nil, pulumi.URN_(urn))
+		r = &AdvancedThreatProtection{}
 	case "azure:securitycenter/assessment:Assessment":
-		r, err = NewAssessment(ctx, name, nil, pulumi.URN_(urn))
+		r = &Assessment{}
 	case "azure:securitycenter/assessmentMetadata:AssessmentMetadata":
-		r, err = NewAssessmentMetadata(ctx, name, nil, pulumi.URN_(urn))
+		r = &AssessmentMetadata{}
 	case "azure:securitycenter/assessmentPolicy:AssessmentPolicy":
-		r, err = NewAssessmentPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &AssessmentPolicy{}
 	case "azure:securitycenter/autoProvisioning:AutoProvisioning":
-		r, err = NewAutoProvisioning(ctx, name, nil, pulumi.URN_(urn))
+		r = &AutoProvisioning{}
 	case "azure:securitycenter/automation:Automation":
-		r, err = NewAutomation(ctx, name, nil, pulumi.URN_(urn))
+		r = &Automation{}
 	case "azure:securitycenter/contact:Contact":
-		r, err = NewContact(ctx, name, nil, pulumi.URN_(urn))
+		r = &Contact{}
 	case "azure:securitycenter/serverVulnerabilityAssessment:ServerVulnerabilityAssessment":
-		r, err = NewServerVulnerabilityAssessment(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServerVulnerabilityAssessment{}
 	case "azure:securitycenter/setting:Setting":
-		r, err = NewSetting(ctx, name, nil, pulumi.URN_(urn))
+		r = &Setting{}
 	case "azure:securitycenter/subscriptionPricing:SubscriptionPricing":
-		r, err = NewSubscriptionPricing(ctx, name, nil, pulumi.URN_(urn))
+		r = &SubscriptionPricing{}
 	case "azure:securitycenter/workspace:Workspace":
-		r, err = NewWorkspace(ctx, name, nil, pulumi.URN_(urn))
+		r = &Workspace{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

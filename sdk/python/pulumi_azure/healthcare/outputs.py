@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'ServiceAuthenticationConfiguration',
@@ -17,6 +17,23 @@ __all__ = [
 
 @pulumi.output_type
 class ServiceAuthenticationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "smartProxyEnabled":
+            suggest = "smart_proxy_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceAuthenticationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceAuthenticationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceAuthenticationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  audience: Optional[str] = None,
                  authority: Optional[str] = None,
@@ -59,12 +76,34 @@ class ServiceAuthenticationConfiguration(dict):
         """
         return pulumi.get(self, "smart_proxy_enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceCorsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowCredentials":
+            suggest = "allow_credentials"
+        elif key == "allowedHeaders":
+            suggest = "allowed_headers"
+        elif key == "allowedMethods":
+            suggest = "allowed_methods"
+        elif key == "allowedOrigins":
+            suggest = "allowed_origins"
+        elif key == "maxAgeInSeconds":
+            suggest = "max_age_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceCorsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceCorsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceCorsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allow_credentials: Optional[bool] = None,
                  allowed_headers: Optional[Sequence[str]] = None,
@@ -128,9 +167,6 @@ class ServiceCorsConfiguration(dict):
         The max age to be allowed via CORS.
         """
         return pulumi.get(self, "max_age_in_seconds")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

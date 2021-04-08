@@ -22,23 +22,24 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:eventgrid/domain:Domain":
-		r, err = NewDomain(ctx, name, nil, pulumi.URN_(urn))
+		r = &Domain{}
 	case "azure:eventgrid/domainTopic:DomainTopic":
-		r, err = NewDomainTopic(ctx, name, nil, pulumi.URN_(urn))
+		r = &DomainTopic{}
 	case "azure:eventgrid/eventSubscription:EventSubscription":
-		r, err = NewEventSubscription(ctx, name, nil, pulumi.URN_(urn))
+		r = &EventSubscription{}
 	case "azure:eventgrid/getSystemTopic:getSystemTopic":
-		r, err = NewGetSystemTopic(ctx, name, nil, pulumi.URN_(urn))
+		r = &GetSystemTopic{}
 	case "azure:eventgrid/systemTopic:SystemTopic":
-		r, err = NewSystemTopic(ctx, name, nil, pulumi.URN_(urn))
+		r = &SystemTopic{}
 	case "azure:eventgrid/systemTopicEventSubscription:SystemTopicEventSubscription":
-		r, err = NewSystemTopicEventSubscription(ctx, name, nil, pulumi.URN_(urn))
+		r = &SystemTopicEventSubscription{}
 	case "azure:eventgrid/topic:Topic":
-		r, err = NewTopic(ctx, name, nil, pulumi.URN_(urn))
+		r = &Topic{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

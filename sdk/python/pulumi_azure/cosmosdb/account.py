@@ -5,15 +5,791 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Account']
+__all__ = ['AccountArgs', 'Account']
+
+@pulumi.input_type
+class AccountArgs:
+    def __init__(__self__, *,
+                 consistency_policy: pulumi.Input['AccountConsistencyPolicyArgs'],
+                 geo_locations: pulumi.Input[Sequence[pulumi.Input['AccountGeoLocationArgs']]],
+                 offer_type: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 analytical_storage_enabled: Optional[pulumi.Input[bool]] = None,
+                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]] = None,
+                 enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
+                 enable_free_tier: Optional[pulumi.Input[bool]] = None,
+                 enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
+                 ip_range_filter: Optional[pulumi.Input[str]] = None,
+                 is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
+                 key_vault_key_id: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]] = None):
+        """
+        The set of arguments for constructing a Account resource.
+        :param pulumi.Input['AccountConsistencyPolicyArgs'] consistency_policy: Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountGeoLocationArgs']]] geo_locations: Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
+        :param pulumi.Input[str] offer_type: Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] analytical_storage_enabled: Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
+        :param pulumi.Input[bool] enable_automatic_failover: Enable automatic fail over for this Cosmos DB account.
+        :param pulumi.Input[bool] enable_free_tier: Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enable_multiple_write_locations: Enable multi-master support for this Cosmos DB account.
+        :param pulumi.Input[str] ip_range_filter: CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
+        :param pulumi.Input[bool] is_virtual_network_filter_enabled: Enables virtual network filtering for this Cosmos DB account.
+        :param pulumi.Input[str] key_vault_key_id: A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this CosmosDB account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]] virtual_network_rules: Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
+        """
+        pulumi.set(__self__, "consistency_policy", consistency_policy)
+        pulumi.set(__self__, "geo_locations", geo_locations)
+        pulumi.set(__self__, "offer_type", offer_type)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if analytical_storage_enabled is not None:
+            pulumi.set(__self__, "analytical_storage_enabled", analytical_storage_enabled)
+        if capabilities is not None:
+            pulumi.set(__self__, "capabilities", capabilities)
+        if enable_automatic_failover is not None:
+            pulumi.set(__self__, "enable_automatic_failover", enable_automatic_failover)
+        if enable_free_tier is not None:
+            pulumi.set(__self__, "enable_free_tier", enable_free_tier)
+        if enable_multiple_write_locations is not None:
+            pulumi.set(__self__, "enable_multiple_write_locations", enable_multiple_write_locations)
+        if ip_range_filter is not None:
+            pulumi.set(__self__, "ip_range_filter", ip_range_filter)
+        if is_virtual_network_filter_enabled is not None:
+            pulumi.set(__self__, "is_virtual_network_filter_enabled", is_virtual_network_filter_enabled)
+        if key_vault_key_id is not None:
+            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if virtual_network_rules is not None:
+            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
+
+    @property
+    @pulumi.getter(name="consistencyPolicy")
+    def consistency_policy(self) -> pulumi.Input['AccountConsistencyPolicyArgs']:
+        """
+        Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
+        """
+        return pulumi.get(self, "consistency_policy")
+
+    @consistency_policy.setter
+    def consistency_policy(self, value: pulumi.Input['AccountConsistencyPolicyArgs']):
+        pulumi.set(self, "consistency_policy", value)
+
+    @property
+    @pulumi.getter(name="geoLocations")
+    def geo_locations(self) -> pulumi.Input[Sequence[pulumi.Input['AccountGeoLocationArgs']]]:
+        """
+        Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
+        """
+        return pulumi.get(self, "geo_locations")
+
+    @geo_locations.setter
+    def geo_locations(self, value: pulumi.Input[Sequence[pulumi.Input['AccountGeoLocationArgs']]]):
+        pulumi.set(self, "geo_locations", value)
+
+    @property
+    @pulumi.getter(name="offerType")
+    def offer_type(self) -> pulumi.Input[str]:
+        """
+        Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
+        """
+        return pulumi.get(self, "offer_type")
+
+    @offer_type.setter
+    def offer_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "offer_type", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="analyticalStorageEnabled")
+    def analytical_storage_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "analytical_storage_enabled")
+
+    @analytical_storage_enabled.setter
+    def analytical_storage_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "analytical_storage_enabled", value)
+
+    @property
+    @pulumi.getter
+    def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]]:
+        """
+        The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
+        """
+        return pulumi.get(self, "capabilities")
+
+    @capabilities.setter
+    def capabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]]):
+        pulumi.set(self, "capabilities", value)
+
+    @property
+    @pulumi.getter(name="enableAutomaticFailover")
+    def enable_automatic_failover(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable automatic fail over for this Cosmos DB account.
+        """
+        return pulumi.get(self, "enable_automatic_failover")
+
+    @enable_automatic_failover.setter
+    def enable_automatic_failover(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_automatic_failover", value)
+
+    @property
+    @pulumi.getter(name="enableFreeTier")
+    def enable_free_tier(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "enable_free_tier")
+
+    @enable_free_tier.setter
+    def enable_free_tier(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_free_tier", value)
+
+    @property
+    @pulumi.getter(name="enableMultipleWriteLocations")
+    def enable_multiple_write_locations(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable multi-master support for this Cosmos DB account.
+        """
+        return pulumi.get(self, "enable_multiple_write_locations")
+
+    @enable_multiple_write_locations.setter
+    def enable_multiple_write_locations(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_multiple_write_locations", value)
+
+    @property
+    @pulumi.getter(name="ipRangeFilter")
+    def ip_range_filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
+        """
+        return pulumi.get(self, "ip_range_filter")
+
+    @ip_range_filter.setter
+    def ip_range_filter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_range_filter", value)
+
+    @property
+    @pulumi.getter(name="isVirtualNetworkFilterEnabled")
+    def is_virtual_network_filter_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables virtual network filtering for this Cosmos DB account.
+        """
+        return pulumi.get(self, "is_virtual_network_filter_enabled")
+
+    @is_virtual_network_filter_enabled.setter
+    def is_virtual_network_filter_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_virtual_network_filter_enabled", value)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @key_vault_key_id.setter
+    def key_vault_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_key_id", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not public network access is allowed for this CosmosDB account.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkRules")
+    def virtual_network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]]:
+        """
+        Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
+        """
+        return pulumi.get(self, "virtual_network_rules")
+
+    @virtual_network_rules.setter
+    def virtual_network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]]):
+        pulumi.set(self, "virtual_network_rules", value)
+
+
+@pulumi.input_type
+class _AccountState:
+    def __init__(__self__, *,
+                 analytical_storage_enabled: Optional[pulumi.Input[bool]] = None,
+                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]] = None,
+                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 consistency_policy: Optional[pulumi.Input['AccountConsistencyPolicyArgs']] = None,
+                 enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
+                 enable_free_tier: Optional[pulumi.Input[bool]] = None,
+                 enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
+                 endpoint: Optional[pulumi.Input[str]] = None,
+                 geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input['AccountGeoLocationArgs']]]] = None,
+                 ip_range_filter: Optional[pulumi.Input[str]] = None,
+                 is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
+                 key_vault_key_id: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 offer_type: Optional[pulumi.Input[str]] = None,
+                 primary_key: Optional[pulumi.Input[str]] = None,
+                 primary_master_key: Optional[pulumi.Input[str]] = None,
+                 primary_readonly_key: Optional[pulumi.Input[str]] = None,
+                 primary_readonly_master_key: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 read_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 secondary_key: Optional[pulumi.Input[str]] = None,
+                 secondary_master_key: Optional[pulumi.Input[str]] = None,
+                 secondary_readonly_key: Optional[pulumi.Input[str]] = None,
+                 secondary_readonly_master_key: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]] = None,
+                 write_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Account resources.
+        :param pulumi.Input[bool] analytical_storage_enabled: Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_strings: A list of connection strings available for this CosmosDB account.
+        :param pulumi.Input['AccountConsistencyPolicyArgs'] consistency_policy: Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
+        :param pulumi.Input[bool] enable_automatic_failover: Enable automatic fail over for this Cosmos DB account.
+        :param pulumi.Input[bool] enable_free_tier: Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enable_multiple_write_locations: Enable multi-master support for this Cosmos DB account.
+        :param pulumi.Input[str] endpoint: The endpoint used to connect to the CosmosDB account.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountGeoLocationArgs']]] geo_locations: Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
+        :param pulumi.Input[str] ip_range_filter: CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
+        :param pulumi.Input[bool] is_virtual_network_filter_enabled: Enables virtual network filtering for this Cosmos DB account.
+        :param pulumi.Input[str] key_vault_key_id: A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] offer_type: Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
+        :param pulumi.Input[str] primary_key: The Primary master key for the CosmosDB Account.
+        :param pulumi.Input[str] primary_readonly_key: The Primary read-only master Key for the CosmosDB Account.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this CosmosDB account.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] read_endpoints: A list of read endpoints available for this CosmosDB account.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] secondary_key: The Secondary master key for the CosmosDB Account.
+        :param pulumi.Input[str] secondary_readonly_key: The Secondary read-only master key for the CosmosDB Account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]] virtual_network_rules: Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] write_endpoints: A list of write endpoints available for this CosmosDB account.
+        """
+        if analytical_storage_enabled is not None:
+            pulumi.set(__self__, "analytical_storage_enabled", analytical_storage_enabled)
+        if capabilities is not None:
+            pulumi.set(__self__, "capabilities", capabilities)
+        if connection_strings is not None:
+            pulumi.set(__self__, "connection_strings", connection_strings)
+        if consistency_policy is not None:
+            pulumi.set(__self__, "consistency_policy", consistency_policy)
+        if enable_automatic_failover is not None:
+            pulumi.set(__self__, "enable_automatic_failover", enable_automatic_failover)
+        if enable_free_tier is not None:
+            pulumi.set(__self__, "enable_free_tier", enable_free_tier)
+        if enable_multiple_write_locations is not None:
+            pulumi.set(__self__, "enable_multiple_write_locations", enable_multiple_write_locations)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if geo_locations is not None:
+            pulumi.set(__self__, "geo_locations", geo_locations)
+        if ip_range_filter is not None:
+            pulumi.set(__self__, "ip_range_filter", ip_range_filter)
+        if is_virtual_network_filter_enabled is not None:
+            pulumi.set(__self__, "is_virtual_network_filter_enabled", is_virtual_network_filter_enabled)
+        if key_vault_key_id is not None:
+            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if offer_type is not None:
+            pulumi.set(__self__, "offer_type", offer_type)
+        if primary_key is not None:
+            pulumi.set(__self__, "primary_key", primary_key)
+        if primary_master_key is not None:
+            warnings.warn("""This property has been renamed to `primary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes""", DeprecationWarning)
+            pulumi.log.warn("""primary_master_key is deprecated: This property has been renamed to `primary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes""")
+        if primary_master_key is not None:
+            pulumi.set(__self__, "primary_master_key", primary_master_key)
+        if primary_readonly_key is not None:
+            pulumi.set(__self__, "primary_readonly_key", primary_readonly_key)
+        if primary_readonly_master_key is not None:
+            warnings.warn("""This property has been renamed to `primary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes""", DeprecationWarning)
+            pulumi.log.warn("""primary_readonly_master_key is deprecated: This property has been renamed to `primary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes""")
+        if primary_readonly_master_key is not None:
+            pulumi.set(__self__, "primary_readonly_master_key", primary_readonly_master_key)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+        if read_endpoints is not None:
+            pulumi.set(__self__, "read_endpoints", read_endpoints)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if secondary_key is not None:
+            pulumi.set(__self__, "secondary_key", secondary_key)
+        if secondary_master_key is not None:
+            warnings.warn("""This property has been renamed to `secondary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes""", DeprecationWarning)
+            pulumi.log.warn("""secondary_master_key is deprecated: This property has been renamed to `secondary_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes""")
+        if secondary_master_key is not None:
+            pulumi.set(__self__, "secondary_master_key", secondary_master_key)
+        if secondary_readonly_key is not None:
+            pulumi.set(__self__, "secondary_readonly_key", secondary_readonly_key)
+        if secondary_readonly_master_key is not None:
+            warnings.warn("""This property has been renamed to `secondary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes""", DeprecationWarning)
+            pulumi.log.warn("""secondary_readonly_master_key is deprecated: This property has been renamed to `secondary_readonly_key` and will be removed in v3.0 of the provider in support of HashiCorp's inclusive language policy which can be found here: https://discuss.hashicorp.com/t/inclusive-language-changes""")
+        if secondary_readonly_master_key is not None:
+            pulumi.set(__self__, "secondary_readonly_master_key", secondary_readonly_master_key)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if virtual_network_rules is not None:
+            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
+        if write_endpoints is not None:
+            pulumi.set(__self__, "write_endpoints", write_endpoints)
+
+    @property
+    @pulumi.getter(name="analyticalStorageEnabled")
+    def analytical_storage_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "analytical_storage_enabled")
+
+    @analytical_storage_enabled.setter
+    def analytical_storage_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "analytical_storage_enabled", value)
+
+    @property
+    @pulumi.getter
+    def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]]:
+        """
+        The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
+        """
+        return pulumi.get(self, "capabilities")
+
+    @capabilities.setter
+    def capabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]]):
+        pulumi.set(self, "capabilities", value)
+
+    @property
+    @pulumi.getter(name="connectionStrings")
+    def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of connection strings available for this CosmosDB account.
+        """
+        return pulumi.get(self, "connection_strings")
+
+    @connection_strings.setter
+    def connection_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "connection_strings", value)
+
+    @property
+    @pulumi.getter(name="consistencyPolicy")
+    def consistency_policy(self) -> Optional[pulumi.Input['AccountConsistencyPolicyArgs']]:
+        """
+        Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
+        """
+        return pulumi.get(self, "consistency_policy")
+
+    @consistency_policy.setter
+    def consistency_policy(self, value: Optional[pulumi.Input['AccountConsistencyPolicyArgs']]):
+        pulumi.set(self, "consistency_policy", value)
+
+    @property
+    @pulumi.getter(name="enableAutomaticFailover")
+    def enable_automatic_failover(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable automatic fail over for this Cosmos DB account.
+        """
+        return pulumi.get(self, "enable_automatic_failover")
+
+    @enable_automatic_failover.setter
+    def enable_automatic_failover(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_automatic_failover", value)
+
+    @property
+    @pulumi.getter(name="enableFreeTier")
+    def enable_free_tier(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "enable_free_tier")
+
+    @enable_free_tier.setter
+    def enable_free_tier(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_free_tier", value)
+
+    @property
+    @pulumi.getter(name="enableMultipleWriteLocations")
+    def enable_multiple_write_locations(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable multi-master support for this Cosmos DB account.
+        """
+        return pulumi.get(self, "enable_multiple_write_locations")
+
+    @enable_multiple_write_locations.setter
+    def enable_multiple_write_locations(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_multiple_write_locations", value)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint used to connect to the CosmosDB account.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter(name="geoLocations")
+    def geo_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountGeoLocationArgs']]]]:
+        """
+        Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
+        """
+        return pulumi.get(self, "geo_locations")
+
+    @geo_locations.setter
+    def geo_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountGeoLocationArgs']]]]):
+        pulumi.set(self, "geo_locations", value)
+
+    @property
+    @pulumi.getter(name="ipRangeFilter")
+    def ip_range_filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
+        """
+        return pulumi.get(self, "ip_range_filter")
+
+    @ip_range_filter.setter
+    def ip_range_filter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_range_filter", value)
+
+    @property
+    @pulumi.getter(name="isVirtualNetworkFilterEnabled")
+    def is_virtual_network_filter_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables virtual network filtering for this Cosmos DB account.
+        """
+        return pulumi.get(self, "is_virtual_network_filter_enabled")
+
+    @is_virtual_network_filter_enabled.setter
+    def is_virtual_network_filter_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_virtual_network_filter_enabled", value)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @key_vault_key_id.setter
+    def key_vault_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_key_id", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="offerType")
+    def offer_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
+        """
+        return pulumi.get(self, "offer_type")
+
+    @offer_type.setter
+    def offer_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "offer_type", value)
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Primary master key for the CosmosDB Account.
+        """
+        return pulumi.get(self, "primary_key")
+
+    @primary_key.setter
+    def primary_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_key", value)
+
+    @property
+    @pulumi.getter(name="primaryMasterKey")
+    def primary_master_key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "primary_master_key")
+
+    @primary_master_key.setter
+    def primary_master_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_master_key", value)
+
+    @property
+    @pulumi.getter(name="primaryReadonlyKey")
+    def primary_readonly_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Primary read-only master Key for the CosmosDB Account.
+        """
+        return pulumi.get(self, "primary_readonly_key")
+
+    @primary_readonly_key.setter
+    def primary_readonly_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_readonly_key", value)
+
+    @property
+    @pulumi.getter(name="primaryReadonlyMasterKey")
+    def primary_readonly_master_key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "primary_readonly_master_key")
+
+    @primary_readonly_master_key.setter
+    def primary_readonly_master_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_readonly_master_key", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not public network access is allowed for this CosmosDB account.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
+    @pulumi.getter(name="readEndpoints")
+    def read_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of read endpoints available for this CosmosDB account.
+        """
+        return pulumi.get(self, "read_endpoints")
+
+    @read_endpoints.setter
+    def read_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "read_endpoints", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="secondaryKey")
+    def secondary_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Secondary master key for the CosmosDB Account.
+        """
+        return pulumi.get(self, "secondary_key")
+
+    @secondary_key.setter
+    def secondary_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_key", value)
+
+    @property
+    @pulumi.getter(name="secondaryMasterKey")
+    def secondary_master_key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "secondary_master_key")
+
+    @secondary_master_key.setter
+    def secondary_master_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_master_key", value)
+
+    @property
+    @pulumi.getter(name="secondaryReadonlyKey")
+    def secondary_readonly_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Secondary read-only master key for the CosmosDB Account.
+        """
+        return pulumi.get(self, "secondary_readonly_key")
+
+    @secondary_readonly_key.setter
+    def secondary_readonly_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_readonly_key", value)
+
+    @property
+    @pulumi.getter(name="secondaryReadonlyMasterKey")
+    def secondary_readonly_master_key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "secondary_readonly_master_key")
+
+    @secondary_readonly_master_key.setter
+    def secondary_readonly_master_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_readonly_master_key", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkRules")
+    def virtual_network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]]:
+        """
+        Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
+        """
+        return pulumi.get(self, "virtual_network_rules")
+
+    @virtual_network_rules.setter
+    def virtual_network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]]):
+        pulumi.set(self, "virtual_network_rules", value)
+
+    @property
+    @pulumi.getter(name="writeEndpoints")
+    def write_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of write endpoints available for this CosmosDB account.
+        """
+        return pulumi.get(self, "write_endpoints")
+
+    @write_endpoints.setter
+    def write_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "write_endpoints", value)
 
 
 class Account(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -115,6 +891,104 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountVirtualNetworkRuleArgs']]]] virtual_network_rules: Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AccountArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a CosmosDB (formally DocumentDB) Account.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_random as random
+
+        rg = azure.core.ResourceGroup("rg", location="westus")
+        ri = random.RandomInteger("ri",
+            min=10000,
+            max=99999)
+        db = azure.cosmosdb.Account("db",
+            location=rg.location,
+            resource_group_name=rg.name,
+            offer_type="Standard",
+            kind="GlobalDocumentDB",
+            enable_automatic_failover=True,
+            capabilities=[
+                azure.cosmosdb.AccountCapabilityArgs(
+                    name="EnableAggregationPipeline",
+                ),
+                azure.cosmosdb.AccountCapabilityArgs(
+                    name="mongoEnableDocLevelTTL",
+                ),
+                azure.cosmosdb.AccountCapabilityArgs(
+                    name="MongoDBv3.4",
+                ),
+            ],
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+                consistency_level="BoundedStaleness",
+                max_interval_in_seconds=10,
+                max_staleness_prefix=200,
+            ),
+            geo_locations=[
+                azure.cosmosdb.AccountGeoLocationArgs(
+                    location=var["failover_location"],
+                    failover_priority=1,
+                ),
+                azure.cosmosdb.AccountGeoLocationArgs(
+                    location=rg.location,
+                    failover_priority=0,
+                ),
+            ])
+        ```
+
+        ## Import
+
+        CosmosDB Accounts can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:cosmosdb/account:Account account1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param AccountArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AccountArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 analytical_storage_enabled: Optional[pulumi.Input[bool]] = None,
+                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]]] = None,
+                 consistency_policy: Optional[pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']]] = None,
+                 enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
+                 enable_free_tier: Optional[pulumi.Input[bool]] = None,
+                 enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
+                 geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountGeoLocationArgs']]]]] = None,
+                 ip_range_filter: Optional[pulumi.Input[str]] = None,
+                 is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
+                 key_vault_key_id: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 offer_type: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountVirtualNetworkRuleArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -130,46 +1004,46 @@ class Account(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AccountArgs.__new__(AccountArgs)
 
-            __props__['analytical_storage_enabled'] = analytical_storage_enabled
-            __props__['capabilities'] = capabilities
+            __props__.__dict__["analytical_storage_enabled"] = analytical_storage_enabled
+            __props__.__dict__["capabilities"] = capabilities
             if consistency_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'consistency_policy'")
-            __props__['consistency_policy'] = consistency_policy
-            __props__['enable_automatic_failover'] = enable_automatic_failover
-            __props__['enable_free_tier'] = enable_free_tier
-            __props__['enable_multiple_write_locations'] = enable_multiple_write_locations
+            __props__.__dict__["consistency_policy"] = consistency_policy
+            __props__.__dict__["enable_automatic_failover"] = enable_automatic_failover
+            __props__.__dict__["enable_free_tier"] = enable_free_tier
+            __props__.__dict__["enable_multiple_write_locations"] = enable_multiple_write_locations
             if geo_locations is None and not opts.urn:
                 raise TypeError("Missing required property 'geo_locations'")
-            __props__['geo_locations'] = geo_locations
-            __props__['ip_range_filter'] = ip_range_filter
-            __props__['is_virtual_network_filter_enabled'] = is_virtual_network_filter_enabled
-            __props__['key_vault_key_id'] = key_vault_key_id
-            __props__['kind'] = kind
-            __props__['location'] = location
-            __props__['name'] = name
+            __props__.__dict__["geo_locations"] = geo_locations
+            __props__.__dict__["ip_range_filter"] = ip_range_filter
+            __props__.__dict__["is_virtual_network_filter_enabled"] = is_virtual_network_filter_enabled
+            __props__.__dict__["key_vault_key_id"] = key_vault_key_id
+            __props__.__dict__["kind"] = kind
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
             if offer_type is None and not opts.urn:
                 raise TypeError("Missing required property 'offer_type'")
-            __props__['offer_type'] = offer_type
-            __props__['public_network_access_enabled'] = public_network_access_enabled
+            __props__.__dict__["offer_type"] = offer_type
+            __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['virtual_network_rules'] = virtual_network_rules
-            __props__['connection_strings'] = None
-            __props__['endpoint'] = None
-            __props__['primary_key'] = None
-            __props__['primary_master_key'] = None
-            __props__['primary_readonly_key'] = None
-            __props__['primary_readonly_master_key'] = None
-            __props__['read_endpoints'] = None
-            __props__['secondary_key'] = None
-            __props__['secondary_master_key'] = None
-            __props__['secondary_readonly_key'] = None
-            __props__['secondary_readonly_master_key'] = None
-            __props__['write_endpoints'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["virtual_network_rules"] = virtual_network_rules
+            __props__.__dict__["connection_strings"] = None
+            __props__.__dict__["endpoint"] = None
+            __props__.__dict__["primary_key"] = None
+            __props__.__dict__["primary_master_key"] = None
+            __props__.__dict__["primary_readonly_key"] = None
+            __props__.__dict__["primary_readonly_master_key"] = None
+            __props__.__dict__["read_endpoints"] = None
+            __props__.__dict__["secondary_key"] = None
+            __props__.__dict__["secondary_master_key"] = None
+            __props__.__dict__["secondary_readonly_key"] = None
+            __props__.__dict__["secondary_readonly_master_key"] = None
+            __props__.__dict__["write_endpoints"] = None
         super(Account, __self__).__init__(
             'azure:cosmosdb/account:Account',
             resource_name,
@@ -246,38 +1120,38 @@ class Account(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AccountState.__new__(_AccountState)
 
-        __props__["analytical_storage_enabled"] = analytical_storage_enabled
-        __props__["capabilities"] = capabilities
-        __props__["connection_strings"] = connection_strings
-        __props__["consistency_policy"] = consistency_policy
-        __props__["enable_automatic_failover"] = enable_automatic_failover
-        __props__["enable_free_tier"] = enable_free_tier
-        __props__["enable_multiple_write_locations"] = enable_multiple_write_locations
-        __props__["endpoint"] = endpoint
-        __props__["geo_locations"] = geo_locations
-        __props__["ip_range_filter"] = ip_range_filter
-        __props__["is_virtual_network_filter_enabled"] = is_virtual_network_filter_enabled
-        __props__["key_vault_key_id"] = key_vault_key_id
-        __props__["kind"] = kind
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["offer_type"] = offer_type
-        __props__["primary_key"] = primary_key
-        __props__["primary_master_key"] = primary_master_key
-        __props__["primary_readonly_key"] = primary_readonly_key
-        __props__["primary_readonly_master_key"] = primary_readonly_master_key
-        __props__["public_network_access_enabled"] = public_network_access_enabled
-        __props__["read_endpoints"] = read_endpoints
-        __props__["resource_group_name"] = resource_group_name
-        __props__["secondary_key"] = secondary_key
-        __props__["secondary_master_key"] = secondary_master_key
-        __props__["secondary_readonly_key"] = secondary_readonly_key
-        __props__["secondary_readonly_master_key"] = secondary_readonly_master_key
-        __props__["tags"] = tags
-        __props__["virtual_network_rules"] = virtual_network_rules
-        __props__["write_endpoints"] = write_endpoints
+        __props__.__dict__["analytical_storage_enabled"] = analytical_storage_enabled
+        __props__.__dict__["capabilities"] = capabilities
+        __props__.__dict__["connection_strings"] = connection_strings
+        __props__.__dict__["consistency_policy"] = consistency_policy
+        __props__.__dict__["enable_automatic_failover"] = enable_automatic_failover
+        __props__.__dict__["enable_free_tier"] = enable_free_tier
+        __props__.__dict__["enable_multiple_write_locations"] = enable_multiple_write_locations
+        __props__.__dict__["endpoint"] = endpoint
+        __props__.__dict__["geo_locations"] = geo_locations
+        __props__.__dict__["ip_range_filter"] = ip_range_filter
+        __props__.__dict__["is_virtual_network_filter_enabled"] = is_virtual_network_filter_enabled
+        __props__.__dict__["key_vault_key_id"] = key_vault_key_id
+        __props__.__dict__["kind"] = kind
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["offer_type"] = offer_type
+        __props__.__dict__["primary_key"] = primary_key
+        __props__.__dict__["primary_master_key"] = primary_master_key
+        __props__.__dict__["primary_readonly_key"] = primary_readonly_key
+        __props__.__dict__["primary_readonly_master_key"] = primary_readonly_master_key
+        __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
+        __props__.__dict__["read_endpoints"] = read_endpoints
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["secondary_key"] = secondary_key
+        __props__.__dict__["secondary_master_key"] = secondary_master_key
+        __props__.__dict__["secondary_readonly_key"] = secondary_readonly_key
+        __props__.__dict__["secondary_readonly_master_key"] = secondary_readonly_master_key
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["virtual_network_rules"] = virtual_network_rules
+        __props__.__dict__["write_endpoints"] = write_endpoints
         return Account(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -507,10 +1381,4 @@ class Account(pulumi.CustomResource):
         A list of write endpoints available for this CosmosDB account.
         """
         return pulumi.get(self, "write_endpoints")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

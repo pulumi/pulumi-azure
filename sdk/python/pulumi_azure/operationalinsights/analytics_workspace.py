@@ -5,13 +5,403 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
-__all__ = ['AnalyticsWorkspace']
+__all__ = ['AnalyticsWorkspaceArgs', 'AnalyticsWorkspace']
+
+@pulumi.input_type
+class AnalyticsWorkspaceArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 daily_quota_gb: Optional[pulumi.Input[float]] = None,
+                 internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
+                 internet_query_enabled: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 reservation_capcity_in_gb_per_day: Optional[pulumi.Input[int]] = None,
+                 retention_in_days: Optional[pulumi.Input[int]] = None,
+                 sku: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a AnalyticsWorkspace resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+        :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] reservation_capcity_in_gb_per_day: The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+        :param pulumi.Input[int] retention_in_days: The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+        :param pulumi.Input[str] sku: Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if daily_quota_gb is not None:
+            pulumi.set(__self__, "daily_quota_gb", daily_quota_gb)
+        if internet_ingestion_enabled is not None:
+            pulumi.set(__self__, "internet_ingestion_enabled", internet_ingestion_enabled)
+        if internet_query_enabled is not None:
+            pulumi.set(__self__, "internet_query_enabled", internet_query_enabled)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if reservation_capcity_in_gb_per_day is not None:
+            pulumi.set(__self__, "reservation_capcity_in_gb_per_day", reservation_capcity_in_gb_per_day)
+        if retention_in_days is not None:
+            pulumi.set(__self__, "retention_in_days", retention_in_days)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="dailyQuotaGb")
+    def daily_quota_gb(self) -> Optional[pulumi.Input[float]]:
+        """
+        The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+        """
+        return pulumi.get(self, "daily_quota_gb")
+
+    @daily_quota_gb.setter
+    def daily_quota_gb(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "daily_quota_gb", value)
+
+    @property
+    @pulumi.getter(name="internetIngestionEnabled")
+    def internet_ingestion_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "internet_ingestion_enabled")
+
+    @internet_ingestion_enabled.setter
+    def internet_ingestion_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "internet_ingestion_enabled", value)
+
+    @property
+    @pulumi.getter(name="internetQueryEnabled")
+    def internet_query_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+        """
+        return pulumi.get(self, "internet_query_enabled")
+
+    @internet_query_enabled.setter
+    def internet_query_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "internet_query_enabled", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="reservationCapcityInGbPerDay")
+    def reservation_capcity_in_gb_per_day(self) -> Optional[pulumi.Input[int]]:
+        """
+        The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+        """
+        return pulumi.get(self, "reservation_capcity_in_gb_per_day")
+
+    @reservation_capcity_in_gb_per_day.setter
+    def reservation_capcity_in_gb_per_day(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "reservation_capcity_in_gb_per_day", value)
+
+    @property
+    @pulumi.getter(name="retentionInDays")
+    def retention_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+        """
+        return pulumi.get(self, "retention_in_days")
+
+    @retention_in_days.setter
+    def retention_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_in_days", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _AnalyticsWorkspaceState:
+    def __init__(__self__, *,
+                 daily_quota_gb: Optional[pulumi.Input[float]] = None,
+                 internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
+                 internet_query_enabled: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 portal_url: Optional[pulumi.Input[str]] = None,
+                 primary_shared_key: Optional[pulumi.Input[str]] = None,
+                 reservation_capcity_in_gb_per_day: Optional[pulumi.Input[int]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 retention_in_days: Optional[pulumi.Input[int]] = None,
+                 secondary_shared_key: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workspace_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering AnalyticsWorkspace resources.
+        :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+        :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] primary_shared_key: The Primary shared key for the Log Analytics Workspace.
+        :param pulumi.Input[int] reservation_capcity_in_gb_per_day: The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] retention_in_days: The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+        :param pulumi.Input[str] secondary_shared_key: The Secondary shared key for the Log Analytics Workspace.
+        :param pulumi.Input[str] sku: Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] workspace_id: The Workspace (or Customer) ID for the Log Analytics Workspace.
+        """
+        if daily_quota_gb is not None:
+            pulumi.set(__self__, "daily_quota_gb", daily_quota_gb)
+        if internet_ingestion_enabled is not None:
+            pulumi.set(__self__, "internet_ingestion_enabled", internet_ingestion_enabled)
+        if internet_query_enabled is not None:
+            pulumi.set(__self__, "internet_query_enabled", internet_query_enabled)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if portal_url is not None:
+            warnings.warn("""this property has been removed from the API and will be removed in version 3.0 of the provider""", DeprecationWarning)
+            pulumi.log.warn("""portal_url is deprecated: this property has been removed from the API and will be removed in version 3.0 of the provider""")
+        if portal_url is not None:
+            pulumi.set(__self__, "portal_url", portal_url)
+        if primary_shared_key is not None:
+            pulumi.set(__self__, "primary_shared_key", primary_shared_key)
+        if reservation_capcity_in_gb_per_day is not None:
+            pulumi.set(__self__, "reservation_capcity_in_gb_per_day", reservation_capcity_in_gb_per_day)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if retention_in_days is not None:
+            pulumi.set(__self__, "retention_in_days", retention_in_days)
+        if secondary_shared_key is not None:
+            pulumi.set(__self__, "secondary_shared_key", secondary_shared_key)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if workspace_id is not None:
+            pulumi.set(__self__, "workspace_id", workspace_id)
+
+    @property
+    @pulumi.getter(name="dailyQuotaGb")
+    def daily_quota_gb(self) -> Optional[pulumi.Input[float]]:
+        """
+        The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
+        """
+        return pulumi.get(self, "daily_quota_gb")
+
+    @daily_quota_gb.setter
+    def daily_quota_gb(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "daily_quota_gb", value)
+
+    @property
+    @pulumi.getter(name="internetIngestionEnabled")
+    def internet_ingestion_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "internet_ingestion_enabled")
+
+    @internet_ingestion_enabled.setter
+    def internet_ingestion_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "internet_ingestion_enabled", value)
+
+    @property
+    @pulumi.getter(name="internetQueryEnabled")
+    def internet_query_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Log Analytics Workflow support querying over the Public Internet? Defaults to `true`.
+        """
+        return pulumi.get(self, "internet_query_enabled")
+
+    @internet_query_enabled.setter
+    def internet_query_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "internet_query_enabled", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="portalUrl")
+    def portal_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "portal_url")
+
+    @portal_url.setter
+    def portal_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "portal_url", value)
+
+    @property
+    @pulumi.getter(name="primarySharedKey")
+    def primary_shared_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Primary shared key for the Log Analytics Workspace.
+        """
+        return pulumi.get(self, "primary_shared_key")
+
+    @primary_shared_key.setter
+    def primary_shared_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_shared_key", value)
+
+    @property
+    @pulumi.getter(name="reservationCapcityInGbPerDay")
+    def reservation_capcity_in_gb_per_day(self) -> Optional[pulumi.Input[int]]:
+        """
+        The capacity reservation level in GB for this workspace.  Must be in increments of 100  between 100 and 5000.
+        """
+        return pulumi.get(self, "reservation_capcity_in_gb_per_day")
+
+    @reservation_capcity_in_gb_per_day.setter
+    def reservation_capcity_in_gb_per_day(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "reservation_capcity_in_gb_per_day", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="retentionInDays")
+    def retention_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+        """
+        return pulumi.get(self, "retention_in_days")
+
+    @retention_in_days.setter
+    def retention_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_in_days", value)
+
+    @property
+    @pulumi.getter(name="secondarySharedKey")
+    def secondary_shared_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Secondary shared key for the Log Analytics Workspace.
+        """
+        return pulumi.get(self, "secondary_shared_key")
+
+    @secondary_shared_key.setter
+    def secondary_shared_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_shared_key", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Workspace (or Customer) ID for the Log Analytics Workspace.
+        """
+        return pulumi.get(self, "workspace_id")
+
+    @workspace_id.setter
+    def workspace_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workspace_id", value)
 
 
 class AnalyticsWorkspace(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -65,6 +455,65 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         :param pulumi.Input[str] sku: Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new Sku as of `2018-04-03`). Defaults to `PerGB2018`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AnalyticsWorkspaceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Log Analytics (formally Operational Insights) Workspace.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="PerGB2018",
+            retention_in_days=30)
+        ```
+
+        ## Import
+
+        Log Analytics Workspaces can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace workspace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param AnalyticsWorkspaceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AnalyticsWorkspaceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 daily_quota_gb: Optional[pulumi.Input[float]] = None,
+                 internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
+                 internet_query_enabled: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 reservation_capcity_in_gb_per_day: Optional[pulumi.Input[int]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 retention_in_days: Optional[pulumi.Input[int]] = None,
+                 sku: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -80,24 +529,24 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AnalyticsWorkspaceArgs.__new__(AnalyticsWorkspaceArgs)
 
-            __props__['daily_quota_gb'] = daily_quota_gb
-            __props__['internet_ingestion_enabled'] = internet_ingestion_enabled
-            __props__['internet_query_enabled'] = internet_query_enabled
-            __props__['location'] = location
-            __props__['name'] = name
-            __props__['reservation_capcity_in_gb_per_day'] = reservation_capcity_in_gb_per_day
+            __props__.__dict__["daily_quota_gb"] = daily_quota_gb
+            __props__.__dict__["internet_ingestion_enabled"] = internet_ingestion_enabled
+            __props__.__dict__["internet_query_enabled"] = internet_query_enabled
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
+            __props__.__dict__["reservation_capcity_in_gb_per_day"] = reservation_capcity_in_gb_per_day
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['retention_in_days'] = retention_in_days
-            __props__['sku'] = sku
-            __props__['tags'] = tags
-            __props__['portal_url'] = None
-            __props__['primary_shared_key'] = None
-            __props__['secondary_shared_key'] = None
-            __props__['workspace_id'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["retention_in_days"] = retention_in_days
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["portal_url"] = None
+            __props__.__dict__["primary_shared_key"] = None
+            __props__.__dict__["secondary_shared_key"] = None
+            __props__.__dict__["workspace_id"] = None
         super(AnalyticsWorkspace, __self__).__init__(
             'azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace',
             resource_name,
@@ -144,22 +593,22 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AnalyticsWorkspaceState.__new__(_AnalyticsWorkspaceState)
 
-        __props__["daily_quota_gb"] = daily_quota_gb
-        __props__["internet_ingestion_enabled"] = internet_ingestion_enabled
-        __props__["internet_query_enabled"] = internet_query_enabled
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["portal_url"] = portal_url
-        __props__["primary_shared_key"] = primary_shared_key
-        __props__["reservation_capcity_in_gb_per_day"] = reservation_capcity_in_gb_per_day
-        __props__["resource_group_name"] = resource_group_name
-        __props__["retention_in_days"] = retention_in_days
-        __props__["secondary_shared_key"] = secondary_shared_key
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["workspace_id"] = workspace_id
+        __props__.__dict__["daily_quota_gb"] = daily_quota_gb
+        __props__.__dict__["internet_ingestion_enabled"] = internet_ingestion_enabled
+        __props__.__dict__["internet_query_enabled"] = internet_query_enabled
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["portal_url"] = portal_url
+        __props__.__dict__["primary_shared_key"] = primary_shared_key
+        __props__.__dict__["reservation_capcity_in_gb_per_day"] = reservation_capcity_in_gb_per_day
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["retention_in_days"] = retention_in_days
+        __props__.__dict__["secondary_shared_key"] = secondary_shared_key
+        __props__.__dict__["sku"] = sku
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["workspace_id"] = workspace_id
         return AnalyticsWorkspace(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -267,10 +716,4 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         The Workspace (or Customer) ID for the Log Analytics Workspace.
         """
         return pulumi.get(self, "workspace_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

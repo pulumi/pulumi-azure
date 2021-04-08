@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'ServerStorageProfile',
@@ -15,6 +15,29 @@ __all__ = [
 
 @pulumi.output_type
 class ServerStorageProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoGrow":
+            suggest = "auto_grow"
+        elif key == "backupRetentionDays":
+            suggest = "backup_retention_days"
+        elif key == "geoRedundantBackup":
+            suggest = "geo_redundant_backup"
+        elif key == "storageMb":
+            suggest = "storage_mb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerStorageProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerStorageProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerStorageProfile.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  auto_grow: Optional[str] = None,
                  backup_retention_days: Optional[int] = None,
@@ -58,9 +81,6 @@ class ServerStorageProfile(dict):
         Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
         """
         return pulumi.get(self, "storage_mb")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

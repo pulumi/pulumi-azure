@@ -22,47 +22,48 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:iot/consumerGroup:ConsumerGroup":
-		r, err = NewConsumerGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &ConsumerGroup{}
 	case "azure:iot/dpsSharedAccessPolicy:DpsSharedAccessPolicy":
-		r, err = NewDpsSharedAccessPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &DpsSharedAccessPolicy{}
 	case "azure:iot/endpointEventhub:EndpointEventhub":
-		r, err = NewEndpointEventhub(ctx, name, nil, pulumi.URN_(urn))
+		r = &EndpointEventhub{}
 	case "azure:iot/endpointServicebusQueue:EndpointServicebusQueue":
-		r, err = NewEndpointServicebusQueue(ctx, name, nil, pulumi.URN_(urn))
+		r = &EndpointServicebusQueue{}
 	case "azure:iot/endpointServicebusTopic:EndpointServicebusTopic":
-		r, err = NewEndpointServicebusTopic(ctx, name, nil, pulumi.URN_(urn))
+		r = &EndpointServicebusTopic{}
 	case "azure:iot/endpointStorageContainer:EndpointStorageContainer":
-		r, err = NewEndpointStorageContainer(ctx, name, nil, pulumi.URN_(urn))
+		r = &EndpointStorageContainer{}
 	case "azure:iot/enrichment:Enrichment":
-		r, err = NewEnrichment(ctx, name, nil, pulumi.URN_(urn))
+		r = &Enrichment{}
 	case "azure:iot/fallbackRoute:FallbackRoute":
-		r, err = NewFallbackRoute(ctx, name, nil, pulumi.URN_(urn))
+		r = &FallbackRoute{}
 	case "azure:iot/ioTHub:IoTHub":
-		r, err = NewIoTHub(ctx, name, nil, pulumi.URN_(urn))
+		r = &IoTHub{}
 	case "azure:iot/iotHubCertificate:IotHubCertificate":
-		r, err = NewIotHubCertificate(ctx, name, nil, pulumi.URN_(urn))
+		r = &IotHubCertificate{}
 	case "azure:iot/iotHubDps:IotHubDps":
-		r, err = NewIotHubDps(ctx, name, nil, pulumi.URN_(urn))
+		r = &IotHubDps{}
 	case "azure:iot/route:Route":
-		r, err = NewRoute(ctx, name, nil, pulumi.URN_(urn))
+		r = &Route{}
 	case "azure:iot/securityDeviceGroup:SecurityDeviceGroup":
-		r, err = NewSecurityDeviceGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &SecurityDeviceGroup{}
 	case "azure:iot/securitySolution:SecuritySolution":
-		r, err = NewSecuritySolution(ctx, name, nil, pulumi.URN_(urn))
+		r = &SecuritySolution{}
 	case "azure:iot/sharedAccessPolicy:SharedAccessPolicy":
-		r, err = NewSharedAccessPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &SharedAccessPolicy{}
 	case "azure:iot/timeSeriesInsightsAccessPolicy:TimeSeriesInsightsAccessPolicy":
-		r, err = NewTimeSeriesInsightsAccessPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &TimeSeriesInsightsAccessPolicy{}
 	case "azure:iot/timeSeriesInsightsGen2Environment:TimeSeriesInsightsGen2Environment":
-		r, err = NewTimeSeriesInsightsGen2Environment(ctx, name, nil, pulumi.URN_(urn))
+		r = &TimeSeriesInsightsGen2Environment{}
 	case "azure:iot/timeSeriesInsightsReferenceDataSet:TimeSeriesInsightsReferenceDataSet":
-		r, err = NewTimeSeriesInsightsReferenceDataSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &TimeSeriesInsightsReferenceDataSet{}
 	case "azure:iot/timeSeriesInsightsStandardEnvironment:TimeSeriesInsightsStandardEnvironment":
-		r, err = NewTimeSeriesInsightsStandardEnvironment(ctx, name, nil, pulumi.URN_(urn))
+		r = &TimeSeriesInsightsStandardEnvironment{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'CachePatchSchedule',
@@ -18,6 +18,25 @@ __all__ = [
 
 @pulumi.output_type
 class CachePatchSchedule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dayOfWeek":
+            suggest = "day_of_week"
+        elif key == "startHourUtc":
+            suggest = "start_hour_utc"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CachePatchSchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CachePatchSchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CachePatchSchedule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  day_of_week: str,
                  start_hour_utc: Optional[int] = None):
@@ -35,12 +54,50 @@ class CachePatchSchedule(dict):
     def start_hour_utc(self) -> Optional[int]:
         return pulumi.get(self, "start_hour_utc")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CacheRedisConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aofBackupEnabled":
+            suggest = "aof_backup_enabled"
+        elif key == "aofStorageConnectionString0":
+            suggest = "aof_storage_connection_string0"
+        elif key == "aofStorageConnectionString1":
+            suggest = "aof_storage_connection_string1"
+        elif key == "enableAuthentication":
+            suggest = "enable_authentication"
+        elif key == "maxfragmentationmemoryReserved":
+            suggest = "maxfragmentationmemory_reserved"
+        elif key == "maxmemoryDelta":
+            suggest = "maxmemory_delta"
+        elif key == "maxmemoryPolicy":
+            suggest = "maxmemory_policy"
+        elif key == "maxmemoryReserved":
+            suggest = "maxmemory_reserved"
+        elif key == "notifyKeyspaceEvents":
+            suggest = "notify_keyspace_events"
+        elif key == "rdbBackupEnabled":
+            suggest = "rdb_backup_enabled"
+        elif key == "rdbBackupFrequency":
+            suggest = "rdb_backup_frequency"
+        elif key == "rdbBackupMaxSnapshotCount":
+            suggest = "rdb_backup_max_snapshot_count"
+        elif key == "rdbStorageConnectionString":
+            suggest = "rdb_storage_connection_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CacheRedisConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CacheRedisConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CacheRedisConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aof_backup_enabled: Optional[bool] = None,
                  aof_storage_connection_string0: Optional[str] = None,
@@ -201,9 +258,6 @@ class CacheRedisConfiguration(dict):
         """
         return pulumi.get(self, "rdb_storage_connection_string")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EnterpriseDatabaseModule(dict):
@@ -241,9 +295,6 @@ class EnterpriseDatabaseModule(dict):
     @pulumi.getter
     def version(self) -> Optional[str]:
         return pulumi.get(self, "version")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

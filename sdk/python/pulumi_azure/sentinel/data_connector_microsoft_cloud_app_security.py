@@ -5,13 +5,188 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
-__all__ = ['DataConnectorMicrosoftCloudAppSecurity']
+__all__ = ['DataConnectorMicrosoftCloudAppSecurityArgs', 'DataConnectorMicrosoftCloudAppSecurity']
+
+@pulumi.input_type
+class DataConnectorMicrosoftCloudAppSecurityArgs:
+    def __init__(__self__, *,
+                 log_analytics_workspace_id: pulumi.Input[str],
+                 alerts_enabled: Optional[pulumi.Input[bool]] = None,
+                 discovery_logs_enabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a DataConnectorMicrosoftCloudAppSecurity resource.
+        :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace that this Microsoft Cloud App Security Data Connector resides in. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
+        :param pulumi.Input[bool] alerts_enabled: Should the alerts be enabled? Defaults to `true`.
+        :param pulumi.Input[bool] discovery_logs_enabled: Should the Discovery Logs be enabled? Defaults to `true`.
+        :param pulumi.Input[str] name: The name which should be used for this Microsoft Cloud App Security Data Connector. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
+        :param pulumi.Input[str] tenant_id: The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
+        """
+        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        if alerts_enabled is not None:
+            pulumi.set(__self__, "alerts_enabled", alerts_enabled)
+        if discovery_logs_enabled is not None:
+            pulumi.set(__self__, "discovery_logs_enabled", discovery_logs_enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspaceId")
+    def log_analytics_workspace_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Log Analytics Workspace that this Microsoft Cloud App Security Data Connector resides in. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
+        """
+        return pulumi.get(self, "log_analytics_workspace_id")
+
+    @log_analytics_workspace_id.setter
+    def log_analytics_workspace_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_analytics_workspace_id", value)
+
+    @property
+    @pulumi.getter(name="alertsEnabled")
+    def alerts_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the alerts be enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "alerts_enabled")
+
+    @alerts_enabled.setter
+    def alerts_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "alerts_enabled", value)
+
+    @property
+    @pulumi.getter(name="discoveryLogsEnabled")
+    def discovery_logs_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Discovery Logs be enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "discovery_logs_enabled")
+
+    @discovery_logs_enabled.setter
+    def discovery_logs_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "discovery_logs_enabled", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Microsoft Cloud App Security Data Connector. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class _DataConnectorMicrosoftCloudAppSecurityState:
+    def __init__(__self__, *,
+                 alerts_enabled: Optional[pulumi.Input[bool]] = None,
+                 discovery_logs_enabled: Optional[pulumi.Input[bool]] = None,
+                 log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering DataConnectorMicrosoftCloudAppSecurity resources.
+        :param pulumi.Input[bool] alerts_enabled: Should the alerts be enabled? Defaults to `true`.
+        :param pulumi.Input[bool] discovery_logs_enabled: Should the Discovery Logs be enabled? Defaults to `true`.
+        :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace that this Microsoft Cloud App Security Data Connector resides in. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Microsoft Cloud App Security Data Connector. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
+        :param pulumi.Input[str] tenant_id: The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
+        """
+        if alerts_enabled is not None:
+            pulumi.set(__self__, "alerts_enabled", alerts_enabled)
+        if discovery_logs_enabled is not None:
+            pulumi.set(__self__, "discovery_logs_enabled", discovery_logs_enabled)
+        if log_analytics_workspace_id is not None:
+            pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="alertsEnabled")
+    def alerts_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the alerts be enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "alerts_enabled")
+
+    @alerts_enabled.setter
+    def alerts_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "alerts_enabled", value)
+
+    @property
+    @pulumi.getter(name="discoveryLogsEnabled")
+    def discovery_logs_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Discovery Logs be enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "discovery_logs_enabled")
+
+    @discovery_logs_enabled.setter
+    def discovery_logs_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "discovery_logs_enabled", value)
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspaceId")
+    def log_analytics_workspace_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Log Analytics Workspace that this Microsoft Cloud App Security Data Connector resides in. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
+        """
+        return pulumi.get(self, "log_analytics_workspace_id")
+
+    @log_analytics_workspace_id.setter
+    def log_analytics_workspace_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_analytics_workspace_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Microsoft Cloud App Security Data Connector. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
 
 
 class DataConnectorMicrosoftCloudAppSecurity(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -58,6 +233,62 @@ class DataConnectorMicrosoftCloudAppSecurity(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Microsoft Cloud App Security Data Connector. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
         :param pulumi.Input[str] tenant_id: The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DataConnectorMicrosoftCloudAppSecurityArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Microsoft Cloud App Security Data Connector.
+
+         !> **NOTE:** This resource requires that [Enterprise Mobility + Security E5](https://www.microsoft.com/en-us/microsoft-365/enterprise-mobility-security) is enabled on the tenant being connected to.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="PerGB2018")
+        example_data_connector_microsoft_cloud_app_security = azure.sentinel.DataConnectorMicrosoftCloudAppSecurity("exampleDataConnectorMicrosoftCloudAppSecurity", log_analytics_workspace_id=example_analytics_workspace.id)
+        ```
+
+        ## Import
+
+        Microsoft Cloud App Security Data Connectors can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:sentinel/dataConnectorMicrosoftCloudAppSecurity:DataConnectorMicrosoftCloudAppSecurity example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param DataConnectorMicrosoftCloudAppSecurityArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DataConnectorMicrosoftCloudAppSecurityArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 alerts_enabled: Optional[pulumi.Input[bool]] = None,
+                 discovery_logs_enabled: Optional[pulumi.Input[bool]] = None,
+                 log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -73,15 +304,15 @@ class DataConnectorMicrosoftCloudAppSecurity(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DataConnectorMicrosoftCloudAppSecurityArgs.__new__(DataConnectorMicrosoftCloudAppSecurityArgs)
 
-            __props__['alerts_enabled'] = alerts_enabled
-            __props__['discovery_logs_enabled'] = discovery_logs_enabled
+            __props__.__dict__["alerts_enabled"] = alerts_enabled
+            __props__.__dict__["discovery_logs_enabled"] = discovery_logs_enabled
             if log_analytics_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'log_analytics_workspace_id'")
-            __props__['log_analytics_workspace_id'] = log_analytics_workspace_id
-            __props__['name'] = name
-            __props__['tenant_id'] = tenant_id
+            __props__.__dict__["log_analytics_workspace_id"] = log_analytics_workspace_id
+            __props__.__dict__["name"] = name
+            __props__.__dict__["tenant_id"] = tenant_id
         super(DataConnectorMicrosoftCloudAppSecurity, __self__).__init__(
             'azure:sentinel/dataConnectorMicrosoftCloudAppSecurity:DataConnectorMicrosoftCloudAppSecurity',
             resource_name,
@@ -112,13 +343,13 @@ class DataConnectorMicrosoftCloudAppSecurity(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DataConnectorMicrosoftCloudAppSecurityState.__new__(_DataConnectorMicrosoftCloudAppSecurityState)
 
-        __props__["alerts_enabled"] = alerts_enabled
-        __props__["discovery_logs_enabled"] = discovery_logs_enabled
-        __props__["log_analytics_workspace_id"] = log_analytics_workspace_id
-        __props__["name"] = name
-        __props__["tenant_id"] = tenant_id
+        __props__.__dict__["alerts_enabled"] = alerts_enabled
+        __props__.__dict__["discovery_logs_enabled"] = discovery_logs_enabled
+        __props__.__dict__["log_analytics_workspace_id"] = log_analytics_workspace_id
+        __props__.__dict__["name"] = name
+        __props__.__dict__["tenant_id"] = tenant_id
         return DataConnectorMicrosoftCloudAppSecurity(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -160,10 +391,4 @@ class DataConnectorMicrosoftCloudAppSecurity(pulumi.CustomResource):
         The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
         """
         return pulumi.get(self, "tenant_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

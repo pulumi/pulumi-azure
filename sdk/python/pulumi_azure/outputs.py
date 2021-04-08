@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from . import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from . import _utilities
 from . import outputs
 
 __all__ = [
@@ -21,6 +21,31 @@ __all__ = [
 
 @pulumi.output_type
 class ProviderFeatures(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVault":
+            suggest = "key_vault"
+        elif key == "logAnalyticsWorkspace":
+            suggest = "log_analytics_workspace"
+        elif key == "templateDeployment":
+            suggest = "template_deployment"
+        elif key == "virtualMachine":
+            suggest = "virtual_machine"
+        elif key == "virtualMachineScaleSet":
+            suggest = "virtual_machine_scale_set"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProviderFeatures. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProviderFeatures.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProviderFeatures.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_vault: Optional['outputs.ProviderFeaturesKeyVault'] = None,
                  log_analytics_workspace: Optional['outputs.ProviderFeaturesLogAnalyticsWorkspace'] = None,
@@ -71,12 +96,28 @@ class ProviderFeatures(dict):
     def virtual_machine_scale_set(self) -> Optional['outputs.ProviderFeaturesVirtualMachineScaleSet']:
         return pulumi.get(self, "virtual_machine_scale_set")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProviderFeaturesKeyVault(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "purgeSoftDeleteOnDestroy":
+            suggest = "purge_soft_delete_on_destroy"
+        elif key == "recoverSoftDeletedKeyVaults":
+            suggest = "recover_soft_deleted_key_vaults"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProviderFeaturesKeyVault. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProviderFeaturesKeyVault.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProviderFeaturesKeyVault.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  purge_soft_delete_on_destroy: Optional[bool] = None,
                  recover_soft_deleted_key_vaults: Optional[bool] = None):
@@ -95,12 +136,26 @@ class ProviderFeaturesKeyVault(dict):
     def recover_soft_deleted_key_vaults(self) -> Optional[bool]:
         return pulumi.get(self, "recover_soft_deleted_key_vaults")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProviderFeaturesLogAnalyticsWorkspace(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "permanentlyDeleteOnDestroy":
+            suggest = "permanently_delete_on_destroy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProviderFeaturesLogAnalyticsWorkspace. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProviderFeaturesLogAnalyticsWorkspace.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProviderFeaturesLogAnalyticsWorkspace.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  permanently_delete_on_destroy: bool):
         pulumi.set(__self__, "permanently_delete_on_destroy", permanently_delete_on_destroy)
@@ -110,12 +165,26 @@ class ProviderFeaturesLogAnalyticsWorkspace(dict):
     def permanently_delete_on_destroy(self) -> bool:
         return pulumi.get(self, "permanently_delete_on_destroy")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProviderFeaturesNetwork(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "relaxedLocking":
+            suggest = "relaxed_locking"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProviderFeaturesNetwork. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProviderFeaturesNetwork.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProviderFeaturesNetwork.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  relaxed_locking: bool):
         pulumi.set(__self__, "relaxed_locking", relaxed_locking)
@@ -125,12 +194,26 @@ class ProviderFeaturesNetwork(dict):
     def relaxed_locking(self) -> bool:
         return pulumi.get(self, "relaxed_locking")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProviderFeaturesTemplateDeployment(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deleteNestedItemsDuringDeletion":
+            suggest = "delete_nested_items_during_deletion"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProviderFeaturesTemplateDeployment. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProviderFeaturesTemplateDeployment.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProviderFeaturesTemplateDeployment.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  delete_nested_items_during_deletion: bool):
         pulumi.set(__self__, "delete_nested_items_during_deletion", delete_nested_items_during_deletion)
@@ -140,12 +223,28 @@ class ProviderFeaturesTemplateDeployment(dict):
     def delete_nested_items_during_deletion(self) -> bool:
         return pulumi.get(self, "delete_nested_items_during_deletion")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProviderFeaturesVirtualMachine(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deleteOsDiskOnDeletion":
+            suggest = "delete_os_disk_on_deletion"
+        elif key == "gracefulShutdown":
+            suggest = "graceful_shutdown"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProviderFeaturesVirtualMachine. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProviderFeaturesVirtualMachine.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProviderFeaturesVirtualMachine.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  delete_os_disk_on_deletion: Optional[bool] = None,
                  graceful_shutdown: Optional[bool] = None):
@@ -164,12 +263,26 @@ class ProviderFeaturesVirtualMachine(dict):
     def graceful_shutdown(self) -> Optional[bool]:
         return pulumi.get(self, "graceful_shutdown")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProviderFeaturesVirtualMachineScaleSet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rollInstancesWhenRequired":
+            suggest = "roll_instances_when_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProviderFeaturesVirtualMachineScaleSet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProviderFeaturesVirtualMachineScaleSet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProviderFeaturesVirtualMachineScaleSet.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  roll_instances_when_required: bool):
         pulumi.set(__self__, "roll_instances_when_required", roll_instances_when_required)
@@ -178,8 +291,5 @@ class ProviderFeaturesVirtualMachineScaleSet(dict):
     @pulumi.getter(name="rollInstancesWhenRequired")
     def roll_instances_when_required(self) -> bool:
         return pulumi.get(self, "roll_instances_when_required")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

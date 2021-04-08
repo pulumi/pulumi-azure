@@ -22,41 +22,42 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:appservice/activeSlot:ActiveSlot":
-		r, err = NewActiveSlot(ctx, name, nil, pulumi.URN_(urn))
+		r = &ActiveSlot{}
 	case "azure:appservice/appService:AppService":
-		r, err = NewAppService(ctx, name, nil, pulumi.URN_(urn))
+		r = &AppService{}
 	case "azure:appservice/certificate:Certificate":
-		r, err = NewCertificate(ctx, name, nil, pulumi.URN_(urn))
+		r = &Certificate{}
 	case "azure:appservice/certificateBinding:CertificateBinding":
-		r, err = NewCertificateBinding(ctx, name, nil, pulumi.URN_(urn))
+		r = &CertificateBinding{}
 	case "azure:appservice/certificateOrder:CertificateOrder":
-		r, err = NewCertificateOrder(ctx, name, nil, pulumi.URN_(urn))
+		r = &CertificateOrder{}
 	case "azure:appservice/customHostnameBinding:CustomHostnameBinding":
-		r, err = NewCustomHostnameBinding(ctx, name, nil, pulumi.URN_(urn))
+		r = &CustomHostnameBinding{}
 	case "azure:appservice/environment:Environment":
-		r, err = NewEnvironment(ctx, name, nil, pulumi.URN_(urn))
+		r = &Environment{}
 	case "azure:appservice/functionApp:FunctionApp":
-		r, err = NewFunctionApp(ctx, name, nil, pulumi.URN_(urn))
+		r = &FunctionApp{}
 	case "azure:appservice/functionAppSlot:FunctionAppSlot":
-		r, err = NewFunctionAppSlot(ctx, name, nil, pulumi.URN_(urn))
+		r = &FunctionAppSlot{}
 	case "azure:appservice/hybridConnection:HybridConnection":
-		r, err = NewHybridConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &HybridConnection{}
 	case "azure:appservice/managedCertificate:ManagedCertificate":
-		r, err = NewManagedCertificate(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagedCertificate{}
 	case "azure:appservice/plan:Plan":
-		r, err = NewPlan(ctx, name, nil, pulumi.URN_(urn))
+		r = &Plan{}
 	case "azure:appservice/slot:Slot":
-		r, err = NewSlot(ctx, name, nil, pulumi.URN_(urn))
+		r = &Slot{}
 	case "azure:appservice/slotVirtualNetworkSwiftConnection:SlotVirtualNetworkSwiftConnection":
-		r, err = NewSlotVirtualNetworkSwiftConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &SlotVirtualNetworkSwiftConnection{}
 	case "azure:appservice/sourceCodeToken:SourceCodeToken":
-		r, err = NewSourceCodeToken(ctx, name, nil, pulumi.URN_(urn))
+		r = &SourceCodeToken{}
 	case "azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection":
-		r, err = NewVirtualNetworkSwiftConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualNetworkSwiftConnection{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

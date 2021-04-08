@@ -22,23 +22,24 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:datashare/account:Account":
-		r, err = NewAccount(ctx, name, nil, pulumi.URN_(urn))
+		r = &Account{}
 	case "azure:datashare/datasetBlobStorage:DatasetBlobStorage":
-		r, err = NewDatasetBlobStorage(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatasetBlobStorage{}
 	case "azure:datashare/datasetDataLakeGen1:DatasetDataLakeGen1":
-		r, err = NewDatasetDataLakeGen1(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatasetDataLakeGen1{}
 	case "azure:datashare/datasetDataLakeGen2:DatasetDataLakeGen2":
-		r, err = NewDatasetDataLakeGen2(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatasetDataLakeGen2{}
 	case "azure:datashare/datasetKustoCluster:DatasetKustoCluster":
-		r, err = NewDatasetKustoCluster(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatasetKustoCluster{}
 	case "azure:datashare/datasetKustoDatabase:DatasetKustoDatabase":
-		r, err = NewDatasetKustoDatabase(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatasetKustoDatabase{}
 	case "azure:datashare/share:Share":
-		r, err = NewShare(ctx, name, nil, pulumi.URN_(urn))
+		r = &Share{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

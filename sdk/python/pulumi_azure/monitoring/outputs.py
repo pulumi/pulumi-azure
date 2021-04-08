@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -92,6 +92,25 @@ __all__ = [
 
 @pulumi.output_type
 class ActionGroupArmRoleReceiver(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleId":
+            suggest = "role_id"
+        elif key == "useCommonAlertSchema":
+            suggest = "use_common_alert_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionGroupArmRoleReceiver. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionGroupArmRoleReceiver.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionGroupArmRoleReceiver.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  role_id: str,
@@ -130,12 +149,36 @@ class ActionGroupArmRoleReceiver(dict):
         """
         return pulumi.get(self, "use_common_alert_schema")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ActionGroupAutomationRunbookReceiver(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "automationAccountId":
+            suggest = "automation_account_id"
+        elif key == "isGlobalRunbook":
+            suggest = "is_global_runbook"
+        elif key == "runbookName":
+            suggest = "runbook_name"
+        elif key == "serviceUri":
+            suggest = "service_uri"
+        elif key == "webhookResourceId":
+            suggest = "webhook_resource_id"
+        elif key == "useCommonAlertSchema":
+            suggest = "use_common_alert_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionGroupAutomationRunbookReceiver. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionGroupAutomationRunbookReceiver.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionGroupAutomationRunbookReceiver.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  automation_account_id: str,
                  is_global_runbook: bool,
@@ -218,12 +261,26 @@ class ActionGroupAutomationRunbookReceiver(dict):
         """
         return pulumi.get(self, "use_common_alert_schema")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ActionGroupAzureAppPushReceiver(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailAddress":
+            suggest = "email_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionGroupAzureAppPushReceiver. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionGroupAzureAppPushReceiver.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionGroupAzureAppPushReceiver.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  email_address: str,
                  name: str):
@@ -250,12 +307,32 @@ class ActionGroupAzureAppPushReceiver(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ActionGroupAzureFunctionReceiver(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "functionAppResourceId":
+            suggest = "function_app_resource_id"
+        elif key == "functionName":
+            suggest = "function_name"
+        elif key == "httpTriggerUrl":
+            suggest = "http_trigger_url"
+        elif key == "useCommonAlertSchema":
+            suggest = "use_common_alert_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionGroupAzureFunctionReceiver. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionGroupAzureFunctionReceiver.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionGroupAzureFunctionReceiver.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  function_app_resource_id: str,
                  function_name: str,
@@ -316,12 +393,28 @@ class ActionGroupAzureFunctionReceiver(dict):
         """
         return pulumi.get(self, "use_common_alert_schema")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ActionGroupEmailReceiver(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailAddress":
+            suggest = "email_address"
+        elif key == "useCommonAlertSchema":
+            suggest = "use_common_alert_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionGroupEmailReceiver. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionGroupEmailReceiver.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionGroupEmailReceiver.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  email_address: str,
                  name: str,
@@ -360,12 +453,30 @@ class ActionGroupEmailReceiver(dict):
         """
         return pulumi.get(self, "use_common_alert_schema")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ActionGroupItsmReceiver(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionId":
+            suggest = "connection_id"
+        elif key == "ticketConfiguration":
+            suggest = "ticket_configuration"
+        elif key == "workspaceId":
+            suggest = "workspace_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionGroupItsmReceiver. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionGroupItsmReceiver.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionGroupItsmReceiver.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_id: str,
                  name: str,
@@ -425,12 +536,30 @@ class ActionGroupItsmReceiver(dict):
         """
         return pulumi.get(self, "workspace_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ActionGroupLogicAppReceiver(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "callbackUrl":
+            suggest = "callback_url"
+        elif key == "resourceId":
+            suggest = "resource_id"
+        elif key == "useCommonAlertSchema":
+            suggest = "use_common_alert_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionGroupLogicAppReceiver. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionGroupLogicAppReceiver.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionGroupLogicAppReceiver.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  callback_url: str,
                  name: str,
@@ -480,12 +609,28 @@ class ActionGroupLogicAppReceiver(dict):
         """
         return pulumi.get(self, "use_common_alert_schema")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ActionGroupSmsReceiver(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "countryCode":
+            suggest = "country_code"
+        elif key == "phoneNumber":
+            suggest = "phone_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionGroupSmsReceiver. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionGroupSmsReceiver.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionGroupSmsReceiver.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  country_code: str,
                  name: str,
@@ -523,12 +668,28 @@ class ActionGroupSmsReceiver(dict):
         """
         return pulumi.get(self, "phone_number")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ActionGroupVoiceReceiver(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "countryCode":
+            suggest = "country_code"
+        elif key == "phoneNumber":
+            suggest = "phone_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionGroupVoiceReceiver. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionGroupVoiceReceiver.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionGroupVoiceReceiver.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  country_code: str,
                  name: str,
@@ -566,12 +727,30 @@ class ActionGroupVoiceReceiver(dict):
         """
         return pulumi.get(self, "phone_number")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ActionGroupWebhookReceiver(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceUri":
+            suggest = "service_uri"
+        elif key == "aadAuth":
+            suggest = "aad_auth"
+        elif key == "useCommonAlertSchema":
+            suggest = "use_common_alert_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionGroupWebhookReceiver. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionGroupWebhookReceiver.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionGroupWebhookReceiver.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  service_uri: str,
@@ -622,12 +801,30 @@ class ActionGroupWebhookReceiver(dict):
         """
         return pulumi.get(self, "use_common_alert_schema")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ActionGroupWebhookReceiverAadAuth(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectId":
+            suggest = "object_id"
+        elif key == "identifierUri":
+            suggest = "identifier_uri"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionGroupWebhookReceiverAadAuth. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionGroupWebhookReceiverAadAuth.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionGroupWebhookReceiverAadAuth.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  object_id: str,
                  identifier_uri: Optional[str] = None,
@@ -667,12 +864,32 @@ class ActionGroupWebhookReceiverAadAuth(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ActionRuleActionGroupCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alertContext":
+            suggest = "alert_context"
+        elif key == "alertRuleId":
+            suggest = "alert_rule_id"
+        elif key == "monitorService":
+            suggest = "monitor_service"
+        elif key == "targetResourceType":
+            suggest = "target_resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionRuleActionGroupCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionRuleActionGroupCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionRuleActionGroupCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  alert_context: Optional['outputs.ActionRuleActionGroupConditionAlertContext'] = None,
                  alert_rule_id: Optional['outputs.ActionRuleActionGroupConditionAlertRuleId'] = None,
@@ -761,9 +978,6 @@ class ActionRuleActionGroupCondition(dict):
         """
         return pulumi.get(self, "target_resource_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ActionRuleActionGroupConditionAlertContext(dict):
@@ -792,9 +1006,6 @@ class ActionRuleActionGroupConditionAlertContext(dict):
         A list of values to match for a given condition.
         """
         return pulumi.get(self, "values")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -825,9 +1036,6 @@ class ActionRuleActionGroupConditionAlertRuleId(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ActionRuleActionGroupConditionDescription(dict):
@@ -856,9 +1064,6 @@ class ActionRuleActionGroupConditionDescription(dict):
         A list of values to match for a given condition.
         """
         return pulumi.get(self, "values")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -889,9 +1094,6 @@ class ActionRuleActionGroupConditionMonitor(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ActionRuleActionGroupConditionMonitorService(dict):
@@ -920,9 +1122,6 @@ class ActionRuleActionGroupConditionMonitorService(dict):
         A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Data Box Edge`, `Data Box Gateway`, `Health Platform`, `Log Analytics`, `Platform`, and `Resource Health`.
         """
         return pulumi.get(self, "values")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -953,9 +1152,6 @@ class ActionRuleActionGroupConditionSeverity(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ActionRuleActionGroupConditionTargetResourceType(dict):
@@ -985,12 +1181,26 @@ class ActionRuleActionGroupConditionTargetResourceType(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ActionRuleActionGroupScope(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceIds":
+            suggest = "resource_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionRuleActionGroupScope. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionRuleActionGroupScope.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionRuleActionGroupScope.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_ids: Sequence[str],
                  type: str):
@@ -1017,12 +1227,32 @@ class ActionRuleActionGroupScope(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ActionRuleSuppressionCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alertContext":
+            suggest = "alert_context"
+        elif key == "alertRuleId":
+            suggest = "alert_rule_id"
+        elif key == "monitorService":
+            suggest = "monitor_service"
+        elif key == "targetResourceType":
+            suggest = "target_resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionRuleSuppressionCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionRuleSuppressionCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionRuleSuppressionCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  alert_context: Optional['outputs.ActionRuleSuppressionConditionAlertContext'] = None,
                  alert_rule_id: Optional['outputs.ActionRuleSuppressionConditionAlertRuleId'] = None,
@@ -1111,9 +1341,6 @@ class ActionRuleSuppressionCondition(dict):
         """
         return pulumi.get(self, "target_resource_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ActionRuleSuppressionConditionAlertContext(dict):
@@ -1142,9 +1369,6 @@ class ActionRuleSuppressionConditionAlertContext(dict):
         A list of values to match for a given condition.
         """
         return pulumi.get(self, "values")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1175,9 +1399,6 @@ class ActionRuleSuppressionConditionAlertRuleId(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ActionRuleSuppressionConditionDescription(dict):
@@ -1206,9 +1427,6 @@ class ActionRuleSuppressionConditionDescription(dict):
         A list of values to match for a given condition.
         """
         return pulumi.get(self, "values")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1239,9 +1457,6 @@ class ActionRuleSuppressionConditionMonitor(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ActionRuleSuppressionConditionMonitorService(dict):
@@ -1270,9 +1485,6 @@ class ActionRuleSuppressionConditionMonitorService(dict):
         A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Data Box Edge`, `Data Box Gateway`, `Health Platform`, `Log Analytics`, `Platform`, and `Resource Health`.
         """
         return pulumi.get(self, "values")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1303,9 +1515,6 @@ class ActionRuleSuppressionConditionSeverity(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ActionRuleSuppressionConditionTargetResourceType(dict):
@@ -1335,12 +1544,26 @@ class ActionRuleSuppressionConditionTargetResourceType(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ActionRuleSuppressionScope(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceIds":
+            suggest = "resource_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionRuleSuppressionScope. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionRuleSuppressionScope.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionRuleSuppressionScope.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_ids: Sequence[str],
                  type: str):
@@ -1367,12 +1590,26 @@ class ActionRuleSuppressionScope(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ActionRuleSuppressionSuppression(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recurrenceType":
+            suggest = "recurrence_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionRuleSuppressionSuppression. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionRuleSuppressionSuppression.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionRuleSuppressionSuppression.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  recurrence_type: str,
                  schedule: Optional['outputs.ActionRuleSuppressionSuppressionSchedule'] = None):
@@ -1400,12 +1637,32 @@ class ActionRuleSuppressionSuppression(dict):
         """
         return pulumi.get(self, "schedule")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ActionRuleSuppressionSuppressionSchedule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endDateUtc":
+            suggest = "end_date_utc"
+        elif key == "startDateUtc":
+            suggest = "start_date_utc"
+        elif key == "recurrenceMonthlies":
+            suggest = "recurrence_monthlies"
+        elif key == "recurrenceWeeklies":
+            suggest = "recurrence_weeklies"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActionRuleSuppressionSuppressionSchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActionRuleSuppressionSuppressionSchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActionRuleSuppressionSuppressionSchedule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  end_date_utc: str,
                  start_date_utc: str,
@@ -1456,12 +1713,28 @@ class ActionRuleSuppressionSuppressionSchedule(dict):
         """
         return pulumi.get(self, "recurrence_weeklies")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ActivityLogAlertAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionGroupId":
+            suggest = "action_group_id"
+        elif key == "webhookProperties":
+            suggest = "webhook_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActivityLogAlertAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActivityLogAlertAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActivityLogAlertAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action_group_id: str,
                  webhook_properties: Optional[Mapping[str, str]] = None):
@@ -1489,12 +1762,42 @@ class ActivityLogAlertAction(dict):
         """
         return pulumi.get(self, "webhook_properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ActivityLogAlertCriteria(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "operationName":
+            suggest = "operation_name"
+        elif key == "recommendationCategory":
+            suggest = "recommendation_category"
+        elif key == "recommendationImpact":
+            suggest = "recommendation_impact"
+        elif key == "recommendationType":
+            suggest = "recommendation_type"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
+        elif key == "resourceId":
+            suggest = "resource_id"
+        elif key == "resourceProvider":
+            suggest = "resource_provider"
+        elif key == "resourceType":
+            suggest = "resource_type"
+        elif key == "subStatus":
+            suggest = "sub_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ActivityLogAlertCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ActivityLogAlertCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ActivityLogAlertCriteria.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  category: str,
                  caller: Optional[str] = None,
@@ -1654,9 +1957,6 @@ class ActivityLogAlertCriteria(dict):
         """
         return pulumi.get(self, "sub_status")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutoscaleSettingNotification(dict):
@@ -1688,12 +1988,30 @@ class AutoscaleSettingNotification(dict):
         """
         return pulumi.get(self, "webhooks")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutoscaleSettingNotificationEmail(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customEmails":
+            suggest = "custom_emails"
+        elif key == "sendToSubscriptionAdministrator":
+            suggest = "send_to_subscription_administrator"
+        elif key == "sendToSubscriptionCoAdministrator":
+            suggest = "send_to_subscription_co_administrator"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutoscaleSettingNotificationEmail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutoscaleSettingNotificationEmail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutoscaleSettingNotificationEmail.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  custom_emails: Optional[Sequence[str]] = None,
                  send_to_subscription_administrator: Optional[bool] = None,
@@ -1734,12 +2052,26 @@ class AutoscaleSettingNotificationEmail(dict):
         """
         return pulumi.get(self, "send_to_subscription_co_administrator")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutoscaleSettingNotificationWebhook(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceUri":
+            suggest = "service_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutoscaleSettingNotificationWebhook. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutoscaleSettingNotificationWebhook.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutoscaleSettingNotificationWebhook.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  service_uri: str,
                  properties: Optional[Mapping[str, str]] = None):
@@ -1767,12 +2099,26 @@ class AutoscaleSettingNotificationWebhook(dict):
         """
         return pulumi.get(self, "properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutoscaleSettingProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fixedDate":
+            suggest = "fixed_date"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutoscaleSettingProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutoscaleSettingProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutoscaleSettingProfile.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  capacity: 'outputs.AutoscaleSettingProfileCapacity',
                  name: str,
@@ -1835,9 +2181,6 @@ class AutoscaleSettingProfile(dict):
         """
         return pulumi.get(self, "rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutoscaleSettingProfileCapacity(dict):
@@ -1877,9 +2220,6 @@ class AutoscaleSettingProfileCapacity(dict):
         The minimum number of instances for this resource. Valid values are between `0` and `1000`.
         """
         return pulumi.get(self, "minimum")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1921,9 +2261,6 @@ class AutoscaleSettingProfileFixedDate(dict):
         The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
         """
         return pulumi.get(self, "timezone")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1977,12 +2314,28 @@ class AutoscaleSettingProfileRecurrence(dict):
         """
         return pulumi.get(self, "timezone")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutoscaleSettingProfileRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricTrigger":
+            suggest = "metric_trigger"
+        elif key == "scaleAction":
+            suggest = "scale_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutoscaleSettingProfileRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutoscaleSettingProfileRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutoscaleSettingProfileRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric_trigger: 'outputs.AutoscaleSettingProfileRuleMetricTrigger',
                  scale_action: 'outputs.AutoscaleSettingProfileRuleScaleAction'):
@@ -2009,12 +2362,36 @@ class AutoscaleSettingProfileRule(dict):
         """
         return pulumi.get(self, "scale_action")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutoscaleSettingProfileRuleMetricTrigger(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricName":
+            suggest = "metric_name"
+        elif key == "metricResourceId":
+            suggest = "metric_resource_id"
+        elif key == "timeAggregation":
+            suggest = "time_aggregation"
+        elif key == "timeGrain":
+            suggest = "time_grain"
+        elif key == "timeWindow":
+            suggest = "time_window"
+        elif key == "metricNamespace":
+            suggest = "metric_namespace"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutoscaleSettingProfileRuleMetricTrigger. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutoscaleSettingProfileRuleMetricTrigger.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutoscaleSettingProfileRuleMetricTrigger.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric_name: str,
                  metric_resource_id: str,
@@ -2131,9 +2508,6 @@ class AutoscaleSettingProfileRuleMetricTrigger(dict):
         """
         return pulumi.get(self, "metric_namespace")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutoscaleSettingProfileRuleMetricTriggerDimension(dict):
@@ -2173,9 +2547,6 @@ class AutoscaleSettingProfileRuleMetricTriggerDimension(dict):
         A list of dimension values.
         """
         return pulumi.get(self, "values")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2228,12 +2599,26 @@ class AutoscaleSettingProfileRuleScaleAction(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DiagnosticSettingLog(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retentionPolicy":
+            suggest = "retention_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiagnosticSettingLog. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiagnosticSettingLog.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiagnosticSettingLog.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  category: str,
                  enabled: Optional[bool] = None,
@@ -2273,9 +2658,6 @@ class DiagnosticSettingLog(dict):
         """
         return pulumi.get(self, "retention_policy")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DiagnosticSettingLogRetentionPolicy(dict):
@@ -2306,12 +2688,26 @@ class DiagnosticSettingLogRetentionPolicy(dict):
         """
         return pulumi.get(self, "days")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DiagnosticSettingMetric(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retentionPolicy":
+            suggest = "retention_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiagnosticSettingMetric. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiagnosticSettingMetric.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiagnosticSettingMetric.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  category: str,
                  enabled: Optional[bool] = None,
@@ -2351,9 +2747,6 @@ class DiagnosticSettingMetric(dict):
         """
         return pulumi.get(self, "retention_policy")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DiagnosticSettingMetricRetentionPolicy(dict):
@@ -2383,9 +2776,6 @@ class DiagnosticSettingMetricRetentionPolicy(dict):
         The number of days for which this Retention Policy should apply.
         """
         return pulumi.get(self, "days")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2417,12 +2807,28 @@ class LogProfileRetentionPolicy(dict):
         """
         return pulumi.get(self, "days")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MetricAlertAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionGroupId":
+            suggest = "action_group_id"
+        elif key == "webhookProperties":
+            suggest = "webhook_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MetricAlertAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MetricAlertAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MetricAlertAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action_group_id: str,
                  webhook_properties: Optional[Mapping[str, str]] = None):
@@ -2450,12 +2856,30 @@ class MetricAlertAction(dict):
         """
         return pulumi.get(self, "webhook_properties")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "componentId":
+            suggest = "component_id"
+        elif key == "failedLocationCount":
+            suggest = "failed_location_count"
+        elif key == "webTestId":
+            suggest = "web_test_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  component_id: str,
                  failed_location_count: int,
@@ -2493,12 +2917,30 @@ class MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria(dict):
         """
         return pulumi.get(self, "web_test_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MetricAlertCriteria(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricName":
+            suggest = "metric_name"
+        elif key == "metricNamespace":
+            suggest = "metric_namespace"
+        elif key == "skipMetricValidation":
+            suggest = "skip_metric_validation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MetricAlertCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MetricAlertCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MetricAlertCriteria.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aggregation: str,
                  metric_name: str,
@@ -2582,9 +3024,6 @@ class MetricAlertCriteria(dict):
         """
         return pulumi.get(self, "skip_metric_validation")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MetricAlertCriteriaDimension(dict):
@@ -2625,12 +3064,38 @@ class MetricAlertCriteriaDimension(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MetricAlertDynamicCriteria(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alertSensitivity":
+            suggest = "alert_sensitivity"
+        elif key == "metricName":
+            suggest = "metric_name"
+        elif key == "metricNamespace":
+            suggest = "metric_namespace"
+        elif key == "evaluationFailureCount":
+            suggest = "evaluation_failure_count"
+        elif key == "evaluationTotalCount":
+            suggest = "evaluation_total_count"
+        elif key == "ignoreDataBefore":
+            suggest = "ignore_data_before"
+        elif key == "skipMetricValidation":
+            suggest = "skip_metric_validation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MetricAlertDynamicCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MetricAlertDynamicCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MetricAlertDynamicCriteria.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aggregation: str,
                  alert_sensitivity: str,
@@ -2750,9 +3215,6 @@ class MetricAlertDynamicCriteria(dict):
         """
         return pulumi.get(self, "skip_metric_validation")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MetricAlertDynamicCriteriaDimension(dict):
@@ -2793,12 +3255,30 @@ class MetricAlertDynamicCriteriaDimension(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScheduledQueryRulesAlertAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionGroups":
+            suggest = "action_groups"
+        elif key == "customWebhookPayload":
+            suggest = "custom_webhook_payload"
+        elif key == "emailSubject":
+            suggest = "email_subject"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduledQueryRulesAlertAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduledQueryRulesAlertAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduledQueryRulesAlertAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action_groups: Sequence[str],
                  custom_webhook_payload: Optional[str] = None,
@@ -2838,12 +3318,26 @@ class ScheduledQueryRulesAlertAction(dict):
         """
         return pulumi.get(self, "email_subject")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScheduledQueryRulesAlertTrigger(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricTrigger":
+            suggest = "metric_trigger"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduledQueryRulesAlertTrigger. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduledQueryRulesAlertTrigger.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduledQueryRulesAlertTrigger.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  operator: str,
                  threshold: float,
@@ -2882,12 +3376,28 @@ class ScheduledQueryRulesAlertTrigger(dict):
         """
         return pulumi.get(self, "metric_trigger")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScheduledQueryRulesAlertTriggerMetricTrigger(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricColumn":
+            suggest = "metric_column"
+        elif key == "metricTriggerType":
+            suggest = "metric_trigger_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduledQueryRulesAlertTriggerMetricTrigger. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduledQueryRulesAlertTriggerMetricTrigger.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduledQueryRulesAlertTriggerMetricTrigger.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  metric_column: str,
                  metric_trigger_type: str,
@@ -2936,12 +3446,26 @@ class ScheduledQueryRulesAlertTriggerMetricTrigger(dict):
         """
         return pulumi.get(self, "threshold")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScheduledQueryRulesLogCriteria(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricName":
+            suggest = "metric_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduledQueryRulesLogCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduledQueryRulesLogCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduledQueryRulesLogCriteria.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dimensions: Sequence['outputs.ScheduledQueryRulesLogCriteriaDimension'],
                  metric_name: str):
@@ -2967,9 +3491,6 @@ class ScheduledQueryRulesLogCriteria(dict):
         Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
         """
         return pulumi.get(self, "metric_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -3012,12 +3533,28 @@ class ScheduledQueryRulesLogCriteriaDimension(dict):
         """
         return pulumi.get(self, "operator")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SmartDetectorAlertRuleActionGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailSubject":
+            suggest = "email_subject"
+        elif key == "webhookPayload":
+            suggest = "webhook_payload"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SmartDetectorAlertRuleActionGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SmartDetectorAlertRuleActionGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SmartDetectorAlertRuleActionGroup.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ids: Sequence[str],
                  email_subject: Optional[str] = None,
@@ -3056,9 +3593,6 @@ class SmartDetectorAlertRuleActionGroup(dict):
         A JSON String which Specifies the custom webhook payload if Webhook Receiver is specified in Monitor Action Group resource.
         """
         return pulumi.get(self, "webhook_payload")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

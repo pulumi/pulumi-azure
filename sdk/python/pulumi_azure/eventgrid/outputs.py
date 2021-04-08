@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -60,6 +60,23 @@ __all__ = [
 
 @pulumi.output_type
 class DomainInboundIpRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipMask":
+            suggest = "ip_mask"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainInboundIpRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainInboundIpRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainInboundIpRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ip_mask: str,
                  action: Optional[str] = None):
@@ -87,12 +104,28 @@ class DomainInboundIpRule(dict):
         """
         return pulumi.get(self, "action")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DomainInputMappingDefaultValues(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataVersion":
+            suggest = "data_version"
+        elif key == "eventType":
+            suggest = "event_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainInputMappingDefaultValues. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainInputMappingDefaultValues.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainInputMappingDefaultValues.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_version: Optional[str] = None,
                  event_type: Optional[str] = None,
@@ -133,12 +166,30 @@ class DomainInputMappingDefaultValues(dict):
         """
         return pulumi.get(self, "subject")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DomainInputMappingFields(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataVersion":
+            suggest = "data_version"
+        elif key == "eventTime":
+            suggest = "event_time"
+        elif key == "eventType":
+            suggest = "event_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainInputMappingFields. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainInputMappingFields.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainInputMappingFields.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_version: Optional[str] = None,
                  event_time: Optional[str] = None,
@@ -215,12 +266,48 @@ class DomainInputMappingFields(dict):
         """
         return pulumi.get(self, "topic")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventSubscriptionAdvancedFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "boolEquals":
+            suggest = "bool_equals"
+        elif key == "numberGreaterThanOrEquals":
+            suggest = "number_greater_than_or_equals"
+        elif key == "numberGreaterThans":
+            suggest = "number_greater_thans"
+        elif key == "numberIns":
+            suggest = "number_ins"
+        elif key == "numberLessThanOrEquals":
+            suggest = "number_less_than_or_equals"
+        elif key == "numberLessThans":
+            suggest = "number_less_thans"
+        elif key == "numberNotIns":
+            suggest = "number_not_ins"
+        elif key == "stringBeginsWiths":
+            suggest = "string_begins_withs"
+        elif key == "stringContains":
+            suggest = "string_contains"
+        elif key == "stringEndsWiths":
+            suggest = "string_ends_withs"
+        elif key == "stringIns":
+            suggest = "string_ins"
+        elif key == "stringNotIns":
+            suggest = "string_not_ins"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventSubscriptionAdvancedFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventSubscriptionAdvancedFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventSubscriptionAdvancedFilter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bool_equals: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterBoolEqual']] = None,
                  number_greater_than_or_equals: Optional[Sequence['outputs.EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual']] = None,
@@ -369,9 +456,6 @@ class EventSubscriptionAdvancedFilter(dict):
         """
         return pulumi.get(self, "string_not_ins")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventSubscriptionAdvancedFilterBoolEqual(dict):
@@ -400,9 +484,6 @@ class EventSubscriptionAdvancedFilterBoolEqual(dict):
         Specifies a single value to compare to when using a single value operator.
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -433,9 +514,6 @@ class EventSubscriptionAdvancedFilterNumberGreaterThan(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual(dict):
@@ -464,9 +542,6 @@ class EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual(dict):
         Specifies a single value to compare to when using a single value operator.
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -497,9 +572,6 @@ class EventSubscriptionAdvancedFilterNumberIn(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventSubscriptionAdvancedFilterNumberLessThan(dict):
@@ -528,9 +600,6 @@ class EventSubscriptionAdvancedFilterNumberLessThan(dict):
         Specifies a single value to compare to when using a single value operator.
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -561,9 +630,6 @@ class EventSubscriptionAdvancedFilterNumberLessThanOrEqual(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventSubscriptionAdvancedFilterNumberNotIn(dict):
@@ -592,9 +658,6 @@ class EventSubscriptionAdvancedFilterNumberNotIn(dict):
         Specifies an array of values to compare to when using a multiple values operator.
         """
         return pulumi.get(self, "values")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -625,9 +688,6 @@ class EventSubscriptionAdvancedFilterStringBeginsWith(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventSubscriptionAdvancedFilterStringContain(dict):
@@ -656,9 +716,6 @@ class EventSubscriptionAdvancedFilterStringContain(dict):
         Specifies an array of values to compare to when using a multiple values operator.
         """
         return pulumi.get(self, "values")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -689,9 +746,6 @@ class EventSubscriptionAdvancedFilterStringEndsWith(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventSubscriptionAdvancedFilterStringIn(dict):
@@ -720,9 +774,6 @@ class EventSubscriptionAdvancedFilterStringIn(dict):
         Specifies an array of values to compare to when using a multiple values operator.
         """
         return pulumi.get(self, "values")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -753,12 +804,30 @@ class EventSubscriptionAdvancedFilterStringNotIn(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventSubscriptionAzureFunctionEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "functionId":
+            suggest = "function_id"
+        elif key == "maxEventsPerBatch":
+            suggest = "max_events_per_batch"
+        elif key == "preferredBatchSizeInKilobytes":
+            suggest = "preferred_batch_size_in_kilobytes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventSubscriptionAzureFunctionEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventSubscriptionAzureFunctionEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventSubscriptionAzureFunctionEndpoint.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  function_id: str,
                  max_events_per_batch: Optional[int] = None,
@@ -798,12 +867,26 @@ class EventSubscriptionAzureFunctionEndpoint(dict):
         """
         return pulumi.get(self, "preferred_batch_size_in_kilobytes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventSubscriptionEventhubEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventhubId":
+            suggest = "eventhub_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventSubscriptionEventhubEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventSubscriptionEventhubEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventSubscriptionEventhubEndpoint.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  eventhub_id: Optional[str] = None):
         """
@@ -820,12 +903,26 @@ class EventSubscriptionEventhubEndpoint(dict):
         """
         return pulumi.get(self, "eventhub_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventSubscriptionHybridConnectionEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hybridConnectionId":
+            suggest = "hybrid_connection_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventSubscriptionHybridConnectionEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventSubscriptionHybridConnectionEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventSubscriptionHybridConnectionEndpoint.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  hybrid_connection_id: Optional[str] = None):
         """
@@ -842,12 +939,28 @@ class EventSubscriptionHybridConnectionEndpoint(dict):
         """
         return pulumi.get(self, "hybrid_connection_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventSubscriptionRetryPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventTimeToLive":
+            suggest = "event_time_to_live"
+        elif key == "maxDeliveryAttempts":
+            suggest = "max_delivery_attempts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventSubscriptionRetryPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventSubscriptionRetryPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventSubscriptionRetryPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  event_time_to_live: int,
                  max_delivery_attempts: int):
@@ -874,12 +987,28 @@ class EventSubscriptionRetryPolicy(dict):
         """
         return pulumi.get(self, "max_delivery_attempts")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventSubscriptionStorageBlobDeadLetterDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageAccountId":
+            suggest = "storage_account_id"
+        elif key == "storageBlobContainerName":
+            suggest = "storage_blob_container_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventSubscriptionStorageBlobDeadLetterDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventSubscriptionStorageBlobDeadLetterDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventSubscriptionStorageBlobDeadLetterDestination.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  storage_account_id: str,
                  storage_blob_container_name: str):
@@ -906,12 +1035,28 @@ class EventSubscriptionStorageBlobDeadLetterDestination(dict):
         """
         return pulumi.get(self, "storage_blob_container_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventSubscriptionStorageQueueEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queueName":
+            suggest = "queue_name"
+        elif key == "storageAccountId":
+            suggest = "storage_account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventSubscriptionStorageQueueEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventSubscriptionStorageQueueEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventSubscriptionStorageQueueEndpoint.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  queue_name: str,
                  storage_account_id: str):
@@ -938,12 +1083,30 @@ class EventSubscriptionStorageQueueEndpoint(dict):
         """
         return pulumi.get(self, "storage_account_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventSubscriptionSubjectFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "caseSensitive":
+            suggest = "case_sensitive"
+        elif key == "subjectBeginsWith":
+            suggest = "subject_begins_with"
+        elif key == "subjectEndsWith":
+            suggest = "subject_ends_with"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventSubscriptionSubjectFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventSubscriptionSubjectFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventSubscriptionSubjectFilter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  case_sensitive: Optional[bool] = None,
                  subject_begins_with: Optional[str] = None,
@@ -984,12 +1147,34 @@ class EventSubscriptionSubjectFilter(dict):
         """
         return pulumi.get(self, "subject_ends_with")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EventSubscriptionWebhookEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activeDirectoryAppIdOrUri":
+            suggest = "active_directory_app_id_or_uri"
+        elif key == "activeDirectoryTenantId":
+            suggest = "active_directory_tenant_id"
+        elif key == "baseUrl":
+            suggest = "base_url"
+        elif key == "maxEventsPerBatch":
+            suggest = "max_events_per_batch"
+        elif key == "preferredBatchSizeInKilobytes":
+            suggest = "preferred_batch_size_in_kilobytes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventSubscriptionWebhookEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventSubscriptionWebhookEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventSubscriptionWebhookEndpoint.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  url: str,
                  active_directory_app_id_or_uri: Optional[str] = None,
@@ -1065,12 +1250,48 @@ class EventSubscriptionWebhookEndpoint(dict):
         """
         return pulumi.get(self, "preferred_batch_size_in_kilobytes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemTopicEventSubscriptionAdvancedFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "boolEquals":
+            suggest = "bool_equals"
+        elif key == "numberGreaterThanOrEquals":
+            suggest = "number_greater_than_or_equals"
+        elif key == "numberGreaterThans":
+            suggest = "number_greater_thans"
+        elif key == "numberIns":
+            suggest = "number_ins"
+        elif key == "numberLessThanOrEquals":
+            suggest = "number_less_than_or_equals"
+        elif key == "numberLessThans":
+            suggest = "number_less_thans"
+        elif key == "numberNotIns":
+            suggest = "number_not_ins"
+        elif key == "stringBeginsWiths":
+            suggest = "string_begins_withs"
+        elif key == "stringContains":
+            suggest = "string_contains"
+        elif key == "stringEndsWiths":
+            suggest = "string_ends_withs"
+        elif key == "stringIns":
+            suggest = "string_ins"
+        elif key == "stringNotIns":
+            suggest = "string_not_ins"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemTopicEventSubscriptionAdvancedFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemTopicEventSubscriptionAdvancedFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemTopicEventSubscriptionAdvancedFilter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bool_equals: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterBoolEqual']] = None,
                  number_greater_than_or_equals: Optional[Sequence['outputs.SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual']] = None,
@@ -1219,9 +1440,6 @@ class SystemTopicEventSubscriptionAdvancedFilter(dict):
         """
         return pulumi.get(self, "string_not_ins")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemTopicEventSubscriptionAdvancedFilterBoolEqual(dict):
@@ -1250,9 +1468,6 @@ class SystemTopicEventSubscriptionAdvancedFilterBoolEqual(dict):
         Specifies a single value to compare to when using a single value operator.
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1283,9 +1498,6 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual(dict):
@@ -1314,9 +1526,6 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual(dict):
         Specifies a single value to compare to when using a single value operator.
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1347,9 +1556,6 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberIn(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemTopicEventSubscriptionAdvancedFilterNumberLessThan(dict):
@@ -1378,9 +1584,6 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberLessThan(dict):
         Specifies a single value to compare to when using a single value operator.
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1411,9 +1614,6 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemTopicEventSubscriptionAdvancedFilterNumberNotIn(dict):
@@ -1442,9 +1642,6 @@ class SystemTopicEventSubscriptionAdvancedFilterNumberNotIn(dict):
         Specifies an array of values to compare to when using a multiple values operator.
         """
         return pulumi.get(self, "values")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1475,9 +1672,6 @@ class SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemTopicEventSubscriptionAdvancedFilterStringContain(dict):
@@ -1506,9 +1700,6 @@ class SystemTopicEventSubscriptionAdvancedFilterStringContain(dict):
         Specifies an array of values to compare to when using a multiple values operator.
         """
         return pulumi.get(self, "values")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1539,9 +1730,6 @@ class SystemTopicEventSubscriptionAdvancedFilterStringEndsWith(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemTopicEventSubscriptionAdvancedFilterStringIn(dict):
@@ -1570,9 +1758,6 @@ class SystemTopicEventSubscriptionAdvancedFilterStringIn(dict):
         Specifies an array of values to compare to when using a multiple values operator.
         """
         return pulumi.get(self, "values")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1603,12 +1788,30 @@ class SystemTopicEventSubscriptionAdvancedFilterStringNotIn(dict):
         """
         return pulumi.get(self, "values")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemTopicEventSubscriptionAzureFunctionEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "functionId":
+            suggest = "function_id"
+        elif key == "maxEventsPerBatch":
+            suggest = "max_events_per_batch"
+        elif key == "preferredBatchSizeInKilobytes":
+            suggest = "preferred_batch_size_in_kilobytes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemTopicEventSubscriptionAzureFunctionEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemTopicEventSubscriptionAzureFunctionEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemTopicEventSubscriptionAzureFunctionEndpoint.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  function_id: str,
                  max_events_per_batch: Optional[int] = None,
@@ -1648,12 +1851,28 @@ class SystemTopicEventSubscriptionAzureFunctionEndpoint(dict):
         """
         return pulumi.get(self, "preferred_batch_size_in_kilobytes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemTopicEventSubscriptionRetryPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventTimeToLive":
+            suggest = "event_time_to_live"
+        elif key == "maxDeliveryAttempts":
+            suggest = "max_delivery_attempts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemTopicEventSubscriptionRetryPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemTopicEventSubscriptionRetryPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemTopicEventSubscriptionRetryPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  event_time_to_live: int,
                  max_delivery_attempts: int):
@@ -1680,12 +1899,28 @@ class SystemTopicEventSubscriptionRetryPolicy(dict):
         """
         return pulumi.get(self, "max_delivery_attempts")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemTopicEventSubscriptionStorageBlobDeadLetterDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageAccountId":
+            suggest = "storage_account_id"
+        elif key == "storageBlobContainerName":
+            suggest = "storage_blob_container_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemTopicEventSubscriptionStorageBlobDeadLetterDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemTopicEventSubscriptionStorageBlobDeadLetterDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemTopicEventSubscriptionStorageBlobDeadLetterDestination.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  storage_account_id: str,
                  storage_blob_container_name: str):
@@ -1712,12 +1947,28 @@ class SystemTopicEventSubscriptionStorageBlobDeadLetterDestination(dict):
         """
         return pulumi.get(self, "storage_blob_container_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemTopicEventSubscriptionStorageQueueEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queueName":
+            suggest = "queue_name"
+        elif key == "storageAccountId":
+            suggest = "storage_account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemTopicEventSubscriptionStorageQueueEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemTopicEventSubscriptionStorageQueueEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemTopicEventSubscriptionStorageQueueEndpoint.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  queue_name: str,
                  storage_account_id: str):
@@ -1744,12 +1995,30 @@ class SystemTopicEventSubscriptionStorageQueueEndpoint(dict):
         """
         return pulumi.get(self, "storage_account_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemTopicEventSubscriptionSubjectFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "caseSensitive":
+            suggest = "case_sensitive"
+        elif key == "subjectBeginsWith":
+            suggest = "subject_begins_with"
+        elif key == "subjectEndsWith":
+            suggest = "subject_ends_with"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemTopicEventSubscriptionSubjectFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemTopicEventSubscriptionSubjectFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemTopicEventSubscriptionSubjectFilter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  case_sensitive: Optional[bool] = None,
                  subject_begins_with: Optional[str] = None,
@@ -1790,12 +2059,34 @@ class SystemTopicEventSubscriptionSubjectFilter(dict):
         """
         return pulumi.get(self, "subject_ends_with")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SystemTopicEventSubscriptionWebhookEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activeDirectoryAppIdOrUri":
+            suggest = "active_directory_app_id_or_uri"
+        elif key == "activeDirectoryTenantId":
+            suggest = "active_directory_tenant_id"
+        elif key == "baseUrl":
+            suggest = "base_url"
+        elif key == "maxEventsPerBatch":
+            suggest = "max_events_per_batch"
+        elif key == "preferredBatchSizeInKilobytes":
+            suggest = "preferred_batch_size_in_kilobytes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemTopicEventSubscriptionWebhookEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemTopicEventSubscriptionWebhookEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemTopicEventSubscriptionWebhookEndpoint.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  url: str,
                  active_directory_app_id_or_uri: Optional[str] = None,
@@ -1871,12 +2162,26 @@ class SystemTopicEventSubscriptionWebhookEndpoint(dict):
         """
         return pulumi.get(self, "preferred_batch_size_in_kilobytes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicInboundIpRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipMask":
+            suggest = "ip_mask"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicInboundIpRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicInboundIpRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicInboundIpRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ip_mask: str,
                  action: Optional[str] = None):
@@ -1904,12 +2209,28 @@ class TopicInboundIpRule(dict):
         """
         return pulumi.get(self, "action")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicInputMappingDefaultValues(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataVersion":
+            suggest = "data_version"
+        elif key == "eventType":
+            suggest = "event_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicInputMappingDefaultValues. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicInputMappingDefaultValues.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicInputMappingDefaultValues.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_version: Optional[str] = None,
                  event_type: Optional[str] = None,
@@ -1950,12 +2271,30 @@ class TopicInputMappingDefaultValues(dict):
         """
         return pulumi.get(self, "subject")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TopicInputMappingFields(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataVersion":
+            suggest = "data_version"
+        elif key == "eventTime":
+            suggest = "event_time"
+        elif key == "eventType":
+            suggest = "event_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicInputMappingFields. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicInputMappingFields.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicInputMappingFields.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_version: Optional[str] = None,
                  event_time: Optional[str] = None,
@@ -2031,8 +2370,5 @@ class TopicInputMappingFields(dict):
         Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "topic")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

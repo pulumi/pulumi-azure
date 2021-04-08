@@ -5,13 +5,172 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
-__all__ = ['Provider']
+__all__ = ['ProviderArgs', 'Provider']
+
+@pulumi.input_type
+class ProviderArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 policy_signing_certificate_data: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Provider resource.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if policy_signing_certificate_data is not None:
+            pulumi.set(__self__, "policy_signing_certificate_data", policy_signing_certificate_data)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="policySigningCertificateData")
+    def policy_signing_certificate_data(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "policy_signing_certificate_data")
+
+    @policy_signing_certificate_data.setter
+    def policy_signing_certificate_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_signing_certificate_data", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _ProviderState:
+    def __init__(__self__, *,
+                 attestation_uri: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 policy_signing_certificate_data: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 trust_model: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Provider resources.
+        """
+        if attestation_uri is not None:
+            pulumi.set(__self__, "attestation_uri", attestation_uri)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if policy_signing_certificate_data is not None:
+            pulumi.set(__self__, "policy_signing_certificate_data", policy_signing_certificate_data)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if trust_model is not None:
+            pulumi.set(__self__, "trust_model", trust_model)
+
+    @property
+    @pulumi.getter(name="attestationUri")
+    def attestation_uri(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "attestation_uri")
+
+    @attestation_uri.setter
+    def attestation_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "attestation_uri", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="policySigningCertificateData")
+    def policy_signing_certificate_data(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "policy_signing_certificate_data")
+
+    @policy_signing_certificate_data.setter
+    def policy_signing_certificate_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_signing_certificate_data", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="trustModel")
+    def trust_model(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "trust_model")
+
+    @trust_model.setter
+    def trust_model(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "trust_model", value)
 
 
 class Provider(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -28,6 +187,37 @@ class Provider(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ProviderArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Create a Provider resource with the given unique name, props, and options.
+        :param str resource_name: The name of the resource.
+        :param ProviderArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ProviderArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 policy_signing_certificate_data: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -43,17 +233,17 @@ class Provider(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ProviderArgs.__new__(ProviderArgs)
 
-            __props__['location'] = location
-            __props__['name'] = name
-            __props__['policy_signing_certificate_data'] = policy_signing_certificate_data
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
+            __props__.__dict__["policy_signing_certificate_data"] = policy_signing_certificate_data
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['attestation_uri'] = None
-            __props__['trust_model'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["attestation_uri"] = None
+            __props__.__dict__["trust_model"] = None
         super(Provider, __self__).__init__(
             'azure:attestation/provider:Provider',
             resource_name,
@@ -81,15 +271,15 @@ class Provider(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ProviderState.__new__(_ProviderState)
 
-        __props__["attestation_uri"] = attestation_uri
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["policy_signing_certificate_data"] = policy_signing_certificate_data
-        __props__["resource_group_name"] = resource_group_name
-        __props__["tags"] = tags
-        __props__["trust_model"] = trust_model
+        __props__.__dict__["attestation_uri"] = attestation_uri
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["policy_signing_certificate_data"] = policy_signing_certificate_data
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["trust_model"] = trust_model
         return Provider(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -126,10 +316,4 @@ class Provider(pulumi.CustomResource):
     @pulumi.getter(name="trustModel")
     def trust_model(self) -> pulumi.Output[str]:
         return pulumi.get(self, "trust_model")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

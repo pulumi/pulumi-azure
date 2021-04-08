@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'DatasetAzureBlobSchemaColumn',
@@ -83,9 +83,6 @@ class DatasetAzureBlobSchemaColumn(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatasetCosmosDBApiSchemaColumn(dict):
@@ -128,9 +125,6 @@ class DatasetCosmosDBApiSchemaColumn(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatasetDelimitedTextAzureBlobStorageLocation(dict):
@@ -171,12 +165,26 @@ class DatasetDelimitedTextAzureBlobStorageLocation(dict):
         """
         return pulumi.get(self, "path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatasetDelimitedTextHttpServerLocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "relativeUrl":
+            suggest = "relative_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatasetDelimitedTextHttpServerLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatasetDelimitedTextHttpServerLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatasetDelimitedTextHttpServerLocation.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  filename: str,
                  path: str,
@@ -213,9 +221,6 @@ class DatasetDelimitedTextHttpServerLocation(dict):
         The base URL to the web server hosting the file.
         """
         return pulumi.get(self, "relative_url")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -259,9 +264,6 @@ class DatasetDelimitedTextSchemaColumn(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatasetHttpSchemaColumn(dict):
@@ -304,9 +306,6 @@ class DatasetHttpSchemaColumn(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatasetJsonAzureBlobStorageLocation(dict):
@@ -347,12 +346,26 @@ class DatasetJsonAzureBlobStorageLocation(dict):
         """
         return pulumi.get(self, "path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatasetJsonHttpServerLocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "relativeUrl":
+            suggest = "relative_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatasetJsonHttpServerLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatasetJsonHttpServerLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatasetJsonHttpServerLocation.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  filename: str,
                  path: str,
@@ -389,9 +402,6 @@ class DatasetJsonHttpServerLocation(dict):
         The base URL to the web server hosting the file.
         """
         return pulumi.get(self, "relative_url")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -435,9 +445,6 @@ class DatasetJsonSchemaColumn(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatasetMysqlSchemaColumn(dict):
@@ -480,9 +487,6 @@ class DatasetMysqlSchemaColumn(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatasetParquetAzureBlobStorageLocation(dict):
@@ -523,12 +527,26 @@ class DatasetParquetAzureBlobStorageLocation(dict):
         """
         return pulumi.get(self, "path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatasetParquetHttpServerLocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "relativeUrl":
+            suggest = "relative_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatasetParquetHttpServerLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatasetParquetHttpServerLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatasetParquetHttpServerLocation.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  filename: str,
                  path: str,
@@ -565,9 +583,6 @@ class DatasetParquetHttpServerLocation(dict):
         The base URL to the web server hosting the file.
         """
         return pulumi.get(self, "relative_url")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -611,9 +626,6 @@ class DatasetParquetSchemaColumn(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatasetPostgresqlSchemaColumn(dict):
@@ -655,9 +667,6 @@ class DatasetPostgresqlSchemaColumn(dict):
         Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -701,12 +710,34 @@ class DatasetSqlServerTableSchemaColumn(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FactoryGithubConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountName":
+            suggest = "account_name"
+        elif key == "branchName":
+            suggest = "branch_name"
+        elif key == "gitUrl":
+            suggest = "git_url"
+        elif key == "repositoryName":
+            suggest = "repository_name"
+        elif key == "rootFolder":
+            suggest = "root_folder"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FactoryGithubConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FactoryGithubConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FactoryGithubConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  account_name: str,
                  branch_name: str,
@@ -766,12 +797,28 @@ class FactoryGithubConfiguration(dict):
         """
         return pulumi.get(self, "root_folder")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FactoryIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FactoryIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FactoryIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FactoryIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  principal_id: Optional[str] = None,
@@ -811,12 +858,36 @@ class FactoryIdentity(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FactoryVstsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountName":
+            suggest = "account_name"
+        elif key == "branchName":
+            suggest = "branch_name"
+        elif key == "projectName":
+            suggest = "project_name"
+        elif key == "repositoryName":
+            suggest = "repository_name"
+        elif key == "rootFolder":
+            suggest = "root_folder"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FactoryVstsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FactoryVstsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FactoryVstsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  account_name: str,
                  branch_name: str,
@@ -887,12 +958,32 @@ class FactoryVstsConfiguration(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationRuntimeManagedCatalogInfo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serverEndpoint":
+            suggest = "server_endpoint"
+        elif key == "administratorLogin":
+            suggest = "administrator_login"
+        elif key == "administratorPassword":
+            suggest = "administrator_password"
+        elif key == "pricingTier":
+            suggest = "pricing_tier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeManagedCatalogInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeManagedCatalogInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeManagedCatalogInfo.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  server_endpoint: str,
                  administrator_login: Optional[str] = None,
@@ -944,12 +1035,28 @@ class IntegrationRuntimeManagedCatalogInfo(dict):
         """
         return pulumi.get(self, "pricing_tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationRuntimeManagedCustomSetupScript(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blobContainerUri":
+            suggest = "blob_container_uri"
+        elif key == "sasToken":
+            suggest = "sas_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeManagedCustomSetupScript. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeManagedCustomSetupScript.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeManagedCustomSetupScript.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  blob_container_uri: str,
                  sas_token: str):
@@ -976,12 +1083,28 @@ class IntegrationRuntimeManagedCustomSetupScript(dict):
         """
         return pulumi.get(self, "sas_token")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationRuntimeManagedVnetIntegration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetName":
+            suggest = "subnet_name"
+        elif key == "vnetId":
+            suggest = "vnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeManagedVnetIntegration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeManagedVnetIntegration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeManagedVnetIntegration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  subnet_name: str,
                  vnet_id: str):
@@ -1008,12 +1131,26 @@ class IntegrationRuntimeManagedVnetIntegration(dict):
         """
         return pulumi.get(self, "vnet_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationRuntimeSelfHostedRbacAuthorization(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeSelfHostedRbacAuthorization. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeSelfHostedRbacAuthorization.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeSelfHostedRbacAuthorization.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_id: str):
         """
@@ -1029,12 +1166,32 @@ class IntegrationRuntimeSelfHostedRbacAuthorization(dict):
         """
         return pulumi.get(self, "resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationRuntimeSsisCatalogInfo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serverEndpoint":
+            suggest = "server_endpoint"
+        elif key == "administratorLogin":
+            suggest = "administrator_login"
+        elif key == "administratorPassword":
+            suggest = "administrator_password"
+        elif key == "pricingTier":
+            suggest = "pricing_tier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeSsisCatalogInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeSsisCatalogInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeSsisCatalogInfo.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  server_endpoint: str,
                  administrator_login: Optional[str] = None,
@@ -1086,12 +1243,28 @@ class IntegrationRuntimeSsisCatalogInfo(dict):
         """
         return pulumi.get(self, "pricing_tier")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationRuntimeSsisCustomSetupScript(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blobContainerUri":
+            suggest = "blob_container_uri"
+        elif key == "sasToken":
+            suggest = "sas_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeSsisCustomSetupScript. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeSsisCustomSetupScript.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeSsisCustomSetupScript.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  blob_container_uri: str,
                  sas_token: str):
@@ -1118,12 +1291,28 @@ class IntegrationRuntimeSsisCustomSetupScript(dict):
         """
         return pulumi.get(self, "sas_token")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IntegrationRuntimeSsisVnetIntegration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetName":
+            suggest = "subnet_name"
+        elif key == "vnetId":
+            suggest = "vnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeSsisVnetIntegration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeSsisVnetIntegration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeSsisVnetIntegration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  subnet_name: str,
                  vnet_id: str):
@@ -1150,12 +1339,28 @@ class IntegrationRuntimeSsisVnetIntegration(dict):
         """
         return pulumi.get(self, "vnet_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinkedServiceSnowflakeKeyVaultPassword(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "secretName":
+            suggest = "secret_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkedServiceSnowflakeKeyVaultPassword. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkedServiceSnowflakeKeyVaultPassword.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkedServiceSnowflakeKeyVaultPassword.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: str,
                  secret_name: str):
@@ -1182,12 +1387,28 @@ class LinkedServiceSnowflakeKeyVaultPassword(dict):
         """
         return pulumi.get(self, "secret_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinkedServiceSqlServerKeyVaultPassword(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "secretName":
+            suggest = "secret_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkedServiceSqlServerKeyVaultPassword. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkedServiceSqlServerKeyVaultPassword.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkedServiceSqlServerKeyVaultPassword.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: str,
                  secret_name: str):
@@ -1214,12 +1435,28 @@ class LinkedServiceSqlServerKeyVaultPassword(dict):
         """
         return pulumi.get(self, "secret_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinkedServiceSynapseKeyVaultPassword(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "secretName":
+            suggest = "secret_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkedServiceSynapseKeyVaultPassword. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkedServiceSynapseKeyVaultPassword.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkedServiceSynapseKeyVaultPassword.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  linked_service_name: str,
                  secret_name: str):
@@ -1245,9 +1482,6 @@ class LinkedServiceSynapseKeyVaultPassword(dict):
         Specifies the secret name in Azure Key Vault that stores Synapse password.
         """
         return pulumi.get(self, "secret_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

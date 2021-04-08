@@ -22,23 +22,24 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:sql/activeDirectoryAdministrator:ActiveDirectoryAdministrator":
-		r, err = NewActiveDirectoryAdministrator(ctx, name, nil, pulumi.URN_(urn))
+		r = &ActiveDirectoryAdministrator{}
 	case "azure:sql/database:Database":
-		r, err = NewDatabase(ctx, name, nil, pulumi.URN_(urn))
+		r = &Database{}
 	case "azure:sql/elasticPool:ElasticPool":
-		r, err = NewElasticPool(ctx, name, nil, pulumi.URN_(urn))
+		r = &ElasticPool{}
 	case "azure:sql/failoverGroup:FailoverGroup":
-		r, err = NewFailoverGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &FailoverGroup{}
 	case "azure:sql/firewallRule:FirewallRule":
-		r, err = NewFirewallRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &FirewallRule{}
 	case "azure:sql/sqlServer:SqlServer":
-		r, err = NewSqlServer(ctx, name, nil, pulumi.URN_(urn))
+		r = &SqlServer{}
 	case "azure:sql/virtualNetworkRule:VirtualNetworkRule":
-		r, err = NewVirtualNetworkRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualNetworkRule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'WorkspaceCustomParameters',
@@ -14,6 +14,29 @@ __all__ = [
 
 @pulumi.output_type
 class WorkspaceCustomParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "noPublicIp":
+            suggest = "no_public_ip"
+        elif key == "privateSubnetName":
+            suggest = "private_subnet_name"
+        elif key == "publicSubnetName":
+            suggest = "public_subnet_name"
+        elif key == "virtualNetworkId":
+            suggest = "virtual_network_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceCustomParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceCustomParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceCustomParameters.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  no_public_ip: Optional[bool] = None,
                  private_subnet_name: Optional[str] = None,
@@ -65,8 +88,5 @@ class WorkspaceCustomParameters(dict):
         The ID of a Virtual Network where this Databricks Cluster should be created.
         """
         return pulumi.get(self, "virtual_network_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

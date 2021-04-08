@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -43,9 +43,6 @@ class ModuleModuleLink(dict):
     def hash(self) -> Optional['outputs.ModuleModuleLinkHash']:
         return pulumi.get(self, "hash")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ModuleModuleLinkHash(dict):
@@ -65,12 +62,30 @@ class ModuleModuleLinkHash(dict):
     def value(self) -> str:
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RunBookJobSchedule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scheduleName":
+            suggest = "schedule_name"
+        elif key == "jobScheduleId":
+            suggest = "job_schedule_id"
+        elif key == "runOn":
+            suggest = "run_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RunBookJobSchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RunBookJobSchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RunBookJobSchedule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  schedule_name: str,
                  job_schedule_id: Optional[str] = None,
@@ -103,9 +118,6 @@ class RunBookJobSchedule(dict):
     @pulumi.getter(name="runOn")
     def run_on(self) -> Optional[str]:
         return pulumi.get(self, "run_on")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -141,9 +153,6 @@ class RunBookPublishContentLink(dict):
     def version(self) -> Optional[str]:
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RunBookPublishContentLinkHash(dict):
@@ -162,9 +171,6 @@ class RunBookPublishContentLinkHash(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -194,8 +200,5 @@ class ScheduleMonthlyOccurrence(dict):
         Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
         """
         return pulumi.get(self, "occurrence")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

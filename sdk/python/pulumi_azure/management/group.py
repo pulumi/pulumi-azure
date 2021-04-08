@@ -5,13 +5,195 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
-__all__ = ['Group']
+__all__ = ['GroupArgs', 'Group']
+
+@pulumi.input_type
+class GroupArgs:
+    def __init__(__self__, *,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 group_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parent_management_group_id: Optional[pulumi.Input[str]] = None,
+                 subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Group resource.
+        :param pulumi.Input[str] display_name: A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
+        :param pulumi.Input[str] group_id: The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] parent_management_group_id: The ID of the Parent Management Group. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subscription_ids: A list of Subscription GUIDs which should be assigned to the Management Group.
+        """
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if group_id is not None:
+            warnings.warn("""Deprecated in favour of `name`""", DeprecationWarning)
+            pulumi.log.warn("""group_id is deprecated: Deprecated in favour of `name`""")
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parent_management_group_id is not None:
+            pulumi.set(__self__, "parent_management_group_id", parent_management_group_id)
+        if subscription_ids is not None:
+            pulumi.set(__self__, "subscription_ids", subscription_ids)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "group_id")
+
+    @group_id.setter
+    def group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="parentManagementGroupId")
+    def parent_management_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Parent Management Group. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "parent_management_group_id")
+
+    @parent_management_group_id.setter
+    def parent_management_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parent_management_group_id", value)
+
+    @property
+    @pulumi.getter(name="subscriptionIds")
+    def subscription_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Subscription GUIDs which should be assigned to the Management Group.
+        """
+        return pulumi.get(self, "subscription_ids")
+
+    @subscription_ids.setter
+    def subscription_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "subscription_ids", value)
+
+
+@pulumi.input_type
+class _GroupState:
+    def __init__(__self__, *,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 group_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parent_management_group_id: Optional[pulumi.Input[str]] = None,
+                 subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Group resources.
+        :param pulumi.Input[str] display_name: A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
+        :param pulumi.Input[str] group_id: The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] parent_management_group_id: The ID of the Parent Management Group. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subscription_ids: A list of Subscription GUIDs which should be assigned to the Management Group.
+        """
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if group_id is not None:
+            warnings.warn("""Deprecated in favour of `name`""", DeprecationWarning)
+            pulumi.log.warn("""group_id is deprecated: Deprecated in favour of `name`""")
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parent_management_group_id is not None:
+            pulumi.set(__self__, "parent_management_group_id", parent_management_group_id)
+        if subscription_ids is not None:
+            pulumi.set(__self__, "subscription_ids", subscription_ids)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "group_id")
+
+    @group_id.setter
+    def group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="parentManagementGroupId")
+    def parent_management_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Parent Management Group. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "parent_management_group_id")
+
+    @parent_management_group_id.setter
+    def parent_management_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parent_management_group_id", value)
+
+    @property
+    @pulumi.getter(name="subscriptionIds")
+    def subscription_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Subscription GUIDs which should be assigned to the Management Group.
+        """
+        return pulumi.get(self, "subscription_ids")
+
+    @subscription_ids.setter
+    def subscription_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "subscription_ids", value)
 
 
 class Group(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -61,6 +243,65 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] parent_management_group_id: The ID of the Parent Management Group. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subscription_ids: A list of Subscription GUIDs which should be assigned to the Management Group.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[GroupArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Management Group.
+
+        !> **Note:** Configuring `subscription_ids` is not supported when using the `management.GroupSubscriptionAssociation` resource, results will be unpredictable.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_subscription()
+        example_parent = azure.management.Group("exampleParent",
+            display_name="ParentGroup",
+            subscription_ids=[current.subscription_id])
+        example_child = azure.management.Group("exampleChild",
+            display_name="ChildGroup",
+            parent_management_group_id=example_parent.id,
+            subscription_ids=[current.subscription_id])
+        # other subscription IDs can go here
+        ```
+
+        ## Import
+
+        Management Groups can be imported using the `management group resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:management/group:Group example /providers/Microsoft.Management/managementGroups/group1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param GroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(GroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 group_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parent_management_group_id: Optional[pulumi.Input[str]] = None,
+                 subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -76,16 +317,16 @@ class Group(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = GroupArgs.__new__(GroupArgs)
 
-            __props__['display_name'] = display_name
+            __props__.__dict__["display_name"] = display_name
             if group_id is not None and not opts.urn:
                 warnings.warn("""Deprecated in favour of `name`""", DeprecationWarning)
                 pulumi.log.warn("""group_id is deprecated: Deprecated in favour of `name`""")
-            __props__['group_id'] = group_id
-            __props__['name'] = name
-            __props__['parent_management_group_id'] = parent_management_group_id
-            __props__['subscription_ids'] = subscription_ids
+            __props__.__dict__["group_id"] = group_id
+            __props__.__dict__["name"] = name
+            __props__.__dict__["parent_management_group_id"] = parent_management_group_id
+            __props__.__dict__["subscription_ids"] = subscription_ids
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:managementgroups/managementGroup:ManagementGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Group, __self__).__init__(
@@ -118,13 +359,13 @@ class Group(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _GroupState.__new__(_GroupState)
 
-        __props__["display_name"] = display_name
-        __props__["group_id"] = group_id
-        __props__["name"] = name
-        __props__["parent_management_group_id"] = parent_management_group_id
-        __props__["subscription_ids"] = subscription_ids
+        __props__.__dict__["display_name"] = display_name
+        __props__.__dict__["group_id"] = group_id
+        __props__.__dict__["name"] = name
+        __props__.__dict__["parent_management_group_id"] = parent_management_group_id
+        __props__.__dict__["subscription_ids"] = subscription_ids
         return Group(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -166,10 +407,4 @@ class Group(pulumi.CustomResource):
         A list of Subscription GUIDs which should be assigned to the Management Group.
         """
         return pulumi.get(self, "subscription_ids")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

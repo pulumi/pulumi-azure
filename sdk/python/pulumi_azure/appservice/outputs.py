@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -104,6 +104,37 @@ __all__ = [
 
 @pulumi.output_type
 class AppServiceAuthSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activeDirectory":
+            suggest = "active_directory"
+        elif key == "additionalLoginParams":
+            suggest = "additional_login_params"
+        elif key == "allowedExternalRedirectUrls":
+            suggest = "allowed_external_redirect_urls"
+        elif key == "defaultProvider":
+            suggest = "default_provider"
+        elif key == "runtimeVersion":
+            suggest = "runtime_version"
+        elif key == "tokenRefreshExtensionHours":
+            suggest = "token_refresh_extension_hours"
+        elif key == "tokenStoreEnabled":
+            suggest = "token_store_enabled"
+        elif key == "unauthenticatedClientAction":
+            suggest = "unauthenticated_client_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppServiceAuthSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppServiceAuthSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppServiceAuthSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: bool,
                  active_directory: Optional['outputs.AppServiceAuthSettingsActiveDirectory'] = None,
@@ -275,12 +306,30 @@ class AppServiceAuthSettings(dict):
         """
         return pulumi.get(self, "unauthenticated_client_action")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AppServiceAuthSettingsActiveDirectory(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "allowedAudiences":
+            suggest = "allowed_audiences"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppServiceAuthSettingsActiveDirectory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppServiceAuthSettingsActiveDirectory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppServiceAuthSettingsActiveDirectory.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: str,
                  allowed_audiences: Optional[Sequence[str]] = None,
@@ -320,12 +369,30 @@ class AppServiceAuthSettingsActiveDirectory(dict):
         """
         return pulumi.get(self, "client_secret")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AppServiceAuthSettingsFacebook(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appId":
+            suggest = "app_id"
+        elif key == "appSecret":
+            suggest = "app_secret"
+        elif key == "oauthScopes":
+            suggest = "oauth_scopes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppServiceAuthSettingsFacebook. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppServiceAuthSettingsFacebook.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppServiceAuthSettingsFacebook.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  app_id: str,
                  app_secret: str,
@@ -364,12 +431,30 @@ class AppServiceAuthSettingsFacebook(dict):
         """
         return pulumi.get(self, "oauth_scopes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AppServiceAuthSettingsGoogle(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "oauthScopes":
+            suggest = "oauth_scopes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppServiceAuthSettingsGoogle. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppServiceAuthSettingsGoogle.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppServiceAuthSettingsGoogle.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: str,
                  client_secret: str,
@@ -408,12 +493,30 @@ class AppServiceAuthSettingsGoogle(dict):
         """
         return pulumi.get(self, "oauth_scopes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AppServiceAuthSettingsMicrosoft(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "oauthScopes":
+            suggest = "oauth_scopes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppServiceAuthSettingsMicrosoft. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppServiceAuthSettingsMicrosoft.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppServiceAuthSettingsMicrosoft.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: str,
                  client_secret: str,
@@ -452,12 +555,28 @@ class AppServiceAuthSettingsMicrosoft(dict):
         """
         return pulumi.get(self, "oauth_scopes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AppServiceAuthSettingsTwitter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "consumerKey":
+            suggest = "consumer_key"
+        elif key == "consumerSecret":
+            suggest = "consumer_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppServiceAuthSettingsTwitter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppServiceAuthSettingsTwitter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppServiceAuthSettingsTwitter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  consumer_key: str,
                  consumer_secret: str):
@@ -474,12 +593,26 @@ class AppServiceAuthSettingsTwitter(dict):
     def consumer_secret(self) -> str:
         return pulumi.get(self, "consumer_secret")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AppServiceBackup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageAccountUrl":
+            suggest = "storage_account_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppServiceBackup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppServiceBackup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppServiceBackup.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  schedule: 'outputs.AppServiceBackupSchedule',
@@ -529,12 +662,34 @@ class AppServiceBackup(dict):
         """
         return pulumi.get(self, "enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AppServiceBackupSchedule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "frequencyInterval":
+            suggest = "frequency_interval"
+        elif key == "frequencyUnit":
+            suggest = "frequency_unit"
+        elif key == "keepAtLeastOneBackup":
+            suggest = "keep_at_least_one_backup"
+        elif key == "retentionPeriodInDays":
+            suggest = "retention_period_in_days"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppServiceBackupSchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppServiceBackupSchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppServiceBackupSchedule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  frequency_interval: int,
                  frequency_unit: str,
@@ -597,9 +752,6 @@ class AppServiceBackupSchedule(dict):
         """
         return pulumi.get(self, "start_time")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AppServiceConnectionString(dict):
@@ -640,12 +792,30 @@ class AppServiceConnectionString(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AppServiceIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppServiceIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppServiceIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppServiceIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  identity_ids: Optional[Sequence[str]] = None,
@@ -697,12 +867,32 @@ class AppServiceIdentity(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AppServiceLogs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationLogs":
+            suggest = "application_logs"
+        elif key == "detailedErrorMessagesEnabled":
+            suggest = "detailed_error_messages_enabled"
+        elif key == "failedRequestTracingEnabled":
+            suggest = "failed_request_tracing_enabled"
+        elif key == "httpLogs":
+            suggest = "http_logs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppServiceLogs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppServiceLogs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppServiceLogs.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  application_logs: Optional['outputs.AppServiceLogsApplicationLogs'] = None,
                  detailed_error_messages_enabled: Optional[bool] = None,
@@ -755,12 +945,28 @@ class AppServiceLogs(dict):
         """
         return pulumi.get(self, "http_logs")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AppServiceLogsApplicationLogs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureBlobStorage":
+            suggest = "azure_blob_storage"
+        elif key == "fileSystemLevel":
+            suggest = "file_system_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppServiceLogsApplicationLogs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppServiceLogsApplicationLogs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppServiceLogsApplicationLogs.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  azure_blob_storage: Optional['outputs.AppServiceLogsApplicationLogsAzureBlobStorage'] = None,
                  file_system_level: Optional[str] = None):
@@ -785,12 +991,28 @@ class AppServiceLogsApplicationLogs(dict):
     def file_system_level(self) -> Optional[str]:
         return pulumi.get(self, "file_system_level")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AppServiceLogsApplicationLogsAzureBlobStorage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retentionInDays":
+            suggest = "retention_in_days"
+        elif key == "sasUrl":
+            suggest = "sas_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppServiceLogsApplicationLogsAzureBlobStorage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppServiceLogsApplicationLogsAzureBlobStorage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppServiceLogsApplicationLogsAzureBlobStorage.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  level: str,
                  retention_in_days: int,
@@ -828,12 +1050,28 @@ class AppServiceLogsApplicationLogsAzureBlobStorage(dict):
         """
         return pulumi.get(self, "sas_url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AppServiceLogsHttpLogs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureBlobStorage":
+            suggest = "azure_blob_storage"
+        elif key == "fileSystem":
+            suggest = "file_system"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppServiceLogsHttpLogs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppServiceLogsHttpLogs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppServiceLogsHttpLogs.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  azure_blob_storage: Optional['outputs.AppServiceLogsHttpLogsAzureBlobStorage'] = None,
                  file_system: Optional['outputs.AppServiceLogsHttpLogsFileSystem'] = None):
@@ -862,12 +1100,28 @@ class AppServiceLogsHttpLogs(dict):
         """
         return pulumi.get(self, "file_system")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AppServiceLogsHttpLogsAzureBlobStorage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retentionInDays":
+            suggest = "retention_in_days"
+        elif key == "sasUrl":
+            suggest = "sas_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppServiceLogsHttpLogsAzureBlobStorage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppServiceLogsHttpLogsAzureBlobStorage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppServiceLogsHttpLogsAzureBlobStorage.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  retention_in_days: int,
                  sas_url: str):
@@ -894,12 +1148,28 @@ class AppServiceLogsHttpLogsAzureBlobStorage(dict):
         """
         return pulumi.get(self, "sas_url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AppServiceLogsHttpLogsFileSystem(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retentionInDays":
+            suggest = "retention_in_days"
+        elif key == "retentionInMb":
+            suggest = "retention_in_mb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppServiceLogsHttpLogsFileSystem. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppServiceLogsHttpLogsFileSystem.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppServiceLogsHttpLogsFileSystem.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  retention_in_days: int,
                  retention_in_mb: int):
@@ -926,12 +1196,78 @@ class AppServiceLogsHttpLogsFileSystem(dict):
         """
         return pulumi.get(self, "retention_in_mb")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AppServiceSiteConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alwaysOn":
+            suggest = "always_on"
+        elif key == "appCommandLine":
+            suggest = "app_command_line"
+        elif key == "autoSwapSlotName":
+            suggest = "auto_swap_slot_name"
+        elif key == "defaultDocuments":
+            suggest = "default_documents"
+        elif key == "dotnetFrameworkVersion":
+            suggest = "dotnet_framework_version"
+        elif key == "ftpsState":
+            suggest = "ftps_state"
+        elif key == "healthCheckPath":
+            suggest = "health_check_path"
+        elif key == "http2Enabled":
+            suggest = "http2_enabled"
+        elif key == "ipRestrictions":
+            suggest = "ip_restrictions"
+        elif key == "javaContainer":
+            suggest = "java_container"
+        elif key == "javaContainerVersion":
+            suggest = "java_container_version"
+        elif key == "javaVersion":
+            suggest = "java_version"
+        elif key == "linuxFxVersion":
+            suggest = "linux_fx_version"
+        elif key == "localMysqlEnabled":
+            suggest = "local_mysql_enabled"
+        elif key == "managedPipelineMode":
+            suggest = "managed_pipeline_mode"
+        elif key == "minTlsVersion":
+            suggest = "min_tls_version"
+        elif key == "numberOfWorkers":
+            suggest = "number_of_workers"
+        elif key == "phpVersion":
+            suggest = "php_version"
+        elif key == "pythonVersion":
+            suggest = "python_version"
+        elif key == "remoteDebuggingEnabled":
+            suggest = "remote_debugging_enabled"
+        elif key == "remoteDebuggingVersion":
+            suggest = "remote_debugging_version"
+        elif key == "scmIpRestrictions":
+            suggest = "scm_ip_restrictions"
+        elif key == "scmType":
+            suggest = "scm_type"
+        elif key == "scmUseMainIpRestriction":
+            suggest = "scm_use_main_ip_restriction"
+        elif key == "use32BitWorkerProcess":
+            suggest = "use32_bit_worker_process"
+        elif key == "websocketsEnabled":
+            suggest = "websockets_enabled"
+        elif key == "windowsFxVersion":
+            suggest = "windows_fx_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppServiceSiteConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppServiceSiteConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppServiceSiteConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  always_on: Optional[bool] = None,
                  app_command_line: Optional[str] = None,
@@ -1268,12 +1604,28 @@ class AppServiceSiteConfig(dict):
         """
         return pulumi.get(self, "windows_fx_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AppServiceSiteConfigCors(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedOrigins":
+            suggest = "allowed_origins"
+        elif key == "supportCredentials":
+            suggest = "support_credentials"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppServiceSiteConfigCors. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppServiceSiteConfigCors.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppServiceSiteConfigCors.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allowed_origins: Sequence[str],
                  support_credentials: Optional[bool] = None):
@@ -1301,12 +1653,32 @@ class AppServiceSiteConfigCors(dict):
         """
         return pulumi.get(self, "support_credentials")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AppServiceSiteConfigIpRestriction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "serviceTag":
+            suggest = "service_tag"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkSubnetId":
+            suggest = "virtual_network_subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppServiceSiteConfigIpRestriction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppServiceSiteConfigIpRestriction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppServiceSiteConfigIpRestriction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: Optional[str] = None,
                  ip_address: Optional[str] = None,
@@ -1391,12 +1763,32 @@ class AppServiceSiteConfigIpRestriction(dict):
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AppServiceSiteConfigScmIpRestriction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "serviceTag":
+            suggest = "service_tag"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkSubnetId":
+            suggest = "virtual_network_subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppServiceSiteConfigScmIpRestriction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppServiceSiteConfigScmIpRestriction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppServiceSiteConfigScmIpRestriction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: Optional[str] = None,
                  ip_address: Optional[str] = None,
@@ -1481,9 +1873,6 @@ class AppServiceSiteConfigScmIpRestriction(dict):
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AppServiceSiteCredential(dict):
@@ -1515,12 +1904,32 @@ class AppServiceSiteCredential(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AppServiceSourceControl(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "manualIntegration":
+            suggest = "manual_integration"
+        elif key == "repoUrl":
+            suggest = "repo_url"
+        elif key == "rollbackEnabled":
+            suggest = "rollback_enabled"
+        elif key == "useMercurial":
+            suggest = "use_mercurial"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppServiceSourceControl. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppServiceSourceControl.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppServiceSourceControl.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  branch: Optional[str] = None,
                  manual_integration: Optional[bool] = None,
@@ -1585,12 +1994,32 @@ class AppServiceSourceControl(dict):
         """
         return pulumi.get(self, "use_mercurial")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AppServiceStorageAccount(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessKey":
+            suggest = "access_key"
+        elif key == "accountName":
+            suggest = "account_name"
+        elif key == "shareName":
+            suggest = "share_name"
+        elif key == "mountPath":
+            suggest = "mount_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppServiceStorageAccount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppServiceStorageAccount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppServiceStorageAccount.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  access_key: str,
                  account_name: str,
@@ -1662,12 +2091,32 @@ class AppServiceStorageAccount(dict):
         """
         return pulumi.get(self, "mount_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CertificateOrderCertificate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateName":
+            suggest = "certificate_name"
+        elif key == "keyVaultId":
+            suggest = "key_vault_id"
+        elif key == "keyVaultSecretName":
+            suggest = "key_vault_secret_name"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateOrderCertificate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateOrderCertificate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateOrderCertificate.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_name: Optional[str] = None,
                  key_vault_id: Optional[str] = None,
@@ -1720,9 +2169,6 @@ class CertificateOrderCertificate(dict):
         """
         return pulumi.get(self, "provisioning_state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EnvironmentClusterSetting(dict):
@@ -1752,12 +2198,40 @@ class EnvironmentClusterSetting(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionAppAuthSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activeDirectory":
+            suggest = "active_directory"
+        elif key == "additionalLoginParams":
+            suggest = "additional_login_params"
+        elif key == "allowedExternalRedirectUrls":
+            suggest = "allowed_external_redirect_urls"
+        elif key == "defaultProvider":
+            suggest = "default_provider"
+        elif key == "runtimeVersion":
+            suggest = "runtime_version"
+        elif key == "tokenRefreshExtensionHours":
+            suggest = "token_refresh_extension_hours"
+        elif key == "tokenStoreEnabled":
+            suggest = "token_store_enabled"
+        elif key == "unauthenticatedClientAction":
+            suggest = "unauthenticated_client_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionAppAuthSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionAppAuthSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionAppAuthSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: bool,
                  active_directory: Optional['outputs.FunctionAppAuthSettingsActiveDirectory'] = None,
@@ -1929,12 +2403,30 @@ class FunctionAppAuthSettings(dict):
         """
         return pulumi.get(self, "unauthenticated_client_action")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionAppAuthSettingsActiveDirectory(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "allowedAudiences":
+            suggest = "allowed_audiences"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionAppAuthSettingsActiveDirectory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionAppAuthSettingsActiveDirectory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionAppAuthSettingsActiveDirectory.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: str,
                  allowed_audiences: Optional[Sequence[str]] = None,
@@ -1974,12 +2466,30 @@ class FunctionAppAuthSettingsActiveDirectory(dict):
         """
         return pulumi.get(self, "client_secret")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionAppAuthSettingsFacebook(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appId":
+            suggest = "app_id"
+        elif key == "appSecret":
+            suggest = "app_secret"
+        elif key == "oauthScopes":
+            suggest = "oauth_scopes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionAppAuthSettingsFacebook. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionAppAuthSettingsFacebook.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionAppAuthSettingsFacebook.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  app_id: str,
                  app_secret: str,
@@ -2018,12 +2528,30 @@ class FunctionAppAuthSettingsFacebook(dict):
         """
         return pulumi.get(self, "oauth_scopes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionAppAuthSettingsGoogle(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "oauthScopes":
+            suggest = "oauth_scopes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionAppAuthSettingsGoogle. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionAppAuthSettingsGoogle.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionAppAuthSettingsGoogle.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: str,
                  client_secret: str,
@@ -2062,12 +2590,30 @@ class FunctionAppAuthSettingsGoogle(dict):
         """
         return pulumi.get(self, "oauth_scopes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionAppAuthSettingsMicrosoft(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "oauthScopes":
+            suggest = "oauth_scopes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionAppAuthSettingsMicrosoft. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionAppAuthSettingsMicrosoft.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionAppAuthSettingsMicrosoft.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: str,
                  client_secret: str,
@@ -2106,12 +2652,28 @@ class FunctionAppAuthSettingsMicrosoft(dict):
         """
         return pulumi.get(self, "oauth_scopes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionAppAuthSettingsTwitter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "consumerKey":
+            suggest = "consumer_key"
+        elif key == "consumerSecret":
+            suggest = "consumer_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionAppAuthSettingsTwitter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionAppAuthSettingsTwitter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionAppAuthSettingsTwitter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  consumer_key: str,
                  consumer_secret: str):
@@ -2127,9 +2689,6 @@ class FunctionAppAuthSettingsTwitter(dict):
     @pulumi.getter(name="consumerSecret")
     def consumer_secret(self) -> str:
         return pulumi.get(self, "consumer_secret")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2171,12 +2730,30 @@ class FunctionAppConnectionString(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionAppIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionAppIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionAppIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionAppIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  identity_ids: Optional[Sequence[str]] = None,
@@ -2228,12 +2805,52 @@ class FunctionAppIdentity(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionAppSiteConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alwaysOn":
+            suggest = "always_on"
+        elif key == "autoSwapSlotName":
+            suggest = "auto_swap_slot_name"
+        elif key == "ftpsState":
+            suggest = "ftps_state"
+        elif key == "healthCheckPath":
+            suggest = "health_check_path"
+        elif key == "http2Enabled":
+            suggest = "http2_enabled"
+        elif key == "ipRestrictions":
+            suggest = "ip_restrictions"
+        elif key == "linuxFxVersion":
+            suggest = "linux_fx_version"
+        elif key == "minTlsVersion":
+            suggest = "min_tls_version"
+        elif key == "preWarmedInstanceCount":
+            suggest = "pre_warmed_instance_count"
+        elif key == "scmIpRestrictions":
+            suggest = "scm_ip_restrictions"
+        elif key == "scmType":
+            suggest = "scm_type"
+        elif key == "scmUseMainIpRestriction":
+            suggest = "scm_use_main_ip_restriction"
+        elif key == "use32BitWorkerProcess":
+            suggest = "use32_bit_worker_process"
+        elif key == "websocketsEnabled":
+            suggest = "websockets_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionAppSiteConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionAppSiteConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionAppSiteConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  always_on: Optional[bool] = None,
                  auto_swap_slot_name: Optional[str] = None,
@@ -2414,12 +3031,28 @@ class FunctionAppSiteConfig(dict):
         """
         return pulumi.get(self, "websockets_enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionAppSiteConfigCors(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedOrigins":
+            suggest = "allowed_origins"
+        elif key == "supportCredentials":
+            suggest = "support_credentials"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionAppSiteConfigCors. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionAppSiteConfigCors.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionAppSiteConfigCors.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allowed_origins: Sequence[str],
                  support_credentials: Optional[bool] = None):
@@ -2447,12 +3080,32 @@ class FunctionAppSiteConfigCors(dict):
         """
         return pulumi.get(self, "support_credentials")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionAppSiteConfigIpRestriction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "serviceTag":
+            suggest = "service_tag"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkSubnetId":
+            suggest = "virtual_network_subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionAppSiteConfigIpRestriction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionAppSiteConfigIpRestriction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionAppSiteConfigIpRestriction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: Optional[str] = None,
                  ip_address: Optional[str] = None,
@@ -2537,12 +3190,32 @@ class FunctionAppSiteConfigIpRestriction(dict):
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionAppSiteConfigScmIpRestriction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "serviceTag":
+            suggest = "service_tag"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkSubnetId":
+            suggest = "virtual_network_subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionAppSiteConfigScmIpRestriction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionAppSiteConfigScmIpRestriction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionAppSiteConfigScmIpRestriction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: Optional[str] = None,
                  ip_address: Optional[str] = None,
@@ -2627,9 +3300,6 @@ class FunctionAppSiteConfigScmIpRestriction(dict):
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionAppSiteCredential(dict):
@@ -2661,12 +3331,40 @@ class FunctionAppSiteCredential(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionAppSlotAuthSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activeDirectory":
+            suggest = "active_directory"
+        elif key == "additionalLoginParams":
+            suggest = "additional_login_params"
+        elif key == "allowedExternalRedirectUrls":
+            suggest = "allowed_external_redirect_urls"
+        elif key == "defaultProvider":
+            suggest = "default_provider"
+        elif key == "runtimeVersion":
+            suggest = "runtime_version"
+        elif key == "tokenRefreshExtensionHours":
+            suggest = "token_refresh_extension_hours"
+        elif key == "tokenStoreEnabled":
+            suggest = "token_store_enabled"
+        elif key == "unauthenticatedClientAction":
+            suggest = "unauthenticated_client_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionAppSlotAuthSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionAppSlotAuthSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionAppSlotAuthSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: bool,
                  active_directory: Optional['outputs.FunctionAppSlotAuthSettingsActiveDirectory'] = None,
@@ -2838,12 +3536,30 @@ class FunctionAppSlotAuthSettings(dict):
         """
         return pulumi.get(self, "unauthenticated_client_action")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionAppSlotAuthSettingsActiveDirectory(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "allowedAudiences":
+            suggest = "allowed_audiences"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionAppSlotAuthSettingsActiveDirectory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionAppSlotAuthSettingsActiveDirectory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionAppSlotAuthSettingsActiveDirectory.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: str,
                  allowed_audiences: Optional[Sequence[str]] = None,
@@ -2883,12 +3599,30 @@ class FunctionAppSlotAuthSettingsActiveDirectory(dict):
         """
         return pulumi.get(self, "client_secret")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionAppSlotAuthSettingsFacebook(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appId":
+            suggest = "app_id"
+        elif key == "appSecret":
+            suggest = "app_secret"
+        elif key == "oauthScopes":
+            suggest = "oauth_scopes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionAppSlotAuthSettingsFacebook. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionAppSlotAuthSettingsFacebook.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionAppSlotAuthSettingsFacebook.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  app_id: str,
                  app_secret: str,
@@ -2927,12 +3661,30 @@ class FunctionAppSlotAuthSettingsFacebook(dict):
         """
         return pulumi.get(self, "oauth_scopes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionAppSlotAuthSettingsGoogle(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "oauthScopes":
+            suggest = "oauth_scopes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionAppSlotAuthSettingsGoogle. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionAppSlotAuthSettingsGoogle.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionAppSlotAuthSettingsGoogle.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: str,
                  client_secret: str,
@@ -2971,12 +3723,30 @@ class FunctionAppSlotAuthSettingsGoogle(dict):
         """
         return pulumi.get(self, "oauth_scopes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionAppSlotAuthSettingsMicrosoft(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "oauthScopes":
+            suggest = "oauth_scopes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionAppSlotAuthSettingsMicrosoft. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionAppSlotAuthSettingsMicrosoft.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionAppSlotAuthSettingsMicrosoft.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: str,
                  client_secret: str,
@@ -3015,12 +3785,28 @@ class FunctionAppSlotAuthSettingsMicrosoft(dict):
         """
         return pulumi.get(self, "oauth_scopes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionAppSlotAuthSettingsTwitter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "consumerKey":
+            suggest = "consumer_key"
+        elif key == "consumerSecret":
+            suggest = "consumer_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionAppSlotAuthSettingsTwitter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionAppSlotAuthSettingsTwitter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionAppSlotAuthSettingsTwitter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  consumer_key: str,
                  consumer_secret: str):
@@ -3036,9 +3822,6 @@ class FunctionAppSlotAuthSettingsTwitter(dict):
     @pulumi.getter(name="consumerSecret")
     def consumer_secret(self) -> str:
         return pulumi.get(self, "consumer_secret")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -3080,12 +3863,30 @@ class FunctionAppSlotConnectionString(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionAppSlotIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionAppSlotIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionAppSlotIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionAppSlotIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  identity_ids: Optional[Sequence[str]] = None,
@@ -3137,12 +3938,52 @@ class FunctionAppSlotIdentity(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionAppSlotSiteConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alwaysOn":
+            suggest = "always_on"
+        elif key == "autoSwapSlotName":
+            suggest = "auto_swap_slot_name"
+        elif key == "ftpsState":
+            suggest = "ftps_state"
+        elif key == "healthCheckPath":
+            suggest = "health_check_path"
+        elif key == "http2Enabled":
+            suggest = "http2_enabled"
+        elif key == "ipRestrictions":
+            suggest = "ip_restrictions"
+        elif key == "linuxFxVersion":
+            suggest = "linux_fx_version"
+        elif key == "minTlsVersion":
+            suggest = "min_tls_version"
+        elif key == "preWarmedInstanceCount":
+            suggest = "pre_warmed_instance_count"
+        elif key == "scmIpRestrictions":
+            suggest = "scm_ip_restrictions"
+        elif key == "scmType":
+            suggest = "scm_type"
+        elif key == "scmUseMainIpRestriction":
+            suggest = "scm_use_main_ip_restriction"
+        elif key == "use32BitWorkerProcess":
+            suggest = "use32_bit_worker_process"
+        elif key == "websocketsEnabled":
+            suggest = "websockets_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionAppSlotSiteConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionAppSlotSiteConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionAppSlotSiteConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  always_on: Optional[bool] = None,
                  auto_swap_slot_name: Optional[str] = None,
@@ -3311,12 +4152,28 @@ class FunctionAppSlotSiteConfig(dict):
         """
         return pulumi.get(self, "websockets_enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionAppSlotSiteConfigCors(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedOrigins":
+            suggest = "allowed_origins"
+        elif key == "supportCredentials":
+            suggest = "support_credentials"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionAppSlotSiteConfigCors. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionAppSlotSiteConfigCors.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionAppSlotSiteConfigCors.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allowed_origins: Sequence[str],
                  support_credentials: Optional[bool] = None):
@@ -3344,12 +4201,32 @@ class FunctionAppSlotSiteConfigCors(dict):
         """
         return pulumi.get(self, "support_credentials")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionAppSlotSiteConfigIpRestriction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "serviceTag":
+            suggest = "service_tag"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkSubnetId":
+            suggest = "virtual_network_subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionAppSlotSiteConfigIpRestriction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionAppSlotSiteConfigIpRestriction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionAppSlotSiteConfigIpRestriction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: Optional[str] = None,
                  ip_address: Optional[str] = None,
@@ -3434,12 +4311,32 @@ class FunctionAppSlotSiteConfigIpRestriction(dict):
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionAppSlotSiteConfigScmIpRestriction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "serviceTag":
+            suggest = "service_tag"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkSubnetId":
+            suggest = "virtual_network_subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionAppSlotSiteConfigScmIpRestriction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionAppSlotSiteConfigScmIpRestriction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionAppSlotSiteConfigScmIpRestriction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: Optional[str] = None,
                  ip_address: Optional[str] = None,
@@ -3524,9 +4421,6 @@ class FunctionAppSlotSiteConfigScmIpRestriction(dict):
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionAppSlotSiteCredential(dict):
@@ -3558,12 +4452,32 @@ class FunctionAppSlotSiteCredential(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionAppSourceControl(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "manualIntegration":
+            suggest = "manual_integration"
+        elif key == "repoUrl":
+            suggest = "repo_url"
+        elif key == "rollbackEnabled":
+            suggest = "rollback_enabled"
+        elif key == "useMercurial":
+            suggest = "use_mercurial"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionAppSourceControl. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionAppSourceControl.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionAppSourceControl.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  branch: Optional[str] = None,
                  manual_integration: Optional[bool] = None,
@@ -3628,9 +4542,6 @@ class FunctionAppSourceControl(dict):
         """
         return pulumi.get(self, "use_mercurial")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PlanSku(dict):
@@ -3672,12 +4583,40 @@ class PlanSku(dict):
         """
         return pulumi.get(self, "capacity")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SlotAuthSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activeDirectory":
+            suggest = "active_directory"
+        elif key == "additionalLoginParams":
+            suggest = "additional_login_params"
+        elif key == "allowedExternalRedirectUrls":
+            suggest = "allowed_external_redirect_urls"
+        elif key == "defaultProvider":
+            suggest = "default_provider"
+        elif key == "runtimeVersion":
+            suggest = "runtime_version"
+        elif key == "tokenRefreshExtensionHours":
+            suggest = "token_refresh_extension_hours"
+        elif key == "tokenStoreEnabled":
+            suggest = "token_store_enabled"
+        elif key == "unauthenticatedClientAction":
+            suggest = "unauthenticated_client_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SlotAuthSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SlotAuthSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SlotAuthSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: bool,
                  active_directory: Optional['outputs.SlotAuthSettingsActiveDirectory'] = None,
@@ -3849,12 +4788,30 @@ class SlotAuthSettings(dict):
         """
         return pulumi.get(self, "unauthenticated_client_action")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SlotAuthSettingsActiveDirectory(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "allowedAudiences":
+            suggest = "allowed_audiences"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SlotAuthSettingsActiveDirectory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SlotAuthSettingsActiveDirectory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SlotAuthSettingsActiveDirectory.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: str,
                  allowed_audiences: Optional[Sequence[str]] = None,
@@ -3894,12 +4851,30 @@ class SlotAuthSettingsActiveDirectory(dict):
         """
         return pulumi.get(self, "client_secret")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SlotAuthSettingsFacebook(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appId":
+            suggest = "app_id"
+        elif key == "appSecret":
+            suggest = "app_secret"
+        elif key == "oauthScopes":
+            suggest = "oauth_scopes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SlotAuthSettingsFacebook. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SlotAuthSettingsFacebook.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SlotAuthSettingsFacebook.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  app_id: str,
                  app_secret: str,
@@ -3938,12 +4913,30 @@ class SlotAuthSettingsFacebook(dict):
         """
         return pulumi.get(self, "oauth_scopes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SlotAuthSettingsGoogle(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "oauthScopes":
+            suggest = "oauth_scopes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SlotAuthSettingsGoogle. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SlotAuthSettingsGoogle.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SlotAuthSettingsGoogle.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: str,
                  client_secret: str,
@@ -3982,12 +4975,30 @@ class SlotAuthSettingsGoogle(dict):
         """
         return pulumi.get(self, "oauth_scopes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SlotAuthSettingsMicrosoft(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "oauthScopes":
+            suggest = "oauth_scopes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SlotAuthSettingsMicrosoft. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SlotAuthSettingsMicrosoft.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SlotAuthSettingsMicrosoft.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: str,
                  client_secret: str,
@@ -4026,12 +5037,28 @@ class SlotAuthSettingsMicrosoft(dict):
         """
         return pulumi.get(self, "oauth_scopes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SlotAuthSettingsTwitter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "consumerKey":
+            suggest = "consumer_key"
+        elif key == "consumerSecret":
+            suggest = "consumer_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SlotAuthSettingsTwitter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SlotAuthSettingsTwitter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SlotAuthSettingsTwitter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  consumer_key: str,
                  consumer_secret: str):
@@ -4047,9 +5074,6 @@ class SlotAuthSettingsTwitter(dict):
     @pulumi.getter(name="consumerSecret")
     def consumer_secret(self) -> str:
         return pulumi.get(self, "consumer_secret")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -4091,12 +5115,30 @@ class SlotConnectionString(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SlotIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SlotIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SlotIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SlotIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  identity_ids: Optional[Sequence[str]] = None,
@@ -4140,12 +5182,32 @@ class SlotIdentity(dict):
     def tenant_id(self) -> Optional[str]:
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SlotLogs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationLogs":
+            suggest = "application_logs"
+        elif key == "detailedErrorMessagesEnabled":
+            suggest = "detailed_error_messages_enabled"
+        elif key == "failedRequestTracingEnabled":
+            suggest = "failed_request_tracing_enabled"
+        elif key == "httpLogs":
+            suggest = "http_logs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SlotLogs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SlotLogs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SlotLogs.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  application_logs: Optional['outputs.SlotLogsApplicationLogs'] = None,
                  detailed_error_messages_enabled: Optional[bool] = None,
@@ -4198,12 +5260,28 @@ class SlotLogs(dict):
         """
         return pulumi.get(self, "http_logs")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SlotLogsApplicationLogs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureBlobStorage":
+            suggest = "azure_blob_storage"
+        elif key == "fileSystemLevel":
+            suggest = "file_system_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SlotLogsApplicationLogs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SlotLogsApplicationLogs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SlotLogsApplicationLogs.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  azure_blob_storage: Optional['outputs.SlotLogsApplicationLogsAzureBlobStorage'] = None,
                  file_system_level: Optional[str] = None):
@@ -4232,12 +5310,28 @@ class SlotLogsApplicationLogs(dict):
         """
         return pulumi.get(self, "file_system_level")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SlotLogsApplicationLogsAzureBlobStorage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retentionInDays":
+            suggest = "retention_in_days"
+        elif key == "sasUrl":
+            suggest = "sas_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SlotLogsApplicationLogsAzureBlobStorage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SlotLogsApplicationLogsAzureBlobStorage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SlotLogsApplicationLogsAzureBlobStorage.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  level: str,
                  retention_in_days: int,
@@ -4275,12 +5369,28 @@ class SlotLogsApplicationLogsAzureBlobStorage(dict):
         """
         return pulumi.get(self, "sas_url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SlotLogsHttpLogs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureBlobStorage":
+            suggest = "azure_blob_storage"
+        elif key == "fileSystem":
+            suggest = "file_system"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SlotLogsHttpLogs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SlotLogsHttpLogs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SlotLogsHttpLogs.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  azure_blob_storage: Optional['outputs.SlotLogsHttpLogsAzureBlobStorage'] = None,
                  file_system: Optional['outputs.SlotLogsHttpLogsFileSystem'] = None):
@@ -4309,12 +5419,28 @@ class SlotLogsHttpLogs(dict):
         """
         return pulumi.get(self, "file_system")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SlotLogsHttpLogsAzureBlobStorage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retentionInDays":
+            suggest = "retention_in_days"
+        elif key == "sasUrl":
+            suggest = "sas_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SlotLogsHttpLogsAzureBlobStorage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SlotLogsHttpLogsAzureBlobStorage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SlotLogsHttpLogsAzureBlobStorage.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  retention_in_days: int,
                  sas_url: str):
@@ -4341,12 +5467,28 @@ class SlotLogsHttpLogsAzureBlobStorage(dict):
         """
         return pulumi.get(self, "sas_url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SlotLogsHttpLogsFileSystem(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retentionInDays":
+            suggest = "retention_in_days"
+        elif key == "retentionInMb":
+            suggest = "retention_in_mb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SlotLogsHttpLogsFileSystem. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SlotLogsHttpLogsFileSystem.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SlotLogsHttpLogsFileSystem.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  retention_in_days: int,
                  retention_in_mb: int):
@@ -4373,12 +5515,78 @@ class SlotLogsHttpLogsFileSystem(dict):
         """
         return pulumi.get(self, "retention_in_mb")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SlotSiteConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alwaysOn":
+            suggest = "always_on"
+        elif key == "appCommandLine":
+            suggest = "app_command_line"
+        elif key == "autoSwapSlotName":
+            suggest = "auto_swap_slot_name"
+        elif key == "defaultDocuments":
+            suggest = "default_documents"
+        elif key == "dotnetFrameworkVersion":
+            suggest = "dotnet_framework_version"
+        elif key == "ftpsState":
+            suggest = "ftps_state"
+        elif key == "healthCheckPath":
+            suggest = "health_check_path"
+        elif key == "http2Enabled":
+            suggest = "http2_enabled"
+        elif key == "ipRestrictions":
+            suggest = "ip_restrictions"
+        elif key == "javaContainer":
+            suggest = "java_container"
+        elif key == "javaContainerVersion":
+            suggest = "java_container_version"
+        elif key == "javaVersion":
+            suggest = "java_version"
+        elif key == "linuxFxVersion":
+            suggest = "linux_fx_version"
+        elif key == "localMysqlEnabled":
+            suggest = "local_mysql_enabled"
+        elif key == "managedPipelineMode":
+            suggest = "managed_pipeline_mode"
+        elif key == "minTlsVersion":
+            suggest = "min_tls_version"
+        elif key == "numberOfWorkers":
+            suggest = "number_of_workers"
+        elif key == "phpVersion":
+            suggest = "php_version"
+        elif key == "pythonVersion":
+            suggest = "python_version"
+        elif key == "remoteDebuggingEnabled":
+            suggest = "remote_debugging_enabled"
+        elif key == "remoteDebuggingVersion":
+            suggest = "remote_debugging_version"
+        elif key == "scmIpRestrictions":
+            suggest = "scm_ip_restrictions"
+        elif key == "scmType":
+            suggest = "scm_type"
+        elif key == "scmUseMainIpRestriction":
+            suggest = "scm_use_main_ip_restriction"
+        elif key == "use32BitWorkerProcess":
+            suggest = "use32_bit_worker_process"
+        elif key == "websocketsEnabled":
+            suggest = "websockets_enabled"
+        elif key == "windowsFxVersion":
+            suggest = "windows_fx_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SlotSiteConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SlotSiteConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SlotSiteConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  always_on: Optional[bool] = None,
                  app_command_line: Optional[str] = None,
@@ -4691,12 +5899,28 @@ class SlotSiteConfig(dict):
     def windows_fx_version(self) -> Optional[str]:
         return pulumi.get(self, "windows_fx_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SlotSiteConfigCors(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedOrigins":
+            suggest = "allowed_origins"
+        elif key == "supportCredentials":
+            suggest = "support_credentials"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SlotSiteConfigCors. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SlotSiteConfigCors.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SlotSiteConfigCors.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allowed_origins: Sequence[str],
                  support_credentials: Optional[bool] = None):
@@ -4724,12 +5948,32 @@ class SlotSiteConfigCors(dict):
         """
         return pulumi.get(self, "support_credentials")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SlotSiteConfigIpRestriction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "serviceTag":
+            suggest = "service_tag"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkSubnetId":
+            suggest = "virtual_network_subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SlotSiteConfigIpRestriction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SlotSiteConfigIpRestriction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SlotSiteConfigIpRestriction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: Optional[str] = None,
                  ip_address: Optional[str] = None,
@@ -4814,12 +6058,32 @@ class SlotSiteConfigIpRestriction(dict):
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SlotSiteConfigScmIpRestriction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "serviceTag":
+            suggest = "service_tag"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkSubnetId":
+            suggest = "virtual_network_subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SlotSiteConfigScmIpRestriction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SlotSiteConfigScmIpRestriction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SlotSiteConfigScmIpRestriction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: Optional[str] = None,
                  ip_address: Optional[str] = None,
@@ -4904,9 +6168,6 @@ class SlotSiteConfigScmIpRestriction(dict):
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SlotSiteCredential(dict):
@@ -4937,9 +6198,6 @@ class SlotSiteCredential(dict):
         The username which can be used to publish to this App Service
         """
         return pulumi.get(self, "username")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

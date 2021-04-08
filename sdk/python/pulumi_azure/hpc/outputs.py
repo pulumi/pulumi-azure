@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -18,6 +18,31 @@ __all__ = [
 
 @pulumi.output_type
 class CacheAccessPolicyAccessRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "anonymousGid":
+            suggest = "anonymous_gid"
+        elif key == "anonymousUid":
+            suggest = "anonymous_uid"
+        elif key == "rootSquashEnabled":
+            suggest = "root_squash_enabled"
+        elif key == "submountAccessEnabled":
+            suggest = "submount_access_enabled"
+        elif key == "suidEnabled":
+            suggest = "suid_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CacheAccessPolicyAccessRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CacheAccessPolicyAccessRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CacheAccessPolicyAccessRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  access: str,
                  scope: str,
@@ -116,12 +141,26 @@ class CacheAccessPolicyAccessRule(dict):
         """
         return pulumi.get(self, "suid_enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CacheDefaultAccessPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessRules":
+            suggest = "access_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CacheDefaultAccessPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CacheDefaultAccessPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CacheDefaultAccessPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  access_rules: Sequence['outputs.CacheDefaultAccessPolicyAccessRule']):
         """
@@ -137,12 +176,34 @@ class CacheDefaultAccessPolicy(dict):
         """
         return pulumi.get(self, "access_rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CacheDefaultAccessPolicyAccessRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "anonymousGid":
+            suggest = "anonymous_gid"
+        elif key == "anonymousUid":
+            suggest = "anonymous_uid"
+        elif key == "rootSquashEnabled":
+            suggest = "root_squash_enabled"
+        elif key == "submountAccessEnabled":
+            suggest = "submount_access_enabled"
+        elif key == "suidEnabled":
+            suggest = "suid_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CacheDefaultAccessPolicyAccessRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CacheDefaultAccessPolicyAccessRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CacheDefaultAccessPolicyAccessRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  access: str,
                  scope: str,
@@ -241,12 +302,30 @@ class CacheDefaultAccessPolicyAccessRule(dict):
         """
         return pulumi.get(self, "suid_enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CacheNfsTargetNamespaceJunction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "namespacePath":
+            suggest = "namespace_path"
+        elif key == "nfsExport":
+            suggest = "nfs_export"
+        elif key == "targetPath":
+            suggest = "target_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CacheNfsTargetNamespaceJunction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CacheNfsTargetNamespaceJunction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CacheNfsTargetNamespaceJunction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  namespace_path: str,
                  nfs_export: str,
@@ -284,8 +363,5 @@ class CacheNfsTargetNamespaceJunction(dict):
         The relative subdirectory path from the `nfs_export` to map to the `namespace_path`. Defaults to `""`, in which case the whole `nfs_export` is exported.
         """
         return pulumi.get(self, "target_path")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

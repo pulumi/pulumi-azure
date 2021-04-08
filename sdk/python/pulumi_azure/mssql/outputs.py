@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -34,6 +34,31 @@ __all__ = [
 
 @pulumi.output_type
 class DatabaseExtendedAuditingPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logMonitoringEnabled":
+            suggest = "log_monitoring_enabled"
+        elif key == "retentionInDays":
+            suggest = "retention_in_days"
+        elif key == "storageAccountAccessKey":
+            suggest = "storage_account_access_key"
+        elif key == "storageAccountAccessKeyIsSecondary":
+            suggest = "storage_account_access_key_is_secondary"
+        elif key == "storageEndpoint":
+            suggest = "storage_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseExtendedAuditingPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabaseExtendedAuditingPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabaseExtendedAuditingPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  log_monitoring_enabled: Optional[bool] = None,
                  retention_in_days: Optional[int] = None,
@@ -94,12 +119,32 @@ class DatabaseExtendedAuditingPolicy(dict):
         """
         return pulumi.get(self, "storage_endpoint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatabaseLongTermRetentionPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "monthlyRetention":
+            suggest = "monthly_retention"
+        elif key == "weekOfYear":
+            suggest = "week_of_year"
+        elif key == "weeklyRetention":
+            suggest = "weekly_retention"
+        elif key == "yearlyRetention":
+            suggest = "yearly_retention"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseLongTermRetentionPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabaseLongTermRetentionPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabaseLongTermRetentionPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  monthly_retention: Optional[str] = None,
                  week_of_year: Optional[int] = None,
@@ -152,12 +197,26 @@ class DatabaseLongTermRetentionPolicy(dict):
         """
         return pulumi.get(self, "yearly_retention")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatabaseShortTermRetentionPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retentionDays":
+            suggest = "retention_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseShortTermRetentionPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabaseShortTermRetentionPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabaseShortTermRetentionPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  retention_days: int):
         """
@@ -173,12 +232,38 @@ class DatabaseShortTermRetentionPolicy(dict):
         """
         return pulumi.get(self, "retention_days")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatabaseThreatDetectionPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disabledAlerts":
+            suggest = "disabled_alerts"
+        elif key == "emailAccountAdmins":
+            suggest = "email_account_admins"
+        elif key == "emailAddresses":
+            suggest = "email_addresses"
+        elif key == "retentionDays":
+            suggest = "retention_days"
+        elif key == "storageAccountAccessKey":
+            suggest = "storage_account_access_key"
+        elif key == "storageEndpoint":
+            suggest = "storage_endpoint"
+        elif key == "useServerDefault":
+            suggest = "use_server_default"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseThreatDetectionPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabaseThreatDetectionPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabaseThreatDetectionPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  disabled_alerts: Optional[Sequence[str]] = None,
                  email_account_admins: Optional[str] = None,
@@ -279,9 +364,6 @@ class DatabaseThreatDetectionPolicy(dict):
         """
         return pulumi.get(self, "use_server_default")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult(dict):
@@ -300,12 +382,28 @@ class DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult(dict):
         """
         return pulumi.get(self, "results")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ElasticPoolPerDatabaseSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxCapacity":
+            suggest = "max_capacity"
+        elif key == "minCapacity":
+            suggest = "min_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ElasticPoolPerDatabaseSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ElasticPoolPerDatabaseSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ElasticPoolPerDatabaseSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_capacity: float,
                  min_capacity: float):
@@ -331,9 +429,6 @@ class ElasticPoolPerDatabaseSettings(dict):
         The minimum capacity all databases are guaranteed.
         """
         return pulumi.get(self, "min_capacity")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -387,12 +482,30 @@ class ElasticPoolSku(dict):
         """
         return pulumi.get(self, "family")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServerAzureadAdministrator(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "loginUsername":
+            suggest = "login_username"
+        elif key == "objectId":
+            suggest = "object_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerAzureadAdministrator. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerAzureadAdministrator.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerAzureadAdministrator.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  login_username: str,
                  object_id: str,
@@ -431,12 +544,34 @@ class ServerAzureadAdministrator(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServerExtendedAuditingPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logMonitoringEnabled":
+            suggest = "log_monitoring_enabled"
+        elif key == "retentionInDays":
+            suggest = "retention_in_days"
+        elif key == "storageAccountAccessKey":
+            suggest = "storage_account_access_key"
+        elif key == "storageAccountAccessKeyIsSecondary":
+            suggest = "storage_account_access_key_is_secondary"
+        elif key == "storageEndpoint":
+            suggest = "storage_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerExtendedAuditingPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerExtendedAuditingPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerExtendedAuditingPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  log_monitoring_enabled: Optional[bool] = None,
                  retention_in_days: Optional[int] = None,
@@ -501,12 +636,28 @@ class ServerExtendedAuditingPolicy(dict):
         """
         return pulumi.get(self, "storage_endpoint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServerIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  principal_id: Optional[str] = None,
@@ -546,12 +697,26 @@ class ServerIdentity(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServerVulnerabilityAssessmentRecurringScans(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailSubscriptionAdmins":
+            suggest = "email_subscription_admins"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerVulnerabilityAssessmentRecurringScans. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerVulnerabilityAssessmentRecurringScans.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerVulnerabilityAssessmentRecurringScans.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  email_subscription_admins: Optional[bool] = None,
                  emails: Optional[Sequence[str]] = None,
@@ -592,12 +757,38 @@ class ServerVulnerabilityAssessmentRecurringScans(dict):
         """
         return pulumi.get(self, "enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineAutoBackup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retentionPeriodInDays":
+            suggest = "retention_period_in_days"
+        elif key == "storageAccountAccessKey":
+            suggest = "storage_account_access_key"
+        elif key == "storageBlobEndpoint":
+            suggest = "storage_blob_endpoint"
+        elif key == "encryptionEnabled":
+            suggest = "encryption_enabled"
+        elif key == "encryptionPassword":
+            suggest = "encryption_password"
+        elif key == "manualSchedule":
+            suggest = "manual_schedule"
+        elif key == "systemDatabasesBackupEnabled":
+            suggest = "system_databases_backup_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineAutoBackup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineAutoBackup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineAutoBackup.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  retention_period_in_days: int,
                  storage_account_access_key: str,
@@ -683,12 +874,32 @@ class VirtualMachineAutoBackup(dict):
         """
         return pulumi.get(self, "system_databases_backup_enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineAutoBackupManualSchedule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fullBackupFrequency":
+            suggest = "full_backup_frequency"
+        elif key == "fullBackupStartHour":
+            suggest = "full_backup_start_hour"
+        elif key == "fullBackupWindowInHours":
+            suggest = "full_backup_window_in_hours"
+        elif key == "logBackupFrequencyInMinutes":
+            suggest = "log_backup_frequency_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineAutoBackupManualSchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineAutoBackupManualSchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineAutoBackupManualSchedule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  full_backup_frequency: str,
                  full_backup_start_hour: int,
@@ -737,12 +948,30 @@ class VirtualMachineAutoBackupManualSchedule(dict):
         """
         return pulumi.get(self, "log_backup_frequency_in_minutes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineAutoPatching(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dayOfWeek":
+            suggest = "day_of_week"
+        elif key == "maintenanceWindowDurationInMinutes":
+            suggest = "maintenance_window_duration_in_minutes"
+        elif key == "maintenanceWindowStartingHour":
+            suggest = "maintenance_window_starting_hour"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineAutoPatching. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineAutoPatching.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineAutoPatching.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  day_of_week: str,
                  maintenance_window_duration_in_minutes: int,
@@ -780,12 +1009,30 @@ class VirtualMachineAutoPatching(dict):
         """
         return pulumi.get(self, "maintenance_window_starting_hour")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineKeyVaultCredential(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultUrl":
+            suggest = "key_vault_url"
+        elif key == "servicePrincipalName":
+            suggest = "service_principal_name"
+        elif key == "servicePrincipalSecret":
+            suggest = "service_principal_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineKeyVaultCredential. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineKeyVaultCredential.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineKeyVaultCredential.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_vault_url: str,
                  name: str,
@@ -834,12 +1081,34 @@ class VirtualMachineKeyVaultCredential(dict):
         """
         return pulumi.get(self, "service_principal_secret")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineStorageConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskType":
+            suggest = "disk_type"
+        elif key == "storageWorkloadType":
+            suggest = "storage_workload_type"
+        elif key == "dataSettings":
+            suggest = "data_settings"
+        elif key == "logSettings":
+            suggest = "log_settings"
+        elif key == "tempDbSettings":
+            suggest = "temp_db_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineStorageConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineStorageConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineStorageConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  disk_type: str,
                  storage_workload_type: str,
@@ -902,12 +1171,26 @@ class VirtualMachineStorageConfiguration(dict):
         """
         return pulumi.get(self, "temp_db_settings")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualMachineStorageConfigurationDataSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultFilePath":
+            suggest = "default_file_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineStorageConfigurationDataSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineStorageConfigurationDataSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineStorageConfigurationDataSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_file_path: str,
                  luns: Sequence[int]):
@@ -933,13 +1216,27 @@ class VirtualMachineStorageConfigurationDataSettings(dict):
         A list of Logical Unit Numbers for the disks.
         """
         return pulumi.get(self, "luns")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class VirtualMachineStorageConfigurationLogSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultFilePath":
+            suggest = "default_file_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineStorageConfigurationLogSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineStorageConfigurationLogSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineStorageConfigurationLogSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_file_path: str,
                  luns: Sequence[int]):
@@ -965,13 +1262,27 @@ class VirtualMachineStorageConfigurationLogSettings(dict):
         A list of Logical Unit Numbers for the disks.
         """
         return pulumi.get(self, "luns")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class VirtualMachineStorageConfigurationTempDbSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultFilePath":
+            suggest = "default_file_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachineStorageConfigurationTempDbSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachineStorageConfigurationTempDbSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachineStorageConfigurationTempDbSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_file_path: str,
                  luns: Sequence[int]):
@@ -997,9 +1308,6 @@ class VirtualMachineStorageConfigurationTempDbSettings(dict):
         A list of Logical Unit Numbers for the disks.
         """
         return pulumi.get(self, "luns")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

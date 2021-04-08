@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'FunctionJavaScriptUDFInput',
@@ -38,9 +38,6 @@ class FunctionJavaScriptUDFInput(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FunctionJavaScriptUDFOutput(dict):
@@ -59,12 +56,26 @@ class FunctionJavaScriptUDFOutput(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OutputBlobSerialization(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldDelimiter":
+            suggest = "field_delimiter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OutputBlobSerialization. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OutputBlobSerialization.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OutputBlobSerialization.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  encoding: Optional[str] = None,
@@ -115,13 +126,27 @@ class OutputBlobSerialization(dict):
         Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
         """
         return pulumi.get(self, "format")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class OutputEventHubSerialization(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldDelimiter":
+            suggest = "field_delimiter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OutputEventHubSerialization. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OutputEventHubSerialization.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OutputEventHubSerialization.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  encoding: Optional[str] = None,
@@ -172,13 +197,27 @@ class OutputEventHubSerialization(dict):
         Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
         """
         return pulumi.get(self, "format")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class OutputServiceBusQueueSerialization(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldDelimiter":
+            suggest = "field_delimiter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OutputServiceBusQueueSerialization. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OutputServiceBusQueueSerialization.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OutputServiceBusQueueSerialization.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  encoding: Optional[str] = None,
@@ -229,13 +268,27 @@ class OutputServiceBusQueueSerialization(dict):
         Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
         """
         return pulumi.get(self, "format")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class OutputServicebusTopicSerialization(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldDelimiter":
+            suggest = "field_delimiter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OutputServicebusTopicSerialization. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OutputServicebusTopicSerialization.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OutputServicebusTopicSerialization.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  encoding: Optional[str] = None,
@@ -287,12 +340,26 @@ class OutputServicebusTopicSerialization(dict):
         """
         return pulumi.get(self, "format")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ReferenceInputBlobSerialization(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldDelimiter":
+            suggest = "field_delimiter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReferenceInputBlobSerialization. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReferenceInputBlobSerialization.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReferenceInputBlobSerialization.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  encoding: Optional[str] = None,
@@ -332,12 +399,26 @@ class ReferenceInputBlobSerialization(dict):
         """
         return pulumi.get(self, "field_delimiter")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StreamInputBlobSerialization(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldDelimiter":
+            suggest = "field_delimiter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamInputBlobSerialization. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamInputBlobSerialization.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamInputBlobSerialization.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  encoding: Optional[str] = None,
@@ -376,13 +457,27 @@ class StreamInputBlobSerialization(dict):
         The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
         """
         return pulumi.get(self, "field_delimiter")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class StreamInputEventHubSerialization(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldDelimiter":
+            suggest = "field_delimiter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamInputEventHubSerialization. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamInputEventHubSerialization.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamInputEventHubSerialization.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  encoding: Optional[str] = None,
@@ -421,13 +516,27 @@ class StreamInputEventHubSerialization(dict):
         The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
         """
         return pulumi.get(self, "field_delimiter")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class StreamInputIotHubSerialization(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldDelimiter":
+            suggest = "field_delimiter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamInputIotHubSerialization. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamInputIotHubSerialization.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamInputIotHubSerialization.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  encoding: Optional[str] = None,
@@ -466,8 +575,5 @@ class StreamInputIotHubSerialization(dict):
         The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
         """
         return pulumi.get(self, "field_delimiter")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

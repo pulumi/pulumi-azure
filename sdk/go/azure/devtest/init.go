@@ -22,23 +22,24 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:devtest/globalVMShutdownSchedule:GlobalVMShutdownSchedule":
-		r, err = NewGlobalVMShutdownSchedule(ctx, name, nil, pulumi.URN_(urn))
+		r = &GlobalVMShutdownSchedule{}
 	case "azure:devtest/lab:Lab":
-		r, err = NewLab(ctx, name, nil, pulumi.URN_(urn))
+		r = &Lab{}
 	case "azure:devtest/linuxVirtualMachine:LinuxVirtualMachine":
-		r, err = NewLinuxVirtualMachine(ctx, name, nil, pulumi.URN_(urn))
+		r = &LinuxVirtualMachine{}
 	case "azure:devtest/policy:Policy":
-		r, err = NewPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &Policy{}
 	case "azure:devtest/schedule:Schedule":
-		r, err = NewSchedule(ctx, name, nil, pulumi.URN_(urn))
+		r = &Schedule{}
 	case "azure:devtest/virtualNetwork:VirtualNetwork":
-		r, err = NewVirtualNetwork(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualNetwork{}
 	case "azure:devtest/windowsVirtualMachine:WindowsVirtualMachine":
-		r, err = NewWindowsVirtualMachine(ctx, name, nil, pulumi.URN_(urn))
+		r = &WindowsVirtualMachine{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

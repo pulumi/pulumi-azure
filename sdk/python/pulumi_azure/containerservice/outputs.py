@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -76,6 +76,29 @@ __all__ = [
 
 @pulumi.output_type
 class GroupContainer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "environmentVariables":
+            suggest = "environment_variables"
+        elif key == "livenessProbe":
+            suggest = "liveness_probe"
+        elif key == "readinessProbe":
+            suggest = "readiness_probe"
+        elif key == "secureEnvironmentVariables":
+            suggest = "secure_environment_variables"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupContainer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupContainer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupContainer.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cpu: float,
                  image: str,
@@ -220,9 +243,6 @@ class GroupContainer(dict):
         """
         return pulumi.get(self, "volumes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GroupContainerGpu(dict):
@@ -254,12 +274,36 @@ class GroupContainerGpu(dict):
         """
         return pulumi.get(self, "sku")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GroupContainerLivenessProbe(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failureThreshold":
+            suggest = "failure_threshold"
+        elif key == "httpGets":
+            suggest = "http_gets"
+        elif key == "initialDelaySeconds":
+            suggest = "initial_delay_seconds"
+        elif key == "periodSeconds":
+            suggest = "period_seconds"
+        elif key == "successThreshold":
+            suggest = "success_threshold"
+        elif key == "timeoutSeconds":
+            suggest = "timeout_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupContainerLivenessProbe. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupContainerLivenessProbe.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupContainerLivenessProbe.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  execs: Optional[Sequence[str]] = None,
                  failure_threshold: Optional[int] = None,
@@ -348,9 +392,6 @@ class GroupContainerLivenessProbe(dict):
         """
         return pulumi.get(self, "timeout_seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GroupContainerLivenessProbeHttpGet(dict):
@@ -394,9 +435,6 @@ class GroupContainerLivenessProbeHttpGet(dict):
         """
         return pulumi.get(self, "scheme")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GroupContainerPort(dict):
@@ -428,12 +466,36 @@ class GroupContainerPort(dict):
         """
         return pulumi.get(self, "protocol")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GroupContainerReadinessProbe(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failureThreshold":
+            suggest = "failure_threshold"
+        elif key == "httpGets":
+            suggest = "http_gets"
+        elif key == "initialDelaySeconds":
+            suggest = "initial_delay_seconds"
+        elif key == "periodSeconds":
+            suggest = "period_seconds"
+        elif key == "successThreshold":
+            suggest = "success_threshold"
+        elif key == "timeoutSeconds":
+            suggest = "timeout_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupContainerReadinessProbe. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupContainerReadinessProbe.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupContainerReadinessProbe.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  execs: Optional[Sequence[str]] = None,
                  failure_threshold: Optional[int] = None,
@@ -522,9 +584,6 @@ class GroupContainerReadinessProbe(dict):
         """
         return pulumi.get(self, "timeout_seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GroupContainerReadinessProbeHttpGet(dict):
@@ -568,12 +627,38 @@ class GroupContainerReadinessProbeHttpGet(dict):
         """
         return pulumi.get(self, "scheme")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GroupContainerVolume(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mountPath":
+            suggest = "mount_path"
+        elif key == "emptyDir":
+            suggest = "empty_dir"
+        elif key == "gitRepo":
+            suggest = "git_repo"
+        elif key == "readOnly":
+            suggest = "read_only"
+        elif key == "shareName":
+            suggest = "share_name"
+        elif key == "storageAccountKey":
+            suggest = "storage_account_key"
+        elif key == "storageAccountName":
+            suggest = "storage_account_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupContainerVolume. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupContainerVolume.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupContainerVolume.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  mount_path: str,
                  name: str,
@@ -684,9 +769,6 @@ class GroupContainerVolume(dict):
         """
         return pulumi.get(self, "storage_account_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GroupContainerVolumeGitRepo(dict):
@@ -729,12 +811,26 @@ class GroupContainerVolumeGitRepo(dict):
         """
         return pulumi.get(self, "revision")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GroupDiagnostics(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logAnalytics":
+            suggest = "log_analytics"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupDiagnostics. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupDiagnostics.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupDiagnostics.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  log_analytics: 'outputs.GroupDiagnosticsLogAnalytics'):
         """
@@ -750,12 +846,30 @@ class GroupDiagnostics(dict):
         """
         return pulumi.get(self, "log_analytics")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GroupDiagnosticsLogAnalytics(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "workspaceId":
+            suggest = "workspace_id"
+        elif key == "workspaceKey":
+            suggest = "workspace_key"
+        elif key == "logType":
+            suggest = "log_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupDiagnosticsLogAnalytics. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupDiagnosticsLogAnalytics.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupDiagnosticsLogAnalytics.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  workspace_id: str,
                  workspace_key: str,
@@ -806,12 +920,26 @@ class GroupDiagnosticsLogAnalytics(dict):
         """
         return pulumi.get(self, "metadata")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GroupDnsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "searchDomains":
+            suggest = "search_domains"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupDnsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupDnsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupDnsConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  nameservers: Sequence[str],
                  options: Sequence[str],
@@ -849,12 +977,28 @@ class GroupDnsConfig(dict):
         """
         return pulumi.get(self, "search_domains")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GroupIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  identity_ids: Optional[Sequence[str]] = None,
@@ -889,9 +1033,6 @@ class GroupIdentity(dict):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[str]:
         return pulumi.get(self, "principal_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -933,12 +1074,34 @@ class GroupImageRegistryCredential(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KubernetesClusterAddonProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aciConnectorLinux":
+            suggest = "aci_connector_linux"
+        elif key == "azurePolicy":
+            suggest = "azure_policy"
+        elif key == "httpApplicationRouting":
+            suggest = "http_application_routing"
+        elif key == "kubeDashboard":
+            suggest = "kube_dashboard"
+        elif key == "omsAgent":
+            suggest = "oms_agent"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterAddonProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterAddonProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterAddonProfile.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aci_connector_linux: Optional['outputs.KubernetesClusterAddonProfileAciConnectorLinux'] = None,
                  azure_policy: Optional['outputs.KubernetesClusterAddonProfileAzurePolicy'] = None,
@@ -1003,12 +1166,26 @@ class KubernetesClusterAddonProfile(dict):
         """
         return pulumi.get(self, "oms_agent")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KubernetesClusterAddonProfileAciConnectorLinux(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetName":
+            suggest = "subnet_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterAddonProfileAciConnectorLinux. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterAddonProfileAciConnectorLinux.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterAddonProfileAciConnectorLinux.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: bool,
                  subnet_name: Optional[str] = None):
@@ -1036,9 +1213,6 @@ class KubernetesClusterAddonProfileAciConnectorLinux(dict):
         """
         return pulumi.get(self, "subnet_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KubernetesClusterAddonProfileAzurePolicy(dict):
@@ -1057,12 +1231,26 @@ class KubernetesClusterAddonProfileAzurePolicy(dict):
         """
         return pulumi.get(self, "enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KubernetesClusterAddonProfileHttpApplicationRouting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpApplicationRoutingZoneName":
+            suggest = "http_application_routing_zone_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterAddonProfileHttpApplicationRouting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterAddonProfileHttpApplicationRouting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterAddonProfileHttpApplicationRouting.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: bool,
                  http_application_routing_zone_name: Optional[str] = None):
@@ -1090,9 +1278,6 @@ class KubernetesClusterAddonProfileHttpApplicationRouting(dict):
         """
         return pulumi.get(self, "http_application_routing_zone_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KubernetesClusterAddonProfileKubeDashboard(dict):
@@ -1111,12 +1296,28 @@ class KubernetesClusterAddonProfileKubeDashboard(dict):
         """
         return pulumi.get(self, "enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KubernetesClusterAddonProfileOmsAgent(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logAnalyticsWorkspaceId":
+            suggest = "log_analytics_workspace_id"
+        elif key == "omsAgentIdentities":
+            suggest = "oms_agent_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterAddonProfileOmsAgent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterAddonProfileOmsAgent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterAddonProfileOmsAgent.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: bool,
                  log_analytics_workspace_id: Optional[str] = None,
@@ -1156,12 +1357,30 @@ class KubernetesClusterAddonProfileOmsAgent(dict):
         """
         return pulumi.get(self, "oms_agent_identities")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "objectId":
+            suggest = "object_id"
+        elif key == "userAssignedIdentityId":
+            suggest = "user_assigned_identity_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: Optional[str] = None,
                  object_id: Optional[str] = None,
@@ -1202,12 +1421,48 @@ class KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity(dict):
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KubernetesClusterAutoScalerProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "balanceSimilarNodeGroups":
+            suggest = "balance_similar_node_groups"
+        elif key == "maxGracefulTerminationSec":
+            suggest = "max_graceful_termination_sec"
+        elif key == "newPodScaleUpDelay":
+            suggest = "new_pod_scale_up_delay"
+        elif key == "scaleDownDelayAfterAdd":
+            suggest = "scale_down_delay_after_add"
+        elif key == "scaleDownDelayAfterDelete":
+            suggest = "scale_down_delay_after_delete"
+        elif key == "scaleDownDelayAfterFailure":
+            suggest = "scale_down_delay_after_failure"
+        elif key == "scaleDownUnneeded":
+            suggest = "scale_down_unneeded"
+        elif key == "scaleDownUnready":
+            suggest = "scale_down_unready"
+        elif key == "scaleDownUtilizationThreshold":
+            suggest = "scale_down_utilization_threshold"
+        elif key == "scanInterval":
+            suggest = "scan_interval"
+        elif key == "skipNodesWithLocalStorage":
+            suggest = "skip_nodes_with_local_storage"
+        elif key == "skipNodesWithSystemPods":
+            suggest = "skip_nodes_with_system_pods"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterAutoScalerProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterAutoScalerProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterAutoScalerProfile.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  balance_similar_node_groups: Optional[bool] = None,
                  expander: Optional[str] = None,
@@ -1368,12 +1623,60 @@ class KubernetesClusterAutoScalerProfile(dict):
         """
         return pulumi.get(self, "skip_nodes_with_system_pods")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KubernetesClusterDefaultNodePool(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vmSize":
+            suggest = "vm_size"
+        elif key == "availabilityZones":
+            suggest = "availability_zones"
+        elif key == "enableAutoScaling":
+            suggest = "enable_auto_scaling"
+        elif key == "enableHostEncryption":
+            suggest = "enable_host_encryption"
+        elif key == "enableNodePublicIp":
+            suggest = "enable_node_public_ip"
+        elif key == "maxCount":
+            suggest = "max_count"
+        elif key == "maxPods":
+            suggest = "max_pods"
+        elif key == "minCount":
+            suggest = "min_count"
+        elif key == "nodeCount":
+            suggest = "node_count"
+        elif key == "nodeLabels":
+            suggest = "node_labels"
+        elif key == "nodeTaints":
+            suggest = "node_taints"
+        elif key == "onlyCriticalAddonsEnabled":
+            suggest = "only_critical_addons_enabled"
+        elif key == "orchestratorVersion":
+            suggest = "orchestrator_version"
+        elif key == "osDiskSizeGb":
+            suggest = "os_disk_size_gb"
+        elif key == "osDiskType":
+            suggest = "os_disk_type"
+        elif key == "proximityPlacementGroupId":
+            suggest = "proximity_placement_group_id"
+        elif key == "upgradeSettings":
+            suggest = "upgrade_settings"
+        elif key == "vnetSubnetId":
+            suggest = "vnet_subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterDefaultNodePool. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterDefaultNodePool.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterDefaultNodePool.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  vm_size: str,
@@ -1620,12 +1923,26 @@ class KubernetesClusterDefaultNodePool(dict):
         """
         return pulumi.get(self, "vnet_subnet_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KubernetesClusterDefaultNodePoolUpgradeSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxSurge":
+            suggest = "max_surge"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterDefaultNodePoolUpgradeSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterDefaultNodePoolUpgradeSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterDefaultNodePoolUpgradeSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_surge: str):
         """
@@ -1641,12 +1958,30 @@ class KubernetesClusterDefaultNodePoolUpgradeSettings(dict):
         """
         return pulumi.get(self, "max_surge")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KubernetesClusterIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentityId":
+            suggest = "user_assigned_identity_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  principal_id: Optional[str] = None,
@@ -1698,12 +2033,30 @@ class KubernetesClusterIdentity(dict):
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KubernetesClusterKubeAdminConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientCertificate":
+            suggest = "client_certificate"
+        elif key == "clientKey":
+            suggest = "client_key"
+        elif key == "clusterCaCertificate":
+            suggest = "cluster_ca_certificate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterKubeAdminConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterKubeAdminConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterKubeAdminConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_certificate: Optional[str] = None,
                  client_key: Optional[str] = None,
@@ -1779,13 +2132,31 @@ class KubernetesClusterKubeAdminConfig(dict):
         A username used to authenticate to the Kubernetes cluster.
         """
         return pulumi.get(self, "username")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class KubernetesClusterKubeConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientCertificate":
+            suggest = "client_certificate"
+        elif key == "clientKey":
+            suggest = "client_key"
+        elif key == "clusterCaCertificate":
+            suggest = "cluster_ca_certificate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterKubeConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterKubeConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterKubeConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_certificate: Optional[str] = None,
                  client_key: Optional[str] = None,
@@ -1862,12 +2233,30 @@ class KubernetesClusterKubeConfig(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KubernetesClusterKubeletIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "objectId":
+            suggest = "object_id"
+        elif key == "userAssignedIdentityId":
+            suggest = "user_assigned_identity_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterKubeletIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterKubeletIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterKubeletIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: Optional[str] = None,
                  object_id: Optional[str] = None,
@@ -1908,12 +2297,28 @@ class KubernetesClusterKubeletIdentity(dict):
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KubernetesClusterLinuxProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adminUsername":
+            suggest = "admin_username"
+        elif key == "sshKey":
+            suggest = "ssh_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterLinuxProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterLinuxProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterLinuxProfile.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  admin_username: str,
                  ssh_key: 'outputs.KubernetesClusterLinuxProfileSshKey'):
@@ -1940,12 +2345,26 @@ class KubernetesClusterLinuxProfile(dict):
         """
         return pulumi.get(self, "ssh_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KubernetesClusterLinuxProfileSshKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyData":
+            suggest = "key_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterLinuxProfileSshKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterLinuxProfileSshKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterLinuxProfileSshKey.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_data: str):
         """
@@ -1961,12 +2380,44 @@ class KubernetesClusterLinuxProfileSshKey(dict):
         """
         return pulumi.get(self, "key_data")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KubernetesClusterNetworkProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkPlugin":
+            suggest = "network_plugin"
+        elif key == "dnsServiceIp":
+            suggest = "dns_service_ip"
+        elif key == "dockerBridgeCidr":
+            suggest = "docker_bridge_cidr"
+        elif key == "loadBalancerProfile":
+            suggest = "load_balancer_profile"
+        elif key == "loadBalancerSku":
+            suggest = "load_balancer_sku"
+        elif key == "networkMode":
+            suggest = "network_mode"
+        elif key == "networkPolicy":
+            suggest = "network_policy"
+        elif key == "outboundType":
+            suggest = "outbound_type"
+        elif key == "podCidr":
+            suggest = "pod_cidr"
+        elif key == "serviceCidr":
+            suggest = "service_cidr"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterNetworkProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterNetworkProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterNetworkProfile.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  network_plugin: str,
                  dns_service_ip: Optional[str] = None,
@@ -2090,12 +2541,36 @@ class KubernetesClusterNetworkProfile(dict):
         """
         return pulumi.get(self, "service_cidr")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KubernetesClusterNetworkProfileLoadBalancerProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "effectiveOutboundIps":
+            suggest = "effective_outbound_ips"
+        elif key == "idleTimeoutInMinutes":
+            suggest = "idle_timeout_in_minutes"
+        elif key == "managedOutboundIpCount":
+            suggest = "managed_outbound_ip_count"
+        elif key == "outboundIpAddressIds":
+            suggest = "outbound_ip_address_ids"
+        elif key == "outboundIpPrefixIds":
+            suggest = "outbound_ip_prefix_ids"
+        elif key == "outboundPortsAllocated":
+            suggest = "outbound_ports_allocated"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterNetworkProfileLoadBalancerProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterNetworkProfileLoadBalancerProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterNetworkProfileLoadBalancerProfile.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  effective_outbound_ips: Optional[Sequence[str]] = None,
                  idle_timeout_in_minutes: Optional[int] = None,
@@ -2172,12 +2647,26 @@ class KubernetesClusterNetworkProfileLoadBalancerProfile(dict):
         """
         return pulumi.get(self, "outbound_ports_allocated")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KubernetesClusterNodePoolUpgradeSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxSurge":
+            suggest = "max_surge"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterNodePoolUpgradeSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterNodePoolUpgradeSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterNodePoolUpgradeSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_surge: str):
         """
@@ -2193,12 +2682,26 @@ class KubernetesClusterNodePoolUpgradeSettings(dict):
         """
         return pulumi.get(self, "max_surge")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KubernetesClusterRoleBasedAccessControl(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureActiveDirectory":
+            suggest = "azure_active_directory"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterRoleBasedAccessControl. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterRoleBasedAccessControl.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterRoleBasedAccessControl.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: bool,
                  azure_active_directory: Optional['outputs.KubernetesClusterRoleBasedAccessControlAzureActiveDirectory'] = None):
@@ -2226,12 +2729,34 @@ class KubernetesClusterRoleBasedAccessControl(dict):
         """
         return pulumi.get(self, "azure_active_directory")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KubernetesClusterRoleBasedAccessControlAzureActiveDirectory(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adminGroupObjectIds":
+            suggest = "admin_group_object_ids"
+        elif key == "clientAppId":
+            suggest = "client_app_id"
+        elif key == "serverAppId":
+            suggest = "server_app_id"
+        elif key == "serverAppSecret":
+            suggest = "server_app_secret"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterRoleBasedAccessControlAzureActiveDirectory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterRoleBasedAccessControlAzureActiveDirectory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterRoleBasedAccessControlAzureActiveDirectory.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  admin_group_object_ids: Optional[Sequence[str]] = None,
                  client_app_id: Optional[str] = None,
@@ -2308,12 +2833,28 @@ class KubernetesClusterRoleBasedAccessControlAzureActiveDirectory(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KubernetesClusterServicePrincipal(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterServicePrincipal. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterServicePrincipal.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterServicePrincipal.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: str,
                  client_secret: str):
@@ -2340,12 +2881,28 @@ class KubernetesClusterServicePrincipal(dict):
         """
         return pulumi.get(self, "client_secret")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KubernetesClusterWindowsProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adminUsername":
+            suggest = "admin_username"
+        elif key == "adminPassword":
+            suggest = "admin_password"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterWindowsProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterWindowsProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterWindowsProfile.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  admin_username: str,
                  admin_password: Optional[str] = None):
@@ -2373,12 +2930,30 @@ class KubernetesClusterWindowsProfile(dict):
         """
         return pulumi.get(self, "admin_password")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RegistryNetworkRuleSet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultAction":
+            suggest = "default_action"
+        elif key == "ipRules":
+            suggest = "ip_rules"
+        elif key == "virtualNetworks":
+            suggest = "virtual_networks"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryNetworkRuleSet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryNetworkRuleSet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryNetworkRuleSet.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_action: Optional[str] = None,
                  ip_rules: Optional[Sequence['outputs.RegistryNetworkRuleSetIpRule']] = None,
@@ -2419,12 +2994,26 @@ class RegistryNetworkRuleSet(dict):
         """
         return pulumi.get(self, "virtual_networks")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RegistryNetworkRuleSetIpRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipRange":
+            suggest = "ip_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryNetworkRuleSetIpRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryNetworkRuleSetIpRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryNetworkRuleSetIpRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: str,
                  ip_range: str):
@@ -2451,12 +3040,26 @@ class RegistryNetworkRuleSetIpRule(dict):
         """
         return pulumi.get(self, "ip_range")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RegistryNetworkRuleSetVirtualNetwork(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryNetworkRuleSetVirtualNetwork. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryNetworkRuleSetVirtualNetwork.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryNetworkRuleSetVirtualNetwork.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: str,
                  subnet_id: str):
@@ -2482,9 +3085,6 @@ class RegistryNetworkRuleSetVirtualNetwork(dict):
         The subnet id from which requests will match the rule.
         """
         return pulumi.get(self, "subnet_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2517,9 +3117,6 @@ class RegistryRetentionPolicy(dict):
         """
         return pulumi.get(self, "enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RegistryTrustPolicy(dict):
@@ -2538,9 +3135,6 @@ class RegistryTrustPolicy(dict):
         Boolean value that indicates whether the policy is enabled.
         """
         return pulumi.get(self, "enabled")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -61,12 +61,30 @@ class AccountCapability(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AccountConsistencyPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "consistencyLevel":
+            suggest = "consistency_level"
+        elif key == "maxIntervalInSeconds":
+            suggest = "max_interval_in_seconds"
+        elif key == "maxStalenessPrefix":
+            suggest = "max_staleness_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountConsistencyPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountConsistencyPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountConsistencyPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  consistency_level: str,
                  max_interval_in_seconds: Optional[int] = None,
@@ -106,12 +124,28 @@ class AccountConsistencyPolicy(dict):
         """
         return pulumi.get(self, "max_staleness_prefix")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AccountGeoLocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failoverPriority":
+            suggest = "failover_priority"
+        elif key == "zoneRedundant":
+            suggest = "zone_redundant"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountGeoLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountGeoLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountGeoLocation.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  failover_priority: int,
                  location: str,
@@ -174,12 +208,26 @@ class AccountGeoLocation(dict):
         """
         return pulumi.get(self, "zone_redundant")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AccountVirtualNetworkRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ignoreMissingVnetServiceEndpoint":
+            suggest = "ignore_missing_vnet_service_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountVirtualNetworkRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountVirtualNetworkRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountVirtualNetworkRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  ignore_missing_vnet_service_endpoint: Optional[bool] = None):
@@ -207,12 +255,26 @@ class AccountVirtualNetworkRule(dict):
         """
         return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CassandraKeyspaceAutoscaleSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxThroughput":
+            suggest = "max_throughput"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CassandraKeyspaceAutoscaleSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CassandraKeyspaceAutoscaleSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CassandraKeyspaceAutoscaleSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_throughput: Optional[int] = None):
         """
@@ -229,12 +291,26 @@ class CassandraKeyspaceAutoscaleSettings(dict):
         """
         return pulumi.get(self, "max_throughput")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CassandraTableAutoscaleSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxThroughput":
+            suggest = "max_throughput"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CassandraTableAutoscaleSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CassandraTableAutoscaleSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CassandraTableAutoscaleSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_throughput: Optional[int] = None):
         """
@@ -251,12 +327,28 @@ class CassandraTableAutoscaleSettings(dict):
         """
         return pulumi.get(self, "max_throughput")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CassandraTableSchema(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "partitionKeys":
+            suggest = "partition_keys"
+        elif key == "clusterKeys":
+            suggest = "cluster_keys"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CassandraTableSchema. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CassandraTableSchema.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CassandraTableSchema.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  columns: Sequence['outputs.CassandraTableSchemaColumn'],
                  partition_keys: Sequence['outputs.CassandraTableSchemaPartitionKey'],
@@ -295,12 +387,26 @@ class CassandraTableSchema(dict):
         """
         return pulumi.get(self, "cluster_keys")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CassandraTableSchemaClusterKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "orderBy":
+            suggest = "order_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CassandraTableSchemaClusterKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CassandraTableSchemaClusterKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CassandraTableSchemaClusterKey.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  order_by: str):
@@ -326,9 +432,6 @@ class CassandraTableSchemaClusterKey(dict):
         Order of the key. Currently supported values are `Asc` and `Desc`.
         """
         return pulumi.get(self, "order_by")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -359,9 +462,6 @@ class CassandraTableSchemaColumn(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CassandraTableSchemaPartitionKey(dict):
@@ -380,12 +480,26 @@ class CassandraTableSchemaPartitionKey(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GremlinDatabaseAutoscaleSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxThroughput":
+            suggest = "max_throughput"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GremlinDatabaseAutoscaleSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GremlinDatabaseAutoscaleSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GremlinDatabaseAutoscaleSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_throughput: Optional[int] = None):
         """
@@ -402,12 +516,26 @@ class GremlinDatabaseAutoscaleSettings(dict):
         """
         return pulumi.get(self, "max_throughput")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GremlinGraphAutoscaleSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxThroughput":
+            suggest = "max_throughput"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GremlinGraphAutoscaleSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GremlinGraphAutoscaleSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GremlinGraphAutoscaleSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_throughput: Optional[int] = None):
         """
@@ -424,12 +552,28 @@ class GremlinGraphAutoscaleSettings(dict):
         """
         return pulumi.get(self, "max_throughput")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GremlinGraphConflictResolutionPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "conflictResolutionPath":
+            suggest = "conflict_resolution_path"
+        elif key == "conflictResolutionProcedure":
+            suggest = "conflict_resolution_procedure"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GremlinGraphConflictResolutionPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GremlinGraphConflictResolutionPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GremlinGraphConflictResolutionPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  mode: str,
                  conflict_resolution_path: Optional[str] = None,
@@ -469,12 +613,30 @@ class GremlinGraphConflictResolutionPolicy(dict):
         """
         return pulumi.get(self, "conflict_resolution_procedure")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GremlinGraphIndexPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "indexingMode":
+            suggest = "indexing_mode"
+        elif key == "excludedPaths":
+            suggest = "excluded_paths"
+        elif key == "includedPaths":
+            suggest = "included_paths"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GremlinGraphIndexPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GremlinGraphIndexPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GremlinGraphIndexPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  indexing_mode: str,
                  automatic: Optional[bool] = None,
@@ -526,9 +688,6 @@ class GremlinGraphIndexPolicy(dict):
         """
         return pulumi.get(self, "included_paths")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GremlinGraphUniqueKey(dict):
@@ -547,12 +706,26 @@ class GremlinGraphUniqueKey(dict):
         """
         return pulumi.get(self, "paths")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MongoCollectionAutoscaleSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxThroughput":
+            suggest = "max_throughput"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MongoCollectionAutoscaleSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MongoCollectionAutoscaleSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MongoCollectionAutoscaleSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_throughput: Optional[int] = None):
         """
@@ -568,9 +741,6 @@ class MongoCollectionAutoscaleSettings(dict):
         The maximum throughput of the MongoDB collection (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -601,9 +771,6 @@ class MongoCollectionIndex(dict):
         Is the index unique or not? Defaults to `false`.
         """
         return pulumi.get(self, "unique")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -636,12 +803,26 @@ class MongoCollectionSystemIndex(dict):
         """
         return pulumi.get(self, "unique")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MongoDatabaseAutoscaleSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxThroughput":
+            suggest = "max_throughput"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MongoDatabaseAutoscaleSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MongoDatabaseAutoscaleSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MongoDatabaseAutoscaleSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_throughput: Optional[int] = None):
         """
@@ -658,12 +839,26 @@ class MongoDatabaseAutoscaleSettings(dict):
         """
         return pulumi.get(self, "max_throughput")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SqlContainerAutoscaleSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxThroughput":
+            suggest = "max_throughput"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlContainerAutoscaleSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlContainerAutoscaleSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlContainerAutoscaleSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_throughput: Optional[int] = None):
         """
@@ -680,12 +875,32 @@ class SqlContainerAutoscaleSettings(dict):
         """
         return pulumi.get(self, "max_throughput")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SqlContainerIndexingPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "compositeIndices":
+            suggest = "composite_indices"
+        elif key == "excludedPaths":
+            suggest = "excluded_paths"
+        elif key == "includedPaths":
+            suggest = "included_paths"
+        elif key == "indexingMode":
+            suggest = "indexing_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlContainerIndexingPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlContainerIndexingPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlContainerIndexingPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  composite_indices: Optional[Sequence['outputs.SqlContainerIndexingPolicyCompositeIndex']] = None,
                  excluded_paths: Optional[Sequence['outputs.SqlContainerIndexingPolicyExcludedPath']] = None,
@@ -738,9 +953,6 @@ class SqlContainerIndexingPolicy(dict):
         """
         return pulumi.get(self, "indexing_mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SqlContainerIndexingPolicyCompositeIndex(dict):
@@ -758,9 +970,6 @@ class SqlContainerIndexingPolicyCompositeIndex(dict):
         One or more `index` blocks as defined below.
         """
         return pulumi.get(self, "indices")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -791,9 +1000,6 @@ class SqlContainerIndexingPolicyCompositeIndexIndex(dict):
         """
         return pulumi.get(self, "path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SqlContainerIndexingPolicyExcludedPath(dict):
@@ -811,9 +1017,6 @@ class SqlContainerIndexingPolicyExcludedPath(dict):
         Path that is excluded from indexing.
         """
         return pulumi.get(self, "path")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -833,9 +1036,6 @@ class SqlContainerIndexingPolicyIncludedPath(dict):
         """
         return pulumi.get(self, "path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SqlContainerUniqueKey(dict):
@@ -854,12 +1054,26 @@ class SqlContainerUniqueKey(dict):
         """
         return pulumi.get(self, "paths")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SqlDatabaseAutoscaleSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxThroughput":
+            suggest = "max_throughput"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlDatabaseAutoscaleSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlDatabaseAutoscaleSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlDatabaseAutoscaleSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_throughput: Optional[int] = None):
         """
@@ -876,12 +1090,26 @@ class SqlDatabaseAutoscaleSettings(dict):
         """
         return pulumi.get(self, "max_throughput")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TableAutoscaleSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxThroughput":
+            suggest = "max_throughput"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableAutoscaleSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableAutoscaleSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableAutoscaleSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_throughput: Optional[int] = None):
         """
@@ -897,9 +1125,6 @@ class TableAutoscaleSettings(dict):
         The maximum throughput of the Table (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

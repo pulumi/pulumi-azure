@@ -22,29 +22,30 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:kusto/attachedDatabaseConfiguration:AttachedDatabaseConfiguration":
-		r, err = NewAttachedDatabaseConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &AttachedDatabaseConfiguration{}
 	case "azure:kusto/cluster:Cluster":
-		r, err = NewCluster(ctx, name, nil, pulumi.URN_(urn))
+		r = &Cluster{}
 	case "azure:kusto/clusterCustomerManagedKey:ClusterCustomerManagedKey":
-		r, err = NewClusterCustomerManagedKey(ctx, name, nil, pulumi.URN_(urn))
+		r = &ClusterCustomerManagedKey{}
 	case "azure:kusto/clusterPrincipalAssignment:ClusterPrincipalAssignment":
-		r, err = NewClusterPrincipalAssignment(ctx, name, nil, pulumi.URN_(urn))
+		r = &ClusterPrincipalAssignment{}
 	case "azure:kusto/database:Database":
-		r, err = NewDatabase(ctx, name, nil, pulumi.URN_(urn))
+		r = &Database{}
 	case "azure:kusto/databasePrincipal:DatabasePrincipal":
-		r, err = NewDatabasePrincipal(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatabasePrincipal{}
 	case "azure:kusto/databasePrincipalAssignment:DatabasePrincipalAssignment":
-		r, err = NewDatabasePrincipalAssignment(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatabasePrincipalAssignment{}
 	case "azure:kusto/eventGridDataConnection:EventGridDataConnection":
-		r, err = NewEventGridDataConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &EventGridDataConnection{}
 	case "azure:kusto/eventhubDataConnection:EventhubDataConnection":
-		r, err = NewEventhubDataConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &EventhubDataConnection{}
 	case "azure:kusto/iotHubDataConnection:IotHubDataConnection":
-		r, err = NewIotHubDataConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &IotHubDataConnection{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

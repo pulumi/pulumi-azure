@@ -22,47 +22,48 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:storage/account:Account":
-		r, err = NewAccount(ctx, name, nil, pulumi.URN_(urn))
+		r = &Account{}
 	case "azure:storage/accountNetworkRules:AccountNetworkRules":
-		r, err = NewAccountNetworkRules(ctx, name, nil, pulumi.URN_(urn))
+		r = &AccountNetworkRules{}
 	case "azure:storage/blob:Blob":
-		r, err = NewBlob(ctx, name, nil, pulumi.URN_(urn))
+		r = &Blob{}
 	case "azure:storage/container:Container":
-		r, err = NewContainer(ctx, name, nil, pulumi.URN_(urn))
+		r = &Container{}
 	case "azure:storage/customerManagedKey:CustomerManagedKey":
-		r, err = NewCustomerManagedKey(ctx, name, nil, pulumi.URN_(urn))
+		r = &CustomerManagedKey{}
 	case "azure:storage/dataLakeGen2Filesystem:DataLakeGen2Filesystem":
-		r, err = NewDataLakeGen2Filesystem(ctx, name, nil, pulumi.URN_(urn))
+		r = &DataLakeGen2Filesystem{}
 	case "azure:storage/dataLakeGen2Path:DataLakeGen2Path":
-		r, err = NewDataLakeGen2Path(ctx, name, nil, pulumi.URN_(urn))
+		r = &DataLakeGen2Path{}
 	case "azure:storage/encryptionScope:EncryptionScope":
-		r, err = NewEncryptionScope(ctx, name, nil, pulumi.URN_(urn))
+		r = &EncryptionScope{}
 	case "azure:storage/managementPolicy:ManagementPolicy":
-		r, err = NewManagementPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagementPolicy{}
 	case "azure:storage/queue:Queue":
-		r, err = NewQueue(ctx, name, nil, pulumi.URN_(urn))
+		r = &Queue{}
 	case "azure:storage/share:Share":
-		r, err = NewShare(ctx, name, nil, pulumi.URN_(urn))
+		r = &Share{}
 	case "azure:storage/shareDirectory:ShareDirectory":
-		r, err = NewShareDirectory(ctx, name, nil, pulumi.URN_(urn))
+		r = &ShareDirectory{}
 	case "azure:storage/shareFile:ShareFile":
-		r, err = NewShareFile(ctx, name, nil, pulumi.URN_(urn))
+		r = &ShareFile{}
 	case "azure:storage/sync:Sync":
-		r, err = NewSync(ctx, name, nil, pulumi.URN_(urn))
+		r = &Sync{}
 	case "azure:storage/syncCloudEndpoint:SyncCloudEndpoint":
-		r, err = NewSyncCloudEndpoint(ctx, name, nil, pulumi.URN_(urn))
+		r = &SyncCloudEndpoint{}
 	case "azure:storage/syncGroup:SyncGroup":
-		r, err = NewSyncGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &SyncGroup{}
 	case "azure:storage/table:Table":
-		r, err = NewTable(ctx, name, nil, pulumi.URN_(urn))
+		r = &Table{}
 	case "azure:storage/tableEntity:TableEntity":
-		r, err = NewTableEntity(ctx, name, nil, pulumi.URN_(urn))
+		r = &TableEntity{}
 	case "azure:storage/zipBlob:ZipBlob":
-		r, err = NewZipBlob(ctx, name, nil, pulumi.URN_(urn))
+		r = &ZipBlob{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

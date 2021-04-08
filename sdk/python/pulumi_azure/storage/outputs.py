@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -48,6 +48,27 @@ __all__ = [
 
 @pulumi.output_type
 class AccountBlobProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerDeleteRetentionPolicy":
+            suggest = "container_delete_retention_policy"
+        elif key == "corsRules":
+            suggest = "cors_rules"
+        elif key == "deleteRetentionPolicy":
+            suggest = "delete_retention_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountBlobProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountBlobProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountBlobProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  container_delete_retention_policy: Optional['outputs.AccountBlobPropertiesContainerDeleteRetentionPolicy'] = None,
                  cors_rules: Optional[Sequence['outputs.AccountBlobPropertiesCorsRule']] = None,
@@ -88,9 +109,6 @@ class AccountBlobProperties(dict):
         """
         return pulumi.get(self, "delete_retention_policy")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AccountBlobPropertiesContainerDeleteRetentionPolicy(dict):
@@ -110,12 +128,34 @@ class AccountBlobPropertiesContainerDeleteRetentionPolicy(dict):
         """
         return pulumi.get(self, "days")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AccountBlobPropertiesCorsRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedHeaders":
+            suggest = "allowed_headers"
+        elif key == "allowedMethods":
+            suggest = "allowed_methods"
+        elif key == "allowedOrigins":
+            suggest = "allowed_origins"
+        elif key == "exposedHeaders":
+            suggest = "exposed_headers"
+        elif key == "maxAgeInSeconds":
+            suggest = "max_age_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountBlobPropertiesCorsRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountBlobPropertiesCorsRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountBlobPropertiesCorsRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allowed_headers: Sequence[str],
                  allowed_methods: Sequence[str],
@@ -177,9 +217,6 @@ class AccountBlobPropertiesCorsRule(dict):
         """
         return pulumi.get(self, "max_age_in_seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AccountBlobPropertiesDeleteRetentionPolicy(dict):
@@ -199,12 +236,26 @@ class AccountBlobPropertiesDeleteRetentionPolicy(dict):
         """
         return pulumi.get(self, "days")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AccountCustomDomain(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "useSubdomain":
+            suggest = "use_subdomain"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountCustomDomain. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountCustomDomain.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountCustomDomain.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  use_subdomain: Optional[bool] = None):
@@ -232,12 +283,28 @@ class AccountCustomDomain(dict):
         """
         return pulumi.get(self, "use_subdomain")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AccountIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  principal_id: Optional[str] = None,
@@ -277,12 +344,30 @@ class AccountIdentity(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AccountNetworkRules(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultAction":
+            suggest = "default_action"
+        elif key == "ipRules":
+            suggest = "ip_rules"
+        elif key == "virtualNetworkSubnetIds":
+            suggest = "virtual_network_subnet_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountNetworkRules. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountNetworkRules.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountNetworkRules.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  default_action: str,
                  bypasses: Optional[Sequence[str]] = None,
@@ -336,12 +421,30 @@ class AccountNetworkRules(dict):
         """
         return pulumi.get(self, "virtual_network_subnet_ids")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AccountQueueProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "corsRules":
+            suggest = "cors_rules"
+        elif key == "hourMetrics":
+            suggest = "hour_metrics"
+        elif key == "minuteMetrics":
+            suggest = "minute_metrics"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountQueueProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountQueueProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountQueueProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cors_rules: Optional[Sequence['outputs.AccountQueuePropertiesCorsRule']] = None,
                  hour_metrics: Optional['outputs.AccountQueuePropertiesHourMetrics'] = None,
@@ -394,12 +497,34 @@ class AccountQueueProperties(dict):
         """
         return pulumi.get(self, "minute_metrics")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AccountQueuePropertiesCorsRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedHeaders":
+            suggest = "allowed_headers"
+        elif key == "allowedMethods":
+            suggest = "allowed_methods"
+        elif key == "allowedOrigins":
+            suggest = "allowed_origins"
+        elif key == "exposedHeaders":
+            suggest = "exposed_headers"
+        elif key == "maxAgeInSeconds":
+            suggest = "max_age_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountQueuePropertiesCorsRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountQueuePropertiesCorsRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountQueuePropertiesCorsRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allowed_headers: Sequence[str],
                  allowed_methods: Sequence[str],
@@ -461,12 +586,28 @@ class AccountQueuePropertiesCorsRule(dict):
         """
         return pulumi.get(self, "max_age_in_seconds")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AccountQueuePropertiesHourMetrics(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeApis":
+            suggest = "include_apis"
+        elif key == "retentionPolicyDays":
+            suggest = "retention_policy_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountQueuePropertiesHourMetrics. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountQueuePropertiesHourMetrics.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountQueuePropertiesHourMetrics.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: bool,
                  version: str,
@@ -517,12 +658,26 @@ class AccountQueuePropertiesHourMetrics(dict):
         """
         return pulumi.get(self, "retention_policy_days")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AccountQueuePropertiesLogging(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retentionPolicyDays":
+            suggest = "retention_policy_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountQueuePropertiesLogging. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountQueuePropertiesLogging.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountQueuePropertiesLogging.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  delete: bool,
                  read: bool,
@@ -583,12 +738,28 @@ class AccountQueuePropertiesLogging(dict):
         """
         return pulumi.get(self, "retention_policy_days")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AccountQueuePropertiesMinuteMetrics(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeApis":
+            suggest = "include_apis"
+        elif key == "retentionPolicyDays":
+            suggest = "retention_policy_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountQueuePropertiesMinuteMetrics. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountQueuePropertiesMinuteMetrics.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountQueuePropertiesMinuteMetrics.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: bool,
                  version: str,
@@ -639,12 +810,28 @@ class AccountQueuePropertiesMinuteMetrics(dict):
         """
         return pulumi.get(self, "retention_policy_days")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AccountStaticWebsite(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "error404Document":
+            suggest = "error404_document"
+        elif key == "indexDocument":
+            suggest = "index_document"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountStaticWebsite. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountStaticWebsite.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountStaticWebsite.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  error404_document: Optional[str] = None,
                  index_document: Optional[str] = None):
@@ -672,9 +859,6 @@ class AccountStaticWebsite(dict):
         The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
         """
         return pulumi.get(self, "index_document")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -729,9 +913,6 @@ class DataLakeGen2FilesystemAce(dict):
         """
         return pulumi.get(self, "scope")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DataLakeGen2PathAce(dict):
@@ -785,9 +966,6 @@ class DataLakeGen2PathAce(dict):
         """
         return pulumi.get(self, "scope")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagementPolicyRule(dict):
@@ -840,12 +1018,26 @@ class ManagementPolicyRule(dict):
         """
         return pulumi.get(self, "filters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagementPolicyRuleActions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseBlob":
+            suggest = "base_blob"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagementPolicyRuleActions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagementPolicyRuleActions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagementPolicyRuleActions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  base_blob: Optional['outputs.ManagementPolicyRuleActionsBaseBlob'] = None,
                  snapshot: Optional['outputs.ManagementPolicyRuleActionsSnapshot'] = None):
@@ -874,12 +1066,30 @@ class ManagementPolicyRuleActions(dict):
         """
         return pulumi.get(self, "snapshot")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagementPolicyRuleActionsBaseBlob(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deleteAfterDaysSinceModificationGreaterThan":
+            suggest = "delete_after_days_since_modification_greater_than"
+        elif key == "tierToArchiveAfterDaysSinceModificationGreaterThan":
+            suggest = "tier_to_archive_after_days_since_modification_greater_than"
+        elif key == "tierToCoolAfterDaysSinceModificationGreaterThan":
+            suggest = "tier_to_cool_after_days_since_modification_greater_than"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagementPolicyRuleActionsBaseBlob. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagementPolicyRuleActionsBaseBlob.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagementPolicyRuleActionsBaseBlob.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  delete_after_days_since_modification_greater_than: Optional[int] = None,
                  tier_to_archive_after_days_since_modification_greater_than: Optional[int] = None,
@@ -920,12 +1130,26 @@ class ManagementPolicyRuleActionsBaseBlob(dict):
         """
         return pulumi.get(self, "tier_to_cool_after_days_since_modification_greater_than")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagementPolicyRuleActionsSnapshot(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deleteAfterDaysSinceCreationGreaterThan":
+            suggest = "delete_after_days_since_creation_greater_than"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagementPolicyRuleActionsSnapshot. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagementPolicyRuleActionsSnapshot.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagementPolicyRuleActionsSnapshot.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  delete_after_days_since_creation_greater_than: Optional[int] = None):
         """
@@ -942,12 +1166,28 @@ class ManagementPolicyRuleActionsSnapshot(dict):
         """
         return pulumi.get(self, "delete_after_days_since_creation_greater_than")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ManagementPolicyRuleFilters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blobTypes":
+            suggest = "blob_types"
+        elif key == "prefixMatches":
+            suggest = "prefix_matches"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagementPolicyRuleFilters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagementPolicyRuleFilters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagementPolicyRuleFilters.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  blob_types: Optional[Sequence[str]] = None,
                  prefix_matches: Optional[Sequence[str]] = None):
@@ -976,12 +1216,26 @@ class ManagementPolicyRuleFilters(dict):
         """
         return pulumi.get(self, "prefix_matches")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ShareAcl(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessPolicies":
+            suggest = "access_policies"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ShareAcl. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ShareAcl.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ShareAcl.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  access_policies: Optional[Sequence['outputs.ShareAclAccessPolicy']] = None):
@@ -1008,9 +1262,6 @@ class ShareAcl(dict):
         An `access_policy` block as defined below.
         """
         return pulumi.get(self, "access_policies")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1054,12 +1305,26 @@ class ShareAclAccessPolicy(dict):
         """
         return pulumi.get(self, "start")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TableAcl(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessPolicies":
+            suggest = "access_policies"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableAcl. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableAcl.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableAcl.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  access_policies: Optional[Sequence['outputs.TableAclAccessPolicy']] = None):
@@ -1086,9 +1351,6 @@ class TableAcl(dict):
         An `access_policy` block as defined below.
         """
         return pulumi.get(self, "access_policies")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1129,9 +1391,6 @@ class TableAclAccessPolicy(dict):
         The ISO8061 UTC time at which this Access Policy should be valid from.
         """
         return pulumi.get(self, "start")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

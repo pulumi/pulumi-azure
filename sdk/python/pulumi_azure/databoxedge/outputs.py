@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'DeviceDeviceProperty',
@@ -20,6 +20,33 @@ __all__ = [
 
 @pulumi.output_type
 class DeviceDeviceProperty(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configuredRoleTypes":
+            suggest = "configured_role_types"
+        elif key == "hcsVersion":
+            suggest = "hcs_version"
+        elif key == "nodeCount":
+            suggest = "node_count"
+        elif key == "serialNumber":
+            suggest = "serial_number"
+        elif key == "softwareVersion":
+            suggest = "software_version"
+        elif key == "timeZone":
+            suggest = "time_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeviceDeviceProperty. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeviceDeviceProperty.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeviceDeviceProperty.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  capacity: Optional[int] = None,
                  configured_role_types: Optional[Sequence[str]] = None,
@@ -156,12 +183,28 @@ class DeviceDeviceProperty(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OrderContact(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "companyName":
+            suggest = "company_name"
+        elif key == "phoneNumber":
+            suggest = "phone_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrderContact. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrderContact.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrderContact.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  company_name: str,
                  emails: Sequence[str],
@@ -210,12 +253,32 @@ class OrderContact(dict):
         """
         return pulumi.get(self, "phone_number")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OrderReturnTracking(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "carrierName":
+            suggest = "carrier_name"
+        elif key == "serialNumber":
+            suggest = "serial_number"
+        elif key == "trackingId":
+            suggest = "tracking_id"
+        elif key == "trackingUrl":
+            suggest = "tracking_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrderReturnTracking. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrderReturnTracking.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrderReturnTracking.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  carrier_name: Optional[str] = None,
                  serial_number: Optional[str] = None,
@@ -268,12 +331,26 @@ class OrderReturnTracking(dict):
         """
         return pulumi.get(self, "tracking_url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OrderShipmentAddress(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "postalCode":
+            suggest = "postal_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrderShipmentAddress. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrderShipmentAddress.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrderShipmentAddress.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  addresses: Sequence[str],
                  city: str,
@@ -333,12 +410,28 @@ class OrderShipmentAddress(dict):
         """
         return pulumi.get(self, "state")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OrderShipmentHistory(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalDetails":
+            suggest = "additional_details"
+        elif key == "lastUpdate":
+            suggest = "last_update"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrderShipmentHistory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrderShipmentHistory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrderShipmentHistory.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  additional_details: Optional[Mapping[str, str]] = None,
                  comments: Optional[str] = None,
@@ -379,12 +472,32 @@ class OrderShipmentHistory(dict):
         """
         return pulumi.get(self, "last_update")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OrderShipmentTracking(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "carrierName":
+            suggest = "carrier_name"
+        elif key == "serialNumber":
+            suggest = "serial_number"
+        elif key == "trackingId":
+            suggest = "tracking_id"
+        elif key == "trackingUrl":
+            suggest = "tracking_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrderShipmentTracking. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrderShipmentTracking.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrderShipmentTracking.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  carrier_name: Optional[str] = None,
                  serial_number: Optional[str] = None,
@@ -437,12 +550,28 @@ class OrderShipmentTracking(dict):
         """
         return pulumi.get(self, "tracking_url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OrderStatus(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalDetails":
+            suggest = "additional_details"
+        elif key == "lastUpdate":
+            suggest = "last_update"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrderStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrderStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrderStatus.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  additional_details: Optional[Mapping[str, str]] = None,
                  comments: Optional[str] = None,
@@ -494,8 +623,5 @@ class OrderStatus(dict):
         Time of status update.
         """
         return pulumi.get(self, "last_update")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

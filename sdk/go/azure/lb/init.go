@@ -22,25 +22,26 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:lb/backendAddressPool:BackendAddressPool":
-		r, err = NewBackendAddressPool(ctx, name, nil, pulumi.URN_(urn))
+		r = &BackendAddressPool{}
 	case "azure:lb/backendAddressPoolAddress:BackendAddressPoolAddress":
-		r, err = NewBackendAddressPoolAddress(ctx, name, nil, pulumi.URN_(urn))
+		r = &BackendAddressPoolAddress{}
 	case "azure:lb/loadBalancer:LoadBalancer":
-		r, err = NewLoadBalancer(ctx, name, nil, pulumi.URN_(urn))
+		r = &LoadBalancer{}
 	case "azure:lb/natPool:NatPool":
-		r, err = NewNatPool(ctx, name, nil, pulumi.URN_(urn))
+		r = &NatPool{}
 	case "azure:lb/natRule:NatRule":
-		r, err = NewNatRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &NatRule{}
 	case "azure:lb/outboundRule:OutboundRule":
-		r, err = NewOutboundRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &OutboundRule{}
 	case "azure:lb/probe:Probe":
-		r, err = NewProbe(ctx, name, nil, pulumi.URN_(urn))
+		r = &Probe{}
 	case "azure:lb/rule:Rule":
-		r, err = NewRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &Rule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

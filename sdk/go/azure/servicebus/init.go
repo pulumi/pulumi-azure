@@ -22,27 +22,28 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:servicebus/namespace:Namespace":
-		r, err = NewNamespace(ctx, name, nil, pulumi.URN_(urn))
+		r = &Namespace{}
 	case "azure:servicebus/namespaceAuthorizationRule:NamespaceAuthorizationRule":
-		r, err = NewNamespaceAuthorizationRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &NamespaceAuthorizationRule{}
 	case "azure:servicebus/namespaceNetworkRuleSet:NamespaceNetworkRuleSet":
-		r, err = NewNamespaceNetworkRuleSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &NamespaceNetworkRuleSet{}
 	case "azure:servicebus/queue:Queue":
-		r, err = NewQueue(ctx, name, nil, pulumi.URN_(urn))
+		r = &Queue{}
 	case "azure:servicebus/queueAuthorizationRule:QueueAuthorizationRule":
-		r, err = NewQueueAuthorizationRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &QueueAuthorizationRule{}
 	case "azure:servicebus/subscription:Subscription":
-		r, err = NewSubscription(ctx, name, nil, pulumi.URN_(urn))
+		r = &Subscription{}
 	case "azure:servicebus/subscriptionRule:SubscriptionRule":
-		r, err = NewSubscriptionRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &SubscriptionRule{}
 	case "azure:servicebus/topic:Topic":
-		r, err = NewTopic(ctx, name, nil, pulumi.URN_(urn))
+		r = &Topic{}
 	case "azure:servicebus/topicAuthorizationRule:TopicAuthorizationRule":
-		r, err = NewTopicAuthorizationRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &TopicAuthorizationRule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

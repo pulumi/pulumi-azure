@@ -22,73 +22,74 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:apimanagement/api:Api":
-		r, err = NewApi(ctx, name, nil, pulumi.URN_(urn))
+		r = &Api{}
 	case "azure:apimanagement/apiDiagnostic:ApiDiagnostic":
-		r, err = NewApiDiagnostic(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApiDiagnostic{}
 	case "azure:apimanagement/apiOperation:ApiOperation":
-		r, err = NewApiOperation(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApiOperation{}
 	case "azure:apimanagement/apiOperationPolicy:ApiOperationPolicy":
-		r, err = NewApiOperationPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApiOperationPolicy{}
 	case "azure:apimanagement/apiPolicy:ApiPolicy":
-		r, err = NewApiPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApiPolicy{}
 	case "azure:apimanagement/apiSchema:ApiSchema":
-		r, err = NewApiSchema(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApiSchema{}
 	case "azure:apimanagement/apiVersionSet:ApiVersionSet":
-		r, err = NewApiVersionSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApiVersionSet{}
 	case "azure:apimanagement/authorizationServer:AuthorizationServer":
-		r, err = NewAuthorizationServer(ctx, name, nil, pulumi.URN_(urn))
+		r = &AuthorizationServer{}
 	case "azure:apimanagement/backend:Backend":
-		r, err = NewBackend(ctx, name, nil, pulumi.URN_(urn))
+		r = &Backend{}
 	case "azure:apimanagement/certificate:Certificate":
-		r, err = NewCertificate(ctx, name, nil, pulumi.URN_(urn))
+		r = &Certificate{}
 	case "azure:apimanagement/customDomain:CustomDomain":
-		r, err = NewCustomDomain(ctx, name, nil, pulumi.URN_(urn))
+		r = &CustomDomain{}
 	case "azure:apimanagement/diagnostic:Diagnostic":
-		r, err = NewDiagnostic(ctx, name, nil, pulumi.URN_(urn))
+		r = &Diagnostic{}
 	case "azure:apimanagement/group:Group":
-		r, err = NewGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &Group{}
 	case "azure:apimanagement/groupUser:GroupUser":
-		r, err = NewGroupUser(ctx, name, nil, pulumi.URN_(urn))
+		r = &GroupUser{}
 	case "azure:apimanagement/identityProviderAad:IdentityProviderAad":
-		r, err = NewIdentityProviderAad(ctx, name, nil, pulumi.URN_(urn))
+		r = &IdentityProviderAad{}
 	case "azure:apimanagement/identityProviderAadb2c:IdentityProviderAadb2c":
-		r, err = NewIdentityProviderAadb2c(ctx, name, nil, pulumi.URN_(urn))
+		r = &IdentityProviderAadb2c{}
 	case "azure:apimanagement/identityProviderFacebook:IdentityProviderFacebook":
-		r, err = NewIdentityProviderFacebook(ctx, name, nil, pulumi.URN_(urn))
+		r = &IdentityProviderFacebook{}
 	case "azure:apimanagement/identityProviderGoogle:IdentityProviderGoogle":
-		r, err = NewIdentityProviderGoogle(ctx, name, nil, pulumi.URN_(urn))
+		r = &IdentityProviderGoogle{}
 	case "azure:apimanagement/identityProviderMicrosoft:IdentityProviderMicrosoft":
-		r, err = NewIdentityProviderMicrosoft(ctx, name, nil, pulumi.URN_(urn))
+		r = &IdentityProviderMicrosoft{}
 	case "azure:apimanagement/identityProviderTwitter:IdentityProviderTwitter":
-		r, err = NewIdentityProviderTwitter(ctx, name, nil, pulumi.URN_(urn))
+		r = &IdentityProviderTwitter{}
 	case "azure:apimanagement/logger:Logger":
-		r, err = NewLogger(ctx, name, nil, pulumi.URN_(urn))
+		r = &Logger{}
 	case "azure:apimanagement/namedValue:NamedValue":
-		r, err = NewNamedValue(ctx, name, nil, pulumi.URN_(urn))
+		r = &NamedValue{}
 	case "azure:apimanagement/openIdConnectProvider:OpenIdConnectProvider":
-		r, err = NewOpenIdConnectProvider(ctx, name, nil, pulumi.URN_(urn))
+		r = &OpenIdConnectProvider{}
 	case "azure:apimanagement/policy:Policy":
-		r, err = NewPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &Policy{}
 	case "azure:apimanagement/product:Product":
-		r, err = NewProduct(ctx, name, nil, pulumi.URN_(urn))
+		r = &Product{}
 	case "azure:apimanagement/productApi:ProductApi":
-		r, err = NewProductApi(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProductApi{}
 	case "azure:apimanagement/productGroup:ProductGroup":
-		r, err = NewProductGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProductGroup{}
 	case "azure:apimanagement/productPolicy:ProductPolicy":
-		r, err = NewProductPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProductPolicy{}
 	case "azure:apimanagement/property:Property":
-		r, err = NewProperty(ctx, name, nil, pulumi.URN_(urn))
+		r = &Property{}
 	case "azure:apimanagement/service:Service":
-		r, err = NewService(ctx, name, nil, pulumi.URN_(urn))
+		r = &Service{}
 	case "azure:apimanagement/subscription:Subscription":
-		r, err = NewSubscription(ctx, name, nil, pulumi.URN_(urn))
+		r = &Subscription{}
 	case "azure:apimanagement/user:User":
-		r, err = NewUser(ctx, name, nil, pulumi.URN_(urn))
+		r = &User{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

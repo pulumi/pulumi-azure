@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'SparkPoolAutoPause',
@@ -21,6 +21,23 @@ __all__ = [
 
 @pulumi.output_type
 class SparkPoolAutoPause(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "delayInMinutes":
+            suggest = "delay_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SparkPoolAutoPause. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SparkPoolAutoPause.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SparkPoolAutoPause.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  delay_in_minutes: int):
         """
@@ -36,12 +53,28 @@ class SparkPoolAutoPause(dict):
         """
         return pulumi.get(self, "delay_in_minutes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SparkPoolAutoScale(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxNodeCount":
+            suggest = "max_node_count"
+        elif key == "minNodeCount":
+            suggest = "min_node_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SparkPoolAutoScale. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SparkPoolAutoScale.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SparkPoolAutoScale.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_node_count: int,
                  min_node_count: int):
@@ -67,9 +100,6 @@ class SparkPoolAutoScale(dict):
         The minimum number of nodes the Spark Pool can support. Must be between `3` and `200`.
         """
         return pulumi.get(self, "min_node_count")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -100,12 +130,28 @@ class SparkPoolLibraryRequirement(dict):
         """
         return pulumi.get(self, "filename")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SqlPoolRestore(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pointInTime":
+            suggest = "point_in_time"
+        elif key == "sourceDatabaseId":
+            suggest = "source_database_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlPoolRestore. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlPoolRestore.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlPoolRestore.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  point_in_time: str,
                  source_database_id: str):
@@ -132,12 +178,28 @@ class SqlPoolRestore(dict):
         """
         return pulumi.get(self, "source_database_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WorkspaceAadAdmin(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectId":
+            suggest = "object_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceAadAdmin. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceAadAdmin.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceAadAdmin.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  login: str,
                  object_id: str,
@@ -175,12 +237,34 @@ class WorkspaceAadAdmin(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WorkspaceAzureDevopsRepo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountName":
+            suggest = "account_name"
+        elif key == "branchName":
+            suggest = "branch_name"
+        elif key == "projectName":
+            suggest = "project_name"
+        elif key == "repositoryName":
+            suggest = "repository_name"
+        elif key == "rootFolder":
+            suggest = "root_folder"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceAzureDevopsRepo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceAzureDevopsRepo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceAzureDevopsRepo.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  account_name: str,
                  branch_name: str,
@@ -240,12 +324,34 @@ class WorkspaceAzureDevopsRepo(dict):
         """
         return pulumi.get(self, "root_folder")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WorkspaceGithubRepo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountName":
+            suggest = "account_name"
+        elif key == "branchName":
+            suggest = "branch_name"
+        elif key == "repositoryName":
+            suggest = "repository_name"
+        elif key == "rootFolder":
+            suggest = "root_folder"
+        elif key == "gitUrl":
+            suggest = "git_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceGithubRepo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceGithubRepo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceGithubRepo.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  account_name: str,
                  branch_name: str,
@@ -306,12 +412,28 @@ class WorkspaceGithubRepo(dict):
         """
         return pulumi.get(self, "git_url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WorkspaceIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None,
@@ -351,8 +473,5 @@ class WorkspaceIdentity(dict):
         The Identity Type for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

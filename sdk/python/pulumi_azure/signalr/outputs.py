@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'ServiceCor',
@@ -17,6 +17,23 @@ __all__ = [
 
 @pulumi.output_type
 class ServiceCor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedOrigins":
+            suggest = "allowed_origins"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceCor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceCor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceCor.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allowed_origins: Sequence[str]):
         """
@@ -31,9 +48,6 @@ class ServiceCor(dict):
         A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
         """
         return pulumi.get(self, "allowed_origins")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -64,9 +78,6 @@ class ServiceFeature(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceSku(dict):
@@ -96,12 +107,32 @@ class ServiceSku(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceUpstreamEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "categoryPatterns":
+            suggest = "category_patterns"
+        elif key == "eventPatterns":
+            suggest = "event_patterns"
+        elif key == "hubPatterns":
+            suggest = "hub_patterns"
+        elif key == "urlTemplate":
+            suggest = "url_template"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceUpstreamEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceUpstreamEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceUpstreamEndpoint.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  category_patterns: Sequence[str],
                  event_patterns: Sequence[str],
@@ -149,8 +180,5 @@ class ServiceUpstreamEndpoint(dict):
         The upstream URL Template. This can be a url or a template such as `http://host.com/{hub}/api/{category}/{event}`.
         """
         return pulumi.get(self, "url_template")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

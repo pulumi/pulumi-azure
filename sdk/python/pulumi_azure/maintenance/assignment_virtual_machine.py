@@ -5,13 +5,123 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
-__all__ = ['AssignmentVirtualMachine']
+__all__ = ['AssignmentVirtualMachineArgs', 'AssignmentVirtualMachine']
+
+@pulumi.input_type
+class AssignmentVirtualMachineArgs:
+    def __init__(__self__, *,
+                 maintenance_configuration_id: pulumi.Input[str],
+                 virtual_machine_id: pulumi.Input[str],
+                 location: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a AssignmentVirtualMachine resource.
+        :param pulumi.Input[str] maintenance_configuration_id: Specifies the ID of the Maintenance Configuration Resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_machine_id: Specifies the Virtual Machine ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "maintenance_configuration_id", maintenance_configuration_id)
+        pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+
+    @property
+    @pulumi.getter(name="maintenanceConfigurationId")
+    def maintenance_configuration_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the ID of the Maintenance Configuration Resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "maintenance_configuration_id")
+
+    @maintenance_configuration_id.setter
+    def maintenance_configuration_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "maintenance_configuration_id", value)
+
+    @property
+    @pulumi.getter(name="virtualMachineId")
+    def virtual_machine_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the Virtual Machine ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "virtual_machine_id")
+
+    @virtual_machine_id.setter
+    def virtual_machine_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "virtual_machine_id", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+
+@pulumi.input_type
+class _AssignmentVirtualMachineState:
+    def __init__(__self__, *,
+                 location: Optional[pulumi.Input[str]] = None,
+                 maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
+                 virtual_machine_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering AssignmentVirtualMachine resources.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] maintenance_configuration_id: Specifies the ID of the Maintenance Configuration Resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_machine_id: Specifies the Virtual Machine ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.
+        """
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if maintenance_configuration_id is not None:
+            pulumi.set(__self__, "maintenance_configuration_id", maintenance_configuration_id)
+        if virtual_machine_id is not None:
+            pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="maintenanceConfigurationId")
+    def maintenance_configuration_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of the Maintenance Configuration Resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "maintenance_configuration_id")
+
+    @maintenance_configuration_id.setter
+    def maintenance_configuration_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "maintenance_configuration_id", value)
+
+    @property
+    @pulumi.getter(name="virtualMachineId")
+    def virtual_machine_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Virtual Machine ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "virtual_machine_id")
+
+    @virtual_machine_id.setter
+    def virtual_machine_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_machine_id", value)
 
 
 class AssignmentVirtualMachine(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -91,6 +201,97 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] maintenance_configuration_id: Specifies the ID of the Maintenance Configuration Resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_machine_id: Specifies the Virtual Machine ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AssignmentVirtualMachineArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a maintenance assignment to virtual machine.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+                name="internal",
+                subnet_id=example_subnet.id,
+                private_ip_address_allocation="Dynamic",
+            )])
+        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            size="Standard_F2",
+            admin_username="adminuser",
+            network_interface_ids=[example_network_interface.id],
+            admin_ssh_keys=[azure.compute.LinuxVirtualMachineAdminSshKeyArgs(
+                username="adminuser",
+                public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"),
+            )],
+            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
+                caching="ReadWrite",
+                storage_account_type="Standard_LRS",
+            ),
+            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
+                publisher="Canonical",
+                offer="UbuntuServer",
+                sku="16.04-LTS",
+                version="latest",
+            ))
+        example_configuration = azure.maintenance.Configuration("exampleConfiguration",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            scope="All")
+        example_assignment_virtual_machine = azure.maintenance.AssignmentVirtualMachine("exampleAssignmentVirtualMachine",
+            location=example_resource_group.location,
+            maintenance_configuration_id=example_configuration.id,
+            virtual_machine_id=example_linux_virtual_machine.id)
+        ```
+
+        ## Import
+
+        Maintenance Assignment can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:maintenance/assignmentVirtualMachine:AssignmentVirtualMachine example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resGroup1/providers/microsoft.compute/virtualMachines/vm1/providers/Microsoft.Maintenance/configurationAssignments/assign1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param AssignmentVirtualMachineArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AssignmentVirtualMachineArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
+                 virtual_machine_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -106,15 +307,15 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AssignmentVirtualMachineArgs.__new__(AssignmentVirtualMachineArgs)
 
-            __props__['location'] = location
+            __props__.__dict__["location"] = location
             if maintenance_configuration_id is None and not opts.urn:
                 raise TypeError("Missing required property 'maintenance_configuration_id'")
-            __props__['maintenance_configuration_id'] = maintenance_configuration_id
+            __props__.__dict__["maintenance_configuration_id"] = maintenance_configuration_id
             if virtual_machine_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_machine_id'")
-            __props__['virtual_machine_id'] = virtual_machine_id
+            __props__.__dict__["virtual_machine_id"] = virtual_machine_id
         super(AssignmentVirtualMachine, __self__).__init__(
             'azure:maintenance/assignmentVirtualMachine:AssignmentVirtualMachine',
             resource_name,
@@ -141,11 +342,11 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AssignmentVirtualMachineState.__new__(_AssignmentVirtualMachineState)
 
-        __props__["location"] = location
-        __props__["maintenance_configuration_id"] = maintenance_configuration_id
-        __props__["virtual_machine_id"] = virtual_machine_id
+        __props__.__dict__["location"] = location
+        __props__.__dict__["maintenance_configuration_id"] = maintenance_configuration_id
+        __props__.__dict__["virtual_machine_id"] = virtual_machine_id
         return AssignmentVirtualMachine(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -171,10 +372,4 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
         Specifies the Virtual Machine ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_machine_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

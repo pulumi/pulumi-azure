@@ -5,13 +5,410 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
-__all__ = ['Key']
+__all__ = ['KeyArgs', 'Key']
+
+@pulumi.input_type
+class KeyArgs:
+    def __init__(__self__, *,
+                 key_opts: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 key_type: pulumi.Input[str],
+                 key_vault_id: pulumi.Input[str],
+                 curve: Optional[pulumi.Input[str]] = None,
+                 expiration_date: Optional[pulumi.Input[str]] = None,
+                 key_size: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 not_before_date: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Key resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] key_opts: A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
+        :param pulumi.Input[str] key_type: Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] curve: Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-384`, `P-521`, and `SECP256K1`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] expiration_date: Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+        :param pulumi.Input[int] key_size: Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "key_opts", key_opts)
+        pulumi.set(__self__, "key_type", key_type)
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if curve is not None:
+            pulumi.set(__self__, "curve", curve)
+        if expiration_date is not None:
+            pulumi.set(__self__, "expiration_date", expiration_date)
+        if key_size is not None:
+            pulumi.set(__self__, "key_size", key_size)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if not_before_date is not None:
+            pulumi.set(__self__, "not_before_date", not_before_date)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="keyOpts")
+    def key_opts(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
+        """
+        return pulumi.get(self, "key_opts")
+
+    @key_opts.setter
+    def key_opts(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "key_opts", value)
+
+    @property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> pulumi.Input[str]:
+        """
+        Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "key_type")
+
+    @key_type.setter
+    def key_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_type", value)
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @key_vault_id.setter
+    def key_vault_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_vault_id", value)
+
+    @property
+    @pulumi.getter
+    def curve(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-384`, `P-521`, and `SECP256K1`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "curve")
+
+    @curve.setter
+    def curve(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "curve", value)
+
+    @property
+    @pulumi.getter(name="expirationDate")
+    def expiration_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+        """
+        return pulumi.get(self, "expiration_date")
+
+    @expiration_date.setter
+    def expiration_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiration_date", value)
+
+    @property
+    @pulumi.getter(name="keySize")
+    def key_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "key_size")
+
+    @key_size.setter
+    def key_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "key_size", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="notBeforeDate")
+    def not_before_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+        """
+        return pulumi.get(self, "not_before_date")
+
+    @not_before_date.setter
+    def not_before_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "not_before_date", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _KeyState:
+    def __init__(__self__, *,
+                 curve: Optional[pulumi.Input[str]] = None,
+                 e: Optional[pulumi.Input[str]] = None,
+                 expiration_date: Optional[pulumi.Input[str]] = None,
+                 key_opts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 key_size: Optional[pulumi.Input[int]] = None,
+                 key_type: Optional[pulumi.Input[str]] = None,
+                 key_vault_id: Optional[pulumi.Input[str]] = None,
+                 n: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 not_before_date: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
+                 versionless_id: Optional[pulumi.Input[str]] = None,
+                 x: Optional[pulumi.Input[str]] = None,
+                 y: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Key resources.
+        :param pulumi.Input[str] curve: Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-384`, `P-521`, and `SECP256K1`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] e: The RSA public exponent of this Key Vault Key.
+        :param pulumi.Input[str] expiration_date: Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] key_opts: A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
+        :param pulumi.Input[int] key_size: Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] key_type: Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] n: The RSA modulus of this Key Vault Key.
+        :param pulumi.Input[str] name: Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] version: The current version of the Key Vault Key.
+        :param pulumi.Input[str] versionless_id: The Base ID of the Key Vault Key.
+        :param pulumi.Input[str] x: The EC X component of this Key Vault Key.
+        :param pulumi.Input[str] y: The EC Y component of this Key Vault Key.
+        """
+        if curve is not None:
+            pulumi.set(__self__, "curve", curve)
+        if e is not None:
+            pulumi.set(__self__, "e", e)
+        if expiration_date is not None:
+            pulumi.set(__self__, "expiration_date", expiration_date)
+        if key_opts is not None:
+            pulumi.set(__self__, "key_opts", key_opts)
+        if key_size is not None:
+            pulumi.set(__self__, "key_size", key_size)
+        if key_type is not None:
+            pulumi.set(__self__, "key_type", key_type)
+        if key_vault_id is not None:
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if n is not None:
+            pulumi.set(__self__, "n", n)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if not_before_date is not None:
+            pulumi.set(__self__, "not_before_date", not_before_date)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+        if versionless_id is not None:
+            pulumi.set(__self__, "versionless_id", versionless_id)
+        if x is not None:
+            pulumi.set(__self__, "x", x)
+        if y is not None:
+            pulumi.set(__self__, "y", y)
+
+    @property
+    @pulumi.getter
+    def curve(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-384`, `P-521`, and `SECP256K1`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "curve")
+
+    @curve.setter
+    def curve(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "curve", value)
+
+    @property
+    @pulumi.getter
+    def e(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RSA public exponent of this Key Vault Key.
+        """
+        return pulumi.get(self, "e")
+
+    @e.setter
+    def e(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "e", value)
+
+    @property
+    @pulumi.getter(name="expirationDate")
+    def expiration_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+        """
+        return pulumi.get(self, "expiration_date")
+
+    @expiration_date.setter
+    def expiration_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiration_date", value)
+
+    @property
+    @pulumi.getter(name="keyOpts")
+    def key_opts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
+        """
+        return pulumi.get(self, "key_opts")
+
+    @key_opts.setter
+    def key_opts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "key_opts", value)
+
+    @property
+    @pulumi.getter(name="keySize")
+    def key_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "key_size")
+
+    @key_size.setter
+    def key_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "key_size", value)
+
+    @property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "key_type")
+
+    @key_type.setter
+    def key_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_type", value)
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @key_vault_id.setter
+    def key_vault_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_id", value)
+
+    @property
+    @pulumi.getter
+    def n(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RSA modulus of this Key Vault Key.
+        """
+        return pulumi.get(self, "n")
+
+    @n.setter
+    def n(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "n", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="notBeforeDate")
+    def not_before_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+        """
+        return pulumi.get(self, "not_before_date")
+
+    @not_before_date.setter
+    def not_before_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "not_before_date", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The current version of the Key Vault Key.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+    @property
+    @pulumi.getter(name="versionlessId")
+    def versionless_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Base ID of the Key Vault Key.
+        """
+        return pulumi.get(self, "versionless_id")
+
+    @versionless_id.setter
+    def versionless_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "versionless_id", value)
+
+    @property
+    @pulumi.getter
+    def x(self) -> Optional[pulumi.Input[str]]:
+        """
+        The EC X component of this Key Vault Key.
+        """
+        return pulumi.get(self, "x")
+
+    @x.setter
+    def x(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x", value)
+
+    @property
+    @pulumi.getter
+    def y(self) -> Optional[pulumi.Input[str]]:
+        """
+        The EC Y component of this Key Vault Key.
+        """
+        return pulumi.get(self, "y")
+
+    @y.setter
+    def y(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "y", value)
 
 
 class Key(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -89,6 +486,89 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: KeyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Key Vault Key.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
+            soft_delete_retention_days=7,
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+                tenant_id=current.tenant_id,
+                object_id=current.object_id,
+                key_permissions=[
+                    "create",
+                    "get",
+                    "purge",
+                    "recover",
+                ],
+                secret_permissions=["set"],
+            )])
+        generated = azure.keyvault.Key("generated",
+            key_vault_id=example_key_vault.id,
+            key_type="RSA",
+            key_size=2048,
+            key_opts=[
+                "decrypt",
+                "encrypt",
+                "sign",
+                "unwrapKey",
+                "verify",
+                "wrapKey",
+            ])
+        ```
+
+        ## Import
+
+        Key Vault Key which is Enabled can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:keyvault/key:Key example "https://example-keyvault.vault.azure.net/keys/example/fdf067c93bbb4b22bff4d8b7a9a56217"
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param KeyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(KeyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 curve: Optional[pulumi.Input[str]] = None,
+                 expiration_date: Optional[pulumi.Input[str]] = None,
+                 key_opts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 key_size: Optional[pulumi.Input[int]] = None,
+                 key_type: Optional[pulumi.Input[str]] = None,
+                 key_vault_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 not_before_date: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -104,29 +584,29 @@ class Key(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = KeyArgs.__new__(KeyArgs)
 
-            __props__['curve'] = curve
-            __props__['expiration_date'] = expiration_date
+            __props__.__dict__["curve"] = curve
+            __props__.__dict__["expiration_date"] = expiration_date
             if key_opts is None and not opts.urn:
                 raise TypeError("Missing required property 'key_opts'")
-            __props__['key_opts'] = key_opts
-            __props__['key_size'] = key_size
+            __props__.__dict__["key_opts"] = key_opts
+            __props__.__dict__["key_size"] = key_size
             if key_type is None and not opts.urn:
                 raise TypeError("Missing required property 'key_type'")
-            __props__['key_type'] = key_type
+            __props__.__dict__["key_type"] = key_type
             if key_vault_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_id'")
-            __props__['key_vault_id'] = key_vault_id
-            __props__['name'] = name
-            __props__['not_before_date'] = not_before_date
-            __props__['tags'] = tags
-            __props__['e'] = None
-            __props__['n'] = None
-            __props__['version'] = None
-            __props__['versionless_id'] = None
-            __props__['x'] = None
-            __props__['y'] = None
+            __props__.__dict__["key_vault_id"] = key_vault_id
+            __props__.__dict__["name"] = name
+            __props__.__dict__["not_before_date"] = not_before_date
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["e"] = None
+            __props__.__dict__["n"] = None
+            __props__.__dict__["version"] = None
+            __props__.__dict__["versionless_id"] = None
+            __props__.__dict__["x"] = None
+            __props__.__dict__["y"] = None
         super(Key, __self__).__init__(
             'azure:keyvault/key:Key',
             resource_name,
@@ -177,23 +657,23 @@ class Key(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _KeyState.__new__(_KeyState)
 
-        __props__["curve"] = curve
-        __props__["e"] = e
-        __props__["expiration_date"] = expiration_date
-        __props__["key_opts"] = key_opts
-        __props__["key_size"] = key_size
-        __props__["key_type"] = key_type
-        __props__["key_vault_id"] = key_vault_id
-        __props__["n"] = n
-        __props__["name"] = name
-        __props__["not_before_date"] = not_before_date
-        __props__["tags"] = tags
-        __props__["version"] = version
-        __props__["versionless_id"] = versionless_id
-        __props__["x"] = x
-        __props__["y"] = y
+        __props__.__dict__["curve"] = curve
+        __props__.__dict__["e"] = e
+        __props__.__dict__["expiration_date"] = expiration_date
+        __props__.__dict__["key_opts"] = key_opts
+        __props__.__dict__["key_size"] = key_size
+        __props__.__dict__["key_type"] = key_type
+        __props__.__dict__["key_vault_id"] = key_vault_id
+        __props__.__dict__["n"] = n
+        __props__.__dict__["name"] = name
+        __props__.__dict__["not_before_date"] = not_before_date
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["version"] = version
+        __props__.__dict__["versionless_id"] = versionless_id
+        __props__.__dict__["x"] = x
+        __props__.__dict__["y"] = y
         return Key(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -315,10 +795,4 @@ class Key(pulumi.CustomResource):
         The EC Y component of this Key Vault Key.
         """
         return pulumi.get(self, "y")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

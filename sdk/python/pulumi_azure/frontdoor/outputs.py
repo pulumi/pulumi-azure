@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -32,6 +32,35 @@ __all__ = [
 
 @pulumi.output_type
 class CustomHttpsConfigurationCustomHttpsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureKeyVaultCertificateSecretName":
+            suggest = "azure_key_vault_certificate_secret_name"
+        elif key == "azureKeyVaultCertificateSecretVersion":
+            suggest = "azure_key_vault_certificate_secret_version"
+        elif key == "azureKeyVaultCertificateVaultId":
+            suggest = "azure_key_vault_certificate_vault_id"
+        elif key == "certificateSource":
+            suggest = "certificate_source"
+        elif key == "minimumTlsVersion":
+            suggest = "minimum_tls_version"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "provisioningSubstate":
+            suggest = "provisioning_substate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomHttpsConfigurationCustomHttpsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomHttpsConfigurationCustomHttpsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomHttpsConfigurationCustomHttpsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  azure_key_vault_certificate_secret_name: Optional[str] = None,
                  azure_key_vault_certificate_secret_version: Optional[str] = None,
@@ -112,12 +141,30 @@ class CustomHttpsConfigurationCustomHttpsConfiguration(dict):
     def provisioning_substate(self) -> Optional[str]:
         return pulumi.get(self, "provisioning_substate")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyCustomRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchConditions":
+            suggest = "match_conditions"
+        elif key == "rateLimitDurationInMinutes":
+            suggest = "rate_limit_duration_in_minutes"
+        elif key == "rateLimitThreshold":
+            suggest = "rate_limit_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyCustomRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyCustomRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyCustomRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: str,
                  name: str,
@@ -215,12 +262,30 @@ class FirewallPolicyCustomRule(dict):
         """
         return pulumi.get(self, "rate_limit_threshold")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyCustomRuleMatchCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "matchVariable":
+            suggest = "match_variable"
+        elif key == "negationCondition":
+            suggest = "negation_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyCustomRuleMatchCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyCustomRuleMatchCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyCustomRuleMatchCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  match_values: Sequence[str],
                  match_variable: str,
@@ -294,9 +359,6 @@ class FirewallPolicyCustomRuleMatchCondition(dict):
         """
         return pulumi.get(self, "transforms")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyManagedRule(dict):
@@ -350,12 +412,26 @@ class FirewallPolicyManagedRule(dict):
         """
         return pulumi.get(self, "overrides")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyManagedRuleExclusion(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchVariable":
+            suggest = "match_variable"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyManagedRuleExclusion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyManagedRuleExclusion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyManagedRuleExclusion.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  match_variable: str,
                  operator: str,
@@ -393,12 +469,26 @@ class FirewallPolicyManagedRuleExclusion(dict):
         """
         return pulumi.get(self, "selector")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyManagedRuleOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleGroupName":
+            suggest = "rule_group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyManagedRuleOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyManagedRuleOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyManagedRuleOverride.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  rule_group_name: str,
                  exclusions: Optional[Sequence['outputs.FirewallPolicyManagedRuleOverrideExclusion']] = None,
@@ -438,12 +528,26 @@ class FirewallPolicyManagedRuleOverride(dict):
         """
         return pulumi.get(self, "rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyManagedRuleOverrideExclusion(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchVariable":
+            suggest = "match_variable"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyManagedRuleOverrideExclusion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyManagedRuleOverrideExclusion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyManagedRuleOverrideExclusion.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  match_variable: str,
                  operator: str,
@@ -481,12 +585,26 @@ class FirewallPolicyManagedRuleOverrideExclusion(dict):
         """
         return pulumi.get(self, "selector")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyManagedRuleOverrideRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleId":
+            suggest = "rule_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyManagedRuleOverrideRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyManagedRuleOverrideRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyManagedRuleOverrideRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: str,
                  rule_id: str,
@@ -537,12 +655,26 @@ class FirewallPolicyManagedRuleOverrideRule(dict):
         """
         return pulumi.get(self, "exclusions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FirewallPolicyManagedRuleOverrideRuleExclusion(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchVariable":
+            suggest = "match_variable"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyManagedRuleOverrideRuleExclusion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirewallPolicyManagedRuleOverrideRuleExclusion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirewallPolicyManagedRuleOverrideRuleExclusion.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  match_variable: str,
                  operator: str,
@@ -580,12 +712,28 @@ class FirewallPolicyManagedRuleOverrideRuleExclusion(dict):
         """
         return pulumi.get(self, "selector")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FrontdoorBackendPool(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "healthProbeName":
+            suggest = "health_probe_name"
+        elif key == "loadBalancingName":
+            suggest = "load_balancing_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorBackendPool. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorBackendPool.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorBackendPool.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backends: Sequence['outputs.FrontdoorBackendPoolBackend'],
                  health_probe_name: str,
@@ -646,12 +794,30 @@ class FrontdoorBackendPool(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FrontdoorBackendPoolBackend(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostHeader":
+            suggest = "host_header"
+        elif key == "httpPort":
+            suggest = "http_port"
+        elif key == "httpsPort":
+            suggest = "https_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorBackendPoolBackend. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorBackendPoolBackend.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorBackendPoolBackend.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address: str,
                  host_header: str,
@@ -736,12 +902,28 @@ class FrontdoorBackendPoolBackend(dict):
         """
         return pulumi.get(self, "weight")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FrontdoorBackendPoolHealthProbe(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "intervalInSeconds":
+            suggest = "interval_in_seconds"
+        elif key == "probeMethod":
+            suggest = "probe_method"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorBackendPoolHealthProbe. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorBackendPoolHealthProbe.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorBackendPoolHealthProbe.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  enabled: Optional[bool] = None,
@@ -829,12 +1011,30 @@ class FrontdoorBackendPoolHealthProbe(dict):
         """
         return pulumi.get(self, "protocol")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FrontdoorBackendPoolLoadBalancing(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalLatencyMilliseconds":
+            suggest = "additional_latency_milliseconds"
+        elif key == "sampleSize":
+            suggest = "sample_size"
+        elif key == "successfulSamplesRequired":
+            suggest = "successful_samples_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorBackendPoolLoadBalancing. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorBackendPoolLoadBalancing.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorBackendPoolLoadBalancing.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  additional_latency_milliseconds: Optional[int] = None,
@@ -898,12 +1098,36 @@ class FrontdoorBackendPoolLoadBalancing(dict):
         """
         return pulumi.get(self, "successful_samples_required")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FrontdoorFrontendEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostName":
+            suggest = "host_name"
+        elif key == "customHttpsConfiguration":
+            suggest = "custom_https_configuration"
+        elif key == "customHttpsProvisioningEnabled":
+            suggest = "custom_https_provisioning_enabled"
+        elif key == "sessionAffinityEnabled":
+            suggest = "session_affinity_enabled"
+        elif key == "sessionAffinityTtlSeconds":
+            suggest = "session_affinity_ttl_seconds"
+        elif key == "webApplicationFirewallPolicyLinkId":
+            suggest = "web_application_firewall_policy_link_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorFrontendEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorFrontendEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorFrontendEndpoint.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  host_name: str,
                  name: str,
@@ -1002,12 +1226,38 @@ class FrontdoorFrontendEndpoint(dict):
         """
         return pulumi.get(self, "web_application_firewall_policy_link_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FrontdoorFrontendEndpointCustomHttpsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureKeyVaultCertificateSecretName":
+            suggest = "azure_key_vault_certificate_secret_name"
+        elif key == "azureKeyVaultCertificateSecretVersion":
+            suggest = "azure_key_vault_certificate_secret_version"
+        elif key == "azureKeyVaultCertificateVaultId":
+            suggest = "azure_key_vault_certificate_vault_id"
+        elif key == "certificateSource":
+            suggest = "certificate_source"
+        elif key == "minimumTlsVersion":
+            suggest = "minimum_tls_version"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "provisioningSubstate":
+            suggest = "provisioning_substate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorFrontendEndpointCustomHttpsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorFrontendEndpointCustomHttpsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorFrontendEndpointCustomHttpsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  azure_key_vault_certificate_secret_name: Optional[str] = None,
                  azure_key_vault_certificate_secret_version: Optional[str] = None,
@@ -1096,12 +1346,34 @@ class FrontdoorFrontendEndpointCustomHttpsConfiguration(dict):
         """
         return pulumi.get(self, "provisioning_substate")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FrontdoorRoutingRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "acceptedProtocols":
+            suggest = "accepted_protocols"
+        elif key == "frontendEndpoints":
+            suggest = "frontend_endpoints"
+        elif key == "patternsToMatches":
+            suggest = "patterns_to_matches"
+        elif key == "forwardingConfiguration":
+            suggest = "forwarding_configuration"
+        elif key == "redirectConfiguration":
+            suggest = "redirect_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorRoutingRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorRoutingRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorRoutingRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  accepted_protocols: Sequence[str],
                  frontend_endpoints: Sequence[str],
@@ -1198,12 +1470,36 @@ class FrontdoorRoutingRule(dict):
         """
         return pulumi.get(self, "redirect_configuration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FrontdoorRoutingRuleForwardingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backendPoolName":
+            suggest = "backend_pool_name"
+        elif key == "cacheEnabled":
+            suggest = "cache_enabled"
+        elif key == "cacheQueryParameterStripDirective":
+            suggest = "cache_query_parameter_strip_directive"
+        elif key == "cacheUseDynamicCompression":
+            suggest = "cache_use_dynamic_compression"
+        elif key == "customForwardingPath":
+            suggest = "custom_forwarding_path"
+        elif key == "forwardingProtocol":
+            suggest = "forwarding_protocol"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorRoutingRuleForwardingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorRoutingRuleForwardingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorRoutingRuleForwardingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backend_pool_name: str,
                  cache_enabled: Optional[bool] = None,
@@ -1279,12 +1575,36 @@ class FrontdoorRoutingRuleForwardingConfiguration(dict):
         """
         return pulumi.get(self, "forwarding_protocol")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FrontdoorRoutingRuleRedirectConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "redirectProtocol":
+            suggest = "redirect_protocol"
+        elif key == "redirectType":
+            suggest = "redirect_type"
+        elif key == "customFragment":
+            suggest = "custom_fragment"
+        elif key == "customHost":
+            suggest = "custom_host"
+        elif key == "customPath":
+            suggest = "custom_path"
+        elif key == "customQueryString":
+            suggest = "custom_query_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorRoutingRuleRedirectConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorRoutingRuleRedirectConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorRoutingRuleRedirectConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  redirect_protocol: str,
                  redirect_type: str,
@@ -1358,8 +1678,5 @@ class FrontdoorRoutingRuleRedirectConfiguration(dict):
         Replace any existing query string from the incoming request URL.
         """
         return pulumi.get(self, "custom_query_string")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

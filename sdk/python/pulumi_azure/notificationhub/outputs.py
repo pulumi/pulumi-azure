@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'HubApnsCredential',
@@ -18,6 +18,29 @@ __all__ = [
 
 @pulumi.output_type
 class HubApnsCredential(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationMode":
+            suggest = "application_mode"
+        elif key == "bundleId":
+            suggest = "bundle_id"
+        elif key == "keyId":
+            suggest = "key_id"
+        elif key == "teamId":
+            suggest = "team_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HubApnsCredential. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HubApnsCredential.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HubApnsCredential.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  application_mode: str,
                  bundle_id: str,
@@ -77,12 +100,26 @@ class HubApnsCredential(dict):
         """
         return pulumi.get(self, "token")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HubGcmCredential(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HubGcmCredential. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HubGcmCredential.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HubGcmCredential.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  api_key: str):
         """
@@ -97,9 +134,6 @@ class HubGcmCredential(dict):
         The API Key associated with the Google Cloud Messaging service.
         """
         return pulumi.get(self, "api_key")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

@@ -5,13 +5,155 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
-__all__ = ['AlertRuleFusion']
+__all__ = ['AlertRuleFusionArgs', 'AlertRuleFusion']
+
+@pulumi.input_type
+class AlertRuleFusionArgs:
+    def __init__(__self__, *,
+                 alert_rule_template_guid: pulumi.Input[str],
+                 log_analytics_workspace_id: pulumi.Input[str],
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a AlertRuleFusion resource.
+        :param pulumi.Input[str] alert_rule_template_guid: The GUID of the alert rule template which is used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
+        :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
+        :param pulumi.Input[bool] enabled: Should this Sentinel Fusion Alert Rule be enabled? Defaults to `true`.
+        :param pulumi.Input[str] name: The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
+        """
+        pulumi.set(__self__, "alert_rule_template_guid", alert_rule_template_guid)
+        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="alertRuleTemplateGuid")
+    def alert_rule_template_guid(self) -> pulumi.Input[str]:
+        """
+        The GUID of the alert rule template which is used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
+        """
+        return pulumi.get(self, "alert_rule_template_guid")
+
+    @alert_rule_template_guid.setter
+    def alert_rule_template_guid(self, value: pulumi.Input[str]):
+        pulumi.set(self, "alert_rule_template_guid", value)
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspaceId")
+    def log_analytics_workspace_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
+        """
+        return pulumi.get(self, "log_analytics_workspace_id")
+
+    @log_analytics_workspace_id.setter
+    def log_analytics_workspace_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_analytics_workspace_id", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should this Sentinel Fusion Alert Rule be enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class _AlertRuleFusionState:
+    def __init__(__self__, *,
+                 alert_rule_template_guid: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering AlertRuleFusion resources.
+        :param pulumi.Input[str] alert_rule_template_guid: The GUID of the alert rule template which is used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
+        :param pulumi.Input[bool] enabled: Should this Sentinel Fusion Alert Rule be enabled? Defaults to `true`.
+        :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
+        """
+        if alert_rule_template_guid is not None:
+            pulumi.set(__self__, "alert_rule_template_guid", alert_rule_template_guid)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_analytics_workspace_id is not None:
+            pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="alertRuleTemplateGuid")
+    def alert_rule_template_guid(self) -> Optional[pulumi.Input[str]]:
+        """
+        The GUID of the alert rule template which is used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
+        """
+        return pulumi.get(self, "alert_rule_template_guid")
+
+    @alert_rule_template_guid.setter
+    def alert_rule_template_guid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alert_rule_template_guid", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should this Sentinel Fusion Alert Rule be enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspaceId")
+    def log_analytics_workspace_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
+        """
+        return pulumi.get(self, "log_analytics_workspace_id")
+
+    @log_analytics_workspace_id.setter
+    def log_analytics_workspace_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_analytics_workspace_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class AlertRuleFusion(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -56,6 +198,61 @@ class AlertRuleFusion(pulumi.CustomResource):
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AlertRuleFusionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Sentinel Fusion Alert Rule.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="pergb2018")
+        example_alert_rule_fusion = azure.sentinel.AlertRuleFusion("exampleAlertRuleFusion",
+            log_analytics_workspace_id=example_analytics_workspace.id,
+            alert_rule_template_guid="f71aba3d-28fb-450b-b192-4e76a83015c8")
+        ```
+
+        ## Import
+
+        Sentinel Fusion Alert Rules can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:sentinel/alertRuleFusion:AlertRuleFusion example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/alertRules/rule1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param AlertRuleFusionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AlertRuleFusionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 alert_rule_template_guid: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -71,16 +268,16 @@ class AlertRuleFusion(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AlertRuleFusionArgs.__new__(AlertRuleFusionArgs)
 
             if alert_rule_template_guid is None and not opts.urn:
                 raise TypeError("Missing required property 'alert_rule_template_guid'")
-            __props__['alert_rule_template_guid'] = alert_rule_template_guid
-            __props__['enabled'] = enabled
+            __props__.__dict__["alert_rule_template_guid"] = alert_rule_template_guid
+            __props__.__dict__["enabled"] = enabled
             if log_analytics_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'log_analytics_workspace_id'")
-            __props__['log_analytics_workspace_id'] = log_analytics_workspace_id
-            __props__['name'] = name
+            __props__.__dict__["log_analytics_workspace_id"] = log_analytics_workspace_id
+            __props__.__dict__["name"] = name
         super(AlertRuleFusion, __self__).__init__(
             'azure:sentinel/alertRuleFusion:AlertRuleFusion',
             resource_name,
@@ -109,12 +306,12 @@ class AlertRuleFusion(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AlertRuleFusionState.__new__(_AlertRuleFusionState)
 
-        __props__["alert_rule_template_guid"] = alert_rule_template_guid
-        __props__["enabled"] = enabled
-        __props__["log_analytics_workspace_id"] = log_analytics_workspace_id
-        __props__["name"] = name
+        __props__.__dict__["alert_rule_template_guid"] = alert_rule_template_guid
+        __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["log_analytics_workspace_id"] = log_analytics_workspace_id
+        __props__.__dict__["name"] = name
         return AlertRuleFusion(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -148,10 +345,4 @@ class AlertRuleFusion(pulumi.CustomResource):
         The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
         """
         return pulumi.get(self, "name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

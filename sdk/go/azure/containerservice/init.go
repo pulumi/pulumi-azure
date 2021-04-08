@@ -22,21 +22,22 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:containerservice/group:Group":
-		r, err = NewGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &Group{}
 	case "azure:containerservice/kubernetesCluster:KubernetesCluster":
-		r, err = NewKubernetesCluster(ctx, name, nil, pulumi.URN_(urn))
+		r = &KubernetesCluster{}
 	case "azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool":
-		r, err = NewKubernetesClusterNodePool(ctx, name, nil, pulumi.URN_(urn))
+		r = &KubernetesClusterNodePool{}
 	case "azure:containerservice/registry:Registry":
-		r, err = NewRegistry(ctx, name, nil, pulumi.URN_(urn))
+		r = &Registry{}
 	case "azure:containerservice/registryWebhook:RegistryWebhook":
-		r, err = NewRegistryWebhook(ctx, name, nil, pulumi.URN_(urn))
+		r = &RegistryWebhook{}
 	case "azure:containerservice/registryWebook:RegistryWebook":
-		r, err = NewRegistryWebook(ctx, name, nil, pulumi.URN_(urn))
+		r = &RegistryWebook{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

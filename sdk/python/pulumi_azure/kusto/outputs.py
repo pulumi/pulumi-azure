@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'ClusterIdentity',
@@ -17,6 +17,27 @@ __all__ = [
 
 @pulumi.output_type
 class ClusterIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  identity_ids: Optional[Sequence[str]] = None,
@@ -68,12 +89,28 @@ class ClusterIdentity(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterOptimizedAutoScale(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumInstances":
+            suggest = "maximum_instances"
+        elif key == "minimumInstances":
+            suggest = "minimum_instances"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterOptimizedAutoScale. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterOptimizedAutoScale.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterOptimizedAutoScale.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  maximum_instances: int,
                  minimum_instances: int):
@@ -99,9 +136,6 @@ class ClusterOptimizedAutoScale(dict):
         The minimum number of allowed instances. Must between `0` and `1000`.
         """
         return pulumi.get(self, "minimum_instances")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -133,12 +167,30 @@ class ClusterSku(dict):
         """
         return pulumi.get(self, "capacity")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterVirtualNetworkConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataManagementPublicIpId":
+            suggest = "data_management_public_ip_id"
+        elif key == "enginePublicIpId":
+            suggest = "engine_public_ip_id"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterVirtualNetworkConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterVirtualNetworkConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterVirtualNetworkConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  data_management_public_ip_id: str,
                  engine_public_ip_id: str,
@@ -175,8 +227,5 @@ class ClusterVirtualNetworkConfiguration(dict):
         The subnet resource id.
         """
         return pulumi.get(self, "subnet_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

@@ -5,13 +5,91 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
-__all__ = ['SubnetNetworkSecurityGroupAssociation']
+__all__ = ['SubnetNetworkSecurityGroupAssociationArgs', 'SubnetNetworkSecurityGroupAssociation']
+
+@pulumi.input_type
+class SubnetNetworkSecurityGroupAssociationArgs:
+    def __init__(__self__, *,
+                 network_security_group_id: pulumi.Input[str],
+                 subnet_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a SubnetNetworkSecurityGroupAssociation resource.
+        :param pulumi.Input[str] network_security_group_id: The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "network_security_group_id", network_security_group_id)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="networkSecurityGroupId")
+    def network_security_group_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "network_security_group_id")
+
+    @network_security_group_id.setter
+    def network_security_group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "network_security_group_id", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Subnet. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subnet_id", value)
+
+
+@pulumi.input_type
+class _SubnetNetworkSecurityGroupAssociationState:
+    def __init__(__self__, *,
+                 network_security_group_id: Optional[pulumi.Input[str]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering SubnetNetworkSecurityGroupAssociation resources.
+        :param pulumi.Input[str] network_security_group_id: The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet. Changing this forces a new resource to be created.
+        """
+        if network_security_group_id is not None:
+            pulumi.set(__self__, "network_security_group_id", network_security_group_id)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="networkSecurityGroupId")
+    def network_security_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "network_security_group_id")
+
+    @network_security_group_id.setter
+    def network_security_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_security_group_id", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Subnet. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
 
 
 class SubnetNetworkSecurityGroupAssociation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -70,6 +148,77 @@ class SubnetNetworkSecurityGroupAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] network_security_group_id: The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet. Changing this forces a new resource to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SubnetNetworkSecurityGroupAssociationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Associates a Network Security Group with a Subnet within a Virtual Network.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            security_rules=[azure.network.NetworkSecurityGroupSecurityRuleArgs(
+                name="test123",
+                priority=100,
+                direction="Inbound",
+                access="Allow",
+                protocol="Tcp",
+                source_port_range="*",
+                destination_port_range="*",
+                source_address_prefix="*",
+                destination_address_prefix="*",
+            )])
+        example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation",
+            subnet_id=example_subnet.id,
+            network_security_group_id=example_network_security_group.id)
+        ```
+
+        ## Import
+
+        Subnet `<->` Network Security Group Associations can be imported using the `resource id` of the Subnet, e.g.
+
+        ```sh
+         $ pulumi import azure:network/subnetNetworkSecurityGroupAssociation:SubnetNetworkSecurityGroupAssociation association1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1/subnets/mysubnet1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param SubnetNetworkSecurityGroupAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SubnetNetworkSecurityGroupAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 network_security_group_id: Optional[pulumi.Input[str]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -85,14 +234,14 @@ class SubnetNetworkSecurityGroupAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SubnetNetworkSecurityGroupAssociationArgs.__new__(SubnetNetworkSecurityGroupAssociationArgs)
 
             if network_security_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_security_group_id'")
-            __props__['network_security_group_id'] = network_security_group_id
+            __props__.__dict__["network_security_group_id"] = network_security_group_id
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
-            __props__['subnet_id'] = subnet_id
+            __props__.__dict__["subnet_id"] = subnet_id
         super(SubnetNetworkSecurityGroupAssociation, __self__).__init__(
             'azure:network/subnetNetworkSecurityGroupAssociation:SubnetNetworkSecurityGroupAssociation',
             resource_name,
@@ -117,10 +266,10 @@ class SubnetNetworkSecurityGroupAssociation(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _SubnetNetworkSecurityGroupAssociationState.__new__(_SubnetNetworkSecurityGroupAssociationState)
 
-        __props__["network_security_group_id"] = network_security_group_id
-        __props__["subnet_id"] = subnet_id
+        __props__.__dict__["network_security_group_id"] = network_security_group_id
+        __props__.__dict__["subnet_id"] = subnet_id
         return SubnetNetworkSecurityGroupAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -138,10 +287,4 @@ class SubnetNetworkSecurityGroupAssociation(pulumi.CustomResource):
         The ID of the Subnet. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -22,19 +22,20 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:servicefabric/cluster:Cluster":
-		r, err = NewCluster(ctx, name, nil, pulumi.URN_(urn))
+		r = &Cluster{}
 	case "azure:servicefabric/meshApplication:MeshApplication":
-		r, err = NewMeshApplication(ctx, name, nil, pulumi.URN_(urn))
+		r = &MeshApplication{}
 	case "azure:servicefabric/meshLocalNetwork:MeshLocalNetwork":
-		r, err = NewMeshLocalNetwork(ctx, name, nil, pulumi.URN_(urn))
+		r = &MeshLocalNetwork{}
 	case "azure:servicefabric/meshSecret:MeshSecret":
-		r, err = NewMeshSecret(ctx, name, nil, pulumi.URN_(urn))
+		r = &MeshSecret{}
 	case "azure:servicefabric/meshSecretValue:MeshSecretValue":
-		r, err = NewMeshSecretValue(ctx, name, nil, pulumi.URN_(urn))
+		r = &MeshSecretValue{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

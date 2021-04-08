@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'IoTHubEndpoint',
@@ -28,6 +28,33 @@ __all__ = [
 
 @pulumi.output_type
 class IoTHubEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionString":
+            suggest = "connection_string"
+        elif key == "batchFrequencyInSeconds":
+            suggest = "batch_frequency_in_seconds"
+        elif key == "containerName":
+            suggest = "container_name"
+        elif key == "fileNameFormat":
+            suggest = "file_name_format"
+        elif key == "maxChunkSizeInBytes":
+            suggest = "max_chunk_size_in_bytes"
+        elif key == "resourceGroupName":
+            suggest = "resource_group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IoTHubEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IoTHubEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IoTHubEndpoint.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_string: str,
                  name: str,
@@ -137,12 +164,26 @@ class IoTHubEndpoint(dict):
         """
         return pulumi.get(self, "resource_group_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IoTHubEnrichment(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointNames":
+            suggest = "endpoint_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IoTHubEnrichment. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IoTHubEnrichment.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IoTHubEnrichment.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint_names: Sequence[str],
                  key: str,
@@ -180,12 +221,26 @@ class IoTHubEnrichment(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IoTHubFallbackRoute(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointNames":
+            suggest = "endpoint_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IoTHubFallbackRoute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IoTHubFallbackRoute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IoTHubFallbackRoute.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  condition: Optional[str] = None,
                  enabled: Optional[bool] = None,
@@ -238,12 +293,36 @@ class IoTHubFallbackRoute(dict):
         """
         return pulumi.get(self, "source")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IoTHubFileUpload(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionString":
+            suggest = "connection_string"
+        elif key == "containerName":
+            suggest = "container_name"
+        elif key == "defaultTtl":
+            suggest = "default_ttl"
+        elif key == "lockDuration":
+            suggest = "lock_duration"
+        elif key == "maxDeliveryCount":
+            suggest = "max_delivery_count"
+        elif key == "sasTtl":
+            suggest = "sas_ttl"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IoTHubFileUpload. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IoTHubFileUpload.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IoTHubFileUpload.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_string: str,
                  container_name: str,
@@ -330,12 +409,26 @@ class IoTHubFileUpload(dict):
         """
         return pulumi.get(self, "sas_ttl")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IoTHubIpFilterRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipMask":
+            suggest = "ip_mask"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IoTHubIpFilterRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IoTHubIpFilterRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IoTHubIpFilterRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: str,
                  ip_mask: str,
@@ -373,12 +466,26 @@ class IoTHubIpFilterRule(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IoTHubRoute(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointNames":
+            suggest = "endpoint_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IoTHubRoute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IoTHubRoute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IoTHubRoute.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: bool,
                  endpoint_names: Sequence[str],
@@ -439,12 +546,30 @@ class IoTHubRoute(dict):
         """
         return pulumi.get(self, "condition")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IoTHubSharedAccessPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyName":
+            suggest = "key_name"
+        elif key == "primaryKey":
+            suggest = "primary_key"
+        elif key == "secondaryKey":
+            suggest = "secondary_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IoTHubSharedAccessPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IoTHubSharedAccessPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IoTHubSharedAccessPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  key_name: Optional[str] = None,
                  permissions: Optional[str] = None,
@@ -497,9 +622,6 @@ class IoTHubSharedAccessPolicy(dict):
         """
         return pulumi.get(self, "secondary_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IoTHubSku(dict):
@@ -529,12 +651,30 @@ class IoTHubSku(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IotHubDpsLinkedHub(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionString":
+            suggest = "connection_string"
+        elif key == "allocationWeight":
+            suggest = "allocation_weight"
+        elif key == "applyAllocationPolicy":
+            suggest = "apply_allocation_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IotHubDpsLinkedHub. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IotHubDpsLinkedHub.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IotHubDpsLinkedHub.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_string: str,
                  location: str,
@@ -597,9 +737,6 @@ class IotHubDpsLinkedHub(dict):
         """
         return pulumi.get(self, "hostname")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IotHubDpsSku(dict):
@@ -629,12 +766,30 @@ class IotHubDpsSku(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SecurityDeviceGroupAllowRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionToIpNotAlloweds":
+            suggest = "connection_to_ip_not_alloweds"
+        elif key == "localUserNotAlloweds":
+            suggest = "local_user_not_alloweds"
+        elif key == "processNotAlloweds":
+            suggest = "process_not_alloweds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityDeviceGroupAllowRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityDeviceGroupAllowRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityDeviceGroupAllowRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_to_ip_not_alloweds: Optional[Sequence[str]] = None,
                  local_user_not_alloweds: Optional[Sequence[str]] = None,
@@ -674,9 +829,6 @@ class SecurityDeviceGroupAllowRule(dict):
         Specifies which process is not allowed to be executed in current device group.
         """
         return pulumi.get(self, "process_not_alloweds")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -729,12 +881,54 @@ class SecurityDeviceGroupRangeRule(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SecuritySolutionRecommendationsEnabled(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "acrAuthentication":
+            suggest = "acr_authentication"
+        elif key == "agentSendUnutilizedMsg":
+            suggest = "agent_send_unutilized_msg"
+        elif key == "edgeHubMemOptimize":
+            suggest = "edge_hub_mem_optimize"
+        elif key == "edgeLoggingOption":
+            suggest = "edge_logging_option"
+        elif key == "inconsistentModuleSettings":
+            suggest = "inconsistent_module_settings"
+        elif key == "installAgent":
+            suggest = "install_agent"
+        elif key == "ipFilterDenyAll":
+            suggest = "ip_filter_deny_all"
+        elif key == "ipFilterPermissiveRule":
+            suggest = "ip_filter_permissive_rule"
+        elif key == "openPorts":
+            suggest = "open_ports"
+        elif key == "permissiveFirewallPolicy":
+            suggest = "permissive_firewall_policy"
+        elif key == "permissiveInputFirewallRules":
+            suggest = "permissive_input_firewall_rules"
+        elif key == "permissiveOutputFirewallRules":
+            suggest = "permissive_output_firewall_rules"
+        elif key == "privilegedDockerOptions":
+            suggest = "privileged_docker_options"
+        elif key == "sharedCredentials":
+            suggest = "shared_credentials"
+        elif key == "vulnerableTlsCipherSuite":
+            suggest = "vulnerable_tls_cipher_suite"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecuritySolutionRecommendationsEnabled. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecuritySolutionRecommendationsEnabled.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecuritySolutionRecommendationsEnabled.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  acr_authentication: Optional[bool] = None,
                  agent_send_unutilized_msg: Optional[bool] = None,
@@ -931,9 +1125,6 @@ class SecuritySolutionRecommendationsEnabled(dict):
         """
         return pulumi.get(self, "vulnerable_tls_cipher_suite")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TimeSeriesInsightsGen2EnvironmentStorage(dict):
@@ -963,9 +1154,6 @@ class TimeSeriesInsightsGen2EnvironmentStorage(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TimeSeriesInsightsReferenceDataSetKeyProperty(dict):
@@ -994,8 +1182,5 @@ class TimeSeriesInsightsReferenceDataSetKeyProperty(dict):
         The data type of the key property. Valid values include `Bool`, `DateTime`, `Double`, `String`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

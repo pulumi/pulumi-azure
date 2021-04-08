@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'DatabaseExtendedAuditingPolicy',
@@ -22,6 +22,31 @@ __all__ = [
 
 @pulumi.output_type
 class DatabaseExtendedAuditingPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logMonitoringEnabled":
+            suggest = "log_monitoring_enabled"
+        elif key == "retentionInDays":
+            suggest = "retention_in_days"
+        elif key == "storageAccountAccessKey":
+            suggest = "storage_account_access_key"
+        elif key == "storageAccountAccessKeyIsSecondary":
+            suggest = "storage_account_access_key_is_secondary"
+        elif key == "storageEndpoint":
+            suggest = "storage_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseExtendedAuditingPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabaseExtendedAuditingPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabaseExtendedAuditingPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  log_monitoring_enabled: Optional[bool] = None,
                  retention_in_days: Optional[int] = None,
@@ -82,12 +107,38 @@ class DatabaseExtendedAuditingPolicy(dict):
         """
         return pulumi.get(self, "storage_endpoint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatabaseImport(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "administratorLogin":
+            suggest = "administrator_login"
+        elif key == "administratorLoginPassword":
+            suggest = "administrator_login_password"
+        elif key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "storageKey":
+            suggest = "storage_key"
+        elif key == "storageKeyType":
+            suggest = "storage_key_type"
+        elif key == "storageUri":
+            suggest = "storage_uri"
+        elif key == "operationMode":
+            suggest = "operation_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseImport. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabaseImport.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabaseImport.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  administrator_login: str,
                  administrator_login_password: str,
@@ -170,12 +221,38 @@ class DatabaseImport(dict):
         """
         return pulumi.get(self, "operation_mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DatabaseThreatDetectionPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disabledAlerts":
+            suggest = "disabled_alerts"
+        elif key == "emailAccountAdmins":
+            suggest = "email_account_admins"
+        elif key == "emailAddresses":
+            suggest = "email_addresses"
+        elif key == "retentionDays":
+            suggest = "retention_days"
+        elif key == "storageAccountAccessKey":
+            suggest = "storage_account_access_key"
+        elif key == "storageEndpoint":
+            suggest = "storage_endpoint"
+        elif key == "useServerDefault":
+            suggest = "use_server_default"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseThreatDetectionPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabaseThreatDetectionPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabaseThreatDetectionPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  disabled_alerts: Optional[Sequence[str]] = None,
                  email_account_admins: Optional[str] = None,
@@ -272,9 +349,6 @@ class DatabaseThreatDetectionPolicy(dict):
     def use_server_default(self) -> Optional[str]:
         return pulumi.get(self, "use_server_default")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FailoverGroupPartnerServer(dict):
@@ -317,12 +391,26 @@ class FailoverGroupPartnerServer(dict):
         """
         return pulumi.get(self, "role")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FailoverGroupReadWriteEndpointFailoverPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "graceMinutes":
+            suggest = "grace_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FailoverGroupReadWriteEndpointFailoverPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FailoverGroupReadWriteEndpointFailoverPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FailoverGroupReadWriteEndpointFailoverPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  mode: str,
                  grace_minutes: Optional[int] = None):
@@ -350,9 +438,6 @@ class FailoverGroupReadWriteEndpointFailoverPolicy(dict):
         """
         return pulumi.get(self, "grace_minutes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class FailoverGroupReadonlyEndpointFailoverPolicy(dict):
@@ -371,12 +456,34 @@ class FailoverGroupReadonlyEndpointFailoverPolicy(dict):
         """
         return pulumi.get(self, "mode")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SqlServerExtendedAuditingPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logMonitoringEnabled":
+            suggest = "log_monitoring_enabled"
+        elif key == "retentionInDays":
+            suggest = "retention_in_days"
+        elif key == "storageAccountAccessKey":
+            suggest = "storage_account_access_key"
+        elif key == "storageAccountAccessKeyIsSecondary":
+            suggest = "storage_account_access_key_is_secondary"
+        elif key == "storageEndpoint":
+            suggest = "storage_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlServerExtendedAuditingPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlServerExtendedAuditingPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlServerExtendedAuditingPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  log_monitoring_enabled: Optional[bool] = None,
                  retention_in_days: Optional[int] = None,
@@ -441,12 +548,28 @@ class SqlServerExtendedAuditingPolicy(dict):
         """
         return pulumi.get(self, "storage_endpoint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SqlServerIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlServerIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlServerIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlServerIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  principal_id: Optional[str] = None,
@@ -485,9 +608,6 @@ class SqlServerIdentity(dict):
         The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
         """
         return pulumi.get(self, "tenant_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

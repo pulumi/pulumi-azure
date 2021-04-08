@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'ModuleNetworkProfile',
@@ -14,6 +14,25 @@ __all__ = [
 
 @pulumi.output_type
 class ModuleNetworkProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkInterfacePrivateIpAddresses":
+            suggest = "network_interface_private_ip_addresses"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModuleNetworkProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModuleNetworkProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModuleNetworkProfile.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  network_interface_private_ip_addresses: Sequence[str],
                  subnet_id: str):
@@ -39,8 +58,5 @@ class ModuleNetworkProfile(dict):
         The ID of the subnet. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
         return pulumi.get(self, "subnet_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

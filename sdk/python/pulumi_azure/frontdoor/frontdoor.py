@@ -5,15 +5,558 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Frontdoor']
+__all__ = ['FrontdoorArgs', 'Frontdoor']
+
+@pulumi.input_type
+class FrontdoorArgs:
+    def __init__(__self__, *,
+                 backend_pool_health_probes: pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolHealthProbeArgs']]],
+                 backend_pool_load_balancings: pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolLoadBalancingArgs']]],
+                 backend_pools: pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolArgs']]],
+                 enforce_backend_pools_certificate_name_check: pulumi.Input[bool],
+                 frontend_endpoints: pulumi.Input[Sequence[pulumi.Input['FrontdoorFrontendEndpointArgs']]],
+                 resource_group_name: pulumi.Input[str],
+                 routing_rules: pulumi.Input[Sequence[pulumi.Input['FrontdoorRoutingRuleArgs']]],
+                 backend_pools_send_receive_timeout_seconds: Optional[pulumi.Input[int]] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Frontdoor resource.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolHealthProbeArgs']]] backend_pool_health_probes: A `backend_pool_health_probe` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolLoadBalancingArgs']]] backend_pool_load_balancings: A `backend_pool_load_balancing` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolArgs']]] backend_pools: A `backend_pool` block as defined below.
+        :param pulumi.Input[bool] enforce_backend_pools_certificate_name_check: Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFrontendEndpointArgs']]] frontend_endpoints: A `frontend_endpoint` block as defined below.
+        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRoutingRuleArgs']]] routing_rules: A `routing_rule` block as defined below.
+        :param pulumi.Input[int] backend_pools_send_receive_timeout_seconds: Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
+        :param pulumi.Input[str] friendly_name: A friendly name for the Front Door service.
+        :param pulumi.Input[bool] load_balancer_enabled: Should the Front Door Load Balancer be Enabled? Defaults to `true`.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created
+        :param pulumi.Input[str] name: Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "backend_pool_health_probes", backend_pool_health_probes)
+        pulumi.set(__self__, "backend_pool_load_balancings", backend_pool_load_balancings)
+        pulumi.set(__self__, "backend_pools", backend_pools)
+        pulumi.set(__self__, "enforce_backend_pools_certificate_name_check", enforce_backend_pools_certificate_name_check)
+        pulumi.set(__self__, "frontend_endpoints", frontend_endpoints)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "routing_rules", routing_rules)
+        if backend_pools_send_receive_timeout_seconds is not None:
+            pulumi.set(__self__, "backend_pools_send_receive_timeout_seconds", backend_pools_send_receive_timeout_seconds)
+        if friendly_name is not None:
+            pulumi.set(__self__, "friendly_name", friendly_name)
+        if load_balancer_enabled is not None:
+            pulumi.set(__self__, "load_balancer_enabled", load_balancer_enabled)
+        if location is not None:
+            warnings.warn("""Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location""", DeprecationWarning)
+            pulumi.log.warn("""location is deprecated: Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location""")
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="backendPoolHealthProbes")
+    def backend_pool_health_probes(self) -> pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolHealthProbeArgs']]]:
+        """
+        A `backend_pool_health_probe` block as defined below.
+        """
+        return pulumi.get(self, "backend_pool_health_probes")
+
+    @backend_pool_health_probes.setter
+    def backend_pool_health_probes(self, value: pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolHealthProbeArgs']]]):
+        pulumi.set(self, "backend_pool_health_probes", value)
+
+    @property
+    @pulumi.getter(name="backendPoolLoadBalancings")
+    def backend_pool_load_balancings(self) -> pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolLoadBalancingArgs']]]:
+        """
+        A `backend_pool_load_balancing` block as defined below.
+        """
+        return pulumi.get(self, "backend_pool_load_balancings")
+
+    @backend_pool_load_balancings.setter
+    def backend_pool_load_balancings(self, value: pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolLoadBalancingArgs']]]):
+        pulumi.set(self, "backend_pool_load_balancings", value)
+
+    @property
+    @pulumi.getter(name="backendPools")
+    def backend_pools(self) -> pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolArgs']]]:
+        """
+        A `backend_pool` block as defined below.
+        """
+        return pulumi.get(self, "backend_pools")
+
+    @backend_pools.setter
+    def backend_pools(self, value: pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolArgs']]]):
+        pulumi.set(self, "backend_pools", value)
+
+    @property
+    @pulumi.getter(name="enforceBackendPoolsCertificateNameCheck")
+    def enforce_backend_pools_certificate_name_check(self) -> pulumi.Input[bool]:
+        """
+        Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
+        """
+        return pulumi.get(self, "enforce_backend_pools_certificate_name_check")
+
+    @enforce_backend_pools_certificate_name_check.setter
+    def enforce_backend_pools_certificate_name_check(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enforce_backend_pools_certificate_name_check", value)
+
+    @property
+    @pulumi.getter(name="frontendEndpoints")
+    def frontend_endpoints(self) -> pulumi.Input[Sequence[pulumi.Input['FrontdoorFrontendEndpointArgs']]]:
+        """
+        A `frontend_endpoint` block as defined below.
+        """
+        return pulumi.get(self, "frontend_endpoints")
+
+    @frontend_endpoints.setter
+    def frontend_endpoints(self, value: pulumi.Input[Sequence[pulumi.Input['FrontdoorFrontendEndpointArgs']]]):
+        pulumi.set(self, "frontend_endpoints", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="routingRules")
+    def routing_rules(self) -> pulumi.Input[Sequence[pulumi.Input['FrontdoorRoutingRuleArgs']]]:
+        """
+        A `routing_rule` block as defined below.
+        """
+        return pulumi.get(self, "routing_rules")
+
+    @routing_rules.setter
+    def routing_rules(self, value: pulumi.Input[Sequence[pulumi.Input['FrontdoorRoutingRuleArgs']]]):
+        pulumi.set(self, "routing_rules", value)
+
+    @property
+    @pulumi.getter(name="backendPoolsSendReceiveTimeoutSeconds")
+    def backend_pools_send_receive_timeout_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
+        """
+        return pulumi.get(self, "backend_pools_send_receive_timeout_seconds")
+
+    @backend_pools_send_receive_timeout_seconds.setter
+    def backend_pools_send_receive_timeout_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "backend_pools_send_receive_timeout_seconds", value)
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly name for the Front Door service.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @friendly_name.setter
+    def friendly_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "friendly_name", value)
+
+    @property
+    @pulumi.getter(name="loadBalancerEnabled")
+    def load_balancer_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Front Door Load Balancer be Enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "load_balancer_enabled")
+
+    @load_balancer_enabled.setter
+    def load_balancer_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "load_balancer_enabled", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _FrontdoorState:
+    def __init__(__self__, *,
+                 backend_pool_health_probes: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolHealthProbeArgs']]]] = None,
+                 backend_pool_health_probes_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 backend_pool_load_balancing_settings_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 backend_pool_load_balancings: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolLoadBalancingArgs']]]] = None,
+                 backend_pools: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolArgs']]]] = None,
+                 backend_pools_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 backend_pools_send_receive_timeout_seconds: Optional[pulumi.Input[int]] = None,
+                 cname: Optional[pulumi.Input[str]] = None,
+                 enforce_backend_pools_certificate_name_check: Optional[pulumi.Input[bool]] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 frontend_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFrontendEndpointArgs']]]] = None,
+                 frontend_endpoints_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 header_frontdoor_id: Optional[pulumi.Input[str]] = None,
+                 load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRoutingRuleArgs']]]] = None,
+                 routing_rules_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Frontdoor resources.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolHealthProbeArgs']]] backend_pool_health_probes: A `backend_pool_health_probe` block as defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] backend_pool_health_probes_map: A map/dictionary of Backend Pool Health Probe Names (key) to the Backend Pool Health Probe ID (value)
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] backend_pool_load_balancing_settings_map: A map/dictionary of Backend Pool Load Balancing Setting Names (key) to the Backend Pool Load Balancing Setting ID (value)
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolLoadBalancingArgs']]] backend_pool_load_balancings: A `backend_pool_load_balancing` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolArgs']]] backend_pools: A `backend_pool` block as defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] backend_pools_map: A map/dictionary of Backend Pool Names (key) to the Backend Pool ID (value)
+        :param pulumi.Input[int] backend_pools_send_receive_timeout_seconds: Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
+        :param pulumi.Input[str] cname: The host that each frontendEndpoint must CNAME to.
+        :param pulumi.Input[bool] enforce_backend_pools_certificate_name_check: Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
+        :param pulumi.Input[str] friendly_name: A friendly name for the Front Door service.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFrontendEndpointArgs']]] frontend_endpoints: A `frontend_endpoint` block as defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] frontend_endpoints_map: The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
+        :param pulumi.Input[str] header_frontdoor_id: The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend.
+        :param pulumi.Input[bool] load_balancer_enabled: Should the Front Door Load Balancer be Enabled? Defaults to `true`.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created
+        :param pulumi.Input[str] name: Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRoutingRuleArgs']]] routing_rules: A `routing_rule` block as defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] routing_rules_map: A map/dictionary of Routing Rule Names (key) to the Routing Rule ID (value)
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        if backend_pool_health_probes is not None:
+            pulumi.set(__self__, "backend_pool_health_probes", backend_pool_health_probes)
+        if backend_pool_health_probes_map is not None:
+            pulumi.set(__self__, "backend_pool_health_probes_map", backend_pool_health_probes_map)
+        if backend_pool_load_balancing_settings_map is not None:
+            pulumi.set(__self__, "backend_pool_load_balancing_settings_map", backend_pool_load_balancing_settings_map)
+        if backend_pool_load_balancings is not None:
+            pulumi.set(__self__, "backend_pool_load_balancings", backend_pool_load_balancings)
+        if backend_pools is not None:
+            pulumi.set(__self__, "backend_pools", backend_pools)
+        if backend_pools_map is not None:
+            pulumi.set(__self__, "backend_pools_map", backend_pools_map)
+        if backend_pools_send_receive_timeout_seconds is not None:
+            pulumi.set(__self__, "backend_pools_send_receive_timeout_seconds", backend_pools_send_receive_timeout_seconds)
+        if cname is not None:
+            pulumi.set(__self__, "cname", cname)
+        if enforce_backend_pools_certificate_name_check is not None:
+            pulumi.set(__self__, "enforce_backend_pools_certificate_name_check", enforce_backend_pools_certificate_name_check)
+        if friendly_name is not None:
+            pulumi.set(__self__, "friendly_name", friendly_name)
+        if frontend_endpoints is not None:
+            pulumi.set(__self__, "frontend_endpoints", frontend_endpoints)
+        if frontend_endpoints_map is not None:
+            pulumi.set(__self__, "frontend_endpoints_map", frontend_endpoints_map)
+        if header_frontdoor_id is not None:
+            pulumi.set(__self__, "header_frontdoor_id", header_frontdoor_id)
+        if load_balancer_enabled is not None:
+            pulumi.set(__self__, "load_balancer_enabled", load_balancer_enabled)
+        if location is not None:
+            warnings.warn("""Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location""", DeprecationWarning)
+            pulumi.log.warn("""location is deprecated: Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location""")
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if routing_rules is not None:
+            pulumi.set(__self__, "routing_rules", routing_rules)
+        if routing_rules_map is not None:
+            pulumi.set(__self__, "routing_rules_map", routing_rules_map)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="backendPoolHealthProbes")
+    def backend_pool_health_probes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolHealthProbeArgs']]]]:
+        """
+        A `backend_pool_health_probe` block as defined below.
+        """
+        return pulumi.get(self, "backend_pool_health_probes")
+
+    @backend_pool_health_probes.setter
+    def backend_pool_health_probes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolHealthProbeArgs']]]]):
+        pulumi.set(self, "backend_pool_health_probes", value)
+
+    @property
+    @pulumi.getter(name="backendPoolHealthProbesMap")
+    def backend_pool_health_probes_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map/dictionary of Backend Pool Health Probe Names (key) to the Backend Pool Health Probe ID (value)
+        """
+        return pulumi.get(self, "backend_pool_health_probes_map")
+
+    @backend_pool_health_probes_map.setter
+    def backend_pool_health_probes_map(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "backend_pool_health_probes_map", value)
+
+    @property
+    @pulumi.getter(name="backendPoolLoadBalancingSettingsMap")
+    def backend_pool_load_balancing_settings_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map/dictionary of Backend Pool Load Balancing Setting Names (key) to the Backend Pool Load Balancing Setting ID (value)
+        """
+        return pulumi.get(self, "backend_pool_load_balancing_settings_map")
+
+    @backend_pool_load_balancing_settings_map.setter
+    def backend_pool_load_balancing_settings_map(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "backend_pool_load_balancing_settings_map", value)
+
+    @property
+    @pulumi.getter(name="backendPoolLoadBalancings")
+    def backend_pool_load_balancings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolLoadBalancingArgs']]]]:
+        """
+        A `backend_pool_load_balancing` block as defined below.
+        """
+        return pulumi.get(self, "backend_pool_load_balancings")
+
+    @backend_pool_load_balancings.setter
+    def backend_pool_load_balancings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolLoadBalancingArgs']]]]):
+        pulumi.set(self, "backend_pool_load_balancings", value)
+
+    @property
+    @pulumi.getter(name="backendPools")
+    def backend_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolArgs']]]]:
+        """
+        A `backend_pool` block as defined below.
+        """
+        return pulumi.get(self, "backend_pools")
+
+    @backend_pools.setter
+    def backend_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolArgs']]]]):
+        pulumi.set(self, "backend_pools", value)
+
+    @property
+    @pulumi.getter(name="backendPoolsMap")
+    def backend_pools_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map/dictionary of Backend Pool Names (key) to the Backend Pool ID (value)
+        """
+        return pulumi.get(self, "backend_pools_map")
+
+    @backend_pools_map.setter
+    def backend_pools_map(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "backend_pools_map", value)
+
+    @property
+    @pulumi.getter(name="backendPoolsSendReceiveTimeoutSeconds")
+    def backend_pools_send_receive_timeout_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
+        """
+        return pulumi.get(self, "backend_pools_send_receive_timeout_seconds")
+
+    @backend_pools_send_receive_timeout_seconds.setter
+    def backend_pools_send_receive_timeout_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "backend_pools_send_receive_timeout_seconds", value)
+
+    @property
+    @pulumi.getter
+    def cname(self) -> Optional[pulumi.Input[str]]:
+        """
+        The host that each frontendEndpoint must CNAME to.
+        """
+        return pulumi.get(self, "cname")
+
+    @cname.setter
+    def cname(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cname", value)
+
+    @property
+    @pulumi.getter(name="enforceBackendPoolsCertificateNameCheck")
+    def enforce_backend_pools_certificate_name_check(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
+        """
+        return pulumi.get(self, "enforce_backend_pools_certificate_name_check")
+
+    @enforce_backend_pools_certificate_name_check.setter
+    def enforce_backend_pools_certificate_name_check(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enforce_backend_pools_certificate_name_check", value)
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly name for the Front Door service.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @friendly_name.setter
+    def friendly_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "friendly_name", value)
+
+    @property
+    @pulumi.getter(name="frontendEndpoints")
+    def frontend_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFrontendEndpointArgs']]]]:
+        """
+        A `frontend_endpoint` block as defined below.
+        """
+        return pulumi.get(self, "frontend_endpoints")
+
+    @frontend_endpoints.setter
+    def frontend_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFrontendEndpointArgs']]]]):
+        pulumi.set(self, "frontend_endpoints", value)
+
+    @property
+    @pulumi.getter(name="frontendEndpointsMap")
+    def frontend_endpoints_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
+        """
+        return pulumi.get(self, "frontend_endpoints_map")
+
+    @frontend_endpoints_map.setter
+    def frontend_endpoints_map(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "frontend_endpoints_map", value)
+
+    @property
+    @pulumi.getter(name="headerFrontdoorId")
+    def header_frontdoor_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend.
+        """
+        return pulumi.get(self, "header_frontdoor_id")
+
+    @header_frontdoor_id.setter
+    def header_frontdoor_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "header_frontdoor_id", value)
+
+    @property
+    @pulumi.getter(name="loadBalancerEnabled")
+    def load_balancer_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Front Door Load Balancer be Enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "load_balancer_enabled")
+
+    @load_balancer_enabled.setter
+    def load_balancer_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "load_balancer_enabled", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="routingRules")
+    def routing_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRoutingRuleArgs']]]]:
+        """
+        A `routing_rule` block as defined below.
+        """
+        return pulumi.get(self, "routing_rules")
+
+    @routing_rules.setter
+    def routing_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRoutingRuleArgs']]]]):
+        pulumi.set(self, "routing_rules", value)
+
+    @property
+    @pulumi.getter(name="routingRulesMap")
+    def routing_rules_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map/dictionary of Routing Rule Names (key) to the Routing Rule ID (value)
+        """
+        return pulumi.get(self, "routing_rules_map")
+
+    @routing_rules_map.setter
+    def routing_rules_map(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "routing_rules_map", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Frontdoor(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -115,6 +658,109 @@ class Frontdoor(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorRoutingRuleArgs']]]] routing_rules: A `routing_rule` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: FrontdoorArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an Azure Front Door instance.
+
+        Azure Front Door Service is Microsoft's highly available and scalable web application acceleration platform and global HTTP(s) load balancer. It provides built-in DDoS protection and application layer security and caching. Front Door enables you to build applications that maximize and automate high-availability and performance for your end-users. Use Front Door with Azure services including Web/Mobile Apps, Cloud Services and Virtual Machines – or combine it with on-premises services for hybrid deployments and smooth cloud migration.
+
+        Below are some of the key scenarios that Azure Front Door Service addresses:
+        * Use Front Door to improve application scale and availability with instant multi-region failover
+        * Use Front Door to improve application performance with SSL offload and routing requests to the fastest available application backend.
+        * Use Front Door for application layer security and DDoS protection for your application.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_frontdoor = azure.frontdoor.Frontdoor("exampleFrontdoor",
+            location="EastUS2",
+            resource_group_name=example_resource_group.name,
+            enforce_backend_pools_certificate_name_check=False,
+            routing_rules=[azure.frontdoor.FrontdoorRoutingRuleArgs(
+                name="exampleRoutingRule1",
+                accepted_protocols=[
+                    "Http",
+                    "Https",
+                ],
+                patterns_to_matches=["/*"],
+                frontend_endpoints=["exampleFrontendEndpoint1"],
+                forwarding_configuration=azure.frontdoor.FrontdoorRoutingRuleForwardingConfigurationArgs(
+                    forwarding_protocol="MatchRequest",
+                    backend_pool_name="exampleBackendBing",
+                ),
+            )],
+            backend_pool_load_balancings=[azure.frontdoor.FrontdoorBackendPoolLoadBalancingArgs(
+                name="exampleLoadBalancingSettings1",
+            )],
+            backend_pool_health_probes=[azure.frontdoor.FrontdoorBackendPoolHealthProbeArgs(
+                name="exampleHealthProbeSetting1",
+            )],
+            backend_pools=[azure.frontdoor.FrontdoorBackendPoolArgs(
+                name="exampleBackendBing",
+                backends=[azure.frontdoor.FrontdoorBackendPoolBackendArgs(
+                    host_header="www.bing.com",
+                    address="www.bing.com",
+                    http_port=80,
+                    https_port=443,
+                )],
+                load_balancing_name="exampleLoadBalancingSettings1",
+                health_probe_name="exampleHealthProbeSetting1",
+            )],
+            frontend_endpoints=[azure.frontdoor.FrontdoorFrontendEndpointArgs(
+                name="exampleFrontendEndpoint1",
+                host_name="example-FrontDoor.azurefd.net",
+                custom_https_provisioning_enabled=False,
+            )])
+        ```
+
+        ## Import
+
+        Front Doors can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:frontdoor/frontdoor:Frontdoor example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/mygroup1/providers/Microsoft.Network/frontDoors/frontdoor1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param FrontdoorArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(FrontdoorArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 backend_pool_health_probes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolHealthProbeArgs']]]]] = None,
+                 backend_pool_load_balancings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolLoadBalancingArgs']]]]] = None,
+                 backend_pools: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolArgs']]]]] = None,
+                 backend_pools_send_receive_timeout_seconds: Optional[pulumi.Input[int]] = None,
+                 enforce_backend_pools_certificate_name_check: Optional[pulumi.Input[bool]] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 frontend_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorFrontendEndpointArgs']]]]] = None,
+                 load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorRoutingRuleArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -130,45 +776,45 @@ class Frontdoor(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = FrontdoorArgs.__new__(FrontdoorArgs)
 
             if backend_pool_health_probes is None and not opts.urn:
                 raise TypeError("Missing required property 'backend_pool_health_probes'")
-            __props__['backend_pool_health_probes'] = backend_pool_health_probes
+            __props__.__dict__["backend_pool_health_probes"] = backend_pool_health_probes
             if backend_pool_load_balancings is None and not opts.urn:
                 raise TypeError("Missing required property 'backend_pool_load_balancings'")
-            __props__['backend_pool_load_balancings'] = backend_pool_load_balancings
+            __props__.__dict__["backend_pool_load_balancings"] = backend_pool_load_balancings
             if backend_pools is None and not opts.urn:
                 raise TypeError("Missing required property 'backend_pools'")
-            __props__['backend_pools'] = backend_pools
-            __props__['backend_pools_send_receive_timeout_seconds'] = backend_pools_send_receive_timeout_seconds
+            __props__.__dict__["backend_pools"] = backend_pools
+            __props__.__dict__["backend_pools_send_receive_timeout_seconds"] = backend_pools_send_receive_timeout_seconds
             if enforce_backend_pools_certificate_name_check is None and not opts.urn:
                 raise TypeError("Missing required property 'enforce_backend_pools_certificate_name_check'")
-            __props__['enforce_backend_pools_certificate_name_check'] = enforce_backend_pools_certificate_name_check
-            __props__['friendly_name'] = friendly_name
+            __props__.__dict__["enforce_backend_pools_certificate_name_check"] = enforce_backend_pools_certificate_name_check
+            __props__.__dict__["friendly_name"] = friendly_name
             if frontend_endpoints is None and not opts.urn:
                 raise TypeError("Missing required property 'frontend_endpoints'")
-            __props__['frontend_endpoints'] = frontend_endpoints
-            __props__['load_balancer_enabled'] = load_balancer_enabled
+            __props__.__dict__["frontend_endpoints"] = frontend_endpoints
+            __props__.__dict__["load_balancer_enabled"] = load_balancer_enabled
             if location is not None and not opts.urn:
                 warnings.warn("""Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location""", DeprecationWarning)
                 pulumi.log.warn("""location is deprecated: Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location""")
-            __props__['location'] = location
-            __props__['name'] = name
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if routing_rules is None and not opts.urn:
                 raise TypeError("Missing required property 'routing_rules'")
-            __props__['routing_rules'] = routing_rules
-            __props__['tags'] = tags
-            __props__['backend_pool_health_probes_map'] = None
-            __props__['backend_pool_load_balancing_settings_map'] = None
-            __props__['backend_pools_map'] = None
-            __props__['cname'] = None
-            __props__['frontend_endpoints_map'] = None
-            __props__['header_frontdoor_id'] = None
-            __props__['routing_rules_map'] = None
+            __props__.__dict__["routing_rules"] = routing_rules
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["backend_pool_health_probes_map"] = None
+            __props__.__dict__["backend_pool_load_balancing_settings_map"] = None
+            __props__.__dict__["backend_pools_map"] = None
+            __props__.__dict__["cname"] = None
+            __props__.__dict__["frontend_endpoints_map"] = None
+            __props__.__dict__["header_frontdoor_id"] = None
+            __props__.__dict__["routing_rules_map"] = None
         super(Frontdoor, __self__).__init__(
             'azure:frontdoor/frontdoor:Frontdoor',
             resource_name,
@@ -229,28 +875,28 @@ class Frontdoor(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _FrontdoorState.__new__(_FrontdoorState)
 
-        __props__["backend_pool_health_probes"] = backend_pool_health_probes
-        __props__["backend_pool_health_probes_map"] = backend_pool_health_probes_map
-        __props__["backend_pool_load_balancing_settings_map"] = backend_pool_load_balancing_settings_map
-        __props__["backend_pool_load_balancings"] = backend_pool_load_balancings
-        __props__["backend_pools"] = backend_pools
-        __props__["backend_pools_map"] = backend_pools_map
-        __props__["backend_pools_send_receive_timeout_seconds"] = backend_pools_send_receive_timeout_seconds
-        __props__["cname"] = cname
-        __props__["enforce_backend_pools_certificate_name_check"] = enforce_backend_pools_certificate_name_check
-        __props__["friendly_name"] = friendly_name
-        __props__["frontend_endpoints"] = frontend_endpoints
-        __props__["frontend_endpoints_map"] = frontend_endpoints_map
-        __props__["header_frontdoor_id"] = header_frontdoor_id
-        __props__["load_balancer_enabled"] = load_balancer_enabled
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["resource_group_name"] = resource_group_name
-        __props__["routing_rules"] = routing_rules
-        __props__["routing_rules_map"] = routing_rules_map
-        __props__["tags"] = tags
+        __props__.__dict__["backend_pool_health_probes"] = backend_pool_health_probes
+        __props__.__dict__["backend_pool_health_probes_map"] = backend_pool_health_probes_map
+        __props__.__dict__["backend_pool_load_balancing_settings_map"] = backend_pool_load_balancing_settings_map
+        __props__.__dict__["backend_pool_load_balancings"] = backend_pool_load_balancings
+        __props__.__dict__["backend_pools"] = backend_pools
+        __props__.__dict__["backend_pools_map"] = backend_pools_map
+        __props__.__dict__["backend_pools_send_receive_timeout_seconds"] = backend_pools_send_receive_timeout_seconds
+        __props__.__dict__["cname"] = cname
+        __props__.__dict__["enforce_backend_pools_certificate_name_check"] = enforce_backend_pools_certificate_name_check
+        __props__.__dict__["friendly_name"] = friendly_name
+        __props__.__dict__["frontend_endpoints"] = frontend_endpoints
+        __props__.__dict__["frontend_endpoints_map"] = frontend_endpoints_map
+        __props__.__dict__["header_frontdoor_id"] = header_frontdoor_id
+        __props__.__dict__["load_balancer_enabled"] = load_balancer_enabled
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["routing_rules"] = routing_rules
+        __props__.__dict__["routing_rules_map"] = routing_rules_map
+        __props__.__dict__["tags"] = tags
         return Frontdoor(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -412,10 +1058,4 @@ class Frontdoor(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

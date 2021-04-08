@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'PrivateCloudCircuit',
@@ -17,6 +17,29 @@ __all__ = [
 
 @pulumi.output_type
 class PrivateCloudCircuit(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expressRouteId":
+            suggest = "express_route_id"
+        elif key == "expressRoutePrivatePeeringId":
+            suggest = "express_route_private_peering_id"
+        elif key == "primarySubnetCidr":
+            suggest = "primary_subnet_cidr"
+        elif key == "secondarySubnetCidr":
+            suggest = "secondary_subnet_cidr"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateCloudCircuit. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateCloudCircuit.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateCloudCircuit.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  express_route_id: Optional[str] = None,
                  express_route_private_peering_id: Optional[str] = None,
@@ -69,9 +92,6 @@ class PrivateCloudCircuit(dict):
         """
         return pulumi.get(self, "secondary_subnet_cidr")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PrivateCloudManagementCluster(dict):
@@ -113,9 +133,6 @@ class PrivateCloudManagementCluster(dict):
         The ID of the  management cluster.
         """
         return pulumi.get(self, "id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

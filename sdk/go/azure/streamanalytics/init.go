@@ -22,31 +22,32 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:streamanalytics/functionJavaScriptUDF:FunctionJavaScriptUDF":
-		r, err = NewFunctionJavaScriptUDF(ctx, name, nil, pulumi.URN_(urn))
+		r = &FunctionJavaScriptUDF{}
 	case "azure:streamanalytics/job:Job":
-		r, err = NewJob(ctx, name, nil, pulumi.URN_(urn))
+		r = &Job{}
 	case "azure:streamanalytics/outputBlob:OutputBlob":
-		r, err = NewOutputBlob(ctx, name, nil, pulumi.URN_(urn))
+		r = &OutputBlob{}
 	case "azure:streamanalytics/outputEventHub:OutputEventHub":
-		r, err = NewOutputEventHub(ctx, name, nil, pulumi.URN_(urn))
+		r = &OutputEventHub{}
 	case "azure:streamanalytics/outputMssql:OutputMssql":
-		r, err = NewOutputMssql(ctx, name, nil, pulumi.URN_(urn))
+		r = &OutputMssql{}
 	case "azure:streamanalytics/outputServiceBusQueue:OutputServiceBusQueue":
-		r, err = NewOutputServiceBusQueue(ctx, name, nil, pulumi.URN_(urn))
+		r = &OutputServiceBusQueue{}
 	case "azure:streamanalytics/outputServicebusTopic:OutputServicebusTopic":
-		r, err = NewOutputServicebusTopic(ctx, name, nil, pulumi.URN_(urn))
+		r = &OutputServicebusTopic{}
 	case "azure:streamanalytics/referenceInputBlob:ReferenceInputBlob":
-		r, err = NewReferenceInputBlob(ctx, name, nil, pulumi.URN_(urn))
+		r = &ReferenceInputBlob{}
 	case "azure:streamanalytics/streamInputBlob:StreamInputBlob":
-		r, err = NewStreamInputBlob(ctx, name, nil, pulumi.URN_(urn))
+		r = &StreamInputBlob{}
 	case "azure:streamanalytics/streamInputEventHub:StreamInputEventHub":
-		r, err = NewStreamInputEventHub(ctx, name, nil, pulumi.URN_(urn))
+		r = &StreamInputEventHub{}
 	case "azure:streamanalytics/streamInputIotHub:StreamInputIotHub":
-		r, err = NewStreamInputIotHub(ctx, name, nil, pulumi.URN_(urn))
+		r = &StreamInputIotHub{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

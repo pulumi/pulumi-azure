@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'BackendAddressPoolBackendAddress',
@@ -19,6 +19,25 @@ __all__ = [
 
 @pulumi.output_type
 class BackendAddressPoolBackendAddress(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "virtualNetworkId":
+            suggest = "virtual_network_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackendAddressPoolBackendAddress. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackendAddressPoolBackendAddress.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackendAddressPoolBackendAddress.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ip_address: str,
                  name: str,
@@ -48,12 +67,42 @@ class BackendAddressPoolBackendAddress(dict):
     def virtual_network_id(self) -> str:
         return pulumi.get(self, "virtual_network_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LoadBalancerFrontendIpConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inboundNatRules":
+            suggest = "inbound_nat_rules"
+        elif key == "loadBalancerRules":
+            suggest = "load_balancer_rules"
+        elif key == "outboundRules":
+            suggest = "outbound_rules"
+        elif key == "privateIpAddress":
+            suggest = "private_ip_address"
+        elif key == "privateIpAddressAllocation":
+            suggest = "private_ip_address_allocation"
+        elif key == "privateIpAddressVersion":
+            suggest = "private_ip_address_version"
+        elif key == "publicIpAddressId":
+            suggest = "public_ip_address_id"
+        elif key == "publicIpPrefixId":
+            suggest = "public_ip_prefix_id"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoadBalancerFrontendIpConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoadBalancerFrontendIpConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoadBalancerFrontendIpConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  id: Optional[str] = None,
@@ -201,9 +250,6 @@ class LoadBalancerFrontendIpConfiguration(dict):
         """
         return pulumi.get(self, "zones")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class OutboundRuleFrontendIpConfiguration(dict):
@@ -233,9 +279,6 @@ class OutboundRuleFrontendIpConfiguration(dict):
         The ID of the Load Balancer Outbound Rule.
         """
         return pulumi.get(self, "id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

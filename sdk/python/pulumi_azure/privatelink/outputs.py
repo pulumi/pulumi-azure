@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -22,6 +22,23 @@ __all__ = [
 
 @pulumi.output_type
 class EndpointCustomDnsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddresses":
+            suggest = "ip_addresses"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointCustomDnsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointCustomDnsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointCustomDnsConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  fqdn: Optional[str] = None,
                  ip_addresses: Optional[Sequence[str]] = None):
@@ -50,12 +67,28 @@ class EndpointCustomDnsConfig(dict):
         """
         return pulumi.get(self, "ip_addresses")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointPrivateDnsZoneConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateDnsZoneId":
+            suggest = "private_dns_zone_id"
+        elif key == "recordSets":
+            suggest = "record_sets"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointPrivateDnsZoneConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointPrivateDnsZoneConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointPrivateDnsZoneConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
@@ -108,12 +141,26 @@ class EndpointPrivateDnsZoneConfig(dict):
         """
         return pulumi.get(self, "record_sets")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointPrivateDnsZoneConfigRecordSet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddresses":
+            suggest = "ip_addresses"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointPrivateDnsZoneConfigRecordSet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointPrivateDnsZoneConfigRecordSet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointPrivateDnsZoneConfigRecordSet.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  fqdn: Optional[str] = None,
                  ip_addresses: Optional[Sequence[str]] = None,
@@ -178,12 +225,26 @@ class EndpointPrivateDnsZoneConfigRecordSet(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointPrivateDnsZoneGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateDnsZoneIds":
+            suggest = "private_dns_zone_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointPrivateDnsZoneGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointPrivateDnsZoneGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointPrivateDnsZoneGroup.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  private_dns_zone_ids: Sequence[str],
@@ -222,12 +283,34 @@ class EndpointPrivateDnsZoneGroup(dict):
         """
         return pulumi.get(self, "id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointPrivateServiceConnection(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isManualConnection":
+            suggest = "is_manual_connection"
+        elif key == "privateConnectionResourceId":
+            suggest = "private_connection_resource_id"
+        elif key == "privateIpAddress":
+            suggest = "private_ip_address"
+        elif key == "requestMessage":
+            suggest = "request_message"
+        elif key == "subresourceNames":
+            suggest = "subresource_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointPrivateServiceConnection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointPrivateServiceConnection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointPrivateServiceConnection.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  is_manual_connection: bool,
                  name: str,
@@ -300,9 +383,6 @@ class EndpointPrivateServiceConnection(dict):
         A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subresource_names")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

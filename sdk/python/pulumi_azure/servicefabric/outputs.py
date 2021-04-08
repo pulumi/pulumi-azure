@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -36,6 +36,27 @@ __all__ = [
 
 @pulumi.output_type
 class ClusterAzureActiveDirectory(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientApplicationId":
+            suggest = "client_application_id"
+        elif key == "clusterApplicationId":
+            suggest = "cluster_application_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterAzureActiveDirectory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterAzureActiveDirectory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterAzureActiveDirectory.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_application_id: str,
                  cluster_application_id: str,
@@ -73,12 +94,28 @@ class ClusterAzureActiveDirectory(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCertificate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "x509StoreName":
+            suggest = "x509_store_name"
+        elif key == "thumbprintSecondary":
+            suggest = "thumbprint_secondary"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCertificate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCertificate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCertificate.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  thumbprint: str,
                  x509_store_name: str,
@@ -117,12 +154,28 @@ class ClusterCertificate(dict):
         """
         return pulumi.get(self, "thumbprint_secondary")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCertificateCommonNames(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "commonNames":
+            suggest = "common_names"
+        elif key == "x509StoreName":
+            suggest = "x509_store_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCertificateCommonNames. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCertificateCommonNames.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCertificateCommonNames.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  common_names: Sequence['outputs.ClusterCertificateCommonNamesCommonName'],
                  x509_store_name: str):
@@ -149,12 +202,28 @@ class ClusterCertificateCommonNames(dict):
         """
         return pulumi.get(self, "x509_store_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterCertificateCommonNamesCommonName(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateCommonName":
+            suggest = "certificate_common_name"
+        elif key == "certificateIssuerThumbprint":
+            suggest = "certificate_issuer_thumbprint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCertificateCommonNamesCommonName. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCertificateCommonNamesCommonName.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCertificateCommonNamesCommonName.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_common_name: str,
                  certificate_issuer_thumbprint: Optional[str] = None):
@@ -182,12 +251,30 @@ class ClusterCertificateCommonNamesCommonName(dict):
         """
         return pulumi.get(self, "certificate_issuer_thumbprint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterClientCertificateCommonName(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "commonName":
+            suggest = "common_name"
+        elif key == "isAdmin":
+            suggest = "is_admin"
+        elif key == "issuerThumbprint":
+            suggest = "issuer_thumbprint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterClientCertificateCommonName. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterClientCertificateCommonName.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterClientCertificateCommonName.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  common_name: str,
                  is_admin: bool,
@@ -222,12 +309,26 @@ class ClusterClientCertificateCommonName(dict):
     def issuer_thumbprint(self) -> Optional[str]:
         return pulumi.get(self, "issuer_thumbprint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterClientCertificateThumbprint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isAdmin":
+            suggest = "is_admin"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterClientCertificateThumbprint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterClientCertificateThumbprint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterClientCertificateThumbprint.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  is_admin: bool,
                  thumbprint: str):
@@ -254,12 +355,34 @@ class ClusterClientCertificateThumbprint(dict):
         """
         return pulumi.get(self, "thumbprint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterDiagnosticsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blobEndpoint":
+            suggest = "blob_endpoint"
+        elif key == "protectedAccountKeyName":
+            suggest = "protected_account_key_name"
+        elif key == "queueEndpoint":
+            suggest = "queue_endpoint"
+        elif key == "storageAccountName":
+            suggest = "storage_account_name"
+        elif key == "tableEndpoint":
+            suggest = "table_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterDiagnosticsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterDiagnosticsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterDiagnosticsConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  blob_endpoint: str,
                  protected_account_key_name: str,
@@ -319,9 +442,6 @@ class ClusterDiagnosticsConfig(dict):
         """
         return pulumi.get(self, "table_endpoint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterFabricSetting(dict):
@@ -352,12 +472,42 @@ class ClusterFabricSetting(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterNodeType(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientEndpointPort":
+            suggest = "client_endpoint_port"
+        elif key == "httpEndpointPort":
+            suggest = "http_endpoint_port"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "isPrimary":
+            suggest = "is_primary"
+        elif key == "applicationPorts":
+            suggest = "application_ports"
+        elif key == "durabilityLevel":
+            suggest = "durability_level"
+        elif key == "ephemeralPorts":
+            suggest = "ephemeral_ports"
+        elif key == "placementProperties":
+            suggest = "placement_properties"
+        elif key == "reverseProxyEndpointPort":
+            suggest = "reverse_proxy_endpoint_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterNodeType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterNodeType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterNodeType.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_endpoint_port: int,
                  http_endpoint_port: int,
@@ -489,12 +639,28 @@ class ClusterNodeType(dict):
         """
         return pulumi.get(self, "reverse_proxy_endpoint_port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterNodeTypeApplicationPorts(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endPort":
+            suggest = "end_port"
+        elif key == "startPort":
+            suggest = "start_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterNodeTypeApplicationPorts. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterNodeTypeApplicationPorts.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterNodeTypeApplicationPorts.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  end_port: int,
                  start_port: int):
@@ -521,12 +687,28 @@ class ClusterNodeTypeApplicationPorts(dict):
         """
         return pulumi.get(self, "start_port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterNodeTypeEphemeralPorts(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endPort":
+            suggest = "end_port"
+        elif key == "startPort":
+            suggest = "start_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterNodeTypeEphemeralPorts. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterNodeTypeEphemeralPorts.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterNodeTypeEphemeralPorts.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  end_port: int,
                  start_port: int):
@@ -553,12 +735,28 @@ class ClusterNodeTypeEphemeralPorts(dict):
         """
         return pulumi.get(self, "start_port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterReverseProxyCertificate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "x509StoreName":
+            suggest = "x509_store_name"
+        elif key == "thumbprintSecondary":
+            suggest = "thumbprint_secondary"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterReverseProxyCertificate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterReverseProxyCertificate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterReverseProxyCertificate.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  thumbprint: str,
                  x509_store_name: str,
@@ -597,12 +795,28 @@ class ClusterReverseProxyCertificate(dict):
         """
         return pulumi.get(self, "thumbprint_secondary")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterReverseProxyCertificateCommonNames(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "commonNames":
+            suggest = "common_names"
+        elif key == "x509StoreName":
+            suggest = "x509_store_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterReverseProxyCertificateCommonNames. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterReverseProxyCertificateCommonNames.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterReverseProxyCertificateCommonNames.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  common_names: Sequence['outputs.ClusterReverseProxyCertificateCommonNamesCommonName'],
                  x509_store_name: str):
@@ -629,12 +843,28 @@ class ClusterReverseProxyCertificateCommonNames(dict):
         """
         return pulumi.get(self, "x509_store_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterReverseProxyCertificateCommonNamesCommonName(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateCommonName":
+            suggest = "certificate_common_name"
+        elif key == "certificateIssuerThumbprint":
+            suggest = "certificate_issuer_thumbprint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterReverseProxyCertificateCommonNamesCommonName. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterReverseProxyCertificateCommonNamesCommonName.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterReverseProxyCertificateCommonNamesCommonName.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  certificate_common_name: str,
                  certificate_issuer_thumbprint: Optional[str] = None):
@@ -662,12 +892,42 @@ class ClusterReverseProxyCertificateCommonNamesCommonName(dict):
         """
         return pulumi.get(self, "certificate_issuer_thumbprint")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterUpgradePolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deltaHealthPolicy":
+            suggest = "delta_health_policy"
+        elif key == "forceRestartEnabled":
+            suggest = "force_restart_enabled"
+        elif key == "healthCheckRetryTimeout":
+            suggest = "health_check_retry_timeout"
+        elif key == "healthCheckStableDuration":
+            suggest = "health_check_stable_duration"
+        elif key == "healthCheckWaitDuration":
+            suggest = "health_check_wait_duration"
+        elif key == "healthPolicy":
+            suggest = "health_policy"
+        elif key == "upgradeDomainTimeout":
+            suggest = "upgrade_domain_timeout"
+        elif key == "upgradeReplicaSetCheckTimeout":
+            suggest = "upgrade_replica_set_check_timeout"
+        elif key == "upgradeTimeout":
+            suggest = "upgrade_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterUpgradePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterUpgradePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterUpgradePolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  delta_health_policy: Optional['outputs.ClusterUpgradePolicyDeltaHealthPolicy'] = None,
                  force_restart_enabled: Optional[bool] = None,
@@ -776,12 +1036,30 @@ class ClusterUpgradePolicy(dict):
         """
         return pulumi.get(self, "upgrade_timeout")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterUpgradePolicyDeltaHealthPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxDeltaUnhealthyApplicationsPercent":
+            suggest = "max_delta_unhealthy_applications_percent"
+        elif key == "maxDeltaUnhealthyNodesPercent":
+            suggest = "max_delta_unhealthy_nodes_percent"
+        elif key == "maxUpgradeDomainDeltaUnhealthyNodesPercent":
+            suggest = "max_upgrade_domain_delta_unhealthy_nodes_percent"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterUpgradePolicyDeltaHealthPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterUpgradePolicyDeltaHealthPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterUpgradePolicyDeltaHealthPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_delta_unhealthy_applications_percent: Optional[int] = None,
                  max_delta_unhealthy_nodes_percent: Optional[int] = None,
@@ -808,12 +1086,28 @@ class ClusterUpgradePolicyDeltaHealthPolicy(dict):
     def max_upgrade_domain_delta_unhealthy_nodes_percent(self) -> Optional[int]:
         return pulumi.get(self, "max_upgrade_domain_delta_unhealthy_nodes_percent")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ClusterUpgradePolicyHealthPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxUnhealthyApplicationsPercent":
+            suggest = "max_unhealthy_applications_percent"
+        elif key == "maxUnhealthyNodesPercent":
+            suggest = "max_unhealthy_nodes_percent"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterUpgradePolicyHealthPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterUpgradePolicyHealthPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterUpgradePolicyHealthPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  max_unhealthy_applications_percent: Optional[int] = None,
                  max_unhealthy_nodes_percent: Optional[int] = None):
@@ -832,12 +1126,28 @@ class ClusterUpgradePolicyHealthPolicy(dict):
     def max_unhealthy_nodes_percent(self) -> Optional[int]:
         return pulumi.get(self, "max_unhealthy_nodes_percent")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MeshApplicationService(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "codePackages":
+            suggest = "code_packages"
+        elif key == "osType":
+            suggest = "os_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MeshApplicationService. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MeshApplicationService.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MeshApplicationService.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  code_packages: Sequence['outputs.MeshApplicationServiceCodePackage'],
                  name: str,
@@ -875,12 +1185,26 @@ class MeshApplicationService(dict):
         """
         return pulumi.get(self, "os_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MeshApplicationServiceCodePackage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageName":
+            suggest = "image_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MeshApplicationServiceCodePackage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MeshApplicationServiceCodePackage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MeshApplicationServiceCodePackage.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  image_name: str,
                  name: str,
@@ -918,9 +1242,6 @@ class MeshApplicationServiceCodePackage(dict):
         """
         return pulumi.get(self, "resources")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MeshApplicationServiceCodePackageResources(dict):
@@ -951,9 +1272,6 @@ class MeshApplicationServiceCodePackageResources(dict):
         """
         return pulumi.get(self, "limits")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MeshApplicationServiceCodePackageResourcesLimits(dict):
@@ -983,9 +1301,6 @@ class MeshApplicationServiceCodePackageResourcesLimits(dict):
         """
         return pulumi.get(self, "memory")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MeshApplicationServiceCodePackageResourcesRequests(dict):
@@ -1014,8 +1329,5 @@ class MeshApplicationServiceCodePackageResourcesRequests(dict):
         The minimum memory request in GB the container requires.
         """
         return pulumi.get(self, "memory")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

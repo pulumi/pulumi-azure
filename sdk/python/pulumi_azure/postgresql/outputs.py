@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'ServerIdentity',
@@ -17,6 +17,25 @@ __all__ = [
 
 @pulumi.output_type
 class ServerIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  principal_id: Optional[str] = None,
@@ -56,12 +75,32 @@ class ServerIdentity(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServerStorageProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoGrow":
+            suggest = "auto_grow"
+        elif key == "backupRetentionDays":
+            suggest = "backup_retention_days"
+        elif key == "geoRedundantBackup":
+            suggest = "geo_redundant_backup"
+        elif key == "storageMb":
+            suggest = "storage_mb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerStorageProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerStorageProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerStorageProfile.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  auto_grow: Optional[str] = None,
                  backup_retention_days: Optional[int] = None,
@@ -106,12 +145,36 @@ class ServerStorageProfile(dict):
         """
         return pulumi.get(self, "storage_mb")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServerThreatDetectionPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disabledAlerts":
+            suggest = "disabled_alerts"
+        elif key == "emailAccountAdmins":
+            suggest = "email_account_admins"
+        elif key == "emailAddresses":
+            suggest = "email_addresses"
+        elif key == "retentionDays":
+            suggest = "retention_days"
+        elif key == "storageAccountAccessKey":
+            suggest = "storage_account_access_key"
+        elif key == "storageEndpoint":
+            suggest = "storage_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerThreatDetectionPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerThreatDetectionPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerThreatDetectionPolicy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  disabled_alerts: Optional[Sequence[str]] = None,
                  email_account_admins: Optional[bool] = None,
@@ -199,9 +262,6 @@ class ServerThreatDetectionPolicy(dict):
         Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
         """
         return pulumi.get(self, "storage_endpoint")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

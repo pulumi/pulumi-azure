@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'ConfigurationStoreIdentity',
@@ -22,6 +22,25 @@ __all__ = [
 
 @pulumi.output_type
 class ConfigurationStoreIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationStoreIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationStoreIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationStoreIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  principal_id: Optional[str] = None,
@@ -61,12 +80,26 @@ class ConfigurationStoreIdentity(dict):
         """
         return pulumi.get(self, "tenant_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ConfigurationStorePrimaryReadKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionString":
+            suggest = "connection_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationStorePrimaryReadKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationStorePrimaryReadKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationStorePrimaryReadKey.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_string: Optional[str] = None,
                  id: Optional[str] = None,
@@ -106,13 +139,27 @@ class ConfigurationStorePrimaryReadKey(dict):
         The Secret of the Access Key.
         """
         return pulumi.get(self, "secret")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class ConfigurationStorePrimaryWriteKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionString":
+            suggest = "connection_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationStorePrimaryWriteKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationStorePrimaryWriteKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationStorePrimaryWriteKey.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_string: Optional[str] = None,
                  id: Optional[str] = None,
@@ -152,13 +199,27 @@ class ConfigurationStorePrimaryWriteKey(dict):
         The Secret of the Access Key.
         """
         return pulumi.get(self, "secret")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class ConfigurationStoreSecondaryReadKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionString":
+            suggest = "connection_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationStoreSecondaryReadKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationStoreSecondaryReadKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationStoreSecondaryReadKey.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_string: Optional[str] = None,
                  id: Optional[str] = None,
@@ -198,13 +259,27 @@ class ConfigurationStoreSecondaryReadKey(dict):
         The Secret of the Access Key.
         """
         return pulumi.get(self, "secret")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class ConfigurationStoreSecondaryWriteKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionString":
+            suggest = "connection_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationStoreSecondaryWriteKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationStoreSecondaryWriteKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationStoreSecondaryWriteKey.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  connection_string: Optional[str] = None,
                  id: Optional[str] = None,
@@ -244,9 +319,6 @@ class ConfigurationStoreSecondaryWriteKey(dict):
         The Secret of the Access Key.
         """
         return pulumi.get(self, "secret")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

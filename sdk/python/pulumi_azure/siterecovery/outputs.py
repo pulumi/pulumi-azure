@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'ReplicatedVMManagedDisk',
@@ -15,6 +15,31 @@ __all__ = [
 
 @pulumi.output_type
 class ReplicatedVMManagedDisk(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskId":
+            suggest = "disk_id"
+        elif key == "stagingStorageAccountId":
+            suggest = "staging_storage_account_id"
+        elif key == "targetDiskType":
+            suggest = "target_disk_type"
+        elif key == "targetReplicaDiskType":
+            suggest = "target_replica_disk_type"
+        elif key == "targetResourceGroupId":
+            suggest = "target_resource_group_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicatedVMManagedDisk. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicatedVMManagedDisk.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicatedVMManagedDisk.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  disk_id: str,
                  staging_storage_account_id: str,
@@ -74,12 +99,32 @@ class ReplicatedVMManagedDisk(dict):
         """
         return pulumi.get(self, "target_resource_group_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ReplicatedVMNetworkInterface(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recoveryPublicIpAddressId":
+            suggest = "recovery_public_ip_address_id"
+        elif key == "sourceNetworkInterfaceId":
+            suggest = "source_network_interface_id"
+        elif key == "targetStaticIp":
+            suggest = "target_static_ip"
+        elif key == "targetSubnetName":
+            suggest = "target_subnet_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicatedVMNetworkInterface. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicatedVMNetworkInterface.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicatedVMNetworkInterface.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  recovery_public_ip_address_id: Optional[str] = None,
                  source_network_interface_id: Optional[str] = None,
@@ -131,8 +176,5 @@ class ReplicatedVMNetworkInterface(dict):
         Name of the subnet to to use when a failover is done.
         """
         return pulumi.get(self, "target_subnet_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

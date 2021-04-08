@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'GlobalVMShutdownScheduleNotificationSettings',
@@ -25,6 +25,25 @@ __all__ = [
 
 @pulumi.output_type
 class GlobalVMShutdownScheduleNotificationSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeInMinutes":
+            suggest = "time_in_minutes"
+        elif key == "webhookUrl":
+            suggest = "webhook_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GlobalVMShutdownScheduleNotificationSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GlobalVMShutdownScheduleNotificationSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GlobalVMShutdownScheduleNotificationSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: bool,
                  time_in_minutes: Optional[int] = None,
@@ -63,9 +82,6 @@ class GlobalVMShutdownScheduleNotificationSettings(dict):
         The webhook URL to which the notification will be sent. Required if `enabled` is `true`. Optional otherwise.
         """
         return pulumi.get(self, "webhook_url")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -118,12 +134,28 @@ class LinuxVirtualMachineGalleryImageReference(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class LinuxVirtualMachineInboundNatRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backendPort":
+            suggest = "backend_port"
+        elif key == "frontendPort":
+            suggest = "frontend_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinuxVirtualMachineInboundNatRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinuxVirtualMachineInboundNatRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinuxVirtualMachineInboundNatRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backend_port: int,
                  protocol: str,
@@ -162,9 +194,6 @@ class LinuxVirtualMachineInboundNatRule(dict):
         """
         return pulumi.get(self, "frontend_port")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScheduleDailyRecurrence(dict):
@@ -183,9 +212,6 @@ class ScheduleDailyRecurrence(dict):
         """
         return pulumi.get(self, "time")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScheduleHourlyRecurrence(dict):
@@ -198,12 +224,28 @@ class ScheduleHourlyRecurrence(dict):
     def minute(self) -> int:
         return pulumi.get(self, "minute")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScheduleNotificationSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeInMinutes":
+            suggest = "time_in_minutes"
+        elif key == "webhookUrl":
+            suggest = "webhook_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduleNotificationSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduleNotificationSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduleNotificationSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  status: Optional[str] = None,
                  time_in_minutes: Optional[int] = None,
@@ -244,12 +286,26 @@ class ScheduleNotificationSettings(dict):
         """
         return pulumi.get(self, "webhook_url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ScheduleWeeklyRecurrence(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "weekDays":
+            suggest = "week_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduleWeeklyRecurrence. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduleWeeklyRecurrence.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduleWeeklyRecurrence.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  time: str,
                  week_days: Optional[Sequence[str]] = None):
@@ -277,12 +333,28 @@ class ScheduleWeeklyRecurrence(dict):
         """
         return pulumi.get(self, "week_days")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VirtualNetworkSubnet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "useInVirtualMachineCreation":
+            suggest = "use_in_virtual_machine_creation"
+        elif key == "usePublicIpAddress":
+            suggest = "use_public_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkSubnet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkSubnet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkSubnet.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  use_in_virtual_machine_creation: Optional[str] = None,
@@ -322,9 +394,6 @@ class VirtualNetworkSubnet(dict):
         Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`.
         """
         return pulumi.get(self, "use_public_ip_address")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -377,12 +446,28 @@ class WindowsVirtualMachineGalleryImageReference(dict):
         """
         return pulumi.get(self, "version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class WindowsVirtualMachineInboundNatRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backendPort":
+            suggest = "backend_port"
+        elif key == "frontendPort":
+            suggest = "frontend_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsVirtualMachineInboundNatRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsVirtualMachineInboundNatRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsVirtualMachineInboundNatRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  backend_port: int,
                  protocol: str,
@@ -420,9 +505,6 @@ class WindowsVirtualMachineInboundNatRule(dict):
         The frontend port associated with this Inbound NAT Rule.
         """
         return pulumi.get(self, "frontend_port")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -125,9 +125,6 @@ class HBaseClusterComponentVersion(dict):
         """
         return pulumi.get(self, "hbase")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HBaseClusterGateway(dict):
@@ -168,9 +165,6 @@ class HBaseClusterGateway(dict):
         Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
         """
         return pulumi.get(self, "enabled")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -215,12 +209,26 @@ class HBaseClusterMetastores(dict):
         """
         return pulumi.get(self, "oozie")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HBaseClusterMetastoresAmbari(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HBaseClusterMetastoresAmbari. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HBaseClusterMetastoresAmbari.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HBaseClusterMetastoresAmbari.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database_name: str,
                  password: str,
@@ -269,12 +277,26 @@ class HBaseClusterMetastoresAmbari(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HBaseClusterMetastoresHive(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HBaseClusterMetastoresHive. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HBaseClusterMetastoresHive.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HBaseClusterMetastoresHive.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database_name: str,
                  password: str,
@@ -323,12 +345,26 @@ class HBaseClusterMetastoresHive(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HBaseClusterMetastoresOozie(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HBaseClusterMetastoresOozie. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HBaseClusterMetastoresOozie.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HBaseClusterMetastoresOozie.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database_name: str,
                  password: str,
@@ -377,12 +413,28 @@ class HBaseClusterMetastoresOozie(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HBaseClusterMonitor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logAnalyticsWorkspaceId":
+            suggest = "log_analytics_workspace_id"
+        elif key == "primaryKey":
+            suggest = "primary_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HBaseClusterMonitor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HBaseClusterMonitor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HBaseClusterMonitor.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  log_analytics_workspace_id: str,
                  primary_key: str):
@@ -409,12 +461,30 @@ class HBaseClusterMonitor(dict):
         """
         return pulumi.get(self, "primary_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HBaseClusterRoles(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headNode":
+            suggest = "head_node"
+        elif key == "workerNode":
+            suggest = "worker_node"
+        elif key == "zookeeperNode":
+            suggest = "zookeeper_node"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HBaseClusterRoles. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HBaseClusterRoles.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HBaseClusterRoles.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  head_node: 'outputs.HBaseClusterRolesHeadNode',
                  worker_node: 'outputs.HBaseClusterRolesWorkerNode',
@@ -452,12 +522,32 @@ class HBaseClusterRoles(dict):
         """
         return pulumi.get(self, "zookeeper_node")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HBaseClusterRolesHeadNode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vmSize":
+            suggest = "vm_size"
+        elif key == "sshKeys":
+            suggest = "ssh_keys"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkId":
+            suggest = "virtual_network_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HBaseClusterRolesHeadNode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HBaseClusterRolesHeadNode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HBaseClusterRolesHeadNode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  username: str,
                  vm_size: str,
@@ -532,12 +622,36 @@ class HBaseClusterRolesHeadNode(dict):
         """
         return pulumi.get(self, "virtual_network_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HBaseClusterRolesWorkerNode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetInstanceCount":
+            suggest = "target_instance_count"
+        elif key == "vmSize":
+            suggest = "vm_size"
+        elif key == "minInstanceCount":
+            suggest = "min_instance_count"
+        elif key == "sshKeys":
+            suggest = "ssh_keys"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkId":
+            suggest = "virtual_network_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HBaseClusterRolesWorkerNode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HBaseClusterRolesWorkerNode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HBaseClusterRolesWorkerNode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  target_instance_count: int,
                  username: str,
@@ -635,12 +749,32 @@ class HBaseClusterRolesWorkerNode(dict):
         """
         return pulumi.get(self, "virtual_network_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HBaseClusterRolesZookeeperNode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vmSize":
+            suggest = "vm_size"
+        elif key == "sshKeys":
+            suggest = "ssh_keys"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkId":
+            suggest = "virtual_network_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HBaseClusterRolesZookeeperNode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HBaseClusterRolesZookeeperNode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HBaseClusterRolesZookeeperNode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  username: str,
                  vm_size: str,
@@ -715,12 +849,30 @@ class HBaseClusterRolesZookeeperNode(dict):
         """
         return pulumi.get(self, "virtual_network_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HBaseClusterStorageAccount(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isDefault":
+            suggest = "is_default"
+        elif key == "storageAccountKey":
+            suggest = "storage_account_key"
+        elif key == "storageContainerId":
+            suggest = "storage_container_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HBaseClusterStorageAccount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HBaseClusterStorageAccount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HBaseClusterStorageAccount.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  is_default: bool,
                  storage_account_key: str,
@@ -758,12 +910,32 @@ class HBaseClusterStorageAccount(dict):
         """
         return pulumi.get(self, "storage_container_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HBaseClusterStorageAccountGen2(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filesystemId":
+            suggest = "filesystem_id"
+        elif key == "isDefault":
+            suggest = "is_default"
+        elif key == "managedIdentityResourceId":
+            suggest = "managed_identity_resource_id"
+        elif key == "storageResourceId":
+            suggest = "storage_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HBaseClusterStorageAccountGen2. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HBaseClusterStorageAccountGen2.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HBaseClusterStorageAccountGen2.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  filesystem_id: str,
                  is_default: bool,
@@ -812,9 +984,6 @@ class HBaseClusterStorageAccountGen2(dict):
         """
         return pulumi.get(self, "storage_resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HadoopClusterComponentVersion(dict):
@@ -832,9 +1001,6 @@ class HadoopClusterComponentVersion(dict):
         The version of Hadoop which should be used for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "hadoop")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -876,9 +1042,6 @@ class HadoopClusterGateway(dict):
         Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
         """
         return pulumi.get(self, "enabled")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -923,12 +1086,26 @@ class HadoopClusterMetastores(dict):
         """
         return pulumi.get(self, "oozie")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HadoopClusterMetastoresAmbari(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HadoopClusterMetastoresAmbari. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HadoopClusterMetastoresAmbari.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HadoopClusterMetastoresAmbari.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database_name: str,
                  password: str,
@@ -977,12 +1154,26 @@ class HadoopClusterMetastoresAmbari(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HadoopClusterMetastoresHive(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HadoopClusterMetastoresHive. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HadoopClusterMetastoresHive.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HadoopClusterMetastoresHive.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database_name: str,
                  password: str,
@@ -1031,12 +1222,26 @@ class HadoopClusterMetastoresHive(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HadoopClusterMetastoresOozie(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HadoopClusterMetastoresOozie. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HadoopClusterMetastoresOozie.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HadoopClusterMetastoresOozie.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database_name: str,
                  password: str,
@@ -1085,12 +1290,28 @@ class HadoopClusterMetastoresOozie(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HadoopClusterMonitor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logAnalyticsWorkspaceId":
+            suggest = "log_analytics_workspace_id"
+        elif key == "primaryKey":
+            suggest = "primary_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HadoopClusterMonitor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HadoopClusterMonitor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HadoopClusterMonitor.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  log_analytics_workspace_id: str,
                  primary_key: str):
@@ -1117,12 +1338,32 @@ class HadoopClusterMonitor(dict):
         """
         return pulumi.get(self, "primary_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HadoopClusterRoles(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headNode":
+            suggest = "head_node"
+        elif key == "workerNode":
+            suggest = "worker_node"
+        elif key == "zookeeperNode":
+            suggest = "zookeeper_node"
+        elif key == "edgeNode":
+            suggest = "edge_node"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HadoopClusterRoles. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HadoopClusterRoles.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HadoopClusterRoles.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  head_node: 'outputs.HadoopClusterRolesHeadNode',
                  worker_node: 'outputs.HadoopClusterRolesWorkerNode',
@@ -1172,12 +1413,30 @@ class HadoopClusterRoles(dict):
         """
         return pulumi.get(self, "edge_node")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HadoopClusterRolesEdgeNode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "installScriptActions":
+            suggest = "install_script_actions"
+        elif key == "targetInstanceCount":
+            suggest = "target_instance_count"
+        elif key == "vmSize":
+            suggest = "vm_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HadoopClusterRolesEdgeNode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HadoopClusterRolesEdgeNode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HadoopClusterRolesEdgeNode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  install_script_actions: Sequence['outputs.HadoopClusterRolesEdgeNodeInstallScriptAction'],
                  target_instance_count: int,
@@ -1215,9 +1474,6 @@ class HadoopClusterRolesEdgeNode(dict):
         """
         return pulumi.get(self, "vm_size")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HadoopClusterRolesEdgeNodeInstallScriptAction(dict):
@@ -1247,12 +1503,32 @@ class HadoopClusterRolesEdgeNodeInstallScriptAction(dict):
         """
         return pulumi.get(self, "uri")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HadoopClusterRolesHeadNode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vmSize":
+            suggest = "vm_size"
+        elif key == "sshKeys":
+            suggest = "ssh_keys"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkId":
+            suggest = "virtual_network_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HadoopClusterRolesHeadNode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HadoopClusterRolesHeadNode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HadoopClusterRolesHeadNode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  username: str,
                  vm_size: str,
@@ -1327,12 +1603,36 @@ class HadoopClusterRolesHeadNode(dict):
         """
         return pulumi.get(self, "virtual_network_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HadoopClusterRolesWorkerNode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetInstanceCount":
+            suggest = "target_instance_count"
+        elif key == "vmSize":
+            suggest = "vm_size"
+        elif key == "minInstanceCount":
+            suggest = "min_instance_count"
+        elif key == "sshKeys":
+            suggest = "ssh_keys"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkId":
+            suggest = "virtual_network_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HadoopClusterRolesWorkerNode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HadoopClusterRolesWorkerNode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HadoopClusterRolesWorkerNode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  target_instance_count: int,
                  username: str,
@@ -1430,12 +1730,32 @@ class HadoopClusterRolesWorkerNode(dict):
         """
         return pulumi.get(self, "virtual_network_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HadoopClusterRolesZookeeperNode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vmSize":
+            suggest = "vm_size"
+        elif key == "sshKeys":
+            suggest = "ssh_keys"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkId":
+            suggest = "virtual_network_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HadoopClusterRolesZookeeperNode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HadoopClusterRolesZookeeperNode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HadoopClusterRolesZookeeperNode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  username: str,
                  vm_size: str,
@@ -1510,12 +1830,30 @@ class HadoopClusterRolesZookeeperNode(dict):
         """
         return pulumi.get(self, "virtual_network_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HadoopClusterStorageAccount(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isDefault":
+            suggest = "is_default"
+        elif key == "storageAccountKey":
+            suggest = "storage_account_key"
+        elif key == "storageContainerId":
+            suggest = "storage_container_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HadoopClusterStorageAccount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HadoopClusterStorageAccount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HadoopClusterStorageAccount.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  is_default: bool,
                  storage_account_key: str,
@@ -1553,12 +1891,32 @@ class HadoopClusterStorageAccount(dict):
         """
         return pulumi.get(self, "storage_container_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class HadoopClusterStorageAccountGen2(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filesystemId":
+            suggest = "filesystem_id"
+        elif key == "isDefault":
+            suggest = "is_default"
+        elif key == "managedIdentityResourceId":
+            suggest = "managed_identity_resource_id"
+        elif key == "storageResourceId":
+            suggest = "storage_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HadoopClusterStorageAccountGen2. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HadoopClusterStorageAccountGen2.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HadoopClusterStorageAccountGen2.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  filesystem_id: str,
                  is_default: bool,
@@ -1607,12 +1965,26 @@ class HadoopClusterStorageAccountGen2(dict):
         """
         return pulumi.get(self, "storage_resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InteractiveQueryClusterComponentVersion(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "interactiveHive":
+            suggest = "interactive_hive"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InteractiveQueryClusterComponentVersion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InteractiveQueryClusterComponentVersion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InteractiveQueryClusterComponentVersion.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  interactive_hive: str):
         pulumi.set(__self__, "interactive_hive", interactive_hive)
@@ -1621,9 +1993,6 @@ class InteractiveQueryClusterComponentVersion(dict):
     @pulumi.getter(name="interactiveHive")
     def interactive_hive(self) -> str:
         return pulumi.get(self, "interactive_hive")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1665,9 +2034,6 @@ class InteractiveQueryClusterGateway(dict):
         Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
         """
         return pulumi.get(self, "enabled")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1712,12 +2078,26 @@ class InteractiveQueryClusterMetastores(dict):
         """
         return pulumi.get(self, "oozie")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InteractiveQueryClusterMetastoresAmbari(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InteractiveQueryClusterMetastoresAmbari. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InteractiveQueryClusterMetastoresAmbari.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InteractiveQueryClusterMetastoresAmbari.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database_name: str,
                  password: str,
@@ -1766,12 +2146,26 @@ class InteractiveQueryClusterMetastoresAmbari(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InteractiveQueryClusterMetastoresHive(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InteractiveQueryClusterMetastoresHive. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InteractiveQueryClusterMetastoresHive.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InteractiveQueryClusterMetastoresHive.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database_name: str,
                  password: str,
@@ -1820,12 +2214,26 @@ class InteractiveQueryClusterMetastoresHive(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InteractiveQueryClusterMetastoresOozie(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InteractiveQueryClusterMetastoresOozie. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InteractiveQueryClusterMetastoresOozie.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InteractiveQueryClusterMetastoresOozie.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database_name: str,
                  password: str,
@@ -1874,12 +2282,28 @@ class InteractiveQueryClusterMetastoresOozie(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InteractiveQueryClusterMonitor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logAnalyticsWorkspaceId":
+            suggest = "log_analytics_workspace_id"
+        elif key == "primaryKey":
+            suggest = "primary_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InteractiveQueryClusterMonitor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InteractiveQueryClusterMonitor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InteractiveQueryClusterMonitor.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  log_analytics_workspace_id: str,
                  primary_key: str):
@@ -1906,12 +2330,30 @@ class InteractiveQueryClusterMonitor(dict):
         """
         return pulumi.get(self, "primary_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InteractiveQueryClusterRoles(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headNode":
+            suggest = "head_node"
+        elif key == "workerNode":
+            suggest = "worker_node"
+        elif key == "zookeeperNode":
+            suggest = "zookeeper_node"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InteractiveQueryClusterRoles. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InteractiveQueryClusterRoles.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InteractiveQueryClusterRoles.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  head_node: 'outputs.InteractiveQueryClusterRolesHeadNode',
                  worker_node: 'outputs.InteractiveQueryClusterRolesWorkerNode',
@@ -1949,12 +2391,32 @@ class InteractiveQueryClusterRoles(dict):
         """
         return pulumi.get(self, "zookeeper_node")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InteractiveQueryClusterRolesHeadNode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vmSize":
+            suggest = "vm_size"
+        elif key == "sshKeys":
+            suggest = "ssh_keys"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkId":
+            suggest = "virtual_network_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InteractiveQueryClusterRolesHeadNode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InteractiveQueryClusterRolesHeadNode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InteractiveQueryClusterRolesHeadNode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  username: str,
                  vm_size: str,
@@ -2029,12 +2491,36 @@ class InteractiveQueryClusterRolesHeadNode(dict):
         """
         return pulumi.get(self, "virtual_network_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InteractiveQueryClusterRolesWorkerNode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetInstanceCount":
+            suggest = "target_instance_count"
+        elif key == "vmSize":
+            suggest = "vm_size"
+        elif key == "minInstanceCount":
+            suggest = "min_instance_count"
+        elif key == "sshKeys":
+            suggest = "ssh_keys"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkId":
+            suggest = "virtual_network_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InteractiveQueryClusterRolesWorkerNode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InteractiveQueryClusterRolesWorkerNode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InteractiveQueryClusterRolesWorkerNode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  target_instance_count: int,
                  username: str,
@@ -2132,12 +2618,32 @@ class InteractiveQueryClusterRolesWorkerNode(dict):
         """
         return pulumi.get(self, "virtual_network_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InteractiveQueryClusterRolesZookeeperNode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vmSize":
+            suggest = "vm_size"
+        elif key == "sshKeys":
+            suggest = "ssh_keys"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkId":
+            suggest = "virtual_network_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InteractiveQueryClusterRolesZookeeperNode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InteractiveQueryClusterRolesZookeeperNode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InteractiveQueryClusterRolesZookeeperNode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  username: str,
                  vm_size: str,
@@ -2212,12 +2718,30 @@ class InteractiveQueryClusterRolesZookeeperNode(dict):
         """
         return pulumi.get(self, "virtual_network_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InteractiveQueryClusterStorageAccount(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isDefault":
+            suggest = "is_default"
+        elif key == "storageAccountKey":
+            suggest = "storage_account_key"
+        elif key == "storageContainerId":
+            suggest = "storage_container_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InteractiveQueryClusterStorageAccount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InteractiveQueryClusterStorageAccount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InteractiveQueryClusterStorageAccount.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  is_default: bool,
                  storage_account_key: str,
@@ -2255,12 +2779,32 @@ class InteractiveQueryClusterStorageAccount(dict):
         """
         return pulumi.get(self, "storage_container_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class InteractiveQueryClusterStorageAccountGen2(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filesystemId":
+            suggest = "filesystem_id"
+        elif key == "isDefault":
+            suggest = "is_default"
+        elif key == "managedIdentityResourceId":
+            suggest = "managed_identity_resource_id"
+        elif key == "storageResourceId":
+            suggest = "storage_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InteractiveQueryClusterStorageAccountGen2. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InteractiveQueryClusterStorageAccountGen2.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InteractiveQueryClusterStorageAccountGen2.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  filesystem_id: str,
                  is_default: bool,
@@ -2309,9 +2853,6 @@ class InteractiveQueryClusterStorageAccountGen2(dict):
         """
         return pulumi.get(self, "storage_resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KafkaClusterComponentVersion(dict):
@@ -2329,9 +2870,6 @@ class KafkaClusterComponentVersion(dict):
         The version of Kafka which should be used for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "kafka")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2373,9 +2911,6 @@ class KafkaClusterGateway(dict):
         Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
         """
         return pulumi.get(self, "enabled")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -2420,12 +2955,26 @@ class KafkaClusterMetastores(dict):
         """
         return pulumi.get(self, "oozie")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KafkaClusterMetastoresAmbari(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaClusterMetastoresAmbari. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaClusterMetastoresAmbari.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaClusterMetastoresAmbari.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database_name: str,
                  password: str,
@@ -2474,12 +3023,26 @@ class KafkaClusterMetastoresAmbari(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KafkaClusterMetastoresHive(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaClusterMetastoresHive. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaClusterMetastoresHive.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaClusterMetastoresHive.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database_name: str,
                  password: str,
@@ -2528,12 +3091,26 @@ class KafkaClusterMetastoresHive(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KafkaClusterMetastoresOozie(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaClusterMetastoresOozie. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaClusterMetastoresOozie.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaClusterMetastoresOozie.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database_name: str,
                  password: str,
@@ -2582,12 +3159,28 @@ class KafkaClusterMetastoresOozie(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KafkaClusterMonitor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logAnalyticsWorkspaceId":
+            suggest = "log_analytics_workspace_id"
+        elif key == "primaryKey":
+            suggest = "primary_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaClusterMonitor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaClusterMonitor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaClusterMonitor.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  log_analytics_workspace_id: str,
                  primary_key: str):
@@ -2614,12 +3207,26 @@ class KafkaClusterMonitor(dict):
         """
         return pulumi.get(self, "primary_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KafkaClusterRestProxy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupId":
+            suggest = "security_group_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaClusterRestProxy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaClusterRestProxy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaClusterRestProxy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  security_group_id: str):
         """
@@ -2635,12 +3242,32 @@ class KafkaClusterRestProxy(dict):
         """
         return pulumi.get(self, "security_group_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KafkaClusterRoles(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headNode":
+            suggest = "head_node"
+        elif key == "workerNode":
+            suggest = "worker_node"
+        elif key == "zookeeperNode":
+            suggest = "zookeeper_node"
+        elif key == "kafkaManagementNode":
+            suggest = "kafka_management_node"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaClusterRoles. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaClusterRoles.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaClusterRoles.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  head_node: 'outputs.KafkaClusterRolesHeadNode',
                  worker_node: 'outputs.KafkaClusterRolesWorkerNode',
@@ -2690,12 +3317,32 @@ class KafkaClusterRoles(dict):
         """
         return pulumi.get(self, "kafka_management_node")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KafkaClusterRolesHeadNode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vmSize":
+            suggest = "vm_size"
+        elif key == "sshKeys":
+            suggest = "ssh_keys"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkId":
+            suggest = "virtual_network_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaClusterRolesHeadNode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaClusterRolesHeadNode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaClusterRolesHeadNode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  username: str,
                  vm_size: str,
@@ -2770,12 +3417,32 @@ class KafkaClusterRolesHeadNode(dict):
         """
         return pulumi.get(self, "virtual_network_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KafkaClusterRolesKafkaManagementNode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vmSize":
+            suggest = "vm_size"
+        elif key == "sshKeys":
+            suggest = "ssh_keys"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkId":
+            suggest = "virtual_network_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaClusterRolesKafkaManagementNode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaClusterRolesKafkaManagementNode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaClusterRolesKafkaManagementNode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  username: str,
                  vm_size: str,
@@ -2850,12 +3517,38 @@ class KafkaClusterRolesKafkaManagementNode(dict):
         """
         return pulumi.get(self, "virtual_network_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KafkaClusterRolesWorkerNode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "numberOfDisksPerNode":
+            suggest = "number_of_disks_per_node"
+        elif key == "targetInstanceCount":
+            suggest = "target_instance_count"
+        elif key == "vmSize":
+            suggest = "vm_size"
+        elif key == "minInstanceCount":
+            suggest = "min_instance_count"
+        elif key == "sshKeys":
+            suggest = "ssh_keys"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkId":
+            suggest = "virtual_network_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaClusterRolesWorkerNode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaClusterRolesWorkerNode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaClusterRolesWorkerNode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  number_of_disks_per_node: int,
                  target_instance_count: int,
@@ -2964,12 +3657,32 @@ class KafkaClusterRolesWorkerNode(dict):
         """
         return pulumi.get(self, "virtual_network_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KafkaClusterRolesZookeeperNode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vmSize":
+            suggest = "vm_size"
+        elif key == "sshKeys":
+            suggest = "ssh_keys"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkId":
+            suggest = "virtual_network_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaClusterRolesZookeeperNode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaClusterRolesZookeeperNode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaClusterRolesZookeeperNode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  username: str,
                  vm_size: str,
@@ -3044,12 +3757,30 @@ class KafkaClusterRolesZookeeperNode(dict):
         """
         return pulumi.get(self, "virtual_network_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KafkaClusterStorageAccount(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isDefault":
+            suggest = "is_default"
+        elif key == "storageAccountKey":
+            suggest = "storage_account_key"
+        elif key == "storageContainerId":
+            suggest = "storage_container_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaClusterStorageAccount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaClusterStorageAccount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaClusterStorageAccount.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  is_default: bool,
                  storage_account_key: str,
@@ -3087,12 +3818,32 @@ class KafkaClusterStorageAccount(dict):
         """
         return pulumi.get(self, "storage_container_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KafkaClusterStorageAccountGen2(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filesystemId":
+            suggest = "filesystem_id"
+        elif key == "isDefault":
+            suggest = "is_default"
+        elif key == "managedIdentityResourceId":
+            suggest = "managed_identity_resource_id"
+        elif key == "storageResourceId":
+            suggest = "storage_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaClusterStorageAccountGen2. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaClusterStorageAccountGen2.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaClusterStorageAccountGen2.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  filesystem_id: str,
                  is_default: bool,
@@ -3141,9 +3892,6 @@ class KafkaClusterStorageAccountGen2(dict):
         """
         return pulumi.get(self, "storage_resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MLServicesClusterGateway(dict):
@@ -3185,12 +3933,32 @@ class MLServicesClusterGateway(dict):
         """
         return pulumi.get(self, "enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MLServicesClusterRoles(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "edgeNode":
+            suggest = "edge_node"
+        elif key == "headNode":
+            suggest = "head_node"
+        elif key == "workerNode":
+            suggest = "worker_node"
+        elif key == "zookeeperNode":
+            suggest = "zookeeper_node"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MLServicesClusterRoles. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MLServicesClusterRoles.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MLServicesClusterRoles.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  edge_node: 'outputs.MLServicesClusterRolesEdgeNode',
                  head_node: 'outputs.MLServicesClusterRolesHeadNode',
@@ -3239,12 +4007,32 @@ class MLServicesClusterRoles(dict):
         """
         return pulumi.get(self, "zookeeper_node")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MLServicesClusterRolesEdgeNode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vmSize":
+            suggest = "vm_size"
+        elif key == "sshKeys":
+            suggest = "ssh_keys"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkId":
+            suggest = "virtual_network_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MLServicesClusterRolesEdgeNode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MLServicesClusterRolesEdgeNode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MLServicesClusterRolesEdgeNode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  username: str,
                  vm_size: str,
@@ -3319,12 +4107,32 @@ class MLServicesClusterRolesEdgeNode(dict):
         """
         return pulumi.get(self, "virtual_network_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MLServicesClusterRolesHeadNode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vmSize":
+            suggest = "vm_size"
+        elif key == "sshKeys":
+            suggest = "ssh_keys"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkId":
+            suggest = "virtual_network_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MLServicesClusterRolesHeadNode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MLServicesClusterRolesHeadNode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MLServicesClusterRolesHeadNode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  username: str,
                  vm_size: str,
@@ -3399,12 +4207,36 @@ class MLServicesClusterRolesHeadNode(dict):
         """
         return pulumi.get(self, "virtual_network_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MLServicesClusterRolesWorkerNode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetInstanceCount":
+            suggest = "target_instance_count"
+        elif key == "vmSize":
+            suggest = "vm_size"
+        elif key == "minInstanceCount":
+            suggest = "min_instance_count"
+        elif key == "sshKeys":
+            suggest = "ssh_keys"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkId":
+            suggest = "virtual_network_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MLServicesClusterRolesWorkerNode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MLServicesClusterRolesWorkerNode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MLServicesClusterRolesWorkerNode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  target_instance_count: int,
                  username: str,
@@ -3502,12 +4334,32 @@ class MLServicesClusterRolesWorkerNode(dict):
         """
         return pulumi.get(self, "virtual_network_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MLServicesClusterRolesZookeeperNode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vmSize":
+            suggest = "vm_size"
+        elif key == "sshKeys":
+            suggest = "ssh_keys"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkId":
+            suggest = "virtual_network_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MLServicesClusterRolesZookeeperNode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MLServicesClusterRolesZookeeperNode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MLServicesClusterRolesZookeeperNode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  username: str,
                  vm_size: str,
@@ -3582,12 +4434,30 @@ class MLServicesClusterRolesZookeeperNode(dict):
         """
         return pulumi.get(self, "virtual_network_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MLServicesClusterStorageAccount(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isDefault":
+            suggest = "is_default"
+        elif key == "storageAccountKey":
+            suggest = "storage_account_key"
+        elif key == "storageContainerId":
+            suggest = "storage_container_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MLServicesClusterStorageAccount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MLServicesClusterStorageAccount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MLServicesClusterStorageAccount.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  is_default: bool,
                  storage_account_key: str,
@@ -3624,9 +4494,6 @@ class MLServicesClusterStorageAccount(dict):
         The ID of the Storage Container. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_container_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -3669,12 +4536,32 @@ class RServerClusterGateway(dict):
         """
         return pulumi.get(self, "enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RServerClusterRoles(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "edgeNode":
+            suggest = "edge_node"
+        elif key == "headNode":
+            suggest = "head_node"
+        elif key == "workerNode":
+            suggest = "worker_node"
+        elif key == "zookeeperNode":
+            suggest = "zookeeper_node"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RServerClusterRoles. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RServerClusterRoles.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RServerClusterRoles.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  edge_node: 'outputs.RServerClusterRolesEdgeNode',
                  head_node: 'outputs.RServerClusterRolesHeadNode',
@@ -3723,12 +4610,32 @@ class RServerClusterRoles(dict):
         """
         return pulumi.get(self, "zookeeper_node")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RServerClusterRolesEdgeNode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vmSize":
+            suggest = "vm_size"
+        elif key == "sshKeys":
+            suggest = "ssh_keys"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkId":
+            suggest = "virtual_network_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RServerClusterRolesEdgeNode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RServerClusterRolesEdgeNode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RServerClusterRolesEdgeNode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  username: str,
                  vm_size: str,
@@ -3803,12 +4710,32 @@ class RServerClusterRolesEdgeNode(dict):
         """
         return pulumi.get(self, "virtual_network_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RServerClusterRolesHeadNode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vmSize":
+            suggest = "vm_size"
+        elif key == "sshKeys":
+            suggest = "ssh_keys"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkId":
+            suggest = "virtual_network_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RServerClusterRolesHeadNode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RServerClusterRolesHeadNode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RServerClusterRolesHeadNode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  username: str,
                  vm_size: str,
@@ -3883,12 +4810,36 @@ class RServerClusterRolesHeadNode(dict):
         """
         return pulumi.get(self, "virtual_network_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RServerClusterRolesWorkerNode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetInstanceCount":
+            suggest = "target_instance_count"
+        elif key == "vmSize":
+            suggest = "vm_size"
+        elif key == "minInstanceCount":
+            suggest = "min_instance_count"
+        elif key == "sshKeys":
+            suggest = "ssh_keys"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkId":
+            suggest = "virtual_network_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RServerClusterRolesWorkerNode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RServerClusterRolesWorkerNode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RServerClusterRolesWorkerNode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  target_instance_count: int,
                  username: str,
@@ -3986,12 +4937,32 @@ class RServerClusterRolesWorkerNode(dict):
         """
         return pulumi.get(self, "virtual_network_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RServerClusterRolesZookeeperNode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vmSize":
+            suggest = "vm_size"
+        elif key == "sshKeys":
+            suggest = "ssh_keys"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkId":
+            suggest = "virtual_network_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RServerClusterRolesZookeeperNode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RServerClusterRolesZookeeperNode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RServerClusterRolesZookeeperNode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  username: str,
                  vm_size: str,
@@ -4066,12 +5037,30 @@ class RServerClusterRolesZookeeperNode(dict):
         """
         return pulumi.get(self, "virtual_network_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class RServerClusterStorageAccount(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isDefault":
+            suggest = "is_default"
+        elif key == "storageAccountKey":
+            suggest = "storage_account_key"
+        elif key == "storageContainerId":
+            suggest = "storage_container_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RServerClusterStorageAccount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RServerClusterStorageAccount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RServerClusterStorageAccount.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  is_default: bool,
                  storage_account_key: str,
@@ -4109,9 +5098,6 @@ class RServerClusterStorageAccount(dict):
         """
         return pulumi.get(self, "storage_container_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SparkClusterComponentVersion(dict):
@@ -4129,9 +5115,6 @@ class SparkClusterComponentVersion(dict):
         The version of Spark which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "spark")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -4173,9 +5156,6 @@ class SparkClusterGateway(dict):
         Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
         """
         return pulumi.get(self, "enabled")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -4220,12 +5200,26 @@ class SparkClusterMetastores(dict):
         """
         return pulumi.get(self, "oozie")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SparkClusterMetastoresAmbari(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SparkClusterMetastoresAmbari. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SparkClusterMetastoresAmbari.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SparkClusterMetastoresAmbari.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database_name: str,
                  password: str,
@@ -4274,12 +5268,26 @@ class SparkClusterMetastoresAmbari(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SparkClusterMetastoresHive(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SparkClusterMetastoresHive. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SparkClusterMetastoresHive.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SparkClusterMetastoresHive.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database_name: str,
                  password: str,
@@ -4328,12 +5336,26 @@ class SparkClusterMetastoresHive(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SparkClusterMetastoresOozie(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SparkClusterMetastoresOozie. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SparkClusterMetastoresOozie.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SparkClusterMetastoresOozie.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database_name: str,
                  password: str,
@@ -4382,12 +5404,28 @@ class SparkClusterMetastoresOozie(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SparkClusterMonitor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logAnalyticsWorkspaceId":
+            suggest = "log_analytics_workspace_id"
+        elif key == "primaryKey":
+            suggest = "primary_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SparkClusterMonitor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SparkClusterMonitor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SparkClusterMonitor.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  log_analytics_workspace_id: str,
                  primary_key: str):
@@ -4414,12 +5452,30 @@ class SparkClusterMonitor(dict):
         """
         return pulumi.get(self, "primary_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SparkClusterRoles(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headNode":
+            suggest = "head_node"
+        elif key == "workerNode":
+            suggest = "worker_node"
+        elif key == "zookeeperNode":
+            suggest = "zookeeper_node"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SparkClusterRoles. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SparkClusterRoles.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SparkClusterRoles.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  head_node: 'outputs.SparkClusterRolesHeadNode',
                  worker_node: 'outputs.SparkClusterRolesWorkerNode',
@@ -4457,12 +5513,32 @@ class SparkClusterRoles(dict):
         """
         return pulumi.get(self, "zookeeper_node")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SparkClusterRolesHeadNode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vmSize":
+            suggest = "vm_size"
+        elif key == "sshKeys":
+            suggest = "ssh_keys"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkId":
+            suggest = "virtual_network_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SparkClusterRolesHeadNode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SparkClusterRolesHeadNode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SparkClusterRolesHeadNode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  username: str,
                  vm_size: str,
@@ -4537,12 +5613,36 @@ class SparkClusterRolesHeadNode(dict):
         """
         return pulumi.get(self, "virtual_network_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SparkClusterRolesWorkerNode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetInstanceCount":
+            suggest = "target_instance_count"
+        elif key == "vmSize":
+            suggest = "vm_size"
+        elif key == "minInstanceCount":
+            suggest = "min_instance_count"
+        elif key == "sshKeys":
+            suggest = "ssh_keys"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkId":
+            suggest = "virtual_network_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SparkClusterRolesWorkerNode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SparkClusterRolesWorkerNode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SparkClusterRolesWorkerNode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  target_instance_count: int,
                  username: str,
@@ -4640,12 +5740,32 @@ class SparkClusterRolesWorkerNode(dict):
         """
         return pulumi.get(self, "virtual_network_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SparkClusterRolesZookeeperNode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vmSize":
+            suggest = "vm_size"
+        elif key == "sshKeys":
+            suggest = "ssh_keys"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkId":
+            suggest = "virtual_network_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SparkClusterRolesZookeeperNode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SparkClusterRolesZookeeperNode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SparkClusterRolesZookeeperNode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  username: str,
                  vm_size: str,
@@ -4720,12 +5840,30 @@ class SparkClusterRolesZookeeperNode(dict):
         """
         return pulumi.get(self, "virtual_network_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SparkClusterStorageAccount(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isDefault":
+            suggest = "is_default"
+        elif key == "storageAccountKey":
+            suggest = "storage_account_key"
+        elif key == "storageContainerId":
+            suggest = "storage_container_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SparkClusterStorageAccount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SparkClusterStorageAccount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SparkClusterStorageAccount.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  is_default: bool,
                  storage_account_key: str,
@@ -4763,12 +5901,32 @@ class SparkClusterStorageAccount(dict):
         """
         return pulumi.get(self, "storage_container_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SparkClusterStorageAccountGen2(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filesystemId":
+            suggest = "filesystem_id"
+        elif key == "isDefault":
+            suggest = "is_default"
+        elif key == "managedIdentityResourceId":
+            suggest = "managed_identity_resource_id"
+        elif key == "storageResourceId":
+            suggest = "storage_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SparkClusterStorageAccountGen2. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SparkClusterStorageAccountGen2.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SparkClusterStorageAccountGen2.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  filesystem_id: str,
                  is_default: bool,
@@ -4817,9 +5975,6 @@ class SparkClusterStorageAccountGen2(dict):
         """
         return pulumi.get(self, "storage_resource_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StormClusterComponentVersion(dict):
@@ -4837,9 +5992,6 @@ class StormClusterComponentVersion(dict):
         The version of Storm which should be used for this HDInsight Storm Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storm")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -4881,9 +6033,6 @@ class StormClusterGateway(dict):
         Is the Ambari portal enabled? The HDInsight API doesn't support disabling gateway anymore.
         """
         return pulumi.get(self, "enabled")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -4928,12 +6077,26 @@ class StormClusterMetastores(dict):
         """
         return pulumi.get(self, "oozie")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StormClusterMetastoresAmbari(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StormClusterMetastoresAmbari. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StormClusterMetastoresAmbari.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StormClusterMetastoresAmbari.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database_name: str,
                  password: str,
@@ -4982,12 +6145,26 @@ class StormClusterMetastoresAmbari(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StormClusterMetastoresHive(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StormClusterMetastoresHive. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StormClusterMetastoresHive.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StormClusterMetastoresHive.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database_name: str,
                  password: str,
@@ -5036,12 +6213,26 @@ class StormClusterMetastoresHive(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StormClusterMetastoresOozie(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StormClusterMetastoresOozie. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StormClusterMetastoresOozie.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StormClusterMetastoresOozie.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  database_name: str,
                  password: str,
@@ -5090,12 +6281,28 @@ class StormClusterMetastoresOozie(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StormClusterMonitor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logAnalyticsWorkspaceId":
+            suggest = "log_analytics_workspace_id"
+        elif key == "primaryKey":
+            suggest = "primary_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StormClusterMonitor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StormClusterMonitor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StormClusterMonitor.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  log_analytics_workspace_id: str,
                  primary_key: str):
@@ -5122,12 +6329,30 @@ class StormClusterMonitor(dict):
         """
         return pulumi.get(self, "primary_key")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StormClusterRoles(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headNode":
+            suggest = "head_node"
+        elif key == "workerNode":
+            suggest = "worker_node"
+        elif key == "zookeeperNode":
+            suggest = "zookeeper_node"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StormClusterRoles. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StormClusterRoles.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StormClusterRoles.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  head_node: 'outputs.StormClusterRolesHeadNode',
                  worker_node: 'outputs.StormClusterRolesWorkerNode',
@@ -5165,12 +6390,32 @@ class StormClusterRoles(dict):
         """
         return pulumi.get(self, "zookeeper_node")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StormClusterRolesHeadNode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vmSize":
+            suggest = "vm_size"
+        elif key == "sshKeys":
+            suggest = "ssh_keys"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkId":
+            suggest = "virtual_network_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StormClusterRolesHeadNode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StormClusterRolesHeadNode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StormClusterRolesHeadNode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  username: str,
                  vm_size: str,
@@ -5245,12 +6490,36 @@ class StormClusterRolesHeadNode(dict):
         """
         return pulumi.get(self, "virtual_network_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StormClusterRolesWorkerNode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetInstanceCount":
+            suggest = "target_instance_count"
+        elif key == "vmSize":
+            suggest = "vm_size"
+        elif key == "minInstanceCount":
+            suggest = "min_instance_count"
+        elif key == "sshKeys":
+            suggest = "ssh_keys"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkId":
+            suggest = "virtual_network_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StormClusterRolesWorkerNode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StormClusterRolesWorkerNode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StormClusterRolesWorkerNode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  target_instance_count: int,
                  username: str,
@@ -5348,12 +6617,32 @@ class StormClusterRolesWorkerNode(dict):
         """
         return pulumi.get(self, "virtual_network_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StormClusterRolesZookeeperNode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vmSize":
+            suggest = "vm_size"
+        elif key == "sshKeys":
+            suggest = "ssh_keys"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "virtualNetworkId":
+            suggest = "virtual_network_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StormClusterRolesZookeeperNode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StormClusterRolesZookeeperNode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StormClusterRolesZookeeperNode.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  username: str,
                  vm_size: str,
@@ -5428,12 +6717,30 @@ class StormClusterRolesZookeeperNode(dict):
         """
         return pulumi.get(self, "virtual_network_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class StormClusterStorageAccount(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isDefault":
+            suggest = "is_default"
+        elif key == "storageAccountKey":
+            suggest = "storage_account_key"
+        elif key == "storageContainerId":
+            suggest = "storage_container_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StormClusterStorageAccount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StormClusterStorageAccount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StormClusterStorageAccount.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  is_default: bool,
                  storage_account_key: str,
@@ -5470,9 +6777,6 @@ class StormClusterStorageAccount(dict):
         The ID of the Storage Container. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_container_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

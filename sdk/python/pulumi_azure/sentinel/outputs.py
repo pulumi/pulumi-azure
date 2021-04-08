@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -19,6 +19,23 @@ __all__ = [
 
 @pulumi.output_type
 class AlertRuleScheduledEventGrouping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aggregationMethod":
+            suggest = "aggregation_method"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertRuleScheduledEventGrouping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertRuleScheduledEventGrouping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertRuleScheduledEventGrouping.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  aggregation_method: str):
         """
@@ -34,12 +51,26 @@ class AlertRuleScheduledEventGrouping(dict):
         """
         return pulumi.get(self, "aggregation_method")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AlertRuleScheduledIncidentConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createIncident":
+            suggest = "create_incident"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertRuleScheduledIncidentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertRuleScheduledIncidentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertRuleScheduledIncidentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  create_incident: bool,
                  grouping: 'outputs.AlertRuleScheduledIncidentConfigurationGrouping'):
@@ -66,12 +97,32 @@ class AlertRuleScheduledIncidentConfiguration(dict):
         """
         return pulumi.get(self, "grouping")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AlertRuleScheduledIncidentConfigurationGrouping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "entityMatchingMethod":
+            suggest = "entity_matching_method"
+        elif key == "groupBies":
+            suggest = "group_bies"
+        elif key == "lookbackDuration":
+            suggest = "lookback_duration"
+        elif key == "reopenClosedIncidents":
+            suggest = "reopen_closed_incidents"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertRuleScheduledIncidentConfigurationGrouping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertRuleScheduledIncidentConfigurationGrouping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertRuleScheduledIncidentConfigurationGrouping.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  entity_matching_method: Optional[str] = None,
@@ -135,9 +186,6 @@ class AlertRuleScheduledIncidentConfigurationGrouping(dict):
         Whether to re-open closed matching incidents? Defaults to `false`.
         """
         return pulumi.get(self, "reopen_closed_incidents")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

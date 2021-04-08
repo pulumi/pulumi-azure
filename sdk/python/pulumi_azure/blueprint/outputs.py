@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'AssignmentIdentity',
@@ -14,6 +14,27 @@ __all__ = [
 
 @pulumi.output_type
 class AssignmentIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssignmentIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssignmentIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssignmentIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  type: str,
@@ -51,8 +72,5 @@ class AssignmentIdentity(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[str]:
         return pulumi.get(self, "tenant_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

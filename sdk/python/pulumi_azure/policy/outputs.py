@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'AssignmentIdentity',
@@ -18,6 +18,25 @@ __all__ = [
 
 @pulumi.output_type
 class AssignmentIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssignmentIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssignmentIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssignmentIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None,
@@ -58,12 +77,28 @@ class AssignmentIdentity(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicySetDefinitionPolicyDefinitionGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalMetadataResourceId":
+            suggest = "additional_metadata_resource_id"
+        elif key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicySetDefinitionPolicyDefinitionGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicySetDefinitionPolicyDefinitionGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicySetDefinitionPolicyDefinitionGroup.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  additional_metadata_resource_id: Optional[str] = None,
@@ -123,12 +158,32 @@ class PolicySetDefinitionPolicyDefinitionGroup(dict):
         """
         return pulumi.get(self, "display_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicySetDefinitionPolicyDefinitionReference(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyDefinitionId":
+            suggest = "policy_definition_id"
+        elif key == "parameterValues":
+            suggest = "parameter_values"
+        elif key == "policyGroupNames":
+            suggest = "policy_group_names"
+        elif key == "referenceId":
+            suggest = "reference_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicySetDefinitionPolicyDefinitionReference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicySetDefinitionPolicyDefinitionReference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicySetDefinitionPolicyDefinitionReference.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  policy_definition_id: str,
                  parameter_values: Optional[str] = None,
@@ -187,9 +242,6 @@ class PolicySetDefinitionPolicyDefinitionReference(dict):
         A unique ID within this policy set definition for this policy definition reference.
         """
         return pulumi.get(self, "reference_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

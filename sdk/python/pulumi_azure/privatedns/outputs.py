@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'LinkServiceNatIpConfiguration',
@@ -18,6 +18,27 @@ __all__ = [
 
 @pulumi.output_type
 class LinkServiceNatIpConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "privateIpAddress":
+            suggest = "private_ip_address"
+        elif key == "privateIpAddressVersion":
+            suggest = "private_ip_address_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkServiceNatIpConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkServiceNatIpConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkServiceNatIpConfiguration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  primary: bool,
@@ -79,9 +100,6 @@ class LinkServiceNatIpConfiguration(dict):
         """
         return pulumi.get(self, "private_ip_address_version")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class MxRecordRecord(dict):
@@ -110,9 +128,6 @@ class MxRecordRecord(dict):
         The preference of the MX record.
         """
         return pulumi.get(self, "preference")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -165,9 +180,6 @@ class SRVRecordRecord(dict):
         """
         return pulumi.get(self, "weight")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class TxtRecordRecord(dict):
@@ -186,12 +198,36 @@ class TxtRecordRecord(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ZoneSoaRecord(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expireTime":
+            suggest = "expire_time"
+        elif key == "hostName":
+            suggest = "host_name"
+        elif key == "minimumTtl":
+            suggest = "minimum_ttl"
+        elif key == "refreshTime":
+            suggest = "refresh_time"
+        elif key == "retryTime":
+            suggest = "retry_time"
+        elif key == "serialNumber":
+            suggest = "serial_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ZoneSoaRecord. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ZoneSoaRecord.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ZoneSoaRecord.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  email: str,
                  expire_time: Optional[int] = None,
@@ -314,8 +350,5 @@ class ZoneSoaRecord(dict):
         The Time To Live of the SOA Record in seconds. Defaults to `3600`.
         """
         return pulumi.get(self, "ttl")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

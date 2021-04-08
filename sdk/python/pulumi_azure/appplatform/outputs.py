@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -32,6 +32,25 @@ __all__ = [
 
 @pulumi.output_type
 class SpringCloudAppIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpringCloudAppIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpringCloudAppIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpringCloudAppIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None,
@@ -72,12 +91,28 @@ class SpringCloudAppIdentity(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SpringCloudAppPersistentDisk(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sizeInGb":
+            suggest = "size_in_gb"
+        elif key == "mountPath":
+            suggest = "mount_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpringCloudAppPersistentDisk. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpringCloudAppPersistentDisk.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpringCloudAppPersistentDisk.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  size_in_gb: int,
                  mount_path: Optional[str] = None):
@@ -105,12 +140,30 @@ class SpringCloudAppPersistentDisk(dict):
         """
         return pulumi.get(self, "mount_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SpringCloudServiceConfigServerGitSetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpBasicAuth":
+            suggest = "http_basic_auth"
+        elif key == "searchPaths":
+            suggest = "search_paths"
+        elif key == "sshAuth":
+            suggest = "ssh_auth"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpringCloudServiceConfigServerGitSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpringCloudServiceConfigServerGitSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpringCloudServiceConfigServerGitSetting.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  uri: str,
                  http_basic_auth: Optional['outputs.SpringCloudServiceConfigServerGitSettingHttpBasicAuth'] = None,
@@ -186,9 +239,6 @@ class SpringCloudServiceConfigServerGitSetting(dict):
         """
         return pulumi.get(self, "ssh_auth")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SpringCloudServiceConfigServerGitSettingHttpBasicAuth(dict):
@@ -218,12 +268,30 @@ class SpringCloudServiceConfigServerGitSettingHttpBasicAuth(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SpringCloudServiceConfigServerGitSettingRepository(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpBasicAuth":
+            suggest = "http_basic_auth"
+        elif key == "searchPaths":
+            suggest = "search_paths"
+        elif key == "sshAuth":
+            suggest = "ssh_auth"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpringCloudServiceConfigServerGitSettingRepository. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpringCloudServiceConfigServerGitSettingRepository.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpringCloudServiceConfigServerGitSettingRepository.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  uri: str,
@@ -310,9 +378,6 @@ class SpringCloudServiceConfigServerGitSettingRepository(dict):
         """
         return pulumi.get(self, "ssh_auth")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth(dict):
@@ -342,12 +407,32 @@ class SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth(dict):
         """
         return pulumi.get(self, "username")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SpringCloudServiceConfigServerGitSettingRepositorySshAuth(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateKey":
+            suggest = "private_key"
+        elif key == "hostKey":
+            suggest = "host_key"
+        elif key == "hostKeyAlgorithm":
+            suggest = "host_key_algorithm"
+        elif key == "strictHostKeyCheckingEnabled":
+            suggest = "strict_host_key_checking_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpringCloudServiceConfigServerGitSettingRepositorySshAuth. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpringCloudServiceConfigServerGitSettingRepositorySshAuth.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpringCloudServiceConfigServerGitSettingRepositorySshAuth.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  private_key: str,
                  host_key: Optional[str] = None,
@@ -398,13 +483,33 @@ class SpringCloudServiceConfigServerGitSettingRepositorySshAuth(dict):
         Indicates whether the Config Server instance will fail to start if the host_key does not match.
         """
         return pulumi.get(self, "strict_host_key_checking_enabled")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class SpringCloudServiceConfigServerGitSettingSshAuth(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateKey":
+            suggest = "private_key"
+        elif key == "hostKey":
+            suggest = "host_key"
+        elif key == "hostKeyAlgorithm":
+            suggest = "host_key_algorithm"
+        elif key == "strictHostKeyCheckingEnabled":
+            suggest = "strict_host_key_checking_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpringCloudServiceConfigServerGitSettingSshAuth. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpringCloudServiceConfigServerGitSettingSshAuth.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpringCloudServiceConfigServerGitSettingSshAuth.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  private_key: str,
                  host_key: Optional[str] = None,
@@ -456,12 +561,34 @@ class SpringCloudServiceConfigServerGitSettingSshAuth(dict):
         """
         return pulumi.get(self, "strict_host_key_checking_enabled")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SpringCloudServiceNetwork(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appSubnetId":
+            suggest = "app_subnet_id"
+        elif key == "cidrRanges":
+            suggest = "cidr_ranges"
+        elif key == "serviceRuntimeSubnetId":
+            suggest = "service_runtime_subnet_id"
+        elif key == "appNetworkResourceGroup":
+            suggest = "app_network_resource_group"
+        elif key == "serviceRuntimeNetworkResourceGroup":
+            suggest = "service_runtime_network_resource_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpringCloudServiceNetwork. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpringCloudServiceNetwork.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpringCloudServiceNetwork.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  app_subnet_id: str,
                  cidr_ranges: Sequence[str],
@@ -523,12 +650,28 @@ class SpringCloudServiceNetwork(dict):
         """
         return pulumi.get(self, "service_runtime_network_resource_group")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SpringCloudServiceTrace(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instrumentationKey":
+            suggest = "instrumentation_key"
+        elif key == "sampleRate":
+            suggest = "sample_rate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpringCloudServiceTrace. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpringCloudServiceTrace.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpringCloudServiceTrace.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  instrumentation_key: str,
                  sample_rate: Optional[float] = None):
@@ -555,9 +698,6 @@ class SpringCloudServiceTrace(dict):
         The sampling rate of Application Insights Agent. Must be between `0.0` and `100.0`. Defaults to `10.0`.
         """
         return pulumi.get(self, "sample_rate")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

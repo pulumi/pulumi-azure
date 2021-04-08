@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -58,12 +58,30 @@ class AssessmentStatus(dict):
         """
         return pulumi.get(self, "description")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutomationAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+        elif key == "connectionString":
+            suggest = "connection_string"
+        elif key == "triggerUrl":
+            suggest = "trigger_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  resource_id: str,
                  type: str,
@@ -114,12 +132,28 @@ class AutomationAction(dict):
         """
         return pulumi.get(self, "trigger_url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutomationSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventSource":
+            suggest = "event_source"
+        elif key == "ruleSets":
+            suggest = "rule_sets"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationSource.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  event_source: str,
                  rule_sets: Optional[Sequence['outputs.AutomationSourceRuleSet']] = None):
@@ -147,9 +181,6 @@ class AutomationSource(dict):
         """
         return pulumi.get(self, "rule_sets")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutomationSourceRuleSet(dict):
@@ -168,12 +199,30 @@ class AutomationSourceRuleSet(dict):
         """
         return pulumi.get(self, "rules")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class AutomationSourceRuleSetRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expectedValue":
+            suggest = "expected_value"
+        elif key == "propertyPath":
+            suggest = "property_path"
+        elif key == "propertyType":
+            suggest = "property_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationSourceRuleSetRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationSourceRuleSetRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationSourceRuleSetRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  expected_value: str,
                  operator: str,
@@ -221,8 +270,5 @@ class AutomationSourceRuleSetRule(dict):
         The data type of the compared operands, must be one of: `Integer`, `String`, `Boolean` or `Number`.
         """
         return pulumi.get(self, "property_type")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

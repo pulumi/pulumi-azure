@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -44,6 +44,61 @@ __all__ = [
 
 @pulumi.output_type
 class EndpointDeliveryRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cacheExpirationAction":
+            suggest = "cache_expiration_action"
+        elif key == "cacheKeyQueryStringAction":
+            suggest = "cache_key_query_string_action"
+        elif key == "cookiesConditions":
+            suggest = "cookies_conditions"
+        elif key == "deviceCondition":
+            suggest = "device_condition"
+        elif key == "httpVersionConditions":
+            suggest = "http_version_conditions"
+        elif key == "modifyRequestHeaderActions":
+            suggest = "modify_request_header_actions"
+        elif key == "modifyResponseHeaderActions":
+            suggest = "modify_response_header_actions"
+        elif key == "postArgConditions":
+            suggest = "post_arg_conditions"
+        elif key == "queryStringConditions":
+            suggest = "query_string_conditions"
+        elif key == "remoteAddressConditions":
+            suggest = "remote_address_conditions"
+        elif key == "requestBodyConditions":
+            suggest = "request_body_conditions"
+        elif key == "requestHeaderConditions":
+            suggest = "request_header_conditions"
+        elif key == "requestMethodCondition":
+            suggest = "request_method_condition"
+        elif key == "requestSchemeCondition":
+            suggest = "request_scheme_condition"
+        elif key == "requestUriConditions":
+            suggest = "request_uri_conditions"
+        elif key == "urlFileExtensionConditions":
+            suggest = "url_file_extension_conditions"
+        elif key == "urlFileNameConditions":
+            suggest = "url_file_name_conditions"
+        elif key == "urlPathConditions":
+            suggest = "url_path_conditions"
+        elif key == "urlRedirectAction":
+            suggest = "url_redirect_action"
+        elif key == "urlRewriteAction":
+            suggest = "url_rewrite_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointDeliveryRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointDeliveryRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointDeliveryRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  order: int,
@@ -310,9 +365,6 @@ class EndpointDeliveryRule(dict):
         """
         return pulumi.get(self, "url_rewrite_action")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointDeliveryRuleCacheExpirationAction(dict):
@@ -342,9 +394,6 @@ class EndpointDeliveryRuleCacheExpirationAction(dict):
         Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
         """
         return pulumi.get(self, "duration")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -376,12 +425,28 @@ class EndpointDeliveryRuleCacheKeyQueryStringAction(dict):
         """
         return pulumi.get(self, "parameters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointDeliveryRuleCookiesCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointDeliveryRuleCookiesCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointDeliveryRuleCookiesCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointDeliveryRuleCookiesCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  operator: str,
                  selector: str,
@@ -444,12 +509,28 @@ class EndpointDeliveryRuleCookiesCondition(dict):
         """
         return pulumi.get(self, "transforms")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointDeliveryRuleDeviceCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointDeliveryRuleDeviceCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointDeliveryRuleDeviceCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointDeliveryRuleDeviceCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  match_values: Sequence[str],
                  negate_condition: Optional[bool] = None,
@@ -489,12 +570,28 @@ class EndpointDeliveryRuleDeviceCondition(dict):
         """
         return pulumi.get(self, "operator")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointDeliveryRuleHttpVersionCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointDeliveryRuleHttpVersionCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointDeliveryRuleHttpVersionCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointDeliveryRuleHttpVersionCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  match_values: Sequence[str],
                  negate_condition: Optional[bool] = None,
@@ -533,9 +630,6 @@ class EndpointDeliveryRuleHttpVersionCondition(dict):
         Valid values are `Equal`.
         """
         return pulumi.get(self, "operator")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -578,9 +672,6 @@ class EndpointDeliveryRuleModifyRequestHeaderAction(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointDeliveryRuleModifyResponseHeaderAction(dict):
@@ -622,12 +713,28 @@ class EndpointDeliveryRuleModifyResponseHeaderAction(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointDeliveryRulePostArgCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointDeliveryRulePostArgCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointDeliveryRulePostArgCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointDeliveryRulePostArgCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  operator: str,
                  selector: str,
@@ -690,12 +797,28 @@ class EndpointDeliveryRulePostArgCondition(dict):
         """
         return pulumi.get(self, "transforms")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointDeliveryRuleQueryStringCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointDeliveryRuleQueryStringCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointDeliveryRuleQueryStringCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointDeliveryRuleQueryStringCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  operator: str,
                  match_values: Optional[Sequence[str]] = None,
@@ -747,12 +870,28 @@ class EndpointDeliveryRuleQueryStringCondition(dict):
         """
         return pulumi.get(self, "transforms")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointDeliveryRuleRemoteAddressCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointDeliveryRuleRemoteAddressCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointDeliveryRuleRemoteAddressCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointDeliveryRuleRemoteAddressCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  operator: str,
                  match_values: Optional[Sequence[str]] = None,
@@ -792,12 +931,28 @@ class EndpointDeliveryRuleRemoteAddressCondition(dict):
         """
         return pulumi.get(self, "negate_condition")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointDeliveryRuleRequestBodyCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointDeliveryRuleRequestBodyCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointDeliveryRuleRequestBodyCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointDeliveryRuleRequestBodyCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  operator: str,
                  match_values: Optional[Sequence[str]] = None,
@@ -849,12 +1004,28 @@ class EndpointDeliveryRuleRequestBodyCondition(dict):
         """
         return pulumi.get(self, "transforms")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointDeliveryRuleRequestHeaderCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointDeliveryRuleRequestHeaderCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointDeliveryRuleRequestHeaderCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointDeliveryRuleRequestHeaderCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  operator: str,
                  selector: str,
@@ -917,12 +1088,28 @@ class EndpointDeliveryRuleRequestHeaderCondition(dict):
         """
         return pulumi.get(self, "transforms")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointDeliveryRuleRequestMethodCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointDeliveryRuleRequestMethodCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointDeliveryRuleRequestMethodCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointDeliveryRuleRequestMethodCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  match_values: Sequence[str],
                  negate_condition: Optional[bool] = None,
@@ -962,12 +1149,28 @@ class EndpointDeliveryRuleRequestMethodCondition(dict):
         """
         return pulumi.get(self, "operator")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointDeliveryRuleRequestSchemeCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointDeliveryRuleRequestSchemeCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointDeliveryRuleRequestSchemeCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointDeliveryRuleRequestSchemeCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  match_values: Sequence[str],
                  negate_condition: Optional[bool] = None,
@@ -1007,12 +1210,28 @@ class EndpointDeliveryRuleRequestSchemeCondition(dict):
         """
         return pulumi.get(self, "operator")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointDeliveryRuleRequestUriCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointDeliveryRuleRequestUriCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointDeliveryRuleRequestUriCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointDeliveryRuleRequestUriCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  operator: str,
                  match_values: Optional[Sequence[str]] = None,
@@ -1063,13 +1282,29 @@ class EndpointDeliveryRuleRequestUriCondition(dict):
         Valid values are `Lowercase` and `Uppercase`.
         """
         return pulumi.get(self, "transforms")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class EndpointDeliveryRuleUrlFileExtensionCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointDeliveryRuleUrlFileExtensionCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointDeliveryRuleUrlFileExtensionCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointDeliveryRuleUrlFileExtensionCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  operator: str,
                  match_values: Optional[Sequence[str]] = None,
@@ -1120,13 +1355,29 @@ class EndpointDeliveryRuleUrlFileExtensionCondition(dict):
         Valid values are `Lowercase` and `Uppercase`.
         """
         return pulumi.get(self, "transforms")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class EndpointDeliveryRuleUrlFileNameCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointDeliveryRuleUrlFileNameCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointDeliveryRuleUrlFileNameCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointDeliveryRuleUrlFileNameCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  operator: str,
                  match_values: Optional[Sequence[str]] = None,
@@ -1177,13 +1428,29 @@ class EndpointDeliveryRuleUrlFileNameCondition(dict):
         Valid values are `Lowercase` and `Uppercase`.
         """
         return pulumi.get(self, "transforms")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class EndpointDeliveryRuleUrlPathCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointDeliveryRuleUrlPathCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointDeliveryRuleUrlPathCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointDeliveryRuleUrlPathCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  operator: str,
                  match_values: Optional[Sequence[str]] = None,
@@ -1235,12 +1502,28 @@ class EndpointDeliveryRuleUrlPathCondition(dict):
         """
         return pulumi.get(self, "transforms")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointDeliveryRuleUrlRedirectAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "redirectType":
+            suggest = "redirect_type"
+        elif key == "queryString":
+            suggest = "query_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointDeliveryRuleUrlRedirectAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointDeliveryRuleUrlRedirectAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointDeliveryRuleUrlRedirectAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  redirect_type: str,
                  fragment: Optional[str] = None,
@@ -1316,12 +1599,28 @@ class EndpointDeliveryRuleUrlRedirectAction(dict):
         """
         return pulumi.get(self, "query_string")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointDeliveryRuleUrlRewriteAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourcePattern":
+            suggest = "source_pattern"
+        elif key == "preserveUnmatchedPath":
+            suggest = "preserve_unmatched_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointDeliveryRuleUrlRewriteAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointDeliveryRuleUrlRewriteAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointDeliveryRuleUrlRewriteAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  destination: str,
                  source_pattern: str,
@@ -1360,12 +1659,28 @@ class EndpointDeliveryRuleUrlRewriteAction(dict):
         """
         return pulumi.get(self, "preserve_unmatched_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointGeoFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "countryCodes":
+            suggest = "country_codes"
+        elif key == "relativePath":
+            suggest = "relative_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointGeoFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointGeoFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointGeoFilter.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: str,
                  country_codes: Sequence[str],
@@ -1403,12 +1718,36 @@ class EndpointGeoFilter(dict):
         """
         return pulumi.get(self, "relative_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointGlobalDeliveryRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cacheExpirationAction":
+            suggest = "cache_expiration_action"
+        elif key == "cacheKeyQueryStringAction":
+            suggest = "cache_key_query_string_action"
+        elif key == "modifyRequestHeaderActions":
+            suggest = "modify_request_header_actions"
+        elif key == "modifyResponseHeaderActions":
+            suggest = "modify_response_header_actions"
+        elif key == "urlRedirectAction":
+            suggest = "url_redirect_action"
+        elif key == "urlRewriteAction":
+            suggest = "url_rewrite_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointGlobalDeliveryRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointGlobalDeliveryRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointGlobalDeliveryRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cache_expiration_action: Optional['outputs.EndpointGlobalDeliveryRuleCacheExpirationAction'] = None,
                  cache_key_query_string_action: Optional['outputs.EndpointGlobalDeliveryRuleCacheKeyQueryStringAction'] = None,
@@ -1485,9 +1824,6 @@ class EndpointGlobalDeliveryRule(dict):
         """
         return pulumi.get(self, "url_rewrite_action")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointGlobalDeliveryRuleCacheExpirationAction(dict):
@@ -1518,9 +1854,6 @@ class EndpointGlobalDeliveryRuleCacheExpirationAction(dict):
         """
         return pulumi.get(self, "duration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointGlobalDeliveryRuleCacheKeyQueryStringAction(dict):
@@ -1550,9 +1883,6 @@ class EndpointGlobalDeliveryRuleCacheKeyQueryStringAction(dict):
         Comma separated list of parameter values.
         """
         return pulumi.get(self, "parameters")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1595,9 +1925,6 @@ class EndpointGlobalDeliveryRuleModifyRequestHeaderAction(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointGlobalDeliveryRuleModifyResponseHeaderAction(dict):
@@ -1639,12 +1966,28 @@ class EndpointGlobalDeliveryRuleModifyResponseHeaderAction(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointGlobalDeliveryRuleUrlRedirectAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "redirectType":
+            suggest = "redirect_type"
+        elif key == "queryString":
+            suggest = "query_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointGlobalDeliveryRuleUrlRedirectAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointGlobalDeliveryRuleUrlRedirectAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointGlobalDeliveryRuleUrlRedirectAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  redirect_type: str,
                  fragment: Optional[str] = None,
@@ -1720,12 +2063,28 @@ class EndpointGlobalDeliveryRuleUrlRedirectAction(dict):
         """
         return pulumi.get(self, "query_string")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointGlobalDeliveryRuleUrlRewriteAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourcePattern":
+            suggest = "source_pattern"
+        elif key == "preserveUnmatchedPath":
+            suggest = "preserve_unmatched_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointGlobalDeliveryRuleUrlRewriteAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointGlobalDeliveryRuleUrlRewriteAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointGlobalDeliveryRuleUrlRewriteAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  destination: str,
                  source_pattern: str,
@@ -1764,12 +2123,30 @@ class EndpointGlobalDeliveryRuleUrlRewriteAction(dict):
         """
         return pulumi.get(self, "preserve_unmatched_path")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class EndpointOrigin(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostName":
+            suggest = "host_name"
+        elif key == "httpPort":
+            suggest = "http_port"
+        elif key == "httpsPort":
+            suggest = "https_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointOrigin. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointOrigin.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointOrigin.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  host_name: str,
                  name: str,
@@ -1819,8 +2196,5 @@ class EndpointOrigin(dict):
         The HTTPS port of the origin. Defaults to `443`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "https_port")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

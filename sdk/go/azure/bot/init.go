@@ -22,23 +22,24 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:bot/channelDirectLine:ChannelDirectLine":
-		r, err = NewChannelDirectLine(ctx, name, nil, pulumi.URN_(urn))
+		r = &ChannelDirectLine{}
 	case "azure:bot/channelEmail:ChannelEmail":
-		r, err = NewChannelEmail(ctx, name, nil, pulumi.URN_(urn))
+		r = &ChannelEmail{}
 	case "azure:bot/channelSlack:ChannelSlack":
-		r, err = NewChannelSlack(ctx, name, nil, pulumi.URN_(urn))
+		r = &ChannelSlack{}
 	case "azure:bot/channelTeams:ChannelTeams":
-		r, err = NewChannelTeams(ctx, name, nil, pulumi.URN_(urn))
+		r = &ChannelTeams{}
 	case "azure:bot/channelsRegistration:ChannelsRegistration":
-		r, err = NewChannelsRegistration(ctx, name, nil, pulumi.URN_(urn))
+		r = &ChannelsRegistration{}
 	case "azure:bot/connection:Connection":
-		r, err = NewConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &Connection{}
 	case "azure:bot/webApp:WebApp":
-		r, err = NewWebApp(ctx, name, nil, pulumi.URN_(urn))
+		r = &WebApp{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

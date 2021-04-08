@@ -5,8 +5,8 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
-from .. import _utilities, _tables
+from typing import Any, Mapping, Optional, Sequence, Union, overload
+from .. import _utilities
 
 __all__ = [
     'AccountActiveDirectory',
@@ -17,6 +17,27 @@ __all__ = [
 
 @pulumi.output_type
 class AccountActiveDirectory(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsServers":
+            suggest = "dns_servers"
+        elif key == "smbServerName":
+            suggest = "smb_server_name"
+        elif key == "organizationalUnit":
+            suggest = "organizational_unit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountActiveDirectory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountActiveDirectory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountActiveDirectory.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dns_servers: Sequence[str],
                  domain: str,
@@ -88,12 +109,32 @@ class AccountActiveDirectory(dict):
         """
         return pulumi.get(self, "organizational_unit")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VolumeDataProtectionReplication(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "remoteVolumeLocation":
+            suggest = "remote_volume_location"
+        elif key == "remoteVolumeResourceId":
+            suggest = "remote_volume_resource_id"
+        elif key == "replicationFrequency":
+            suggest = "replication_frequency"
+        elif key == "endpointType":
+            suggest = "endpoint_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeDataProtectionReplication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeDataProtectionReplication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeDataProtectionReplication.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  remote_volume_location: str,
                  remote_volume_resource_id: str,
@@ -143,12 +184,40 @@ class VolumeDataProtectionReplication(dict):
         """
         return pulumi.get(self, "endpoint_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VolumeExportPolicyRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedClients":
+            suggest = "allowed_clients"
+        elif key == "ruleIndex":
+            suggest = "rule_index"
+        elif key == "cifsEnabled":
+            suggest = "cifs_enabled"
+        elif key == "nfsv3Enabled":
+            suggest = "nfsv3_enabled"
+        elif key == "nfsv4Enabled":
+            suggest = "nfsv4_enabled"
+        elif key == "protocolsEnabled":
+            suggest = "protocols_enabled"
+        elif key == "unixReadOnly":
+            suggest = "unix_read_only"
+        elif key == "unixReadWrite":
+            suggest = "unix_read_write"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeExportPolicyRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeExportPolicyRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeExportPolicyRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  allowed_clients: Sequence[str],
                  rule_index: int,
@@ -246,9 +315,6 @@ class VolumeExportPolicyRule(dict):
         Is the file system on unix read and write?
         """
         return pulumi.get(self, "unix_read_write")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
