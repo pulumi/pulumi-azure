@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -161,6 +165,161 @@ class DiagnosticSettingArgs:
     @storage_account_id.setter
     def storage_account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_account_id", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _DiagnosticSettingState:
+    def __init__(__self__, *,
+                 eventhub_authorization_rule_id: Optional[pulumi.Input[str]] = None,
+                 eventhub_name: Optional[pulumi.Input[str]] = None,
+                 log_analytics_destination_type: Optional[pulumi.Input[str]] = None,
+                 log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+                 logs: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingLogArgs']]]] = None,
+                 metrics: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingMetricArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None,
+                 target_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering DiagnosticSetting resources.
+        :param pulumi.Input[str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] eventhub_name: Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] log_analytics_destination_type: When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+        :param pulumi.Input[str] log_analytics_workspace_id: Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
+        :param pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingLogArgs']]] logs: One or more `log` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingMetricArgs']]] metrics: One or more `metric` blocks as defined below.
+        :param pulumi.Input[str] name: Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] target_resource_id: The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
+        """
+        if eventhub_authorization_rule_id is not None:
+            pulumi.set(__self__, "eventhub_authorization_rule_id", eventhub_authorization_rule_id)
+        if eventhub_name is not None:
+            pulumi.set(__self__, "eventhub_name", eventhub_name)
+        if log_analytics_destination_type is not None:
+            pulumi.set(__self__, "log_analytics_destination_type", log_analytics_destination_type)
+        if log_analytics_workspace_id is not None:
+            pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        if logs is not None:
+            pulumi.set(__self__, "logs", logs)
+        if metrics is not None:
+            pulumi.set(__self__, "metrics", metrics)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if target_resource_id is not None:
+            pulumi.set(__self__, "target_resource_id", target_resource_id)
+
+    @property
+    @pulumi.getter(name="eventhubAuthorizationRuleId")
+    def eventhub_authorization_rule_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "eventhub_authorization_rule_id")
+
+    @eventhub_authorization_rule_id.setter
+    def eventhub_authorization_rule_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "eventhub_authorization_rule_id", value)
+
+    @property
+    @pulumi.getter(name="eventhubName")
+    def eventhub_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "eventhub_name")
+
+    @eventhub_name.setter
+    def eventhub_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "eventhub_name", value)
+
+    @property
+    @pulumi.getter(name="logAnalyticsDestinationType")
+    def log_analytics_destination_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+        """
+        return pulumi.get(self, "log_analytics_destination_type")
+
+    @log_analytics_destination_type.setter
+    def log_analytics_destination_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_analytics_destination_type", value)
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspaceId")
+    def log_analytics_workspace_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
+        """
+        return pulumi.get(self, "log_analytics_workspace_id")
+
+    @log_analytics_workspace_id.setter
+    def log_analytics_workspace_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_analytics_workspace_id", value)
+
+    @property
+    @pulumi.getter
+    def logs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingLogArgs']]]]:
+        """
+        One or more `log` blocks as defined below.
+        """
+        return pulumi.get(self, "logs")
+
+    @logs.setter
+    def logs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingLogArgs']]]]):
+        pulumi.set(self, "logs", value)
+
+    @property
+    @pulumi.getter
+    def metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingMetricArgs']]]]:
+        """
+        One or more `metric` blocks as defined below.
+        """
+        return pulumi.get(self, "metrics")
+
+    @metrics.setter
+    def metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingMetricArgs']]]]):
+        pulumi.set(self, "metrics", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @storage_account_id.setter
+    def storage_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_id", value)
+
+    @property
+    @pulumi.getter(name="targetResourceId")
+    def target_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "target_resource_id")
+
+    @target_resource_id.setter
+    def target_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_id", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class DiagnosticSetting(pulumi.CustomResource):
@@ -320,19 +479,19 @@ class DiagnosticSetting(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DiagnosticSettingArgs.__new__(DiagnosticSettingArgs)
 
-            __props__['eventhub_authorization_rule_id'] = eventhub_authorization_rule_id
-            __props__['eventhub_name'] = eventhub_name
-            __props__['log_analytics_destination_type'] = log_analytics_destination_type
-            __props__['log_analytics_workspace_id'] = log_analytics_workspace_id
-            __props__['logs'] = logs
-            __props__['metrics'] = metrics
-            __props__['name'] = name
-            __props__['storage_account_id'] = storage_account_id
+            __props__.__dict__["eventhub_authorization_rule_id"] = eventhub_authorization_rule_id
+            __props__.__dict__["eventhub_name"] = eventhub_name
+            __props__.__dict__["log_analytics_destination_type"] = log_analytics_destination_type
+            __props__.__dict__["log_analytics_workspace_id"] = log_analytics_workspace_id
+            __props__.__dict__["logs"] = logs
+            __props__.__dict__["metrics"] = metrics
+            __props__.__dict__["name"] = name
+            __props__.__dict__["storage_account_id"] = storage_account_id
             if target_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_resource_id'")
-            __props__['target_resource_id'] = target_resource_id
+            __props__.__dict__["target_resource_id"] = target_resource_id
         super(DiagnosticSetting, __self__).__init__(
             'azure:monitoring/diagnosticSetting:DiagnosticSetting',
             resource_name,
@@ -371,17 +530,17 @@ class DiagnosticSetting(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DiagnosticSettingState.__new__(_DiagnosticSettingState)
 
-        __props__["eventhub_authorization_rule_id"] = eventhub_authorization_rule_id
-        __props__["eventhub_name"] = eventhub_name
-        __props__["log_analytics_destination_type"] = log_analytics_destination_type
-        __props__["log_analytics_workspace_id"] = log_analytics_workspace_id
-        __props__["logs"] = logs
-        __props__["metrics"] = metrics
-        __props__["name"] = name
-        __props__["storage_account_id"] = storage_account_id
-        __props__["target_resource_id"] = target_resource_id
+        __props__.__dict__["eventhub_authorization_rule_id"] = eventhub_authorization_rule_id
+        __props__.__dict__["eventhub_name"] = eventhub_name
+        __props__.__dict__["log_analytics_destination_type"] = log_analytics_destination_type
+        __props__.__dict__["log_analytics_workspace_id"] = log_analytics_workspace_id
+        __props__.__dict__["logs"] = logs
+        __props__.__dict__["metrics"] = metrics
+        __props__.__dict__["name"] = name
+        __props__.__dict__["storage_account_id"] = storage_account_id
+        __props__.__dict__["target_resource_id"] = target_resource_id
         return DiagnosticSetting(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -455,10 +614,4 @@ class DiagnosticSetting(pulumi.CustomResource):
         The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_resource_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

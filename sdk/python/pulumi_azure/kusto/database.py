@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['DatabaseArgs', 'Database']
 
@@ -110,6 +114,129 @@ class DatabaseArgs:
     @soft_delete_period.setter
     def soft_delete_period(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "soft_delete_period", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _DatabaseState:
+    def __init__(__self__, *,
+                 cluster_name: Optional[pulumi.Input[str]] = None,
+                 hot_cache_period: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 size: Optional[pulumi.Input[float]] = None,
+                 soft_delete_period: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Database resources.
+        :param pulumi.Input[str] cluster_name: Specifies the name of the Kusto Cluster this database will be added to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] hot_cache_period: The time the data that should be kept in cache for fast queries as ISO 8601 timespan. Default is unlimited. For more information see: [ISO 8601 Timespan](https://en.wikipedia.org/wiki/ISO_8601#Durations)
+        :param pulumi.Input[str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Kusto Database to create. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[float] size: The size of the database in bytes.
+        :param pulumi.Input[str] soft_delete_period: The time the data should be kept before it stops being accessible to queries as ISO 8601 timespan. Default is unlimited. For more information see: [ISO 8601 Timespan](https://en.wikipedia.org/wiki/ISO_8601#Durations)
+        """
+        if cluster_name is not None:
+            pulumi.set(__self__, "cluster_name", cluster_name)
+        if hot_cache_period is not None:
+            pulumi.set(__self__, "hot_cache_period", hot_cache_period)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if soft_delete_period is not None:
+            pulumi.set(__self__, "soft_delete_period", soft_delete_period)
+
+    @property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Kusto Cluster this database will be added to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_name", value)
+
+    @property
+    @pulumi.getter(name="hotCachePeriod")
+    def hot_cache_period(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time the data that should be kept in cache for fast queries as ISO 8601 timespan. Default is unlimited. For more information see: [ISO 8601 Timespan](https://en.wikipedia.org/wiki/ISO_8601#Durations)
+        """
+        return pulumi.get(self, "hot_cache_period")
+
+    @hot_cache_period.setter
+    def hot_cache_period(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hot_cache_period", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location where the Kusto Database should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Kusto Database to create. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[pulumi.Input[float]]:
+        """
+        The size of the database in bytes.
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "size", value)
+
+    @property
+    @pulumi.getter(name="softDeletePeriod")
+    def soft_delete_period(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time the data should be kept before it stops being accessible to queries as ISO 8601 timespan. Default is unlimited. For more information see: [ISO 8601 Timespan](https://en.wikipedia.org/wiki/ISO_8601#Durations)
+        """
+        return pulumi.get(self, "soft_delete_period")
+
+    @soft_delete_period.setter
+    def soft_delete_period(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "soft_delete_period", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class Database(pulumi.CustomResource):
@@ -246,19 +373,19 @@ class Database(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DatabaseArgs.__new__(DatabaseArgs)
 
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
-            __props__['cluster_name'] = cluster_name
-            __props__['hot_cache_period'] = hot_cache_period
-            __props__['location'] = location
-            __props__['name'] = name
+            __props__.__dict__["cluster_name"] = cluster_name
+            __props__.__dict__["hot_cache_period"] = hot_cache_period
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['soft_delete_period'] = soft_delete_period
-            __props__['size'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["soft_delete_period"] = soft_delete_period
+            __props__.__dict__["size"] = None
         super(Database, __self__).__init__(
             'azure:kusto/database:Database',
             resource_name,
@@ -293,15 +420,15 @@ class Database(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DatabaseState.__new__(_DatabaseState)
 
-        __props__["cluster_name"] = cluster_name
-        __props__["hot_cache_period"] = hot_cache_period
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["resource_group_name"] = resource_group_name
-        __props__["size"] = size
-        __props__["soft_delete_period"] = soft_delete_period
+        __props__.__dict__["cluster_name"] = cluster_name
+        __props__.__dict__["hot_cache_period"] = hot_cache_period
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["size"] = size
+        __props__.__dict__["soft_delete_period"] = soft_delete_period
         return Database(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -359,10 +486,4 @@ class Database(pulumi.CustomResource):
         The time the data should be kept before it stops being accessible to queries as ISO 8601 timespan. Default is unlimited. For more information see: [ISO 8601 Timespan](https://en.wikipedia.org/wiki/ISO_8601#Durations)
         """
         return pulumi.get(self, "soft_delete_period")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['RouteArgs', 'Route']
 
@@ -123,6 +127,129 @@ class RouteArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _RouteState:
+    def __init__(__self__, *,
+                 condition: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 endpoint_names: Optional[pulumi.Input[str]] = None,
+                 iothub_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Route resources.
+        :param pulumi.Input[str] condition: The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+        :param pulumi.Input[bool] enabled: Specifies whether a route is enabled.
+        :param pulumi.Input[str] endpoint_names: The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
+        :param pulumi.Input[str] iothub_name: The name of the IoTHub to which this Route belongs. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the route.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Route resource has to be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source: The source that the routing rule is to be applied to. Possible values include: `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
+        """
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if endpoint_names is not None:
+            pulumi.set(__self__, "endpoint_names", endpoint_names)
+        if iothub_name is not None:
+            pulumi.set(__self__, "iothub_name", iothub_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> Optional[pulumi.Input[str]]:
+        """
+        The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
+        """
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "condition", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether a route is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="endpointNames")
+    def endpoint_names(self) -> Optional[pulumi.Input[str]]:
+        """
+        The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
+        """
+        return pulumi.get(self, "endpoint_names")
+
+    @endpoint_names.setter
+    def endpoint_names(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_names", value)
+
+    @property
+    @pulumi.getter(name="iothubName")
+    def iothub_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the IoTHub to which this Route belongs. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "iothub_name")
+
+    @iothub_name.setter
+    def iothub_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "iothub_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the route.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group under which the IotHub Route resource has to be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[str]]:
+        """
+        The source that the routing rule is to be applied to. Possible values include: `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class Route(pulumi.CustomResource):
@@ -308,25 +435,25 @@ class Route(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RouteArgs.__new__(RouteArgs)
 
-            __props__['condition'] = condition
+            __props__.__dict__["condition"] = condition
             if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
-            __props__['enabled'] = enabled
+            __props__.__dict__["enabled"] = enabled
             if endpoint_names is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_names'")
-            __props__['endpoint_names'] = endpoint_names
+            __props__.__dict__["endpoint_names"] = endpoint_names
             if iothub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'iothub_name'")
-            __props__['iothub_name'] = iothub_name
-            __props__['name'] = name
+            __props__.__dict__["iothub_name"] = iothub_name
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
-            __props__['source'] = source
+            __props__.__dict__["source"] = source
         super(Route, __self__).__init__(
             'azure:iot/route:Route',
             resource_name,
@@ -361,15 +488,15 @@ class Route(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _RouteState.__new__(_RouteState)
 
-        __props__["condition"] = condition
-        __props__["enabled"] = enabled
-        __props__["endpoint_names"] = endpoint_names
-        __props__["iothub_name"] = iothub_name
-        __props__["name"] = name
-        __props__["resource_group_name"] = resource_group_name
-        __props__["source"] = source
+        __props__.__dict__["condition"] = condition
+        __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["endpoint_names"] = endpoint_names
+        __props__.__dict__["iothub_name"] = iothub_name
+        __props__.__dict__["name"] = name
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["source"] = source
         return Route(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -427,10 +554,4 @@ class Route(pulumi.CustomResource):
         The source that the routing rule is to be applied to. Possible values include: `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
         """
         return pulumi.get(self, "source")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

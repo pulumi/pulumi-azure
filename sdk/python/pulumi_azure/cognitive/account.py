@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -159,6 +163,209 @@ class AccountArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _AccountState:
+    def __init__(__self__, *,
+                 custom_subdomain_name: Optional[pulumi.Input[str]] = None,
+                 endpoint: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_acls: Optional[pulumi.Input['AccountNetworkAclsArgs']] = None,
+                 primary_access_key: Optional[pulumi.Input[str]] = None,
+                 qna_runtime_endpoint: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 secondary_access_key: Optional[pulumi.Input[str]] = None,
+                 sku_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Account resources.
+        :param pulumi.Input[str] custom_subdomain_name: The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] endpoint: The endpoint used to connect to the Cognitive Service Account.
+        :param pulumi.Input[str] kind: Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
+        :param pulumi.Input['AccountNetworkAclsArgs'] network_acls: A `network_acls` block as defined below.
+        :param pulumi.Input[str] primary_access_key: A primary access key which can be used to connect to the Cognitive Service Account.
+        :param pulumi.Input[str] qna_runtime_endpoint: A URL to link a QnAMaker cognitive account to a QnA runtime.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] secondary_access_key: The secondary access key which can be used to connect to the Cognitive Service Account.
+        :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        if custom_subdomain_name is not None:
+            pulumi.set(__self__, "custom_subdomain_name", custom_subdomain_name)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if network_acls is not None:
+            pulumi.set(__self__, "network_acls", network_acls)
+        if primary_access_key is not None:
+            pulumi.set(__self__, "primary_access_key", primary_access_key)
+        if qna_runtime_endpoint is not None:
+            pulumi.set(__self__, "qna_runtime_endpoint", qna_runtime_endpoint)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if secondary_access_key is not None:
+            pulumi.set(__self__, "secondary_access_key", secondary_access_key)
+        if sku_name is not None:
+            pulumi.set(__self__, "sku_name", sku_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="customSubdomainName")
+    def custom_subdomain_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "custom_subdomain_name")
+
+    @custom_subdomain_name.setter
+    def custom_subdomain_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_subdomain_name", value)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint used to connect to the Cognitive Service Account.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`,`FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="networkAcls")
+    def network_acls(self) -> Optional[pulumi.Input['AccountNetworkAclsArgs']]:
+        """
+        A `network_acls` block as defined below.
+        """
+        return pulumi.get(self, "network_acls")
+
+    @network_acls.setter
+    def network_acls(self, value: Optional[pulumi.Input['AccountNetworkAclsArgs']]):
+        pulumi.set(self, "network_acls", value)
+
+    @property
+    @pulumi.getter(name="primaryAccessKey")
+    def primary_access_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        A primary access key which can be used to connect to the Cognitive Service Account.
+        """
+        return pulumi.get(self, "primary_access_key")
+
+    @primary_access_key.setter
+    def primary_access_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_access_key", value)
+
+    @property
+    @pulumi.getter(name="qnaRuntimeEndpoint")
+    def qna_runtime_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        A URL to link a QnAMaker cognitive account to a QnA runtime.
+        """
+        return pulumi.get(self, "qna_runtime_endpoint")
+
+    @qna_runtime_endpoint.setter
+    def qna_runtime_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "qna_runtime_endpoint", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="secondaryAccessKey")
+    def secondary_access_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The secondary access key which can be used to connect to the Cognitive Service Account.
+        """
+        return pulumi.get(self, "secondary_access_key")
+
+    @secondary_access_key.setter
+    def secondary_access_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_access_key", value)
+
+    @property
+    @pulumi.getter(name="skuName")
+    def sku_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
+        """
+        return pulumi.get(self, "sku_name")
+
+    @sku_name.setter
+    def sku_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class Account(pulumi.CustomResource):
@@ -294,26 +501,26 @@ class Account(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AccountArgs.__new__(AccountArgs)
 
-            __props__['custom_subdomain_name'] = custom_subdomain_name
+            __props__.__dict__["custom_subdomain_name"] = custom_subdomain_name
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
-            __props__['kind'] = kind
-            __props__['location'] = location
-            __props__['name'] = name
-            __props__['network_acls'] = network_acls
-            __props__['qna_runtime_endpoint'] = qna_runtime_endpoint
+            __props__.__dict__["kind"] = kind
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
+            __props__.__dict__["network_acls"] = network_acls
+            __props__.__dict__["qna_runtime_endpoint"] = qna_runtime_endpoint
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")
-            __props__['sku_name'] = sku_name
-            __props__['tags'] = tags
-            __props__['endpoint'] = None
-            __props__['primary_access_key'] = None
-            __props__['secondary_access_key'] = None
+            __props__.__dict__["sku_name"] = sku_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["endpoint"] = None
+            __props__.__dict__["primary_access_key"] = None
+            __props__.__dict__["secondary_access_key"] = None
         super(Account, __self__).__init__(
             'azure:cognitive/account:Account',
             resource_name,
@@ -358,20 +565,20 @@ class Account(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AccountState.__new__(_AccountState)
 
-        __props__["custom_subdomain_name"] = custom_subdomain_name
-        __props__["endpoint"] = endpoint
-        __props__["kind"] = kind
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["network_acls"] = network_acls
-        __props__["primary_access_key"] = primary_access_key
-        __props__["qna_runtime_endpoint"] = qna_runtime_endpoint
-        __props__["resource_group_name"] = resource_group_name
-        __props__["secondary_access_key"] = secondary_access_key
-        __props__["sku_name"] = sku_name
-        __props__["tags"] = tags
+        __props__.__dict__["custom_subdomain_name"] = custom_subdomain_name
+        __props__.__dict__["endpoint"] = endpoint
+        __props__.__dict__["kind"] = kind
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["network_acls"] = network_acls
+        __props__.__dict__["primary_access_key"] = primary_access_key
+        __props__.__dict__["qna_runtime_endpoint"] = qna_runtime_endpoint
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["secondary_access_key"] = secondary_access_key
+        __props__.__dict__["sku_name"] = sku_name
+        __props__.__dict__["tags"] = tags
         return Account(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -469,10 +676,4 @@ class Account(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

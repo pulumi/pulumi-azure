@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['AssignmentDedicatedHostArgs', 'AssignmentDedicatedHost']
 
@@ -62,6 +66,65 @@ class AssignmentDedicatedHostArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _AssignmentDedicatedHostState:
+    def __init__(__self__, *,
+                 dedicated_host_id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 maintenance_configuration_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering AssignmentDedicatedHost resources.
+        :param pulumi.Input[str] dedicated_host_id: Specifies the Dedicated Host ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] maintenance_configuration_id: Specifies the ID of the Maintenance Configuration Resource. Changing this forces a new resource to be created.
+        """
+        if dedicated_host_id is not None:
+            pulumi.set(__self__, "dedicated_host_id", dedicated_host_id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if maintenance_configuration_id is not None:
+            pulumi.set(__self__, "maintenance_configuration_id", maintenance_configuration_id)
+
+    @property
+    @pulumi.getter(name="dedicatedHostId")
+    def dedicated_host_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Dedicated Host ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "dedicated_host_id")
+
+    @dedicated_host_id.setter
+    def dedicated_host_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dedicated_host_id", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="maintenanceConfigurationId")
+    def maintenance_configuration_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of the Maintenance Configuration Resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "maintenance_configuration_id")
+
+    @maintenance_configuration_id.setter
+    def maintenance_configuration_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "maintenance_configuration_id", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class AssignmentDedicatedHost(pulumi.CustomResource):
@@ -197,15 +260,15 @@ class AssignmentDedicatedHost(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AssignmentDedicatedHostArgs.__new__(AssignmentDedicatedHostArgs)
 
             if dedicated_host_id is None and not opts.urn:
                 raise TypeError("Missing required property 'dedicated_host_id'")
-            __props__['dedicated_host_id'] = dedicated_host_id
-            __props__['location'] = location
+            __props__.__dict__["dedicated_host_id"] = dedicated_host_id
+            __props__.__dict__["location"] = location
             if maintenance_configuration_id is None and not opts.urn:
                 raise TypeError("Missing required property 'maintenance_configuration_id'")
-            __props__['maintenance_configuration_id'] = maintenance_configuration_id
+            __props__.__dict__["maintenance_configuration_id"] = maintenance_configuration_id
         super(AssignmentDedicatedHost, __self__).__init__(
             'azure:maintenance/assignmentDedicatedHost:AssignmentDedicatedHost',
             resource_name,
@@ -232,11 +295,11 @@ class AssignmentDedicatedHost(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AssignmentDedicatedHostState.__new__(_AssignmentDedicatedHostState)
 
-        __props__["dedicated_host_id"] = dedicated_host_id
-        __props__["location"] = location
-        __props__["maintenance_configuration_id"] = maintenance_configuration_id
+        __props__.__dict__["dedicated_host_id"] = dedicated_host_id
+        __props__.__dict__["location"] = location
+        __props__.__dict__["maintenance_configuration_id"] = maintenance_configuration_id
         return AssignmentDedicatedHost(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -262,10 +325,4 @@ class AssignmentDedicatedHost(pulumi.CustomResource):
         Specifies the ID of the Maintenance Configuration Resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "maintenance_configuration_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

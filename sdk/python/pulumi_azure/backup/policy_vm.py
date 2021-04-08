@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -191,6 +195,193 @@ class PolicyVMArgs:
     @timezone.setter
     def timezone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "timezone", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _PolicyVMState:
+    def __init__(__self__, *,
+                 backup: Optional[pulumi.Input['PolicyVMBackupArgs']] = None,
+                 instant_restore_retention_days: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 recovery_vault_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 retention_daily: Optional[pulumi.Input['PolicyVMRetentionDailyArgs']] = None,
+                 retention_monthly: Optional[pulumi.Input['PolicyVMRetentionMonthlyArgs']] = None,
+                 retention_weekly: Optional[pulumi.Input['PolicyVMRetentionWeeklyArgs']] = None,
+                 retention_yearly: Optional[pulumi.Input['PolicyVMRetentionYearlyArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 timezone: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering PolicyVM resources.
+        :param pulumi.Input['PolicyVMBackupArgs'] backup: Configures the Policy backup frequency, times & days as documented in the `backup` block below.
+        :param pulumi.Input[int] instant_restore_retention_days: Specifies the instant restore retention range in days.
+        :param pulumi.Input[str] name: Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
+        :param pulumi.Input['PolicyVMRetentionDailyArgs'] retention_daily: Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
+        :param pulumi.Input['PolicyVMRetentionMonthlyArgs'] retention_monthly: Configures the policy monthly retention as documented in the `retention_monthly` block below.
+        :param pulumi.Input['PolicyVMRetentionWeeklyArgs'] retention_weekly: Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
+        :param pulumi.Input['PolicyVMRetentionYearlyArgs'] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] timezone: Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
+        """
+        if backup is not None:
+            pulumi.set(__self__, "backup", backup)
+        if instant_restore_retention_days is not None:
+            pulumi.set(__self__, "instant_restore_retention_days", instant_restore_retention_days)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if recovery_vault_name is not None:
+            pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if retention_daily is not None:
+            pulumi.set(__self__, "retention_daily", retention_daily)
+        if retention_monthly is not None:
+            pulumi.set(__self__, "retention_monthly", retention_monthly)
+        if retention_weekly is not None:
+            pulumi.set(__self__, "retention_weekly", retention_weekly)
+        if retention_yearly is not None:
+            pulumi.set(__self__, "retention_yearly", retention_yearly)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+
+    @property
+    @pulumi.getter
+    def backup(self) -> Optional[pulumi.Input['PolicyVMBackupArgs']]:
+        """
+        Configures the Policy backup frequency, times & days as documented in the `backup` block below.
+        """
+        return pulumi.get(self, "backup")
+
+    @backup.setter
+    def backup(self, value: Optional[pulumi.Input['PolicyVMBackupArgs']]):
+        pulumi.set(self, "backup", value)
+
+    @property
+    @pulumi.getter(name="instantRestoreRetentionDays")
+    def instant_restore_retention_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the instant restore retention range in days.
+        """
+        return pulumi.get(self, "instant_restore_retention_days")
+
+    @instant_restore_retention_days.setter
+    def instant_restore_retention_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "instant_restore_retention_days", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="recoveryVaultName")
+    def recovery_vault_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "recovery_vault_name")
+
+    @recovery_vault_name.setter
+    def recovery_vault_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_vault_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="retentionDaily")
+    def retention_daily(self) -> Optional[pulumi.Input['PolicyVMRetentionDailyArgs']]:
+        """
+        Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
+        """
+        return pulumi.get(self, "retention_daily")
+
+    @retention_daily.setter
+    def retention_daily(self, value: Optional[pulumi.Input['PolicyVMRetentionDailyArgs']]):
+        pulumi.set(self, "retention_daily", value)
+
+    @property
+    @pulumi.getter(name="retentionMonthly")
+    def retention_monthly(self) -> Optional[pulumi.Input['PolicyVMRetentionMonthlyArgs']]:
+        """
+        Configures the policy monthly retention as documented in the `retention_monthly` block below.
+        """
+        return pulumi.get(self, "retention_monthly")
+
+    @retention_monthly.setter
+    def retention_monthly(self, value: Optional[pulumi.Input['PolicyVMRetentionMonthlyArgs']]):
+        pulumi.set(self, "retention_monthly", value)
+
+    @property
+    @pulumi.getter(name="retentionWeekly")
+    def retention_weekly(self) -> Optional[pulumi.Input['PolicyVMRetentionWeeklyArgs']]:
+        """
+        Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
+        """
+        return pulumi.get(self, "retention_weekly")
+
+    @retention_weekly.setter
+    def retention_weekly(self, value: Optional[pulumi.Input['PolicyVMRetentionWeeklyArgs']]):
+        pulumi.set(self, "retention_weekly", value)
+
+    @property
+    @pulumi.getter(name="retentionYearly")
+    def retention_yearly(self) -> Optional[pulumi.Input['PolicyVMRetentionYearlyArgs']]:
+        """
+        Configures the policy yearly retention as documented in the `retention_yearly` block below.
+        """
+        return pulumi.get(self, "retention_yearly")
+
+    @retention_yearly.setter
+    def retention_yearly(self, value: Optional[pulumi.Input['PolicyVMRetentionYearlyArgs']]):
+        pulumi.set(self, "retention_yearly", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
+        """
+        return pulumi.get(self, "timezone")
+
+    @timezone.setter
+    def timezone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timezone", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class PolicyVM(pulumi.CustomResource):
@@ -398,25 +589,25 @@ class PolicyVM(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PolicyVMArgs.__new__(PolicyVMArgs)
 
             if backup is None and not opts.urn:
                 raise TypeError("Missing required property 'backup'")
-            __props__['backup'] = backup
-            __props__['instant_restore_retention_days'] = instant_restore_retention_days
-            __props__['name'] = name
+            __props__.__dict__["backup"] = backup
+            __props__.__dict__["instant_restore_retention_days"] = instant_restore_retention_days
+            __props__.__dict__["name"] = name
             if recovery_vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'recovery_vault_name'")
-            __props__['recovery_vault_name'] = recovery_vault_name
+            __props__.__dict__["recovery_vault_name"] = recovery_vault_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['retention_daily'] = retention_daily
-            __props__['retention_monthly'] = retention_monthly
-            __props__['retention_weekly'] = retention_weekly
-            __props__['retention_yearly'] = retention_yearly
-            __props__['tags'] = tags
-            __props__['timezone'] = timezone
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["retention_daily"] = retention_daily
+            __props__.__dict__["retention_monthly"] = retention_monthly
+            __props__.__dict__["retention_weekly"] = retention_weekly
+            __props__.__dict__["retention_yearly"] = retention_yearly
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["timezone"] = timezone
         super(PolicyVM, __self__).__init__(
             'azure:backup/policyVM:PolicyVM',
             resource_name,
@@ -459,19 +650,19 @@ class PolicyVM(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _PolicyVMState.__new__(_PolicyVMState)
 
-        __props__["backup"] = backup
-        __props__["instant_restore_retention_days"] = instant_restore_retention_days
-        __props__["name"] = name
-        __props__["recovery_vault_name"] = recovery_vault_name
-        __props__["resource_group_name"] = resource_group_name
-        __props__["retention_daily"] = retention_daily
-        __props__["retention_monthly"] = retention_monthly
-        __props__["retention_weekly"] = retention_weekly
-        __props__["retention_yearly"] = retention_yearly
-        __props__["tags"] = tags
-        __props__["timezone"] = timezone
+        __props__.__dict__["backup"] = backup
+        __props__.__dict__["instant_restore_retention_days"] = instant_restore_retention_days
+        __props__.__dict__["name"] = name
+        __props__.__dict__["recovery_vault_name"] = recovery_vault_name
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["retention_daily"] = retention_daily
+        __props__.__dict__["retention_monthly"] = retention_monthly
+        __props__.__dict__["retention_weekly"] = retention_weekly
+        __props__.__dict__["retention_yearly"] = retention_yearly
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["timezone"] = timezone
         return PolicyVM(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -561,10 +752,4 @@ class PolicyVM(pulumi.CustomResource):
         Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         """
         return pulumi.get(self, "timezone")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

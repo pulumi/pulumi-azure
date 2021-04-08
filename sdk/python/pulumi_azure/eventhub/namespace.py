@@ -6,6 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
 
 __all__ = ['NamespaceArgs', 'Namespace']
@@ -131,6 +132,325 @@ class NamespaceArgs:
     def zone_redundant(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "zone_redundant", value)
 
+=======
+from .. import _utilities
+
+__all__ = ['NamespaceArgs', 'Namespace']
+
+@pulumi.input_type
+class NamespaceArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 sku: pulumi.Input[str],
+                 capacity: Optional[pulumi.Input[int]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zone_redundant: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a Namespace resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
+               create the namespace.
+        :param pulumi.Input[str] sku: Defines which tier to use. Options are basic, standard or premium. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] capacity: Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace resource . Changing this forces a
+               new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] zone_redundant: Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku", sku)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if zone_redundant is not None:
+            pulumi.set(__self__, "zone_redundant", zone_redundant)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which to
+        create the namespace.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Input[str]:
+        """
+        Defines which tier to use. Options are basic, standard or premium. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the ServiceBus Namespace resource . Changing this forces a
+        new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="zoneRedundant")
+    def zone_redundant(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+        """
+        return pulumi.get(self, "zone_redundant")
+
+    @zone_redundant.setter
+    def zone_redundant(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "zone_redundant", value)
+
+
+@pulumi.input_type
+class _NamespaceState:
+    def __init__(__self__, *,
+                 capacity: Optional[pulumi.Input[int]] = None,
+                 default_primary_connection_string: Optional[pulumi.Input[str]] = None,
+                 default_primary_key: Optional[pulumi.Input[str]] = None,
+                 default_secondary_connection_string: Optional[pulumi.Input[str]] = None,
+                 default_secondary_key: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zone_redundant: Optional[pulumi.Input[bool]] = None):
+        """
+        Input properties used for looking up and filtering Namespace resources.
+        :param pulumi.Input[int] capacity: Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
+        :param pulumi.Input[str] default_primary_connection_string: The primary connection string for the authorization
+               rule `RootManageSharedAccessKey`.
+        :param pulumi.Input[str] default_primary_key: The primary access key for the authorization rule `RootManageSharedAccessKey`.
+        :param pulumi.Input[str] default_secondary_connection_string: The secondary connection string for the
+               authorization rule `RootManageSharedAccessKey`.
+        :param pulumi.Input[str] default_secondary_key: The secondary access key for the authorization rule `RootManageSharedAccessKey`.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace resource . Changing this forces a
+               new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
+               create the namespace.
+        :param pulumi.Input[str] sku: Defines which tier to use. Options are basic, standard or premium. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] zone_redundant: Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+        """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if default_primary_connection_string is not None:
+            pulumi.set(__self__, "default_primary_connection_string", default_primary_connection_string)
+        if default_primary_key is not None:
+            pulumi.set(__self__, "default_primary_key", default_primary_key)
+        if default_secondary_connection_string is not None:
+            pulumi.set(__self__, "default_secondary_connection_string", default_secondary_connection_string)
+        if default_secondary_key is not None:
+            pulumi.set(__self__, "default_secondary_key", default_secondary_key)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if zone_redundant is not None:
+            pulumi.set(__self__, "zone_redundant", zone_redundant)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter(name="defaultPrimaryConnectionString")
+    def default_primary_connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The primary connection string for the authorization
+        rule `RootManageSharedAccessKey`.
+        """
+        return pulumi.get(self, "default_primary_connection_string")
+
+    @default_primary_connection_string.setter
+    def default_primary_connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_primary_connection_string", value)
+
+    @property
+    @pulumi.getter(name="defaultPrimaryKey")
+    def default_primary_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The primary access key for the authorization rule `RootManageSharedAccessKey`.
+        """
+        return pulumi.get(self, "default_primary_key")
+
+    @default_primary_key.setter
+    def default_primary_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_primary_key", value)
+
+    @property
+    @pulumi.getter(name="defaultSecondaryConnectionString")
+    def default_secondary_connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The secondary connection string for the
+        authorization rule `RootManageSharedAccessKey`.
+        """
+        return pulumi.get(self, "default_secondary_connection_string")
+
+    @default_secondary_connection_string.setter
+    def default_secondary_connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_secondary_connection_string", value)
+
+    @property
+    @pulumi.getter(name="defaultSecondaryKey")
+    def default_secondary_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The secondary access key for the authorization rule `RootManageSharedAccessKey`.
+        """
+        return pulumi.get(self, "default_secondary_key")
+
+    @default_secondary_key.setter
+    def default_secondary_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_secondary_key", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the ServiceBus Namespace resource . Changing this forces a
+        new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which to
+        create the namespace.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input[str]]:
+        """
+        Defines which tier to use. Options are basic, standard or premium. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="zoneRedundant")
+    def zone_redundant(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
+        """
+        return pulumi.get(self, "zone_redundant")
+
+    @zone_redundant.setter
+    def zone_redundant(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "zone_redundant", value)
+
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 warnings.warn("""azure.eventhub.Namespace has been deprecated in favor of azure.servicebus.Namespace""", DeprecationWarning)
 
@@ -265,23 +585,23 @@ class Namespace(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = NamespaceArgs.__new__(NamespaceArgs)
 
-            __props__['capacity'] = capacity
-            __props__['location'] = location
-            __props__['name'] = name
+            __props__.__dict__["capacity"] = capacity
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
-            __props__['sku'] = sku
-            __props__['tags'] = tags
-            __props__['zone_redundant'] = zone_redundant
-            __props__['default_primary_connection_string'] = None
-            __props__['default_primary_key'] = None
-            __props__['default_secondary_connection_string'] = None
-            __props__['default_secondary_key'] = None
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["zone_redundant"] = zone_redundant
+            __props__.__dict__["default_primary_connection_string"] = None
+            __props__.__dict__["default_primary_key"] = None
+            __props__.__dict__["default_secondary_connection_string"] = None
+            __props__.__dict__["default_secondary_key"] = None
         super(Namespace, __self__).__init__(
             'azure:eventhub/namespace:Namespace',
             resource_name,
@@ -328,19 +648,19 @@ class Namespace(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _NamespaceState.__new__(_NamespaceState)
 
-        __props__["capacity"] = capacity
-        __props__["default_primary_connection_string"] = default_primary_connection_string
-        __props__["default_primary_key"] = default_primary_key
-        __props__["default_secondary_connection_string"] = default_secondary_connection_string
-        __props__["default_secondary_key"] = default_secondary_key
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["resource_group_name"] = resource_group_name
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["zone_redundant"] = zone_redundant
+        __props__.__dict__["capacity"] = capacity
+        __props__.__dict__["default_primary_connection_string"] = default_primary_connection_string
+        __props__.__dict__["default_primary_key"] = default_primary_key
+        __props__.__dict__["default_secondary_connection_string"] = default_secondary_connection_string
+        __props__.__dict__["default_secondary_key"] = default_secondary_key
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["sku"] = sku
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["zone_redundant"] = zone_redundant
         return Namespace(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -434,10 +754,4 @@ class Namespace(pulumi.CustomResource):
         Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
         """
         return pulumi.get(self, "zone_redundant")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

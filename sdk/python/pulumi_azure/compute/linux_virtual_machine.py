@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -557,6 +561,641 @@ class LinuxVirtualMachineArgs:
     @zone.setter
     def zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "zone", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _LinuxVirtualMachineState:
+    def __init__(__self__, *,
+                 additional_capabilities: Optional[pulumi.Input['LinuxVirtualMachineAdditionalCapabilitiesArgs']] = None,
+                 admin_password: Optional[pulumi.Input[str]] = None,
+                 admin_ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineAdminSshKeyArgs']]]] = None,
+                 admin_username: Optional[pulumi.Input[str]] = None,
+                 allow_extension_operations: Optional[pulumi.Input[bool]] = None,
+                 availability_set_id: Optional[pulumi.Input[str]] = None,
+                 boot_diagnostics: Optional[pulumi.Input['LinuxVirtualMachineBootDiagnosticsArgs']] = None,
+                 computer_name: Optional[pulumi.Input[str]] = None,
+                 custom_data: Optional[pulumi.Input[str]] = None,
+                 dedicated_host_id: Optional[pulumi.Input[str]] = None,
+                 disable_password_authentication: Optional[pulumi.Input[bool]] = None,
+                 encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
+                 eviction_policy: Optional[pulumi.Input[str]] = None,
+                 extensions_time_budget: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['LinuxVirtualMachineIdentityArgs']] = None,
+                 license_type: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 max_bid_price: Optional[pulumi.Input[float]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 os_disk: Optional[pulumi.Input['LinuxVirtualMachineOsDiskArgs']] = None,
+                 plan: Optional[pulumi.Input['LinuxVirtualMachinePlanArgs']] = None,
+                 platform_fault_domain: Optional[pulumi.Input[int]] = None,
+                 priority: Optional[pulumi.Input[str]] = None,
+                 private_ip_address: Optional[pulumi.Input[str]] = None,
+                 private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 provision_vm_agent: Optional[pulumi.Input[bool]] = None,
+                 proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+                 public_ip_address: Optional[pulumi.Input[str]] = None,
+                 public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretArgs']]]] = None,
+                 size: Optional[pulumi.Input[str]] = None,
+                 source_image_id: Optional[pulumi.Input[str]] = None,
+                 source_image_reference: Optional[pulumi.Input['LinuxVirtualMachineSourceImageReferenceArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_machine_id: Optional[pulumi.Input[str]] = None,
+                 virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
+                 zone: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering LinuxVirtualMachine resources.
+        :param pulumi.Input['LinuxVirtualMachineAdditionalCapabilitiesArgs'] additional_capabilities: A `additional_capabilities` block as defined below.
+        :param pulumi.Input[str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineAdminSshKeyArgs']]] admin_ssh_keys: One or more `admin_ssh_key` blocks as defined below.
+        :param pulumi.Input[str] admin_username: The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine?
+        :param pulumi.Input[str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input['LinuxVirtualMachineBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
+        :param pulumi.Input[str] computer_name: Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on.
+        :param pulumi.Input[bool] disable_password_authentication: Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
+        :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+        :param pulumi.Input['LinuxVirtualMachineIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[str] license_type: Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
+        :param pulumi.Input[str] location: The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[float] max_bid_price: The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
+        :param pulumi.Input[str] name: The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: . A list of Network Interface ID's which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
+        :param pulumi.Input['LinuxVirtualMachineOsDiskArgs'] os_disk: A `os_disk` block as defined below.
+        :param pulumi.Input['LinuxVirtualMachinePlanArgs'] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] platform_fault_domain: Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.
+        :param pulumi.Input[str] priority: Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] private_ip_address: The Primary Private IP Address assigned to this Virtual Machine.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_addresses: A list of Private IP Addresses assigned to this Virtual Machine.
+        :param pulumi.Input[bool] provision_vm_agent: Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] public_ip_address: The Primary Public IP Address assigned to this Virtual Machine.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ip_addresses: A list of the Public IP Addresses assigned to this Virtual Machine.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Linux Virtual Machine should be exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretArgs']]] secrets: One or more `secret` blocks as defined below.
+        :param pulumi.Input[str] size: The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
+        :param pulumi.Input[str] source_image_id: The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
+        :param pulumi.Input['LinuxVirtualMachineSourceImageReferenceArgs'] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine.
+        :param pulumi.Input[str] virtual_machine_id: A 128-bit identifier which uniquely identifies this Virtual Machine.
+        :param pulumi.Input[str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] zone: The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
+        """
+        if additional_capabilities is not None:
+            pulumi.set(__self__, "additional_capabilities", additional_capabilities)
+        if admin_password is not None:
+            pulumi.set(__self__, "admin_password", admin_password)
+        if admin_ssh_keys is not None:
+            pulumi.set(__self__, "admin_ssh_keys", admin_ssh_keys)
+        if admin_username is not None:
+            pulumi.set(__self__, "admin_username", admin_username)
+        if allow_extension_operations is not None:
+            pulumi.set(__self__, "allow_extension_operations", allow_extension_operations)
+        if availability_set_id is not None:
+            pulumi.set(__self__, "availability_set_id", availability_set_id)
+        if boot_diagnostics is not None:
+            pulumi.set(__self__, "boot_diagnostics", boot_diagnostics)
+        if computer_name is not None:
+            pulumi.set(__self__, "computer_name", computer_name)
+        if custom_data is not None:
+            pulumi.set(__self__, "custom_data", custom_data)
+        if dedicated_host_id is not None:
+            pulumi.set(__self__, "dedicated_host_id", dedicated_host_id)
+        if disable_password_authentication is not None:
+            pulumi.set(__self__, "disable_password_authentication", disable_password_authentication)
+        if encryption_at_host_enabled is not None:
+            pulumi.set(__self__, "encryption_at_host_enabled", encryption_at_host_enabled)
+        if eviction_policy is not None:
+            pulumi.set(__self__, "eviction_policy", eviction_policy)
+        if extensions_time_budget is not None:
+            pulumi.set(__self__, "extensions_time_budget", extensions_time_budget)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if license_type is not None:
+            pulumi.set(__self__, "license_type", license_type)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if max_bid_price is not None:
+            pulumi.set(__self__, "max_bid_price", max_bid_price)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if network_interface_ids is not None:
+            pulumi.set(__self__, "network_interface_ids", network_interface_ids)
+        if os_disk is not None:
+            pulumi.set(__self__, "os_disk", os_disk)
+        if plan is not None:
+            pulumi.set(__self__, "plan", plan)
+        if platform_fault_domain is not None:
+            pulumi.set(__self__, "platform_fault_domain", platform_fault_domain)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_addresses is not None:
+            pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
+        if provision_vm_agent is not None:
+            pulumi.set(__self__, "provision_vm_agent", provision_vm_agent)
+        if proximity_placement_group_id is not None:
+            pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
+        if public_ip_address is not None:
+            pulumi.set(__self__, "public_ip_address", public_ip_address)
+        if public_ip_addresses is not None:
+            pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if source_image_id is not None:
+            pulumi.set(__self__, "source_image_id", source_image_id)
+        if source_image_reference is not None:
+            pulumi.set(__self__, "source_image_reference", source_image_reference)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if virtual_machine_id is not None:
+            pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+        if virtual_machine_scale_set_id is not None:
+            pulumi.set(__self__, "virtual_machine_scale_set_id", virtual_machine_scale_set_id)
+        if zone is not None:
+            pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter(name="additionalCapabilities")
+    def additional_capabilities(self) -> Optional[pulumi.Input['LinuxVirtualMachineAdditionalCapabilitiesArgs']]:
+        """
+        A `additional_capabilities` block as defined below.
+        """
+        return pulumi.get(self, "additional_capabilities")
+
+    @additional_capabilities.setter
+    def additional_capabilities(self, value: Optional[pulumi.Input['LinuxVirtualMachineAdditionalCapabilitiesArgs']]):
+        pulumi.set(self, "additional_capabilities", value)
+
+    @property
+    @pulumi.getter(name="adminPassword")
+    def admin_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "admin_password")
+
+    @admin_password.setter
+    def admin_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "admin_password", value)
+
+    @property
+    @pulumi.getter(name="adminSshKeys")
+    def admin_ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineAdminSshKeyArgs']]]]:
+        """
+        One or more `admin_ssh_key` blocks as defined below.
+        """
+        return pulumi.get(self, "admin_ssh_keys")
+
+    @admin_ssh_keys.setter
+    def admin_ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineAdminSshKeyArgs']]]]):
+        pulumi.set(self, "admin_ssh_keys", value)
+
+    @property
+    @pulumi.getter(name="adminUsername")
+    def admin_username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "admin_username")
+
+    @admin_username.setter
+    def admin_username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "admin_username", value)
+
+    @property
+    @pulumi.getter(name="allowExtensionOperations")
+    def allow_extension_operations(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Extension Operations be allowed on this Virtual Machine?
+        """
+        return pulumi.get(self, "allow_extension_operations")
+
+    @allow_extension_operations.setter
+    def allow_extension_operations(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_extension_operations", value)
+
+    @property
+    @pulumi.getter(name="availabilitySetId")
+    def availability_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "availability_set_id")
+
+    @availability_set_id.setter
+    def availability_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_set_id", value)
+
+    @property
+    @pulumi.getter(name="bootDiagnostics")
+    def boot_diagnostics(self) -> Optional[pulumi.Input['LinuxVirtualMachineBootDiagnosticsArgs']]:
+        """
+        A `boot_diagnostics` block as defined below.
+        """
+        return pulumi.get(self, "boot_diagnostics")
+
+    @boot_diagnostics.setter
+    def boot_diagnostics(self, value: Optional[pulumi.Input['LinuxVirtualMachineBootDiagnosticsArgs']]):
+        pulumi.set(self, "boot_diagnostics", value)
+
+    @property
+    @pulumi.getter(name="computerName")
+    def computer_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "computer_name")
+
+    @computer_name.setter
+    def computer_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "computer_name", value)
+
+    @property
+    @pulumi.getter(name="customData")
+    def custom_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "custom_data")
+
+    @custom_data.setter
+    def custom_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_data", value)
+
+    @property
+    @pulumi.getter(name="dedicatedHostId")
+    def dedicated_host_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a Dedicated Host where this machine should be run on.
+        """
+        return pulumi.get(self, "dedicated_host_id")
+
+    @dedicated_host_id.setter
+    def dedicated_host_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dedicated_host_id", value)
+
+    @property
+    @pulumi.getter(name="disablePasswordAuthentication")
+    def disable_password_authentication(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "disable_password_authentication")
+
+    @disable_password_authentication.setter
+    def disable_password_authentication(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_password_authentication", value)
+
+    @property
+    @pulumi.getter(name="encryptionAtHostEnabled")
+    def encryption_at_host_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
+        """
+        return pulumi.get(self, "encryption_at_host_enabled")
+
+    @encryption_at_host_enabled.setter
+    def encryption_at_host_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "encryption_at_host_enabled", value)
+
+    @property
+    @pulumi.getter(name="evictionPolicy")
+    def eviction_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "eviction_policy")
+
+    @eviction_policy.setter
+    def eviction_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "eviction_policy", value)
+
+    @property
+    @pulumi.getter(name="extensionsTimeBudget")
+    def extensions_time_budget(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+        """
+        return pulumi.get(self, "extensions_time_budget")
+
+    @extensions_time_budget.setter
+    def extensions_time_budget(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "extensions_time_budget", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['LinuxVirtualMachineIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['LinuxVirtualMachineIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="licenseType")
+    def license_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
+        """
+        return pulumi.get(self, "license_type")
+
+    @license_type.setter
+    def license_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "license_type", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="maxBidPrice")
+    def max_bid_price(self) -> Optional[pulumi.Input[float]]:
+        """
+        The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
+        """
+        return pulumi.get(self, "max_bid_price")
+
+    @max_bid_price.setter
+    def max_bid_price(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_bid_price", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="networkInterfaceIds")
+    def network_interface_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        . A list of Network Interface ID's which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
+        """
+        return pulumi.get(self, "network_interface_ids")
+
+    @network_interface_ids.setter
+    def network_interface_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "network_interface_ids", value)
+
+    @property
+    @pulumi.getter(name="osDisk")
+    def os_disk(self) -> Optional[pulumi.Input['LinuxVirtualMachineOsDiskArgs']]:
+        """
+        A `os_disk` block as defined below.
+        """
+        return pulumi.get(self, "os_disk")
+
+    @os_disk.setter
+    def os_disk(self, value: Optional[pulumi.Input['LinuxVirtualMachineOsDiskArgs']]):
+        pulumi.set(self, "os_disk", value)
+
+    @property
+    @pulumi.getter
+    def plan(self) -> Optional[pulumi.Input['LinuxVirtualMachinePlanArgs']]:
+        """
+        A `plan` block as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "plan")
+
+    @plan.setter
+    def plan(self, value: Optional[pulumi.Input['LinuxVirtualMachinePlanArgs']]):
+        pulumi.set(self, "plan", value)
+
+    @property
+    @pulumi.getter(name="platformFaultDomain")
+    def platform_fault_domain(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.
+        """
+        return pulumi.get(self, "platform_fault_domain")
+
+    @platform_fault_domain.setter
+    def platform_fault_domain(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "platform_fault_domain", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Primary Private IP Address assigned to this Virtual Machine.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @private_ip_address.setter
+    def private_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_ip_address", value)
+
+    @property
+    @pulumi.getter(name="privateIpAddresses")
+    def private_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Private IP Addresses assigned to this Virtual Machine.
+        """
+        return pulumi.get(self, "private_ip_addresses")
+
+    @private_ip_addresses.setter
+    def private_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "private_ip_addresses", value)
+
+    @property
+    @pulumi.getter(name="provisionVmAgent")
+    def provision_vm_agent(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "provision_vm_agent")
+
+    @provision_vm_agent.setter
+    def provision_vm_agent(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "provision_vm_agent", value)
+
+    @property
+    @pulumi.getter(name="proximityPlacementGroupId")
+    def proximity_placement_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "proximity_placement_group_id")
+
+    @proximity_placement_group_id.setter
+    def proximity_placement_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "proximity_placement_group_id", value)
+
+    @property
+    @pulumi.getter(name="publicIpAddress")
+    def public_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Primary Public IP Address assigned to this Virtual Machine.
+        """
+        return pulumi.get(self, "public_ip_address")
+
+    @public_ip_address.setter
+    def public_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_ip_address", value)
+
+    @property
+    @pulumi.getter(name="publicIpAddresses")
+    def public_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the Public IP Addresses assigned to this Virtual Machine.
+        """
+        return pulumi.get(self, "public_ip_addresses")
+
+    @public_ip_addresses.setter
+    def public_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "public_ip_addresses", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Resource Group in which the Linux Virtual Machine should be exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretArgs']]]]:
+        """
+        One or more `secret` blocks as defined below.
+        """
+        return pulumi.get(self, "secrets")
+
+    @secrets.setter
+    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretArgs']]]]):
+        pulumi.set(self, "secrets", value)
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "size", value)
+
+    @property
+    @pulumi.getter(name="sourceImageId")
+    def source_image_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "source_image_id")
+
+    @source_image_id.setter
+    def source_image_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_image_id", value)
+
+    @property
+    @pulumi.getter(name="sourceImageReference")
+    def source_image_reference(self) -> Optional[pulumi.Input['LinuxVirtualMachineSourceImageReferenceArgs']]:
+        """
+        A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "source_image_reference")
+
+    @source_image_reference.setter
+    def source_image_reference(self, value: Optional[pulumi.Input['LinuxVirtualMachineSourceImageReferenceArgs']]):
+        pulumi.set(self, "source_image_reference", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags which should be assigned to this Virtual Machine.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="virtualMachineId")
+    def virtual_machine_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A 128-bit identifier which uniquely identifies this Virtual Machine.
+        """
+        return pulumi.get(self, "virtual_machine_id")
+
+    @virtual_machine_id.setter
+    def virtual_machine_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_machine_id", value)
+
+    @property
+    @pulumi.getter(name="virtualMachineScaleSetId")
+    def virtual_machine_scale_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "virtual_machine_scale_set_id")
+
+    @virtual_machine_scale_set_id.setter
+    def virtual_machine_scale_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_machine_scale_set_id", value)
+
+    @property
+    @pulumi.getter
+    def zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "zone")
+
+    @zone.setter
+    def zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "zone", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class LinuxVirtualMachine(pulumi.CustomResource):
@@ -847,57 +1486,57 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = LinuxVirtualMachineArgs.__new__(LinuxVirtualMachineArgs)
 
-            __props__['additional_capabilities'] = additional_capabilities
-            __props__['admin_password'] = admin_password
-            __props__['admin_ssh_keys'] = admin_ssh_keys
+            __props__.__dict__["additional_capabilities"] = additional_capabilities
+            __props__.__dict__["admin_password"] = admin_password
+            __props__.__dict__["admin_ssh_keys"] = admin_ssh_keys
             if admin_username is None and not opts.urn:
                 raise TypeError("Missing required property 'admin_username'")
-            __props__['admin_username'] = admin_username
-            __props__['allow_extension_operations'] = allow_extension_operations
-            __props__['availability_set_id'] = availability_set_id
-            __props__['boot_diagnostics'] = boot_diagnostics
-            __props__['computer_name'] = computer_name
-            __props__['custom_data'] = custom_data
-            __props__['dedicated_host_id'] = dedicated_host_id
-            __props__['disable_password_authentication'] = disable_password_authentication
-            __props__['encryption_at_host_enabled'] = encryption_at_host_enabled
-            __props__['eviction_policy'] = eviction_policy
-            __props__['extensions_time_budget'] = extensions_time_budget
-            __props__['identity'] = identity
-            __props__['license_type'] = license_type
-            __props__['location'] = location
-            __props__['max_bid_price'] = max_bid_price
-            __props__['name'] = name
+            __props__.__dict__["admin_username"] = admin_username
+            __props__.__dict__["allow_extension_operations"] = allow_extension_operations
+            __props__.__dict__["availability_set_id"] = availability_set_id
+            __props__.__dict__["boot_diagnostics"] = boot_diagnostics
+            __props__.__dict__["computer_name"] = computer_name
+            __props__.__dict__["custom_data"] = custom_data
+            __props__.__dict__["dedicated_host_id"] = dedicated_host_id
+            __props__.__dict__["disable_password_authentication"] = disable_password_authentication
+            __props__.__dict__["encryption_at_host_enabled"] = encryption_at_host_enabled
+            __props__.__dict__["eviction_policy"] = eviction_policy
+            __props__.__dict__["extensions_time_budget"] = extensions_time_budget
+            __props__.__dict__["identity"] = identity
+            __props__.__dict__["license_type"] = license_type
+            __props__.__dict__["location"] = location
+            __props__.__dict__["max_bid_price"] = max_bid_price
+            __props__.__dict__["name"] = name
             if network_interface_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'network_interface_ids'")
-            __props__['network_interface_ids'] = network_interface_ids
+            __props__.__dict__["network_interface_ids"] = network_interface_ids
             if os_disk is None and not opts.urn:
                 raise TypeError("Missing required property 'os_disk'")
-            __props__['os_disk'] = os_disk
-            __props__['plan'] = plan
-            __props__['platform_fault_domain'] = platform_fault_domain
-            __props__['priority'] = priority
-            __props__['provision_vm_agent'] = provision_vm_agent
-            __props__['proximity_placement_group_id'] = proximity_placement_group_id
+            __props__.__dict__["os_disk"] = os_disk
+            __props__.__dict__["plan"] = plan
+            __props__.__dict__["platform_fault_domain"] = platform_fault_domain
+            __props__.__dict__["priority"] = priority
+            __props__.__dict__["provision_vm_agent"] = provision_vm_agent
+            __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['secrets'] = secrets
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["secrets"] = secrets
             if size is None and not opts.urn:
                 raise TypeError("Missing required property 'size'")
-            __props__['size'] = size
-            __props__['source_image_id'] = source_image_id
-            __props__['source_image_reference'] = source_image_reference
-            __props__['tags'] = tags
-            __props__['virtual_machine_scale_set_id'] = virtual_machine_scale_set_id
-            __props__['zone'] = zone
-            __props__['private_ip_address'] = None
-            __props__['private_ip_addresses'] = None
-            __props__['public_ip_address'] = None
-            __props__['public_ip_addresses'] = None
-            __props__['virtual_machine_id'] = None
+            __props__.__dict__["size"] = size
+            __props__.__dict__["source_image_id"] = source_image_id
+            __props__.__dict__["source_image_reference"] = source_image_reference
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["virtual_machine_scale_set_id"] = virtual_machine_scale_set_id
+            __props__.__dict__["zone"] = zone
+            __props__.__dict__["private_ip_address"] = None
+            __props__.__dict__["private_ip_addresses"] = None
+            __props__.__dict__["public_ip_address"] = None
+            __props__.__dict__["public_ip_addresses"] = None
+            __props__.__dict__["virtual_machine_id"] = None
         super(LinuxVirtualMachine, __self__).__init__(
             'azure:compute/linuxVirtualMachine:LinuxVirtualMachine',
             resource_name,
@@ -996,47 +1635,47 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _LinuxVirtualMachineState.__new__(_LinuxVirtualMachineState)
 
-        __props__["additional_capabilities"] = additional_capabilities
-        __props__["admin_password"] = admin_password
-        __props__["admin_ssh_keys"] = admin_ssh_keys
-        __props__["admin_username"] = admin_username
-        __props__["allow_extension_operations"] = allow_extension_operations
-        __props__["availability_set_id"] = availability_set_id
-        __props__["boot_diagnostics"] = boot_diagnostics
-        __props__["computer_name"] = computer_name
-        __props__["custom_data"] = custom_data
-        __props__["dedicated_host_id"] = dedicated_host_id
-        __props__["disable_password_authentication"] = disable_password_authentication
-        __props__["encryption_at_host_enabled"] = encryption_at_host_enabled
-        __props__["eviction_policy"] = eviction_policy
-        __props__["extensions_time_budget"] = extensions_time_budget
-        __props__["identity"] = identity
-        __props__["license_type"] = license_type
-        __props__["location"] = location
-        __props__["max_bid_price"] = max_bid_price
-        __props__["name"] = name
-        __props__["network_interface_ids"] = network_interface_ids
-        __props__["os_disk"] = os_disk
-        __props__["plan"] = plan
-        __props__["platform_fault_domain"] = platform_fault_domain
-        __props__["priority"] = priority
-        __props__["private_ip_address"] = private_ip_address
-        __props__["private_ip_addresses"] = private_ip_addresses
-        __props__["provision_vm_agent"] = provision_vm_agent
-        __props__["proximity_placement_group_id"] = proximity_placement_group_id
-        __props__["public_ip_address"] = public_ip_address
-        __props__["public_ip_addresses"] = public_ip_addresses
-        __props__["resource_group_name"] = resource_group_name
-        __props__["secrets"] = secrets
-        __props__["size"] = size
-        __props__["source_image_id"] = source_image_id
-        __props__["source_image_reference"] = source_image_reference
-        __props__["tags"] = tags
-        __props__["virtual_machine_id"] = virtual_machine_id
-        __props__["virtual_machine_scale_set_id"] = virtual_machine_scale_set_id
-        __props__["zone"] = zone
+        __props__.__dict__["additional_capabilities"] = additional_capabilities
+        __props__.__dict__["admin_password"] = admin_password
+        __props__.__dict__["admin_ssh_keys"] = admin_ssh_keys
+        __props__.__dict__["admin_username"] = admin_username
+        __props__.__dict__["allow_extension_operations"] = allow_extension_operations
+        __props__.__dict__["availability_set_id"] = availability_set_id
+        __props__.__dict__["boot_diagnostics"] = boot_diagnostics
+        __props__.__dict__["computer_name"] = computer_name
+        __props__.__dict__["custom_data"] = custom_data
+        __props__.__dict__["dedicated_host_id"] = dedicated_host_id
+        __props__.__dict__["disable_password_authentication"] = disable_password_authentication
+        __props__.__dict__["encryption_at_host_enabled"] = encryption_at_host_enabled
+        __props__.__dict__["eviction_policy"] = eviction_policy
+        __props__.__dict__["extensions_time_budget"] = extensions_time_budget
+        __props__.__dict__["identity"] = identity
+        __props__.__dict__["license_type"] = license_type
+        __props__.__dict__["location"] = location
+        __props__.__dict__["max_bid_price"] = max_bid_price
+        __props__.__dict__["name"] = name
+        __props__.__dict__["network_interface_ids"] = network_interface_ids
+        __props__.__dict__["os_disk"] = os_disk
+        __props__.__dict__["plan"] = plan
+        __props__.__dict__["platform_fault_domain"] = platform_fault_domain
+        __props__.__dict__["priority"] = priority
+        __props__.__dict__["private_ip_address"] = private_ip_address
+        __props__.__dict__["private_ip_addresses"] = private_ip_addresses
+        __props__.__dict__["provision_vm_agent"] = provision_vm_agent
+        __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
+        __props__.__dict__["public_ip_address"] = public_ip_address
+        __props__.__dict__["public_ip_addresses"] = public_ip_addresses
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["secrets"] = secrets
+        __props__.__dict__["size"] = size
+        __props__.__dict__["source_image_id"] = source_image_id
+        __props__.__dict__["source_image_reference"] = source_image_reference
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["virtual_machine_id"] = virtual_machine_id
+        __props__.__dict__["virtual_machine_scale_set_id"] = virtual_machine_scale_set_id
+        __props__.__dict__["zone"] = zone
         return LinuxVirtualMachine(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1350,10 +1989,4 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "zone")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,6 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
 
 __all__ = ['EventHubConsumerGroupArgs', 'EventHubConsumerGroup']
@@ -94,6 +95,184 @@ class EventHubConsumerGroupArgs:
     def user_metadata(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_metadata", value)
 
+=======
+from .. import _utilities
+
+__all__ = ['EventHubConsumerGroupArgs', 'EventHubConsumerGroup']
+
+@pulumi.input_type
+class EventHubConsumerGroupArgs:
+    def __init__(__self__, *,
+                 eventhub_name: pulumi.Input[str],
+                 namespace_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
+                 user_metadata: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a EventHubConsumerGroup resource.
+        :param pulumi.Input[str] eventhub_name: Specifies the name of the EventHub. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] namespace_name: Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventHub Consumer Group's grandparent Namespace exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the EventHub Consumer Group resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] user_metadata: Specifies the user metadata.
+        """
+        pulumi.set(__self__, "eventhub_name", eventhub_name)
+        pulumi.set(__self__, "namespace_name", namespace_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if user_metadata is not None:
+            pulumi.set(__self__, "user_metadata", user_metadata)
+
+    @property
+    @pulumi.getter(name="eventhubName")
+    def eventhub_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the EventHub. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "eventhub_name")
+
+    @eventhub_name.setter
+    def eventhub_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "eventhub_name", value)
+
+    @property
+    @pulumi.getter(name="namespaceName")
+    def namespace_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "namespace_name")
+
+    @namespace_name.setter
+    def namespace_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "namespace_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which the EventHub Consumer Group's grandparent Namespace exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the EventHub Consumer Group resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="userMetadata")
+    def user_metadata(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the user metadata.
+        """
+        return pulumi.get(self, "user_metadata")
+
+    @user_metadata.setter
+    def user_metadata(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_metadata", value)
+
+
+@pulumi.input_type
+class _EventHubConsumerGroupState:
+    def __init__(__self__, *,
+                 eventhub_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 namespace_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 user_metadata: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering EventHubConsumerGroup resources.
+        :param pulumi.Input[str] eventhub_name: Specifies the name of the EventHub. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the EventHub Consumer Group resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] namespace_name: Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventHub Consumer Group's grandparent Namespace exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] user_metadata: Specifies the user metadata.
+        """
+        if eventhub_name is not None:
+            pulumi.set(__self__, "eventhub_name", eventhub_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace_name is not None:
+            pulumi.set(__self__, "namespace_name", namespace_name)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if user_metadata is not None:
+            pulumi.set(__self__, "user_metadata", user_metadata)
+
+    @property
+    @pulumi.getter(name="eventhubName")
+    def eventhub_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the EventHub. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "eventhub_name")
+
+    @eventhub_name.setter
+    def eventhub_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "eventhub_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the EventHub Consumer Group resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="namespaceName")
+    def namespace_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "namespace_name")
+
+    @namespace_name.setter
+    def namespace_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "namespace_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which the EventHub Consumer Group's grandparent Namespace exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="userMetadata")
+    def user_metadata(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the user metadata.
+        """
+        return pulumi.get(self, "user_metadata")
+
+    @user_metadata.setter
+    def user_metadata(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_metadata", value)
+
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 warnings.warn("""azure.eventhub.EventHubConsumerGroup has been deprecated in favor of azure.eventhub.ConsumerGroup""", DeprecationWarning)
 
@@ -242,19 +421,19 @@ class EventHubConsumerGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = EventHubConsumerGroupArgs.__new__(EventHubConsumerGroupArgs)
 
             if eventhub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'eventhub_name'")
-            __props__['eventhub_name'] = eventhub_name
-            __props__['name'] = name
+            __props__.__dict__["eventhub_name"] = eventhub_name
+            __props__.__dict__["name"] = name
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
-            __props__['namespace_name'] = namespace_name
+            __props__.__dict__["namespace_name"] = namespace_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['user_metadata'] = user_metadata
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["user_metadata"] = user_metadata
         super(EventHubConsumerGroup, __self__).__init__(
             'azure:eventhub/eventHubConsumerGroup:EventHubConsumerGroup',
             resource_name,
@@ -285,13 +464,13 @@ class EventHubConsumerGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _EventHubConsumerGroupState.__new__(_EventHubConsumerGroupState)
 
-        __props__["eventhub_name"] = eventhub_name
-        __props__["name"] = name
-        __props__["namespace_name"] = namespace_name
-        __props__["resource_group_name"] = resource_group_name
-        __props__["user_metadata"] = user_metadata
+        __props__.__dict__["eventhub_name"] = eventhub_name
+        __props__.__dict__["name"] = name
+        __props__.__dict__["namespace_name"] = namespace_name
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["user_metadata"] = user_metadata
         return EventHubConsumerGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -333,10 +512,4 @@ class EventHubConsumerGroup(pulumi.CustomResource):
         Specifies the user metadata.
         """
         return pulumi.get(self, "user_metadata")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

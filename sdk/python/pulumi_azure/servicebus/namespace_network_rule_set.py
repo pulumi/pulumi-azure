@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -96,6 +100,97 @@ class NamespaceNetworkRuleSetArgs:
     @network_rules.setter
     def network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]]):
         pulumi.set(self, "network_rules", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _NamespaceNetworkRuleSetState:
+    def __init__(__self__, *,
+                 default_action: Optional[pulumi.Input[str]] = None,
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 namespace_name: Optional[pulumi.Input[str]] = None,
+                 network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering NamespaceNetworkRuleSet resources.
+        :param pulumi.Input[str] default_action: Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
+        :param pulumi.Input[str] namespace_name: Specifies the ServiceBus Namespace name to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]] network_rules: One or more `network_rules` blocks as defined below.
+        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the ServiceBus Namespace Network Rule Set should exist. Changing this forces a new resource to be created.
+        """
+        if default_action is not None:
+            pulumi.set(__self__, "default_action", default_action)
+        if ip_rules is not None:
+            pulumi.set(__self__, "ip_rules", ip_rules)
+        if namespace_name is not None:
+            pulumi.set(__self__, "namespace_name", namespace_name)
+        if network_rules is not None:
+            pulumi.set(__self__, "network_rules", network_rules)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+        """
+        return pulumi.get(self, "default_action")
+
+    @default_action.setter
+    def default_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_action", value)
+
+    @property
+    @pulumi.getter(name="ipRules")
+    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
+        """
+        return pulumi.get(self, "ip_rules")
+
+    @ip_rules.setter
+    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ip_rules", value)
+
+    @property
+    @pulumi.getter(name="namespaceName")
+    def namespace_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ServiceBus Namespace name to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "namespace_name")
+
+    @namespace_name.setter
+    def namespace_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "namespace_name", value)
+
+    @property
+    @pulumi.getter(name="networkRules")
+    def network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]]:
+        """
+        One or more `network_rules` blocks as defined below.
+        """
+        return pulumi.get(self, "network_rules")
+
+    @network_rules.setter
+    def network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]]):
+        pulumi.set(self, "network_rules", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Resource Group where the ServiceBus Namespace Network Rule Set should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class NamespaceNetworkRuleSet(pulumi.CustomResource):
@@ -257,17 +352,17 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = NamespaceNetworkRuleSetArgs.__new__(NamespaceNetworkRuleSetArgs)
 
-            __props__['default_action'] = default_action
-            __props__['ip_rules'] = ip_rules
+            __props__.__dict__["default_action"] = default_action
+            __props__.__dict__["ip_rules"] = ip_rules
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
-            __props__['namespace_name'] = namespace_name
-            __props__['network_rules'] = network_rules
+            __props__.__dict__["namespace_name"] = namespace_name
+            __props__.__dict__["network_rules"] = network_rules
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
         super(NamespaceNetworkRuleSet, __self__).__init__(
             'azure:servicebus/namespaceNetworkRuleSet:NamespaceNetworkRuleSet',
             resource_name,
@@ -298,13 +393,13 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _NamespaceNetworkRuleSetState.__new__(_NamespaceNetworkRuleSetState)
 
-        __props__["default_action"] = default_action
-        __props__["ip_rules"] = ip_rules
-        __props__["namespace_name"] = namespace_name
-        __props__["network_rules"] = network_rules
-        __props__["resource_group_name"] = resource_group_name
+        __props__.__dict__["default_action"] = default_action
+        __props__.__dict__["ip_rules"] = ip_rules
+        __props__.__dict__["namespace_name"] = namespace_name
+        __props__.__dict__["network_rules"] = network_rules
+        __props__.__dict__["resource_group_name"] = resource_group_name
         return NamespaceNetworkRuleSet(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -346,10 +441,4 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         Specifies the name of the Resource Group where the ServiceBus Namespace Network Rule Set should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['TriggerHttpRequestArgs', 'TriggerHttpRequest']
 
@@ -94,6 +98,97 @@ class TriggerHttpRequestArgs:
     @relative_path.setter
     def relative_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "relative_path", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _TriggerHttpRequestState:
+    def __init__(__self__, *,
+                 logic_app_id: Optional[pulumi.Input[str]] = None,
+                 method: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 relative_path: Optional[pulumi.Input[str]] = None,
+                 schema: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering TriggerHttpRequest resources.
+        :param pulumi.Input[str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] method: Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
+        :param pulumi.Input[str] name: Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] relative_path: Specifies the Relative Path used for this Request.
+        :param pulumi.Input[str] schema: A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
+        """
+        if logic_app_id is not None:
+            pulumi.set(__self__, "logic_app_id", logic_app_id)
+        if method is not None:
+            pulumi.set(__self__, "method", method)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if relative_path is not None:
+            pulumi.set(__self__, "relative_path", relative_path)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter(name="logicAppId")
+    def logic_app_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "logic_app_id")
+
+    @logic_app_id.setter
+    def logic_app_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logic_app_id", value)
+
+    @property
+    @pulumi.getter
+    def method(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
+        """
+        return pulumi.get(self, "method")
+
+    @method.setter
+    def method(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "method", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="relativePath")
+    def relative_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Relative Path used for this Request.
+        """
+        return pulumi.get(self, "relative_path")
+
+    @relative_path.setter
+    def relative_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "relative_path", value)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[pulumi.Input[str]]:
+        """
+        A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class TriggerHttpRequest(pulumi.CustomResource):
@@ -229,17 +324,17 @@ class TriggerHttpRequest(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = TriggerHttpRequestArgs.__new__(TriggerHttpRequestArgs)
 
             if logic_app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'logic_app_id'")
-            __props__['logic_app_id'] = logic_app_id
-            __props__['method'] = method
-            __props__['name'] = name
-            __props__['relative_path'] = relative_path
+            __props__.__dict__["logic_app_id"] = logic_app_id
+            __props__.__dict__["method"] = method
+            __props__.__dict__["name"] = name
+            __props__.__dict__["relative_path"] = relative_path
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
-            __props__['schema'] = schema
+            __props__.__dict__["schema"] = schema
         super(TriggerHttpRequest, __self__).__init__(
             'azure:logicapps/triggerHttpRequest:TriggerHttpRequest',
             resource_name,
@@ -270,13 +365,13 @@ class TriggerHttpRequest(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _TriggerHttpRequestState.__new__(_TriggerHttpRequestState)
 
-        __props__["logic_app_id"] = logic_app_id
-        __props__["method"] = method
-        __props__["name"] = name
-        __props__["relative_path"] = relative_path
-        __props__["schema"] = schema
+        __props__.__dict__["logic_app_id"] = logic_app_id
+        __props__.__dict__["method"] = method
+        __props__.__dict__["name"] = name
+        __props__.__dict__["relative_path"] = relative_path
+        __props__.__dict__["schema"] = schema
         return TriggerHttpRequest(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -318,10 +413,4 @@ class TriggerHttpRequest(pulumi.CustomResource):
         A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
         """
         return pulumi.get(self, "schema")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['ManagedPrivateEndpointArgs', 'ManagedPrivateEndpoint']
 
@@ -77,6 +81,81 @@ class ManagedPrivateEndpointArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _ManagedPrivateEndpointState:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 subresource_name: Optional[pulumi.Input[str]] = None,
+                 synapse_workspace_id: Optional[pulumi.Input[str]] = None,
+                 target_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ManagedPrivateEndpoint resources.
+        :param pulumi.Input[str] name: Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subresource_name: Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] target_resource_id: The ID of the Private Link Enabled Remote Resource which this Synapse Private Endpoint should be connected to. Changing this forces a new resource to be created.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if subresource_name is not None:
+            pulumi.set(__self__, "subresource_name", subresource_name)
+        if synapse_workspace_id is not None:
+            pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
+        if target_resource_id is not None:
+            pulumi.set(__self__, "target_resource_id", target_resource_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="subresourceName")
+    def subresource_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "subresource_name")
+
+    @subresource_name.setter
+    def subresource_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subresource_name", value)
+
+    @property
+    @pulumi.getter(name="synapseWorkspaceId")
+    def synapse_workspace_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Synapse Workspace on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "synapse_workspace_id")
+
+    @synapse_workspace_id.setter
+    def synapse_workspace_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "synapse_workspace_id", value)
+
+    @property
+    @pulumi.getter(name="targetResourceId")
+    def target_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Private Link Enabled Remote Resource which this Synapse Private Endpoint should be connected to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "target_resource_id")
+
+    @target_resource_id.setter
+    def target_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_id", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class ManagedPrivateEndpoint(pulumi.CustomResource):
@@ -241,18 +320,18 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ManagedPrivateEndpointArgs.__new__(ManagedPrivateEndpointArgs)
 
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if subresource_name is None and not opts.urn:
                 raise TypeError("Missing required property 'subresource_name'")
-            __props__['subresource_name'] = subresource_name
+            __props__.__dict__["subresource_name"] = subresource_name
             if synapse_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'synapse_workspace_id'")
-            __props__['synapse_workspace_id'] = synapse_workspace_id
+            __props__.__dict__["synapse_workspace_id"] = synapse_workspace_id
             if target_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_resource_id'")
-            __props__['target_resource_id'] = target_resource_id
+            __props__.__dict__["target_resource_id"] = target_resource_id
         super(ManagedPrivateEndpoint, __self__).__init__(
             'azure:synapse/managedPrivateEndpoint:ManagedPrivateEndpoint',
             resource_name,
@@ -281,12 +360,12 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ManagedPrivateEndpointState.__new__(_ManagedPrivateEndpointState)
 
-        __props__["name"] = name
-        __props__["subresource_name"] = subresource_name
-        __props__["synapse_workspace_id"] = synapse_workspace_id
-        __props__["target_resource_id"] = target_resource_id
+        __props__.__dict__["name"] = name
+        __props__.__dict__["subresource_name"] = subresource_name
+        __props__.__dict__["synapse_workspace_id"] = synapse_workspace_id
+        __props__.__dict__["target_resource_id"] = target_resource_id
         return ManagedPrivateEndpoint(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -320,10 +399,4 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         The ID of the Private Link Enabled Remote Resource which this Synapse Private Endpoint should be connected to. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_resource_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

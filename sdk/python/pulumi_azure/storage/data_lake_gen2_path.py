@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -126,6 +130,129 @@ class DataLakeGen2PathArgs:
     @owner.setter
     def owner(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "owner", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _DataLakeGen2PathState:
+    def __init__(__self__, *,
+                 aces: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2PathAceArgs']]]] = None,
+                 filesystem_name: Optional[pulumi.Input[str]] = None,
+                 group: Optional[pulumi.Input[str]] = None,
+                 owner: Optional[pulumi.Input[str]] = None,
+                 path: Optional[pulumi.Input[str]] = None,
+                 resource: Optional[pulumi.Input[str]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering DataLakeGen2Path resources.
+        :param pulumi.Input[Sequence[pulumi.Input['DataLakeGen2PathAceArgs']]] aces: One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+        :param pulumi.Input[str] filesystem_name: The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] group: Specifies the Object ID of the Azure Active Directory Group to make the owning group.
+        :param pulumi.Input[str] owner: Specifies the Object ID of the Azure Active Directory User to make the owning user.
+        :param pulumi.Input[str] path: The path which should be created within the Data Lake Gen2 File System in the Storage Account. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource: Specifies the type for path to create. Currently only `directory` is supported.
+        :param pulumi.Input[str] storage_account_id: Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
+        """
+        if aces is not None:
+            pulumi.set(__self__, "aces", aces)
+        if filesystem_name is not None:
+            pulumi.set(__self__, "filesystem_name", filesystem_name)
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
+
+    @property
+    @pulumi.getter
+    def aces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2PathAceArgs']]]]:
+        """
+        One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+        """
+        return pulumi.get(self, "aces")
+
+    @aces.setter
+    def aces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2PathAceArgs']]]]):
+        pulumi.set(self, "aces", value)
+
+    @property
+    @pulumi.getter(name="filesystemName")
+    def filesystem_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "filesystem_name")
+
+    @filesystem_name.setter
+    def filesystem_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filesystem_name", value)
+
+    @property
+    @pulumi.getter
+    def group(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Object ID of the Azure Active Directory Group to make the owning group.
+        """
+        return pulumi.get(self, "group")
+
+    @group.setter
+    def group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group", value)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Object ID of the Azure Active Directory User to make the owning user.
+        """
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path which should be created within the Data Lake Gen2 File System in the Storage Account. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the type for path to create. Currently only `directory` is supported.
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource", value)
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @storage_account_id.setter
+    def storage_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_id", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class DataLakeGen2Path(pulumi.CustomResource):
@@ -269,23 +396,23 @@ class DataLakeGen2Path(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DataLakeGen2PathArgs.__new__(DataLakeGen2PathArgs)
 
-            __props__['aces'] = aces
+            __props__.__dict__["aces"] = aces
             if filesystem_name is None and not opts.urn:
                 raise TypeError("Missing required property 'filesystem_name'")
-            __props__['filesystem_name'] = filesystem_name
-            __props__['group'] = group
-            __props__['owner'] = owner
+            __props__.__dict__["filesystem_name"] = filesystem_name
+            __props__.__dict__["group"] = group
+            __props__.__dict__["owner"] = owner
             if path is None and not opts.urn:
                 raise TypeError("Missing required property 'path'")
-            __props__['path'] = path
+            __props__.__dict__["path"] = path
             if resource is None and not opts.urn:
                 raise TypeError("Missing required property 'resource'")
-            __props__['resource'] = resource
+            __props__.__dict__["resource"] = resource
             if storage_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_id'")
-            __props__['storage_account_id'] = storage_account_id
+            __props__.__dict__["storage_account_id"] = storage_account_id
         super(DataLakeGen2Path, __self__).__init__(
             'azure:storage/dataLakeGen2Path:DataLakeGen2Path',
             resource_name,
@@ -320,15 +447,15 @@ class DataLakeGen2Path(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DataLakeGen2PathState.__new__(_DataLakeGen2PathState)
 
-        __props__["aces"] = aces
-        __props__["filesystem_name"] = filesystem_name
-        __props__["group"] = group
-        __props__["owner"] = owner
-        __props__["path"] = path
-        __props__["resource"] = resource
-        __props__["storage_account_id"] = storage_account_id
+        __props__.__dict__["aces"] = aces
+        __props__.__dict__["filesystem_name"] = filesystem_name
+        __props__.__dict__["group"] = group
+        __props__.__dict__["owner"] = owner
+        __props__.__dict__["path"] = path
+        __props__.__dict__["resource"] = resource
+        __props__.__dict__["storage_account_id"] = storage_account_id
         return DataLakeGen2Path(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -386,10 +513,4 @@ class DataLakeGen2Path(pulumi.CustomResource):
         Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

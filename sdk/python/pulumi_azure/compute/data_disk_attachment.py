@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['DataDiskAttachmentArgs', 'DataDiskAttachment']
 
@@ -108,6 +112,113 @@ class DataDiskAttachmentArgs:
     @write_accelerator_enabled.setter
     def write_accelerator_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "write_accelerator_enabled", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _DataDiskAttachmentState:
+    def __init__(__self__, *,
+                 caching: Optional[pulumi.Input[str]] = None,
+                 create_option: Optional[pulumi.Input[str]] = None,
+                 lun: Optional[pulumi.Input[int]] = None,
+                 managed_disk_id: Optional[pulumi.Input[str]] = None,
+                 virtual_machine_id: Optional[pulumi.Input[str]] = None,
+                 write_accelerator_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Input properties used for looking up and filtering DataDiskAttachment resources.
+        :param pulumi.Input[str] caching: Specifies the caching requirements for this Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
+        :param pulumi.Input[str] create_option: The Create Option of the Data Disk, such as `Empty` or `Attach`. Defaults to `Attach`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] lun: The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] managed_disk_id: The ID of an existing Managed Disk which should be attached. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] write_accelerator_enabled: Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+        """
+        if caching is not None:
+            pulumi.set(__self__, "caching", caching)
+        if create_option is not None:
+            pulumi.set(__self__, "create_option", create_option)
+        if lun is not None:
+            pulumi.set(__self__, "lun", lun)
+        if managed_disk_id is not None:
+            pulumi.set(__self__, "managed_disk_id", managed_disk_id)
+        if virtual_machine_id is not None:
+            pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+        if write_accelerator_enabled is not None:
+            pulumi.set(__self__, "write_accelerator_enabled", write_accelerator_enabled)
+
+    @property
+    @pulumi.getter
+    def caching(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the caching requirements for this Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
+        """
+        return pulumi.get(self, "caching")
+
+    @caching.setter
+    def caching(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "caching", value)
+
+    @property
+    @pulumi.getter(name="createOption")
+    def create_option(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Create Option of the Data Disk, such as `Empty` or `Attach`. Defaults to `Attach`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "create_option")
+
+    @create_option.setter
+    def create_option(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create_option", value)
+
+    @property
+    @pulumi.getter
+    def lun(self) -> Optional[pulumi.Input[int]]:
+        """
+        The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "lun")
+
+    @lun.setter
+    def lun(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "lun", value)
+
+    @property
+    @pulumi.getter(name="managedDiskId")
+    def managed_disk_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of an existing Managed Disk which should be attached. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "managed_disk_id")
+
+    @managed_disk_id.setter
+    def managed_disk_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_disk_id", value)
+
+    @property
+    @pulumi.getter(name="virtualMachineId")
+    def virtual_machine_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "virtual_machine_id")
+
+    @virtual_machine_id.setter
+    def virtual_machine_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_machine_id", value)
+
+    @property
+    @pulumi.getter(name="writeAcceleratorEnabled")
+    def write_accelerator_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+        """
+        return pulumi.get(self, "write_accelerator_enabled")
+
+    @write_accelerator_enabled.setter
+    def write_accelerator_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "write_accelerator_enabled", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class DataDiskAttachment(pulumi.CustomResource):
@@ -340,22 +451,22 @@ class DataDiskAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DataDiskAttachmentArgs.__new__(DataDiskAttachmentArgs)
 
             if caching is None and not opts.urn:
                 raise TypeError("Missing required property 'caching'")
-            __props__['caching'] = caching
-            __props__['create_option'] = create_option
+            __props__.__dict__["caching"] = caching
+            __props__.__dict__["create_option"] = create_option
             if lun is None and not opts.urn:
                 raise TypeError("Missing required property 'lun'")
-            __props__['lun'] = lun
+            __props__.__dict__["lun"] = lun
             if managed_disk_id is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_disk_id'")
-            __props__['managed_disk_id'] = managed_disk_id
+            __props__.__dict__["managed_disk_id"] = managed_disk_id
             if virtual_machine_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_machine_id'")
-            __props__['virtual_machine_id'] = virtual_machine_id
-            __props__['write_accelerator_enabled'] = write_accelerator_enabled
+            __props__.__dict__["virtual_machine_id"] = virtual_machine_id
+            __props__.__dict__["write_accelerator_enabled"] = write_accelerator_enabled
         super(DataDiskAttachment, __self__).__init__(
             'azure:compute/dataDiskAttachment:DataDiskAttachment',
             resource_name,
@@ -388,14 +499,14 @@ class DataDiskAttachment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DataDiskAttachmentState.__new__(_DataDiskAttachmentState)
 
-        __props__["caching"] = caching
-        __props__["create_option"] = create_option
-        __props__["lun"] = lun
-        __props__["managed_disk_id"] = managed_disk_id
-        __props__["virtual_machine_id"] = virtual_machine_id
-        __props__["write_accelerator_enabled"] = write_accelerator_enabled
+        __props__.__dict__["caching"] = caching
+        __props__.__dict__["create_option"] = create_option
+        __props__.__dict__["lun"] = lun
+        __props__.__dict__["managed_disk_id"] = managed_disk_id
+        __props__.__dict__["virtual_machine_id"] = virtual_machine_id
+        __props__.__dict__["write_accelerator_enabled"] = write_accelerator_enabled
         return DataDiskAttachment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -445,10 +556,4 @@ class DataDiskAttachment(pulumi.CustomResource):
         Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
         """
         return pulumi.get(self, "write_accelerator_enabled")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['WorkspaceApplicationGroupAssociationArgs', 'WorkspaceApplicationGroupAssociation']
 
@@ -46,6 +50,49 @@ class WorkspaceApplicationGroupAssociationArgs:
     @workspace_id.setter
     def workspace_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "workspace_id", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _WorkspaceApplicationGroupAssociationState:
+    def __init__(__self__, *,
+                 application_group_id: Optional[pulumi.Input[str]] = None,
+                 workspace_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering WorkspaceApplicationGroupAssociation resources.
+        :param pulumi.Input[str] application_group_id: The resource ID for the Virtual Desktop Application Group.
+        :param pulumi.Input[str] workspace_id: The resource ID for the Virtual Desktop Workspace.
+        """
+        if application_group_id is not None:
+            pulumi.set(__self__, "application_group_id", application_group_id)
+        if workspace_id is not None:
+            pulumi.set(__self__, "workspace_id", workspace_id)
+
+    @property
+    @pulumi.getter(name="applicationGroupId")
+    def application_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID for the Virtual Desktop Application Group.
+        """
+        return pulumi.get(self, "application_group_id")
+
+    @application_group_id.setter
+    def application_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_group_id", value)
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID for the Virtual Desktop Workspace.
+        """
+        return pulumi.get(self, "workspace_id")
+
+    @workspace_id.setter
+    def workspace_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workspace_id", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
@@ -176,14 +223,14 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = WorkspaceApplicationGroupAssociationArgs.__new__(WorkspaceApplicationGroupAssociationArgs)
 
             if application_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_group_id'")
-            __props__['application_group_id'] = application_group_id
+            __props__.__dict__["application_group_id"] = application_group_id
             if workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_id'")
-            __props__['workspace_id'] = workspace_id
+            __props__.__dict__["workspace_id"] = workspace_id
         super(WorkspaceApplicationGroupAssociation, __self__).__init__(
             'azure:desktopvirtualization/workspaceApplicationGroupAssociation:WorkspaceApplicationGroupAssociation',
             resource_name,
@@ -208,10 +255,10 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _WorkspaceApplicationGroupAssociationState.__new__(_WorkspaceApplicationGroupAssociationState)
 
-        __props__["application_group_id"] = application_group_id
-        __props__["workspace_id"] = workspace_id
+        __props__.__dict__["application_group_id"] = application_group_id
+        __props__.__dict__["workspace_id"] = workspace_id
         return WorkspaceApplicationGroupAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -229,10 +276,4 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
         The resource ID for the Virtual Desktop Workspace.
         """
         return pulumi.get(self, "workspace_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

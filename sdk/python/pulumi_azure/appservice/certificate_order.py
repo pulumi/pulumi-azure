@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -177,6 +181,321 @@ class CertificateOrderArgs:
     @validity_in_years.setter
     def validity_in_years(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "validity_in_years", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _CertificateOrderState:
+    def __init__(__self__, *,
+                 app_service_certificate_not_renewable_reasons: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 auto_renew: Optional[pulumi.Input[bool]] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateOrderCertificateArgs']]]] = None,
+                 csr: Optional[pulumi.Input[str]] = None,
+                 distinguished_name: Optional[pulumi.Input[str]] = None,
+                 domain_verification_token: Optional[pulumi.Input[str]] = None,
+                 expiration_time: Optional[pulumi.Input[str]] = None,
+                 intermediate_thumbprint: Optional[pulumi.Input[str]] = None,
+                 is_private_key_external: Optional[pulumi.Input[bool]] = None,
+                 key_size: Optional[pulumi.Input[int]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 product_type: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 root_thumbprint: Optional[pulumi.Input[str]] = None,
+                 signed_certificate_thumbprint: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 validity_in_years: Optional[pulumi.Input[int]] = None):
+        """
+        Input properties used for looking up and filtering CertificateOrder resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] app_service_certificate_not_renewable_reasons: Reasons why App Service Certificate is not renewable at the current moment.
+        :param pulumi.Input[bool] auto_renew: true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
+        :param pulumi.Input[Sequence[pulumi.Input['CertificateOrderCertificateArgs']]] certificates: State of the Key Vault secret. A `certificates` block as defined below.
+        :param pulumi.Input[str] csr: Last CSR that was created for this order.
+        :param pulumi.Input[str] distinguished_name: The Distinguished Name for the App Service Certificate Order.
+        :param pulumi.Input[str] domain_verification_token: Domain verification token.
+        :param pulumi.Input[str] expiration_time: Certificate expiration time.
+        :param pulumi.Input[str] intermediate_thumbprint: Certificate thumbprint intermediate certificate.
+        :param pulumi.Input[bool] is_private_key_external: Whether the private key is external or not.
+        :param pulumi.Input[int] key_size: Certificate key size.  Defaults to 2048.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
+        :param pulumi.Input[str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] product_type: Certificate product type, such as `Standard` or `WildCard`.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] root_thumbprint: Certificate thumbprint for root certificate.
+        :param pulumi.Input[str] signed_certificate_thumbprint: Certificate thumbprint for signed certificate.
+        :param pulumi.Input[str] status: Current order status.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[int] validity_in_years: Duration in years (must be between `1` and `3`).  Defaults to `1`.
+        """
+        if app_service_certificate_not_renewable_reasons is not None:
+            pulumi.set(__self__, "app_service_certificate_not_renewable_reasons", app_service_certificate_not_renewable_reasons)
+        if auto_renew is not None:
+            pulumi.set(__self__, "auto_renew", auto_renew)
+        if certificates is not None:
+            pulumi.set(__self__, "certificates", certificates)
+        if csr is not None:
+            pulumi.set(__self__, "csr", csr)
+        if distinguished_name is not None:
+            pulumi.set(__self__, "distinguished_name", distinguished_name)
+        if domain_verification_token is not None:
+            pulumi.set(__self__, "domain_verification_token", domain_verification_token)
+        if expiration_time is not None:
+            pulumi.set(__self__, "expiration_time", expiration_time)
+        if intermediate_thumbprint is not None:
+            pulumi.set(__self__, "intermediate_thumbprint", intermediate_thumbprint)
+        if is_private_key_external is not None:
+            pulumi.set(__self__, "is_private_key_external", is_private_key_external)
+        if key_size is not None:
+            pulumi.set(__self__, "key_size", key_size)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if product_type is not None:
+            pulumi.set(__self__, "product_type", product_type)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if root_thumbprint is not None:
+            pulumi.set(__self__, "root_thumbprint", root_thumbprint)
+        if signed_certificate_thumbprint is not None:
+            pulumi.set(__self__, "signed_certificate_thumbprint", signed_certificate_thumbprint)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if validity_in_years is not None:
+            pulumi.set(__self__, "validity_in_years", validity_in_years)
+
+    @property
+    @pulumi.getter(name="appServiceCertificateNotRenewableReasons")
+    def app_service_certificate_not_renewable_reasons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Reasons why App Service Certificate is not renewable at the current moment.
+        """
+        return pulumi.get(self, "app_service_certificate_not_renewable_reasons")
+
+    @app_service_certificate_not_renewable_reasons.setter
+    def app_service_certificate_not_renewable_reasons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "app_service_certificate_not_renewable_reasons", value)
+
+    @property
+    @pulumi.getter(name="autoRenew")
+    def auto_renew(self) -> Optional[pulumi.Input[bool]]:
+        """
+        true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
+        """
+        return pulumi.get(self, "auto_renew")
+
+    @auto_renew.setter
+    def auto_renew(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_renew", value)
+
+    @property
+    @pulumi.getter
+    def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateOrderCertificateArgs']]]]:
+        """
+        State of the Key Vault secret. A `certificates` block as defined below.
+        """
+        return pulumi.get(self, "certificates")
+
+    @certificates.setter
+    def certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateOrderCertificateArgs']]]]):
+        pulumi.set(self, "certificates", value)
+
+    @property
+    @pulumi.getter
+    def csr(self) -> Optional[pulumi.Input[str]]:
+        """
+        Last CSR that was created for this order.
+        """
+        return pulumi.get(self, "csr")
+
+    @csr.setter
+    def csr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "csr", value)
+
+    @property
+    @pulumi.getter(name="distinguishedName")
+    def distinguished_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Distinguished Name for the App Service Certificate Order.
+        """
+        return pulumi.get(self, "distinguished_name")
+
+    @distinguished_name.setter
+    def distinguished_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "distinguished_name", value)
+
+    @property
+    @pulumi.getter(name="domainVerificationToken")
+    def domain_verification_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Domain verification token.
+        """
+        return pulumi.get(self, "domain_verification_token")
+
+    @domain_verification_token.setter
+    def domain_verification_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_verification_token", value)
+
+    @property
+    @pulumi.getter(name="expirationTime")
+    def expiration_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Certificate expiration time.
+        """
+        return pulumi.get(self, "expiration_time")
+
+    @expiration_time.setter
+    def expiration_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiration_time", value)
+
+    @property
+    @pulumi.getter(name="intermediateThumbprint")
+    def intermediate_thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        Certificate thumbprint intermediate certificate.
+        """
+        return pulumi.get(self, "intermediate_thumbprint")
+
+    @intermediate_thumbprint.setter
+    def intermediate_thumbprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "intermediate_thumbprint", value)
+
+    @property
+    @pulumi.getter(name="isPrivateKeyExternal")
+    def is_private_key_external(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the private key is external or not.
+        """
+        return pulumi.get(self, "is_private_key_external")
+
+    @is_private_key_external.setter
+    def is_private_key_external(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_private_key_external", value)
+
+    @property
+    @pulumi.getter(name="keySize")
+    def key_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Certificate key size.  Defaults to 2048.
+        """
+        return pulumi.get(self, "key_size")
+
+    @key_size.setter
+    def key_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "key_size", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the certificate. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="productType")
+    def product_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Certificate product type, such as `Standard` or `WildCard`.
+        """
+        return pulumi.get(self, "product_type")
+
+    @product_type.setter
+    def product_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "product_type", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="rootThumbprint")
+    def root_thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        Certificate thumbprint for root certificate.
+        """
+        return pulumi.get(self, "root_thumbprint")
+
+    @root_thumbprint.setter
+    def root_thumbprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "root_thumbprint", value)
+
+    @property
+    @pulumi.getter(name="signedCertificateThumbprint")
+    def signed_certificate_thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        Certificate thumbprint for signed certificate.
+        """
+        return pulumi.get(self, "signed_certificate_thumbprint")
+
+    @signed_certificate_thumbprint.setter
+    def signed_certificate_thumbprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "signed_certificate_thumbprint", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Current order status.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="validityInYears")
+    def validity_in_years(self) -> Optional[pulumi.Input[int]]:
+        """
+        Duration in years (must be between `1` and `3`).  Defaults to `1`.
+        """
+        return pulumi.get(self, "validity_in_years")
+
+    @validity_in_years.setter
+    def validity_in_years(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "validity_in_years", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class CertificateOrder(pulumi.CustomResource):
@@ -309,29 +628,29 @@ class CertificateOrder(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = CertificateOrderArgs.__new__(CertificateOrderArgs)
 
-            __props__['auto_renew'] = auto_renew
-            __props__['csr'] = csr
-            __props__['distinguished_name'] = distinguished_name
-            __props__['key_size'] = key_size
-            __props__['location'] = location
-            __props__['name'] = name
-            __props__['product_type'] = product_type
+            __props__.__dict__["auto_renew"] = auto_renew
+            __props__.__dict__["csr"] = csr
+            __props__.__dict__["distinguished_name"] = distinguished_name
+            __props__.__dict__["key_size"] = key_size
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
+            __props__.__dict__["product_type"] = product_type
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['validity_in_years'] = validity_in_years
-            __props__['app_service_certificate_not_renewable_reasons'] = None
-            __props__['certificates'] = None
-            __props__['domain_verification_token'] = None
-            __props__['expiration_time'] = None
-            __props__['intermediate_thumbprint'] = None
-            __props__['is_private_key_external'] = None
-            __props__['root_thumbprint'] = None
-            __props__['signed_certificate_thumbprint'] = None
-            __props__['status'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["validity_in_years"] = validity_in_years
+            __props__.__dict__["app_service_certificate_not_renewable_reasons"] = None
+            __props__.__dict__["certificates"] = None
+            __props__.__dict__["domain_verification_token"] = None
+            __props__.__dict__["expiration_time"] = None
+            __props__.__dict__["intermediate_thumbprint"] = None
+            __props__.__dict__["is_private_key_external"] = None
+            __props__.__dict__["root_thumbprint"] = None
+            __props__.__dict__["signed_certificate_thumbprint"] = None
+            __props__.__dict__["status"] = None
         super(CertificateOrder, __self__).__init__(
             'azure:appservice/certificateOrder:CertificateOrder',
             resource_name,
@@ -390,27 +709,27 @@ class CertificateOrder(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _CertificateOrderState.__new__(_CertificateOrderState)
 
-        __props__["app_service_certificate_not_renewable_reasons"] = app_service_certificate_not_renewable_reasons
-        __props__["auto_renew"] = auto_renew
-        __props__["certificates"] = certificates
-        __props__["csr"] = csr
-        __props__["distinguished_name"] = distinguished_name
-        __props__["domain_verification_token"] = domain_verification_token
-        __props__["expiration_time"] = expiration_time
-        __props__["intermediate_thumbprint"] = intermediate_thumbprint
-        __props__["is_private_key_external"] = is_private_key_external
-        __props__["key_size"] = key_size
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["product_type"] = product_type
-        __props__["resource_group_name"] = resource_group_name
-        __props__["root_thumbprint"] = root_thumbprint
-        __props__["signed_certificate_thumbprint"] = signed_certificate_thumbprint
-        __props__["status"] = status
-        __props__["tags"] = tags
-        __props__["validity_in_years"] = validity_in_years
+        __props__.__dict__["app_service_certificate_not_renewable_reasons"] = app_service_certificate_not_renewable_reasons
+        __props__.__dict__["auto_renew"] = auto_renew
+        __props__.__dict__["certificates"] = certificates
+        __props__.__dict__["csr"] = csr
+        __props__.__dict__["distinguished_name"] = distinguished_name
+        __props__.__dict__["domain_verification_token"] = domain_verification_token
+        __props__.__dict__["expiration_time"] = expiration_time
+        __props__.__dict__["intermediate_thumbprint"] = intermediate_thumbprint
+        __props__.__dict__["is_private_key_external"] = is_private_key_external
+        __props__.__dict__["key_size"] = key_size
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["product_type"] = product_type
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["root_thumbprint"] = root_thumbprint
+        __props__.__dict__["signed_certificate_thumbprint"] = signed_certificate_thumbprint
+        __props__.__dict__["status"] = status
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["validity_in_years"] = validity_in_years
         return CertificateOrder(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -564,10 +883,4 @@ class CertificateOrder(pulumi.CustomResource):
         Duration in years (must be between `1` and `3`).  Defaults to `1`.
         """
         return pulumi.get(self, "validity_in_years")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

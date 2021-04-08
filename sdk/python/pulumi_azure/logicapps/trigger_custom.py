@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['TriggerCustomArgs', 'TriggerCustom']
 
@@ -62,6 +66,65 @@ class TriggerCustomArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _TriggerCustomState:
+    def __init__(__self__, *,
+                 body: Optional[pulumi.Input[str]] = None,
+                 logic_app_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering TriggerCustom resources.
+        :param pulumi.Input[str] body: Specifies the JSON Blob defining the Body of this Custom Trigger.
+        :param pulumi.Input[str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+        """
+        if body is not None:
+            pulumi.set(__self__, "body", body)
+        if logic_app_id is not None:
+            pulumi.set(__self__, "logic_app_id", logic_app_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def body(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the JSON Blob defining the Body of this Custom Trigger.
+        """
+        return pulumi.get(self, "body")
+
+    @body.setter
+    def body(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "body", value)
+
+    @property
+    @pulumi.getter(name="logicAppId")
+    def logic_app_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "logic_app_id")
+
+    @logic_app_id.setter
+    def logic_app_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logic_app_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class TriggerCustom(pulumi.CustomResource):
@@ -189,15 +252,15 @@ class TriggerCustom(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = TriggerCustomArgs.__new__(TriggerCustomArgs)
 
             if body is None and not opts.urn:
                 raise TypeError("Missing required property 'body'")
-            __props__['body'] = body
+            __props__.__dict__["body"] = body
             if logic_app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'logic_app_id'")
-            __props__['logic_app_id'] = logic_app_id
-            __props__['name'] = name
+            __props__.__dict__["logic_app_id"] = logic_app_id
+            __props__.__dict__["name"] = name
         super(TriggerCustom, __self__).__init__(
             'azure:logicapps/triggerCustom:TriggerCustom',
             resource_name,
@@ -224,11 +287,11 @@ class TriggerCustom(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _TriggerCustomState.__new__(_TriggerCustomState)
 
-        __props__["body"] = body
-        __props__["logic_app_id"] = logic_app_id
-        __props__["name"] = name
+        __props__.__dict__["body"] = body
+        __props__.__dict__["logic_app_id"] = logic_app_id
+        __props__.__dict__["name"] = name
         return TriggerCustom(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -254,10 +317,4 @@ class TriggerCustom(pulumi.CustomResource):
         Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = [
     'CustomProviderAction',
@@ -44,12 +48,26 @@ class CustomProviderAction(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CustomProviderResourceType(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "routingType":
+            suggest = "routing_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomProviderResourceType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomProviderResourceType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomProviderResourceType.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  endpoint: str,
                  name: str,
@@ -88,9 +106,6 @@ class CustomProviderResourceType(dict):
         """
         return pulumi.get(self, "routing_type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class CustomProviderValidation(dict):
@@ -108,9 +123,6 @@ class CustomProviderValidation(dict):
         The endpoint where the validation specification is located.
         """
         return pulumi.get(self, "specification")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

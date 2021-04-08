@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['DatasetDataLakeGen1Args', 'DatasetDataLakeGen1']
 
@@ -93,6 +97,113 @@ class DatasetDataLakeGen1Args:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _DatasetDataLakeGen1State:
+    def __init__(__self__, *,
+                 data_lake_store_id: Optional[pulumi.Input[str]] = None,
+                 data_share_id: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 file_name: Optional[pulumi.Input[str]] = None,
+                 folder_path: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering DatasetDataLakeGen1 resources.
+        :param pulumi.Input[str] data_lake_store_id: The resource ID of the Data Lake Store to be shared with the receiver.
+        :param pulumi.Input[str] data_share_id: The resource ID of the Data Share where this Data Share Data Lake Gen1 Dataset should be created. Changing this forces a new Data Share Data Lake Gen1 Dataset to be created.
+        :param pulumi.Input[str] display_name: The displayed name of the Data Share Dataset.
+        :param pulumi.Input[str] file_name: The file name of the data lake store to be shared with the receiver. Changing this forces a new Data Share Data Lake Gen1 Dataset to be created.
+        :param pulumi.Input[str] folder_path: The folder path of the data lake store to be shared with the receiver. Changing this forces a new Data Share Data Lake Gen1 Dataset to be created.
+        :param pulumi.Input[str] name: The name of the Data Share Data Lake Gen1 Dataset. Changing this forces a new Data Share Data Lake Gen1 Dataset to be created.
+        """
+        if data_lake_store_id is not None:
+            pulumi.set(__self__, "data_lake_store_id", data_lake_store_id)
+        if data_share_id is not None:
+            pulumi.set(__self__, "data_share_id", data_share_id)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if file_name is not None:
+            pulumi.set(__self__, "file_name", file_name)
+        if folder_path is not None:
+            pulumi.set(__self__, "folder_path", folder_path)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="dataLakeStoreId")
+    def data_lake_store_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the Data Lake Store to be shared with the receiver.
+        """
+        return pulumi.get(self, "data_lake_store_id")
+
+    @data_lake_store_id.setter
+    def data_lake_store_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_lake_store_id", value)
+
+    @property
+    @pulumi.getter(name="dataShareId")
+    def data_share_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the Data Share where this Data Share Data Lake Gen1 Dataset should be created. Changing this forces a new Data Share Data Lake Gen1 Dataset to be created.
+        """
+        return pulumi.get(self, "data_share_id")
+
+    @data_share_id.setter
+    def data_share_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_share_id", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The displayed name of the Data Share Dataset.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="fileName")
+    def file_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The file name of the data lake store to be shared with the receiver. Changing this forces a new Data Share Data Lake Gen1 Dataset to be created.
+        """
+        return pulumi.get(self, "file_name")
+
+    @file_name.setter
+    def file_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_name", value)
+
+    @property
+    @pulumi.getter(name="folderPath")
+    def folder_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The folder path of the data lake store to be shared with the receiver. Changing this forces a new Data Share Data Lake Gen1 Dataset to be created.
+        """
+        return pulumi.get(self, "folder_path")
+
+    @folder_path.setter
+    def folder_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "folder_path", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Data Share Data Lake Gen1 Dataset. Changing this forces a new Data Share Data Lake Gen1 Dataset to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class DatasetDataLakeGen1(pulumi.CustomResource):
@@ -258,20 +369,20 @@ class DatasetDataLakeGen1(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DatasetDataLakeGen1Args.__new__(DatasetDataLakeGen1Args)
 
             if data_lake_store_id is None and not opts.urn:
                 raise TypeError("Missing required property 'data_lake_store_id'")
-            __props__['data_lake_store_id'] = data_lake_store_id
+            __props__.__dict__["data_lake_store_id"] = data_lake_store_id
             if data_share_id is None and not opts.urn:
                 raise TypeError("Missing required property 'data_share_id'")
-            __props__['data_share_id'] = data_share_id
-            __props__['file_name'] = file_name
+            __props__.__dict__["data_share_id"] = data_share_id
+            __props__.__dict__["file_name"] = file_name
             if folder_path is None and not opts.urn:
                 raise TypeError("Missing required property 'folder_path'")
-            __props__['folder_path'] = folder_path
-            __props__['name'] = name
-            __props__['display_name'] = None
+            __props__.__dict__["folder_path"] = folder_path
+            __props__.__dict__["name"] = name
+            __props__.__dict__["display_name"] = None
         super(DatasetDataLakeGen1, __self__).__init__(
             'azure:datashare/datasetDataLakeGen1:DatasetDataLakeGen1',
             resource_name,
@@ -304,14 +415,14 @@ class DatasetDataLakeGen1(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DatasetDataLakeGen1State.__new__(_DatasetDataLakeGen1State)
 
-        __props__["data_lake_store_id"] = data_lake_store_id
-        __props__["data_share_id"] = data_share_id
-        __props__["display_name"] = display_name
-        __props__["file_name"] = file_name
-        __props__["folder_path"] = folder_path
-        __props__["name"] = name
+        __props__.__dict__["data_lake_store_id"] = data_lake_store_id
+        __props__.__dict__["data_share_id"] = data_share_id
+        __props__.__dict__["display_name"] = display_name
+        __props__.__dict__["file_name"] = file_name
+        __props__.__dict__["folder_path"] = folder_path
+        __props__.__dict__["name"] = name
         return DatasetDataLakeGen1(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -361,10 +472,4 @@ class DatasetDataLakeGen1(pulumi.CustomResource):
         The name of the Data Share Data Lake Gen1 Dataset. Changing this forces a new Data Share Data Lake Gen1 Dataset to be created.
         """
         return pulumi.get(self, "name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

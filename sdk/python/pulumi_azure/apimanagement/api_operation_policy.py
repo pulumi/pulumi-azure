@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['ApiOperationPolicyArgs', 'ApiOperationPolicy']
 
@@ -104,6 +108,109 @@ class ApiOperationPolicyArgs:
     @xml_link.setter
     def xml_link(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "xml_link", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _ApiOperationPolicyState:
+    def __init__(__self__, *,
+                 api_management_name: Optional[pulumi.Input[str]] = None,
+                 api_name: Optional[pulumi.Input[str]] = None,
+                 operation_id: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 xml_content: Optional[pulumi.Input[str]] = None,
+                 xml_link: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ApiOperationPolicy resources.
+        :param pulumi.Input[str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] api_name: The ID of the API Management API Operation within the API Management Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] xml_content: The XML Content for this Policy.
+        :param pulumi.Input[str] xml_link: A link to a Policy XML Document, which must be publicly available.
+        """
+        if api_management_name is not None:
+            pulumi.set(__self__, "api_management_name", api_management_name)
+        if api_name is not None:
+            pulumi.set(__self__, "api_name", api_name)
+        if operation_id is not None:
+            pulumi.set(__self__, "operation_id", operation_id)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if xml_content is not None:
+            pulumi.set(__self__, "xml_content", xml_content)
+        if xml_link is not None:
+            pulumi.set(__self__, "xml_link", xml_link)
+
+    @property
+    @pulumi.getter(name="apiManagementName")
+    def api_management_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the API Management Service. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "api_management_name")
+
+    @api_management_name.setter
+    def api_management_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_management_name", value)
+
+    @property
+    @pulumi.getter(name="apiName")
+    def api_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the API Management API Operation within the API Management Service. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "api_name")
+
+    @api_name.setter
+    def api_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_name", value)
+
+    @property
+    @pulumi.getter(name="operationId")
+    def operation_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "operation_id")
+
+    @operation_id.setter
+    def operation_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "operation_id", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="xmlContent")
+    def xml_content(self) -> Optional[pulumi.Input[str]]:
+        """
+        The XML Content for this Policy.
+        """
+        return pulumi.get(self, "xml_content")
+
+    @xml_content.setter
+    def xml_content(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "xml_content", value)
+
+    @property
+    @pulumi.getter(name="xmlLink")
+    def xml_link(self) -> Optional[pulumi.Input[str]]:
+        """
+        A link to a Policy XML Document, which must be publicly available.
+        """
+        return pulumi.get(self, "xml_link")
+
+    @xml_link.setter
+    def xml_link(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "xml_link", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class ApiOperationPolicy(pulumi.CustomResource):
@@ -237,22 +344,22 @@ class ApiOperationPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ApiOperationPolicyArgs.__new__(ApiOperationPolicyArgs)
 
             if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
-            __props__['api_management_name'] = api_management_name
+            __props__.__dict__["api_management_name"] = api_management_name
             if api_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_name'")
-            __props__['api_name'] = api_name
+            __props__.__dict__["api_name"] = api_name
             if operation_id is None and not opts.urn:
                 raise TypeError("Missing required property 'operation_id'")
-            __props__['operation_id'] = operation_id
+            __props__.__dict__["operation_id"] = operation_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['xml_content'] = xml_content
-            __props__['xml_link'] = xml_link
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["xml_content"] = xml_content
+            __props__.__dict__["xml_link"] = xml_link
         super(ApiOperationPolicy, __self__).__init__(
             'azure:apimanagement/apiOperationPolicy:ApiOperationPolicy',
             resource_name,
@@ -284,14 +391,14 @@ class ApiOperationPolicy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ApiOperationPolicyState.__new__(_ApiOperationPolicyState)
 
-        __props__["api_management_name"] = api_management_name
-        __props__["api_name"] = api_name
-        __props__["operation_id"] = operation_id
-        __props__["resource_group_name"] = resource_group_name
-        __props__["xml_content"] = xml_content
-        __props__["xml_link"] = xml_link
+        __props__.__dict__["api_management_name"] = api_management_name
+        __props__.__dict__["api_name"] = api_name
+        __props__.__dict__["operation_id"] = operation_id
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["xml_content"] = xml_content
+        __props__.__dict__["xml_link"] = xml_link
         return ApiOperationPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -338,10 +445,4 @@ class ApiOperationPolicy(pulumi.CustomResource):
         A link to a Policy XML Document, which must be publicly available.
         """
         return pulumi.get(self, "xml_link")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

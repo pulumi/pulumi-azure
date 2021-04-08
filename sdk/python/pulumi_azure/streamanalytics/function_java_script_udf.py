@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -109,6 +113,113 @@ class FunctionJavaScriptUDFArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _FunctionJavaScriptUDFState:
+    def __init__(__self__, *,
+                 inputs: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionJavaScriptUDFInputArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 output: Optional[pulumi.Input['FunctionJavaScriptUDFOutputArgs']] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 script: Optional[pulumi.Input[str]] = None,
+                 stream_analytics_job_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering FunctionJavaScriptUDF resources.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionJavaScriptUDFInputArgs']]] inputs: One or more `input` blocks as defined below.
+        :param pulumi.Input[str] name: The name of the JavaScript UDF Function. Changing this forces a new resource to be created.
+        :param pulumi.Input['FunctionJavaScriptUDFOutputArgs'] output: An `output` blocks as defined below.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] script: The JavaScript of this UDF Function.
+        :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created.
+        """
+        if inputs is not None:
+            pulumi.set(__self__, "inputs", inputs)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if output is not None:
+            pulumi.set(__self__, "output", output)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if script is not None:
+            pulumi.set(__self__, "script", script)
+        if stream_analytics_job_name is not None:
+            pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionJavaScriptUDFInputArgs']]]]:
+        """
+        One or more `input` blocks as defined below.
+        """
+        return pulumi.get(self, "inputs")
+
+    @inputs.setter
+    def inputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionJavaScriptUDFInputArgs']]]]):
+        pulumi.set(self, "inputs", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the JavaScript UDF Function. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def output(self) -> Optional[pulumi.Input['FunctionJavaScriptUDFOutputArgs']]:
+        """
+        An `output` blocks as defined below.
+        """
+        return pulumi.get(self, "output")
+
+    @output.setter
+    def output(self, value: Optional[pulumi.Input['FunctionJavaScriptUDFOutputArgs']]):
+        pulumi.set(self, "output", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def script(self) -> Optional[pulumi.Input[str]]:
+        """
+        The JavaScript of this UDF Function.
+        """
+        return pulumi.get(self, "script")
+
+    @script.setter
+    def script(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "script", value)
+
+    @property
+    @pulumi.getter(name="streamAnalyticsJobName")
+    def stream_analytics_job_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "stream_analytics_job_name")
+
+    @stream_analytics_job_name.setter
+    def stream_analytics_job_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stream_analytics_job_name", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class FunctionJavaScriptUDF(pulumi.CustomResource):
@@ -249,24 +360,24 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = FunctionJavaScriptUDFArgs.__new__(FunctionJavaScriptUDFArgs)
 
             if inputs is None and not opts.urn:
                 raise TypeError("Missing required property 'inputs'")
-            __props__['inputs'] = inputs
-            __props__['name'] = name
+            __props__.__dict__["inputs"] = inputs
+            __props__.__dict__["name"] = name
             if output is None and not opts.urn:
                 raise TypeError("Missing required property 'output'")
-            __props__['output'] = output
+            __props__.__dict__["output"] = output
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if script is None and not opts.urn:
                 raise TypeError("Missing required property 'script'")
-            __props__['script'] = script
+            __props__.__dict__["script"] = script
             if stream_analytics_job_name is None and not opts.urn:
                 raise TypeError("Missing required property 'stream_analytics_job_name'")
-            __props__['stream_analytics_job_name'] = stream_analytics_job_name
+            __props__.__dict__["stream_analytics_job_name"] = stream_analytics_job_name
         super(FunctionJavaScriptUDF, __self__).__init__(
             'azure:streamanalytics/functionJavaScriptUDF:FunctionJavaScriptUDF',
             resource_name,
@@ -299,14 +410,14 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _FunctionJavaScriptUDFState.__new__(_FunctionJavaScriptUDFState)
 
-        __props__["inputs"] = inputs
-        __props__["name"] = name
-        __props__["output"] = output
-        __props__["resource_group_name"] = resource_group_name
-        __props__["script"] = script
-        __props__["stream_analytics_job_name"] = stream_analytics_job_name
+        __props__.__dict__["inputs"] = inputs
+        __props__.__dict__["name"] = name
+        __props__.__dict__["output"] = output
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["script"] = script
+        __props__.__dict__["stream_analytics_job_name"] = stream_analytics_job_name
         return FunctionJavaScriptUDF(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -356,10 +467,4 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
         The name of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "stream_analytics_job_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

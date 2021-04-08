@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -139,6 +143,145 @@ class OutputServicebusTopicArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _OutputServicebusTopicState:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 serialization: Optional[pulumi.Input['OutputServicebusTopicSerializationArgs']] = None,
+                 servicebus_namespace: Optional[pulumi.Input[str]] = None,
+                 shared_access_policy_key: Optional[pulumi.Input[str]] = None,
+                 shared_access_policy_name: Optional[pulumi.Input[str]] = None,
+                 stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+                 topic_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering OutputServicebusTopic resources.
+        :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
+        :param pulumi.Input['OutputServicebusTopicSerializationArgs'] serialization: A `serialization` block as defined below.
+        :param pulumi.Input[str] servicebus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Topic, Service Bus Topic, etc.
+        :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy.
+        :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
+        :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] topic_name: The name of the Service Bus Topic.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if serialization is not None:
+            pulumi.set(__self__, "serialization", serialization)
+        if servicebus_namespace is not None:
+            pulumi.set(__self__, "servicebus_namespace", servicebus_namespace)
+        if shared_access_policy_key is not None:
+            pulumi.set(__self__, "shared_access_policy_key", shared_access_policy_key)
+        if shared_access_policy_name is not None:
+            pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
+        if stream_analytics_job_name is not None:
+            pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
+        if topic_name is not None:
+            pulumi.set(__self__, "topic_name", topic_name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Stream Output. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def serialization(self) -> Optional[pulumi.Input['OutputServicebusTopicSerializationArgs']]:
+        """
+        A `serialization` block as defined below.
+        """
+        return pulumi.get(self, "serialization")
+
+    @serialization.setter
+    def serialization(self, value: Optional[pulumi.Input['OutputServicebusTopicSerializationArgs']]):
+        pulumi.set(self, "serialization", value)
+
+    @property
+    @pulumi.getter(name="servicebusNamespace")
+    def servicebus_namespace(self) -> Optional[pulumi.Input[str]]:
+        """
+        The namespace that is associated with the desired Event Hub, Service Bus Topic, Service Bus Topic, etc.
+        """
+        return pulumi.get(self, "servicebus_namespace")
+
+    @servicebus_namespace.setter
+    def servicebus_namespace(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "servicebus_namespace", value)
+
+    @property
+    @pulumi.getter(name="sharedAccessPolicyKey")
+    def shared_access_policy_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The shared access policy key for the specified shared access policy.
+        """
+        return pulumi.get(self, "shared_access_policy_key")
+
+    @shared_access_policy_key.setter
+    def shared_access_policy_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shared_access_policy_key", value)
+
+    @property
+    @pulumi.getter(name="sharedAccessPolicyName")
+    def shared_access_policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
+        """
+        return pulumi.get(self, "shared_access_policy_name")
+
+    @shared_access_policy_name.setter
+    def shared_access_policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shared_access_policy_name", value)
+
+    @property
+    @pulumi.getter(name="streamAnalyticsJobName")
+    def stream_analytics_job_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Stream Analytics Job. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "stream_analytics_job_name")
+
+    @stream_analytics_job_name.setter
+    def stream_analytics_job_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stream_analytics_job_name", value)
+
+    @property
+    @pulumi.getter(name="topicName")
+    def topic_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Service Bus Topic.
+        """
+        return pulumi.get(self, "topic_name")
+
+    @topic_name.setter
+    def topic_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "topic_name", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class OutputServicebusTopic(pulumi.CustomResource):
@@ -295,30 +438,30 @@ class OutputServicebusTopic(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = OutputServicebusTopicArgs.__new__(OutputServicebusTopicArgs)
 
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if serialization is None and not opts.urn:
                 raise TypeError("Missing required property 'serialization'")
-            __props__['serialization'] = serialization
+            __props__.__dict__["serialization"] = serialization
             if servicebus_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'servicebus_namespace'")
-            __props__['servicebus_namespace'] = servicebus_namespace
+            __props__.__dict__["servicebus_namespace"] = servicebus_namespace
             if shared_access_policy_key is None and not opts.urn:
                 raise TypeError("Missing required property 'shared_access_policy_key'")
-            __props__['shared_access_policy_key'] = shared_access_policy_key
+            __props__.__dict__["shared_access_policy_key"] = shared_access_policy_key
             if shared_access_policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'shared_access_policy_name'")
-            __props__['shared_access_policy_name'] = shared_access_policy_name
+            __props__.__dict__["shared_access_policy_name"] = shared_access_policy_name
             if stream_analytics_job_name is None and not opts.urn:
                 raise TypeError("Missing required property 'stream_analytics_job_name'")
-            __props__['stream_analytics_job_name'] = stream_analytics_job_name
+            __props__.__dict__["stream_analytics_job_name"] = stream_analytics_job_name
             if topic_name is None and not opts.urn:
                 raise TypeError("Missing required property 'topic_name'")
-            __props__['topic_name'] = topic_name
+            __props__.__dict__["topic_name"] = topic_name
         super(OutputServicebusTopic, __self__).__init__(
             'azure:streamanalytics/outputServicebusTopic:OutputServicebusTopic',
             resource_name,
@@ -355,16 +498,16 @@ class OutputServicebusTopic(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _OutputServicebusTopicState.__new__(_OutputServicebusTopicState)
 
-        __props__["name"] = name
-        __props__["resource_group_name"] = resource_group_name
-        __props__["serialization"] = serialization
-        __props__["servicebus_namespace"] = servicebus_namespace
-        __props__["shared_access_policy_key"] = shared_access_policy_key
-        __props__["shared_access_policy_name"] = shared_access_policy_name
-        __props__["stream_analytics_job_name"] = stream_analytics_job_name
-        __props__["topic_name"] = topic_name
+        __props__.__dict__["name"] = name
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["serialization"] = serialization
+        __props__.__dict__["servicebus_namespace"] = servicebus_namespace
+        __props__.__dict__["shared_access_policy_key"] = shared_access_policy_key
+        __props__.__dict__["shared_access_policy_name"] = shared_access_policy_name
+        __props__.__dict__["stream_analytics_job_name"] = stream_analytics_job_name
+        __props__.__dict__["topic_name"] = topic_name
         return OutputServicebusTopic(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -430,10 +573,4 @@ class OutputServicebusTopic(pulumi.CustomResource):
         The name of the Service Bus Topic.
         """
         return pulumi.get(self, "topic_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

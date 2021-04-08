@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['ClusterCustomerManagedKeyArgs', 'ClusterCustomerManagedKey']
 
@@ -46,6 +50,49 @@ class ClusterCustomerManagedKeyArgs:
     @log_analytics_cluster_id.setter
     def log_analytics_cluster_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "log_analytics_cluster_id", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _ClusterCustomerManagedKeyState:
+    def __init__(__self__, *,
+                 key_vault_key_id: Optional[pulumi.Input[str]] = None,
+                 log_analytics_cluster_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ClusterCustomerManagedKey resources.
+        :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key to use for encryption.
+        :param pulumi.Input[str] log_analytics_cluster_id: The ID of the Log Analytics Cluster. Changing this forces a new Log Analytics Cluster Customer Managed Key to be created.
+        """
+        if key_vault_key_id is not None:
+            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if log_analytics_cluster_id is not None:
+            pulumi.set(__self__, "log_analytics_cluster_id", log_analytics_cluster_id)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Key Vault Key to use for encryption.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @key_vault_key_id.setter
+    def key_vault_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_key_id", value)
+
+    @property
+    @pulumi.getter(name="logAnalyticsClusterId")
+    def log_analytics_cluster_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Log Analytics Cluster. Changing this forces a new Log Analytics Cluster Customer Managed Key to be created.
+        """
+        return pulumi.get(self, "log_analytics_cluster_id")
+
+    @log_analytics_cluster_id.setter
+    def log_analytics_cluster_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_analytics_cluster_id", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class ClusterCustomerManagedKey(pulumi.CustomResource):
@@ -126,14 +173,14 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ClusterCustomerManagedKeyArgs.__new__(ClusterCustomerManagedKeyArgs)
 
             if key_vault_key_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_key_id'")
-            __props__['key_vault_key_id'] = key_vault_key_id
+            __props__.__dict__["key_vault_key_id"] = key_vault_key_id
             if log_analytics_cluster_id is None and not opts.urn:
                 raise TypeError("Missing required property 'log_analytics_cluster_id'")
-            __props__['log_analytics_cluster_id'] = log_analytics_cluster_id
+            __props__.__dict__["log_analytics_cluster_id"] = log_analytics_cluster_id
         super(ClusterCustomerManagedKey, __self__).__init__(
             'azure:loganalytics/clusterCustomerManagedKey:ClusterCustomerManagedKey',
             resource_name,
@@ -158,10 +205,10 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ClusterCustomerManagedKeyState.__new__(_ClusterCustomerManagedKeyState)
 
-        __props__["key_vault_key_id"] = key_vault_key_id
-        __props__["log_analytics_cluster_id"] = log_analytics_cluster_id
+        __props__.__dict__["key_vault_key_id"] = key_vault_key_id
+        __props__.__dict__["log_analytics_cluster_id"] = log_analytics_cluster_id
         return ClusterCustomerManagedKey(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -179,10 +226,4 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         The ID of the Log Analytics Cluster. Changing this forces a new Log Analytics Cluster Customer Managed Key to be created.
         """
         return pulumi.get(self, "log_analytics_cluster_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

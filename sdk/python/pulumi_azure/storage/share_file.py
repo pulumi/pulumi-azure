@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['ShareFileArgs', 'ShareFile']
 
@@ -159,6 +163,161 @@ class ShareFileArgs:
     @source.setter
     def source(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _ShareFileState:
+    def __init__(__self__, *,
+                 content_disposition: Optional[pulumi.Input[str]] = None,
+                 content_encoding: Optional[pulumi.Input[str]] = None,
+                 content_md5: Optional[pulumi.Input[str]] = None,
+                 content_type: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 path: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[str]] = None,
+                 storage_share_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ShareFile resources.
+        :param pulumi.Input[str] content_disposition: Sets the file’s Content-Disposition header.
+        :param pulumi.Input[str] content_encoding: Specifies which content encodings have been applied to the file.
+        :param pulumi.Input[str] content_md5: The MD5 sum of the file contents. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] content_type: The content type of the share file. Defaults to `application/octet-stream`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of metadata to assign to this file.
+        :param pulumi.Input[str] name: The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] path: The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source: An absolute path to a file on the local system.
+        :param pulumi.Input[str] storage_share_id: The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+        """
+        if content_disposition is not None:
+            pulumi.set(__self__, "content_disposition", content_disposition)
+        if content_encoding is not None:
+            pulumi.set(__self__, "content_encoding", content_encoding)
+        if content_md5 is not None:
+            pulumi.set(__self__, "content_md5", content_md5)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if storage_share_id is not None:
+            pulumi.set(__self__, "storage_share_id", storage_share_id)
+
+    @property
+    @pulumi.getter(name="contentDisposition")
+    def content_disposition(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the file’s Content-Disposition header.
+        """
+        return pulumi.get(self, "content_disposition")
+
+    @content_disposition.setter
+    def content_disposition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_disposition", value)
+
+    @property
+    @pulumi.getter(name="contentEncoding")
+    def content_encoding(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies which content encodings have been applied to the file.
+        """
+        return pulumi.get(self, "content_encoding")
+
+    @content_encoding.setter
+    def content_encoding(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_encoding", value)
+
+    @property
+    @pulumi.getter(name="contentMd5")
+    def content_md5(self) -> Optional[pulumi.Input[str]]:
+        """
+        The MD5 sum of the file contents. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "content_md5")
+
+    @content_md5.setter
+    def content_md5(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_md5", value)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The content type of the share file. Defaults to `application/octet-stream`.
+        """
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_type", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of metadata to assign to this file.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[str]]:
+        """
+        An absolute path to a file on the local system.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter(name="storageShareId")
+    def storage_share_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_share_id")
+
+    @storage_share_id.setter
+    def storage_share_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_share_id", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class ShareFile(pulumi.CustomResource):
@@ -300,19 +459,19 @@ class ShareFile(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ShareFileArgs.__new__(ShareFileArgs)
 
-            __props__['content_disposition'] = content_disposition
-            __props__['content_encoding'] = content_encoding
-            __props__['content_md5'] = content_md5
-            __props__['content_type'] = content_type
-            __props__['metadata'] = metadata
-            __props__['name'] = name
-            __props__['path'] = path
-            __props__['source'] = source
+            __props__.__dict__["content_disposition"] = content_disposition
+            __props__.__dict__["content_encoding"] = content_encoding
+            __props__.__dict__["content_md5"] = content_md5
+            __props__.__dict__["content_type"] = content_type
+            __props__.__dict__["metadata"] = metadata
+            __props__.__dict__["name"] = name
+            __props__.__dict__["path"] = path
+            __props__.__dict__["source"] = source
             if storage_share_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_share_id'")
-            __props__['storage_share_id'] = storage_share_id
+            __props__.__dict__["storage_share_id"] = storage_share_id
         super(ShareFile, __self__).__init__(
             'azure:storage/shareFile:ShareFile',
             resource_name,
@@ -351,17 +510,17 @@ class ShareFile(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ShareFileState.__new__(_ShareFileState)
 
-        __props__["content_disposition"] = content_disposition
-        __props__["content_encoding"] = content_encoding
-        __props__["content_md5"] = content_md5
-        __props__["content_type"] = content_type
-        __props__["metadata"] = metadata
-        __props__["name"] = name
-        __props__["path"] = path
-        __props__["source"] = source
-        __props__["storage_share_id"] = storage_share_id
+        __props__.__dict__["content_disposition"] = content_disposition
+        __props__.__dict__["content_encoding"] = content_encoding
+        __props__.__dict__["content_md5"] = content_md5
+        __props__.__dict__["content_type"] = content_type
+        __props__.__dict__["metadata"] = metadata
+        __props__.__dict__["name"] = name
+        __props__.__dict__["path"] = path
+        __props__.__dict__["source"] = source
+        __props__.__dict__["storage_share_id"] = storage_share_id
         return ShareFile(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -435,10 +594,4 @@ class ShareFile(pulumi.CustomResource):
         The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_share_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

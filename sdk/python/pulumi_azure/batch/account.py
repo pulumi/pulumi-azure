@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -129,6 +133,177 @@ class AccountArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _AccountState:
+    def __init__(__self__, *,
+                 account_endpoint: Optional[pulumi.Input[str]] = None,
+                 key_vault_reference: Optional[pulumi.Input['AccountKeyVaultReferenceArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 pool_allocation_mode: Optional[pulumi.Input[str]] = None,
+                 primary_access_key: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 secondary_access_key: Optional[pulumi.Input[str]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Account resources.
+        :param pulumi.Input[str] account_endpoint: The account endpoint used to interact with the Batch service.
+        :param pulumi.Input['AccountKeyVaultReferenceArgs'] key_vault_reference: A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Batch account. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] pool_allocation_mode: Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
+        :param pulumi.Input[str] primary_access_key: The Batch account primary access key.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] secondary_access_key: The Batch account secondary access key.
+        :param pulumi.Input[str] storage_account_id: Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        if account_endpoint is not None:
+            pulumi.set(__self__, "account_endpoint", account_endpoint)
+        if key_vault_reference is not None:
+            pulumi.set(__self__, "key_vault_reference", key_vault_reference)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if pool_allocation_mode is not None:
+            pulumi.set(__self__, "pool_allocation_mode", pool_allocation_mode)
+        if primary_access_key is not None:
+            pulumi.set(__self__, "primary_access_key", primary_access_key)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if secondary_access_key is not None:
+            pulumi.set(__self__, "secondary_access_key", secondary_access_key)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="accountEndpoint")
+    def account_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The account endpoint used to interact with the Batch service.
+        """
+        return pulumi.get(self, "account_endpoint")
+
+    @account_endpoint.setter
+    def account_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_endpoint", value)
+
+    @property
+    @pulumi.getter(name="keyVaultReference")
+    def key_vault_reference(self) -> Optional[pulumi.Input['AccountKeyVaultReferenceArgs']]:
+        """
+        A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
+        """
+        return pulumi.get(self, "key_vault_reference")
+
+    @key_vault_reference.setter
+    def key_vault_reference(self, value: Optional[pulumi.Input['AccountKeyVaultReferenceArgs']]):
+        pulumi.set(self, "key_vault_reference", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Batch account. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="poolAllocationMode")
+    def pool_allocation_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
+        """
+        return pulumi.get(self, "pool_allocation_mode")
+
+    @pool_allocation_mode.setter
+    def pool_allocation_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pool_allocation_mode", value)
+
+    @property
+    @pulumi.getter(name="primaryAccessKey")
+    def primary_access_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Batch account primary access key.
+        """
+        return pulumi.get(self, "primary_access_key")
+
+    @primary_access_key.setter
+    def primary_access_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_access_key", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="secondaryAccessKey")
+    def secondary_access_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Batch account secondary access key.
+        """
+        return pulumi.get(self, "secondary_access_key")
+
+    @secondary_access_key.setter
+    def secondary_access_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_access_key", value)
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @storage_account_id.setter
+    def storage_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_id", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class Account(pulumi.CustomResource):
@@ -268,20 +443,20 @@ class Account(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AccountArgs.__new__(AccountArgs)
 
-            __props__['key_vault_reference'] = key_vault_reference
-            __props__['location'] = location
-            __props__['name'] = name
-            __props__['pool_allocation_mode'] = pool_allocation_mode
+            __props__.__dict__["key_vault_reference"] = key_vault_reference
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
+            __props__.__dict__["pool_allocation_mode"] = pool_allocation_mode
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['storage_account_id'] = storage_account_id
-            __props__['tags'] = tags
-            __props__['account_endpoint'] = None
-            __props__['primary_access_key'] = None
-            __props__['secondary_access_key'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["storage_account_id"] = storage_account_id
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["account_endpoint"] = None
+            __props__.__dict__["primary_access_key"] = None
+            __props__.__dict__["secondary_access_key"] = None
         super(Account, __self__).__init__(
             'azure:batch/account:Account',
             resource_name,
@@ -322,18 +497,18 @@ class Account(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AccountState.__new__(_AccountState)
 
-        __props__["account_endpoint"] = account_endpoint
-        __props__["key_vault_reference"] = key_vault_reference
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["pool_allocation_mode"] = pool_allocation_mode
-        __props__["primary_access_key"] = primary_access_key
-        __props__["resource_group_name"] = resource_group_name
-        __props__["secondary_access_key"] = secondary_access_key
-        __props__["storage_account_id"] = storage_account_id
-        __props__["tags"] = tags
+        __props__.__dict__["account_endpoint"] = account_endpoint
+        __props__.__dict__["key_vault_reference"] = key_vault_reference
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["pool_allocation_mode"] = pool_allocation_mode
+        __props__.__dict__["primary_access_key"] = primary_access_key
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["secondary_access_key"] = secondary_access_key
+        __props__.__dict__["storage_account_id"] = storage_account_id
+        __props__.__dict__["tags"] = tags
         return Account(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -415,10 +590,4 @@ class Account(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

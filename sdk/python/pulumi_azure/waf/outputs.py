@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 
 __all__ = [
@@ -22,6 +26,25 @@ __all__ = [
 
 @pulumi.output_type
 class PolicyCustomRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchConditions":
+            suggest = "match_conditions"
+        elif key == "ruleType":
+            suggest = "rule_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyCustomRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyCustomRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyCustomRule.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: str,
                  match_conditions: Sequence['outputs.PolicyCustomRuleMatchCondition'],
@@ -82,12 +105,30 @@ class PolicyCustomRule(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicyCustomRuleMatchCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "matchVariables":
+            suggest = "match_variables"
+        elif key == "negationCondition":
+            suggest = "negation_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyCustomRuleMatchCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyCustomRuleMatchCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyCustomRuleMatchCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  match_values: Sequence[str],
                  match_variables: Sequence['outputs.PolicyCustomRuleMatchConditionMatchVariable'],
@@ -149,12 +190,26 @@ class PolicyCustomRuleMatchCondition(dict):
         """
         return pulumi.get(self, "transforms")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicyCustomRuleMatchConditionMatchVariable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "variableName":
+            suggest = "variable_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyCustomRuleMatchConditionMatchVariable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyCustomRuleMatchConditionMatchVariable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyCustomRuleMatchConditionMatchVariable.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  variable_name: str,
                  selector: Optional[str] = None):
@@ -182,12 +237,26 @@ class PolicyCustomRuleMatchConditionMatchVariable(dict):
         """
         return pulumi.get(self, "selector")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicyManagedRules(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedRuleSets":
+            suggest = "managed_rule_sets"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyManagedRules. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyManagedRules.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyManagedRules.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  managed_rule_sets: Sequence['outputs.PolicyManagedRulesManagedRuleSet'],
                  exclusions: Optional[Sequence['outputs.PolicyManagedRulesExclusion']] = None):
@@ -215,12 +284,28 @@ class PolicyManagedRules(dict):
         """
         return pulumi.get(self, "exclusions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicyManagedRulesExclusion(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchVariable":
+            suggest = "match_variable"
+        elif key == "selectorMatchOperator":
+            suggest = "selector_match_operator"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyManagedRulesExclusion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyManagedRulesExclusion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyManagedRulesExclusion.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  match_variable: str,
                  selector: str,
@@ -258,12 +343,26 @@ class PolicyManagedRulesExclusion(dict):
         """
         return pulumi.get(self, "selector_match_operator")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicyManagedRulesManagedRuleSet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleGroupOverrides":
+            suggest = "rule_group_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyManagedRulesManagedRuleSet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyManagedRulesManagedRuleSet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyManagedRulesManagedRuleSet.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  version: str,
                  rule_group_overrides: Optional[Sequence['outputs.PolicyManagedRulesManagedRuleSetRuleGroupOverride']] = None,
@@ -303,12 +402,28 @@ class PolicyManagedRulesManagedRuleSet(dict):
         """
         return pulumi.get(self, "type")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicyManagedRulesManagedRuleSetRuleGroupOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disabledRules":
+            suggest = "disabled_rules"
+        elif key == "ruleGroupName":
+            suggest = "rule_group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyManagedRulesManagedRuleSetRuleGroupOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyManagedRulesManagedRuleSetRuleGroupOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyManagedRulesManagedRuleSetRuleGroupOverride.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  disabled_rules: Sequence[str],
                  rule_group_name: str):
@@ -335,12 +450,30 @@ class PolicyManagedRulesManagedRuleSetRuleGroupOverride(dict):
         """
         return pulumi.get(self, "rule_group_name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicyPolicySettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileUploadLimitInMb":
+            suggest = "file_upload_limit_in_mb"
+        elif key == "maxRequestBodySizeInKb":
+            suggest = "max_request_body_size_in_kb"
+        elif key == "requestBodyCheck":
+            suggest = "request_body_check"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyPolicySettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyPolicySettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyPolicySettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  file_upload_limit_in_mb: Optional[int] = None,
@@ -404,8 +537,5 @@ class PolicyPolicySettings(dict):
         Is Request Body Inspection enabled? Defaults to `true`.
         """
         return pulumi.get(self, "request_body_check")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

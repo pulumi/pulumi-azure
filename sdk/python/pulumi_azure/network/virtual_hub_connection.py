@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -126,6 +130,127 @@ class VirtualHubConnectionArgs:
     @vitual_network_to_hub_gateways_traffic_allowed.setter
     def vitual_network_to_hub_gateways_traffic_allowed(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "vitual_network_to_hub_gateways_traffic_allowed", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _VirtualHubConnectionState:
+    def __init__(__self__, *,
+                 hub_to_vitual_network_traffic_allowed: Optional[pulumi.Input[bool]] = None,
+                 internet_security_enabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 remote_virtual_network_id: Optional[pulumi.Input[str]] = None,
+                 routing: Optional[pulumi.Input['VirtualHubConnectionRoutingArgs']] = None,
+                 virtual_hub_id: Optional[pulumi.Input[str]] = None,
+                 vitual_network_to_hub_gateways_traffic_allowed: Optional[pulumi.Input[bool]] = None):
+        """
+        Input properties used for looking up and filtering VirtualHubConnection resources.
+        :param pulumi.Input[bool] internet_security_enabled: Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+        :param pulumi.Input[str] name: The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] remote_virtual_network_id: The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created.
+        :param pulumi.Input['VirtualHubConnectionRoutingArgs'] routing: A `routing` block as defined below.
+        :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
+        """
+        if hub_to_vitual_network_traffic_allowed is not None:
+            warnings.warn("""Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider""", DeprecationWarning)
+            pulumi.log.warn("""hub_to_vitual_network_traffic_allowed is deprecated: Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider""")
+        if hub_to_vitual_network_traffic_allowed is not None:
+            pulumi.set(__self__, "hub_to_vitual_network_traffic_allowed", hub_to_vitual_network_traffic_allowed)
+        if internet_security_enabled is not None:
+            pulumi.set(__self__, "internet_security_enabled", internet_security_enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if remote_virtual_network_id is not None:
+            pulumi.set(__self__, "remote_virtual_network_id", remote_virtual_network_id)
+        if routing is not None:
+            pulumi.set(__self__, "routing", routing)
+        if virtual_hub_id is not None:
+            pulumi.set(__self__, "virtual_hub_id", virtual_hub_id)
+        if vitual_network_to_hub_gateways_traffic_allowed is not None:
+            warnings.warn("""Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider""", DeprecationWarning)
+            pulumi.log.warn("""vitual_network_to_hub_gateways_traffic_allowed is deprecated: Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider""")
+        if vitual_network_to_hub_gateways_traffic_allowed is not None:
+            pulumi.set(__self__, "vitual_network_to_hub_gateways_traffic_allowed", vitual_network_to_hub_gateways_traffic_allowed)
+
+    @property
+    @pulumi.getter(name="hubToVitualNetworkTrafficAllowed")
+    def hub_to_vitual_network_traffic_allowed(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "hub_to_vitual_network_traffic_allowed")
+
+    @hub_to_vitual_network_traffic_allowed.setter
+    def hub_to_vitual_network_traffic_allowed(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "hub_to_vitual_network_traffic_allowed", value)
+
+    @property
+    @pulumi.getter(name="internetSecurityEnabled")
+    def internet_security_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
+        """
+        return pulumi.get(self, "internet_security_enabled")
+
+    @internet_security_enabled.setter
+    def internet_security_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "internet_security_enabled", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="remoteVirtualNetworkId")
+    def remote_virtual_network_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "remote_virtual_network_id")
+
+    @remote_virtual_network_id.setter
+    def remote_virtual_network_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "remote_virtual_network_id", value)
+
+    @property
+    @pulumi.getter
+    def routing(self) -> Optional[pulumi.Input['VirtualHubConnectionRoutingArgs']]:
+        """
+        A `routing` block as defined below.
+        """
+        return pulumi.get(self, "routing")
+
+    @routing.setter
+    def routing(self, value: Optional[pulumi.Input['VirtualHubConnectionRoutingArgs']]):
+        pulumi.set(self, "routing", value)
+
+    @property
+    @pulumi.getter(name="virtualHubId")
+    def virtual_hub_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "virtual_hub_id")
+
+    @virtual_hub_id.setter
+    def virtual_hub_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_hub_id", value)
+
+    @property
+    @pulumi.getter(name="vitualNetworkToHubGatewaysTrafficAllowed")
+    def vitual_network_to_hub_gateways_traffic_allowed(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "vitual_network_to_hub_gateways_traffic_allowed")
+
+    @vitual_network_to_hub_gateways_traffic_allowed.setter
+    def vitual_network_to_hub_gateways_traffic_allowed(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vitual_network_to_hub_gateways_traffic_allowed", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class VirtualHubConnection(pulumi.CustomResource):
@@ -267,25 +392,25 @@ class VirtualHubConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VirtualHubConnectionArgs.__new__(VirtualHubConnectionArgs)
 
             if hub_to_vitual_network_traffic_allowed is not None and not opts.urn:
                 warnings.warn("""Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider""", DeprecationWarning)
                 pulumi.log.warn("""hub_to_vitual_network_traffic_allowed is deprecated: Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider""")
-            __props__['hub_to_vitual_network_traffic_allowed'] = hub_to_vitual_network_traffic_allowed
-            __props__['internet_security_enabled'] = internet_security_enabled
-            __props__['name'] = name
+            __props__.__dict__["hub_to_vitual_network_traffic_allowed"] = hub_to_vitual_network_traffic_allowed
+            __props__.__dict__["internet_security_enabled"] = internet_security_enabled
+            __props__.__dict__["name"] = name
             if remote_virtual_network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'remote_virtual_network_id'")
-            __props__['remote_virtual_network_id'] = remote_virtual_network_id
-            __props__['routing'] = routing
+            __props__.__dict__["remote_virtual_network_id"] = remote_virtual_network_id
+            __props__.__dict__["routing"] = routing
             if virtual_hub_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_hub_id'")
-            __props__['virtual_hub_id'] = virtual_hub_id
+            __props__.__dict__["virtual_hub_id"] = virtual_hub_id
             if vitual_network_to_hub_gateways_traffic_allowed is not None and not opts.urn:
                 warnings.warn("""Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider""", DeprecationWarning)
                 pulumi.log.warn("""vitual_network_to_hub_gateways_traffic_allowed is deprecated: Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider""")
-            __props__['vitual_network_to_hub_gateways_traffic_allowed'] = vitual_network_to_hub_gateways_traffic_allowed
+            __props__.__dict__["vitual_network_to_hub_gateways_traffic_allowed"] = vitual_network_to_hub_gateways_traffic_allowed
         super(VirtualHubConnection, __self__).__init__(
             'azure:network/virtualHubConnection:VirtualHubConnection',
             resource_name,
@@ -318,15 +443,15 @@ class VirtualHubConnection(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _VirtualHubConnectionState.__new__(_VirtualHubConnectionState)
 
-        __props__["hub_to_vitual_network_traffic_allowed"] = hub_to_vitual_network_traffic_allowed
-        __props__["internet_security_enabled"] = internet_security_enabled
-        __props__["name"] = name
-        __props__["remote_virtual_network_id"] = remote_virtual_network_id
-        __props__["routing"] = routing
-        __props__["virtual_hub_id"] = virtual_hub_id
-        __props__["vitual_network_to_hub_gateways_traffic_allowed"] = vitual_network_to_hub_gateways_traffic_allowed
+        __props__.__dict__["hub_to_vitual_network_traffic_allowed"] = hub_to_vitual_network_traffic_allowed
+        __props__.__dict__["internet_security_enabled"] = internet_security_enabled
+        __props__.__dict__["name"] = name
+        __props__.__dict__["remote_virtual_network_id"] = remote_virtual_network_id
+        __props__.__dict__["routing"] = routing
+        __props__.__dict__["virtual_hub_id"] = virtual_hub_id
+        __props__.__dict__["vitual_network_to_hub_gateways_traffic_allowed"] = vitual_network_to_hub_gateways_traffic_allowed
         return VirtualHubConnection(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -378,10 +503,4 @@ class VirtualHubConnection(pulumi.CustomResource):
     @pulumi.getter(name="vitualNetworkToHubGatewaysTrafficAllowed")
     def vitual_network_to_hub_gateways_traffic_allowed(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "vitual_network_to_hub_gateways_traffic_allowed")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

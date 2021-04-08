@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -221,6 +225,225 @@ class WorkspaceArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _WorkspaceState:
+    def __init__(__self__, *,
+                 application_insights_id: Optional[pulumi.Input[str]] = None,
+                 container_registry_id: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 high_business_impact: Optional[pulumi.Input[bool]] = None,
+                 identity: Optional[pulumi.Input['WorkspaceIdentityArgs']] = None,
+                 key_vault_id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku_name: Optional[pulumi.Input[str]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Workspace resources.
+        :param pulumi.Input[str] application_insights_id: The ID of the Application Insights associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] container_registry_id: The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] description: The description of this Machine Learning Workspace.
+        :param pulumi.Input[str] friendly_name: Friendly name for this Machine Learning Workspace.
+        :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
+        :param pulumi.Input['WorkspaceIdentityArgs'] identity: An `identity` block defined below.
+        :param pulumi.Input[str] key_vault_id: The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
+        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        """
+        if application_insights_id is not None:
+            pulumi.set(__self__, "application_insights_id", application_insights_id)
+        if container_registry_id is not None:
+            pulumi.set(__self__, "container_registry_id", container_registry_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if friendly_name is not None:
+            pulumi.set(__self__, "friendly_name", friendly_name)
+        if high_business_impact is not None:
+            pulumi.set(__self__, "high_business_impact", high_business_impact)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if key_vault_id is not None:
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if sku_name is not None:
+            pulumi.set(__self__, "sku_name", sku_name)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="applicationInsightsId")
+    def application_insights_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Application Insights associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "application_insights_id")
+
+    @application_insights_id.setter
+    def application_insights_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_insights_id", value)
+
+    @property
+    @pulumi.getter(name="containerRegistryId")
+    def container_registry_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "container_registry_id")
+
+    @container_registry_id.setter
+    def container_registry_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_registry_id", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of this Machine Learning Workspace.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Friendly name for this Machine Learning Workspace.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @friendly_name.setter
+    def friendly_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "friendly_name", value)
+
+    @property
+    @pulumi.getter(name="highBusinessImpact")
+    def high_business_impact(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
+        """
+        return pulumi.get(self, "high_business_impact")
+
+    @high_business_impact.setter
+    def high_business_impact(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "high_business_impact", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['WorkspaceIdentityArgs']]:
+        """
+        An `identity` block defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['WorkspaceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @key_vault_id.setter
+    def key_vault_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_id", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="skuName")
+    def sku_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
+        """
+        return pulumi.get(self, "sku_name")
+
+    @sku_name.setter
+    def sku_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku_name", value)
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @storage_account_id.setter
+    def storage_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_id", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class Workspace(pulumi.CustomResource):
@@ -400,31 +623,31 @@ class Workspace(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
             if application_insights_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_insights_id'")
-            __props__['application_insights_id'] = application_insights_id
-            __props__['container_registry_id'] = container_registry_id
-            __props__['description'] = description
-            __props__['friendly_name'] = friendly_name
-            __props__['high_business_impact'] = high_business_impact
+            __props__.__dict__["application_insights_id"] = application_insights_id
+            __props__.__dict__["container_registry_id"] = container_registry_id
+            __props__.__dict__["description"] = description
+            __props__.__dict__["friendly_name"] = friendly_name
+            __props__.__dict__["high_business_impact"] = high_business_impact
             if identity is None and not opts.urn:
                 raise TypeError("Missing required property 'identity'")
-            __props__['identity'] = identity
+            __props__.__dict__["identity"] = identity
             if key_vault_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_id'")
-            __props__['key_vault_id'] = key_vault_id
-            __props__['location'] = location
-            __props__['name'] = name
+            __props__.__dict__["key_vault_id"] = key_vault_id
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['sku_name'] = sku_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sku_name"] = sku_name
             if storage_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_id'")
-            __props__['storage_account_id'] = storage_account_id
-            __props__['tags'] = tags
+            __props__.__dict__["storage_account_id"] = storage_account_id
+            __props__.__dict__["tags"] = tags
         super(Workspace, __self__).__init__(
             'azure:machinelearning/workspace:Workspace',
             resource_name,
@@ -471,21 +694,21 @@ class Workspace(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _WorkspaceState.__new__(_WorkspaceState)
 
-        __props__["application_insights_id"] = application_insights_id
-        __props__["container_registry_id"] = container_registry_id
-        __props__["description"] = description
-        __props__["friendly_name"] = friendly_name
-        __props__["high_business_impact"] = high_business_impact
-        __props__["identity"] = identity
-        __props__["key_vault_id"] = key_vault_id
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["resource_group_name"] = resource_group_name
-        __props__["sku_name"] = sku_name
-        __props__["storage_account_id"] = storage_account_id
-        __props__["tags"] = tags
+        __props__.__dict__["application_insights_id"] = application_insights_id
+        __props__.__dict__["container_registry_id"] = container_registry_id
+        __props__.__dict__["description"] = description
+        __props__.__dict__["friendly_name"] = friendly_name
+        __props__.__dict__["high_business_impact"] = high_business_impact
+        __props__.__dict__["identity"] = identity
+        __props__.__dict__["key_vault_id"] = key_vault_id
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["sku_name"] = sku_name
+        __props__.__dict__["storage_account_id"] = storage_account_id
+        __props__.__dict__["tags"] = tags
         return Workspace(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -591,10 +814,4 @@ class Workspace(pulumi.CustomResource):
         A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

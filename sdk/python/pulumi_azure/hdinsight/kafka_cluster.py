@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -248,6 +252,301 @@ class KafkaClusterArgs:
     @tls_min_version.setter
     def tls_min_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tls_min_version", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _KafkaClusterState:
+    def __init__(__self__, *,
+                 cluster_version: Optional[pulumi.Input[str]] = None,
+                 component_version: Optional[pulumi.Input['KafkaClusterComponentVersionArgs']] = None,
+                 gateway: Optional[pulumi.Input['KafkaClusterGatewayArgs']] = None,
+                 https_endpoint: Optional[pulumi.Input[str]] = None,
+                 kafka_rest_proxy_endpoint: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 metastores: Optional[pulumi.Input['KafkaClusterMetastoresArgs']] = None,
+                 monitor: Optional[pulumi.Input['KafkaClusterMonitorArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 rest_proxy: Optional[pulumi.Input['KafkaClusterRestProxyArgs']] = None,
+                 roles: Optional[pulumi.Input['KafkaClusterRolesArgs']] = None,
+                 ssh_endpoint: Optional[pulumi.Input[str]] = None,
+                 storage_account_gen2: Optional[pulumi.Input['KafkaClusterStorageAccountGen2Args']] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterStorageAccountArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tier: Optional[pulumi.Input[str]] = None,
+                 tls_min_version: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering KafkaCluster resources.
+        :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input['KafkaClusterComponentVersionArgs'] component_version: A `component_version` block as defined below.
+        :param pulumi.Input['KafkaClusterGatewayArgs'] gateway: A `gateway` block as defined below.
+        :param pulumi.Input[str] https_endpoint: The HTTPS Connectivity Endpoint for this HDInsight Kafka Cluster.
+        :param pulumi.Input[str] kafka_rest_proxy_endpoint: The Kafka Rest Proxy Endpoint for this HDInsight Kafka Cluster.
+        :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input['KafkaClusterMetastoresArgs'] metastores: A `metastores` block as defined below.
+        :param pulumi.Input['KafkaClusterMonitorArgs'] monitor: A `monitor` block as defined below.
+        :param pulumi.Input[str] name: Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input['KafkaClusterRestProxyArgs'] rest_proxy: A `rest_proxy` block as defined below.
+        :param pulumi.Input['KafkaClusterRolesArgs'] roles: A `roles` block as defined below.
+        :param pulumi.Input[str] ssh_endpoint: The SSH Connectivity Endpoint for this HDInsight Kafka Cluster.
+        :param pulumi.Input['KafkaClusterStorageAccountGen2Args'] storage_account_gen2: A `storage_account_gen2` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterStorageAccountArgs']]] storage_accounts: One or more `storage_account` block as defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight Kafka Cluster.
+        :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Kafka Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
+        """
+        if cluster_version is not None:
+            pulumi.set(__self__, "cluster_version", cluster_version)
+        if component_version is not None:
+            pulumi.set(__self__, "component_version", component_version)
+        if gateway is not None:
+            pulumi.set(__self__, "gateway", gateway)
+        if https_endpoint is not None:
+            pulumi.set(__self__, "https_endpoint", https_endpoint)
+        if kafka_rest_proxy_endpoint is not None:
+            pulumi.set(__self__, "kafka_rest_proxy_endpoint", kafka_rest_proxy_endpoint)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if metastores is not None:
+            pulumi.set(__self__, "metastores", metastores)
+        if monitor is not None:
+            pulumi.set(__self__, "monitor", monitor)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if rest_proxy is not None:
+            pulumi.set(__self__, "rest_proxy", rest_proxy)
+        if roles is not None:
+            pulumi.set(__self__, "roles", roles)
+        if ssh_endpoint is not None:
+            pulumi.set(__self__, "ssh_endpoint", ssh_endpoint)
+        if storage_account_gen2 is not None:
+            pulumi.set(__self__, "storage_account_gen2", storage_account_gen2)
+        if storage_accounts is not None:
+            pulumi.set(__self__, "storage_accounts", storage_accounts)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+        if tls_min_version is not None:
+            pulumi.set(__self__, "tls_min_version", tls_min_version)
+
+    @property
+    @pulumi.getter(name="clusterVersion")
+    def cluster_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cluster_version")
+
+    @cluster_version.setter
+    def cluster_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_version", value)
+
+    @property
+    @pulumi.getter(name="componentVersion")
+    def component_version(self) -> Optional[pulumi.Input['KafkaClusterComponentVersionArgs']]:
+        """
+        A `component_version` block as defined below.
+        """
+        return pulumi.get(self, "component_version")
+
+    @component_version.setter
+    def component_version(self, value: Optional[pulumi.Input['KafkaClusterComponentVersionArgs']]):
+        pulumi.set(self, "component_version", value)
+
+    @property
+    @pulumi.getter
+    def gateway(self) -> Optional[pulumi.Input['KafkaClusterGatewayArgs']]:
+        """
+        A `gateway` block as defined below.
+        """
+        return pulumi.get(self, "gateway")
+
+    @gateway.setter
+    def gateway(self, value: Optional[pulumi.Input['KafkaClusterGatewayArgs']]):
+        pulumi.set(self, "gateway", value)
+
+    @property
+    @pulumi.getter(name="httpsEndpoint")
+    def https_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The HTTPS Connectivity Endpoint for this HDInsight Kafka Cluster.
+        """
+        return pulumi.get(self, "https_endpoint")
+
+    @https_endpoint.setter
+    def https_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "https_endpoint", value)
+
+    @property
+    @pulumi.getter(name="kafkaRestProxyEndpoint")
+    def kafka_rest_proxy_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Kafka Rest Proxy Endpoint for this HDInsight Kafka Cluster.
+        """
+        return pulumi.get(self, "kafka_rest_proxy_endpoint")
+
+    @kafka_rest_proxy_endpoint.setter
+    def kafka_rest_proxy_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kafka_rest_proxy_endpoint", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Azure Region which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def metastores(self) -> Optional[pulumi.Input['KafkaClusterMetastoresArgs']]:
+        """
+        A `metastores` block as defined below.
+        """
+        return pulumi.get(self, "metastores")
+
+    @metastores.setter
+    def metastores(self, value: Optional[pulumi.Input['KafkaClusterMetastoresArgs']]):
+        pulumi.set(self, "metastores", value)
+
+    @property
+    @pulumi.getter
+    def monitor(self) -> Optional[pulumi.Input['KafkaClusterMonitorArgs']]:
+        """
+        A `monitor` block as defined below.
+        """
+        return pulumi.get(self, "monitor")
+
+    @monitor.setter
+    def monitor(self, value: Optional[pulumi.Input['KafkaClusterMonitorArgs']]):
+        pulumi.set(self, "monitor", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="restProxy")
+    def rest_proxy(self) -> Optional[pulumi.Input['KafkaClusterRestProxyArgs']]:
+        """
+        A `rest_proxy` block as defined below.
+        """
+        return pulumi.get(self, "rest_proxy")
+
+    @rest_proxy.setter
+    def rest_proxy(self, value: Optional[pulumi.Input['KafkaClusterRestProxyArgs']]):
+        pulumi.set(self, "rest_proxy", value)
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Optional[pulumi.Input['KafkaClusterRolesArgs']]:
+        """
+        A `roles` block as defined below.
+        """
+        return pulumi.get(self, "roles")
+
+    @roles.setter
+    def roles(self, value: Optional[pulumi.Input['KafkaClusterRolesArgs']]):
+        pulumi.set(self, "roles", value)
+
+    @property
+    @pulumi.getter(name="sshEndpoint")
+    def ssh_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SSH Connectivity Endpoint for this HDInsight Kafka Cluster.
+        """
+        return pulumi.get(self, "ssh_endpoint")
+
+    @ssh_endpoint.setter
+    def ssh_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssh_endpoint", value)
+
+    @property
+    @pulumi.getter(name="storageAccountGen2")
+    def storage_account_gen2(self) -> Optional[pulumi.Input['KafkaClusterStorageAccountGen2Args']]:
+        """
+        A `storage_account_gen2` block as defined below.
+        """
+        return pulumi.get(self, "storage_account_gen2")
+
+    @storage_account_gen2.setter
+    def storage_account_gen2(self, value: Optional[pulumi.Input['KafkaClusterStorageAccountGen2Args']]):
+        pulumi.set(self, "storage_account_gen2", value)
+
+    @property
+    @pulumi.getter(name="storageAccounts")
+    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterStorageAccountArgs']]]]:
+        """
+        One or more `storage_account` block as defined below.
+        """
+        return pulumi.get(self, "storage_accounts")
+
+    @storage_accounts.setter
+    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterStorageAccountArgs']]]]):
+        pulumi.set(self, "storage_accounts", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of Tags which should be assigned to this HDInsight Kafka Cluster.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Tier which should be used for this HDInsight Kafka Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tier", value)
+
+    @property
+    @pulumi.getter(name="tlsMinVersion")
+    def tls_min_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "tls_min_version")
+
+    @tls_min_version.setter
+    def tls_min_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tls_min_version", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class KafkaCluster(pulumi.CustomResource):
@@ -474,38 +773,38 @@ class KafkaCluster(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = KafkaClusterArgs.__new__(KafkaClusterArgs)
 
             if cluster_version is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_version'")
-            __props__['cluster_version'] = cluster_version
+            __props__.__dict__["cluster_version"] = cluster_version
             if component_version is None and not opts.urn:
                 raise TypeError("Missing required property 'component_version'")
-            __props__['component_version'] = component_version
+            __props__.__dict__["component_version"] = component_version
             if gateway is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway'")
-            __props__['gateway'] = gateway
-            __props__['location'] = location
-            __props__['metastores'] = metastores
-            __props__['monitor'] = monitor
-            __props__['name'] = name
+            __props__.__dict__["gateway"] = gateway
+            __props__.__dict__["location"] = location
+            __props__.__dict__["metastores"] = metastores
+            __props__.__dict__["monitor"] = monitor
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['rest_proxy'] = rest_proxy
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["rest_proxy"] = rest_proxy
             if roles is None and not opts.urn:
                 raise TypeError("Missing required property 'roles'")
-            __props__['roles'] = roles
-            __props__['storage_account_gen2'] = storage_account_gen2
-            __props__['storage_accounts'] = storage_accounts
-            __props__['tags'] = tags
+            __props__.__dict__["roles"] = roles
+            __props__.__dict__["storage_account_gen2"] = storage_account_gen2
+            __props__.__dict__["storage_accounts"] = storage_accounts
+            __props__.__dict__["tags"] = tags
             if tier is None and not opts.urn:
                 raise TypeError("Missing required property 'tier'")
-            __props__['tier'] = tier
-            __props__['tls_min_version'] = tls_min_version
-            __props__['https_endpoint'] = None
-            __props__['kafka_rest_proxy_endpoint'] = None
-            __props__['ssh_endpoint'] = None
+            __props__.__dict__["tier"] = tier
+            __props__.__dict__["tls_min_version"] = tls_min_version
+            __props__.__dict__["https_endpoint"] = None
+            __props__.__dict__["kafka_rest_proxy_endpoint"] = None
+            __props__.__dict__["ssh_endpoint"] = None
         super(KafkaCluster, __self__).__init__(
             'azure:hdinsight/kafkaCluster:KafkaCluster',
             resource_name,
@@ -561,26 +860,26 @@ class KafkaCluster(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _KafkaClusterState.__new__(_KafkaClusterState)
 
-        __props__["cluster_version"] = cluster_version
-        __props__["component_version"] = component_version
-        __props__["gateway"] = gateway
-        __props__["https_endpoint"] = https_endpoint
-        __props__["kafka_rest_proxy_endpoint"] = kafka_rest_proxy_endpoint
-        __props__["location"] = location
-        __props__["metastores"] = metastores
-        __props__["monitor"] = monitor
-        __props__["name"] = name
-        __props__["resource_group_name"] = resource_group_name
-        __props__["rest_proxy"] = rest_proxy
-        __props__["roles"] = roles
-        __props__["ssh_endpoint"] = ssh_endpoint
-        __props__["storage_account_gen2"] = storage_account_gen2
-        __props__["storage_accounts"] = storage_accounts
-        __props__["tags"] = tags
-        __props__["tier"] = tier
-        __props__["tls_min_version"] = tls_min_version
+        __props__.__dict__["cluster_version"] = cluster_version
+        __props__.__dict__["component_version"] = component_version
+        __props__.__dict__["gateway"] = gateway
+        __props__.__dict__["https_endpoint"] = https_endpoint
+        __props__.__dict__["kafka_rest_proxy_endpoint"] = kafka_rest_proxy_endpoint
+        __props__.__dict__["location"] = location
+        __props__.__dict__["metastores"] = metastores
+        __props__.__dict__["monitor"] = monitor
+        __props__.__dict__["name"] = name
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["rest_proxy"] = rest_proxy
+        __props__.__dict__["roles"] = roles
+        __props__.__dict__["ssh_endpoint"] = ssh_endpoint
+        __props__.__dict__["storage_account_gen2"] = storage_account_gen2
+        __props__.__dict__["storage_accounts"] = storage_accounts
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tier"] = tier
+        __props__.__dict__["tls_min_version"] = tls_min_version
         return KafkaCluster(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -723,10 +1022,4 @@ class KafkaCluster(pulumi.CustomResource):
     @pulumi.getter(name="tlsMinVersion")
     def tls_min_version(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "tls_min_version")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

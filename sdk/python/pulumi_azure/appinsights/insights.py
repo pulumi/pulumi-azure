@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['InsightsArgs', 'Insights']
 
@@ -178,6 +182,229 @@ class InsightsArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _InsightsState:
+    def __init__(__self__, *,
+                 app_id: Optional[pulumi.Input[str]] = None,
+                 application_type: Optional[pulumi.Input[str]] = None,
+                 connection_string: Optional[pulumi.Input[str]] = None,
+                 daily_data_cap_in_gb: Optional[pulumi.Input[float]] = None,
+                 daily_data_cap_notifications_disabled: Optional[pulumi.Input[bool]] = None,
+                 disable_ip_masking: Optional[pulumi.Input[bool]] = None,
+                 instrumentation_key: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 retention_in_days: Optional[pulumi.Input[int]] = None,
+                 sampling_percentage: Optional[pulumi.Input[float]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Insights resources.
+        :param pulumi.Input[str] app_id: The App ID associated with this Application Insights component.
+        :param pulumi.Input[str] application_type: Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] connection_string: The Connection String for this Application Insights component. (Sensitive)
+        :param pulumi.Input[float] daily_data_cap_in_gb: Specifies the Application Insights component daily data volume cap in GB.
+        :param pulumi.Input[bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be send when the daily data volume cap is met.
+        :param pulumi.Input[bool] disable_ip_masking: By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
+        :param pulumi.Input[str] instrumentation_key: The Instrumentation Key for this Application Insights component.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Application Insights component. Changing this forces a
+               new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
+               create the Application Insights component.
+        :param pulumi.Input[int] retention_in_days: Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
+        :param pulumi.Input[float] sampling_percentage: Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        if app_id is not None:
+            pulumi.set(__self__, "app_id", app_id)
+        if application_type is not None:
+            pulumi.set(__self__, "application_type", application_type)
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
+        if daily_data_cap_in_gb is not None:
+            pulumi.set(__self__, "daily_data_cap_in_gb", daily_data_cap_in_gb)
+        if daily_data_cap_notifications_disabled is not None:
+            pulumi.set(__self__, "daily_data_cap_notifications_disabled", daily_data_cap_notifications_disabled)
+        if disable_ip_masking is not None:
+            pulumi.set(__self__, "disable_ip_masking", disable_ip_masking)
+        if instrumentation_key is not None:
+            pulumi.set(__self__, "instrumentation_key", instrumentation_key)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if retention_in_days is not None:
+            pulumi.set(__self__, "retention_in_days", retention_in_days)
+        if sampling_percentage is not None:
+            pulumi.set(__self__, "sampling_percentage", sampling_percentage)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="appId")
+    def app_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The App ID associated with this Application Insights component.
+        """
+        return pulumi.get(self, "app_id")
+
+    @app_id.setter
+    def app_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_id", value)
+
+    @property
+    @pulumi.getter(name="applicationType")
+    def application_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "application_type")
+
+    @application_type.setter
+    def application_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_type", value)
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Connection String for this Application Insights component. (Sensitive)
+        """
+        return pulumi.get(self, "connection_string")
+
+    @connection_string.setter
+    def connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_string", value)
+
+    @property
+    @pulumi.getter(name="dailyDataCapInGb")
+    def daily_data_cap_in_gb(self) -> Optional[pulumi.Input[float]]:
+        """
+        Specifies the Application Insights component daily data volume cap in GB.
+        """
+        return pulumi.get(self, "daily_data_cap_in_gb")
+
+    @daily_data_cap_in_gb.setter
+    def daily_data_cap_in_gb(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "daily_data_cap_in_gb", value)
+
+    @property
+    @pulumi.getter(name="dailyDataCapNotificationsDisabled")
+    def daily_data_cap_notifications_disabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if a notification email will be send when the daily data volume cap is met.
+        """
+        return pulumi.get(self, "daily_data_cap_notifications_disabled")
+
+    @daily_data_cap_notifications_disabled.setter
+    def daily_data_cap_notifications_disabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "daily_data_cap_notifications_disabled", value)
+
+    @property
+    @pulumi.getter(name="disableIpMasking")
+    def disable_ip_masking(self) -> Optional[pulumi.Input[bool]]:
+        """
+        By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
+        """
+        return pulumi.get(self, "disable_ip_masking")
+
+    @disable_ip_masking.setter
+    def disable_ip_masking(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_ip_masking", value)
+
+    @property
+    @pulumi.getter(name="instrumentationKey")
+    def instrumentation_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Instrumentation Key for this Application Insights component.
+        """
+        return pulumi.get(self, "instrumentation_key")
+
+    @instrumentation_key.setter
+    def instrumentation_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instrumentation_key", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Application Insights component. Changing this forces a
+        new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which to
+        create the Application Insights component.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="retentionInDays")
+    def retention_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
+        """
+        return pulumi.get(self, "retention_in_days")
+
+    @retention_in_days.setter
+    def retention_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_in_days", value)
+
+    @property
+    @pulumi.getter(name="samplingPercentage")
+    def sampling_percentage(self) -> Optional[pulumi.Input[float]]:
+        """
+        Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
+        """
+        return pulumi.get(self, "sampling_percentage")
+
+    @sampling_percentage.setter
+    def sampling_percentage(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "sampling_percentage", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class Insights(pulumi.CustomResource):
@@ -314,25 +541,25 @@ class Insights(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = InsightsArgs.__new__(InsightsArgs)
 
             if application_type is None and not opts.urn:
                 raise TypeError("Missing required property 'application_type'")
-            __props__['application_type'] = application_type
-            __props__['daily_data_cap_in_gb'] = daily_data_cap_in_gb
-            __props__['daily_data_cap_notifications_disabled'] = daily_data_cap_notifications_disabled
-            __props__['disable_ip_masking'] = disable_ip_masking
-            __props__['location'] = location
-            __props__['name'] = name
+            __props__.__dict__["application_type"] = application_type
+            __props__.__dict__["daily_data_cap_in_gb"] = daily_data_cap_in_gb
+            __props__.__dict__["daily_data_cap_notifications_disabled"] = daily_data_cap_notifications_disabled
+            __props__.__dict__["disable_ip_masking"] = disable_ip_masking
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['retention_in_days'] = retention_in_days
-            __props__['sampling_percentage'] = sampling_percentage
-            __props__['tags'] = tags
-            __props__['app_id'] = None
-            __props__['connection_string'] = None
-            __props__['instrumentation_key'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["retention_in_days"] = retention_in_days
+            __props__.__dict__["sampling_percentage"] = sampling_percentage
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["app_id"] = None
+            __props__.__dict__["connection_string"] = None
+            __props__.__dict__["instrumentation_key"] = None
         super(Insights, __self__).__init__(
             'azure:appinsights/insights:Insights',
             resource_name,
@@ -381,21 +608,21 @@ class Insights(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _InsightsState.__new__(_InsightsState)
 
-        __props__["app_id"] = app_id
-        __props__["application_type"] = application_type
-        __props__["connection_string"] = connection_string
-        __props__["daily_data_cap_in_gb"] = daily_data_cap_in_gb
-        __props__["daily_data_cap_notifications_disabled"] = daily_data_cap_notifications_disabled
-        __props__["disable_ip_masking"] = disable_ip_masking
-        __props__["instrumentation_key"] = instrumentation_key
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["resource_group_name"] = resource_group_name
-        __props__["retention_in_days"] = retention_in_days
-        __props__["sampling_percentage"] = sampling_percentage
-        __props__["tags"] = tags
+        __props__.__dict__["app_id"] = app_id
+        __props__.__dict__["application_type"] = application_type
+        __props__.__dict__["connection_string"] = connection_string
+        __props__.__dict__["daily_data_cap_in_gb"] = daily_data_cap_in_gb
+        __props__.__dict__["daily_data_cap_notifications_disabled"] = daily_data_cap_notifications_disabled
+        __props__.__dict__["disable_ip_masking"] = disable_ip_masking
+        __props__.__dict__["instrumentation_key"] = instrumentation_key
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["retention_in_days"] = retention_in_days
+        __props__.__dict__["sampling_percentage"] = sampling_percentage
+        __props__.__dict__["tags"] = tags
         return Insights(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -503,10 +730,4 @@ class Insights(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

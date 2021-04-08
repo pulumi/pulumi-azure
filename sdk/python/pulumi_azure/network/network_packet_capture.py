@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -158,6 +162,161 @@ class NetworkPacketCaptureArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _NetworkPacketCaptureState:
+    def __init__(__self__, *,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkPacketCaptureFilterArgs']]]] = None,
+                 maximum_bytes_per_packet: Optional[pulumi.Input[int]] = None,
+                 maximum_bytes_per_session: Optional[pulumi.Input[int]] = None,
+                 maximum_capture_duration: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_watcher_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 storage_location: Optional[pulumi.Input['NetworkPacketCaptureStorageLocationArgs']] = None,
+                 target_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering NetworkPacketCapture resources.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkPacketCaptureFilterArgs']]] filters: One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] maximum_bytes_per_packet: The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
+        :param pulumi.Input[int] maximum_bytes_per_session: Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
+        :param pulumi.Input[int] maximum_capture_duration: The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name to use for this Network Packet Capture. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_watcher_name: The name of the Network Watcher. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Network Watcher exists. Changing this forces a new resource to be created.
+        :param pulumi.Input['NetworkPacketCaptureStorageLocationArgs'] storage_location: A `storage_location` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] target_resource_id: The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
+        """
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+        if maximum_bytes_per_packet is not None:
+            pulumi.set(__self__, "maximum_bytes_per_packet", maximum_bytes_per_packet)
+        if maximum_bytes_per_session is not None:
+            pulumi.set(__self__, "maximum_bytes_per_session", maximum_bytes_per_session)
+        if maximum_capture_duration is not None:
+            pulumi.set(__self__, "maximum_capture_duration", maximum_capture_duration)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if network_watcher_name is not None:
+            pulumi.set(__self__, "network_watcher_name", network_watcher_name)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if storage_location is not None:
+            pulumi.set(__self__, "storage_location", storage_location)
+        if target_resource_id is not None:
+            pulumi.set(__self__, "target_resource_id", target_resource_id)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkPacketCaptureFilterArgs']]]]:
+        """
+        One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkPacketCaptureFilterArgs']]]]):
+        pulumi.set(self, "filters", value)
+
+    @property
+    @pulumi.getter(name="maximumBytesPerPacket")
+    def maximum_bytes_per_packet(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "maximum_bytes_per_packet")
+
+    @maximum_bytes_per_packet.setter
+    def maximum_bytes_per_packet(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_bytes_per_packet", value)
+
+    @property
+    @pulumi.getter(name="maximumBytesPerSession")
+    def maximum_bytes_per_session(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "maximum_bytes_per_session")
+
+    @maximum_bytes_per_session.setter
+    def maximum_bytes_per_session(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_bytes_per_session", value)
+
+    @property
+    @pulumi.getter(name="maximumCaptureDuration")
+    def maximum_capture_duration(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "maximum_capture_duration")
+
+    @maximum_capture_duration.setter
+    def maximum_capture_duration(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_capture_duration", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name to use for this Network Packet Capture. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="networkWatcherName")
+    def network_watcher_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Network Watcher. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "network_watcher_name")
+
+    @network_watcher_name.setter
+    def network_watcher_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_watcher_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which the Network Watcher exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="storageLocation")
+    def storage_location(self) -> Optional[pulumi.Input['NetworkPacketCaptureStorageLocationArgs']]:
+        """
+        A `storage_location` block as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_location")
+
+    @storage_location.setter
+    def storage_location(self, value: Optional[pulumi.Input['NetworkPacketCaptureStorageLocationArgs']]):
+        pulumi.set(self, "storage_location", value)
+
+    @property
+    @pulumi.getter(name="targetResourceId")
+    def target_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "target_resource_id")
+
+    @target_resource_id.setter
+    def target_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_id", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class NetworkPacketCapture(pulumi.CustomResource):
@@ -259,25 +418,25 @@ class NetworkPacketCapture(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = NetworkPacketCaptureArgs.__new__(NetworkPacketCaptureArgs)
 
-            __props__['filters'] = filters
-            __props__['maximum_bytes_per_packet'] = maximum_bytes_per_packet
-            __props__['maximum_bytes_per_session'] = maximum_bytes_per_session
-            __props__['maximum_capture_duration'] = maximum_capture_duration
-            __props__['name'] = name
+            __props__.__dict__["filters"] = filters
+            __props__.__dict__["maximum_bytes_per_packet"] = maximum_bytes_per_packet
+            __props__.__dict__["maximum_bytes_per_session"] = maximum_bytes_per_session
+            __props__.__dict__["maximum_capture_duration"] = maximum_capture_duration
+            __props__.__dict__["name"] = name
             if network_watcher_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_watcher_name'")
-            __props__['network_watcher_name'] = network_watcher_name
+            __props__.__dict__["network_watcher_name"] = network_watcher_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if storage_location is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_location'")
-            __props__['storage_location'] = storage_location
+            __props__.__dict__["storage_location"] = storage_location
             if target_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_resource_id'")
-            __props__['target_resource_id'] = target_resource_id
+            __props__.__dict__["target_resource_id"] = target_resource_id
         super(NetworkPacketCapture, __self__).__init__(
             'azure:network/networkPacketCapture:NetworkPacketCapture',
             resource_name,
@@ -316,17 +475,17 @@ class NetworkPacketCapture(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _NetworkPacketCaptureState.__new__(_NetworkPacketCaptureState)
 
-        __props__["filters"] = filters
-        __props__["maximum_bytes_per_packet"] = maximum_bytes_per_packet
-        __props__["maximum_bytes_per_session"] = maximum_bytes_per_session
-        __props__["maximum_capture_duration"] = maximum_capture_duration
-        __props__["name"] = name
-        __props__["network_watcher_name"] = network_watcher_name
-        __props__["resource_group_name"] = resource_group_name
-        __props__["storage_location"] = storage_location
-        __props__["target_resource_id"] = target_resource_id
+        __props__.__dict__["filters"] = filters
+        __props__.__dict__["maximum_bytes_per_packet"] = maximum_bytes_per_packet
+        __props__.__dict__["maximum_bytes_per_session"] = maximum_bytes_per_session
+        __props__.__dict__["maximum_capture_duration"] = maximum_capture_duration
+        __props__.__dict__["name"] = name
+        __props__.__dict__["network_watcher_name"] = network_watcher_name
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["storage_location"] = storage_location
+        __props__.__dict__["target_resource_id"] = target_resource_id
         return NetworkPacketCapture(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -400,10 +559,4 @@ class NetworkPacketCapture(pulumi.CustomResource):
         The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_resource_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

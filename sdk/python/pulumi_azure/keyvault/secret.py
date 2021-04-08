@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['SecretArgs', 'Secret']
 
@@ -126,6 +130,161 @@ class SecretArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _SecretState:
+    def __init__(__self__, *,
+                 content_type: Optional[pulumi.Input[str]] = None,
+                 expiration_date: Optional[pulumi.Input[str]] = None,
+                 key_vault_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 not_before_date: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 value: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
+                 versionless_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Secret resources.
+        :param pulumi.Input[str] content_type: Specifies the content type for the Key Vault Secret.
+        :param pulumi.Input[str] expiration_date: Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Secret should be created.
+        :param pulumi.Input[str] name: Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] value: Specifies the value of the Key Vault Secret.
+        :param pulumi.Input[str] version: The current version of the Key Vault Secret.
+        :param pulumi.Input[str] versionless_id: The Base ID of the Key Vault Secret.
+        """
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if expiration_date is not None:
+            pulumi.set(__self__, "expiration_date", expiration_date)
+        if key_vault_id is not None:
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if not_before_date is not None:
+            pulumi.set(__self__, "not_before_date", not_before_date)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+        if versionless_id is not None:
+            pulumi.set(__self__, "versionless_id", versionless_id)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the content type for the Key Vault Secret.
+        """
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_type", value)
+
+    @property
+    @pulumi.getter(name="expirationDate")
+    def expiration_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
+        """
+        return pulumi.get(self, "expiration_date")
+
+    @expiration_date.setter
+    def expiration_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiration_date", value)
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Key Vault where the Secret should be created.
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @key_vault_id.setter
+    def key_vault_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="notBeforeDate")
+    def not_before_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
+        """
+        return pulumi.get(self, "not_before_date")
+
+    @not_before_date.setter
+    def not_before_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "not_before_date", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the value of the Key Vault Secret.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The current version of the Key Vault Secret.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+    @property
+    @pulumi.getter(name="versionlessId")
+    def versionless_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Base ID of the Key Vault Secret.
+        """
+        return pulumi.get(self, "versionless_id")
+
+    @versionless_id.setter
+    def versionless_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "versionless_id", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class Secret(pulumi.CustomResource):
@@ -289,21 +448,21 @@ class Secret(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SecretArgs.__new__(SecretArgs)
 
-            __props__['content_type'] = content_type
-            __props__['expiration_date'] = expiration_date
+            __props__.__dict__["content_type"] = content_type
+            __props__.__dict__["expiration_date"] = expiration_date
             if key_vault_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_id'")
-            __props__['key_vault_id'] = key_vault_id
-            __props__['name'] = name
-            __props__['not_before_date'] = not_before_date
-            __props__['tags'] = tags
+            __props__.__dict__["key_vault_id"] = key_vault_id
+            __props__.__dict__["name"] = name
+            __props__.__dict__["not_before_date"] = not_before_date
+            __props__.__dict__["tags"] = tags
             if value is None and not opts.urn:
                 raise TypeError("Missing required property 'value'")
-            __props__['value'] = value
-            __props__['version'] = None
-            __props__['versionless_id'] = None
+            __props__.__dict__["value"] = value
+            __props__.__dict__["version"] = None
+            __props__.__dict__["versionless_id"] = None
         super(Secret, __self__).__init__(
             'azure:keyvault/secret:Secret',
             resource_name,
@@ -342,17 +501,17 @@ class Secret(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _SecretState.__new__(_SecretState)
 
-        __props__["content_type"] = content_type
-        __props__["expiration_date"] = expiration_date
-        __props__["key_vault_id"] = key_vault_id
-        __props__["name"] = name
-        __props__["not_before_date"] = not_before_date
-        __props__["tags"] = tags
-        __props__["value"] = value
-        __props__["version"] = version
-        __props__["versionless_id"] = versionless_id
+        __props__.__dict__["content_type"] = content_type
+        __props__.__dict__["expiration_date"] = expiration_date
+        __props__.__dict__["key_vault_id"] = key_vault_id
+        __props__.__dict__["name"] = name
+        __props__.__dict__["not_before_date"] = not_before_date
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["value"] = value
+        __props__.__dict__["version"] = version
+        __props__.__dict__["versionless_id"] = versionless_id
         return Secret(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -426,10 +585,4 @@ class Secret(pulumi.CustomResource):
         The Base ID of the Key Vault Secret.
         """
         return pulumi.get(self, "versionless_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['SlotVirtualNetworkSwiftConnectionArgs', 'SlotVirtualNetworkSwiftConnection']
 
@@ -61,6 +65,65 @@ class SlotVirtualNetworkSwiftConnectionArgs:
     @subnet_id.setter
     def subnet_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "subnet_id", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _SlotVirtualNetworkSwiftConnectionState:
+    def __init__(__self__, *,
+                 app_service_id: Optional[pulumi.Input[str]] = None,
+                 slot_name: Optional[pulumi.Input[str]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering SlotVirtualNetworkSwiftConnection resources.
+        :param pulumi.Input[str] app_service_id: The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] slot_name: The name of the App Service Slot or Function App Slot. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet the app service will be associated to (the subnet must have a `service_delegation` configured for `Microsoft.Web/serverFarms`).
+        """
+        if app_service_id is not None:
+            pulumi.set(__self__, "app_service_id", app_service_id)
+        if slot_name is not None:
+            pulumi.set(__self__, "slot_name", slot_name)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="appServiceId")
+    def app_service_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "app_service_id")
+
+    @app_service_id.setter
+    def app_service_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_service_id", value)
+
+    @property
+    @pulumi.getter(name="slotName")
+    def slot_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the App Service Slot or Function App Slot. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "slot_name")
+
+    @slot_name.setter
+    def slot_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "slot_name", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the subnet the app service will be associated to (the subnet must have a `service_delegation` configured for `Microsoft.Web/serverFarms`).
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
@@ -232,17 +295,17 @@ class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SlotVirtualNetworkSwiftConnectionArgs.__new__(SlotVirtualNetworkSwiftConnectionArgs)
 
             if app_service_id is None and not opts.urn:
                 raise TypeError("Missing required property 'app_service_id'")
-            __props__['app_service_id'] = app_service_id
+            __props__.__dict__["app_service_id"] = app_service_id
             if slot_name is None and not opts.urn:
                 raise TypeError("Missing required property 'slot_name'")
-            __props__['slot_name'] = slot_name
+            __props__.__dict__["slot_name"] = slot_name
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
-            __props__['subnet_id'] = subnet_id
+            __props__.__dict__["subnet_id"] = subnet_id
         super(SlotVirtualNetworkSwiftConnection, __self__).__init__(
             'azure:appservice/slotVirtualNetworkSwiftConnection:SlotVirtualNetworkSwiftConnection',
             resource_name,
@@ -269,11 +332,11 @@ class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _SlotVirtualNetworkSwiftConnectionState.__new__(_SlotVirtualNetworkSwiftConnectionState)
 
-        __props__["app_service_id"] = app_service_id
-        __props__["slot_name"] = slot_name
-        __props__["subnet_id"] = subnet_id
+        __props__.__dict__["app_service_id"] = app_service_id
+        __props__.__dict__["slot_name"] = slot_name
+        __props__.__dict__["subnet_id"] = subnet_id
         return SlotVirtualNetworkSwiftConnection(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -299,10 +362,4 @@ class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
         The ID of the subnet the app service will be associated to (the subnet must have a `service_delegation` configured for `Microsoft.Web/serverFarms`).
         """
         return pulumi.get(self, "subnet_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

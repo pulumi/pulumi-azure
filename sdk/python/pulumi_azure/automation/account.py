@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['AccountArgs', 'Account']
 
@@ -94,6 +98,145 @@ class AccountArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _AccountState:
+    def __init__(__self__, *,
+                 dsc_primary_access_key: Optional[pulumi.Input[str]] = None,
+                 dsc_secondary_access_key: Optional[pulumi.Input[str]] = None,
+                 dsc_server_endpoint: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Account resources.
+        :param pulumi.Input[str] dsc_primary_access_key: The Primary Access Key for the DSC Endpoint associated with this Automation Account.
+        :param pulumi.Input[str] dsc_secondary_access_key: The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
+        :param pulumi.Input[str] dsc_server_endpoint: The DSC Server Endpoint associated with this Automation Account.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Automation Account. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku_name: The SKU name of the account - only `Basic` is supported at this time.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        if dsc_primary_access_key is not None:
+            pulumi.set(__self__, "dsc_primary_access_key", dsc_primary_access_key)
+        if dsc_secondary_access_key is not None:
+            pulumi.set(__self__, "dsc_secondary_access_key", dsc_secondary_access_key)
+        if dsc_server_endpoint is not None:
+            pulumi.set(__self__, "dsc_server_endpoint", dsc_server_endpoint)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if sku_name is not None:
+            pulumi.set(__self__, "sku_name", sku_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="dscPrimaryAccessKey")
+    def dsc_primary_access_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Primary Access Key for the DSC Endpoint associated with this Automation Account.
+        """
+        return pulumi.get(self, "dsc_primary_access_key")
+
+    @dsc_primary_access_key.setter
+    def dsc_primary_access_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dsc_primary_access_key", value)
+
+    @property
+    @pulumi.getter(name="dscSecondaryAccessKey")
+    def dsc_secondary_access_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
+        """
+        return pulumi.get(self, "dsc_secondary_access_key")
+
+    @dsc_secondary_access_key.setter
+    def dsc_secondary_access_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dsc_secondary_access_key", value)
+
+    @property
+    @pulumi.getter(name="dscServerEndpoint")
+    def dsc_server_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The DSC Server Endpoint associated with this Automation Account.
+        """
+        return pulumi.get(self, "dsc_server_endpoint")
+
+    @dsc_server_endpoint.setter
+    def dsc_server_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dsc_server_endpoint", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Automation Account. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="skuName")
+    def sku_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SKU name of the account - only `Basic` is supported at this time.
+        """
+        return pulumi.get(self, "sku_name")
+
+    @sku_name.setter
+    def sku_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class Account(pulumi.CustomResource):
@@ -215,20 +358,20 @@ class Account(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AccountArgs.__new__(AccountArgs)
 
-            __props__['location'] = location
-            __props__['name'] = name
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")
-            __props__['sku_name'] = sku_name
-            __props__['tags'] = tags
-            __props__['dsc_primary_access_key'] = None
-            __props__['dsc_secondary_access_key'] = None
-            __props__['dsc_server_endpoint'] = None
+            __props__.__dict__["sku_name"] = sku_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["dsc_primary_access_key"] = None
+            __props__.__dict__["dsc_secondary_access_key"] = None
+            __props__.__dict__["dsc_server_endpoint"] = None
         super(Account, __self__).__init__(
             'azure:automation/account:Account',
             resource_name,
@@ -265,16 +408,16 @@ class Account(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AccountState.__new__(_AccountState)
 
-        __props__["dsc_primary_access_key"] = dsc_primary_access_key
-        __props__["dsc_secondary_access_key"] = dsc_secondary_access_key
-        __props__["dsc_server_endpoint"] = dsc_server_endpoint
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["resource_group_name"] = resource_group_name
-        __props__["sku_name"] = sku_name
-        __props__["tags"] = tags
+        __props__.__dict__["dsc_primary_access_key"] = dsc_primary_access_key
+        __props__.__dict__["dsc_secondary_access_key"] = dsc_secondary_access_key
+        __props__.__dict__["dsc_server_endpoint"] = dsc_server_endpoint
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["sku_name"] = sku_name
+        __props__.__dict__["tags"] = tags
         return Account(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -340,10 +483,4 @@ class Account(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['ActiveDirectoryAdministratorArgs', 'ActiveDirectoryAdministrator']
 
@@ -91,6 +95,97 @@ class ActiveDirectoryAdministratorArgs:
     @tenant_id.setter
     def tenant_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "tenant_id", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _ActiveDirectoryAdministratorState:
+    def __init__(__self__, *,
+                 login: Optional[pulumi.Input[str]] = None,
+                 object_id: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 server_name: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ActiveDirectoryAdministrator resources.
+        :param pulumi.Input[str] login: The login name of the principal to set as the server administrator
+        :param pulumi.Input[str] object_id: The ID of the principal to set as the server administrator
+        :param pulumi.Input[str] resource_group_name: The name of the resource group for the MySQL server. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] server_name: The name of the MySQL Server on which to set the administrator. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] tenant_id: The Azure Tenant ID
+        """
+        if login is not None:
+            pulumi.set(__self__, "login", login)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def login(self) -> Optional[pulumi.Input[str]]:
+        """
+        The login name of the principal to set as the server administrator
+        """
+        return pulumi.get(self, "login")
+
+    @login.setter
+    def login(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "login", value)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the principal to set as the server administrator
+        """
+        return pulumi.get(self, "object_id")
+
+    @object_id.setter
+    def object_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "object_id", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group for the MySQL server. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the MySQL Server on which to set the administrator. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_name", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Tenant ID
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class ActiveDirectoryAdministrator(pulumi.CustomResource):
@@ -228,23 +323,23 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ActiveDirectoryAdministratorArgs.__new__(ActiveDirectoryAdministratorArgs)
 
             if login is None and not opts.urn:
                 raise TypeError("Missing required property 'login'")
-            __props__['login'] = login
+            __props__.__dict__["login"] = login
             if object_id is None and not opts.urn:
                 raise TypeError("Missing required property 'object_id'")
-            __props__['object_id'] = object_id
+            __props__.__dict__["object_id"] = object_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
-            __props__['server_name'] = server_name
+            __props__.__dict__["server_name"] = server_name
             if tenant_id is None and not opts.urn:
                 raise TypeError("Missing required property 'tenant_id'")
-            __props__['tenant_id'] = tenant_id
+            __props__.__dict__["tenant_id"] = tenant_id
         super(ActiveDirectoryAdministrator, __self__).__init__(
             'azure:mysql/activeDirectoryAdministrator:ActiveDirectoryAdministrator',
             resource_name,
@@ -275,13 +370,13 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ActiveDirectoryAdministratorState.__new__(_ActiveDirectoryAdministratorState)
 
-        __props__["login"] = login
-        __props__["object_id"] = object_id
-        __props__["resource_group_name"] = resource_group_name
-        __props__["server_name"] = server_name
-        __props__["tenant_id"] = tenant_id
+        __props__.__dict__["login"] = login
+        __props__.__dict__["object_id"] = object_id
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["server_name"] = server_name
+        __props__.__dict__["tenant_id"] = tenant_id
         return ActiveDirectoryAdministrator(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -323,10 +418,4 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
         The Azure Tenant ID
         """
         return pulumi.get(self, "tenant_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

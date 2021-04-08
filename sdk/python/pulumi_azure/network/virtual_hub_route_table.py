@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -81,6 +85,81 @@ class VirtualHubRouteTableArgs:
     @routes.setter
     def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteTableRouteArgs']]]]):
         pulumi.set(self, "routes", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _VirtualHubRouteTableState:
+    def __init__(__self__, *,
+                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteTableRouteArgs']]]] = None,
+                 virtual_hub_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering VirtualHubRouteTable resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of labels associated with this route table.
+        :param pulumi.Input[str] name: The name which should be used for Virtual Hub Route Table. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteTableRouteArgs']]] routes: A `route` block as defined below.
+        :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this route table should be created. Changing this forces a new resource to be created.
+        """
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if routes is not None:
+            pulumi.set(__self__, "routes", routes)
+        if virtual_hub_id is not None:
+            pulumi.set(__self__, "virtual_hub_id", virtual_hub_id)
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of labels associated with this route table.
+        """
+        return pulumi.get(self, "labels")
+
+    @labels.setter
+    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "labels", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for Virtual Hub Route Table. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteTableRouteArgs']]]]:
+        """
+        A `route` block as defined below.
+        """
+        return pulumi.get(self, "routes")
+
+    @routes.setter
+    def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteTableRouteArgs']]]]):
+        pulumi.set(self, "routes", value)
+
+    @property
+    @pulumi.getter(name="virtualHubId")
+    def virtual_hub_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Virtual Hub within which this route table should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "virtual_hub_id")
+
+    @virtual_hub_id.setter
+    def virtual_hub_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_hub_id", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class VirtualHubRouteTable(pulumi.CustomResource):
@@ -255,14 +334,14 @@ class VirtualHubRouteTable(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VirtualHubRouteTableArgs.__new__(VirtualHubRouteTableArgs)
 
-            __props__['labels'] = labels
-            __props__['name'] = name
-            __props__['routes'] = routes
+            __props__.__dict__["labels"] = labels
+            __props__.__dict__["name"] = name
+            __props__.__dict__["routes"] = routes
             if virtual_hub_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_hub_id'")
-            __props__['virtual_hub_id'] = virtual_hub_id
+            __props__.__dict__["virtual_hub_id"] = virtual_hub_id
         super(VirtualHubRouteTable, __self__).__init__(
             'azure:network/virtualHubRouteTable:VirtualHubRouteTable',
             resource_name,
@@ -291,12 +370,12 @@ class VirtualHubRouteTable(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _VirtualHubRouteTableState.__new__(_VirtualHubRouteTableState)
 
-        __props__["labels"] = labels
-        __props__["name"] = name
-        __props__["routes"] = routes
-        __props__["virtual_hub_id"] = virtual_hub_id
+        __props__.__dict__["labels"] = labels
+        __props__.__dict__["name"] = name
+        __props__.__dict__["routes"] = routes
+        __props__.__dict__["virtual_hub_id"] = virtual_hub_id
         return VirtualHubRouteTable(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -330,10 +409,4 @@ class VirtualHubRouteTable(pulumi.CustomResource):
         The ID of the Virtual Hub within which this route table should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_hub_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

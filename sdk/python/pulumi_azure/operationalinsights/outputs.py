@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = [
     'AnalyticsSolutionPlan',
@@ -14,6 +18,23 @@ __all__ = [
 
 @pulumi.output_type
 class AnalyticsSolutionPlan(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "promotionCode":
+            suggest = "promotion_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticsSolutionPlan. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticsSolutionPlan.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticsSolutionPlan.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  product: str,
                  publisher: str,
@@ -59,8 +80,5 @@ class AnalyticsSolutionPlan(dict):
         A promotion code to be used with the solution.
         """
         return pulumi.get(self, "promotion_code")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

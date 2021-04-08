@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = [
     'ApplicationPlan',
@@ -15,6 +19,23 @@ __all__ = [
 
 @pulumi.output_type
 class ApplicationPlan(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "promotionCode":
+            suggest = "promotion_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationPlan. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationPlan.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationPlan.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  product: str,
@@ -75,12 +96,28 @@ class ApplicationPlan(dict):
         """
         return pulumi.get(self, "promotion_code")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class DefinitionAuthorization(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleDefinitionId":
+            suggest = "role_definition_id"
+        elif key == "servicePrincipalId":
+            suggest = "service_principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefinitionAuthorization. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefinitionAuthorization.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefinitionAuthorization.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  role_definition_id: str,
                  service_principal_id: str):
@@ -106,8 +143,5 @@ class DefinitionAuthorization(dict):
         Specifies a service principal identifier for the provider. This is the identity that the provider will use to call ARM to manage the managed application resources.
         """
         return pulumi.get(self, "service_principal_id")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['ServerKeyArgs', 'ServerKey']
 
@@ -46,6 +50,49 @@ class ServerKeyArgs:
     @server_id.setter
     def server_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "server_id", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _ServerKeyState:
+    def __init__(__self__, *,
+                 key_vault_key_id: Optional[pulumi.Input[str]] = None,
+                 server_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ServerKey resources.
+        :param pulumi.Input[str] key_vault_key_id: The URL to a Key Vault Key.
+        :param pulumi.Input[str] server_id: The ID of the PostgreSQL Server. Changing this forces a new resource to be created.
+        """
+        if key_vault_key_id is not None:
+            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if server_id is not None:
+            pulumi.set(__self__, "server_id", server_id)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL to a Key Vault Key.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @key_vault_key_id.setter
+    def key_vault_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_key_id", value)
+
+    @property
+    @pulumi.getter(name="serverId")
+    def server_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the PostgreSQL Server. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "server_id")
+
+    @server_id.setter
+    def server_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_id", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class ServerKey(pulumi.CustomResource):
@@ -126,14 +173,14 @@ class ServerKey(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ServerKeyArgs.__new__(ServerKeyArgs)
 
             if key_vault_key_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_key_id'")
-            __props__['key_vault_key_id'] = key_vault_key_id
+            __props__.__dict__["key_vault_key_id"] = key_vault_key_id
             if server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'server_id'")
-            __props__['server_id'] = server_id
+            __props__.__dict__["server_id"] = server_id
         super(ServerKey, __self__).__init__(
             'azure:postgresql/serverKey:ServerKey',
             resource_name,
@@ -158,10 +205,10 @@ class ServerKey(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ServerKeyState.__new__(_ServerKeyState)
 
-        __props__["key_vault_key_id"] = key_vault_key_id
-        __props__["server_id"] = server_id
+        __props__.__dict__["key_vault_key_id"] = key_vault_key_id
+        __props__.__dict__["server_id"] = server_id
         return ServerKey(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -179,10 +226,4 @@ class ServerKey(pulumi.CustomResource):
         The ID of the PostgreSQL Server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "server_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

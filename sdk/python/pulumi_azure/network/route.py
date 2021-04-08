@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['RouteArgs', 'Route']
 
@@ -108,6 +112,113 @@ class RouteArgs:
     @next_hop_in_ip_address.setter
     def next_hop_in_ip_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "next_hop_in_ip_address", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _RouteState:
+    def __init__(__self__, *,
+                 address_prefix: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 next_hop_in_ip_address: Optional[pulumi.Input[str]] = None,
+                 next_hop_type: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 route_table_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Route resources.
+        :param pulumi.Input[str] address_prefix: The destination CIDR to which the route applies, such as `10.1.0.0/16`
+        :param pulumi.Input[str] name: The name of the route. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] next_hop_in_ip_address: Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
+        :param pulumi.Input[str] next_hop_type: The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the route. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] route_table_name: The name of the route table within which create the route. Changing this forces a new resource to be created.
+        """
+        if address_prefix is not None:
+            pulumi.set(__self__, "address_prefix", address_prefix)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if next_hop_in_ip_address is not None:
+            pulumi.set(__self__, "next_hop_in_ip_address", next_hop_in_ip_address)
+        if next_hop_type is not None:
+            pulumi.set(__self__, "next_hop_type", next_hop_type)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if route_table_name is not None:
+            pulumi.set(__self__, "route_table_name", route_table_name)
+
+    @property
+    @pulumi.getter(name="addressPrefix")
+    def address_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The destination CIDR to which the route applies, such as `10.1.0.0/16`
+        """
+        return pulumi.get(self, "address_prefix")
+
+    @address_prefix.setter
+    def address_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address_prefix", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the route. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="nextHopInIpAddress")
+    def next_hop_in_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
+        """
+        return pulumi.get(self, "next_hop_in_ip_address")
+
+    @next_hop_in_ip_address.setter
+    def next_hop_in_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "next_hop_in_ip_address", value)
+
+    @property
+    @pulumi.getter(name="nextHopType")
+    def next_hop_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`
+        """
+        return pulumi.get(self, "next_hop_type")
+
+    @next_hop_type.setter
+    def next_hop_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "next_hop_type", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which to create the route. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="routeTableName")
+    def route_table_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the route table within which create the route. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "route_table_name")
+
+    @route_table_name.setter
+    def route_table_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "route_table_name", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class Route(pulumi.CustomResource):
@@ -242,22 +353,22 @@ class Route(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RouteArgs.__new__(RouteArgs)
 
             if address_prefix is None and not opts.urn:
                 raise TypeError("Missing required property 'address_prefix'")
-            __props__['address_prefix'] = address_prefix
-            __props__['name'] = name
-            __props__['next_hop_in_ip_address'] = next_hop_in_ip_address
+            __props__.__dict__["address_prefix"] = address_prefix
+            __props__.__dict__["name"] = name
+            __props__.__dict__["next_hop_in_ip_address"] = next_hop_in_ip_address
             if next_hop_type is None and not opts.urn:
                 raise TypeError("Missing required property 'next_hop_type'")
-            __props__['next_hop_type'] = next_hop_type
+            __props__.__dict__["next_hop_type"] = next_hop_type
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if route_table_name is None and not opts.urn:
                 raise TypeError("Missing required property 'route_table_name'")
-            __props__['route_table_name'] = route_table_name
+            __props__.__dict__["route_table_name"] = route_table_name
         super(Route, __self__).__init__(
             'azure:network/route:Route',
             resource_name,
@@ -290,14 +401,14 @@ class Route(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _RouteState.__new__(_RouteState)
 
-        __props__["address_prefix"] = address_prefix
-        __props__["name"] = name
-        __props__["next_hop_in_ip_address"] = next_hop_in_ip_address
-        __props__["next_hop_type"] = next_hop_type
-        __props__["resource_group_name"] = resource_group_name
-        __props__["route_table_name"] = route_table_name
+        __props__.__dict__["address_prefix"] = address_prefix
+        __props__.__dict__["name"] = name
+        __props__.__dict__["next_hop_in_ip_address"] = next_hop_in_ip_address
+        __props__.__dict__["next_hop_type"] = next_hop_type
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["route_table_name"] = route_table_name
         return Route(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -347,10 +458,4 @@ class Route(pulumi.CustomResource):
         The name of the route table within which create the route. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "route_table_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

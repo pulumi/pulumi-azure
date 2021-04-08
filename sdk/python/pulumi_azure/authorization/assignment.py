@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['AssignmentArgs', 'Assignment']
 
@@ -158,6 +162,177 @@ class AssignmentArgs:
     @skip_service_principal_aad_check.setter
     def skip_service_principal_aad_check(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "skip_service_principal_aad_check", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _AssignmentState:
+    def __init__(__self__, *,
+                 condition: Optional[pulumi.Input[str]] = None,
+                 condition_version: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 principal_type: Optional[pulumi.Input[str]] = None,
+                 role_definition_id: Optional[pulumi.Input[str]] = None,
+                 role_definition_name: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 skip_service_principal_aad_check: Optional[pulumi.Input[bool]] = None):
+        """
+        Input properties used for looking up and filtering Assignment resources.
+        :param pulumi.Input[str] condition: The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] condition_version: The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] description: The description for this Role Assignment. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] principal_type: The type of the `principal_id`, e.g. User, Group, Service Principal, Application, etc.
+        :param pulumi.Input[str] role_definition_id: The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+        :param pulumi.Input[str] role_definition_name: The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+        :param pulumi.Input[str] scope: The scope at which the Role Assignment applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`, or `/providers/Microsoft.Management/managementGroups/myMG`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] skip_service_principal_aad_check: If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. If it is not a `Service Principal` identity it will cause the role assignment to fail. Defaults to `false`.
+        """
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if condition_version is not None:
+            pulumi.set(__self__, "condition_version", condition_version)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if principal_type is not None:
+            pulumi.set(__self__, "principal_type", principal_type)
+        if role_definition_id is not None:
+            pulumi.set(__self__, "role_definition_id", role_definition_id)
+        if role_definition_name is not None:
+            pulumi.set(__self__, "role_definition_name", role_definition_name)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if skip_service_principal_aad_check is not None:
+            pulumi.set(__self__, "skip_service_principal_aad_check", skip_service_principal_aad_check)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> Optional[pulumi.Input[str]]:
+        """
+        The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "condition", value)
+
+    @property
+    @pulumi.getter(name="conditionVersion")
+    def condition_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "condition_version")
+
+    @condition_version.setter
+    def condition_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "condition_version", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description for this Role Assignment. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="principalType")
+    def principal_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the `principal_id`, e.g. User, Group, Service Principal, Application, etc.
+        """
+        return pulumi.get(self, "principal_type")
+
+    @principal_type.setter
+    def principal_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_type", value)
+
+    @property
+    @pulumi.getter(name="roleDefinitionId")
+    def role_definition_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+        """
+        return pulumi.get(self, "role_definition_id")
+
+    @role_definition_id.setter
+    def role_definition_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_definition_id", value)
+
+    @property
+    @pulumi.getter(name="roleDefinitionName")
+    def role_definition_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+        """
+        return pulumi.get(self, "role_definition_name")
+
+    @role_definition_name.setter
+    def role_definition_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_definition_name", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        The scope at which the Role Assignment applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`, or `/providers/Microsoft.Management/managementGroups/myMG`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter(name="skipServicePrincipalAadCheck")
+    def skip_service_principal_aad_check(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. If it is not a `Service Principal` identity it will cause the role assignment to fail. Defaults to `false`.
+        """
+        return pulumi.get(self, "skip_service_principal_aad_check")
+
+    @skip_service_principal_aad_check.setter
+    def skip_service_principal_aad_check(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_service_principal_aad_check", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class Assignment(pulumi.CustomResource):
@@ -427,22 +602,22 @@ class Assignment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AssignmentArgs.__new__(AssignmentArgs)
 
-            __props__['condition'] = condition
-            __props__['condition_version'] = condition_version
-            __props__['description'] = description
-            __props__['name'] = name
+            __props__.__dict__["condition"] = condition
+            __props__.__dict__["condition_version"] = condition_version
+            __props__.__dict__["description"] = description
+            __props__.__dict__["name"] = name
             if principal_id is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_id'")
-            __props__['principal_id'] = principal_id
-            __props__['role_definition_id'] = role_definition_id
-            __props__['role_definition_name'] = role_definition_name
+            __props__.__dict__["principal_id"] = principal_id
+            __props__.__dict__["role_definition_id"] = role_definition_id
+            __props__.__dict__["role_definition_name"] = role_definition_name
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
-            __props__['scope'] = scope
-            __props__['skip_service_principal_aad_check'] = skip_service_principal_aad_check
-            __props__['principal_type'] = None
+            __props__.__dict__["scope"] = scope
+            __props__.__dict__["skip_service_principal_aad_check"] = skip_service_principal_aad_check
+            __props__.__dict__["principal_type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:role/assignment:Assignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Assignment, __self__).__init__(
@@ -485,18 +660,18 @@ class Assignment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AssignmentState.__new__(_AssignmentState)
 
-        __props__["condition"] = condition
-        __props__["condition_version"] = condition_version
-        __props__["description"] = description
-        __props__["name"] = name
-        __props__["principal_id"] = principal_id
-        __props__["principal_type"] = principal_type
-        __props__["role_definition_id"] = role_definition_id
-        __props__["role_definition_name"] = role_definition_name
-        __props__["scope"] = scope
-        __props__["skip_service_principal_aad_check"] = skip_service_principal_aad_check
+        __props__.__dict__["condition"] = condition
+        __props__.__dict__["condition_version"] = condition_version
+        __props__.__dict__["description"] = description
+        __props__.__dict__["name"] = name
+        __props__.__dict__["principal_id"] = principal_id
+        __props__.__dict__["principal_type"] = principal_type
+        __props__.__dict__["role_definition_id"] = role_definition_id
+        __props__.__dict__["role_definition_name"] = role_definition_name
+        __props__.__dict__["scope"] = scope
+        __props__.__dict__["skip_service_principal_aad_check"] = skip_service_principal_aad_check
         return Assignment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -578,10 +753,4 @@ class Assignment(pulumi.CustomResource):
         If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. If it is not a `Service Principal` identity it will cause the role assignment to fail. Defaults to `false`.
         """
         return pulumi.get(self, "skip_service_principal_aad_check")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['PropertyArgs', 'Property']
 
@@ -124,6 +128,129 @@ class PropertyArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _PropertyState:
+    def __init__(__self__, *,
+                 api_management_name: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 secret: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Property resources.
+        :param pulumi.Input[str] api_management_name: The name of the API Management Service in which the API Management Property should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] display_name: The display name of this API Management Property.
+        :param pulumi.Input[str] name: The name of the API Management Property. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Property should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] secret: Specifies whether the API Management Property is secret. Valid values are `true` or `false`. The default value is `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: A list of tags to be applied to the API Management Property.
+        :param pulumi.Input[str] value: The value of this API Management Property.
+        """
+        if api_management_name is not None:
+            pulumi.set(__self__, "api_management_name", api_management_name)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="apiManagementName")
+    def api_management_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the API Management Service in which the API Management Property should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "api_management_name")
+
+    @api_management_name.setter
+    def api_management_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_management_name", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name of this API Management Property.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the API Management Property. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Resource Group in which the API Management Property should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def secret(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the API Management Property is secret. Valid values are `true` or `false`. The default value is `false`.
+        """
+        return pulumi.get(self, "secret")
+
+    @secret.setter
+    def secret(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "secret", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of tags to be applied to the API Management Property.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of this API Management Property.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class Property(pulumi.CustomResource):
@@ -259,23 +386,23 @@ class Property(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PropertyArgs.__new__(PropertyArgs)
 
             if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
-            __props__['api_management_name'] = api_management_name
+            __props__.__dict__["api_management_name"] = api_management_name
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
-            __props__['display_name'] = display_name
-            __props__['name'] = name
+            __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['secret'] = secret
-            __props__['tags'] = tags
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["secret"] = secret
+            __props__.__dict__["tags"] = tags
             if value is None and not opts.urn:
                 raise TypeError("Missing required property 'value'")
-            __props__['value'] = value
+            __props__.__dict__["value"] = value
         super(Property, __self__).__init__(
             'azure:apimanagement/property:Property',
             resource_name,
@@ -310,15 +437,15 @@ class Property(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _PropertyState.__new__(_PropertyState)
 
-        __props__["api_management_name"] = api_management_name
-        __props__["display_name"] = display_name
-        __props__["name"] = name
-        __props__["resource_group_name"] = resource_group_name
-        __props__["secret"] = secret
-        __props__["tags"] = tags
-        __props__["value"] = value
+        __props__.__dict__["api_management_name"] = api_management_name
+        __props__.__dict__["display_name"] = display_name
+        __props__.__dict__["name"] = name
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["secret"] = secret
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["value"] = value
         return Property(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -376,10 +503,4 @@ class Property(pulumi.CustomResource):
         The value of this API Management Property.
         """
         return pulumi.get(self, "value")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

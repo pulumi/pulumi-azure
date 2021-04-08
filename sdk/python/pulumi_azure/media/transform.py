@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -96,6 +100,97 @@ class TransformArgs:
     @outputs.setter
     def outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputArgs']]]]):
         pulumi.set(self, "outputs", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _TransformState:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 media_services_account_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputArgs']]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Transform resources.
+        :param pulumi.Input[str] description: An optional verbose description of the Transform.
+        :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Transform to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Transform. Changing this forces a new Transform to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['TransformOutputArgs']]] outputs: One or more `output` blocks as defined below. At least one `output` must be defined.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Transform should exist. Changing this forces a new Transform to be created.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if media_services_account_name is not None:
+            pulumi.set(__self__, "media_services_account_name", media_services_account_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if outputs is not None:
+            pulumi.set(__self__, "outputs", outputs)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        An optional verbose description of the Transform.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="mediaServicesAccountName")
+    def media_services_account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Media Services account name. Changing this forces a new Transform to be created.
+        """
+        return pulumi.get(self, "media_services_account_name")
+
+    @media_services_account_name.setter
+    def media_services_account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "media_services_account_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Transform. Changing this forces a new Transform to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputArgs']]]]:
+        """
+        One or more `output` blocks as defined below. At least one `output` must be defined.
+        """
+        return pulumi.get(self, "outputs")
+
+    @outputs.setter
+    def outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputArgs']]]]):
+        pulumi.set(self, "outputs", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Resource Group where the Transform should exist. Changing this forces a new Transform to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class Transform(pulumi.CustomResource):
@@ -345,17 +440,17 @@ class Transform(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = TransformArgs.__new__(TransformArgs)
 
-            __props__['description'] = description
+            __props__.__dict__["description"] = description
             if media_services_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'media_services_account_name'")
-            __props__['media_services_account_name'] = media_services_account_name
-            __props__['name'] = name
-            __props__['outputs'] = outputs
+            __props__.__dict__["media_services_account_name"] = media_services_account_name
+            __props__.__dict__["name"] = name
+            __props__.__dict__["outputs"] = outputs
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
         super(Transform, __self__).__init__(
             'azure:media/transform:Transform',
             resource_name,
@@ -386,13 +481,13 @@ class Transform(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _TransformState.__new__(_TransformState)
 
-        __props__["description"] = description
-        __props__["media_services_account_name"] = media_services_account_name
-        __props__["name"] = name
-        __props__["outputs"] = outputs
-        __props__["resource_group_name"] = resource_group_name
+        __props__.__dict__["description"] = description
+        __props__.__dict__["media_services_account_name"] = media_services_account_name
+        __props__.__dict__["name"] = name
+        __props__.__dict__["outputs"] = outputs
+        __props__.__dict__["resource_group_name"] = resource_group_name
         return Transform(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -434,10 +529,4 @@ class Transform(pulumi.CustomResource):
         The name of the Resource Group where the Transform should exist. Changing this forces a new Transform to be created.
         """
         return pulumi.get(self, "resource_group_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

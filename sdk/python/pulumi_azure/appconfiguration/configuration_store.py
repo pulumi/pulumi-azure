@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -113,6 +117,193 @@ class ConfigurationStoreArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _ConfigurationStoreState:
+    def __init__(__self__, *,
+                 endpoint: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['ConfigurationStoreIdentityArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 primary_read_keys: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStorePrimaryReadKeyArgs']]]] = None,
+                 primary_write_keys: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStorePrimaryWriteKeyArgs']]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 secondary_read_keys: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreSecondaryReadKeyArgs']]]] = None,
+                 secondary_write_keys: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreSecondaryWriteKeyArgs']]]] = None,
+                 sku: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering ConfigurationStore resources.
+        :param pulumi.Input[str] endpoint: The URL of the App Configuration.
+        :param pulumi.Input['ConfigurationStoreIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the App Configuration. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationStorePrimaryReadKeyArgs']]] primary_read_keys: A `primary_read_key` block as defined below containing the primary read access key.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationStorePrimaryWriteKeyArgs']]] primary_write_keys: A `primary_write_key` block as defined below containing the primary write access key.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreSecondaryReadKeyArgs']]] secondary_read_keys: A `secondary_read_key` block as defined below containing the secondary read access key.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreSecondaryWriteKeyArgs']]] secondary_write_keys: A `secondary_write_key` block as defined below containing the secondary write access key.
+        :param pulumi.Input[str] sku: The SKU name of the the App Configuration. Possible values are `free` and `standard`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if primary_read_keys is not None:
+            pulumi.set(__self__, "primary_read_keys", primary_read_keys)
+        if primary_write_keys is not None:
+            pulumi.set(__self__, "primary_write_keys", primary_write_keys)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if secondary_read_keys is not None:
+            pulumi.set(__self__, "secondary_read_keys", secondary_read_keys)
+        if secondary_write_keys is not None:
+            pulumi.set(__self__, "secondary_write_keys", secondary_write_keys)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of the App Configuration.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ConfigurationStoreIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ConfigurationStoreIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the App Configuration. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="primaryReadKeys")
+    def primary_read_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStorePrimaryReadKeyArgs']]]]:
+        """
+        A `primary_read_key` block as defined below containing the primary read access key.
+        """
+        return pulumi.get(self, "primary_read_keys")
+
+    @primary_read_keys.setter
+    def primary_read_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStorePrimaryReadKeyArgs']]]]):
+        pulumi.set(self, "primary_read_keys", value)
+
+    @property
+    @pulumi.getter(name="primaryWriteKeys")
+    def primary_write_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStorePrimaryWriteKeyArgs']]]]:
+        """
+        A `primary_write_key` block as defined below containing the primary write access key.
+        """
+        return pulumi.get(self, "primary_write_keys")
+
+    @primary_write_keys.setter
+    def primary_write_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStorePrimaryWriteKeyArgs']]]]):
+        pulumi.set(self, "primary_write_keys", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="secondaryReadKeys")
+    def secondary_read_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreSecondaryReadKeyArgs']]]]:
+        """
+        A `secondary_read_key` block as defined below containing the secondary read access key.
+        """
+        return pulumi.get(self, "secondary_read_keys")
+
+    @secondary_read_keys.setter
+    def secondary_read_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreSecondaryReadKeyArgs']]]]):
+        pulumi.set(self, "secondary_read_keys", value)
+
+    @property
+    @pulumi.getter(name="secondaryWriteKeys")
+    def secondary_write_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreSecondaryWriteKeyArgs']]]]:
+        """
+        A `secondary_write_key` block as defined below containing the secondary write access key.
+        """
+        return pulumi.get(self, "secondary_write_keys")
+
+    @secondary_write_keys.setter
+    def secondary_write_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreSecondaryWriteKeyArgs']]]]):
+        pulumi.set(self, "secondary_write_keys", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SKU name of the the App Configuration. Possible values are `free` and `standard`.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class ConfigurationStore(pulumi.CustomResource):
@@ -229,21 +420,21 @@ class ConfigurationStore(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ConfigurationStoreArgs.__new__(ConfigurationStoreArgs)
 
-            __props__['identity'] = identity
-            __props__['location'] = location
-            __props__['name'] = name
+            __props__.__dict__["identity"] = identity
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['sku'] = sku
-            __props__['tags'] = tags
-            __props__['endpoint'] = None
-            __props__['primary_read_keys'] = None
-            __props__['primary_write_keys'] = None
-            __props__['secondary_read_keys'] = None
-            __props__['secondary_write_keys'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["endpoint"] = None
+            __props__.__dict__["primary_read_keys"] = None
+            __props__.__dict__["primary_write_keys"] = None
+            __props__.__dict__["secondary_read_keys"] = None
+            __props__.__dict__["secondary_write_keys"] = None
         super(ConfigurationStore, __self__).__init__(
             'azure:appconfiguration/configurationStore:ConfigurationStore',
             resource_name,
@@ -286,19 +477,19 @@ class ConfigurationStore(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ConfigurationStoreState.__new__(_ConfigurationStoreState)
 
-        __props__["endpoint"] = endpoint
-        __props__["identity"] = identity
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["primary_read_keys"] = primary_read_keys
-        __props__["primary_write_keys"] = primary_write_keys
-        __props__["resource_group_name"] = resource_group_name
-        __props__["secondary_read_keys"] = secondary_read_keys
-        __props__["secondary_write_keys"] = secondary_write_keys
-        __props__["sku"] = sku
-        __props__["tags"] = tags
+        __props__.__dict__["endpoint"] = endpoint
+        __props__.__dict__["identity"] = identity
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["primary_read_keys"] = primary_read_keys
+        __props__.__dict__["primary_write_keys"] = primary_write_keys
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["secondary_read_keys"] = secondary_read_keys
+        __props__.__dict__["secondary_write_keys"] = secondary_write_keys
+        __props__.__dict__["sku"] = sku
+        __props__.__dict__["tags"] = tags
         return ConfigurationStore(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -388,10 +579,4 @@ class ConfigurationStore(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

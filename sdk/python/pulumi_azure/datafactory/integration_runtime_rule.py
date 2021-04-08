@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['IntegrationRuntimeRuleArgs', 'IntegrationRuntimeRule']
 
@@ -142,6 +146,145 @@ class IntegrationRuntimeRuleArgs:
     @time_to_live_min.setter
     def time_to_live_min(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "time_to_live_min", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _IntegrationRuntimeRuleState:
+    def __init__(__self__, *,
+                 compute_type: Optional[pulumi.Input[str]] = None,
+                 core_count: Optional[pulumi.Input[int]] = None,
+                 data_factory_name: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 time_to_live_min: Optional[pulumi.Input[int]] = None):
+        """
+        Input properties used for looking up and filtering IntegrationRuntimeRule resources.
+        :param pulumi.Input[str] compute_type: Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
+        :param pulumi.Input[int] core_count: Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
+        :param pulumi.Input[str] data_factory_name: Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] description: Integration runtime description.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] time_to_live_min: Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
+        """
+        if compute_type is not None:
+            pulumi.set(__self__, "compute_type", compute_type)
+        if core_count is not None:
+            pulumi.set(__self__, "core_count", core_count)
+        if data_factory_name is not None:
+            pulumi.set(__self__, "data_factory_name", data_factory_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if time_to_live_min is not None:
+            pulumi.set(__self__, "time_to_live_min", time_to_live_min)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @compute_type.setter
+    def compute_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compute_type", value)
+
+    @property
+    @pulumi.getter(name="coreCount")
+    def core_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
+        """
+        return pulumi.get(self, "core_count")
+
+    @core_count.setter
+    def core_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "core_count", value)
+
+    @property
+    @pulumi.getter(name="dataFactoryName")
+    def data_factory_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "data_factory_name")
+
+    @data_factory_name.setter
+    def data_factory_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_factory_name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Integration runtime description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="timeToLiveMin")
+    def time_to_live_min(self) -> Optional[pulumi.Input[int]]:
+        """
+        Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
+        """
+        return pulumi.get(self, "time_to_live_min")
+
+    @time_to_live_min.setter
+    def time_to_live_min(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "time_to_live_min", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class IntegrationRuntimeRule(pulumi.CustomResource):
@@ -272,20 +415,20 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = IntegrationRuntimeRuleArgs.__new__(IntegrationRuntimeRuleArgs)
 
-            __props__['compute_type'] = compute_type
-            __props__['core_count'] = core_count
+            __props__.__dict__["compute_type"] = compute_type
+            __props__.__dict__["core_count"] = core_count
             if data_factory_name is None and not opts.urn:
                 raise TypeError("Missing required property 'data_factory_name'")
-            __props__['data_factory_name'] = data_factory_name
-            __props__['description'] = description
-            __props__['location'] = location
-            __props__['name'] = name
+            __props__.__dict__["data_factory_name"] = data_factory_name
+            __props__.__dict__["description"] = description
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['time_to_live_min'] = time_to_live_min
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["time_to_live_min"] = time_to_live_min
         super(IntegrationRuntimeRule, __self__).__init__(
             'azure:datafactory/integrationRuntimeRule:IntegrationRuntimeRule',
             resource_name,
@@ -322,16 +465,16 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _IntegrationRuntimeRuleState.__new__(_IntegrationRuntimeRuleState)
 
-        __props__["compute_type"] = compute_type
-        __props__["core_count"] = core_count
-        __props__["data_factory_name"] = data_factory_name
-        __props__["description"] = description
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["resource_group_name"] = resource_group_name
-        __props__["time_to_live_min"] = time_to_live_min
+        __props__.__dict__["compute_type"] = compute_type
+        __props__.__dict__["core_count"] = core_count
+        __props__.__dict__["data_factory_name"] = data_factory_name
+        __props__.__dict__["description"] = description
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["time_to_live_min"] = time_to_live_min
         return IntegrationRuntimeRule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -397,10 +540,4 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
         Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
         """
         return pulumi.get(self, "time_to_live_min")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['ProbeArgs', 'Probe']
 
@@ -141,6 +145,157 @@ class ProbeArgs:
     @request_path.setter
     def request_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "request_path", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _ProbeState:
+    def __init__(__self__, *,
+                 interval_in_seconds: Optional[pulumi.Input[int]] = None,
+                 load_balancer_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 loadbalancer_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 number_of_probes: Optional[pulumi.Input[int]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 request_path: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Probe resources.
+        :param pulumi.Input[int] interval_in_seconds: The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
+        :param pulumi.Input[str] loadbalancer_id: The ID of the LoadBalancer in which to create the NAT Rule.
+        :param pulumi.Input[str] name: Specifies the name of the Probe.
+        :param pulumi.Input[int] number_of_probes: The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
+        :param pulumi.Input[int] port: Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
+        :param pulumi.Input[str] protocol: Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
+        :param pulumi.Input[str] request_path: The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
+        """
+        if interval_in_seconds is not None:
+            pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
+        if load_balancer_rules is not None:
+            pulumi.set(__self__, "load_balancer_rules", load_balancer_rules)
+        if loadbalancer_id is not None:
+            pulumi.set(__self__, "loadbalancer_id", loadbalancer_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if number_of_probes is not None:
+            pulumi.set(__self__, "number_of_probes", number_of_probes)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if request_path is not None:
+            pulumi.set(__self__, "request_path", request_path)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+
+    @property
+    @pulumi.getter(name="intervalInSeconds")
+    def interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
+        """
+        return pulumi.get(self, "interval_in_seconds")
+
+    @interval_in_seconds.setter
+    def interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="loadBalancerRules")
+    def load_balancer_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "load_balancer_rules")
+
+    @load_balancer_rules.setter
+    def load_balancer_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "load_balancer_rules", value)
+
+    @property
+    @pulumi.getter(name="loadbalancerId")
+    def loadbalancer_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the LoadBalancer in which to create the NAT Rule.
+        """
+        return pulumi.get(self, "loadbalancer_id")
+
+    @loadbalancer_id.setter
+    def loadbalancer_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "loadbalancer_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Probe.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="numberOfProbes")
+    def number_of_probes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
+        """
+        return pulumi.get(self, "number_of_probes")
+
+    @number_of_probes.setter
+    def number_of_probes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "number_of_probes", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="requestPath")
+    def request_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
+        """
+        return pulumi.get(self, "request_path")
+
+    @request_path.setter
+    def request_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "request_path", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which to create the resource.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class Probe(pulumi.CustomResource):
@@ -291,23 +446,23 @@ class Probe(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ProbeArgs.__new__(ProbeArgs)
 
-            __props__['interval_in_seconds'] = interval_in_seconds
+            __props__.__dict__["interval_in_seconds"] = interval_in_seconds
             if loadbalancer_id is None and not opts.urn:
                 raise TypeError("Missing required property 'loadbalancer_id'")
-            __props__['loadbalancer_id'] = loadbalancer_id
-            __props__['name'] = name
-            __props__['number_of_probes'] = number_of_probes
+            __props__.__dict__["loadbalancer_id"] = loadbalancer_id
+            __props__.__dict__["name"] = name
+            __props__.__dict__["number_of_probes"] = number_of_probes
             if port is None and not opts.urn:
                 raise TypeError("Missing required property 'port'")
-            __props__['port'] = port
-            __props__['protocol'] = protocol
-            __props__['request_path'] = request_path
+            __props__.__dict__["port"] = port
+            __props__.__dict__["protocol"] = protocol
+            __props__.__dict__["request_path"] = request_path
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['load_balancer_rules'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["load_balancer_rules"] = None
         super(Probe, __self__).__init__(
             'azure:lb/probe:Probe',
             resource_name,
@@ -345,17 +500,17 @@ class Probe(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ProbeState.__new__(_ProbeState)
 
-        __props__["interval_in_seconds"] = interval_in_seconds
-        __props__["load_balancer_rules"] = load_balancer_rules
-        __props__["loadbalancer_id"] = loadbalancer_id
-        __props__["name"] = name
-        __props__["number_of_probes"] = number_of_probes
-        __props__["port"] = port
-        __props__["protocol"] = protocol
-        __props__["request_path"] = request_path
-        __props__["resource_group_name"] = resource_group_name
+        __props__.__dict__["interval_in_seconds"] = interval_in_seconds
+        __props__.__dict__["load_balancer_rules"] = load_balancer_rules
+        __props__.__dict__["loadbalancer_id"] = loadbalancer_id
+        __props__.__dict__["name"] = name
+        __props__.__dict__["number_of_probes"] = number_of_probes
+        __props__.__dict__["port"] = port
+        __props__.__dict__["protocol"] = protocol
+        __props__.__dict__["request_path"] = request_path
+        __props__.__dict__["resource_group_name"] = resource_group_name
         return Probe(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -426,10 +581,4 @@ class Probe(pulumi.CustomResource):
         The name of the resource group in which to create the resource.
         """
         return pulumi.get(self, "resource_group_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

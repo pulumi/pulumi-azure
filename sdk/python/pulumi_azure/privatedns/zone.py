@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -81,6 +85,145 @@ class ZoneArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _ZoneState:
+    def __init__(__self__, *,
+                 max_number_of_record_sets: Optional[pulumi.Input[int]] = None,
+                 max_number_of_virtual_network_links: Optional[pulumi.Input[int]] = None,
+                 max_number_of_virtual_network_links_with_registration: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 number_of_record_sets: Optional[pulumi.Input[int]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 soa_record: Optional[pulumi.Input['ZoneSoaRecordArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Zone resources.
+        :param pulumi.Input[int] max_number_of_record_sets: The maximum number of record sets that can be created in this Private DNS zone.
+        :param pulumi.Input[int] max_number_of_virtual_network_links: The maximum number of virtual networks that can be linked to this Private DNS zone.
+        :param pulumi.Input[int] max_number_of_virtual_network_links_with_registration: The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled.
+        :param pulumi.Input[str] name: The name of the Private DNS Zone. Must be a valid domain name.
+        :param pulumi.Input[int] number_of_record_sets: The current number of record sets in this Private DNS zone.
+        :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input['ZoneSoaRecordArgs'] soa_record: An `soa_record` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Record Set.
+        """
+        if max_number_of_record_sets is not None:
+            pulumi.set(__self__, "max_number_of_record_sets", max_number_of_record_sets)
+        if max_number_of_virtual_network_links is not None:
+            pulumi.set(__self__, "max_number_of_virtual_network_links", max_number_of_virtual_network_links)
+        if max_number_of_virtual_network_links_with_registration is not None:
+            pulumi.set(__self__, "max_number_of_virtual_network_links_with_registration", max_number_of_virtual_network_links_with_registration)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if number_of_record_sets is not None:
+            pulumi.set(__self__, "number_of_record_sets", number_of_record_sets)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if soa_record is not None:
+            pulumi.set(__self__, "soa_record", soa_record)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="maxNumberOfRecordSets")
+    def max_number_of_record_sets(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of record sets that can be created in this Private DNS zone.
+        """
+        return pulumi.get(self, "max_number_of_record_sets")
+
+    @max_number_of_record_sets.setter
+    def max_number_of_record_sets(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_number_of_record_sets", value)
+
+    @property
+    @pulumi.getter(name="maxNumberOfVirtualNetworkLinks")
+    def max_number_of_virtual_network_links(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of virtual networks that can be linked to this Private DNS zone.
+        """
+        return pulumi.get(self, "max_number_of_virtual_network_links")
+
+    @max_number_of_virtual_network_links.setter
+    def max_number_of_virtual_network_links(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_number_of_virtual_network_links", value)
+
+    @property
+    @pulumi.getter(name="maxNumberOfVirtualNetworkLinksWithRegistration")
+    def max_number_of_virtual_network_links_with_registration(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled.
+        """
+        return pulumi.get(self, "max_number_of_virtual_network_links_with_registration")
+
+    @max_number_of_virtual_network_links_with_registration.setter
+    def max_number_of_virtual_network_links_with_registration(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_number_of_virtual_network_links_with_registration", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Private DNS Zone. Must be a valid domain name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="numberOfRecordSets")
+    def number_of_record_sets(self) -> Optional[pulumi.Input[int]]:
+        """
+        The current number of record sets in this Private DNS zone.
+        """
+        return pulumi.get(self, "number_of_record_sets")
+
+    @number_of_record_sets.setter
+    def number_of_record_sets(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "number_of_record_sets", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="soaRecord")
+    def soa_record(self) -> Optional[pulumi.Input['ZoneSoaRecordArgs']]:
+        """
+        An `soa_record` block as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "soa_record")
+
+    @soa_record.setter
+    def soa_record(self, value: Optional[pulumi.Input['ZoneSoaRecordArgs']]):
+        pulumi.set(self, "soa_record", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the Record Set.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class Zone(pulumi.CustomResource):
@@ -187,18 +330,18 @@ class Zone(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ZoneArgs.__new__(ZoneArgs)
 
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['soa_record'] = soa_record
-            __props__['tags'] = tags
-            __props__['max_number_of_record_sets'] = None
-            __props__['max_number_of_virtual_network_links'] = None
-            __props__['max_number_of_virtual_network_links_with_registration'] = None
-            __props__['number_of_record_sets'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["soa_record"] = soa_record
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["max_number_of_record_sets"] = None
+            __props__.__dict__["max_number_of_virtual_network_links"] = None
+            __props__.__dict__["max_number_of_virtual_network_links_with_registration"] = None
+            __props__.__dict__["number_of_record_sets"] = None
         super(Zone, __self__).__init__(
             'azure:privatedns/zone:Zone',
             resource_name,
@@ -235,16 +378,16 @@ class Zone(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ZoneState.__new__(_ZoneState)
 
-        __props__["max_number_of_record_sets"] = max_number_of_record_sets
-        __props__["max_number_of_virtual_network_links"] = max_number_of_virtual_network_links
-        __props__["max_number_of_virtual_network_links_with_registration"] = max_number_of_virtual_network_links_with_registration
-        __props__["name"] = name
-        __props__["number_of_record_sets"] = number_of_record_sets
-        __props__["resource_group_name"] = resource_group_name
-        __props__["soa_record"] = soa_record
-        __props__["tags"] = tags
+        __props__.__dict__["max_number_of_record_sets"] = max_number_of_record_sets
+        __props__.__dict__["max_number_of_virtual_network_links"] = max_number_of_virtual_network_links
+        __props__.__dict__["max_number_of_virtual_network_links_with_registration"] = max_number_of_virtual_network_links_with_registration
+        __props__.__dict__["name"] = name
+        __props__.__dict__["number_of_record_sets"] = number_of_record_sets
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["soa_record"] = soa_record
+        __props__.__dict__["tags"] = tags
         return Zone(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -310,10 +453,4 @@ class Zone(pulumi.CustomResource):
         A mapping of tags to assign to the Record Set.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

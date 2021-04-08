@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -284,6 +288,321 @@ class ApiArgs:
     @version_set_id.setter
     def version_set_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version_set_id", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _ApiState:
+    def __init__(__self__, *,
+                 api_management_name: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 import_: Optional[pulumi.Input['ApiImportArgs']] = None,
+                 is_current: Optional[pulumi.Input[bool]] = None,
+                 is_online: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 oauth2_authorization: Optional[pulumi.Input['ApiOauth2AuthorizationArgs']] = None,
+                 openid_authentication: Optional[pulumi.Input['ApiOpenidAuthenticationArgs']] = None,
+                 path: Optional[pulumi.Input[str]] = None,
+                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 revision: Optional[pulumi.Input[str]] = None,
+                 service_url: Optional[pulumi.Input[str]] = None,
+                 soap_pass_through: Optional[pulumi.Input[bool]] = None,
+                 subscription_key_parameter_names: Optional[pulumi.Input['ApiSubscriptionKeyParameterNamesArgs']] = None,
+                 subscription_required: Optional[pulumi.Input[bool]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
+                 version_set_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Api resources.
+        :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] description: A description of the API Management API, which may include HTML formatting tags.
+        :param pulumi.Input[str] display_name: The display name of the API.
+        :param pulumi.Input['ApiImportArgs'] import_: A `import` block as documented below.
+        :param pulumi.Input[bool] is_current: Is this the current API Revision?
+        :param pulumi.Input[bool] is_online: Is this API Revision online/accessible via the Gateway?
+        :param pulumi.Input[str] name: The name of the API Management API. Changing this forces a new resource to be created.
+        :param pulumi.Input['ApiOauth2AuthorizationArgs'] oauth2_authorization: An `oauth2_authorization` block as documented below.
+        :param pulumi.Input['ApiOpenidAuthenticationArgs'] openid_authentication: An `openid_authentication` block as documented below.
+        :param pulumi.Input[str] path: The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+        :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] revision: The Revision which used for this API.
+        :param pulumi.Input[str] service_url: Absolute URL of the backend service implementing this API.
+        :param pulumi.Input[bool] soap_pass_through: Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
+        :param pulumi.Input['ApiSubscriptionKeyParameterNamesArgs'] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
+        :param pulumi.Input[bool] subscription_required: Should this API require a subscription key?
+        :param pulumi.Input[str] version: The Version number of this API, if this API is versioned.
+        :param pulumi.Input[str] version_set_id: The ID of the Version Set which this API is associated with.
+        """
+        if api_management_name is not None:
+            pulumi.set(__self__, "api_management_name", api_management_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if import_ is not None:
+            pulumi.set(__self__, "import_", import_)
+        if is_current is not None:
+            pulumi.set(__self__, "is_current", is_current)
+        if is_online is not None:
+            pulumi.set(__self__, "is_online", is_online)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if oauth2_authorization is not None:
+            pulumi.set(__self__, "oauth2_authorization", oauth2_authorization)
+        if openid_authentication is not None:
+            pulumi.set(__self__, "openid_authentication", openid_authentication)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if protocols is not None:
+            pulumi.set(__self__, "protocols", protocols)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if revision is not None:
+            pulumi.set(__self__, "revision", revision)
+        if service_url is not None:
+            pulumi.set(__self__, "service_url", service_url)
+        if soap_pass_through is not None:
+            pulumi.set(__self__, "soap_pass_through", soap_pass_through)
+        if subscription_key_parameter_names is not None:
+            pulumi.set(__self__, "subscription_key_parameter_names", subscription_key_parameter_names)
+        if subscription_required is not None:
+            pulumi.set(__self__, "subscription_required", subscription_required)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+        if version_set_id is not None:
+            pulumi.set(__self__, "version_set_id", version_set_id)
+
+    @property
+    @pulumi.getter(name="apiManagementName")
+    def api_management_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "api_management_name")
+
+    @api_management_name.setter
+    def api_management_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_management_name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the API Management API, which may include HTML formatting tags.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name of the API.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="import")
+    def import_(self) -> Optional[pulumi.Input['ApiImportArgs']]:
+        """
+        A `import` block as documented below.
+        """
+        return pulumi.get(self, "import_")
+
+    @import_.setter
+    def import_(self, value: Optional[pulumi.Input['ApiImportArgs']]):
+        pulumi.set(self, "import_", value)
+
+    @property
+    @pulumi.getter(name="isCurrent")
+    def is_current(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is this the current API Revision?
+        """
+        return pulumi.get(self, "is_current")
+
+    @is_current.setter
+    def is_current(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_current", value)
+
+    @property
+    @pulumi.getter(name="isOnline")
+    def is_online(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is this API Revision online/accessible via the Gateway?
+        """
+        return pulumi.get(self, "is_online")
+
+    @is_online.setter
+    def is_online(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_online", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the API Management API. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="oauth2Authorization")
+    def oauth2_authorization(self) -> Optional[pulumi.Input['ApiOauth2AuthorizationArgs']]:
+        """
+        An `oauth2_authorization` block as documented below.
+        """
+        return pulumi.get(self, "oauth2_authorization")
+
+    @oauth2_authorization.setter
+    def oauth2_authorization(self, value: Optional[pulumi.Input['ApiOauth2AuthorizationArgs']]):
+        pulumi.set(self, "oauth2_authorization", value)
+
+    @property
+    @pulumi.getter(name="openidAuthentication")
+    def openid_authentication(self) -> Optional[pulumi.Input['ApiOpenidAuthenticationArgs']]:
+        """
+        An `openid_authentication` block as documented below.
+        """
+        return pulumi.get(self, "openid_authentication")
+
+    @openid_authentication.setter
+    def openid_authentication(self, value: Optional[pulumi.Input['ApiOpenidAuthenticationArgs']]):
+        pulumi.set(self, "openid_authentication", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+        """
+        return pulumi.get(self, "protocols")
+
+    @protocols.setter
+    def protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "protocols", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def revision(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Revision which used for this API.
+        """
+        return pulumi.get(self, "revision")
+
+    @revision.setter
+    def revision(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "revision", value)
+
+    @property
+    @pulumi.getter(name="serviceUrl")
+    def service_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Absolute URL of the backend service implementing this API.
+        """
+        return pulumi.get(self, "service_url")
+
+    @service_url.setter
+    def service_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_url", value)
+
+    @property
+    @pulumi.getter(name="soapPassThrough")
+    def soap_pass_through(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
+        """
+        return pulumi.get(self, "soap_pass_through")
+
+    @soap_pass_through.setter
+    def soap_pass_through(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "soap_pass_through", value)
+
+    @property
+    @pulumi.getter(name="subscriptionKeyParameterNames")
+    def subscription_key_parameter_names(self) -> Optional[pulumi.Input['ApiSubscriptionKeyParameterNamesArgs']]:
+        """
+        A `subscription_key_parameter_names` block as documented below.
+        """
+        return pulumi.get(self, "subscription_key_parameter_names")
+
+    @subscription_key_parameter_names.setter
+    def subscription_key_parameter_names(self, value: Optional[pulumi.Input['ApiSubscriptionKeyParameterNamesArgs']]):
+        pulumi.set(self, "subscription_key_parameter_names", value)
+
+    @property
+    @pulumi.getter(name="subscriptionRequired")
+    def subscription_required(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should this API require a subscription key?
+        """
+        return pulumi.get(self, "subscription_required")
+
+    @subscription_required.setter
+    def subscription_required(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "subscription_required", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Version number of this API, if this API is versioned.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+    @property
+    @pulumi.getter(name="versionSetId")
+    def version_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Version Set which this API is associated with.
+        """
+        return pulumi.get(self, "version_set_id")
+
+    @version_set_id.setter
+    def version_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version_set_id", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class Api(pulumi.CustomResource):
@@ -461,39 +780,39 @@ class Api(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ApiArgs.__new__(ApiArgs)
 
             if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
-            __props__['api_management_name'] = api_management_name
-            __props__['description'] = description
+            __props__.__dict__["api_management_name"] = api_management_name
+            __props__.__dict__["description"] = description
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
-            __props__['display_name'] = display_name
-            __props__['import_'] = import_
-            __props__['name'] = name
-            __props__['oauth2_authorization'] = oauth2_authorization
-            __props__['openid_authentication'] = openid_authentication
+            __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["import_"] = import_
+            __props__.__dict__["name"] = name
+            __props__.__dict__["oauth2_authorization"] = oauth2_authorization
+            __props__.__dict__["openid_authentication"] = openid_authentication
             if path is None and not opts.urn:
                 raise TypeError("Missing required property 'path'")
-            __props__['path'] = path
+            __props__.__dict__["path"] = path
             if protocols is None and not opts.urn:
                 raise TypeError("Missing required property 'protocols'")
-            __props__['protocols'] = protocols
+            __props__.__dict__["protocols"] = protocols
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if revision is None and not opts.urn:
                 raise TypeError("Missing required property 'revision'")
-            __props__['revision'] = revision
-            __props__['service_url'] = service_url
-            __props__['soap_pass_through'] = soap_pass_through
-            __props__['subscription_key_parameter_names'] = subscription_key_parameter_names
-            __props__['subscription_required'] = subscription_required
-            __props__['version'] = version
-            __props__['version_set_id'] = version_set_id
-            __props__['is_current'] = None
-            __props__['is_online'] = None
+            __props__.__dict__["revision"] = revision
+            __props__.__dict__["service_url"] = service_url
+            __props__.__dict__["soap_pass_through"] = soap_pass_through
+            __props__.__dict__["subscription_key_parameter_names"] = subscription_key_parameter_names
+            __props__.__dict__["subscription_required"] = subscription_required
+            __props__.__dict__["version"] = version
+            __props__.__dict__["version_set_id"] = version_set_id
+            __props__.__dict__["is_current"] = None
+            __props__.__dict__["is_online"] = None
         super(Api, __self__).__init__(
             'azure:apimanagement/api:Api',
             resource_name,
@@ -552,27 +871,27 @@ class Api(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ApiState.__new__(_ApiState)
 
-        __props__["api_management_name"] = api_management_name
-        __props__["description"] = description
-        __props__["display_name"] = display_name
-        __props__["import_"] = import_
-        __props__["is_current"] = is_current
-        __props__["is_online"] = is_online
-        __props__["name"] = name
-        __props__["oauth2_authorization"] = oauth2_authorization
-        __props__["openid_authentication"] = openid_authentication
-        __props__["path"] = path
-        __props__["protocols"] = protocols
-        __props__["resource_group_name"] = resource_group_name
-        __props__["revision"] = revision
-        __props__["service_url"] = service_url
-        __props__["soap_pass_through"] = soap_pass_through
-        __props__["subscription_key_parameter_names"] = subscription_key_parameter_names
-        __props__["subscription_required"] = subscription_required
-        __props__["version"] = version
-        __props__["version_set_id"] = version_set_id
+        __props__.__dict__["api_management_name"] = api_management_name
+        __props__.__dict__["description"] = description
+        __props__.__dict__["display_name"] = display_name
+        __props__.__dict__["import_"] = import_
+        __props__.__dict__["is_current"] = is_current
+        __props__.__dict__["is_online"] = is_online
+        __props__.__dict__["name"] = name
+        __props__.__dict__["oauth2_authorization"] = oauth2_authorization
+        __props__.__dict__["openid_authentication"] = openid_authentication
+        __props__.__dict__["path"] = path
+        __props__.__dict__["protocols"] = protocols
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["revision"] = revision
+        __props__.__dict__["service_url"] = service_url
+        __props__.__dict__["soap_pass_through"] = soap_pass_through
+        __props__.__dict__["subscription_key_parameter_names"] = subscription_key_parameter_names
+        __props__.__dict__["subscription_required"] = subscription_required
+        __props__.__dict__["version"] = version
+        __props__.__dict__["version_set_id"] = version_set_id
         return Api(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -726,10 +1045,4 @@ class Api(pulumi.CustomResource):
         The ID of the Version Set which this API is associated with.
         """
         return pulumi.get(self, "version_set_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

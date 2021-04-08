@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['ProtectedFileShareArgs', 'ProtectedFileShare']
 
@@ -91,6 +95,97 @@ class ProtectedFileShareArgs:
     @source_storage_account_id.setter
     def source_storage_account_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "source_storage_account_id", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _ProtectedFileShareState:
+    def __init__(__self__, *,
+                 backup_policy_id: Optional[pulumi.Input[str]] = None,
+                 recovery_vault_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 source_file_share_name: Optional[pulumi.Input[str]] = None,
+                 source_storage_account_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ProtectedFileShare resources.
+        :param pulumi.Input[str] backup_policy_id: Specifies the ID of the backup policy to use. The policy must be an Azure File Share backup policy. Other types are not supported.
+        :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure Backup Protected File Share. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_file_share_name: Specifies the name of the file share to backup. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_storage_account_id: Specifies the ID of the storage account of the file share to backup. Changing this forces a new resource to be created.
+        """
+        if backup_policy_id is not None:
+            pulumi.set(__self__, "backup_policy_id", backup_policy_id)
+        if recovery_vault_name is not None:
+            pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if source_file_share_name is not None:
+            pulumi.set(__self__, "source_file_share_name", source_file_share_name)
+        if source_storage_account_id is not None:
+            pulumi.set(__self__, "source_storage_account_id", source_storage_account_id)
+
+    @property
+    @pulumi.getter(name="backupPolicyId")
+    def backup_policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of the backup policy to use. The policy must be an Azure File Share backup policy. Other types are not supported.
+        """
+        return pulumi.get(self, "backup_policy_id")
+
+    @backup_policy_id.setter
+    def backup_policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "backup_policy_id", value)
+
+    @property
+    @pulumi.getter(name="recoveryVaultName")
+    def recovery_vault_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "recovery_vault_name")
+
+    @recovery_vault_name.setter
+    def recovery_vault_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_vault_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which to create the Azure Backup Protected File Share. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="sourceFileShareName")
+    def source_file_share_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the file share to backup. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "source_file_share_name")
+
+    @source_file_share_name.setter
+    def source_file_share_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_file_share_name", value)
+
+    @property
+    @pulumi.getter(name="sourceStorageAccountId")
+    def source_storage_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of the storage account of the file share to backup. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "source_storage_account_id")
+
+    @source_storage_account_id.setter
+    def source_storage_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_storage_account_id", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class ProtectedFileShare(pulumi.CustomResource):
@@ -262,23 +357,23 @@ class ProtectedFileShare(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ProtectedFileShareArgs.__new__(ProtectedFileShareArgs)
 
             if backup_policy_id is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_policy_id'")
-            __props__['backup_policy_id'] = backup_policy_id
+            __props__.__dict__["backup_policy_id"] = backup_policy_id
             if recovery_vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'recovery_vault_name'")
-            __props__['recovery_vault_name'] = recovery_vault_name
+            __props__.__dict__["recovery_vault_name"] = recovery_vault_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if source_file_share_name is None and not opts.urn:
                 raise TypeError("Missing required property 'source_file_share_name'")
-            __props__['source_file_share_name'] = source_file_share_name
+            __props__.__dict__["source_file_share_name"] = source_file_share_name
             if source_storage_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'source_storage_account_id'")
-            __props__['source_storage_account_id'] = source_storage_account_id
+            __props__.__dict__["source_storage_account_id"] = source_storage_account_id
         super(ProtectedFileShare, __self__).__init__(
             'azure:backup/protectedFileShare:ProtectedFileShare',
             resource_name,
@@ -309,13 +404,13 @@ class ProtectedFileShare(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ProtectedFileShareState.__new__(_ProtectedFileShareState)
 
-        __props__["backup_policy_id"] = backup_policy_id
-        __props__["recovery_vault_name"] = recovery_vault_name
-        __props__["resource_group_name"] = resource_group_name
-        __props__["source_file_share_name"] = source_file_share_name
-        __props__["source_storage_account_id"] = source_storage_account_id
+        __props__.__dict__["backup_policy_id"] = backup_policy_id
+        __props__.__dict__["recovery_vault_name"] = recovery_vault_name
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["source_file_share_name"] = source_file_share_name
+        __props__.__dict__["source_storage_account_id"] = source_storage_account_id
         return ProtectedFileShare(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -357,10 +452,4 @@ class ProtectedFileShare(pulumi.CustomResource):
         Specifies the ID of the storage account of the file share to backup. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_storage_account_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

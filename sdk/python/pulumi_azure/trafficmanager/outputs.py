@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 
 __all__ = [
@@ -44,9 +48,6 @@ class EndpointCustomHeader(dict):
         The value of custom header. Applicable for Http and Https protocol.
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -90,12 +91,26 @@ class EndpointSubnet(dict):
         """
         return pulumi.get(self, "scope")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProfileDnsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "relativeName":
+            suggest = "relative_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProfileDnsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProfileDnsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProfileDnsConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  relative_name: str,
                  ttl: int):
@@ -122,12 +137,34 @@ class ProfileDnsConfig(dict):
         """
         return pulumi.get(self, "ttl")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProfileMonitorConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customHeaders":
+            suggest = "custom_headers"
+        elif key == "expectedStatusCodeRanges":
+            suggest = "expected_status_code_ranges"
+        elif key == "intervalInSeconds":
+            suggest = "interval_in_seconds"
+        elif key == "timeoutInSeconds":
+            suggest = "timeout_in_seconds"
+        elif key == "toleratedNumberOfFailures":
+            suggest = "tolerated_number_of_failures"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProfileMonitorConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProfileMonitorConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProfileMonitorConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  port: int,
                  protocol: str,
@@ -226,9 +263,6 @@ class ProfileMonitorConfig(dict):
         """
         return pulumi.get(self, "tolerated_number_of_failures")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProfileMonitorConfigCustomHeader(dict):
@@ -257,8 +291,5 @@ class ProfileMonitorConfigCustomHeader(dict):
         The value of custom header. Applicable for Http and Https protocol.
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = [
     'ChannelDirectLineSite',
@@ -14,6 +18,29 @@ __all__ = [
 
 @pulumi.output_type
 class ChannelDirectLineSite(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enhancedAuthenticationEnabled":
+            suggest = "enhanced_authentication_enabled"
+        elif key == "trustedOrigins":
+            suggest = "trusted_origins"
+        elif key == "v1Allowed":
+            suggest = "v1_allowed"
+        elif key == "v3Allowed":
+            suggest = "v3_allowed"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelDirectLineSite. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelDirectLineSite.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelDirectLineSite.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  enabled: Optional[bool] = None,
@@ -124,8 +151,5 @@ class ChannelDirectLineSite(dict):
         Enables v3 of the Directline protocol for this site. Enabled by default
         """
         return pulumi.get(self, "v3_allowed")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

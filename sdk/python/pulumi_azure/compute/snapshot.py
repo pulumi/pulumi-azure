@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -172,6 +176,173 @@ class SnapshotArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _SnapshotState:
+    def __init__(__self__, *,
+                 create_option: Optional[pulumi.Input[str]] = None,
+                 disk_size_gb: Optional[pulumi.Input[int]] = None,
+                 encryption_settings: Optional[pulumi.Input['SnapshotEncryptionSettingsArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 source_resource_id: Optional[pulumi.Input[str]] = None,
+                 source_uri: Optional[pulumi.Input[str]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Snapshot resources.
+        :param pulumi.Input[str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] disk_size_gb: The size of the Snapshotted Disk in GB.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_resource_id: Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_uri: Specifies the URI to a Managed or Unmanaged Disk. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_id: Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        if create_option is not None:
+            pulumi.set(__self__, "create_option", create_option)
+        if disk_size_gb is not None:
+            pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+        if encryption_settings is not None:
+            pulumi.set(__self__, "encryption_settings", encryption_settings)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if source_resource_id is not None:
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
+        if source_uri is not None:
+            pulumi.set(__self__, "source_uri", source_uri)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="createOption")
+    def create_option(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "create_option")
+
+    @create_option.setter
+    def create_option(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create_option", value)
+
+    @property
+    @pulumi.getter(name="diskSizeGb")
+    def disk_size_gb(self) -> Optional[pulumi.Input[int]]:
+        """
+        The size of the Snapshotted Disk in GB.
+        """
+        return pulumi.get(self, "disk_size_gb")
+
+    @disk_size_gb.setter
+    def disk_size_gb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "disk_size_gb", value)
+
+    @property
+    @pulumi.getter(name="encryptionSettings")
+    def encryption_settings(self) -> Optional[pulumi.Input['SnapshotEncryptionSettingsArgs']]:
+        return pulumi.get(self, "encryption_settings")
+
+    @encryption_settings.setter
+    def encryption_settings(self, value: Optional[pulumi.Input['SnapshotEncryptionSettingsArgs']]):
+        pulumi.set(self, "encryption_settings", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "source_resource_id")
+
+    @source_resource_id.setter
+    def source_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_resource_id", value)
+
+    @property
+    @pulumi.getter(name="sourceUri")
+    def source_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the URI to a Managed or Unmanaged Disk. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "source_uri")
+
+    @source_uri.setter
+    def source_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_uri", value)
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @storage_account_id.setter
+    def storage_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_id", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class Snapshot(pulumi.CustomResource):
@@ -315,22 +486,22 @@ class Snapshot(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SnapshotArgs.__new__(SnapshotArgs)
 
             if create_option is None and not opts.urn:
                 raise TypeError("Missing required property 'create_option'")
-            __props__['create_option'] = create_option
-            __props__['disk_size_gb'] = disk_size_gb
-            __props__['encryption_settings'] = encryption_settings
-            __props__['location'] = location
-            __props__['name'] = name
+            __props__.__dict__["create_option"] = create_option
+            __props__.__dict__["disk_size_gb"] = disk_size_gb
+            __props__.__dict__["encryption_settings"] = encryption_settings
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['source_resource_id'] = source_resource_id
-            __props__['source_uri'] = source_uri
-            __props__['storage_account_id'] = storage_account_id
-            __props__['tags'] = tags
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["source_resource_id"] = source_resource_id
+            __props__.__dict__["source_uri"] = source_uri
+            __props__.__dict__["storage_account_id"] = storage_account_id
+            __props__.__dict__["tags"] = tags
         super(Snapshot, __self__).__init__(
             'azure:compute/snapshot:Snapshot',
             resource_name,
@@ -370,18 +541,18 @@ class Snapshot(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _SnapshotState.__new__(_SnapshotState)
 
-        __props__["create_option"] = create_option
-        __props__["disk_size_gb"] = disk_size_gb
-        __props__["encryption_settings"] = encryption_settings
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["resource_group_name"] = resource_group_name
-        __props__["source_resource_id"] = source_resource_id
-        __props__["source_uri"] = source_uri
-        __props__["storage_account_id"] = storage_account_id
-        __props__["tags"] = tags
+        __props__.__dict__["create_option"] = create_option
+        __props__.__dict__["disk_size_gb"] = disk_size_gb
+        __props__.__dict__["encryption_settings"] = encryption_settings
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["source_resource_id"] = source_resource_id
+        __props__.__dict__["source_uri"] = source_uri
+        __props__.__dict__["storage_account_id"] = storage_account_id
+        __props__.__dict__["tags"] = tags
         return Snapshot(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -460,10 +631,4 @@ class Snapshot(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

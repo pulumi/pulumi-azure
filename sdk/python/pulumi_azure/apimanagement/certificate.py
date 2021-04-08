@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['CertificateArgs', 'Certificate']
 
@@ -93,6 +97,145 @@ class CertificateArgs:
     @password.setter
     def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _CertificateState:
+    def __init__(__self__, *,
+                 api_management_name: Optional[pulumi.Input[str]] = None,
+                 data: Optional[pulumi.Input[str]] = None,
+                 expiration: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 subject: Optional[pulumi.Input[str]] = None,
+                 thumbprint: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Certificate resources.
+        :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this Service should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] data: The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] expiration: The Expiration Date of this Certificate, formatted as an RFC3339 string.
+        :param pulumi.Input[str] name: The name of the API Management Certificate. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] password: The password used for this certificate. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subject: The Subject of this Certificate.
+        :param pulumi.Input[str] thumbprint: The Thumbprint of this Certificate.
+        """
+        if api_management_name is not None:
+            pulumi.set(__self__, "api_management_name", api_management_name)
+        if data is not None:
+            pulumi.set(__self__, "data", data)
+        if expiration is not None:
+            pulumi.set(__self__, "expiration", expiration)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if subject is not None:
+            pulumi.set(__self__, "subject", subject)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
+
+    @property
+    @pulumi.getter(name="apiManagementName")
+    def api_management_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Name of the API Management Service where this Service should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "api_management_name")
+
+    @api_management_name.setter
+    def api_management_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_management_name", value)
+
+    @property
+    @pulumi.getter
+    def data(self) -> Optional[pulumi.Input[str]]:
+        """
+        The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "data")
+
+    @data.setter
+    def data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data", value)
+
+    @property
+    @pulumi.getter
+    def expiration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Expiration Date of this Certificate, formatted as an RFC3339 string.
+        """
+        return pulumi.get(self, "expiration")
+
+    @expiration.setter
+    def expiration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiration", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the API Management Certificate. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password used for this certificate. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def subject(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Subject of this Certificate.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subject", value)
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Thumbprint of this Certificate.
+        """
+        return pulumi.get(self, "thumbprint")
+
+    @thumbprint.setter
+    def thumbprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "thumbprint", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class Certificate(pulumi.CustomResource):
@@ -182,22 +325,22 @@ class Certificate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = CertificateArgs.__new__(CertificateArgs)
 
             if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
-            __props__['api_management_name'] = api_management_name
+            __props__.__dict__["api_management_name"] = api_management_name
             if data is None and not opts.urn:
                 raise TypeError("Missing required property 'data'")
-            __props__['data'] = data
-            __props__['name'] = name
-            __props__['password'] = password
+            __props__.__dict__["data"] = data
+            __props__.__dict__["name"] = name
+            __props__.__dict__["password"] = password
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['expiration'] = None
-            __props__['subject'] = None
-            __props__['thumbprint'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["expiration"] = None
+            __props__.__dict__["subject"] = None
+            __props__.__dict__["thumbprint"] = None
         super(Certificate, __self__).__init__(
             'azure:apimanagement/certificate:Certificate',
             resource_name,
@@ -234,16 +377,16 @@ class Certificate(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _CertificateState.__new__(_CertificateState)
 
-        __props__["api_management_name"] = api_management_name
-        __props__["data"] = data
-        __props__["expiration"] = expiration
-        __props__["name"] = name
-        __props__["password"] = password
-        __props__["resource_group_name"] = resource_group_name
-        __props__["subject"] = subject
-        __props__["thumbprint"] = thumbprint
+        __props__.__dict__["api_management_name"] = api_management_name
+        __props__.__dict__["data"] = data
+        __props__.__dict__["expiration"] = expiration
+        __props__.__dict__["name"] = name
+        __props__.__dict__["password"] = password
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["subject"] = subject
+        __props__.__dict__["thumbprint"] = thumbprint
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -309,10 +452,4 @@ class Certificate(pulumi.CustomResource):
         The Thumbprint of this Certificate.
         """
         return pulumi.get(self, "thumbprint")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

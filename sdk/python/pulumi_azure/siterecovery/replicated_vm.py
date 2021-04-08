@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -229,6 +233,237 @@ class ReplicatedVMArgs:
     @target_network_id.setter
     def target_network_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_network_id", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _ReplicatedVMState:
+    def __init__(__self__, *,
+                 managed_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMManagedDiskArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMNetworkInterfaceArgs']]]] = None,
+                 recovery_replication_policy_id: Optional[pulumi.Input[str]] = None,
+                 recovery_vault_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 source_recovery_fabric_name: Optional[pulumi.Input[str]] = None,
+                 source_recovery_protection_container_name: Optional[pulumi.Input[str]] = None,
+                 source_vm_id: Optional[pulumi.Input[str]] = None,
+                 target_availability_set_id: Optional[pulumi.Input[str]] = None,
+                 target_network_id: Optional[pulumi.Input[str]] = None,
+                 target_recovery_fabric_id: Optional[pulumi.Input[str]] = None,
+                 target_recovery_protection_container_id: Optional[pulumi.Input[str]] = None,
+                 target_resource_group_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ReplicatedVM resources.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicatedVMManagedDiskArgs']]] managed_disks: One or more `managed_disk` block.
+        :param pulumi.Input[str] name: The name of the network mapping.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicatedVMNetworkInterfaceArgs']]] network_interfaces: One or more `network_interface` block.
+        :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
+        :param pulumi.Input[str] source_recovery_fabric_name: Name of fabric that should contains this replication.
+        :param pulumi.Input[str] source_recovery_protection_container_name: Name of the protection container to use.
+        :param pulumi.Input[str] source_vm_id: Id of the VM to replicate
+        :param pulumi.Input[str] target_availability_set_id: Id of availability set that the new VM should belong to when a failover is done.
+        :param pulumi.Input[str] target_network_id: Network to use when a failover is done (recommended to set if any network_interface is configured for failover).
+        :param pulumi.Input[str] target_recovery_fabric_id: Id of fabric where the VM replication should be handled when a failover is done.
+        :param pulumi.Input[str] target_recovery_protection_container_id: Id of protection container where the VM replication should be created when a failover is done.
+        :param pulumi.Input[str] target_resource_group_id: Id of resource group where the VM should be created when a failover is done.
+        """
+        if managed_disks is not None:
+            pulumi.set(__self__, "managed_disks", managed_disks)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if network_interfaces is not None:
+            pulumi.set(__self__, "network_interfaces", network_interfaces)
+        if recovery_replication_policy_id is not None:
+            pulumi.set(__self__, "recovery_replication_policy_id", recovery_replication_policy_id)
+        if recovery_vault_name is not None:
+            pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if source_recovery_fabric_name is not None:
+            pulumi.set(__self__, "source_recovery_fabric_name", source_recovery_fabric_name)
+        if source_recovery_protection_container_name is not None:
+            pulumi.set(__self__, "source_recovery_protection_container_name", source_recovery_protection_container_name)
+        if source_vm_id is not None:
+            pulumi.set(__self__, "source_vm_id", source_vm_id)
+        if target_availability_set_id is not None:
+            pulumi.set(__self__, "target_availability_set_id", target_availability_set_id)
+        if target_network_id is not None:
+            pulumi.set(__self__, "target_network_id", target_network_id)
+        if target_recovery_fabric_id is not None:
+            pulumi.set(__self__, "target_recovery_fabric_id", target_recovery_fabric_id)
+        if target_recovery_protection_container_id is not None:
+            pulumi.set(__self__, "target_recovery_protection_container_id", target_recovery_protection_container_id)
+        if target_resource_group_id is not None:
+            pulumi.set(__self__, "target_resource_group_id", target_resource_group_id)
+
+    @property
+    @pulumi.getter(name="managedDisks")
+    def managed_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMManagedDiskArgs']]]]:
+        """
+        One or more `managed_disk` block.
+        """
+        return pulumi.get(self, "managed_disks")
+
+    @managed_disks.setter
+    def managed_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMManagedDiskArgs']]]]):
+        pulumi.set(self, "managed_disks", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the network mapping.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="networkInterfaces")
+    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMNetworkInterfaceArgs']]]]:
+        """
+        One or more `network_interface` block.
+        """
+        return pulumi.get(self, "network_interfaces")
+
+    @network_interfaces.setter
+    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMNetworkInterfaceArgs']]]]):
+        pulumi.set(self, "network_interfaces", value)
+
+    @property
+    @pulumi.getter(name="recoveryReplicationPolicyId")
+    def recovery_replication_policy_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "recovery_replication_policy_id")
+
+    @recovery_replication_policy_id.setter
+    def recovery_replication_policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_replication_policy_id", value)
+
+    @property
+    @pulumi.getter(name="recoveryVaultName")
+    def recovery_vault_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the vault that should be updated.
+        """
+        return pulumi.get(self, "recovery_vault_name")
+
+    @recovery_vault_name.setter
+    def recovery_vault_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_vault_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the resource group where the vault that should be updated is located.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="sourceRecoveryFabricName")
+    def source_recovery_fabric_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of fabric that should contains this replication.
+        """
+        return pulumi.get(self, "source_recovery_fabric_name")
+
+    @source_recovery_fabric_name.setter
+    def source_recovery_fabric_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_recovery_fabric_name", value)
+
+    @property
+    @pulumi.getter(name="sourceRecoveryProtectionContainerName")
+    def source_recovery_protection_container_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the protection container to use.
+        """
+        return pulumi.get(self, "source_recovery_protection_container_name")
+
+    @source_recovery_protection_container_name.setter
+    def source_recovery_protection_container_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_recovery_protection_container_name", value)
+
+    @property
+    @pulumi.getter(name="sourceVmId")
+    def source_vm_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the VM to replicate
+        """
+        return pulumi.get(self, "source_vm_id")
+
+    @source_vm_id.setter
+    def source_vm_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_vm_id", value)
+
+    @property
+    @pulumi.getter(name="targetAvailabilitySetId")
+    def target_availability_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of availability set that the new VM should belong to when a failover is done.
+        """
+        return pulumi.get(self, "target_availability_set_id")
+
+    @target_availability_set_id.setter
+    def target_availability_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_availability_set_id", value)
+
+    @property
+    @pulumi.getter(name="targetNetworkId")
+    def target_network_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Network to use when a failover is done (recommended to set if any network_interface is configured for failover).
+        """
+        return pulumi.get(self, "target_network_id")
+
+    @target_network_id.setter
+    def target_network_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_network_id", value)
+
+    @property
+    @pulumi.getter(name="targetRecoveryFabricId")
+    def target_recovery_fabric_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of fabric where the VM replication should be handled when a failover is done.
+        """
+        return pulumi.get(self, "target_recovery_fabric_id")
+
+    @target_recovery_fabric_id.setter
+    def target_recovery_fabric_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_recovery_fabric_id", value)
+
+    @property
+    @pulumi.getter(name="targetRecoveryProtectionContainerId")
+    def target_recovery_protection_container_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of protection container where the VM replication should be created when a failover is done.
+        """
+        return pulumi.get(self, "target_recovery_protection_container_id")
+
+    @target_recovery_protection_container_id.setter
+    def target_recovery_protection_container_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_recovery_protection_container_id", value)
+
+    @property
+    @pulumi.getter(name="targetResourceGroupId")
+    def target_resource_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of resource group where the VM should be created when a failover is done.
+        """
+        return pulumi.get(self, "target_resource_group_id")
+
+    @target_resource_group_id.setter
+    def target_resource_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_group_id", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class ReplicatedVM(pulumi.CustomResource):
@@ -344,40 +579,40 @@ class ReplicatedVM(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ReplicatedVMArgs.__new__(ReplicatedVMArgs)
 
-            __props__['managed_disks'] = managed_disks
-            __props__['name'] = name
-            __props__['network_interfaces'] = network_interfaces
+            __props__.__dict__["managed_disks"] = managed_disks
+            __props__.__dict__["name"] = name
+            __props__.__dict__["network_interfaces"] = network_interfaces
             if recovery_replication_policy_id is None and not opts.urn:
                 raise TypeError("Missing required property 'recovery_replication_policy_id'")
-            __props__['recovery_replication_policy_id'] = recovery_replication_policy_id
+            __props__.__dict__["recovery_replication_policy_id"] = recovery_replication_policy_id
             if recovery_vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'recovery_vault_name'")
-            __props__['recovery_vault_name'] = recovery_vault_name
+            __props__.__dict__["recovery_vault_name"] = recovery_vault_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if source_recovery_fabric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'source_recovery_fabric_name'")
-            __props__['source_recovery_fabric_name'] = source_recovery_fabric_name
+            __props__.__dict__["source_recovery_fabric_name"] = source_recovery_fabric_name
             if source_recovery_protection_container_name is None and not opts.urn:
                 raise TypeError("Missing required property 'source_recovery_protection_container_name'")
-            __props__['source_recovery_protection_container_name'] = source_recovery_protection_container_name
+            __props__.__dict__["source_recovery_protection_container_name"] = source_recovery_protection_container_name
             if source_vm_id is None and not opts.urn:
                 raise TypeError("Missing required property 'source_vm_id'")
-            __props__['source_vm_id'] = source_vm_id
-            __props__['target_availability_set_id'] = target_availability_set_id
-            __props__['target_network_id'] = target_network_id
+            __props__.__dict__["source_vm_id"] = source_vm_id
+            __props__.__dict__["target_availability_set_id"] = target_availability_set_id
+            __props__.__dict__["target_network_id"] = target_network_id
             if target_recovery_fabric_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_recovery_fabric_id'")
-            __props__['target_recovery_fabric_id'] = target_recovery_fabric_id
+            __props__.__dict__["target_recovery_fabric_id"] = target_recovery_fabric_id
             if target_recovery_protection_container_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_recovery_protection_container_id'")
-            __props__['target_recovery_protection_container_id'] = target_recovery_protection_container_id
+            __props__.__dict__["target_recovery_protection_container_id"] = target_recovery_protection_container_id
             if target_resource_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_resource_group_id'")
-            __props__['target_resource_group_id'] = target_resource_group_id
+            __props__.__dict__["target_resource_group_id"] = target_resource_group_id
         super(ReplicatedVM, __self__).__init__(
             'azure:siterecovery/replicatedVM:ReplicatedVM',
             resource_name,
@@ -425,22 +660,22 @@ class ReplicatedVM(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ReplicatedVMState.__new__(_ReplicatedVMState)
 
-        __props__["managed_disks"] = managed_disks
-        __props__["name"] = name
-        __props__["network_interfaces"] = network_interfaces
-        __props__["recovery_replication_policy_id"] = recovery_replication_policy_id
-        __props__["recovery_vault_name"] = recovery_vault_name
-        __props__["resource_group_name"] = resource_group_name
-        __props__["source_recovery_fabric_name"] = source_recovery_fabric_name
-        __props__["source_recovery_protection_container_name"] = source_recovery_protection_container_name
-        __props__["source_vm_id"] = source_vm_id
-        __props__["target_availability_set_id"] = target_availability_set_id
-        __props__["target_network_id"] = target_network_id
-        __props__["target_recovery_fabric_id"] = target_recovery_fabric_id
-        __props__["target_recovery_protection_container_id"] = target_recovery_protection_container_id
-        __props__["target_resource_group_id"] = target_resource_group_id
+        __props__.__dict__["managed_disks"] = managed_disks
+        __props__.__dict__["name"] = name
+        __props__.__dict__["network_interfaces"] = network_interfaces
+        __props__.__dict__["recovery_replication_policy_id"] = recovery_replication_policy_id
+        __props__.__dict__["recovery_vault_name"] = recovery_vault_name
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["source_recovery_fabric_name"] = source_recovery_fabric_name
+        __props__.__dict__["source_recovery_protection_container_name"] = source_recovery_protection_container_name
+        __props__.__dict__["source_vm_id"] = source_vm_id
+        __props__.__dict__["target_availability_set_id"] = target_availability_set_id
+        __props__.__dict__["target_network_id"] = target_network_id
+        __props__.__dict__["target_recovery_fabric_id"] = target_recovery_fabric_id
+        __props__.__dict__["target_recovery_protection_container_id"] = target_recovery_protection_container_id
+        __props__.__dict__["target_resource_group_id"] = target_resource_group_id
         return ReplicatedVM(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -551,10 +786,4 @@ class ReplicatedVM(pulumi.CustomResource):
         Id of resource group where the VM should be created when a failover is done.
         """
         return pulumi.get(self, "target_resource_group_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

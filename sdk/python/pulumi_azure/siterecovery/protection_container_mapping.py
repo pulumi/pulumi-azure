@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['ProtectionContainerMappingArgs', 'ProtectionContainerMapping']
 
@@ -122,6 +126,129 @@ class ProtectionContainerMappingArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _ProtectionContainerMappingState:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 recovery_fabric_name: Optional[pulumi.Input[str]] = None,
+                 recovery_replication_policy_id: Optional[pulumi.Input[str]] = None,
+                 recovery_source_protection_container_name: Optional[pulumi.Input[str]] = None,
+                 recovery_target_protection_container_id: Optional[pulumi.Input[str]] = None,
+                 recovery_vault_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ProtectionContainerMapping resources.
+        :param pulumi.Input[str] name: The name of the network mapping.
+        :param pulumi.Input[str] recovery_fabric_name: Name of fabric that should contains the protection container to map.
+        :param pulumi.Input[str] recovery_replication_policy_id: Id of the policy to use for this mapping.
+        :param pulumi.Input[str] recovery_source_protection_container_name: Name of the source protection container to map.
+        :param pulumi.Input[str] recovery_target_protection_container_id: Id of target protection container to map to.
+        :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if recovery_fabric_name is not None:
+            pulumi.set(__self__, "recovery_fabric_name", recovery_fabric_name)
+        if recovery_replication_policy_id is not None:
+            pulumi.set(__self__, "recovery_replication_policy_id", recovery_replication_policy_id)
+        if recovery_source_protection_container_name is not None:
+            pulumi.set(__self__, "recovery_source_protection_container_name", recovery_source_protection_container_name)
+        if recovery_target_protection_container_id is not None:
+            pulumi.set(__self__, "recovery_target_protection_container_id", recovery_target_protection_container_id)
+        if recovery_vault_name is not None:
+            pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the network mapping.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="recoveryFabricName")
+    def recovery_fabric_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of fabric that should contains the protection container to map.
+        """
+        return pulumi.get(self, "recovery_fabric_name")
+
+    @recovery_fabric_name.setter
+    def recovery_fabric_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_fabric_name", value)
+
+    @property
+    @pulumi.getter(name="recoveryReplicationPolicyId")
+    def recovery_replication_policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the policy to use for this mapping.
+        """
+        return pulumi.get(self, "recovery_replication_policy_id")
+
+    @recovery_replication_policy_id.setter
+    def recovery_replication_policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_replication_policy_id", value)
+
+    @property
+    @pulumi.getter(name="recoverySourceProtectionContainerName")
+    def recovery_source_protection_container_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the source protection container to map.
+        """
+        return pulumi.get(self, "recovery_source_protection_container_name")
+
+    @recovery_source_protection_container_name.setter
+    def recovery_source_protection_container_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_source_protection_container_name", value)
+
+    @property
+    @pulumi.getter(name="recoveryTargetProtectionContainerId")
+    def recovery_target_protection_container_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of target protection container to map to.
+        """
+        return pulumi.get(self, "recovery_target_protection_container_id")
+
+    @recovery_target_protection_container_id.setter
+    def recovery_target_protection_container_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_target_protection_container_id", value)
+
+    @property
+    @pulumi.getter(name="recoveryVaultName")
+    def recovery_vault_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the vault that should be updated.
+        """
+        return pulumi.get(self, "recovery_vault_name")
+
+    @recovery_vault_name.setter
+    def recovery_vault_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_vault_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the resource group where the vault that should be updated is located.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class ProtectionContainerMapping(pulumi.CustomResource):
@@ -301,27 +428,27 @@ class ProtectionContainerMapping(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ProtectionContainerMappingArgs.__new__(ProtectionContainerMappingArgs)
 
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if recovery_fabric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'recovery_fabric_name'")
-            __props__['recovery_fabric_name'] = recovery_fabric_name
+            __props__.__dict__["recovery_fabric_name"] = recovery_fabric_name
             if recovery_replication_policy_id is None and not opts.urn:
                 raise TypeError("Missing required property 'recovery_replication_policy_id'")
-            __props__['recovery_replication_policy_id'] = recovery_replication_policy_id
+            __props__.__dict__["recovery_replication_policy_id"] = recovery_replication_policy_id
             if recovery_source_protection_container_name is None and not opts.urn:
                 raise TypeError("Missing required property 'recovery_source_protection_container_name'")
-            __props__['recovery_source_protection_container_name'] = recovery_source_protection_container_name
+            __props__.__dict__["recovery_source_protection_container_name"] = recovery_source_protection_container_name
             if recovery_target_protection_container_id is None and not opts.urn:
                 raise TypeError("Missing required property 'recovery_target_protection_container_id'")
-            __props__['recovery_target_protection_container_id'] = recovery_target_protection_container_id
+            __props__.__dict__["recovery_target_protection_container_id"] = recovery_target_protection_container_id
             if recovery_vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'recovery_vault_name'")
-            __props__['recovery_vault_name'] = recovery_vault_name
+            __props__.__dict__["recovery_vault_name"] = recovery_vault_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
         super(ProtectionContainerMapping, __self__).__init__(
             'azure:siterecovery/protectionContainerMapping:ProtectionContainerMapping',
             resource_name,
@@ -356,15 +483,15 @@ class ProtectionContainerMapping(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ProtectionContainerMappingState.__new__(_ProtectionContainerMappingState)
 
-        __props__["name"] = name
-        __props__["recovery_fabric_name"] = recovery_fabric_name
-        __props__["recovery_replication_policy_id"] = recovery_replication_policy_id
-        __props__["recovery_source_protection_container_name"] = recovery_source_protection_container_name
-        __props__["recovery_target_protection_container_id"] = recovery_target_protection_container_id
-        __props__["recovery_vault_name"] = recovery_vault_name
-        __props__["resource_group_name"] = resource_group_name
+        __props__.__dict__["name"] = name
+        __props__.__dict__["recovery_fabric_name"] = recovery_fabric_name
+        __props__.__dict__["recovery_replication_policy_id"] = recovery_replication_policy_id
+        __props__.__dict__["recovery_source_protection_container_name"] = recovery_source_protection_container_name
+        __props__.__dict__["recovery_target_protection_container_id"] = recovery_target_protection_container_id
+        __props__.__dict__["recovery_vault_name"] = recovery_vault_name
+        __props__.__dict__["resource_group_name"] = resource_group_name
         return ProtectionContainerMapping(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -422,10 +549,4 @@ class ProtectionContainerMapping(pulumi.CustomResource):
         Name of the resource group where the vault that should be updated is located.
         """
         return pulumi.get(self, "resource_group_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

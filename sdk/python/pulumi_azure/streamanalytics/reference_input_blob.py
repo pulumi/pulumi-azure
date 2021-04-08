@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -169,6 +173,177 @@ class ReferenceInputBlobArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _ReferenceInputBlobState:
+    def __init__(__self__, *,
+                 date_format: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 path_pattern: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 serialization: Optional[pulumi.Input['ReferenceInputBlobSerializationArgs']] = None,
+                 storage_account_key: Optional[pulumi.Input[str]] = None,
+                 storage_account_name: Optional[pulumi.Input[str]] = None,
+                 storage_container_name: Optional[pulumi.Input[str]] = None,
+                 stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+                 time_format: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ReferenceInputBlob resources.
+        :param pulumi.Input[str] date_format: The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
+        :param pulumi.Input[str] name: The name of the Reference Input Blob. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
+        :param pulumi.Input['ReferenceInputBlobSerializationArgs'] serialization: A `serialization` block as defined below.
+        :param pulumi.Input[str] storage_account_key: The Access Key which should be used to connect to this Storage Account.
+        :param pulumi.Input[str] storage_account_name: The name of the Storage Account that has the blob container with reference data.
+        :param pulumi.Input[str] storage_container_name: The name of the Container within the Storage Account.
+        :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] time_format: The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
+        """
+        if date_format is not None:
+            pulumi.set(__self__, "date_format", date_format)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if path_pattern is not None:
+            pulumi.set(__self__, "path_pattern", path_pattern)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if serialization is not None:
+            pulumi.set(__self__, "serialization", serialization)
+        if storage_account_key is not None:
+            pulumi.set(__self__, "storage_account_key", storage_account_key)
+        if storage_account_name is not None:
+            pulumi.set(__self__, "storage_account_name", storage_account_name)
+        if storage_container_name is not None:
+            pulumi.set(__self__, "storage_container_name", storage_container_name)
+        if stream_analytics_job_name is not None:
+            pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
+        if time_format is not None:
+            pulumi.set(__self__, "time_format", time_format)
+
+    @property
+    @pulumi.getter(name="dateFormat")
+    def date_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
+        """
+        return pulumi.get(self, "date_format")
+
+    @date_format.setter
+    def date_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "date_format", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Reference Input Blob. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="pathPattern")
+    def path_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
+        """
+        return pulumi.get(self, "path_pattern")
+
+    @path_pattern.setter
+    def path_pattern(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path_pattern", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def serialization(self) -> Optional[pulumi.Input['ReferenceInputBlobSerializationArgs']]:
+        """
+        A `serialization` block as defined below.
+        """
+        return pulumi.get(self, "serialization")
+
+    @serialization.setter
+    def serialization(self, value: Optional[pulumi.Input['ReferenceInputBlobSerializationArgs']]):
+        pulumi.set(self, "serialization", value)
+
+    @property
+    @pulumi.getter(name="storageAccountKey")
+    def storage_account_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Access Key which should be used to connect to this Storage Account.
+        """
+        return pulumi.get(self, "storage_account_key")
+
+    @storage_account_key.setter
+    def storage_account_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_key", value)
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Storage Account that has the blob container with reference data.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @storage_account_name.setter
+    def storage_account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_name", value)
+
+    @property
+    @pulumi.getter(name="storageContainerName")
+    def storage_container_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Container within the Storage Account.
+        """
+        return pulumi.get(self, "storage_container_name")
+
+    @storage_container_name.setter
+    def storage_container_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_container_name", value)
+
+    @property
+    @pulumi.getter(name="streamAnalyticsJobName")
+    def stream_analytics_job_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Stream Analytics Job. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "stream_analytics_job_name")
+
+    @stream_analytics_job_name.setter
+    def stream_analytics_job_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stream_analytics_job_name", value)
+
+    @property
+    @pulumi.getter(name="timeFormat")
+    def time_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
+        """
+        return pulumi.get(self, "time_format")
+
+    @time_format.setter
+    def time_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_format", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class ReferenceInputBlob(pulumi.CustomResource):
@@ -337,36 +512,36 @@ class ReferenceInputBlob(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ReferenceInputBlobArgs.__new__(ReferenceInputBlobArgs)
 
             if date_format is None and not opts.urn:
                 raise TypeError("Missing required property 'date_format'")
-            __props__['date_format'] = date_format
-            __props__['name'] = name
+            __props__.__dict__["date_format"] = date_format
+            __props__.__dict__["name"] = name
             if path_pattern is None and not opts.urn:
                 raise TypeError("Missing required property 'path_pattern'")
-            __props__['path_pattern'] = path_pattern
+            __props__.__dict__["path_pattern"] = path_pattern
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if serialization is None and not opts.urn:
                 raise TypeError("Missing required property 'serialization'")
-            __props__['serialization'] = serialization
+            __props__.__dict__["serialization"] = serialization
             if storage_account_key is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_key'")
-            __props__['storage_account_key'] = storage_account_key
+            __props__.__dict__["storage_account_key"] = storage_account_key
             if storage_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_name'")
-            __props__['storage_account_name'] = storage_account_name
+            __props__.__dict__["storage_account_name"] = storage_account_name
             if storage_container_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_container_name'")
-            __props__['storage_container_name'] = storage_container_name
+            __props__.__dict__["storage_container_name"] = storage_container_name
             if stream_analytics_job_name is None and not opts.urn:
                 raise TypeError("Missing required property 'stream_analytics_job_name'")
-            __props__['stream_analytics_job_name'] = stream_analytics_job_name
+            __props__.__dict__["stream_analytics_job_name"] = stream_analytics_job_name
             if time_format is None and not opts.urn:
                 raise TypeError("Missing required property 'time_format'")
-            __props__['time_format'] = time_format
+            __props__.__dict__["time_format"] = time_format
         super(ReferenceInputBlob, __self__).__init__(
             'azure:streamanalytics/referenceInputBlob:ReferenceInputBlob',
             resource_name,
@@ -407,18 +582,18 @@ class ReferenceInputBlob(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ReferenceInputBlobState.__new__(_ReferenceInputBlobState)
 
-        __props__["date_format"] = date_format
-        __props__["name"] = name
-        __props__["path_pattern"] = path_pattern
-        __props__["resource_group_name"] = resource_group_name
-        __props__["serialization"] = serialization
-        __props__["storage_account_key"] = storage_account_key
-        __props__["storage_account_name"] = storage_account_name
-        __props__["storage_container_name"] = storage_container_name
-        __props__["stream_analytics_job_name"] = stream_analytics_job_name
-        __props__["time_format"] = time_format
+        __props__.__dict__["date_format"] = date_format
+        __props__.__dict__["name"] = name
+        __props__.__dict__["path_pattern"] = path_pattern
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["serialization"] = serialization
+        __props__.__dict__["storage_account_key"] = storage_account_key
+        __props__.__dict__["storage_account_name"] = storage_account_name
+        __props__.__dict__["storage_container_name"] = storage_container_name
+        __props__.__dict__["stream_analytics_job_name"] = stream_analytics_job_name
+        __props__.__dict__["time_format"] = time_format
         return ReferenceInputBlob(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -500,10 +675,4 @@ class ReferenceInputBlob(pulumi.CustomResource):
         The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
         """
         return pulumi.get(self, "time_format")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -122,6 +126,125 @@ class GlobalVMShutdownScheduleArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _GlobalVMShutdownScheduleState:
+    def __init__(__self__, *,
+                 daily_recurrence_time: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 notification_settings: Optional[pulumi.Input['GlobalVMShutdownScheduleNotificationSettingsArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 timezone: Optional[pulumi.Input[str]] = None,
+                 virtual_machine_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering GlobalVMShutdownSchedule resources.
+        :param pulumi.Input[str] daily_recurrence_time: The time each day when the schedule takes effect. Must match the format HHmm where HH is 00-23 and mm is 00-59 (e.g. 0930, 2300, etc.)
+        :param pulumi.Input[bool] enabled: Whether to enable the schedule. Possible values are `true` and `false`. Defaults to `true`.
+        :param pulumi.Input[str] location: The location where the schedule is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] timezone: The time zone ID (e.g. Pacific Standard time). Refer to this guide for a [full list of accepted time zone names](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+        :param pulumi.Input[str] virtual_machine_id: The resource ID of the target ARM-based Virtual Machine. Changing this forces a new resource to be created.
+        """
+        if daily_recurrence_time is not None:
+            pulumi.set(__self__, "daily_recurrence_time", daily_recurrence_time)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if notification_settings is not None:
+            pulumi.set(__self__, "notification_settings", notification_settings)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+        if virtual_machine_id is not None:
+            pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+
+    @property
+    @pulumi.getter(name="dailyRecurrenceTime")
+    def daily_recurrence_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time each day when the schedule takes effect. Must match the format HHmm where HH is 00-23 and mm is 00-59 (e.g. 0930, 2300, etc.)
+        """
+        return pulumi.get(self, "daily_recurrence_time")
+
+    @daily_recurrence_time.setter
+    def daily_recurrence_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "daily_recurrence_time", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable the schedule. Possible values are `true` and `false`. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location where the schedule is created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="notificationSettings")
+    def notification_settings(self) -> Optional[pulumi.Input['GlobalVMShutdownScheduleNotificationSettingsArgs']]:
+        return pulumi.get(self, "notification_settings")
+
+    @notification_settings.setter
+    def notification_settings(self, value: Optional[pulumi.Input['GlobalVMShutdownScheduleNotificationSettingsArgs']]):
+        pulumi.set(self, "notification_settings", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time zone ID (e.g. Pacific Standard time). Refer to this guide for a [full list of accepted time zone names](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+        """
+        return pulumi.get(self, "timezone")
+
+    @timezone.setter
+    def timezone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timezone", value)
+
+    @property
+    @pulumi.getter(name="virtualMachineId")
+    def virtual_machine_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the target ARM-based Virtual Machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "virtual_machine_id")
+
+    @virtual_machine_id.setter
+    def virtual_machine_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_machine_id", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class GlobalVMShutdownSchedule(pulumi.CustomResource):
@@ -334,23 +457,23 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = GlobalVMShutdownScheduleArgs.__new__(GlobalVMShutdownScheduleArgs)
 
             if daily_recurrence_time is None and not opts.urn:
                 raise TypeError("Missing required property 'daily_recurrence_time'")
-            __props__['daily_recurrence_time'] = daily_recurrence_time
-            __props__['enabled'] = enabled
-            __props__['location'] = location
+            __props__.__dict__["daily_recurrence_time"] = daily_recurrence_time
+            __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["location"] = location
             if notification_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'notification_settings'")
-            __props__['notification_settings'] = notification_settings
-            __props__['tags'] = tags
+            __props__.__dict__["notification_settings"] = notification_settings
+            __props__.__dict__["tags"] = tags
             if timezone is None and not opts.urn:
                 raise TypeError("Missing required property 'timezone'")
-            __props__['timezone'] = timezone
+            __props__.__dict__["timezone"] = timezone
             if virtual_machine_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_machine_id'")
-            __props__['virtual_machine_id'] = virtual_machine_id
+            __props__.__dict__["virtual_machine_id"] = virtual_machine_id
         super(GlobalVMShutdownSchedule, __self__).__init__(
             'azure:devtest/globalVMShutdownSchedule:GlobalVMShutdownSchedule',
             resource_name,
@@ -384,15 +507,15 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _GlobalVMShutdownScheduleState.__new__(_GlobalVMShutdownScheduleState)
 
-        __props__["daily_recurrence_time"] = daily_recurrence_time
-        __props__["enabled"] = enabled
-        __props__["location"] = location
-        __props__["notification_settings"] = notification_settings
-        __props__["tags"] = tags
-        __props__["timezone"] = timezone
-        __props__["virtual_machine_id"] = virtual_machine_id
+        __props__.__dict__["daily_recurrence_time"] = daily_recurrence_time
+        __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["location"] = location
+        __props__.__dict__["notification_settings"] = notification_settings
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["timezone"] = timezone
+        __props__.__dict__["virtual_machine_id"] = virtual_machine_id
         return GlobalVMShutdownSchedule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -447,10 +570,4 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
         The resource ID of the target ARM-based Virtual Machine. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_machine_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

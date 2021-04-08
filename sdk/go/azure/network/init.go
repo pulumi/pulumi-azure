@@ -37,8 +37,11 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ExpressRouteCircuitPeering{}
 	case "azure:network/expressRouteGateway:ExpressRouteGateway":
 		r = &ExpressRouteGateway{}
+<<<<<<< HEAD
 	case "azure:network/expressRoutePort:ExpressRoutePort":
 		r = &ExpressRoutePort{}
+=======
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 	case "azure:network/firewall:Firewall":
 		r = &Firewall{}
 	case "azure:network/firewallApplicationRuleCollection:FirewallApplicationRuleCollection":

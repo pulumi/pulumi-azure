@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['SyncGroupArgs', 'SyncGroup']
 
@@ -47,6 +51,49 @@ class SyncGroupArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _SyncGroupState:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 storage_sync_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering SyncGroup resources.
+        :param pulumi.Input[str] name: The name which should be used for this Storage Sync Group. Changing this forces a new Storage Sync Group to be created.
+        :param pulumi.Input[str] storage_sync_id: The resource ID of the Storage Sync where this Storage Sync Group is. Changing this forces a new Storage Sync Group to be created.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if storage_sync_id is not None:
+            pulumi.set(__self__, "storage_sync_id", storage_sync_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Storage Sync Group. Changing this forces a new Storage Sync Group to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="storageSyncId")
+    def storage_sync_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the Storage Sync where this Storage Sync Group is. Changing this forces a new Storage Sync Group to be created.
+        """
+        return pulumi.get(self, "storage_sync_id")
+
+    @storage_sync_id.setter
+    def storage_sync_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_sync_id", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class SyncGroup(pulumi.CustomResource):
@@ -153,12 +200,12 @@ class SyncGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SyncGroupArgs.__new__(SyncGroupArgs)
 
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if storage_sync_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_sync_id'")
-            __props__['storage_sync_id'] = storage_sync_id
+            __props__.__dict__["storage_sync_id"] = storage_sync_id
         super(SyncGroup, __self__).__init__(
             'azure:storage/syncGroup:SyncGroup',
             resource_name,
@@ -183,10 +230,10 @@ class SyncGroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _SyncGroupState.__new__(_SyncGroupState)
 
-        __props__["name"] = name
-        __props__["storage_sync_id"] = storage_sync_id
+        __props__.__dict__["name"] = name
+        __props__.__dict__["storage_sync_id"] = storage_sync_id
         return SyncGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -204,10 +251,4 @@ class SyncGroup(pulumi.CustomResource):
         The resource ID of the Storage Sync where this Storage Sync Group is. Changing this forces a new Storage Sync Group to be created.
         """
         return pulumi.get(self, "storage_sync_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

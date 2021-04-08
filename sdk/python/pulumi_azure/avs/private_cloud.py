@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -178,6 +182,325 @@ class PrivateCloudArgs:
     @vcenter_password.setter
     def vcenter_password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vcenter_password", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _PrivateCloudState:
+    def __init__(__self__, *,
+                 circuits: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateCloudCircuitArgs']]]] = None,
+                 hcx_cloud_manager_endpoint: Optional[pulumi.Input[str]] = None,
+                 internet_connection_enabled: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 management_cluster: Optional[pulumi.Input['PrivateCloudManagementClusterArgs']] = None,
+                 management_subnet_cidr: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_subnet_cidr: Optional[pulumi.Input[str]] = None,
+                 nsxt_certificate_thumbprint: Optional[pulumi.Input[str]] = None,
+                 nsxt_manager_endpoint: Optional[pulumi.Input[str]] = None,
+                 nsxt_password: Optional[pulumi.Input[str]] = None,
+                 provisioning_subnet_cidr: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vcenter_certificate_thumbprint: Optional[pulumi.Input[str]] = None,
+                 vcenter_password: Optional[pulumi.Input[str]] = None,
+                 vcsa_endpoint: Optional[pulumi.Input[str]] = None,
+                 vmotion_subnet_cidr: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering PrivateCloud resources.
+        :param pulumi.Input[Sequence[pulumi.Input['PrivateCloudCircuitArgs']]] circuits: A `circuit` block as defined below.
+        :param pulumi.Input[str] hcx_cloud_manager_endpoint: The endpoint for the HCX Cloud Manager.
+        :param pulumi.Input[bool] internet_connection_enabled: Is the Private Cluster connected to the internet? This field can not updated with `management_cluster.0.size` together.
+               > **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
+        :param pulumi.Input[str] location: The Azure Region where the Vmware Private Cloud should exist. Changing this forces a new Vmware Private Cloud to be created.
+        :param pulumi.Input['PrivateCloudManagementClusterArgs'] management_cluster: A `management_cluster` block as defined below.
+               > **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
+        :param pulumi.Input[str] management_subnet_cidr: The network used to access vCenter Server and NSX-T Manager.
+        :param pulumi.Input[str] name: The name which should be used for this Vmware Private Cloud. Changing this forces a new Vmware Private Cloud to be created.
+        :param pulumi.Input[str] network_subnet_cidr: The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Vmware Private Cloud to be created.
+        :param pulumi.Input[str] nsxt_certificate_thumbprint: The thumbprint of the NSX-T Manager SSL certificate.
+        :param pulumi.Input[str] nsxt_manager_endpoint: The endpoint for the NSX-T Data Center manager.
+        :param pulumi.Input[str] nsxt_password: The password of the NSX-T Manager. Changing this forces a new Vmware Private Cloud to be created.
+        :param pulumi.Input[str] provisioning_subnet_cidr: The network which is used for virtual machine cold migration, cloning, and snapshot migration.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Vmware Private Cloud should exist. Changing this forces a new Vmware Private Cloud to be created.
+        :param pulumi.Input[str] sku_name: The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36` and `av36t`. Changing this forces a new Vmware Private Cloud to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Vmware Private Cloud.
+        :param pulumi.Input[str] vcenter_certificate_thumbprint: The thumbprint of the vCenter Server SSL certificate.
+        :param pulumi.Input[str] vcenter_password: The password of the vCenter admin. Changing this forces a new Vmware Private Cloud to be created.
+        :param pulumi.Input[str] vcsa_endpoint: The endpoint for Virtual Center Server Appliance.
+        :param pulumi.Input[str] vmotion_subnet_cidr: The network which is used for live migration of virtual machines.
+        """
+        if circuits is not None:
+            pulumi.set(__self__, "circuits", circuits)
+        if hcx_cloud_manager_endpoint is not None:
+            pulumi.set(__self__, "hcx_cloud_manager_endpoint", hcx_cloud_manager_endpoint)
+        if internet_connection_enabled is not None:
+            pulumi.set(__self__, "internet_connection_enabled", internet_connection_enabled)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if management_cluster is not None:
+            pulumi.set(__self__, "management_cluster", management_cluster)
+        if management_subnet_cidr is not None:
+            pulumi.set(__self__, "management_subnet_cidr", management_subnet_cidr)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if network_subnet_cidr is not None:
+            pulumi.set(__self__, "network_subnet_cidr", network_subnet_cidr)
+        if nsxt_certificate_thumbprint is not None:
+            pulumi.set(__self__, "nsxt_certificate_thumbprint", nsxt_certificate_thumbprint)
+        if nsxt_manager_endpoint is not None:
+            pulumi.set(__self__, "nsxt_manager_endpoint", nsxt_manager_endpoint)
+        if nsxt_password is not None:
+            pulumi.set(__self__, "nsxt_password", nsxt_password)
+        if provisioning_subnet_cidr is not None:
+            pulumi.set(__self__, "provisioning_subnet_cidr", provisioning_subnet_cidr)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if sku_name is not None:
+            pulumi.set(__self__, "sku_name", sku_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if vcenter_certificate_thumbprint is not None:
+            pulumi.set(__self__, "vcenter_certificate_thumbprint", vcenter_certificate_thumbprint)
+        if vcenter_password is not None:
+            pulumi.set(__self__, "vcenter_password", vcenter_password)
+        if vcsa_endpoint is not None:
+            pulumi.set(__self__, "vcsa_endpoint", vcsa_endpoint)
+        if vmotion_subnet_cidr is not None:
+            pulumi.set(__self__, "vmotion_subnet_cidr", vmotion_subnet_cidr)
+
+    @property
+    @pulumi.getter
+    def circuits(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateCloudCircuitArgs']]]]:
+        """
+        A `circuit` block as defined below.
+        """
+        return pulumi.get(self, "circuits")
+
+    @circuits.setter
+    def circuits(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateCloudCircuitArgs']]]]):
+        pulumi.set(self, "circuits", value)
+
+    @property
+    @pulumi.getter(name="hcxCloudManagerEndpoint")
+    def hcx_cloud_manager_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint for the HCX Cloud Manager.
+        """
+        return pulumi.get(self, "hcx_cloud_manager_endpoint")
+
+    @hcx_cloud_manager_endpoint.setter
+    def hcx_cloud_manager_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hcx_cloud_manager_endpoint", value)
+
+    @property
+    @pulumi.getter(name="internetConnectionEnabled")
+    def internet_connection_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the Private Cluster connected to the internet? This field can not updated with `management_cluster.0.size` together.
+        > **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
+        """
+        return pulumi.get(self, "internet_connection_enabled")
+
+    @internet_connection_enabled.setter
+    def internet_connection_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "internet_connection_enabled", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Region where the Vmware Private Cloud should exist. Changing this forces a new Vmware Private Cloud to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="managementCluster")
+    def management_cluster(self) -> Optional[pulumi.Input['PrivateCloudManagementClusterArgs']]:
+        """
+        A `management_cluster` block as defined below.
+        > **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time.
+        """
+        return pulumi.get(self, "management_cluster")
+
+    @management_cluster.setter
+    def management_cluster(self, value: Optional[pulumi.Input['PrivateCloudManagementClusterArgs']]):
+        pulumi.set(self, "management_cluster", value)
+
+    @property
+    @pulumi.getter(name="managementSubnetCidr")
+    def management_subnet_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The network used to access vCenter Server and NSX-T Manager.
+        """
+        return pulumi.get(self, "management_subnet_cidr")
+
+    @management_subnet_cidr.setter
+    def management_subnet_cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "management_subnet_cidr", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Vmware Private Cloud. Changing this forces a new Vmware Private Cloud to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="networkSubnetCidr")
+    def network_subnet_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Vmware Private Cloud to be created.
+        """
+        return pulumi.get(self, "network_subnet_cidr")
+
+    @network_subnet_cidr.setter
+    def network_subnet_cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_subnet_cidr", value)
+
+    @property
+    @pulumi.getter(name="nsxtCertificateThumbprint")
+    def nsxt_certificate_thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The thumbprint of the NSX-T Manager SSL certificate.
+        """
+        return pulumi.get(self, "nsxt_certificate_thumbprint")
+
+    @nsxt_certificate_thumbprint.setter
+    def nsxt_certificate_thumbprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "nsxt_certificate_thumbprint", value)
+
+    @property
+    @pulumi.getter(name="nsxtManagerEndpoint")
+    def nsxt_manager_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint for the NSX-T Data Center manager.
+        """
+        return pulumi.get(self, "nsxt_manager_endpoint")
+
+    @nsxt_manager_endpoint.setter
+    def nsxt_manager_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "nsxt_manager_endpoint", value)
+
+    @property
+    @pulumi.getter(name="nsxtPassword")
+    def nsxt_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password of the NSX-T Manager. Changing this forces a new Vmware Private Cloud to be created.
+        """
+        return pulumi.get(self, "nsxt_password")
+
+    @nsxt_password.setter
+    def nsxt_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "nsxt_password", value)
+
+    @property
+    @pulumi.getter(name="provisioningSubnetCidr")
+    def provisioning_subnet_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The network which is used for virtual machine cold migration, cloning, and snapshot migration.
+        """
+        return pulumi.get(self, "provisioning_subnet_cidr")
+
+    @provisioning_subnet_cidr.setter
+    def provisioning_subnet_cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provisioning_subnet_cidr", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Resource Group where the Vmware Private Cloud should exist. Changing this forces a new Vmware Private Cloud to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="skuName")
+    def sku_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36` and `av36t`. Changing this forces a new Vmware Private Cloud to be created.
+        """
+        return pulumi.get(self, "sku_name")
+
+    @sku_name.setter
+    def sku_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags which should be assigned to the Vmware Private Cloud.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="vcenterCertificateThumbprint")
+    def vcenter_certificate_thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The thumbprint of the vCenter Server SSL certificate.
+        """
+        return pulumi.get(self, "vcenter_certificate_thumbprint")
+
+    @vcenter_certificate_thumbprint.setter
+    def vcenter_certificate_thumbprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vcenter_certificate_thumbprint", value)
+
+    @property
+    @pulumi.getter(name="vcenterPassword")
+    def vcenter_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password of the vCenter admin. Changing this forces a new Vmware Private Cloud to be created.
+        """
+        return pulumi.get(self, "vcenter_password")
+
+    @vcenter_password.setter
+    def vcenter_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vcenter_password", value)
+
+    @property
+    @pulumi.getter(name="vcsaEndpoint")
+    def vcsa_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint for Virtual Center Server Appliance.
+        """
+        return pulumi.get(self, "vcsa_endpoint")
+
+    @vcsa_endpoint.setter
+    def vcsa_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vcsa_endpoint", value)
+
+    @property
+    @pulumi.getter(name="vmotionSubnetCidr")
+    def vmotion_subnet_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The network which is used for live migration of virtual machines.
+        """
+        return pulumi.get(self, "vmotion_subnet_cidr")
+
+    @vmotion_subnet_cidr.setter
+    def vmotion_subnet_cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vmotion_subnet_cidr", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class PrivateCloud(pulumi.CustomResource):
@@ -280,35 +603,35 @@ class PrivateCloud(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PrivateCloudArgs.__new__(PrivateCloudArgs)
 
-            __props__['internet_connection_enabled'] = internet_connection_enabled
-            __props__['location'] = location
+            __props__.__dict__["internet_connection_enabled"] = internet_connection_enabled
+            __props__.__dict__["location"] = location
             if management_cluster is None and not opts.urn:
                 raise TypeError("Missing required property 'management_cluster'")
-            __props__['management_cluster'] = management_cluster
-            __props__['name'] = name
+            __props__.__dict__["management_cluster"] = management_cluster
+            __props__.__dict__["name"] = name
             if network_subnet_cidr is None and not opts.urn:
                 raise TypeError("Missing required property 'network_subnet_cidr'")
-            __props__['network_subnet_cidr'] = network_subnet_cidr
-            __props__['nsxt_password'] = nsxt_password
+            __props__.__dict__["network_subnet_cidr"] = network_subnet_cidr
+            __props__.__dict__["nsxt_password"] = nsxt_password
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")
-            __props__['sku_name'] = sku_name
-            __props__['tags'] = tags
-            __props__['vcenter_password'] = vcenter_password
-            __props__['circuits'] = None
-            __props__['hcx_cloud_manager_endpoint'] = None
-            __props__['management_subnet_cidr'] = None
-            __props__['nsxt_certificate_thumbprint'] = None
-            __props__['nsxt_manager_endpoint'] = None
-            __props__['provisioning_subnet_cidr'] = None
-            __props__['vcenter_certificate_thumbprint'] = None
-            __props__['vcsa_endpoint'] = None
-            __props__['vmotion_subnet_cidr'] = None
+            __props__.__dict__["sku_name"] = sku_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["vcenter_password"] = vcenter_password
+            __props__.__dict__["circuits"] = None
+            __props__.__dict__["hcx_cloud_manager_endpoint"] = None
+            __props__.__dict__["management_subnet_cidr"] = None
+            __props__.__dict__["nsxt_certificate_thumbprint"] = None
+            __props__.__dict__["nsxt_manager_endpoint"] = None
+            __props__.__dict__["provisioning_subnet_cidr"] = None
+            __props__.__dict__["vcenter_certificate_thumbprint"] = None
+            __props__.__dict__["vcsa_endpoint"] = None
+            __props__.__dict__["vmotion_subnet_cidr"] = None
         super(PrivateCloud, __self__).__init__(
             'azure:avs/privateCloud:PrivateCloud',
             resource_name,
@@ -369,27 +692,27 @@ class PrivateCloud(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _PrivateCloudState.__new__(_PrivateCloudState)
 
-        __props__["circuits"] = circuits
-        __props__["hcx_cloud_manager_endpoint"] = hcx_cloud_manager_endpoint
-        __props__["internet_connection_enabled"] = internet_connection_enabled
-        __props__["location"] = location
-        __props__["management_cluster"] = management_cluster
-        __props__["management_subnet_cidr"] = management_subnet_cidr
-        __props__["name"] = name
-        __props__["network_subnet_cidr"] = network_subnet_cidr
-        __props__["nsxt_certificate_thumbprint"] = nsxt_certificate_thumbprint
-        __props__["nsxt_manager_endpoint"] = nsxt_manager_endpoint
-        __props__["nsxt_password"] = nsxt_password
-        __props__["provisioning_subnet_cidr"] = provisioning_subnet_cidr
-        __props__["resource_group_name"] = resource_group_name
-        __props__["sku_name"] = sku_name
-        __props__["tags"] = tags
-        __props__["vcenter_certificate_thumbprint"] = vcenter_certificate_thumbprint
-        __props__["vcenter_password"] = vcenter_password
-        __props__["vcsa_endpoint"] = vcsa_endpoint
-        __props__["vmotion_subnet_cidr"] = vmotion_subnet_cidr
+        __props__.__dict__["circuits"] = circuits
+        __props__.__dict__["hcx_cloud_manager_endpoint"] = hcx_cloud_manager_endpoint
+        __props__.__dict__["internet_connection_enabled"] = internet_connection_enabled
+        __props__.__dict__["location"] = location
+        __props__.__dict__["management_cluster"] = management_cluster
+        __props__.__dict__["management_subnet_cidr"] = management_subnet_cidr
+        __props__.__dict__["name"] = name
+        __props__.__dict__["network_subnet_cidr"] = network_subnet_cidr
+        __props__.__dict__["nsxt_certificate_thumbprint"] = nsxt_certificate_thumbprint
+        __props__.__dict__["nsxt_manager_endpoint"] = nsxt_manager_endpoint
+        __props__.__dict__["nsxt_password"] = nsxt_password
+        __props__.__dict__["provisioning_subnet_cidr"] = provisioning_subnet_cidr
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["sku_name"] = sku_name
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["vcenter_certificate_thumbprint"] = vcenter_certificate_thumbprint
+        __props__.__dict__["vcenter_password"] = vcenter_password
+        __props__.__dict__["vcsa_endpoint"] = vcsa_endpoint
+        __props__.__dict__["vmotion_subnet_cidr"] = vmotion_subnet_cidr
         return PrivateCloud(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -545,10 +868,4 @@ class PrivateCloud(pulumi.CustomResource):
         The network which is used for live migration of virtual machines.
         """
         return pulumi.get(self, "vmotion_subnet_cidr")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

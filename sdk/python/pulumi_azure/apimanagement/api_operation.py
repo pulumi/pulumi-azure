@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -187,6 +191,193 @@ class ApiOperationArgs:
     @template_parameters.setter
     def template_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationTemplateParameterArgs']]]]):
         pulumi.set(self, "template_parameters", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _ApiOperationState:
+    def __init__(__self__, *,
+                 api_management_name: Optional[pulumi.Input[str]] = None,
+                 api_name: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 method: Optional[pulumi.Input[str]] = None,
+                 operation_id: Optional[pulumi.Input[str]] = None,
+                 request: Optional[pulumi.Input['ApiOperationRequestArgs']] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 responses: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseArgs']]]] = None,
+                 template_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationTemplateParameterArgs']]]] = None,
+                 url_template: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ApiOperation resources.
+        :param pulumi.Input[str] api_management_name: The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] api_name: The name of the API within the API Management Service where this API Operation should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] description: A description for this API Operation, which may include HTML formatting tags.
+        :param pulumi.Input[str] display_name: The Display Name for this API Management Operation.
+        :param pulumi.Input[str] method: The HTTP Method used for this API Management Operation, like `GET`, `DELETE`, `PUT` or `POST` - but not limited to these values.
+        :param pulumi.Input[str] operation_id: A unique identifier for this API Operation. Changing this forces a new resource to be created.
+        :param pulumi.Input['ApiOperationRequestArgs'] request: A `request` block as defined below.
+        :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseArgs']]] responses: One or more `response` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiOperationTemplateParameterArgs']]] template_parameters: One or more `template_parameter` blocks as defined below.
+        :param pulumi.Input[str] url_template: The relative URL Template identifying the target resource for this operation, which may include parameters.
+        """
+        if api_management_name is not None:
+            pulumi.set(__self__, "api_management_name", api_management_name)
+        if api_name is not None:
+            pulumi.set(__self__, "api_name", api_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if method is not None:
+            pulumi.set(__self__, "method", method)
+        if operation_id is not None:
+            pulumi.set(__self__, "operation_id", operation_id)
+        if request is not None:
+            pulumi.set(__self__, "request", request)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if responses is not None:
+            pulumi.set(__self__, "responses", responses)
+        if template_parameters is not None:
+            pulumi.set(__self__, "template_parameters", template_parameters)
+        if url_template is not None:
+            pulumi.set(__self__, "url_template", url_template)
+
+    @property
+    @pulumi.getter(name="apiManagementName")
+    def api_management_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "api_management_name")
+
+    @api_management_name.setter
+    def api_management_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_management_name", value)
+
+    @property
+    @pulumi.getter(name="apiName")
+    def api_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the API within the API Management Service where this API Operation should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "api_name")
+
+    @api_name.setter
+    def api_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for this API Operation, which may include HTML formatting tags.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Display Name for this API Management Operation.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter
+    def method(self) -> Optional[pulumi.Input[str]]:
+        """
+        The HTTP Method used for this API Management Operation, like `GET`, `DELETE`, `PUT` or `POST` - but not limited to these values.
+        """
+        return pulumi.get(self, "method")
+
+    @method.setter
+    def method(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "method", value)
+
+    @property
+    @pulumi.getter(name="operationId")
+    def operation_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique identifier for this API Operation. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "operation_id")
+
+    @operation_id.setter
+    def operation_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "operation_id", value)
+
+    @property
+    @pulumi.getter
+    def request(self) -> Optional[pulumi.Input['ApiOperationRequestArgs']]:
+        """
+        A `request` block as defined below.
+        """
+        return pulumi.get(self, "request")
+
+    @request.setter
+    def request(self, value: Optional[pulumi.Input['ApiOperationRequestArgs']]):
+        pulumi.set(self, "request", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def responses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseArgs']]]]:
+        """
+        One or more `response` blocks as defined below.
+        """
+        return pulumi.get(self, "responses")
+
+    @responses.setter
+    def responses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseArgs']]]]):
+        pulumi.set(self, "responses", value)
+
+    @property
+    @pulumi.getter(name="templateParameters")
+    def template_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationTemplateParameterArgs']]]]:
+        """
+        One or more `template_parameter` blocks as defined below.
+        """
+        return pulumi.get(self, "template_parameters")
+
+    @template_parameters.setter
+    def template_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationTemplateParameterArgs']]]]):
+        pulumi.set(self, "template_parameters", value)
+
+    @property
+    @pulumi.getter(name="urlTemplate")
+    def url_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        The relative URL Template identifying the target resource for this operation, which may include parameters.
+        """
+        return pulumi.get(self, "url_template")
+
+    @url_template.setter
+    def url_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url_template", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class ApiOperation(pulumi.CustomResource):
@@ -342,33 +533,33 @@ class ApiOperation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ApiOperationArgs.__new__(ApiOperationArgs)
 
             if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
-            __props__['api_management_name'] = api_management_name
+            __props__.__dict__["api_management_name"] = api_management_name
             if api_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_name'")
-            __props__['api_name'] = api_name
-            __props__['description'] = description
+            __props__.__dict__["api_name"] = api_name
+            __props__.__dict__["description"] = description
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
-            __props__['display_name'] = display_name
+            __props__.__dict__["display_name"] = display_name
             if method is None and not opts.urn:
                 raise TypeError("Missing required property 'method'")
-            __props__['method'] = method
+            __props__.__dict__["method"] = method
             if operation_id is None and not opts.urn:
                 raise TypeError("Missing required property 'operation_id'")
-            __props__['operation_id'] = operation_id
-            __props__['request'] = request
+            __props__.__dict__["operation_id"] = operation_id
+            __props__.__dict__["request"] = request
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['responses'] = responses
-            __props__['template_parameters'] = template_parameters
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["responses"] = responses
+            __props__.__dict__["template_parameters"] = template_parameters
             if url_template is None and not opts.urn:
                 raise TypeError("Missing required property 'url_template'")
-            __props__['url_template'] = url_template
+            __props__.__dict__["url_template"] = url_template
         super(ApiOperation, __self__).__init__(
             'azure:apimanagement/apiOperation:ApiOperation',
             resource_name,
@@ -411,19 +602,19 @@ class ApiOperation(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ApiOperationState.__new__(_ApiOperationState)
 
-        __props__["api_management_name"] = api_management_name
-        __props__["api_name"] = api_name
-        __props__["description"] = description
-        __props__["display_name"] = display_name
-        __props__["method"] = method
-        __props__["operation_id"] = operation_id
-        __props__["request"] = request
-        __props__["resource_group_name"] = resource_group_name
-        __props__["responses"] = responses
-        __props__["template_parameters"] = template_parameters
-        __props__["url_template"] = url_template
+        __props__.__dict__["api_management_name"] = api_management_name
+        __props__.__dict__["api_name"] = api_name
+        __props__.__dict__["description"] = description
+        __props__.__dict__["display_name"] = display_name
+        __props__.__dict__["method"] = method
+        __props__.__dict__["operation_id"] = operation_id
+        __props__.__dict__["request"] = request
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["responses"] = responses
+        __props__.__dict__["template_parameters"] = template_parameters
+        __props__.__dict__["url_template"] = url_template
         return ApiOperation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -513,10 +704,4 @@ class ApiOperation(pulumi.CustomResource):
         The relative URL Template identifying the target resource for this operation, which may include parameters.
         """
         return pulumi.get(self, "url_template")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['ClusterCustomerManagedKeyArgs', 'ClusterCustomerManagedKey']
 
@@ -76,6 +80,81 @@ class ClusterCustomerManagedKeyArgs:
     @key_version.setter
     def key_version(self, value: pulumi.Input[str]):
         pulumi.set(self, "key_version", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _ClusterCustomerManagedKeyState:
+    def __init__(__self__, *,
+                 cluster_id: Optional[pulumi.Input[str]] = None,
+                 key_name: Optional[pulumi.Input[str]] = None,
+                 key_vault_id: Optional[pulumi.Input[str]] = None,
+                 key_version: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ClusterCustomerManagedKey resources.
+        :param pulumi.Input[str] cluster_id: The ID of the Kusto Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] key_name: The name of Key Vault Key.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] key_version: The version of Key Vault Key.
+        """
+        if cluster_id is not None:
+            pulumi.set(__self__, "cluster_id", cluster_id)
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
+        if key_vault_id is not None:
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if key_version is not None:
+            pulumi.set(__self__, "key_version", key_version)
+
+    @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Kusto Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cluster_id")
+
+    @cluster_id.setter
+    def cluster_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_id", value)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of Key Vault Key.
+        """
+        return pulumi.get(self, "key_name")
+
+    @key_name.setter
+    def key_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_name", value)
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Key Vault. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @key_vault_id.setter
+    def key_vault_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_id", value)
+
+    @property
+    @pulumi.getter(name="keyVersion")
+    def key_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of Key Vault Key.
+        """
+        return pulumi.get(self, "key_version")
+
+    @key_version.setter
+    def key_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_version", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class ClusterCustomerManagedKey(pulumi.CustomResource):
@@ -162,20 +241,20 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ClusterCustomerManagedKeyArgs.__new__(ClusterCustomerManagedKeyArgs)
 
             if cluster_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_id'")
-            __props__['cluster_id'] = cluster_id
+            __props__.__dict__["cluster_id"] = cluster_id
             if key_name is None and not opts.urn:
                 raise TypeError("Missing required property 'key_name'")
-            __props__['key_name'] = key_name
+            __props__.__dict__["key_name"] = key_name
             if key_vault_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_id'")
-            __props__['key_vault_id'] = key_vault_id
+            __props__.__dict__["key_vault_id"] = key_vault_id
             if key_version is None and not opts.urn:
                 raise TypeError("Missing required property 'key_version'")
-            __props__['key_version'] = key_version
+            __props__.__dict__["key_version"] = key_version
         super(ClusterCustomerManagedKey, __self__).__init__(
             'azure:kusto/clusterCustomerManagedKey:ClusterCustomerManagedKey',
             resource_name,
@@ -204,12 +283,12 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ClusterCustomerManagedKeyState.__new__(_ClusterCustomerManagedKeyState)
 
-        __props__["cluster_id"] = cluster_id
-        __props__["key_name"] = key_name
-        __props__["key_vault_id"] = key_vault_id
-        __props__["key_version"] = key_version
+        __props__.__dict__["cluster_id"] = cluster_id
+        __props__.__dict__["key_name"] = key_name
+        __props__.__dict__["key_vault_id"] = key_vault_id
+        __props__.__dict__["key_version"] = key_version
         return ClusterCustomerManagedKey(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -243,10 +322,4 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         The version of Key Vault Key.
         """
         return pulumi.get(self, "key_version")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

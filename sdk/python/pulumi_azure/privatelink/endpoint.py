@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -127,6 +131,153 @@ class EndpointArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _EndpointState:
+    def __init__(__self__, *,
+                 custom_dns_configs: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointCustomDnsConfigArgs']]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 private_dns_zone_configs: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigArgs']]]] = None,
+                 private_dns_zone_group: Optional[pulumi.Input['EndpointPrivateDnsZoneGroupArgs']] = None,
+                 private_service_connection: Optional[pulumi.Input['EndpointPrivateServiceConnectionArgs']] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Endpoint resources.
+        :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
+        :param pulumi.Input['EndpointPrivateDnsZoneGroupArgs'] private_dns_zone_group: A `private_dns_zone_group` block as defined below.
+        :param pulumi.Input['EndpointPrivateServiceConnectionArgs'] private_service_connection: A `private_service_connection` block as defined below.
+        :param pulumi.Input[str] resource_group_name: Specifies the Name of the Resource Group within which the Private Endpoint should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        if custom_dns_configs is not None:
+            pulumi.set(__self__, "custom_dns_configs", custom_dns_configs)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if private_dns_zone_configs is not None:
+            pulumi.set(__self__, "private_dns_zone_configs", private_dns_zone_configs)
+        if private_dns_zone_group is not None:
+            pulumi.set(__self__, "private_dns_zone_group", private_dns_zone_group)
+        if private_service_connection is not None:
+            pulumi.set(__self__, "private_service_connection", private_service_connection)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="customDnsConfigs")
+    def custom_dns_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointCustomDnsConfigArgs']]]]:
+        return pulumi.get(self, "custom_dns_configs")
+
+    @custom_dns_configs.setter
+    def custom_dns_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointCustomDnsConfigArgs']]]]):
+        pulumi.set(self, "custom_dns_configs", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="privateDnsZoneConfigs")
+    def private_dns_zone_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigArgs']]]]:
+        return pulumi.get(self, "private_dns_zone_configs")
+
+    @private_dns_zone_configs.setter
+    def private_dns_zone_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigArgs']]]]):
+        pulumi.set(self, "private_dns_zone_configs", value)
+
+    @property
+    @pulumi.getter(name="privateDnsZoneGroup")
+    def private_dns_zone_group(self) -> Optional[pulumi.Input['EndpointPrivateDnsZoneGroupArgs']]:
+        """
+        A `private_dns_zone_group` block as defined below.
+        """
+        return pulumi.get(self, "private_dns_zone_group")
+
+    @private_dns_zone_group.setter
+    def private_dns_zone_group(self, value: Optional[pulumi.Input['EndpointPrivateDnsZoneGroupArgs']]):
+        pulumi.set(self, "private_dns_zone_group", value)
+
+    @property
+    @pulumi.getter(name="privateServiceConnection")
+    def private_service_connection(self) -> Optional[pulumi.Input['EndpointPrivateServiceConnectionArgs']]:
+        """
+        A `private_service_connection` block as defined below.
+        """
+        return pulumi.get(self, "private_service_connection")
+
+    @private_service_connection.setter
+    def private_service_connection(self, value: Optional[pulumi.Input['EndpointPrivateServiceConnectionArgs']]):
+        pulumi.set(self, "private_service_connection", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Name of the Resource Group within which the Private Endpoint should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class Endpoint(pulumi.CustomResource):
@@ -310,6 +461,7 @@ class Endpoint(pulumi.CustomResource):
             ))
         ```
 
+<<<<<<< HEAD
         Using a Private Link Service Alias with existing resources:
 
         ```python
@@ -334,6 +486,8 @@ class Endpoint(pulumi.CustomResource):
             ))
         ```
 
+=======
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
         ## Import
 
         Private Endpoints can be imported using the `resource id`, e.g.
@@ -382,23 +536,23 @@ class Endpoint(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = EndpointArgs.__new__(EndpointArgs)
 
-            __props__['location'] = location
-            __props__['name'] = name
-            __props__['private_dns_zone_group'] = private_dns_zone_group
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
+            __props__.__dict__["private_dns_zone_group"] = private_dns_zone_group
             if private_service_connection is None and not opts.urn:
                 raise TypeError("Missing required property 'private_service_connection'")
-            __props__['private_service_connection'] = private_service_connection
+            __props__.__dict__["private_service_connection"] = private_service_connection
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
-            __props__['subnet_id'] = subnet_id
-            __props__['tags'] = tags
-            __props__['custom_dns_configs'] = None
-            __props__['private_dns_zone_configs'] = None
+            __props__.__dict__["subnet_id"] = subnet_id
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["custom_dns_configs"] = None
+            __props__.__dict__["private_dns_zone_configs"] = None
         super(Endpoint, __self__).__init__(
             'azure:privatelink/endpoint:Endpoint',
             resource_name,
@@ -435,17 +589,17 @@ class Endpoint(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _EndpointState.__new__(_EndpointState)
 
-        __props__["custom_dns_configs"] = custom_dns_configs
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["private_dns_zone_configs"] = private_dns_zone_configs
-        __props__["private_dns_zone_group"] = private_dns_zone_group
-        __props__["private_service_connection"] = private_service_connection
-        __props__["resource_group_name"] = resource_group_name
-        __props__["subnet_id"] = subnet_id
-        __props__["tags"] = tags
+        __props__.__dict__["custom_dns_configs"] = custom_dns_configs
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["private_dns_zone_configs"] = private_dns_zone_configs
+        __props__.__dict__["private_dns_zone_group"] = private_dns_zone_group
+        __props__.__dict__["private_service_connection"] = private_service_connection
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["subnet_id"] = subnet_id
+        __props__.__dict__["tags"] = tags
         return Endpoint(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -513,10 +667,4 @@ class Endpoint(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

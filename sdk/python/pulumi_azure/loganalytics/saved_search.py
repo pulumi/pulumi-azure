@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['SavedSearchArgs', 'SavedSearch']
 
@@ -140,6 +144,145 @@ class SavedSearchArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _SavedSearchState:
+    def __init__(__self__, *,
+                 category: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 function_alias: Optional[pulumi.Input[str]] = None,
+                 function_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 query: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering SavedSearch resources.
+        :param pulumi.Input[str] category: The category that the Saved Search will be listed under. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] display_name: The name that Saved Search will be displayed as. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] function_alias: The function alias if the query serves as a function. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] function_parameters: The function parameters if the query serves as a function. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] log_analytics_workspace_id: Specifies the ID of the Log Analytics Workspace that the Saved Search will be associated with. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Log Analytics Saved Search. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] query: The query expression for the saved search. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Logs Analytics Saved Search.
+        """
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if function_alias is not None:
+            pulumi.set(__self__, "function_alias", function_alias)
+        if function_parameters is not None:
+            pulumi.set(__self__, "function_parameters", function_parameters)
+        if log_analytics_workspace_id is not None:
+            pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[str]]:
+        """
+        The category that the Saved Search will be listed under. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name that Saved Search will be displayed as. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="functionAlias")
+    def function_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The function alias if the query serves as a function. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "function_alias")
+
+    @function_alias.setter
+    def function_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "function_alias", value)
+
+    @property
+    @pulumi.getter(name="functionParameters")
+    def function_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The function parameters if the query serves as a function. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "function_parameters")
+
+    @function_parameters.setter
+    def function_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "function_parameters", value)
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspaceId")
+    def log_analytics_workspace_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of the Log Analytics Workspace that the Saved Search will be associated with. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "log_analytics_workspace_id")
+
+    @log_analytics_workspace_id.setter
+    def log_analytics_workspace_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_analytics_workspace_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Log Analytics Saved Search. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[pulumi.Input[str]]:
+        """
+        The query expression for the saved search. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags which should be assigned to the Logs Analytics Saved Search.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class SavedSearch(pulumi.CustomResource):
@@ -276,24 +419,24 @@ class SavedSearch(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SavedSearchArgs.__new__(SavedSearchArgs)
 
             if category is None and not opts.urn:
                 raise TypeError("Missing required property 'category'")
-            __props__['category'] = category
+            __props__.__dict__["category"] = category
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
-            __props__['display_name'] = display_name
-            __props__['function_alias'] = function_alias
-            __props__['function_parameters'] = function_parameters
+            __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["function_alias"] = function_alias
+            __props__.__dict__["function_parameters"] = function_parameters
             if log_analytics_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'log_analytics_workspace_id'")
-            __props__['log_analytics_workspace_id'] = log_analytics_workspace_id
-            __props__['name'] = name
+            __props__.__dict__["log_analytics_workspace_id"] = log_analytics_workspace_id
+            __props__.__dict__["name"] = name
             if query is None and not opts.urn:
                 raise TypeError("Missing required property 'query'")
-            __props__['query'] = query
-            __props__['tags'] = tags
+            __props__.__dict__["query"] = query
+            __props__.__dict__["tags"] = tags
         super(SavedSearch, __self__).__init__(
             'azure:loganalytics/savedSearch:SavedSearch',
             resource_name,
@@ -330,16 +473,16 @@ class SavedSearch(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _SavedSearchState.__new__(_SavedSearchState)
 
-        __props__["category"] = category
-        __props__["display_name"] = display_name
-        __props__["function_alias"] = function_alias
-        __props__["function_parameters"] = function_parameters
-        __props__["log_analytics_workspace_id"] = log_analytics_workspace_id
-        __props__["name"] = name
-        __props__["query"] = query
-        __props__["tags"] = tags
+        __props__.__dict__["category"] = category
+        __props__.__dict__["display_name"] = display_name
+        __props__.__dict__["function_alias"] = function_alias
+        __props__.__dict__["function_parameters"] = function_parameters
+        __props__.__dict__["log_analytics_workspace_id"] = log_analytics_workspace_id
+        __props__.__dict__["name"] = name
+        __props__.__dict__["query"] = query
+        __props__.__dict__["tags"] = tags
         return SavedSearch(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -405,10 +548,4 @@ class SavedSearch(pulumi.CustomResource):
         A mapping of tags which should be assigned to the Logs Analytics Saved Search.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

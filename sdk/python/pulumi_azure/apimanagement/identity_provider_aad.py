@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['IdentityProviderAadArgs', 'IdentityProviderAad']
 
@@ -107,6 +111,113 @@ class IdentityProviderAadArgs:
     @signin_tenant.setter
     def signin_tenant(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "signin_tenant", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _IdentityProviderAadState:
+    def __init__(__self__, *,
+                 allowed_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 api_management_name: Optional[pulumi.Input[str]] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 signin_tenant: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering IdentityProviderAad resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_tenants: List of allowed AAD Tenants.
+        :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] client_id: Client Id of the Application in the AAD Identity Provider.
+        :param pulumi.Input[str] client_secret: Client secret of the Application in the AAD Identity Provider.
+        :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] signin_tenant: The AAD Tenant to use instead of Common when logging into Active Directory
+        """
+        if allowed_tenants is not None:
+            pulumi.set(__self__, "allowed_tenants", allowed_tenants)
+        if api_management_name is not None:
+            pulumi.set(__self__, "api_management_name", api_management_name)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if signin_tenant is not None:
+            pulumi.set(__self__, "signin_tenant", signin_tenant)
+
+    @property
+    @pulumi.getter(name="allowedTenants")
+    def allowed_tenants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of allowed AAD Tenants.
+        """
+        return pulumi.get(self, "allowed_tenants")
+
+    @allowed_tenants.setter
+    def allowed_tenants(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_tenants", value)
+
+    @property
+    @pulumi.getter(name="apiManagementName")
+    def api_management_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "api_management_name")
+
+    @api_management_name.setter
+    def api_management_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_management_name", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Client Id of the Application in the AAD Identity Provider.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        Client secret of the Application in the AAD Identity Provider.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="signinTenant")
+    def signin_tenant(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AAD Tenant to use instead of Common when logging into Active Directory
+        """
+        return pulumi.get(self, "signin_tenant")
+
+    @signin_tenant.setter
+    def signin_tenant(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "signin_tenant", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class IdentityProviderAad(pulumi.CustomResource):
@@ -241,24 +352,24 @@ class IdentityProviderAad(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = IdentityProviderAadArgs.__new__(IdentityProviderAadArgs)
 
             if allowed_tenants is None and not opts.urn:
                 raise TypeError("Missing required property 'allowed_tenants'")
-            __props__['allowed_tenants'] = allowed_tenants
+            __props__.__dict__["allowed_tenants"] = allowed_tenants
             if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
-            __props__['api_management_name'] = api_management_name
+            __props__.__dict__["api_management_name"] = api_management_name
             if client_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_id'")
-            __props__['client_id'] = client_id
+            __props__.__dict__["client_id"] = client_id
             if client_secret is None and not opts.urn:
                 raise TypeError("Missing required property 'client_secret'")
-            __props__['client_secret'] = client_secret
+            __props__.__dict__["client_secret"] = client_secret
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['signin_tenant'] = signin_tenant
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["signin_tenant"] = signin_tenant
         super(IdentityProviderAad, __self__).__init__(
             'azure:apimanagement/identityProviderAad:IdentityProviderAad',
             resource_name,
@@ -291,14 +402,14 @@ class IdentityProviderAad(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _IdentityProviderAadState.__new__(_IdentityProviderAadState)
 
-        __props__["allowed_tenants"] = allowed_tenants
-        __props__["api_management_name"] = api_management_name
-        __props__["client_id"] = client_id
-        __props__["client_secret"] = client_secret
-        __props__["resource_group_name"] = resource_group_name
-        __props__["signin_tenant"] = signin_tenant
+        __props__.__dict__["allowed_tenants"] = allowed_tenants
+        __props__.__dict__["api_management_name"] = api_management_name
+        __props__.__dict__["client_id"] = client_id
+        __props__.__dict__["client_secret"] = client_secret
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["signin_tenant"] = signin_tenant
         return IdentityProviderAad(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -348,10 +459,4 @@ class IdentityProviderAad(pulumi.CustomResource):
         The AAD Tenant to use instead of Common when logging into Active Directory
         """
         return pulumi.get(self, "signin_tenant")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

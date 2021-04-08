@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -239,6 +243,273 @@ class GroupArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _GroupState:
+    def __init__(__self__, *,
+                 containers: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerArgs']]]] = None,
+                 diagnostics: Optional[pulumi.Input['GroupDiagnosticsArgs']] = None,
+                 dns_config: Optional[pulumi.Input['GroupDnsConfigArgs']] = None,
+                 dns_name_label: Optional[pulumi.Input[str]] = None,
+                 fqdn: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['GroupIdentityArgs']] = None,
+                 image_registry_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['GroupImageRegistryCredentialArgs']]]] = None,
+                 ip_address: Optional[pulumi.Input[str]] = None,
+                 ip_address_type: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_profile_id: Optional[pulumi.Input[str]] = None,
+                 os_type: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 restart_policy: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Group resources.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupContainerArgs']]] containers: The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
+        :param pulumi.Input['GroupDiagnosticsArgs'] diagnostics: A `diagnostics` block as documented below.
+        :param pulumi.Input['GroupDnsConfigArgs'] dns_config: A `dns_config` block as documented below.
+        :param pulumi.Input[str] dns_name_label: The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] fqdn: The FQDN of the container group derived from `dns_name_label`.
+        :param pulumi.Input['GroupIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupImageRegistryCredentialArgs']]] image_registry_credentials: A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] ip_address: The IP address allocated to the container group.
+        :param pulumi.Input[str] ip_address_type: Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_profile_id: Network profile ID for deploying to virtual network.
+        :param pulumi.Input[str] os_type: The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] restart_policy: Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        if containers is not None:
+            pulumi.set(__self__, "containers", containers)
+        if diagnostics is not None:
+            pulumi.set(__self__, "diagnostics", diagnostics)
+        if dns_config is not None:
+            pulumi.set(__self__, "dns_config", dns_config)
+        if dns_name_label is not None:
+            pulumi.set(__self__, "dns_name_label", dns_name_label)
+        if fqdn is not None:
+            pulumi.set(__self__, "fqdn", fqdn)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if image_registry_credentials is not None:
+            pulumi.set(__self__, "image_registry_credentials", image_registry_credentials)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if network_profile_id is not None:
+            pulumi.set(__self__, "network_profile_id", network_profile_id)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if restart_policy is not None:
+            pulumi.set(__self__, "restart_policy", restart_policy)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerArgs']]]]:
+        """
+        The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "containers")
+
+    @containers.setter
+    def containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerArgs']]]]):
+        pulumi.set(self, "containers", value)
+
+    @property
+    @pulumi.getter
+    def diagnostics(self) -> Optional[pulumi.Input['GroupDiagnosticsArgs']]:
+        """
+        A `diagnostics` block as documented below.
+        """
+        return pulumi.get(self, "diagnostics")
+
+    @diagnostics.setter
+    def diagnostics(self, value: Optional[pulumi.Input['GroupDiagnosticsArgs']]):
+        pulumi.set(self, "diagnostics", value)
+
+    @property
+    @pulumi.getter(name="dnsConfig")
+    def dns_config(self) -> Optional[pulumi.Input['GroupDnsConfigArgs']]:
+        """
+        A `dns_config` block as documented below.
+        """
+        return pulumi.get(self, "dns_config")
+
+    @dns_config.setter
+    def dns_config(self, value: Optional[pulumi.Input['GroupDnsConfigArgs']]):
+        pulumi.set(self, "dns_config", value)
+
+    @property
+    @pulumi.getter(name="dnsNameLabel")
+    def dns_name_label(self) -> Optional[pulumi.Input[str]]:
+        """
+        The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "dns_name_label")
+
+    @dns_name_label.setter
+    def dns_name_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dns_name_label", value)
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The FQDN of the container group derived from `dns_name_label`.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @fqdn.setter
+    def fqdn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fqdn", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['GroupIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['GroupIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="imageRegistryCredentials")
+    def image_registry_credentials(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupImageRegistryCredentialArgs']]]]:
+        """
+        A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "image_registry_credentials")
+
+    @image_registry_credentials.setter
+    def image_registry_credentials(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupImageRegistryCredentialArgs']]]]):
+        pulumi.set(self, "image_registry_credentials", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP address allocated to the container group.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address_type", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Container Group. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="networkProfileId")
+    def network_profile_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Network profile ID for deploying to virtual network.
+        """
+        return pulumi.get(self, "network_profile_id")
+
+    @network_profile_id.setter
+    def network_profile_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_profile_id", value)
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "os_type")
+
+    @os_type.setter
+    def os_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "os_type", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="restartPolicy")
+    def restart_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "restart_policy")
+
+    @restart_policy.setter
+    def restart_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "restart_policy", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class Group(pulumi.CustomResource):
@@ -431,30 +702,30 @@ class Group(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = GroupArgs.__new__(GroupArgs)
 
             if containers is None and not opts.urn:
                 raise TypeError("Missing required property 'containers'")
-            __props__['containers'] = containers
-            __props__['diagnostics'] = diagnostics
-            __props__['dns_config'] = dns_config
-            __props__['dns_name_label'] = dns_name_label
-            __props__['identity'] = identity
-            __props__['image_registry_credentials'] = image_registry_credentials
-            __props__['ip_address_type'] = ip_address_type
-            __props__['location'] = location
-            __props__['name'] = name
-            __props__['network_profile_id'] = network_profile_id
+            __props__.__dict__["containers"] = containers
+            __props__.__dict__["diagnostics"] = diagnostics
+            __props__.__dict__["dns_config"] = dns_config
+            __props__.__dict__["dns_name_label"] = dns_name_label
+            __props__.__dict__["identity"] = identity
+            __props__.__dict__["image_registry_credentials"] = image_registry_credentials
+            __props__.__dict__["ip_address_type"] = ip_address_type
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
+            __props__.__dict__["network_profile_id"] = network_profile_id
             if os_type is None and not opts.urn:
                 raise TypeError("Missing required property 'os_type'")
-            __props__['os_type'] = os_type
+            __props__.__dict__["os_type"] = os_type
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['restart_policy'] = restart_policy
-            __props__['tags'] = tags
-            __props__['fqdn'] = None
-            __props__['ip_address'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["restart_policy"] = restart_policy
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["fqdn"] = None
+            __props__.__dict__["ip_address"] = None
         super(Group, __self__).__init__(
             'azure:containerservice/group:Group',
             resource_name,
@@ -507,24 +778,24 @@ class Group(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _GroupState.__new__(_GroupState)
 
-        __props__["containers"] = containers
-        __props__["diagnostics"] = diagnostics
-        __props__["dns_config"] = dns_config
-        __props__["dns_name_label"] = dns_name_label
-        __props__["fqdn"] = fqdn
-        __props__["identity"] = identity
-        __props__["image_registry_credentials"] = image_registry_credentials
-        __props__["ip_address"] = ip_address
-        __props__["ip_address_type"] = ip_address_type
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["network_profile_id"] = network_profile_id
-        __props__["os_type"] = os_type
-        __props__["resource_group_name"] = resource_group_name
-        __props__["restart_policy"] = restart_policy
-        __props__["tags"] = tags
+        __props__.__dict__["containers"] = containers
+        __props__.__dict__["diagnostics"] = diagnostics
+        __props__.__dict__["dns_config"] = dns_config
+        __props__.__dict__["dns_name_label"] = dns_name_label
+        __props__.__dict__["fqdn"] = fqdn
+        __props__.__dict__["identity"] = identity
+        __props__.__dict__["image_registry_credentials"] = image_registry_credentials
+        __props__.__dict__["ip_address"] = ip_address
+        __props__.__dict__["ip_address_type"] = ip_address_type
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["network_profile_id"] = network_profile_id
+        __props__.__dict__["os_type"] = os_type
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["restart_policy"] = restart_policy
+        __props__.__dict__["tags"] = tags
         return Group(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -654,10 +925,4 @@ class Group(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

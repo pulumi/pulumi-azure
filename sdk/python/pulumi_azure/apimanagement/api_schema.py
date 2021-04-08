@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['ApiSchemaArgs', 'ApiSchema']
 
@@ -106,6 +110,113 @@ class ApiSchemaArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _ApiSchemaState:
+    def __init__(__self__, *,
+                 api_management_name: Optional[pulumi.Input[str]] = None,
+                 api_name: Optional[pulumi.Input[str]] = None,
+                 content_type: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 schema_id: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ApiSchema resources.
+        :param pulumi.Input[str] api_management_name: The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] api_name: The name of the API within the API Management Service where this API Schema should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] content_type: The content type of the API Schema.
+        :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] schema_id: A unique identifier for this API Schema. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] value: The JSON escaped string defining the document representing the Schema.
+        """
+        if api_management_name is not None:
+            pulumi.set(__self__, "api_management_name", api_management_name)
+        if api_name is not None:
+            pulumi.set(__self__, "api_name", api_name)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if schema_id is not None:
+            pulumi.set(__self__, "schema_id", schema_id)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="apiManagementName")
+    def api_management_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "api_management_name")
+
+    @api_management_name.setter
+    def api_management_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_management_name", value)
+
+    @property
+    @pulumi.getter(name="apiName")
+    def api_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the API within the API Management Service where this API Schema should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "api_name")
+
+    @api_name.setter
+    def api_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_name", value)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The content type of the API Schema.
+        """
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_type", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="schemaId")
+    def schema_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique identifier for this API Schema. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "schema_id")
+
+    @schema_id.setter
+    def schema_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema_id", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The JSON escaped string defining the document representing the Schema.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class ApiSchema(pulumi.CustomResource):
@@ -236,26 +347,26 @@ class ApiSchema(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ApiSchemaArgs.__new__(ApiSchemaArgs)
 
             if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
-            __props__['api_management_name'] = api_management_name
+            __props__.__dict__["api_management_name"] = api_management_name
             if api_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_name'")
-            __props__['api_name'] = api_name
+            __props__.__dict__["api_name"] = api_name
             if content_type is None and not opts.urn:
                 raise TypeError("Missing required property 'content_type'")
-            __props__['content_type'] = content_type
+            __props__.__dict__["content_type"] = content_type
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if schema_id is None and not opts.urn:
                 raise TypeError("Missing required property 'schema_id'")
-            __props__['schema_id'] = schema_id
+            __props__.__dict__["schema_id"] = schema_id
             if value is None and not opts.urn:
                 raise TypeError("Missing required property 'value'")
-            __props__['value'] = value
+            __props__.__dict__["value"] = value
         super(ApiSchema, __self__).__init__(
             'azure:apimanagement/apiSchema:ApiSchema',
             resource_name,
@@ -288,14 +399,14 @@ class ApiSchema(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ApiSchemaState.__new__(_ApiSchemaState)
 
-        __props__["api_management_name"] = api_management_name
-        __props__["api_name"] = api_name
-        __props__["content_type"] = content_type
-        __props__["resource_group_name"] = resource_group_name
-        __props__["schema_id"] = schema_id
-        __props__["value"] = value
+        __props__.__dict__["api_management_name"] = api_management_name
+        __props__.__dict__["api_name"] = api_name
+        __props__.__dict__["content_type"] = content_type
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["schema_id"] = schema_id
+        __props__.__dict__["value"] = value
         return ApiSchema(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -345,10 +456,4 @@ class ApiSchema(pulumi.CustomResource):
         The JSON escaped string defining the document representing the Schema.
         """
         return pulumi.get(self, "value")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

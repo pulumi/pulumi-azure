@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = [
     'PolicyFileShareBackup',
@@ -42,9 +46,6 @@ class PolicyFileShareBackup(dict):
     def time(self) -> str:
         return pulumi.get(self, "time")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicyFileShareRetentionDaily(dict):
@@ -62,9 +63,6 @@ class PolicyFileShareRetentionDaily(dict):
         The number of daily backups to keep. Must be between `1` and `180` (inclusive)
         """
         return pulumi.get(self, "count")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -107,9 +105,6 @@ class PolicyVMBackup(dict):
         """
         return pulumi.get(self, "weekdays")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicyVMRetentionDaily(dict):
@@ -127,9 +122,6 @@ class PolicyVMRetentionDaily(dict):
         The number of yearly backups to keep. Must be between `1` and `9999`
         """
         return pulumi.get(self, "count")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -171,9 +163,6 @@ class PolicyVMRetentionMonthly(dict):
         """
         return pulumi.get(self, "weeks")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicyVMRetentionWeekly(dict):
@@ -202,9 +191,6 @@ class PolicyVMRetentionWeekly(dict):
         The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
         """
         return pulumi.get(self, "weekdays")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -256,8 +242,5 @@ class PolicyVMRetentionYearly(dict):
         The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
         return pulumi.get(self, "weeks")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

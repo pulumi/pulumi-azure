@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -79,6 +83,81 @@ class AssessmentArgs:
     @additional_data.setter
     def additional_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "additional_data", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _AssessmentState:
+    def __init__(__self__, *,
+                 additional_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 assessment_policy_id: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['AssessmentStatusArgs']] = None,
+                 target_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Assessment resources.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_data: A map of additional data to associate with the assessment.
+        :param pulumi.Input[str] assessment_policy_id: The ID of the security Assessment policy to apply to this resource. Changing this forces a new security Assessment to be created.
+        :param pulumi.Input['AssessmentStatusArgs'] status: A `status` block as defined below.
+        :param pulumi.Input[str] target_resource_id: The ID of the target resource. Changing this forces a new security Assessment to be created.
+        """
+        if additional_data is not None:
+            pulumi.set(__self__, "additional_data", additional_data)
+        if assessment_policy_id is not None:
+            pulumi.set(__self__, "assessment_policy_id", assessment_policy_id)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if target_resource_id is not None:
+            pulumi.set(__self__, "target_resource_id", target_resource_id)
+
+    @property
+    @pulumi.getter(name="additionalData")
+    def additional_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of additional data to associate with the assessment.
+        """
+        return pulumi.get(self, "additional_data")
+
+    @additional_data.setter
+    def additional_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "additional_data", value)
+
+    @property
+    @pulumi.getter(name="assessmentPolicyId")
+    def assessment_policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the security Assessment policy to apply to this resource. Changing this forces a new security Assessment to be created.
+        """
+        return pulumi.get(self, "assessment_policy_id")
+
+    @assessment_policy_id.setter
+    def assessment_policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "assessment_policy_id", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input['AssessmentStatusArgs']]:
+        """
+        A `status` block as defined below.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input['AssessmentStatusArgs']]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="targetResourceId")
+    def target_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the target resource. Changing this forces a new security Assessment to be created.
+        """
+        return pulumi.get(self, "target_resource_id")
+
+    @target_resource_id.setter
+    def target_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_id", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class Assessment(pulumi.CustomResource):
@@ -277,18 +356,18 @@ class Assessment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AssessmentArgs.__new__(AssessmentArgs)
 
-            __props__['additional_data'] = additional_data
+            __props__.__dict__["additional_data"] = additional_data
             if assessment_policy_id is None and not opts.urn:
                 raise TypeError("Missing required property 'assessment_policy_id'")
-            __props__['assessment_policy_id'] = assessment_policy_id
+            __props__.__dict__["assessment_policy_id"] = assessment_policy_id
             if status is None and not opts.urn:
                 raise TypeError("Missing required property 'status'")
-            __props__['status'] = status
+            __props__.__dict__["status"] = status
             if target_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_resource_id'")
-            __props__['target_resource_id'] = target_resource_id
+            __props__.__dict__["target_resource_id"] = target_resource_id
         super(Assessment, __self__).__init__(
             'azure:securitycenter/assessment:Assessment',
             resource_name,
@@ -317,12 +396,12 @@ class Assessment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AssessmentState.__new__(_AssessmentState)
 
-        __props__["additional_data"] = additional_data
-        __props__["assessment_policy_id"] = assessment_policy_id
-        __props__["status"] = status
-        __props__["target_resource_id"] = target_resource_id
+        __props__.__dict__["additional_data"] = additional_data
+        __props__.__dict__["assessment_policy_id"] = assessment_policy_id
+        __props__.__dict__["status"] = status
+        __props__.__dict__["target_resource_id"] = target_resource_id
         return Assessment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -356,10 +435,4 @@ class Assessment(pulumi.CustomResource):
         The ID of the target resource. Changing this forces a new security Assessment to be created.
         """
         return pulumi.get(self, "target_resource_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

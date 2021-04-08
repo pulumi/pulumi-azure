@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['DataConnectorOffice365Args', 'DataConnectorOffice365']
 
@@ -111,6 +115,113 @@ class DataConnectorOffice365Args:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _DataConnectorOffice365State:
+    def __init__(__self__, *,
+                 exchange_enabled: Optional[pulumi.Input[bool]] = None,
+                 log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 sharepoint_enabled: Optional[pulumi.Input[bool]] = None,
+                 teams_enabled: Optional[pulumi.Input[bool]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering DataConnectorOffice365 resources.
+        :param pulumi.Input[bool] exchange_enabled: Should the Exchange data connector be enabled? Defaults to `true`.
+        :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace that this Office 365 Data Connector resides in. Changing this forces a new Office 365 Data Connector to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Office 365 Data Connector. Changing this forces a new Office 365 Data Connector to be created.
+        :param pulumi.Input[bool] sharepoint_enabled: Should the SharePoint data connector be enabled? Defaults to `true`.
+        :param pulumi.Input[bool] teams_enabled: Should the Microsoft Teams data connector be enabled? Defaults to `true`.
+        :param pulumi.Input[str] tenant_id: The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created.
+        """
+        if exchange_enabled is not None:
+            pulumi.set(__self__, "exchange_enabled", exchange_enabled)
+        if log_analytics_workspace_id is not None:
+            pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if sharepoint_enabled is not None:
+            pulumi.set(__self__, "sharepoint_enabled", sharepoint_enabled)
+        if teams_enabled is not None:
+            pulumi.set(__self__, "teams_enabled", teams_enabled)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="exchangeEnabled")
+    def exchange_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Exchange data connector be enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "exchange_enabled")
+
+    @exchange_enabled.setter
+    def exchange_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "exchange_enabled", value)
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspaceId")
+    def log_analytics_workspace_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Log Analytics Workspace that this Office 365 Data Connector resides in. Changing this forces a new Office 365 Data Connector to be created.
+        """
+        return pulumi.get(self, "log_analytics_workspace_id")
+
+    @log_analytics_workspace_id.setter
+    def log_analytics_workspace_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_analytics_workspace_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Office 365 Data Connector. Changing this forces a new Office 365 Data Connector to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="sharepointEnabled")
+    def sharepoint_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the SharePoint data connector be enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "sharepoint_enabled")
+
+    @sharepoint_enabled.setter
+    def sharepoint_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "sharepoint_enabled", value)
+
+    @property
+    @pulumi.getter(name="teamsEnabled")
+    def teams_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Microsoft Teams data connector be enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "teams_enabled")
+
+    @teams_enabled.setter
+    def teams_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "teams_enabled", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class DataConnectorOffice365(pulumi.CustomResource):
@@ -231,16 +342,16 @@ class DataConnectorOffice365(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DataConnectorOffice365Args.__new__(DataConnectorOffice365Args)
 
-            __props__['exchange_enabled'] = exchange_enabled
+            __props__.__dict__["exchange_enabled"] = exchange_enabled
             if log_analytics_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'log_analytics_workspace_id'")
-            __props__['log_analytics_workspace_id'] = log_analytics_workspace_id
-            __props__['name'] = name
-            __props__['sharepoint_enabled'] = sharepoint_enabled
-            __props__['teams_enabled'] = teams_enabled
-            __props__['tenant_id'] = tenant_id
+            __props__.__dict__["log_analytics_workspace_id"] = log_analytics_workspace_id
+            __props__.__dict__["name"] = name
+            __props__.__dict__["sharepoint_enabled"] = sharepoint_enabled
+            __props__.__dict__["teams_enabled"] = teams_enabled
+            __props__.__dict__["tenant_id"] = tenant_id
         super(DataConnectorOffice365, __self__).__init__(
             'azure:sentinel/dataConnectorOffice365:DataConnectorOffice365',
             resource_name,
@@ -273,14 +384,14 @@ class DataConnectorOffice365(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DataConnectorOffice365State.__new__(_DataConnectorOffice365State)
 
-        __props__["exchange_enabled"] = exchange_enabled
-        __props__["log_analytics_workspace_id"] = log_analytics_workspace_id
-        __props__["name"] = name
-        __props__["sharepoint_enabled"] = sharepoint_enabled
-        __props__["teams_enabled"] = teams_enabled
-        __props__["tenant_id"] = tenant_id
+        __props__.__dict__["exchange_enabled"] = exchange_enabled
+        __props__.__dict__["log_analytics_workspace_id"] = log_analytics_workspace_id
+        __props__.__dict__["name"] = name
+        __props__.__dict__["sharepoint_enabled"] = sharepoint_enabled
+        __props__.__dict__["teams_enabled"] = teams_enabled
+        __props__.__dict__["tenant_id"] = tenant_id
         return DataConnectorOffice365(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -330,10 +441,4 @@ class DataConnectorOffice365(pulumi.CustomResource):
         The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created.
         """
         return pulumi.get(self, "tenant_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

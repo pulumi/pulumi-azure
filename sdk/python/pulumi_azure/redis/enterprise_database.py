@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -144,6 +148,145 @@ class EnterpriseDatabaseArgs:
     @port.setter
     def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _EnterpriseDatabaseState:
+    def __init__(__self__, *,
+                 client_protocol: Optional[pulumi.Input[str]] = None,
+                 cluster_id: Optional[pulumi.Input[str]] = None,
+                 clustering_policy: Optional[pulumi.Input[str]] = None,
+                 eviction_policy: Optional[pulumi.Input[str]] = None,
+                 modules: Optional[pulumi.Input[Sequence[pulumi.Input['EnterpriseDatabaseModuleArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering EnterpriseDatabase resources.
+        :param pulumi.Input[str] client_protocol: Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
+        :param pulumi.Input[str] cluster_id: The resource id of the Redis Enterprise Cluster to deploy this Redis Enterprise Database. Changing this forces a new Redis Enterprise Database to be created.
+        :param pulumi.Input[str] clustering_policy: Clustering policy - default is OSSCluster. Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
+        :param pulumi.Input[str] eviction_policy: Redis eviction policy - default is VolatileLRU. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Defaults to `VolatileLRU`. Changing this forces a new Redis Enterprise Database to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['EnterpriseDatabaseModuleArgs']]] modules: A `module` block as defined below.
+        :param pulumi.Input[str] name: The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
+        :param pulumi.Input[int] port: TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
+        """
+        if client_protocol is not None:
+            pulumi.set(__self__, "client_protocol", client_protocol)
+        if cluster_id is not None:
+            pulumi.set(__self__, "cluster_id", cluster_id)
+        if clustering_policy is not None:
+            pulumi.set(__self__, "clustering_policy", clustering_policy)
+        if eviction_policy is not None:
+            pulumi.set(__self__, "eviction_policy", eviction_policy)
+        if modules is not None:
+            pulumi.set(__self__, "modules", modules)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+
+    @property
+    @pulumi.getter(name="clientProtocol")
+    def client_protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
+        """
+        return pulumi.get(self, "client_protocol")
+
+    @client_protocol.setter
+    def client_protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_protocol", value)
+
+    @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource id of the Redis Enterprise Cluster to deploy this Redis Enterprise Database. Changing this forces a new Redis Enterprise Database to be created.
+        """
+        return pulumi.get(self, "cluster_id")
+
+    @cluster_id.setter
+    def cluster_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_id", value)
+
+    @property
+    @pulumi.getter(name="clusteringPolicy")
+    def clustering_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Clustering policy - default is OSSCluster. Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
+        """
+        return pulumi.get(self, "clustering_policy")
+
+    @clustering_policy.setter
+    def clustering_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "clustering_policy", value)
+
+    @property
+    @pulumi.getter(name="evictionPolicy")
+    def eviction_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Redis eviction policy - default is VolatileLRU. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Defaults to `VolatileLRU`. Changing this forces a new Redis Enterprise Database to be created.
+        """
+        return pulumi.get(self, "eviction_policy")
+
+    @eviction_policy.setter
+    def eviction_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "eviction_policy", value)
+
+    @property
+    @pulumi.getter
+    def modules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnterpriseDatabaseModuleArgs']]]]:
+        """
+        A `module` block as defined below.
+        """
+        return pulumi.get(self, "modules")
+
+    @modules.setter
+    def modules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnterpriseDatabaseModuleArgs']]]]):
+        pulumi.set(self, "modules", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class EnterpriseDatabase(pulumi.CustomResource):
@@ -274,20 +417,20 @@ class EnterpriseDatabase(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = EnterpriseDatabaseArgs.__new__(EnterpriseDatabaseArgs)
 
-            __props__['client_protocol'] = client_protocol
+            __props__.__dict__["client_protocol"] = client_protocol
             if cluster_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_id'")
-            __props__['cluster_id'] = cluster_id
-            __props__['clustering_policy'] = clustering_policy
-            __props__['eviction_policy'] = eviction_policy
-            __props__['modules'] = modules
-            __props__['name'] = name
-            __props__['port'] = port
+            __props__.__dict__["cluster_id"] = cluster_id
+            __props__.__dict__["clustering_policy"] = clustering_policy
+            __props__.__dict__["eviction_policy"] = eviction_policy
+            __props__.__dict__["modules"] = modules
+            __props__.__dict__["name"] = name
+            __props__.__dict__["port"] = port
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
         super(EnterpriseDatabase, __self__).__init__(
             'azure:redis/enterpriseDatabase:EnterpriseDatabase',
             resource_name,
@@ -324,16 +467,16 @@ class EnterpriseDatabase(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _EnterpriseDatabaseState.__new__(_EnterpriseDatabaseState)
 
-        __props__["client_protocol"] = client_protocol
-        __props__["cluster_id"] = cluster_id
-        __props__["clustering_policy"] = clustering_policy
-        __props__["eviction_policy"] = eviction_policy
-        __props__["modules"] = modules
-        __props__["name"] = name
-        __props__["port"] = port
-        __props__["resource_group_name"] = resource_group_name
+        __props__.__dict__["client_protocol"] = client_protocol
+        __props__.__dict__["cluster_id"] = cluster_id
+        __props__.__dict__["clustering_policy"] = clustering_policy
+        __props__.__dict__["eviction_policy"] = eviction_policy
+        __props__.__dict__["modules"] = modules
+        __props__.__dict__["name"] = name
+        __props__.__dict__["port"] = port
+        __props__.__dict__["resource_group_name"] = resource_group_name
         return EnterpriseDatabase(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -399,10 +542,4 @@ class EnterpriseDatabase(pulumi.CustomResource):
         The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
         """
         return pulumi.get(self, "resource_group_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -159,6 +163,177 @@ class ApplicationArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _ApplicationState:
+    def __init__(__self__, *,
+                 application_definition_id: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 managed_resource_group_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 outputs: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 plan: Optional[pulumi.Input['ApplicationPlanArgs']] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Application resources.
+        :param pulumi.Input[str] application_definition_id: The application definition ID to deploy.
+        :param pulumi.Input[str] kind: The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] managed_resource_group_name: The name of the target resource group where all the resources deployed by the managed application will reside. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Managed Application. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] outputs: The name and value pairs that define the managed application outputs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A mapping of name and value pairs to pass to the managed application as parameters.
+        :param pulumi.Input['ApplicationPlanArgs'] plan: One `plan` block as defined below.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        if application_definition_id is not None:
+            pulumi.set(__self__, "application_definition_id", application_definition_id)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if managed_resource_group_name is not None:
+            pulumi.set(__self__, "managed_resource_group_name", managed_resource_group_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if outputs is not None:
+            pulumi.set(__self__, "outputs", outputs)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if plan is not None:
+            pulumi.set(__self__, "plan", plan)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="applicationDefinitionId")
+    def application_definition_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The application definition ID to deploy.
+        """
+        return pulumi.get(self, "application_definition_id")
+
+    @application_definition_id.setter
+    def application_definition_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_definition_id", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="managedResourceGroupName")
+    def managed_resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the target resource group where all the resources deployed by the managed application will reside. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "managed_resource_group_name")
+
+    @managed_resource_group_name.setter
+    def managed_resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Managed Application. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def outputs(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The name and value pairs that define the managed application outputs.
+        """
+        return pulumi.get(self, "outputs")
+
+    @outputs.setter
+    def outputs(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "outputs", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of name and value pairs to pass to the managed application as parameters.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter
+    def plan(self) -> Optional[pulumi.Input['ApplicationPlanArgs']]:
+        """
+        One `plan` block as defined below.
+        """
+        return pulumi.get(self, "plan")
+
+    @plan.setter
+    def plan(self, value: Optional[pulumi.Input['ApplicationPlanArgs']]):
+        pulumi.set(self, "plan", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class Application(pulumi.CustomResource):
@@ -326,24 +501,24 @@ class Application(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
-            __props__['application_definition_id'] = application_definition_id
+            __props__.__dict__["application_definition_id"] = application_definition_id
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
-            __props__['kind'] = kind
-            __props__['location'] = location
+            __props__.__dict__["kind"] = kind
+            __props__.__dict__["location"] = location
             if managed_resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_resource_group_name'")
-            __props__['managed_resource_group_name'] = managed_resource_group_name
-            __props__['name'] = name
-            __props__['parameters'] = parameters
-            __props__['plan'] = plan
+            __props__.__dict__["managed_resource_group_name"] = managed_resource_group_name
+            __props__.__dict__["name"] = name
+            __props__.__dict__["parameters"] = parameters
+            __props__.__dict__["plan"] = plan
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['outputs'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["outputs"] = None
         super(Application, __self__).__init__(
             'azure:managedapplication/application:Application',
             resource_name,
@@ -384,18 +559,18 @@ class Application(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ApplicationState.__new__(_ApplicationState)
 
-        __props__["application_definition_id"] = application_definition_id
-        __props__["kind"] = kind
-        __props__["location"] = location
-        __props__["managed_resource_group_name"] = managed_resource_group_name
-        __props__["name"] = name
-        __props__["outputs"] = outputs
-        __props__["parameters"] = parameters
-        __props__["plan"] = plan
-        __props__["resource_group_name"] = resource_group_name
-        __props__["tags"] = tags
+        __props__.__dict__["application_definition_id"] = application_definition_id
+        __props__.__dict__["kind"] = kind
+        __props__.__dict__["location"] = location
+        __props__.__dict__["managed_resource_group_name"] = managed_resource_group_name
+        __props__.__dict__["name"] = name
+        __props__.__dict__["outputs"] = outputs
+        __props__.__dict__["parameters"] = parameters
+        __props__.__dict__["plan"] = plan
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["tags"] = tags
         return Application(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -477,10 +652,4 @@ class Application(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

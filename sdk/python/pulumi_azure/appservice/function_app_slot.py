@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -333,6 +337,417 @@ class FunctionAppSlotArgs:
     @version.setter
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _FunctionAppSlotState:
+    def __init__(__self__, *,
+                 app_service_plan_id: Optional[pulumi.Input[str]] = None,
+                 app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 auth_settings: Optional[pulumi.Input['FunctionAppSlotAuthSettingsArgs']] = None,
+                 client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
+                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotConnectionStringArgs']]]] = None,
+                 daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
+                 default_hostname: Optional[pulumi.Input[str]] = None,
+                 enable_builtin_logging: Optional[pulumi.Input[bool]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 function_app_name: Optional[pulumi.Input[str]] = None,
+                 https_only: Optional[pulumi.Input[bool]] = None,
+                 identity: Optional[pulumi.Input['FunctionAppSlotIdentityArgs']] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 os_type: Optional[pulumi.Input[str]] = None,
+                 outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
+                 possible_outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 site_config: Optional[pulumi.Input['FunctionAppSlotSiteConfigArgs']] = None,
+                 site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteCredentialArgs']]]] = None,
+                 storage_account_access_key: Optional[pulumi.Input[str]] = None,
+                 storage_account_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering FunctionAppSlot resources.
+        :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Function App Slot.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A key-value pair of App Settings.
+        :param pulumi.Input['FunctionAppSlotAuthSettingsArgs'] auth_settings: An `auth_settings` block as defined below.
+        :param pulumi.Input[bool] client_affinity_enabled: Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotConnectionStringArgs']]] connection_strings: A `connection_string` block as defined below.
+        :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+        :param pulumi.Input[str] default_hostname: The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
+        :param pulumi.Input[bool] enable_builtin_logging: Should the built-in logging of the Function App be enabled? Defaults to `true`.
+        :param pulumi.Input[bool] enabled: Is the Function App enabled?
+        :param pulumi.Input[str] function_app_name: The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
+        :param pulumi.Input['FunctionAppSlotIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[str] kind: The Function App kind - such as `functionapp,linux,container`
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app.
+        :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
+        :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Function App Slot.
+        :param pulumi.Input['FunctionAppSlotSiteConfigArgs'] site_config: A `site_config` object as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this Function App Slot.
+        :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App.
+        :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by the Function App (such as the dashboard, logs).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] version: The runtime version associated with the Function App. Defaults to `~1`.
+        """
+        if app_service_plan_id is not None:
+            pulumi.set(__self__, "app_service_plan_id", app_service_plan_id)
+        if app_settings is not None:
+            pulumi.set(__self__, "app_settings", app_settings)
+        if auth_settings is not None:
+            pulumi.set(__self__, "auth_settings", auth_settings)
+        if client_affinity_enabled is not None:
+            pulumi.set(__self__, "client_affinity_enabled", client_affinity_enabled)
+        if connection_strings is not None:
+            pulumi.set(__self__, "connection_strings", connection_strings)
+        if daily_memory_time_quota is not None:
+            pulumi.set(__self__, "daily_memory_time_quota", daily_memory_time_quota)
+        if default_hostname is not None:
+            pulumi.set(__self__, "default_hostname", default_hostname)
+        if enable_builtin_logging is not None:
+            pulumi.set(__self__, "enable_builtin_logging", enable_builtin_logging)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if function_app_name is not None:
+            pulumi.set(__self__, "function_app_name", function_app_name)
+        if https_only is not None:
+            pulumi.set(__self__, "https_only", https_only)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+        if outbound_ip_addresses is not None:
+            pulumi.set(__self__, "outbound_ip_addresses", outbound_ip_addresses)
+        if possible_outbound_ip_addresses is not None:
+            pulumi.set(__self__, "possible_outbound_ip_addresses", possible_outbound_ip_addresses)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if site_config is not None:
+            pulumi.set(__self__, "site_config", site_config)
+        if site_credentials is not None:
+            pulumi.set(__self__, "site_credentials", site_credentials)
+        if storage_account_access_key is not None:
+            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
+        if storage_account_name is not None:
+            pulumi.set(__self__, "storage_account_name", storage_account_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="appServicePlanId")
+    def app_service_plan_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the App Service Plan within which to create this Function App Slot.
+        """
+        return pulumi.get(self, "app_service_plan_id")
+
+    @app_service_plan_id.setter
+    def app_service_plan_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_service_plan_id", value)
+
+    @property
+    @pulumi.getter(name="appSettings")
+    def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A key-value pair of App Settings.
+        """
+        return pulumi.get(self, "app_settings")
+
+    @app_settings.setter
+    def app_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "app_settings", value)
+
+    @property
+    @pulumi.getter(name="authSettings")
+    def auth_settings(self) -> Optional[pulumi.Input['FunctionAppSlotAuthSettingsArgs']]:
+        """
+        An `auth_settings` block as defined below.
+        """
+        return pulumi.get(self, "auth_settings")
+
+    @auth_settings.setter
+    def auth_settings(self, value: Optional[pulumi.Input['FunctionAppSlotAuthSettingsArgs']]):
+        pulumi.set(self, "auth_settings", value)
+
+    @property
+    @pulumi.getter(name="clientAffinityEnabled")
+    def client_affinity_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
+        """
+        return pulumi.get(self, "client_affinity_enabled")
+
+    @client_affinity_enabled.setter
+    def client_affinity_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "client_affinity_enabled", value)
+
+    @property
+    @pulumi.getter(name="connectionStrings")
+    def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotConnectionStringArgs']]]]:
+        """
+        A `connection_string` block as defined below.
+        """
+        return pulumi.get(self, "connection_strings")
+
+    @connection_strings.setter
+    def connection_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotConnectionStringArgs']]]]):
+        pulumi.set(self, "connection_strings", value)
+
+    @property
+    @pulumi.getter(name="dailyMemoryTimeQuota")
+    def daily_memory_time_quota(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
+        """
+        return pulumi.get(self, "daily_memory_time_quota")
+
+    @daily_memory_time_quota.setter
+    def daily_memory_time_quota(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "daily_memory_time_quota", value)
+
+    @property
+    @pulumi.getter(name="defaultHostname")
+    def default_hostname(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
+        """
+        return pulumi.get(self, "default_hostname")
+
+    @default_hostname.setter
+    def default_hostname(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_hostname", value)
+
+    @property
+    @pulumi.getter(name="enableBuiltinLogging")
+    def enable_builtin_logging(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the built-in logging of the Function App be enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "enable_builtin_logging")
+
+    @enable_builtin_logging.setter
+    def enable_builtin_logging(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_builtin_logging", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the Function App enabled?
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="functionAppName")
+    def function_app_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "function_app_name")
+
+    @function_app_name.setter
+    def function_app_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "function_app_name", value)
+
+    @property
+    @pulumi.getter(name="httpsOnly")
+    def https_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Can the Function App only be accessed via HTTPS? Defaults to `false`.
+        """
+        return pulumi.get(self, "https_only")
+
+    @https_only.setter
+    def https_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "https_only", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['FunctionAppSlotIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['FunctionAppSlotIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Function App kind - such as `functionapp,linux,container`
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Function App. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string indicating the Operating System type for this function app.
+        """
+        return pulumi.get(self, "os_type")
+
+    @os_type.setter
+    def os_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "os_type", value)
+
+    @property
+    @pulumi.getter(name="outboundIpAddresses")
+    def outbound_ip_addresses(self) -> Optional[pulumi.Input[str]]:
+        """
+        A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
+        """
+        return pulumi.get(self, "outbound_ip_addresses")
+
+    @outbound_ip_addresses.setter
+    def outbound_ip_addresses(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "outbound_ip_addresses", value)
+
+    @property
+    @pulumi.getter(name="possibleOutboundIpAddresses")
+    def possible_outbound_ip_addresses(self) -> Optional[pulumi.Input[str]]:
+        """
+        A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+        """
+        return pulumi.get(self, "possible_outbound_ip_addresses")
+
+    @possible_outbound_ip_addresses.setter
+    def possible_outbound_ip_addresses(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "possible_outbound_ip_addresses", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which to create the Function App Slot.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="siteConfig")
+    def site_config(self) -> Optional[pulumi.Input['FunctionAppSlotSiteConfigArgs']]:
+        """
+        A `site_config` object as defined below.
+        """
+        return pulumi.get(self, "site_config")
+
+    @site_config.setter
+    def site_config(self, value: Optional[pulumi.Input['FunctionAppSlotSiteConfigArgs']]):
+        pulumi.set(self, "site_config", value)
+
+    @property
+    @pulumi.getter(name="siteCredentials")
+    def site_credentials(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteCredentialArgs']]]]:
+        """
+        A `site_credential` block as defined below, which contains the site-level credentials used to publish to this Function App Slot.
+        """
+        return pulumi.get(self, "site_credentials")
+
+    @site_credentials.setter
+    def site_credentials(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteCredentialArgs']]]]):
+        pulumi.set(self, "site_credentials", value)
+
+    @property
+    @pulumi.getter(name="storageAccountAccessKey")
+    def storage_account_access_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The access key which will be used to access the backend storage account for the Function App.
+        """
+        return pulumi.get(self, "storage_account_access_key")
+
+    @storage_account_access_key.setter
+    def storage_account_access_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_access_key", value)
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The backend storage account name which will be used by the Function App (such as the dashboard, logs).
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @storage_account_name.setter
+    def storage_account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The runtime version associated with the Function App. Defaults to `~1`.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class FunctionAppSlot(pulumi.CustomResource):
@@ -537,43 +952,43 @@ class FunctionAppSlot(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = FunctionAppSlotArgs.__new__(FunctionAppSlotArgs)
 
             if app_service_plan_id is None and not opts.urn:
                 raise TypeError("Missing required property 'app_service_plan_id'")
-            __props__['app_service_plan_id'] = app_service_plan_id
-            __props__['app_settings'] = app_settings
-            __props__['auth_settings'] = auth_settings
-            __props__['client_affinity_enabled'] = client_affinity_enabled
-            __props__['connection_strings'] = connection_strings
-            __props__['daily_memory_time_quota'] = daily_memory_time_quota
-            __props__['enable_builtin_logging'] = enable_builtin_logging
-            __props__['enabled'] = enabled
+            __props__.__dict__["app_service_plan_id"] = app_service_plan_id
+            __props__.__dict__["app_settings"] = app_settings
+            __props__.__dict__["auth_settings"] = auth_settings
+            __props__.__dict__["client_affinity_enabled"] = client_affinity_enabled
+            __props__.__dict__["connection_strings"] = connection_strings
+            __props__.__dict__["daily_memory_time_quota"] = daily_memory_time_quota
+            __props__.__dict__["enable_builtin_logging"] = enable_builtin_logging
+            __props__.__dict__["enabled"] = enabled
             if function_app_name is None and not opts.urn:
                 raise TypeError("Missing required property 'function_app_name'")
-            __props__['function_app_name'] = function_app_name
-            __props__['https_only'] = https_only
-            __props__['identity'] = identity
-            __props__['location'] = location
-            __props__['name'] = name
-            __props__['os_type'] = os_type
+            __props__.__dict__["function_app_name"] = function_app_name
+            __props__.__dict__["https_only"] = https_only
+            __props__.__dict__["identity"] = identity
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
+            __props__.__dict__["os_type"] = os_type
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['site_config'] = site_config
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["site_config"] = site_config
             if storage_account_access_key is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_access_key'")
-            __props__['storage_account_access_key'] = storage_account_access_key
+            __props__.__dict__["storage_account_access_key"] = storage_account_access_key
             if storage_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_name'")
-            __props__['storage_account_name'] = storage_account_name
-            __props__['tags'] = tags
-            __props__['version'] = version
-            __props__['default_hostname'] = None
-            __props__['kind'] = None
-            __props__['outbound_ip_addresses'] = None
-            __props__['possible_outbound_ip_addresses'] = None
-            __props__['site_credentials'] = None
+            __props__.__dict__["storage_account_name"] = storage_account_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["version"] = version
+            __props__.__dict__["default_hostname"] = None
+            __props__.__dict__["kind"] = None
+            __props__.__dict__["outbound_ip_addresses"] = None
+            __props__.__dict__["possible_outbound_ip_addresses"] = None
+            __props__.__dict__["site_credentials"] = None
         super(FunctionAppSlot, __self__).__init__(
             'azure:appservice/functionAppSlot:FunctionAppSlot',
             resource_name,
@@ -644,33 +1059,33 @@ class FunctionAppSlot(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _FunctionAppSlotState.__new__(_FunctionAppSlotState)
 
-        __props__["app_service_plan_id"] = app_service_plan_id
-        __props__["app_settings"] = app_settings
-        __props__["auth_settings"] = auth_settings
-        __props__["client_affinity_enabled"] = client_affinity_enabled
-        __props__["connection_strings"] = connection_strings
-        __props__["daily_memory_time_quota"] = daily_memory_time_quota
-        __props__["default_hostname"] = default_hostname
-        __props__["enable_builtin_logging"] = enable_builtin_logging
-        __props__["enabled"] = enabled
-        __props__["function_app_name"] = function_app_name
-        __props__["https_only"] = https_only
-        __props__["identity"] = identity
-        __props__["kind"] = kind
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["os_type"] = os_type
-        __props__["outbound_ip_addresses"] = outbound_ip_addresses
-        __props__["possible_outbound_ip_addresses"] = possible_outbound_ip_addresses
-        __props__["resource_group_name"] = resource_group_name
-        __props__["site_config"] = site_config
-        __props__["site_credentials"] = site_credentials
-        __props__["storage_account_access_key"] = storage_account_access_key
-        __props__["storage_account_name"] = storage_account_name
-        __props__["tags"] = tags
-        __props__["version"] = version
+        __props__.__dict__["app_service_plan_id"] = app_service_plan_id
+        __props__.__dict__["app_settings"] = app_settings
+        __props__.__dict__["auth_settings"] = auth_settings
+        __props__.__dict__["client_affinity_enabled"] = client_affinity_enabled
+        __props__.__dict__["connection_strings"] = connection_strings
+        __props__.__dict__["daily_memory_time_quota"] = daily_memory_time_quota
+        __props__.__dict__["default_hostname"] = default_hostname
+        __props__.__dict__["enable_builtin_logging"] = enable_builtin_logging
+        __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["function_app_name"] = function_app_name
+        __props__.__dict__["https_only"] = https_only
+        __props__.__dict__["identity"] = identity
+        __props__.__dict__["kind"] = kind
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["os_type"] = os_type
+        __props__.__dict__["outbound_ip_addresses"] = outbound_ip_addresses
+        __props__.__dict__["possible_outbound_ip_addresses"] = possible_outbound_ip_addresses
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["site_config"] = site_config
+        __props__.__dict__["site_credentials"] = site_credentials
+        __props__.__dict__["storage_account_access_key"] = storage_account_access_key
+        __props__.__dict__["storage_account_name"] = storage_account_name
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["version"] = version
         return FunctionAppSlot(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -872,10 +1287,4 @@ class FunctionAppSlot(pulumi.CustomResource):
         The runtime version associated with the Function App. Defaults to `~1`.
         """
         return pulumi.get(self, "version")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

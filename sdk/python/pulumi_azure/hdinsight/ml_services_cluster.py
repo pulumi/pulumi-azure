@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -184,6 +188,237 @@ class MLServicesClusterArgs:
     @tls_min_version.setter
     def tls_min_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tls_min_version", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _MLServicesClusterState:
+    def __init__(__self__, *,
+                 cluster_version: Optional[pulumi.Input[str]] = None,
+                 edge_ssh_endpoint: Optional[pulumi.Input[str]] = None,
+                 gateway: Optional[pulumi.Input['MLServicesClusterGatewayArgs']] = None,
+                 https_endpoint: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 roles: Optional[pulumi.Input['MLServicesClusterRolesArgs']] = None,
+                 rstudio: Optional[pulumi.Input[bool]] = None,
+                 ssh_endpoint: Optional[pulumi.Input[str]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['MLServicesClusterStorageAccountArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tier: Optional[pulumi.Input[str]] = None,
+                 tls_min_version: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering MLServicesCluster resources.
+        :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] edge_ssh_endpoint: The SSH Connectivity Endpoint for the Edge Node of the HDInsight ML Cluster.
+        :param pulumi.Input['MLServicesClusterGatewayArgs'] gateway: A `gateway` block as defined below.
+        :param pulumi.Input[str] https_endpoint: The HTTPS Connectivity Endpoint for this HDInsight ML Services Cluster.
+        :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight ML Services Cluster should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name for this HDInsight ML Services Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight ML Services Cluster should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input['MLServicesClusterRolesArgs'] roles: A `roles` block as defined below.
+        :param pulumi.Input[bool] rstudio: Should R Studio community edition for ML Services be installed? Changing this forces a new resource to be created.
+        :param pulumi.Input[str] ssh_endpoint: The SSH Connectivity Endpoint for this HDInsight ML Services Cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['MLServicesClusterStorageAccountArgs']]] storage_accounts: One or more `storage_account` block as defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight ML Services Cluster.
+        :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight ML Services Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
+        """
+        if cluster_version is not None:
+            pulumi.set(__self__, "cluster_version", cluster_version)
+        if edge_ssh_endpoint is not None:
+            pulumi.set(__self__, "edge_ssh_endpoint", edge_ssh_endpoint)
+        if gateway is not None:
+            pulumi.set(__self__, "gateway", gateway)
+        if https_endpoint is not None:
+            pulumi.set(__self__, "https_endpoint", https_endpoint)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if roles is not None:
+            pulumi.set(__self__, "roles", roles)
+        if rstudio is not None:
+            pulumi.set(__self__, "rstudio", rstudio)
+        if ssh_endpoint is not None:
+            pulumi.set(__self__, "ssh_endpoint", ssh_endpoint)
+        if storage_accounts is not None:
+            pulumi.set(__self__, "storage_accounts", storage_accounts)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+        if tls_min_version is not None:
+            pulumi.set(__self__, "tls_min_version", tls_min_version)
+
+    @property
+    @pulumi.getter(name="clusterVersion")
+    def cluster_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cluster_version")
+
+    @cluster_version.setter
+    def cluster_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_version", value)
+
+    @property
+    @pulumi.getter(name="edgeSshEndpoint")
+    def edge_ssh_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SSH Connectivity Endpoint for the Edge Node of the HDInsight ML Cluster.
+        """
+        return pulumi.get(self, "edge_ssh_endpoint")
+
+    @edge_ssh_endpoint.setter
+    def edge_ssh_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "edge_ssh_endpoint", value)
+
+    @property
+    @pulumi.getter
+    def gateway(self) -> Optional[pulumi.Input['MLServicesClusterGatewayArgs']]:
+        """
+        A `gateway` block as defined below.
+        """
+        return pulumi.get(self, "gateway")
+
+    @gateway.setter
+    def gateway(self, value: Optional[pulumi.Input['MLServicesClusterGatewayArgs']]):
+        pulumi.set(self, "gateway", value)
+
+    @property
+    @pulumi.getter(name="httpsEndpoint")
+    def https_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The HTTPS Connectivity Endpoint for this HDInsight ML Services Cluster.
+        """
+        return pulumi.get(self, "https_endpoint")
+
+    @https_endpoint.setter
+    def https_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "https_endpoint", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Azure Region which this HDInsight ML Services Cluster should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name for this HDInsight ML Services Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Resource Group in which this HDInsight ML Services Cluster should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Optional[pulumi.Input['MLServicesClusterRolesArgs']]:
+        """
+        A `roles` block as defined below.
+        """
+        return pulumi.get(self, "roles")
+
+    @roles.setter
+    def roles(self, value: Optional[pulumi.Input['MLServicesClusterRolesArgs']]):
+        pulumi.set(self, "roles", value)
+
+    @property
+    @pulumi.getter
+    def rstudio(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should R Studio community edition for ML Services be installed? Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "rstudio")
+
+    @rstudio.setter
+    def rstudio(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "rstudio", value)
+
+    @property
+    @pulumi.getter(name="sshEndpoint")
+    def ssh_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SSH Connectivity Endpoint for this HDInsight ML Services Cluster.
+        """
+        return pulumi.get(self, "ssh_endpoint")
+
+    @ssh_endpoint.setter
+    def ssh_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssh_endpoint", value)
+
+    @property
+    @pulumi.getter(name="storageAccounts")
+    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MLServicesClusterStorageAccountArgs']]]]:
+        """
+        One or more `storage_account` block as defined below.
+        """
+        return pulumi.get(self, "storage_accounts")
+
+    @storage_accounts.setter
+    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MLServicesClusterStorageAccountArgs']]]]):
+        pulumi.set(self, "storage_accounts", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of Tags which should be assigned to this HDInsight ML Services Cluster.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Tier which should be used for this HDInsight ML Services Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tier", value)
+
+    @property
+    @pulumi.getter(name="tlsMinVersion")
+    def tls_min_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "tls_min_version")
+
+    @tls_min_version.setter
+    def tls_min_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tls_min_version", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class MLServicesCluster(pulumi.CustomResource):
@@ -406,34 +641,34 @@ class MLServicesCluster(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = MLServicesClusterArgs.__new__(MLServicesClusterArgs)
 
             if cluster_version is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_version'")
-            __props__['cluster_version'] = cluster_version
+            __props__.__dict__["cluster_version"] = cluster_version
             if gateway is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway'")
-            __props__['gateway'] = gateway
-            __props__['location'] = location
-            __props__['name'] = name
+            __props__.__dict__["gateway"] = gateway
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if roles is None and not opts.urn:
                 raise TypeError("Missing required property 'roles'")
-            __props__['roles'] = roles
+            __props__.__dict__["roles"] = roles
             if rstudio is None and not opts.urn:
                 raise TypeError("Missing required property 'rstudio'")
-            __props__['rstudio'] = rstudio
-            __props__['storage_accounts'] = storage_accounts
-            __props__['tags'] = tags
+            __props__.__dict__["rstudio"] = rstudio
+            __props__.__dict__["storage_accounts"] = storage_accounts
+            __props__.__dict__["tags"] = tags
             if tier is None and not opts.urn:
                 raise TypeError("Missing required property 'tier'")
-            __props__['tier'] = tier
-            __props__['tls_min_version'] = tls_min_version
-            __props__['edge_ssh_endpoint'] = None
-            __props__['https_endpoint'] = None
-            __props__['ssh_endpoint'] = None
+            __props__.__dict__["tier"] = tier
+            __props__.__dict__["tls_min_version"] = tls_min_version
+            __props__.__dict__["edge_ssh_endpoint"] = None
+            __props__.__dict__["https_endpoint"] = None
+            __props__.__dict__["ssh_endpoint"] = None
         super(MLServicesCluster, __self__).__init__(
             'azure:hdinsight/mLServicesCluster:MLServicesCluster',
             resource_name,
@@ -481,22 +716,22 @@ class MLServicesCluster(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _MLServicesClusterState.__new__(_MLServicesClusterState)
 
-        __props__["cluster_version"] = cluster_version
-        __props__["edge_ssh_endpoint"] = edge_ssh_endpoint
-        __props__["gateway"] = gateway
-        __props__["https_endpoint"] = https_endpoint
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["resource_group_name"] = resource_group_name
-        __props__["roles"] = roles
-        __props__["rstudio"] = rstudio
-        __props__["ssh_endpoint"] = ssh_endpoint
-        __props__["storage_accounts"] = storage_accounts
-        __props__["tags"] = tags
-        __props__["tier"] = tier
-        __props__["tls_min_version"] = tls_min_version
+        __props__.__dict__["cluster_version"] = cluster_version
+        __props__.__dict__["edge_ssh_endpoint"] = edge_ssh_endpoint
+        __props__.__dict__["gateway"] = gateway
+        __props__.__dict__["https_endpoint"] = https_endpoint
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["roles"] = roles
+        __props__.__dict__["rstudio"] = rstudio
+        __props__.__dict__["ssh_endpoint"] = ssh_endpoint
+        __props__.__dict__["storage_accounts"] = storage_accounts
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tier"] = tier
+        __props__.__dict__["tls_min_version"] = tls_min_version
         return MLServicesCluster(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -607,10 +842,4 @@ class MLServicesCluster(pulumi.CustomResource):
     @pulumi.getter(name="tlsMinVersion")
     def tls_min_version(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "tls_min_version")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

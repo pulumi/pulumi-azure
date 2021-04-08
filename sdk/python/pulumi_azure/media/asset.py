@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['AssetArgs', 'Asset']
 
@@ -126,6 +130,129 @@ class AssetArgs:
     @storage_account_name.setter
     def storage_account_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_account_name", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _AssetState:
+    def __init__(__self__, *,
+                 alternate_id: Optional[pulumi.Input[str]] = None,
+                 container: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 media_services_account_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 storage_account_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Asset resources.
+        :param pulumi.Input[str] alternate_id: The alternate ID of the Asset.
+        :param pulumi.Input[str] container: The name of the asset blob container. Changing this forces a new Media Asset to be created.
+        :param pulumi.Input[str] description: The Asset description.
+        :param pulumi.Input[str] media_services_account_name: Specifies the name of the Media Services Account. Changing this forces a new Media Asset to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Media Asset. Changing this forces a new Media Asset to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Media Asset should exist. Changing this forces a new Media Asset to be created.
+        :param pulumi.Input[str] storage_account_name: The name of the storage account where to store the media asset. Changing this forces a new Media Asset to be created.
+        """
+        if alternate_id is not None:
+            pulumi.set(__self__, "alternate_id", alternate_id)
+        if container is not None:
+            pulumi.set(__self__, "container", container)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if media_services_account_name is not None:
+            pulumi.set(__self__, "media_services_account_name", media_services_account_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if storage_account_name is not None:
+            pulumi.set(__self__, "storage_account_name", storage_account_name)
+
+    @property
+    @pulumi.getter(name="alternateId")
+    def alternate_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The alternate ID of the Asset.
+        """
+        return pulumi.get(self, "alternate_id")
+
+    @alternate_id.setter
+    def alternate_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alternate_id", value)
+
+    @property
+    @pulumi.getter
+    def container(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the asset blob container. Changing this forces a new Media Asset to be created.
+        """
+        return pulumi.get(self, "container")
+
+    @container.setter
+    def container(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Asset description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="mediaServicesAccountName")
+    def media_services_account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Media Services Account. Changing this forces a new Media Asset to be created.
+        """
+        return pulumi.get(self, "media_services_account_name")
+
+    @media_services_account_name.setter
+    def media_services_account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "media_services_account_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Media Asset. Changing this forces a new Media Asset to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Resource Group where the Media Asset should exist. Changing this forces a new Media Asset to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the storage account where to store the media asset. Changing this forces a new Media Asset to be created.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @storage_account_name.setter
+    def storage_account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_name", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class Asset(pulumi.CustomResource):
@@ -271,19 +398,19 @@ class Asset(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AssetArgs.__new__(AssetArgs)
 
-            __props__['alternate_id'] = alternate_id
-            __props__['container'] = container
-            __props__['description'] = description
+            __props__.__dict__["alternate_id"] = alternate_id
+            __props__.__dict__["container"] = container
+            __props__.__dict__["description"] = description
             if media_services_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'media_services_account_name'")
-            __props__['media_services_account_name'] = media_services_account_name
-            __props__['name'] = name
+            __props__.__dict__["media_services_account_name"] = media_services_account_name
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['storage_account_name'] = storage_account_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["storage_account_name"] = storage_account_name
         super(Asset, __self__).__init__(
             'azure:media/asset:Asset',
             resource_name,
@@ -318,15 +445,15 @@ class Asset(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AssetState.__new__(_AssetState)
 
-        __props__["alternate_id"] = alternate_id
-        __props__["container"] = container
-        __props__["description"] = description
-        __props__["media_services_account_name"] = media_services_account_name
-        __props__["name"] = name
-        __props__["resource_group_name"] = resource_group_name
-        __props__["storage_account_name"] = storage_account_name
+        __props__.__dict__["alternate_id"] = alternate_id
+        __props__.__dict__["container"] = container
+        __props__.__dict__["description"] = description
+        __props__.__dict__["media_services_account_name"] = media_services_account_name
+        __props__.__dict__["name"] = name
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["storage_account_name"] = storage_account_name
         return Asset(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -384,10 +511,4 @@ class Asset(pulumi.CustomResource):
         The name of the storage account where to store the media asset. Changing this forces a new Media Asset to be created.
         """
         return pulumi.get(self, "storage_account_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = [
     'DefinitionPermission',
@@ -15,6 +19,27 @@ __all__ = [
 
 @pulumi.output_type
 class DefinitionPermission(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataActions":
+            suggest = "data_actions"
+        elif key == "notActions":
+            suggest = "not_actions"
+        elif key == "notDataActions":
+            suggest = "not_data_actions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefinitionPermission. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefinitionPermission.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefinitionPermission.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  actions: Optional[Sequence[str]] = None,
                  data_actions: Optional[Sequence[str]] = None,
@@ -66,9 +91,6 @@ class DefinitionPermission(dict):
         One or more Disallowed Data Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/en-us/azure/role-based-access-control/resource-provider-operations) for details.
         """
         return pulumi.get(self, "not_data_actions")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

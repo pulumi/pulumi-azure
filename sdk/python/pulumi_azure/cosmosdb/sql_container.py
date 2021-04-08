@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -191,6 +195,193 @@ class SqlContainerArgs:
     @unique_keys.setter
     def unique_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerUniqueKeyArgs']]]]):
         pulumi.set(self, "unique_keys", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _SqlContainerState:
+    def __init__(__self__, *,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 autoscale_settings: Optional[pulumi.Input['SqlContainerAutoscaleSettingsArgs']] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 default_ttl: Optional[pulumi.Input[int]] = None,
+                 indexing_policy: Optional[pulumi.Input['SqlContainerIndexingPolicyArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 partition_key_path: Optional[pulumi.Input[str]] = None,
+                 partition_key_version: Optional[pulumi.Input[int]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 throughput: Optional[pulumi.Input[int]] = None,
+                 unique_keys: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerUniqueKeyArgs']]]] = None):
+        """
+        Input properties used for looking up and filtering SqlContainer resources.
+        :param pulumi.Input[str] account_name: The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
+        :param pulumi.Input['SqlContainerAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partition_key_path` to be set.
+        :param pulumi.Input[str] database_name: The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] default_ttl: The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+        :param pulumi.Input['SqlContainerIndexingPolicyArgs'] indexing_policy: An `indexing_policy` block as defined below.
+        :param pulumi.Input[str] name: Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] partition_key_path: Define a partition key. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] partition_key_version: Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] throughput: The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
+        :param pulumi.Input[Sequence[pulumi.Input['SqlContainerUniqueKeyArgs']]] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
+        """
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
+        if autoscale_settings is not None:
+            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if default_ttl is not None:
+            pulumi.set(__self__, "default_ttl", default_ttl)
+        if indexing_policy is not None:
+            pulumi.set(__self__, "indexing_policy", indexing_policy)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if partition_key_path is not None:
+            pulumi.set(__self__, "partition_key_path", partition_key_path)
+        if partition_key_version is not None:
+            pulumi.set(__self__, "partition_key_version", partition_key_version)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+        if unique_keys is not None:
+            pulumi.set(__self__, "unique_keys", unique_keys)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="autoscaleSettings")
+    def autoscale_settings(self) -> Optional[pulumi.Input['SqlContainerAutoscaleSettingsArgs']]:
+        """
+        An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partition_key_path` to be set.
+        """
+        return pulumi.get(self, "autoscale_settings")
+
+    @autoscale_settings.setter
+    def autoscale_settings(self, value: Optional[pulumi.Input['SqlContainerAutoscaleSettingsArgs']]):
+        pulumi.set(self, "autoscale_settings", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="defaultTtl")
+    def default_ttl(self) -> Optional[pulumi.Input[int]]:
+        """
+        The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+        """
+        return pulumi.get(self, "default_ttl")
+
+    @default_ttl.setter
+    def default_ttl(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "default_ttl", value)
+
+    @property
+    @pulumi.getter(name="indexingPolicy")
+    def indexing_policy(self) -> Optional[pulumi.Input['SqlContainerIndexingPolicyArgs']]:
+        """
+        An `indexing_policy` block as defined below.
+        """
+        return pulumi.get(self, "indexing_policy")
+
+    @indexing_policy.setter
+    def indexing_policy(self, value: Optional[pulumi.Input['SqlContainerIndexingPolicyArgs']]):
+        pulumi.set(self, "indexing_policy", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="partitionKeyPath")
+    def partition_key_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Define a partition key. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "partition_key_path")
+
+    @partition_key_path.setter
+    def partition_key_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "partition_key_path", value)
+
+    @property
+    @pulumi.getter(name="partitionKeyVersion")
+    def partition_key_version(self) -> Optional[pulumi.Input[int]]:
+        """
+        Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
+        """
+        return pulumi.get(self, "partition_key_version")
+
+    @partition_key_version.setter
+    def partition_key_version(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "partition_key_version", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[pulumi.Input[int]]:
+        """
+        The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
+        """
+        return pulumi.get(self, "throughput")
+
+    @throughput.setter
+    def throughput(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "throughput", value)
+
+    @property
+    @pulumi.getter(name="uniqueKeys")
+    def unique_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerUniqueKeyArgs']]]]:
+        """
+        One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "unique_keys")
+
+    @unique_keys.setter
+    def unique_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerUniqueKeyArgs']]]]):
+        pulumi.set(self, "unique_keys", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class SqlContainer(pulumi.CustomResource):
@@ -368,25 +559,25 @@ class SqlContainer(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SqlContainerArgs.__new__(SqlContainerArgs)
 
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
-            __props__['account_name'] = account_name
-            __props__['autoscale_settings'] = autoscale_settings
+            __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["autoscale_settings"] = autoscale_settings
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
-            __props__['database_name'] = database_name
-            __props__['default_ttl'] = default_ttl
-            __props__['indexing_policy'] = indexing_policy
-            __props__['name'] = name
-            __props__['partition_key_path'] = partition_key_path
-            __props__['partition_key_version'] = partition_key_version
+            __props__.__dict__["database_name"] = database_name
+            __props__.__dict__["default_ttl"] = default_ttl
+            __props__.__dict__["indexing_policy"] = indexing_policy
+            __props__.__dict__["name"] = name
+            __props__.__dict__["partition_key_path"] = partition_key_path
+            __props__.__dict__["partition_key_version"] = partition_key_version
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['throughput'] = throughput
-            __props__['unique_keys'] = unique_keys
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["throughput"] = throughput
+            __props__.__dict__["unique_keys"] = unique_keys
         super(SqlContainer, __self__).__init__(
             'azure:cosmosdb/sqlContainer:SqlContainer',
             resource_name,
@@ -429,19 +620,19 @@ class SqlContainer(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _SqlContainerState.__new__(_SqlContainerState)
 
-        __props__["account_name"] = account_name
-        __props__["autoscale_settings"] = autoscale_settings
-        __props__["database_name"] = database_name
-        __props__["default_ttl"] = default_ttl
-        __props__["indexing_policy"] = indexing_policy
-        __props__["name"] = name
-        __props__["partition_key_path"] = partition_key_path
-        __props__["partition_key_version"] = partition_key_version
-        __props__["resource_group_name"] = resource_group_name
-        __props__["throughput"] = throughput
-        __props__["unique_keys"] = unique_keys
+        __props__.__dict__["account_name"] = account_name
+        __props__.__dict__["autoscale_settings"] = autoscale_settings
+        __props__.__dict__["database_name"] = database_name
+        __props__.__dict__["default_ttl"] = default_ttl
+        __props__.__dict__["indexing_policy"] = indexing_policy
+        __props__.__dict__["name"] = name
+        __props__.__dict__["partition_key_path"] = partition_key_path
+        __props__.__dict__["partition_key_version"] = partition_key_version
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["throughput"] = throughput
+        __props__.__dict__["unique_keys"] = unique_keys
         return SqlContainer(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -531,10 +722,4 @@ class SqlContainer(pulumi.CustomResource):
         One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "unique_keys")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

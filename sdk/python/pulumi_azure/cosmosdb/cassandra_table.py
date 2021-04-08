@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -100,6 +104,101 @@ class CassandraTableArgs:
     @throughput.setter
     def throughput(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "throughput", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _CassandraTableState:
+    def __init__(__self__, *,
+                 autoscale_settings: Optional[pulumi.Input['CassandraTableAutoscaleSettingsArgs']] = None,
+                 cassandra_keyspace_id: Optional[pulumi.Input[str]] = None,
+                 default_ttl: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 schema: Optional[pulumi.Input['CassandraTableSchemaArgs']] = None,
+                 throughput: Optional[pulumi.Input[int]] = None):
+        """
+        Input properties used for looking up and filtering CassandraTable resources.
+        :param pulumi.Input[str] cassandra_keyspace_id: The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
+        :param pulumi.Input['CassandraTableSchemaArgs'] schema: A `schema` block as defined below. Changing this forces a new resource to be created.
+        """
+        if autoscale_settings is not None:
+            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+        if cassandra_keyspace_id is not None:
+            pulumi.set(__self__, "cassandra_keyspace_id", cassandra_keyspace_id)
+        if default_ttl is not None:
+            pulumi.set(__self__, "default_ttl", default_ttl)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+
+    @property
+    @pulumi.getter(name="autoscaleSettings")
+    def autoscale_settings(self) -> Optional[pulumi.Input['CassandraTableAutoscaleSettingsArgs']]:
+        return pulumi.get(self, "autoscale_settings")
+
+    @autoscale_settings.setter
+    def autoscale_settings(self, value: Optional[pulumi.Input['CassandraTableAutoscaleSettingsArgs']]):
+        pulumi.set(self, "autoscale_settings", value)
+
+    @property
+    @pulumi.getter(name="cassandraKeyspaceId")
+    def cassandra_keyspace_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cassandra_keyspace_id")
+
+    @cassandra_keyspace_id.setter
+    def cassandra_keyspace_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cassandra_keyspace_id", value)
+
+    @property
+    @pulumi.getter(name="defaultTtl")
+    def default_ttl(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "default_ttl")
+
+    @default_ttl.setter
+    def default_ttl(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "default_ttl", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[pulumi.Input['CassandraTableSchemaArgs']]:
+        """
+        A `schema` block as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[pulumi.Input['CassandraTableSchemaArgs']]):
+        pulumi.set(self, "schema", value)
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "throughput")
+
+    @throughput.setter
+    def throughput(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "throughput", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class CassandraTable(pulumi.CustomResource):
@@ -277,18 +376,18 @@ class CassandraTable(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = CassandraTableArgs.__new__(CassandraTableArgs)
 
-            __props__['autoscale_settings'] = autoscale_settings
+            __props__.__dict__["autoscale_settings"] = autoscale_settings
             if cassandra_keyspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cassandra_keyspace_id'")
-            __props__['cassandra_keyspace_id'] = cassandra_keyspace_id
-            __props__['default_ttl'] = default_ttl
-            __props__['name'] = name
+            __props__.__dict__["cassandra_keyspace_id"] = cassandra_keyspace_id
+            __props__.__dict__["default_ttl"] = default_ttl
+            __props__.__dict__["name"] = name
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
-            __props__['schema'] = schema
-            __props__['throughput'] = throughput
+            __props__.__dict__["schema"] = schema
+            __props__.__dict__["throughput"] = throughput
         super(CassandraTable, __self__).__init__(
             'azure:cosmosdb/cassandraTable:CassandraTable',
             resource_name,
@@ -318,14 +417,14 @@ class CassandraTable(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _CassandraTableState.__new__(_CassandraTableState)
 
-        __props__["autoscale_settings"] = autoscale_settings
-        __props__["cassandra_keyspace_id"] = cassandra_keyspace_id
-        __props__["default_ttl"] = default_ttl
-        __props__["name"] = name
-        __props__["schema"] = schema
-        __props__["throughput"] = throughput
+        __props__.__dict__["autoscale_settings"] = autoscale_settings
+        __props__.__dict__["cassandra_keyspace_id"] = cassandra_keyspace_id
+        __props__.__dict__["default_ttl"] = default_ttl
+        __props__.__dict__["name"] = name
+        __props__.__dict__["schema"] = schema
+        __props__.__dict__["throughput"] = throughput
         return CassandraTable(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -366,10 +465,4 @@ class CassandraTable(pulumi.CustomResource):
     @pulumi.getter
     def throughput(self) -> pulumi.Output[int]:
         return pulumi.get(self, "throughput")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

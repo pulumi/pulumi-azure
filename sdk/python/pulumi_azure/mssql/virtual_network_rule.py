@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['VirtualNetworkRuleArgs', 'VirtualNetworkRule']
 
@@ -78,6 +82,81 @@ class VirtualNetworkRuleArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _VirtualNetworkRuleState:
+    def __init__(__self__, *,
+                 ignore_missing_vnet_service_endpoint: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 server_id: Optional[pulumi.Input[str]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering VirtualNetworkRule resources.
+        :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`.
+        :param pulumi.Input[str] name: The name of the SQL virtual network rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] server_id: The resource ID of the SQL Server to which this SQL virtual network rule will be applied. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet from which the SQL server will accept communications.
+        """
+        if ignore_missing_vnet_service_endpoint is not None:
+            pulumi.set(__self__, "ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if server_id is not None:
+            pulumi.set(__self__, "server_id", server_id)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="ignoreMissingVnetServiceEndpoint")
+    def ignore_missing_vnet_service_endpoint(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
+
+    @ignore_missing_vnet_service_endpoint.setter
+    def ignore_missing_vnet_service_endpoint(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_missing_vnet_service_endpoint", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the SQL virtual network rule. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="serverId")
+    def server_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the SQL Server to which this SQL virtual network rule will be applied. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "server_id")
+
+    @server_id.setter
+    def server_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_id", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the subnet from which the SQL server will accept communications.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class VirtualNetworkRule(pulumi.CustomResource):
@@ -218,16 +297,16 @@ class VirtualNetworkRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VirtualNetworkRuleArgs.__new__(VirtualNetworkRuleArgs)
 
-            __props__['ignore_missing_vnet_service_endpoint'] = ignore_missing_vnet_service_endpoint
-            __props__['name'] = name
+            __props__.__dict__["ignore_missing_vnet_service_endpoint"] = ignore_missing_vnet_service_endpoint
+            __props__.__dict__["name"] = name
             if server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'server_id'")
-            __props__['server_id'] = server_id
+            __props__.__dict__["server_id"] = server_id
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
-            __props__['subnet_id'] = subnet_id
+            __props__.__dict__["subnet_id"] = subnet_id
         super(VirtualNetworkRule, __self__).__init__(
             'azure:mssql/virtualNetworkRule:VirtualNetworkRule',
             resource_name,
@@ -256,12 +335,12 @@ class VirtualNetworkRule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _VirtualNetworkRuleState.__new__(_VirtualNetworkRuleState)
 
-        __props__["ignore_missing_vnet_service_endpoint"] = ignore_missing_vnet_service_endpoint
-        __props__["name"] = name
-        __props__["server_id"] = server_id
-        __props__["subnet_id"] = subnet_id
+        __props__.__dict__["ignore_missing_vnet_service_endpoint"] = ignore_missing_vnet_service_endpoint
+        __props__.__dict__["name"] = name
+        __props__.__dict__["server_id"] = server_id
+        __props__.__dict__["subnet_id"] = subnet_id
         return VirtualNetworkRule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -295,10 +374,4 @@ class VirtualNetworkRule(pulumi.CustomResource):
         The ID of the subnet from which the SQL server will accept communications.
         """
         return pulumi.get(self, "subnet_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

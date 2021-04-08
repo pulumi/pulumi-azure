@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['SubscriptionArgs', 'Subscription']
 
@@ -165,6 +169,169 @@ class SubscriptionArgs:
     @user_id.setter
     def user_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_id", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _SubscriptionState:
+    def __init__(__self__, *,
+                 allow_tracing: Optional[pulumi.Input[bool]] = None,
+                 api_management_name: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 primary_key: Optional[pulumi.Input[str]] = None,
+                 product_id: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 secondary_key: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[str]] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None,
+                 user_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Subscription resources.
+        :param pulumi.Input[bool] allow_tracing: Determines whether tracing can be enabled.  Defaults to `true`.
+        :param pulumi.Input[str] api_management_name: The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] display_name: The display name of this Subscription.
+        :param pulumi.Input[str] product_id: The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] state: The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
+        :param pulumi.Input[str] subscription_id: An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] user_id: The ID of the User which should be assigned to this Subscription. Changing this forces a new resource to be created.
+        """
+        if allow_tracing is not None:
+            pulumi.set(__self__, "allow_tracing", allow_tracing)
+        if api_management_name is not None:
+            pulumi.set(__self__, "api_management_name", api_management_name)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if primary_key is not None:
+            pulumi.set(__self__, "primary_key", primary_key)
+        if product_id is not None:
+            pulumi.set(__self__, "product_id", product_id)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if secondary_key is not None:
+            pulumi.set(__self__, "secondary_key", secondary_key)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
+        if user_id is not None:
+            pulumi.set(__self__, "user_id", user_id)
+
+    @property
+    @pulumi.getter(name="allowTracing")
+    def allow_tracing(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines whether tracing can be enabled.  Defaults to `true`.
+        """
+        return pulumi.get(self, "allow_tracing")
+
+    @allow_tracing.setter
+    def allow_tracing(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_tracing", value)
+
+    @property
+    @pulumi.getter(name="apiManagementName")
+    def api_management_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "api_management_name")
+
+    @api_management_name.setter
+    def api_management_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_management_name", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name of this Subscription.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "primary_key")
+
+    @primary_key.setter
+    def primary_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_key", value)
+
+    @property
+    @pulumi.getter(name="productId")
+    def product_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "product_id")
+
+    @product_id.setter
+    def product_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "product_id", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="secondaryKey")
+    def secondary_key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "secondary_key")
+
+    @secondary_key.setter
+    def secondary_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_key", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subscription_id", value)
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the User which should be assigned to this Subscription. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "user_id")
+
+    @user_id.setter
+    def user_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_id", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class Subscription(pulumi.CustomResource):
@@ -311,24 +478,24 @@ class Subscription(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SubscriptionArgs.__new__(SubscriptionArgs)
 
-            __props__['allow_tracing'] = allow_tracing
+            __props__.__dict__["allow_tracing"] = allow_tracing
             if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
-            __props__['api_management_name'] = api_management_name
+            __props__.__dict__["api_management_name"] = api_management_name
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
-            __props__['display_name'] = display_name
-            __props__['primary_key'] = primary_key
-            __props__['product_id'] = product_id
+            __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["primary_key"] = primary_key
+            __props__.__dict__["product_id"] = product_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['secondary_key'] = secondary_key
-            __props__['state'] = state
-            __props__['subscription_id'] = subscription_id
-            __props__['user_id'] = user_id
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["secondary_key"] = secondary_key
+            __props__.__dict__["state"] = state
+            __props__.__dict__["subscription_id"] = subscription_id
+            __props__.__dict__["user_id"] = user_id
         super(Subscription, __self__).__init__(
             'azure:apimanagement/subscription:Subscription',
             resource_name,
@@ -367,18 +534,18 @@ class Subscription(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _SubscriptionState.__new__(_SubscriptionState)
 
-        __props__["allow_tracing"] = allow_tracing
-        __props__["api_management_name"] = api_management_name
-        __props__["display_name"] = display_name
-        __props__["primary_key"] = primary_key
-        __props__["product_id"] = product_id
-        __props__["resource_group_name"] = resource_group_name
-        __props__["secondary_key"] = secondary_key
-        __props__["state"] = state
-        __props__["subscription_id"] = subscription_id
-        __props__["user_id"] = user_id
+        __props__.__dict__["allow_tracing"] = allow_tracing
+        __props__.__dict__["api_management_name"] = api_management_name
+        __props__.__dict__["display_name"] = display_name
+        __props__.__dict__["primary_key"] = primary_key
+        __props__.__dict__["product_id"] = product_id
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["secondary_key"] = secondary_key
+        __props__.__dict__["state"] = state
+        __props__.__dict__["subscription_id"] = subscription_id
+        __props__.__dict__["user_id"] = user_id
         return Subscription(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -454,10 +621,4 @@ class Subscription(pulumi.CustomResource):
         The ID of the User which should be assigned to this Subscription. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "user_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

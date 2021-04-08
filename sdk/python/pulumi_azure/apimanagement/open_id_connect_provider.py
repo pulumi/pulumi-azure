@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['OpenIdConnectProviderArgs', 'OpenIdConnectProvider']
 
@@ -138,6 +142,145 @@ class OpenIdConnectProviderArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _OpenIdConnectProviderState:
+    def __init__(__self__, *,
+                 api_management_name: Optional[pulumi.Input[str]] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 metadata_endpoint: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering OpenIdConnectProvider resources.
+        :param pulumi.Input[str] api_management_name: The name of the API Management Service in which this OpenID Connect Provider should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] client_id: The Client ID used for the Client Application.
+        :param pulumi.Input[str] client_secret: The Client Secret used for the Client Application.
+        :param pulumi.Input[str] description: A description of this OpenID Connect Provider.
+        :param pulumi.Input[str] display_name: A user-friendly name for this OpenID Connect Provider.
+        :param pulumi.Input[str] metadata_endpoint: The URI of the Metadata endpoint.
+        :param pulumi.Input[str] name: the Name of the OpenID Connect Provider which should be created within the API Management Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+        """
+        if api_management_name is not None:
+            pulumi.set(__self__, "api_management_name", api_management_name)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if metadata_endpoint is not None:
+            pulumi.set(__self__, "metadata_endpoint", metadata_endpoint)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+
+    @property
+    @pulumi.getter(name="apiManagementName")
+    def api_management_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the API Management Service in which this OpenID Connect Provider should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "api_management_name")
+
+    @api_management_name.setter
+    def api_management_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_management_name", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client ID used for the Client Application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client Secret used for the Client Application.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of this OpenID Connect Provider.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A user-friendly name for this OpenID Connect Provider.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="metadataEndpoint")
+    def metadata_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URI of the Metadata endpoint.
+        """
+        return pulumi.get(self, "metadata_endpoint")
+
+    @metadata_endpoint.setter
+    def metadata_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metadata_endpoint", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        the Name of the OpenID Connect Provider which should be created within the API Management Service. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class OpenIdConnectProvider(pulumi.CustomResource):
@@ -278,28 +421,28 @@ class OpenIdConnectProvider(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = OpenIdConnectProviderArgs.__new__(OpenIdConnectProviderArgs)
 
             if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
-            __props__['api_management_name'] = api_management_name
+            __props__.__dict__["api_management_name"] = api_management_name
             if client_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_id'")
-            __props__['client_id'] = client_id
+            __props__.__dict__["client_id"] = client_id
             if client_secret is None and not opts.urn:
                 raise TypeError("Missing required property 'client_secret'")
-            __props__['client_secret'] = client_secret
-            __props__['description'] = description
+            __props__.__dict__["client_secret"] = client_secret
+            __props__.__dict__["description"] = description
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
-            __props__['display_name'] = display_name
+            __props__.__dict__["display_name"] = display_name
             if metadata_endpoint is None and not opts.urn:
                 raise TypeError("Missing required property 'metadata_endpoint'")
-            __props__['metadata_endpoint'] = metadata_endpoint
-            __props__['name'] = name
+            __props__.__dict__["metadata_endpoint"] = metadata_endpoint
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
         super(OpenIdConnectProvider, __self__).__init__(
             'azure:apimanagement/openIdConnectProvider:OpenIdConnectProvider',
             resource_name,
@@ -336,16 +479,16 @@ class OpenIdConnectProvider(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _OpenIdConnectProviderState.__new__(_OpenIdConnectProviderState)
 
-        __props__["api_management_name"] = api_management_name
-        __props__["client_id"] = client_id
-        __props__["client_secret"] = client_secret
-        __props__["description"] = description
-        __props__["display_name"] = display_name
-        __props__["metadata_endpoint"] = metadata_endpoint
-        __props__["name"] = name
-        __props__["resource_group_name"] = resource_group_name
+        __props__.__dict__["api_management_name"] = api_management_name
+        __props__.__dict__["client_id"] = client_id
+        __props__.__dict__["client_secret"] = client_secret
+        __props__.__dict__["description"] = description
+        __props__.__dict__["display_name"] = display_name
+        __props__.__dict__["metadata_endpoint"] = metadata_endpoint
+        __props__.__dict__["name"] = name
+        __props__.__dict__["resource_group_name"] = resource_group_name
         return OpenIdConnectProvider(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -411,10 +554,4 @@ class OpenIdConnectProvider(pulumi.CustomResource):
         The name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,43 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+
+__all__ = ['ElasticPoolArgs', 'ElasticPool']
+
+@pulumi.input_type
+class ElasticPoolArgs:
+    def __init__(__self__, *,
+                 dtu: pulumi.Input[int],
+                 edition: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 server_name: pulumi.Input[str],
+                 db_dtu_max: Optional[pulumi.Input[int]] = None,
+                 db_dtu_min: Optional[pulumi.Input[int]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 pool_size: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a ElasticPool resource.
+        :param pulumi.Input[int] dtu: The total shared DTU for the elastic pool. Valid values depend on the `edition` which has been defined. Refer to [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus) for valid combinations.
+        :param pulumi.Input[str] edition: The edition of the elastic pool to be created. Valid values are `Basic`, `Standard`, and `Premium`. Refer to [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus) for details. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+        :param pulumi.Input[str] server_name: The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] db_dtu_max: The maximum DTU which will be guaranteed to all databases in the elastic pool to be created.
+        :param pulumi.Input[int] db_dtu_min: The minimum DTU which will be guaranteed to all databases in the elastic pool to be created.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] pool_size: The maximum size in MB that all databases in the elastic pool can grow to. The maximum size must be consistent with combination of `edition` and `dtu` and the limits documented in [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). If not defined when creating an elastic pool, the value is set to the size implied by `edition` and `dtu`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "dtu", dtu)
+        pulumi.set(__self__, "edition", edition)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "server_name", server_name)
+=======
+from .. import _utilities
 
 __all__ = ['ElasticPoolArgs', 'ElasticPool']
 
@@ -162,6 +198,252 @@ class ElasticPoolArgs:
         pulumi.set(self, "pool_size", value)
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class _ElasticPoolState:
+    def __init__(__self__, *,
+                 creation_date: Optional[pulumi.Input[str]] = None,
+                 db_dtu_max: Optional[pulumi.Input[int]] = None,
+                 db_dtu_min: Optional[pulumi.Input[int]] = None,
+                 dtu: Optional[pulumi.Input[int]] = None,
+                 edition: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 pool_size: Optional[pulumi.Input[int]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 server_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering ElasticPool resources.
+        :param pulumi.Input[str] creation_date: The creation date of the SQL Elastic Pool.
+        :param pulumi.Input[int] db_dtu_max: The maximum DTU which will be guaranteed to all databases in the elastic pool to be created.
+        :param pulumi.Input[int] db_dtu_min: The minimum DTU which will be guaranteed to all databases in the elastic pool to be created.
+        :param pulumi.Input[int] dtu: The total shared DTU for the elastic pool. Valid values depend on the `edition` which has been defined. Refer to [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus) for valid combinations.
+        :param pulumi.Input[str] edition: The edition of the elastic pool to be created. Valid values are `Basic`, `Standard`, and `Premium`. Refer to [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus) for details. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] pool_size: The maximum size in MB that all databases in the elastic pool can grow to. The maximum size must be consistent with combination of `edition` and `dtu` and the limits documented in [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). If not defined when creating an elastic pool, the value is set to the size implied by `edition` and `dtu`.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+        :param pulumi.Input[str] server_name: The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        if creation_date is not None:
+            pulumi.set(__self__, "creation_date", creation_date)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
+        if db_dtu_max is not None:
+            pulumi.set(__self__, "db_dtu_max", db_dtu_max)
+        if db_dtu_min is not None:
+            pulumi.set(__self__, "db_dtu_min", db_dtu_min)
+<<<<<<< HEAD
+=======
+        if dtu is not None:
+            pulumi.set(__self__, "dtu", dtu)
+        if edition is not None:
+            pulumi.set(__self__, "edition", edition)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if pool_size is not None:
+            pulumi.set(__self__, "pool_size", pool_size)
+<<<<<<< HEAD
+=======
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+<<<<<<< HEAD
+    @pulumi.getter
+    def dtu(self) -> pulumi.Input[int]:
+        """
+        The total shared DTU for the elastic pool. Valid values depend on the `edition` which has been defined. Refer to [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus) for valid combinations.
+        """
+        return pulumi.get(self, "dtu")
+
+    @dtu.setter
+    def dtu(self, value: pulumi.Input[int]):
+        pulumi.set(self, "dtu", value)
+
+    @property
+    @pulumi.getter
+    def edition(self) -> pulumi.Input[str]:
+        """
+        The edition of the elastic pool to be created. Valid values are `Basic`, `Standard`, and `Premium`. Refer to [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus) for details. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "edition")
+
+    @edition.setter
+    def edition(self, value: pulumi.Input[str]):
+        pulumi.set(self, "edition", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[str]:
+        """
+        The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server_name", value)
+=======
+    @pulumi.getter(name="creationDate")
+    def creation_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        The creation date of the SQL Elastic Pool.
+        """
+        return pulumi.get(self, "creation_date")
+
+    @creation_date.setter
+    def creation_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "creation_date", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
+
+    @property
+    @pulumi.getter(name="dbDtuMax")
+    def db_dtu_max(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum DTU which will be guaranteed to all databases in the elastic pool to be created.
+        """
+        return pulumi.get(self, "db_dtu_max")
+
+    @db_dtu_max.setter
+    def db_dtu_max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "db_dtu_max", value)
+
+    @property
+    @pulumi.getter(name="dbDtuMin")
+    def db_dtu_min(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum DTU which will be guaranteed to all databases in the elastic pool to be created.
+        """
+        return pulumi.get(self, "db_dtu_min")
+
+    @db_dtu_min.setter
+    def db_dtu_min(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "db_dtu_min", value)
+
+    @property
+    @pulumi.getter
+<<<<<<< HEAD
+=======
+    def dtu(self) -> Optional[pulumi.Input[int]]:
+        """
+        The total shared DTU for the elastic pool. Valid values depend on the `edition` which has been defined. Refer to [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus) for valid combinations.
+        """
+        return pulumi.get(self, "dtu")
+
+    @dtu.setter
+    def dtu(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "dtu", value)
+
+    @property
+    @pulumi.getter
+    def edition(self) -> Optional[pulumi.Input[str]]:
+        """
+        The edition of the elastic pool to be created. Valid values are `Basic`, `Standard`, and `Premium`. Refer to [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus) for details. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "edition")
+
+    @edition.setter
+    def edition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "edition", value)
+
+    @property
+    @pulumi.getter
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="poolSize")
+    def pool_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum size in MB that all databases in the elastic pool can grow to. The maximum size must be consistent with combination of `edition` and `dtu` and the limits documented in [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). If not defined when creating an elastic pool, the value is set to the size implied by `edition` and `dtu`.
+        """
+        return pulumi.get(self, "pool_size")
+
+    @pool_size.setter
+    def pool_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "pool_size", value)
+
+    @property
+<<<<<<< HEAD
+=======
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_name", value)
+
+    @property
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -332,27 +614,27 @@ class ElasticPool(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ElasticPoolArgs.__new__(ElasticPoolArgs)
 
-            __props__['db_dtu_max'] = db_dtu_max
-            __props__['db_dtu_min'] = db_dtu_min
+            __props__.__dict__["db_dtu_max"] = db_dtu_max
+            __props__.__dict__["db_dtu_min"] = db_dtu_min
             if dtu is None and not opts.urn:
                 raise TypeError("Missing required property 'dtu'")
-            __props__['dtu'] = dtu
+            __props__.__dict__["dtu"] = dtu
             if edition is None and not opts.urn:
                 raise TypeError("Missing required property 'edition'")
-            __props__['edition'] = edition
-            __props__['location'] = location
-            __props__['name'] = name
-            __props__['pool_size'] = pool_size
+            __props__.__dict__["edition"] = edition
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
+            __props__.__dict__["pool_size"] = pool_size
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
-            __props__['server_name'] = server_name
-            __props__['tags'] = tags
-            __props__['creation_date'] = None
+            __props__.__dict__["server_name"] = server_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["creation_date"] = None
         super(ElasticPool, __self__).__init__(
             'azure:sql/elasticPool:ElasticPool',
             resource_name,
@@ -395,19 +677,19 @@ class ElasticPool(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ElasticPoolState.__new__(_ElasticPoolState)
 
-        __props__["creation_date"] = creation_date
-        __props__["db_dtu_max"] = db_dtu_max
-        __props__["db_dtu_min"] = db_dtu_min
-        __props__["dtu"] = dtu
-        __props__["edition"] = edition
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["pool_size"] = pool_size
-        __props__["resource_group_name"] = resource_group_name
-        __props__["server_name"] = server_name
-        __props__["tags"] = tags
+        __props__.__dict__["creation_date"] = creation_date
+        __props__.__dict__["db_dtu_max"] = db_dtu_max
+        __props__.__dict__["db_dtu_min"] = db_dtu_min
+        __props__.__dict__["dtu"] = dtu
+        __props__.__dict__["edition"] = edition
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["pool_size"] = pool_size
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["server_name"] = server_name
+        __props__.__dict__["tags"] = tags
         return ElasticPool(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -497,10 +779,4 @@ class ElasticPool(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

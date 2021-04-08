@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['AnalyticsAccountArgs', 'AnalyticsAccount']
 
@@ -110,6 +114,113 @@ class AnalyticsAccountArgs:
     @tier.setter
     def tier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tier", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _AnalyticsAccountState:
+    def __init__(__self__, *,
+                 default_store_account_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tier: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering AnalyticsAccount resources.
+        :param pulumi.Input[str] default_store_account_name: Specifies the data lake store to use by default. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Data Lake Analytics Account. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Lake Analytics Account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] tier: The monthly commitment tier for Data Lake Analytics Account. Accepted values are `Consumption`, `Commitment_100000AUHours`, `Commitment_10000AUHours`, `Commitment_1000AUHours`, `Commitment_100AUHours`, `Commitment_500000AUHours`, `Commitment_50000AUHours`, `Commitment_5000AUHours`, or `Commitment_500AUHours`.
+        """
+        if default_store_account_name is not None:
+            pulumi.set(__self__, "default_store_account_name", default_store_account_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter(name="defaultStoreAccountName")
+    def default_store_account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the data lake store to use by default. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "default_store_account_name")
+
+    @default_store_account_name.setter
+    def default_store_account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_store_account_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Data Lake Analytics Account. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which to create the Data Lake Analytics Account.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The monthly commitment tier for Data Lake Analytics Account. Accepted values are `Consumption`, `Commitment_100000AUHours`, `Commitment_10000AUHours`, `Commitment_1000AUHours`, `Commitment_100AUHours`, `Commitment_500000AUHours`, `Commitment_50000AUHours`, `Commitment_5000AUHours`, or `Commitment_500AUHours`.
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tier", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class AnalyticsAccount(pulumi.CustomResource):
@@ -234,18 +345,18 @@ class AnalyticsAccount(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AnalyticsAccountArgs.__new__(AnalyticsAccountArgs)
 
             if default_store_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'default_store_account_name'")
-            __props__['default_store_account_name'] = default_store_account_name
-            __props__['location'] = location
-            __props__['name'] = name
+            __props__.__dict__["default_store_account_name"] = default_store_account_name
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['tier'] = tier
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["tier"] = tier
         super(AnalyticsAccount, __self__).__init__(
             'azure:datalake/analyticsAccount:AnalyticsAccount',
             resource_name,
@@ -278,14 +389,14 @@ class AnalyticsAccount(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AnalyticsAccountState.__new__(_AnalyticsAccountState)
 
-        __props__["default_store_account_name"] = default_store_account_name
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["resource_group_name"] = resource_group_name
-        __props__["tags"] = tags
-        __props__["tier"] = tier
+        __props__.__dict__["default_store_account_name"] = default_store_account_name
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tier"] = tier
         return AnalyticsAccount(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -335,10 +446,4 @@ class AnalyticsAccount(pulumi.CustomResource):
         The monthly commitment tier for Data Lake Analytics Account. Accepted values are `Consumption`, `Commitment_100000AUHours`, `Commitment_10000AUHours`, `Commitment_1000AUHours`, `Commitment_100AUHours`, `Commitment_500000AUHours`, `Commitment_50000AUHours`, `Commitment_5000AUHours`, or `Commitment_500AUHours`.
         """
         return pulumi.get(self, "tier")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

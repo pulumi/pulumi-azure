@@ -6,7 +6,11 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+<<<<<<< HEAD
 from .. import _utilities, _tables
+=======
+from .. import _utilities
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -172,6 +176,189 @@ class ServerArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+<<<<<<< HEAD
+=======
+
+
+@pulumi.input_type
+class _ServerState:
+    def __init__(__self__, *,
+                 admin_users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 backup_blob_container_uri: Optional[pulumi.Input[str]] = None,
+                 enable_power_bi_service: Optional[pulumi.Input[bool]] = None,
+                 ipv4_firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ServerIpv4FirewallRuleArgs']]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 querypool_connection_mode: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 server_full_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Server resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_users: List of email addresses of admin users.
+        :param pulumi.Input[str] backup_blob_container_uri: URI and SAS token for a blob container to store backups.
+        :param pulumi.Input[bool] enable_power_bi_service: Indicates if the Power BI service is allowed to access or not.
+        :param pulumi.Input[Sequence[pulumi.Input['ServerIpv4FirewallRuleArgs']]] ipv4_firewall_rules: One or more `ipv4_firewall_rule` block(s) as defined below.
+        :param pulumi.Input[str] location: The Azure location where the Analysis Services Server exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the firewall rule.
+        :param pulumi.Input[str] querypool_connection_mode: Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] server_full_name: The full name of the Analysis Services Server.
+        :param pulumi.Input[str] sku: SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2` and `S9v2`.
+        """
+        if admin_users is not None:
+            pulumi.set(__self__, "admin_users", admin_users)
+        if backup_blob_container_uri is not None:
+            pulumi.set(__self__, "backup_blob_container_uri", backup_blob_container_uri)
+        if enable_power_bi_service is not None:
+            pulumi.set(__self__, "enable_power_bi_service", enable_power_bi_service)
+        if ipv4_firewall_rules is not None:
+            pulumi.set(__self__, "ipv4_firewall_rules", ipv4_firewall_rules)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if querypool_connection_mode is not None:
+            pulumi.set(__self__, "querypool_connection_mode", querypool_connection_mode)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if server_full_name is not None:
+            pulumi.set(__self__, "server_full_name", server_full_name)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="adminUsers")
+    def admin_users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of email addresses of admin users.
+        """
+        return pulumi.get(self, "admin_users")
+
+    @admin_users.setter
+    def admin_users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "admin_users", value)
+
+    @property
+    @pulumi.getter(name="backupBlobContainerUri")
+    def backup_blob_container_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        URI and SAS token for a blob container to store backups.
+        """
+        return pulumi.get(self, "backup_blob_container_uri")
+
+    @backup_blob_container_uri.setter
+    def backup_blob_container_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "backup_blob_container_uri", value)
+
+    @property
+    @pulumi.getter(name="enablePowerBiService")
+    def enable_power_bi_service(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates if the Power BI service is allowed to access or not.
+        """
+        return pulumi.get(self, "enable_power_bi_service")
+
+    @enable_power_bi_service.setter
+    def enable_power_bi_service(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_power_bi_service", value)
+
+    @property
+    @pulumi.getter(name="ipv4FirewallRules")
+    def ipv4_firewall_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerIpv4FirewallRuleArgs']]]]:
+        """
+        One or more `ipv4_firewall_rule` block(s) as defined below.
+        """
+        return pulumi.get(self, "ipv4_firewall_rules")
+
+    @ipv4_firewall_rules.setter
+    def ipv4_firewall_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerIpv4FirewallRuleArgs']]]]):
+        pulumi.set(self, "ipv4_firewall_rules", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure location where the Analysis Services Server exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the firewall rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="querypoolConnectionMode")
+    def querypool_connection_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
+        """
+        return pulumi.get(self, "querypool_connection_mode")
+
+    @querypool_connection_mode.setter
+    def querypool_connection_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "querypool_connection_mode", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="serverFullName")
+    def server_full_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The full name of the Analysis Services Server.
+        """
+        return pulumi.get(self, "server_full_name")
+
+    @server_full_name.setter
+    def server_full_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_full_name", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input[str]]:
+        """
+        SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2` and `S9v2`.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+>>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class Server(pulumi.CustomResource):
@@ -325,23 +512,23 @@ class Server(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ServerArgs.__new__(ServerArgs)
 
-            __props__['admin_users'] = admin_users
-            __props__['backup_blob_container_uri'] = backup_blob_container_uri
-            __props__['enable_power_bi_service'] = enable_power_bi_service
-            __props__['ipv4_firewall_rules'] = ipv4_firewall_rules
-            __props__['location'] = location
-            __props__['name'] = name
-            __props__['querypool_connection_mode'] = querypool_connection_mode
+            __props__.__dict__["admin_users"] = admin_users
+            __props__.__dict__["backup_blob_container_uri"] = backup_blob_container_uri
+            __props__.__dict__["enable_power_bi_service"] = enable_power_bi_service
+            __props__.__dict__["ipv4_firewall_rules"] = ipv4_firewall_rules
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
+            __props__.__dict__["querypool_connection_mode"] = querypool_connection_mode
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
-            __props__['sku'] = sku
-            __props__['tags'] = tags
-            __props__['server_full_name'] = None
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["server_full_name"] = None
         super(Server, __self__).__init__(
             'azure:analysisservices/server:Server',
             resource_name,
@@ -383,19 +570,19 @@ class Server(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ServerState.__new__(_ServerState)
 
-        __props__["admin_users"] = admin_users
-        __props__["backup_blob_container_uri"] = backup_blob_container_uri
-        __props__["enable_power_bi_service"] = enable_power_bi_service
-        __props__["ipv4_firewall_rules"] = ipv4_firewall_rules
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["querypool_connection_mode"] = querypool_connection_mode
-        __props__["resource_group_name"] = resource_group_name
-        __props__["server_full_name"] = server_full_name
-        __props__["sku"] = sku
-        __props__["tags"] = tags
+        __props__.__dict__["admin_users"] = admin_users
+        __props__.__dict__["backup_blob_container_uri"] = backup_blob_container_uri
+        __props__.__dict__["enable_power_bi_service"] = enable_power_bi_service
+        __props__.__dict__["ipv4_firewall_rules"] = ipv4_firewall_rules
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["querypool_connection_mode"] = querypool_connection_mode
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["server_full_name"] = server_full_name
+        __props__.__dict__["sku"] = sku
+        __props__.__dict__["tags"] = tags
         return Server(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -482,10 +669,4 @@ class Server(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 
