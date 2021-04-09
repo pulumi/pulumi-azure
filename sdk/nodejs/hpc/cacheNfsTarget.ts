@@ -67,7 +67,7 @@ export class CacheNfsTarget extends pulumi.CustomResource {
      */
     public readonly targetHostName!: pulumi.Output<string>;
     /**
-     * The type of usage of the HPC Cache NFS Target.
+     * The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
      */
     public readonly usageModel!: pulumi.Output<string>;
 
@@ -146,7 +146,7 @@ export interface CacheNfsTargetState {
      */
     readonly targetHostName?: pulumi.Input<string>;
     /**
-     * The type of usage of the HPC Cache NFS Target.
+     * The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
      */
     readonly usageModel?: pulumi.Input<string>;
 }
@@ -176,7 +176,7 @@ export interface CacheNfsTargetArgs {
      */
     readonly targetHostName: pulumi.Input<string>;
     /**
-     * The type of usage of the HPC Cache NFS Target.
+     * The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
      */
     readonly usageModel: pulumi.Input<string>;
 }

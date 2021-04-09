@@ -113,6 +113,54 @@ namespace Pulumi.Azure.PrivateLink
     /// }
     /// ```
     /// 
+    /// Using a Private Link Service Alias with existing resources:
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var rg = Output.Create(Azure.Core.GetResourceGroup.InvokeAsync(new Azure.Core.GetResourceGroupArgs
+    ///         {
+    ///             Name = "example-resources",
+    ///         }));
+    ///         var vnet = rg.Apply(rg =&gt; Output.Create(Azure.Network.GetVirtualNetwork.InvokeAsync(new Azure.Network.GetVirtualNetworkArgs
+    ///         {
+    ///             Name = "example-network",
+    ///             ResourceGroupName = rg.Name,
+    ///         })));
+    ///         var subnet = Output.Tuple(vnet, rg).Apply(values =&gt;
+    ///         {
+    ///             var vnet = values.Item1;
+    ///             var rg = values.Item2;
+    ///             return Output.Create(Azure.Network.GetSubnet.InvokeAsync(new Azure.Network.GetSubnetArgs
+    ///             {
+    ///                 Name = "default",
+    ///                 VirtualNetworkName = vnet.Name,
+    ///                 ResourceGroupName = rg.Name,
+    ///             }));
+    ///         });
+    ///         var example = new Azure.PrivateLink.Endpoint("example", new Azure.PrivateLink.EndpointArgs
+    ///         {
+    ///             Location = rg.Apply(rg =&gt; rg.Location),
+    ///             ResourceGroupName = rg.Apply(rg =&gt; rg.Name),
+    ///             SubnetId = subnet.Apply(subnet =&gt; subnet.Id),
+    ///             PrivateServiceConnection = new Azure.PrivateLink.Inputs.EndpointPrivateServiceConnectionArgs
+    ///             {
+    ///                 Name = "example-privateserviceconnection",
+    ///                 PrivateConnectionResourceAlias = "example-privatelinkservice.d20286c8-4ea5-11eb-9584-8f53157226c6.centralus.azure.privatelinkservice",
+    ///                 IsManualConnection = true,
+    ///                 RequestMessage = "PL",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Private Endpoints can be imported using the `resource id`, e.g.

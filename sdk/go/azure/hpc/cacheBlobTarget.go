@@ -130,8 +130,8 @@ import (
 type CacheBlobTarget struct {
 	pulumi.CustomResourceState
 
-	// The name of the access policy applied to this target.
-	AccessPolicyName pulumi.StringOutput `pulumi:"accessPolicyName"`
+	// The name of the access policy applied to this target. Defaults to `default`.
+	AccessPolicyName pulumi.StringPtrOutput `pulumi:"accessPolicyName"`
 	// The name HPC Cache, which the HPC Cache Blob Target will be added to. Changing this forces a new resource to be created.
 	CacheName pulumi.StringOutput `pulumi:"cacheName"`
 	// The name of the HPC Cache Blob Target. Changing this forces a new resource to be created.
@@ -185,7 +185,7 @@ func GetCacheBlobTarget(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CacheBlobTarget resources.
 type cacheBlobTargetState struct {
-	// The name of the access policy applied to this target.
+	// The name of the access policy applied to this target. Defaults to `default`.
 	AccessPolicyName *string `pulumi:"accessPolicyName"`
 	// The name HPC Cache, which the HPC Cache Blob Target will be added to. Changing this forces a new resource to be created.
 	CacheName *string `pulumi:"cacheName"`
@@ -200,7 +200,7 @@ type cacheBlobTargetState struct {
 }
 
 type CacheBlobTargetState struct {
-	// The name of the access policy applied to this target.
+	// The name of the access policy applied to this target. Defaults to `default`.
 	AccessPolicyName pulumi.StringPtrInput
 	// The name HPC Cache, which the HPC Cache Blob Target will be added to. Changing this forces a new resource to be created.
 	CacheName pulumi.StringPtrInput
@@ -219,7 +219,7 @@ func (CacheBlobTargetState) ElementType() reflect.Type {
 }
 
 type cacheBlobTargetArgs struct {
-	// The name of the access policy applied to this target.
+	// The name of the access policy applied to this target. Defaults to `default`.
 	AccessPolicyName *string `pulumi:"accessPolicyName"`
 	// The name HPC Cache, which the HPC Cache Blob Target will be added to. Changing this forces a new resource to be created.
 	CacheName string `pulumi:"cacheName"`
@@ -235,7 +235,7 @@ type cacheBlobTargetArgs struct {
 
 // The set of arguments for constructing a CacheBlobTarget resource.
 type CacheBlobTargetArgs struct {
-	// The name of the access policy applied to this target.
+	// The name of the access policy applied to this target. Defaults to `default`.
 	AccessPolicyName pulumi.StringPtrInput
 	// The name HPC Cache, which the HPC Cache Blob Target will be added to. Changing this forces a new resource to be created.
 	CacheName pulumi.StringInput

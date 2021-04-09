@@ -25,10 +25,16 @@ namespace Pulumi.Azure.PrivateLink.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. Changing this forces a new resource to be created.
+        /// The Service Alias of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `private_connection_resource_id` or `private_connection_resource_alias` must be specified. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("privateConnectionResourceId", required: true)]
-        public Input<string> PrivateConnectionResourceId { get; set; } = null!;
+        [Input("privateConnectionResourceAlias")]
+        public Input<string>? PrivateConnectionResourceAlias { get; set; }
+
+        /// <summary>
+        /// The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `private_connection_resource_id` or `private_connection_resource_alias` must be specified. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("privateConnectionResourceId")]
+        public Input<string>? PrivateConnectionResourceId { get; set; }
 
         /// <summary>
         /// (Computed) The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.

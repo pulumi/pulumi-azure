@@ -83,6 +83,10 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly defaultAccessPolicy!: pulumi.Output<outputs.hpc.CacheDefaultAccessPolicy>;
     /**
+     * A `dns` block as defined below.
+     */
+    public readonly dns!: pulumi.Output<outputs.hpc.CacheDns | undefined>;
+    /**
      * Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -98,6 +102,10 @@ export class Cache extends pulumi.CustomResource {
      * The name of the HPC Cache. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
+     */
+    public readonly ntpServer!: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
      */
@@ -132,10 +140,12 @@ export class Cache extends pulumi.CustomResource {
             const state = argsOrState as CacheState | undefined;
             inputs["cacheSizeInGb"] = state ? state.cacheSizeInGb : undefined;
             inputs["defaultAccessPolicy"] = state ? state.defaultAccessPolicy : undefined;
+            inputs["dns"] = state ? state.dns : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["mountAddresses"] = state ? state.mountAddresses : undefined;
             inputs["mtu"] = state ? state.mtu : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["ntpServer"] = state ? state.ntpServer : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["rootSquashEnabled"] = state ? state.rootSquashEnabled : undefined;
             inputs["skuName"] = state ? state.skuName : undefined;
@@ -156,9 +166,11 @@ export class Cache extends pulumi.CustomResource {
             }
             inputs["cacheSizeInGb"] = args ? args.cacheSizeInGb : undefined;
             inputs["defaultAccessPolicy"] = args ? args.defaultAccessPolicy : undefined;
+            inputs["dns"] = args ? args.dns : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["mtu"] = args ? args.mtu : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["ntpServer"] = args ? args.ntpServer : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["rootSquashEnabled"] = args ? args.rootSquashEnabled : undefined;
             inputs["skuName"] = args ? args.skuName : undefined;
@@ -185,6 +197,10 @@ export interface CacheState {
      */
     readonly defaultAccessPolicy?: pulumi.Input<inputs.hpc.CacheDefaultAccessPolicy>;
     /**
+     * A `dns` block as defined below.
+     */
+    readonly dns?: pulumi.Input<inputs.hpc.CacheDns>;
+    /**
      * Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
@@ -200,6 +216,10 @@ export interface CacheState {
      * The name of the HPC Cache. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
+     */
+    readonly ntpServer?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
      */
@@ -233,6 +253,10 @@ export interface CacheArgs {
      */
     readonly defaultAccessPolicy?: pulumi.Input<inputs.hpc.CacheDefaultAccessPolicy>;
     /**
+     * A `dns` block as defined below.
+     */
+    readonly dns?: pulumi.Input<inputs.hpc.CacheDns>;
+    /**
      * Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
@@ -244,6 +268,10 @@ export interface CacheArgs {
      * The name of the HPC Cache. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
+     */
+    readonly ntpServer?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
      */

@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewExpressRouteCircuitPeering(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:network/expressRouteGateway:ExpressRouteGateway":
 		r, err = NewExpressRouteGateway(ctx, name, nil, pulumi.URN_(urn))
+	case "azure:network/expressRoutePort:ExpressRoutePort":
+		r, err = NewExpressRoutePort(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:network/firewall:Firewall":
 		r, err = NewFirewall(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:network/firewallApplicationRuleCollection:FirewallApplicationRuleCollection":
@@ -189,6 +191,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"network/expressRouteGateway",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"network/expressRoutePort",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

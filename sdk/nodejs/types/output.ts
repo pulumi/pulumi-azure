@@ -13570,7 +13570,22 @@ export namespace hpc {
         suidEnabled?: boolean;
     }
 
+    export interface CacheDns {
+        /**
+         * The DNS search domain for the HPC Cache.
+         */
+        searchDomain?: string;
+        /**
+         * A list of DNS servers for the HPC Cache. At most three IP(s) are allowed to set.
+         */
+        servers: string[];
+    }
+
     export interface CacheNfsTargetNamespaceJunction {
+        /**
+         * The name of the access policy applied to this target. Defaults to `default`.
+         */
+        accessPolicyName?: string;
         /**
          * The client-facing file path of this NFS target within the HPC Cache NFS Target.
          */
@@ -17374,6 +17389,7 @@ export namespace netapp {
          * A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
          */
         protocolsEnabled: string;
+        rootAccessEnabled?: boolean;
         /**
          * The index number of the rule.
          */
@@ -18228,6 +18244,103 @@ export namespace network {
          * The service tier. Possible values are `Basic`, `Local`, `Standard` or `Premium`.
          */
         tier: string;
+    }
+
+    export interface ExpressRoutePortIdentity {
+        /**
+         * Specifies a list with a single user managed identity id to be assigned to the Express Route Port. Currently, exactly one id is allowed to specify.
+         */
+        identityIds?: string[];
+        /**
+         * The type of the identity used for the Express Route Port. Currently, the only possible values is `UserAssigned`.
+         */
+        type: string;
+    }
+
+    export interface ExpressRoutePortLink1 {
+        /**
+         * Whether enable administration state on the Express Route Port Link? Defaults to `false`.
+         */
+        adminEnabled?: boolean;
+        /**
+         * The connector type of the Express Route Port Link.
+         */
+        connectorType: string;
+        /**
+         * The ID of this Express Route Port Link.
+         */
+        id: string;
+        /**
+         * The interface name of the Azure router associated with the Express Route Port Link.
+         */
+        interfaceName: string;
+        /**
+         * The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+         */
+        macsecCakKeyvaultSecretId?: string;
+        /**
+         * The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+         */
+        macsecCipher?: string;
+        /**
+         * The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
+         */
+        macsecCknKeyvaultSecretId?: string;
+        /**
+         * The ID that maps from the Express Route Port Link to the patch panel port.
+         */
+        patchPanelId: string;
+        /**
+         * The ID that maps from the patch panel port to the rack.
+         */
+        rackId: string;
+        /**
+         * The name of the Azure router associated with the Express Route Port Link.
+         */
+        routerName: string;
+    }
+
+    export interface ExpressRoutePortLink2 {
+        /**
+         * Whether enable administration state on the Express Route Port Link? Defaults to `false`.
+         */
+        adminEnabled?: boolean;
+        /**
+         * The connector type of the Express Route Port Link.
+         */
+        connectorType: string;
+        /**
+         * The ID of this Express Route Port Link.
+         */
+        id: string;
+        /**
+         * The interface name of the Azure router associated with the Express Route Port Link.
+         */
+        interfaceName: string;
+        /**
+         * The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+         */
+        macsecCakKeyvaultSecretId?: string;
+        /**
+         * The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+         */
+        macsecCipher?: string;
+        /**
+         * The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
+         */
+        macsecCknKeyvaultSecretId?: string;
+        /**
+         * The ID that maps from the Express Route Port Link to the patch panel port.
+         */
+        patchPanelId: string;
+        /**
+         * The ID that maps from the patch panel port to the rack.
+         */
+        rackId: string;
+        /**
+         * The name of the Azure router associated with the Express Route Port Link.
+         */
+        routerName: string;
     }
 
     export interface FirewallApplicationRuleCollectionRule {
@@ -20580,6 +20693,9 @@ export namespace policy {
          * The ID of the policy definition or policy set definition that is included in this policy set definition.
          */
         policyDefinitionId: string;
+        /**
+         * The list of names of the policy definition groups that this policy definition reference belongs to.
+         */
         policyGroupNames: string[];
         /**
          * The unique ID within this policy set definition for this policy definition reference.
@@ -20622,6 +20738,9 @@ export namespace policy {
          * The ID of the policy definition or policy set definition that will be included in this policy set definition.
          */
         policyDefinitionId: string;
+        /**
+         * A list of names of the policy definition groups that this policy definition reference belongs to.
+         */
         policyGroupNames?: string[];
         /**
          * A unique ID within this policy set definition for this policy definition reference.
@@ -20900,9 +21019,13 @@ export namespace privatelink {
          */
         name: string;
         /**
-         * The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. Changing this forces a new resource to be created.
+         * The Service Alias of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `privateConnectionResourceId` or `privateConnectionResourceAlias` must be specified. Changing this forces a new resource to be created.
          */
-        privateConnectionResourceId: string;
+        privateConnectionResourceAlias?: string;
+        /**
+         * The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `privateConnectionResourceId` or `privateConnectionResourceAlias` must be specified. Changing this forces a new resource to be created.
+         */
+        privateConnectionResourceId?: string;
         /**
          * (Computed) The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
          */
@@ -23023,7 +23146,7 @@ export namespace waf {
          */
         type?: string;
         /**
-         * The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0` and `3.1`.
+         * The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
          */
         version: string;
     }

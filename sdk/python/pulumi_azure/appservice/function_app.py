@@ -21,6 +21,7 @@ class FunctionApp(pulumi.CustomResource):
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  auth_settings: Optional[pulumi.Input[pulumi.InputType['FunctionAppAuthSettingsArgs']]] = None,
                  client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
+                 client_cert_mode: Optional[pulumi.Input[str]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppConnectionStringArgs']]]]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
                  enable_builtin_logging: Optional[pulumi.Input[bool]] = None,
@@ -145,6 +146,7 @@ class FunctionApp(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input[pulumi.InputType['FunctionAppAuthSettingsArgs']] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
+        :param pulumi.Input[str] client_cert_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppConnectionStringArgs']]]] connection_strings: An `connection_string` block as defined below.
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
         :param pulumi.Input[bool] enable_builtin_logging: Should the built-in logging of this Function App be enabled? Defaults to `true`.
@@ -185,6 +187,7 @@ class FunctionApp(pulumi.CustomResource):
             __props__['app_settings'] = app_settings
             __props__['auth_settings'] = auth_settings
             __props__['client_affinity_enabled'] = client_affinity_enabled
+            __props__['client_cert_mode'] = client_cert_mode
             __props__['connection_strings'] = connection_strings
             __props__['daily_memory_time_quota'] = daily_memory_time_quota
             __props__['enable_builtin_logging'] = enable_builtin_logging
@@ -227,6 +230,7 @@ class FunctionApp(pulumi.CustomResource):
             app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             auth_settings: Optional[pulumi.Input[pulumi.InputType['FunctionAppAuthSettingsArgs']]] = None,
             client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
+            client_cert_mode: Optional[pulumi.Input[str]] = None,
             connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppConnectionStringArgs']]]]] = None,
             custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
             daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
@@ -261,6 +265,7 @@ class FunctionApp(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input[pulumi.InputType['FunctionAppAuthSettingsArgs']] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
+        :param pulumi.Input[str] client_cert_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppConnectionStringArgs']]]] connection_strings: An `connection_string` block as defined below.
         :param pulumi.Input[str] custom_domain_verification_id: An identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
@@ -292,6 +297,7 @@ class FunctionApp(pulumi.CustomResource):
         __props__["app_settings"] = app_settings
         __props__["auth_settings"] = auth_settings
         __props__["client_affinity_enabled"] = client_affinity_enabled
+        __props__["client_cert_mode"] = client_cert_mode
         __props__["connection_strings"] = connection_strings
         __props__["custom_domain_verification_id"] = custom_domain_verification_id
         __props__["daily_memory_time_quota"] = daily_memory_time_quota
@@ -348,6 +354,14 @@ class FunctionApp(pulumi.CustomResource):
         Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
         """
         return pulumi.get(self, "client_affinity_enabled")
+
+    @property
+    @pulumi.getter(name="clientCertMode")
+    def client_cert_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
+        """
+        return pulumi.get(self, "client_cert_mode")
 
     @property
     @pulumi.getter(name="connectionStrings")

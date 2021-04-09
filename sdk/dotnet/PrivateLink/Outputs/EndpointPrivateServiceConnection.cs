@@ -22,9 +22,13 @@ namespace Pulumi.Azure.PrivateLink.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. Changing this forces a new resource to be created.
+        /// The Service Alias of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `private_connection_resource_id` or `private_connection_resource_alias` must be specified. Changing this forces a new resource to be created.
         /// </summary>
-        public readonly string PrivateConnectionResourceId;
+        public readonly string? PrivateConnectionResourceAlias;
+        /// <summary>
+        /// The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `private_connection_resource_id` or `private_connection_resource_alias` must be specified. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string? PrivateConnectionResourceId;
         /// <summary>
         /// (Computed) The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
         /// </summary>
@@ -44,7 +48,9 @@ namespace Pulumi.Azure.PrivateLink.Outputs
 
             string name,
 
-            string privateConnectionResourceId,
+            string? privateConnectionResourceAlias,
+
+            string? privateConnectionResourceId,
 
             string? privateIpAddress,
 
@@ -54,6 +60,7 @@ namespace Pulumi.Azure.PrivateLink.Outputs
         {
             IsManualConnection = isManualConnection;
             Name = name;
+            PrivateConnectionResourceAlias = privateConnectionResourceAlias;
             PrivateConnectionResourceId = privateConnectionResourceId;
             PrivateIpAddress = privateIpAddress;
             RequestMessage = requestMessage;

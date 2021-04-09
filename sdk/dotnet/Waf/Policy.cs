@@ -278,18 +278,6 @@ namespace Pulumi.Azure.Waf
             set => _customRules = value;
         }
 
-        [Input("httpListenerIds")]
-        private InputList<string>? _httpListenerIds;
-
-        /// <summary>
-        /// A list of HTTP Listener IDs from an `azure.network.ApplicationGateway`.
-        /// </summary>
-        public InputList<string> HttpListenerIds
-        {
-            get => _httpListenerIds ?? (_httpListenerIds = new InputList<string>());
-            set => _httpListenerIds = value;
-        }
-
         /// <summary>
         /// Resource location. Changing this forces a new resource to be created.
         /// </summary>
@@ -307,18 +295,6 @@ namespace Pulumi.Azure.Waf
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        [Input("pathBasedRuleIds")]
-        private InputList<string>? _pathBasedRuleIds;
-
-        /// <summary>
-        /// A list of URL Path Map Path Rule IDs from an `azure.network.ApplicationGateway`.
-        /// </summary>
-        public InputList<string> PathBasedRuleIds
-        {
-            get => _pathBasedRuleIds ?? (_pathBasedRuleIds = new InputList<string>());
-            set => _pathBasedRuleIds = value;
-        }
 
         /// <summary>
         /// A `policy_settings` block as defined below.

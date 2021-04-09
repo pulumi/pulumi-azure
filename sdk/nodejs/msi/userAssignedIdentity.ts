@@ -86,6 +86,10 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Tenant ID associated with the user assigned identity.
+     */
+    public /*out*/ readonly tenantId!: pulumi.Output<string>;
 
     /**
      * Create a UserAssignedIdentity resource with the given unique name, arguments, and options.
@@ -109,6 +113,7 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
             inputs["principalId"] = state ? state.principalId : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tenantId"] = state ? state.tenantId : undefined;
         } else {
             const args = argsOrState as UserAssignedIdentityArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -120,6 +125,7 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["clientId"] = undefined /*out*/;
             inputs["principalId"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -159,6 +165,10 @@ export interface UserAssignedIdentityState {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Tenant ID associated with the user assigned identity.
+     */
+    readonly tenantId?: pulumi.Input<string>;
 }
 
 /**

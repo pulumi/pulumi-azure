@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  * Manages a Key Vault Certificate.
  *
  * ## Example Usage
- * ### Generating A New Certificate)
+ * ### Generating a new certificate
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

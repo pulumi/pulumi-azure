@@ -85,6 +85,12 @@ namespace Pulumi.Azure.Hpc
         public Output<Outputs.CacheDefaultAccessPolicy> DefaultAccessPolicy { get; private set; } = null!;
 
         /// <summary>
+        /// A `dns` block as defined below.
+        /// </summary>
+        [Output("dns")]
+        public Output<Outputs.CacheDns?> Dns { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -107,6 +113,12 @@ namespace Pulumi.Azure.Hpc
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
+        /// </summary>
+        [Output("ntpServer")]
+        public Output<string?> NtpServer { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
@@ -191,6 +203,12 @@ namespace Pulumi.Azure.Hpc
         public Input<Inputs.CacheDefaultAccessPolicyArgs>? DefaultAccessPolicy { get; set; }
 
         /// <summary>
+        /// A `dns` block as defined below.
+        /// </summary>
+        [Input("dns")]
+        public Input<Inputs.CacheDnsArgs>? Dns { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -207,6 +225,12 @@ namespace Pulumi.Azure.Hpc
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
+        /// </summary>
+        [Input("ntpServer")]
+        public Input<string>? NtpServer { get; set; }
 
         /// <summary>
         /// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
@@ -252,6 +276,12 @@ namespace Pulumi.Azure.Hpc
         public Input<Inputs.CacheDefaultAccessPolicyGetArgs>? DefaultAccessPolicy { get; set; }
 
         /// <summary>
+        /// A `dns` block as defined below.
+        /// </summary>
+        [Input("dns")]
+        public Input<Inputs.CacheDnsGetArgs>? Dns { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -280,6 +310,12 @@ namespace Pulumi.Azure.Hpc
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
+        /// </summary>
+        [Input("ntpServer")]
+        public Input<string>? NtpServer { get; set; }
 
         /// <summary>
         /// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.

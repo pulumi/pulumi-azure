@@ -157,6 +157,10 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public readonly clientAffinityEnabled!: pulumi.Output<boolean>;
     /**
+     * The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
+     */
+    public readonly clientCertMode!: pulumi.Output<string | undefined>;
+    /**
      * An `connectionString` block as defined below.
      */
     public readonly connectionStrings!: pulumi.Output<outputs.appservice.FunctionAppConnectionString[]>;
@@ -266,6 +270,7 @@ export class FunctionApp extends pulumi.CustomResource {
             inputs["appSettings"] = state ? state.appSettings : undefined;
             inputs["authSettings"] = state ? state.authSettings : undefined;
             inputs["clientAffinityEnabled"] = state ? state.clientAffinityEnabled : undefined;
+            inputs["clientCertMode"] = state ? state.clientCertMode : undefined;
             inputs["connectionStrings"] = state ? state.connectionStrings : undefined;
             inputs["customDomainVerificationId"] = state ? state.customDomainVerificationId : undefined;
             inputs["dailyMemoryTimeQuota"] = state ? state.dailyMemoryTimeQuota : undefined;
@@ -301,6 +306,7 @@ export class FunctionApp extends pulumi.CustomResource {
             inputs["appSettings"] = args ? args.appSettings : undefined;
             inputs["authSettings"] = args ? args.authSettings : undefined;
             inputs["clientAffinityEnabled"] = args ? args.clientAffinityEnabled : undefined;
+            inputs["clientCertMode"] = args ? args.clientCertMode : undefined;
             inputs["connectionStrings"] = args ? args.connectionStrings : undefined;
             inputs["dailyMemoryTimeQuota"] = args ? args.dailyMemoryTimeQuota : undefined;
             inputs["enableBuiltinLogging"] = args ? args.enableBuiltinLogging : undefined;
@@ -352,6 +358,10 @@ export interface FunctionAppState {
      * Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
      */
     readonly clientAffinityEnabled?: pulumi.Input<boolean>;
+    /**
+     * The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
+     */
+    readonly clientCertMode?: pulumi.Input<string>;
     /**
      * An `connectionString` block as defined below.
      */
@@ -466,6 +476,10 @@ export interface FunctionAppArgs {
      * Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
      */
     readonly clientAffinityEnabled?: pulumi.Input<boolean>;
+    /**
+     * The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
+     */
+    readonly clientCertMode?: pulumi.Input<string>;
     /**
      * An `connectionString` block as defined below.
      */

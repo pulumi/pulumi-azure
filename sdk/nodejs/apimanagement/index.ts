@@ -17,6 +17,7 @@ export * from "./backend";
 export * from "./certificate";
 export * from "./customDomain";
 export * from "./diagnostic";
+export * from "./emailTemplate";
 export * from "./getApi";
 export * from "./getApiVersionSet";
 export * from "./getGroup";
@@ -57,6 +58,7 @@ import { Backend } from "./backend";
 import { Certificate } from "./certificate";
 import { CustomDomain } from "./customDomain";
 import { Diagnostic } from "./diagnostic";
+import { EmailTemplate } from "./emailTemplate";
 import { Group } from "./group";
 import { GroupUser } from "./groupUser";
 import { IdentityProviderAad } from "./identityProviderAad";
@@ -106,6 +108,8 @@ const _module = {
                 return new CustomDomain(name, <any>undefined, { urn })
             case "azure:apimanagement/diagnostic:Diagnostic":
                 return new Diagnostic(name, <any>undefined, { urn })
+            case "azure:apimanagement/emailTemplate:EmailTemplate":
+                return new EmailTemplate(name, <any>undefined, { urn })
             case "azure:apimanagement/group:Group":
                 return new Group(name, <any>undefined, { urn })
             case "azure:apimanagement/groupUser:GroupUser":
@@ -163,6 +167,7 @@ pulumi.runtime.registerResourceModule("azure", "apimanagement/backend", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/certificate", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/customDomain", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/diagnostic", _module)
+pulumi.runtime.registerResourceModule("azure", "apimanagement/emailTemplate", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/group", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/groupUser", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/identityProviderAad", _module)

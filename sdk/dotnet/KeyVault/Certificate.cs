@@ -13,7 +13,7 @@ namespace Pulumi.Azure.KeyVault
     /// Manages a Key Vault Certificate.
     /// 
     /// ## Example Usage
-    /// ### Generating A New Certificate)
+    /// ### Generating a new certificate
     /// 
     /// ```csharp
     /// using Pulumi;

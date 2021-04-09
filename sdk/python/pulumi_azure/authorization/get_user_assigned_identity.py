@@ -19,7 +19,7 @@ class GetUserAssignedIdentityResult:
     """
     A collection of values returned by getUserAssignedIdentity.
     """
-    def __init__(__self__, client_id=None, id=None, location=None, name=None, principal_id=None, resource_group_name=None, tags=None):
+    def __init__(__self__, client_id=None, id=None, location=None, name=None, principal_id=None, resource_group_name=None, tags=None, tenant_id=None):
         if client_id and not isinstance(client_id, str):
             raise TypeError("Expected argument 'client_id' to be a str")
         pulumi.set(__self__, "client_id", client_id)
@@ -41,6 +41,9 @@ class GetUserAssignedIdentityResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if tenant_id and not isinstance(tenant_id, str):
+            raise TypeError("Expected argument 'tenant_id' to be a str")
+        pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -92,6 +95,14 @@ class GetUserAssignedIdentityResult:
         """
         return pulumi.get(self, "tags")
 
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The Tenant ID of the User Assigned Identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
 
 class AwaitableGetUserAssignedIdentityResult(GetUserAssignedIdentityResult):
     # pylint: disable=using-constant-test
@@ -105,7 +116,8 @@ class AwaitableGetUserAssignedIdentityResult(GetUserAssignedIdentityResult):
             name=self.name,
             principal_id=self.principal_id,
             resource_group_name=self.resource_group_name,
-            tags=self.tags)
+            tags=self.tags,
+            tenant_id=self.tenant_id)
 
 
 def get_user_assigned_identity(name: Optional[str] = None,
@@ -125,6 +137,7 @@ def get_user_assigned_identity(name: Optional[str] = None,
         resource_group_name="name_of_resource_group")
     pulumi.export("uaiClientId", example.client_id)
     pulumi.export("uaiPrincipalId", example.principal_id)
+    pulumi.export("uaiTenantId", example.tenant_id)
     ```
 
 
@@ -147,4 +160,5 @@ def get_user_assigned_identity(name: Optional[str] = None,
         name=__ret__.name,
         principal_id=__ret__.principal_id,
         resource_group_name=__ret__.resource_group_name,
-        tags=__ret__.tags)
+        tags=__ret__.tags,
+        tenant_id=__ret__.tenant_id)

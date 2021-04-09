@@ -231,21 +231,26 @@ class EndpointPrivateServiceConnection(dict):
     def __init__(__self__, *,
                  is_manual_connection: bool,
                  name: str,
-                 private_connection_resource_id: str,
+                 private_connection_resource_alias: Optional[str] = None,
+                 private_connection_resource_id: Optional[str] = None,
                  private_ip_address: Optional[str] = None,
                  request_message: Optional[str] = None,
                  subresource_names: Optional[Sequence[str]] = None):
         """
         :param bool is_manual_connection: Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
         :param str name: Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
-        :param str private_connection_resource_id: The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. Changing this forces a new resource to be created.
+        :param str private_connection_resource_alias: The Service Alias of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `private_connection_resource_id` or `private_connection_resource_alias` must be specified. Changing this forces a new resource to be created.
+        :param str private_connection_resource_id: The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `private_connection_resource_id` or `private_connection_resource_alias` must be specified. Changing this forces a new resource to be created.
         :param str private_ip_address: (Computed) The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
         :param str request_message: A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `is_manual_connection` is set to `true`.
         :param Sequence[str] subresource_names: A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "is_manual_connection", is_manual_connection)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "private_connection_resource_id", private_connection_resource_id)
+        if private_connection_resource_alias is not None:
+            pulumi.set(__self__, "private_connection_resource_alias", private_connection_resource_alias)
+        if private_connection_resource_id is not None:
+            pulumi.set(__self__, "private_connection_resource_id", private_connection_resource_id)
         if private_ip_address is not None:
             pulumi.set(__self__, "private_ip_address", private_ip_address)
         if request_message is not None:
@@ -270,10 +275,18 @@ class EndpointPrivateServiceConnection(dict):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="privateConnectionResourceId")
-    def private_connection_resource_id(self) -> str:
+    @pulumi.getter(name="privateConnectionResourceAlias")
+    def private_connection_resource_alias(self) -> Optional[str]:
         """
-        The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. Changing this forces a new resource to be created.
+        The Service Alias of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `private_connection_resource_id` or `private_connection_resource_alias` must be specified. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "private_connection_resource_alias")
+
+    @property
+    @pulumi.getter(name="privateConnectionResourceId")
+    def private_connection_resource_id(self) -> Optional[str]:
+        """
+        The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `private_connection_resource_id` or `private_connection_resource_alias` must be specified. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_connection_resource_id")
 

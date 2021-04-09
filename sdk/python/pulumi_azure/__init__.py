@@ -27,6 +27,7 @@ from . import (
     bot,
     cdn,
     cognitive,
+    communication,
     compute,
     config,
     containerservice,

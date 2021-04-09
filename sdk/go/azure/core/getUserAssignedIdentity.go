@@ -31,6 +31,7 @@ import (
 // 		}
 // 		ctx.Export("uaiClientId", example.ClientId)
 // 		ctx.Export("uaiPrincipalId", example.PrincipalId)
+// 		ctx.Export("uaiTenantId", example.TenantId)
 // 		return nil
 // 	})
 // }
@@ -68,4 +69,6 @@ type GetUserAssignedIdentityResult struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to the User Assigned Identity.
 	Tags map[string]string `pulumi:"tags"`
+	// The Tenant ID of the User Assigned Identity.
+	TenantId string `pulumi:"tenantId"`
 }

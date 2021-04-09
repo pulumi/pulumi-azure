@@ -129,6 +129,60 @@ import (
 // }
 // ```
 //
+// Using a Private Link Service Alias with existing resources:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/network"
+// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/privatelink"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		rg, err := core.LookupResourceGroup(ctx, &core.LookupResourceGroupArgs{
+// 			Name: "example-resources",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		vnet, err := network.LookupVirtualNetwork(ctx, &network.LookupVirtualNetworkArgs{
+// 			Name:              "example-network",
+// 			ResourceGroupName: rg.Name,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		subnet, err := network.LookupSubnet(ctx, &network.LookupSubnetArgs{
+// 			Name:               "default",
+// 			VirtualNetworkName: vnet.Name,
+// 			ResourceGroupName:  rg.Name,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = privatelink.NewEndpoint(ctx, "example", &privatelink.EndpointArgs{
+// 			Location:          pulumi.String(rg.Location),
+// 			ResourceGroupName: pulumi.String(rg.Name),
+// 			SubnetId:          pulumi.String(subnet.Id),
+// 			PrivateServiceConnection: &privatelink.EndpointPrivateServiceConnectionArgs{
+// 				Name:                           pulumi.String("example-privateserviceconnection"),
+// 				PrivateConnectionResourceAlias: pulumi.String("example-privatelinkservice.d20286c8-4ea5-11eb-9584-8f53157226c6.centralus.azure.privatelinkservice"),
+// 				IsManualConnection:             pulumi.Bool(true),
+// 				RequestMessage:                 pulumi.String("PL"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Private Endpoints can be imported using the `resource id`, e.g.

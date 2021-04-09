@@ -139,6 +139,7 @@ class PolicySetDefinitionPolicyDefinitionReference(dict):
         :param str policy_definition_id: The ID of the policy definition or policy set definition that will be included in this policy set definition.
         :param str parameter_values: Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
         :param Mapping[str, str] parameters: Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
+        :param Sequence[str] policy_group_names: A list of names of the policy definition groups that this policy definition reference belongs to.
         :param str reference_id: A unique ID within this policy set definition for this policy definition reference.
         """
         pulumi.set(__self__, "policy_definition_id", policy_definition_id)
@@ -178,6 +179,9 @@ class PolicySetDefinitionPolicyDefinitionReference(dict):
     @property
     @pulumi.getter(name="policyGroupNames")
     def policy_group_names(self) -> Optional[Sequence[str]]:
+        """
+        A list of names of the policy definition groups that this policy definition reference belongs to.
+        """
         return pulumi.get(self, "policy_group_names")
 
     @property
@@ -262,6 +266,7 @@ class GetPolicySetDefinitionPolicyDefinitionReferenceResult(dict):
         :param str parameter_values: The parameter values for the referenced policy rule. This field is a json object.
         :param Mapping[str, str] parameters: The mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
         :param str policy_definition_id: The ID of the policy definition or policy set definition that is included in this policy set definition.
+        :param Sequence[str] policy_group_names: The list of names of the policy definition groups that this policy definition reference belongs to.
         :param str reference_id: The unique ID within this policy set definition for this policy definition reference.
         """
         pulumi.set(__self__, "parameter_values", parameter_values)
@@ -297,6 +302,9 @@ class GetPolicySetDefinitionPolicyDefinitionReferenceResult(dict):
     @property
     @pulumi.getter(name="policyGroupNames")
     def policy_group_names(self) -> Sequence[str]:
+        """
+        The list of names of the policy definition groups that this policy definition reference belongs to.
+        """
         return pulumi.get(self, "policy_group_names")
 
     @property

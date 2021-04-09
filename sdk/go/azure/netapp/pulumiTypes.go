@@ -440,7 +440,8 @@ type VolumeExportPolicyRule struct {
 	// Deprecated: Deprecated in favour of `protocols_enabled`
 	Nfsv4Enabled *bool `pulumi:"nfsv4Enabled"`
 	// A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
-	ProtocolsEnabled *string `pulumi:"protocolsEnabled"`
+	ProtocolsEnabled  *string `pulumi:"protocolsEnabled"`
+	RootAccessEnabled *bool   `pulumi:"rootAccessEnabled"`
 	// The index number of the rule.
 	RuleIndex int `pulumi:"ruleIndex"`
 	// Is the file system on unix read only?
@@ -476,7 +477,8 @@ type VolumeExportPolicyRuleArgs struct {
 	// Deprecated: Deprecated in favour of `protocols_enabled`
 	Nfsv4Enabled pulumi.BoolPtrInput `pulumi:"nfsv4Enabled"`
 	// A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
-	ProtocolsEnabled pulumi.StringPtrInput `pulumi:"protocolsEnabled"`
+	ProtocolsEnabled  pulumi.StringPtrInput `pulumi:"protocolsEnabled"`
+	RootAccessEnabled pulumi.BoolPtrInput   `pulumi:"rootAccessEnabled"`
 	// The index number of the rule.
 	RuleIndex pulumi.IntInput `pulumi:"ruleIndex"`
 	// Is the file system on unix read only?
@@ -565,6 +567,10 @@ func (o VolumeExportPolicyRuleOutput) Nfsv4Enabled() pulumi.BoolPtrOutput {
 // A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
 func (o VolumeExportPolicyRuleOutput) ProtocolsEnabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeExportPolicyRule) *string { return v.ProtocolsEnabled }).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeExportPolicyRuleOutput) RootAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeExportPolicyRule) *bool { return v.RootAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The index number of the rule.

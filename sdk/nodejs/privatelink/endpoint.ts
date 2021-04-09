@@ -71,6 +71,37 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * Using a Private Link Service Alias with existing resources:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const rg = azure.core.getResourceGroup({
+ *     name: "example-resources",
+ * });
+ * const vnet = rg.then(rg => azure.network.getVirtualNetwork({
+ *     name: "example-network",
+ *     resourceGroupName: rg.name,
+ * }));
+ * const subnet = Promise.all([vnet, rg]).then(([vnet, rg]) => azure.network.getSubnet({
+ *     name: "default",
+ *     virtualNetworkName: vnet.name,
+ *     resourceGroupName: rg.name,
+ * }));
+ * const example = new azure.privatelink.Endpoint("example", {
+ *     location: rg.then(rg => rg.location),
+ *     resourceGroupName: rg.then(rg => rg.name),
+ *     subnetId: subnet.then(subnet => subnet.id),
+ *     privateServiceConnection: {
+ *         name: "example-privateserviceconnection",
+ *         privateConnectionResourceAlias: "example-privatelinkservice.d20286c8-4ea5-11eb-9584-8f53157226c6.centralus.azure.privatelinkservice",
+ *         isManualConnection: true,
+ *         requestMessage: "PL",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Private Endpoints can be imported using the `resource id`, e.g.

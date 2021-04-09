@@ -35,7 +35,7 @@ type CacheNfsTarget struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The IP address or fully qualified domain name (FQDN) of the HPC Cache NFS target. Changing this forces a new resource to be created.
 	TargetHostName pulumi.StringOutput `pulumi:"targetHostName"`
-	// The type of usage of the HPC Cache NFS Target.
+	// The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
 	UsageModel pulumi.StringOutput `pulumi:"usageModel"`
 }
 
@@ -93,7 +93,7 @@ type cacheNfsTargetState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The IP address or fully qualified domain name (FQDN) of the HPC Cache NFS target. Changing this forces a new resource to be created.
 	TargetHostName *string `pulumi:"targetHostName"`
-	// The type of usage of the HPC Cache NFS Target.
+	// The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
 	UsageModel *string `pulumi:"usageModel"`
 }
 
@@ -108,7 +108,7 @@ type CacheNfsTargetState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The IP address or fully qualified domain name (FQDN) of the HPC Cache NFS target. Changing this forces a new resource to be created.
 	TargetHostName pulumi.StringPtrInput
-	// The type of usage of the HPC Cache NFS Target.
+	// The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
 	UsageModel pulumi.StringPtrInput
 }
 
@@ -127,7 +127,7 @@ type cacheNfsTargetArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The IP address or fully qualified domain name (FQDN) of the HPC Cache NFS target. Changing this forces a new resource to be created.
 	TargetHostName string `pulumi:"targetHostName"`
-	// The type of usage of the HPC Cache NFS Target.
+	// The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
 	UsageModel string `pulumi:"usageModel"`
 }
 
@@ -143,7 +143,7 @@ type CacheNfsTargetArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The IP address or fully qualified domain name (FQDN) of the HPC Cache NFS target. Changing this forces a new resource to be created.
 	TargetHostName pulumi.StringInput
-	// The type of usage of the HPC Cache NFS Target.
+	// The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
 	UsageModel pulumi.StringInput
 }
 

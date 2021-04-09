@@ -20,13 +20,16 @@ class GetFunctionAppResult:
     """
     A collection of values returned by getFunctionApp.
     """
-    def __init__(__self__, app_service_plan_id=None, app_settings=None, connection_strings=None, custom_domain_verification_id=None, default_hostname=None, enabled=None, id=None, identities=None, location=None, name=None, os_type=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_configs=None, site_credentials=None, source_controls=None, tags=None):
+    def __init__(__self__, app_service_plan_id=None, app_settings=None, client_cert_mode=None, connection_strings=None, custom_domain_verification_id=None, default_hostname=None, enabled=None, id=None, identities=None, location=None, name=None, os_type=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_configs=None, site_credentials=None, source_controls=None, tags=None):
         if app_service_plan_id and not isinstance(app_service_plan_id, str):
             raise TypeError("Expected argument 'app_service_plan_id' to be a str")
         pulumi.set(__self__, "app_service_plan_id", app_service_plan_id)
         if app_settings and not isinstance(app_settings, dict):
             raise TypeError("Expected argument 'app_settings' to be a dict")
         pulumi.set(__self__, "app_settings", app_settings)
+        if client_cert_mode and not isinstance(client_cert_mode, str):
+            raise TypeError("Expected argument 'client_cert_mode' to be a str")
+        pulumi.set(__self__, "client_cert_mode", client_cert_mode)
         if connection_strings and not isinstance(connection_strings, list):
             raise TypeError("Expected argument 'connection_strings' to be a list")
         pulumi.set(__self__, "connection_strings", connection_strings)
@@ -91,6 +94,14 @@ class GetFunctionAppResult:
         A key-value pair of App Settings.
         """
         return pulumi.get(self, "app_settings")
+
+    @property
+    @pulumi.getter(name="clientCertMode")
+    def client_cert_mode(self) -> str:
+        """
+        The mode of the Function App's client certificates requirement for incoming requests.
+        """
+        return pulumi.get(self, "client_cert_mode")
 
     @property
     @pulumi.getter(name="connectionStrings")
@@ -217,6 +228,7 @@ class AwaitableGetFunctionAppResult(GetFunctionAppResult):
         return GetFunctionAppResult(
             app_service_plan_id=self.app_service_plan_id,
             app_settings=self.app_settings,
+            client_cert_mode=self.client_cert_mode,
             connection_strings=self.connection_strings,
             custom_domain_verification_id=self.custom_domain_verification_id,
             default_hostname=self.default_hostname,
@@ -269,6 +281,7 @@ def get_function_app(name: Optional[str] = None,
     return AwaitableGetFunctionAppResult(
         app_service_plan_id=__ret__.app_service_plan_id,
         app_settings=__ret__.app_settings,
+        client_cert_mode=__ret__.client_cert_mode,
         connection_strings=__ret__.connection_strings,
         custom_domain_verification_id=__ret__.custom_domain_verification_id,
         default_hostname=__ret__.default_hostname,

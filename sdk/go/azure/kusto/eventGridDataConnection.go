@@ -141,6 +141,8 @@ type EventGridDataConnection struct {
 	BlobStorageEventType pulumi.StringPtrOutput `pulumi:"blobStorageEventType"`
 	// Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
+	// Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+	DataFormat pulumi.StringPtrOutput `pulumi:"dataFormat"`
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// Specifies the Event Hub consumer group this data connection will use for
@@ -151,6 +153,8 @@ type EventGridDataConnection struct {
 	EventhubId pulumi.StringOutput `pulumi:"eventhubId"`
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+	MappingRuleName pulumi.StringPtrOutput `pulumi:"mappingRuleName"`
 	// The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
@@ -159,6 +163,8 @@ type EventGridDataConnection struct {
 	SkipFirstRecord pulumi.BoolPtrOutput `pulumi:"skipFirstRecord"`
 	// Specifies the resource id of the Storage Account this data connection will use for ingestion. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
+	// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+	TableName pulumi.StringPtrOutput `pulumi:"tableName"`
 }
 
 // NewEventGridDataConnection registers a new resource with the given unique name, arguments, and options.
@@ -214,6 +220,8 @@ type eventGridDataConnectionState struct {
 	BlobStorageEventType *string `pulumi:"blobStorageEventType"`
 	// Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
 	ClusterName *string `pulumi:"clusterName"`
+	// Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+	DataFormat *string `pulumi:"dataFormat"`
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName *string `pulumi:"databaseName"`
 	// Specifies the Event Hub consumer group this data connection will use for
@@ -224,6 +232,8 @@ type eventGridDataConnectionState struct {
 	EventhubId *string `pulumi:"eventhubId"`
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+	MappingRuleName *string `pulumi:"mappingRuleName"`
 	// The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
@@ -232,6 +242,8 @@ type eventGridDataConnectionState struct {
 	SkipFirstRecord *bool `pulumi:"skipFirstRecord"`
 	// Specifies the resource id of the Storage Account this data connection will use for ingestion. Changing this forces a new resource to be created.
 	StorageAccountId *string `pulumi:"storageAccountId"`
+	// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+	TableName *string `pulumi:"tableName"`
 }
 
 type EventGridDataConnectionState struct {
@@ -241,6 +253,8 @@ type EventGridDataConnectionState struct {
 	BlobStorageEventType pulumi.StringPtrInput
 	// Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
 	ClusterName pulumi.StringPtrInput
+	// Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+	DataFormat pulumi.StringPtrInput
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringPtrInput
 	// Specifies the Event Hub consumer group this data connection will use for
@@ -251,6 +265,8 @@ type EventGridDataConnectionState struct {
 	EventhubId pulumi.StringPtrInput
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+	MappingRuleName pulumi.StringPtrInput
 	// The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
@@ -259,6 +275,8 @@ type EventGridDataConnectionState struct {
 	SkipFirstRecord pulumi.BoolPtrInput
 	// Specifies the resource id of the Storage Account this data connection will use for ingestion. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrInput
+	// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+	TableName pulumi.StringPtrInput
 }
 
 func (EventGridDataConnectionState) ElementType() reflect.Type {
@@ -272,6 +290,8 @@ type eventGridDataConnectionArgs struct {
 	BlobStorageEventType *string `pulumi:"blobStorageEventType"`
 	// Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
 	ClusterName string `pulumi:"clusterName"`
+	// Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+	DataFormat *string `pulumi:"dataFormat"`
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
 	// Specifies the Event Hub consumer group this data connection will use for
@@ -282,6 +302,8 @@ type eventGridDataConnectionArgs struct {
 	EventhubId string `pulumi:"eventhubId"`
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+	MappingRuleName *string `pulumi:"mappingRuleName"`
 	// The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
@@ -290,6 +312,8 @@ type eventGridDataConnectionArgs struct {
 	SkipFirstRecord *bool `pulumi:"skipFirstRecord"`
 	// Specifies the resource id of the Storage Account this data connection will use for ingestion. Changing this forces a new resource to be created.
 	StorageAccountId string `pulumi:"storageAccountId"`
+	// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+	TableName *string `pulumi:"tableName"`
 }
 
 // The set of arguments for constructing a EventGridDataConnection resource.
@@ -300,6 +324,8 @@ type EventGridDataConnectionArgs struct {
 	BlobStorageEventType pulumi.StringPtrInput
 	// Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
 	ClusterName pulumi.StringInput
+	// Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+	DataFormat pulumi.StringPtrInput
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput
 	// Specifies the Event Hub consumer group this data connection will use for
@@ -310,6 +336,8 @@ type EventGridDataConnectionArgs struct {
 	EventhubId pulumi.StringInput
 	// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+	MappingRuleName pulumi.StringPtrInput
 	// The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
@@ -318,6 +346,8 @@ type EventGridDataConnectionArgs struct {
 	SkipFirstRecord pulumi.BoolPtrInput
 	// Specifies the resource id of the Storage Account this data connection will use for ingestion. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringInput
+	// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+	TableName pulumi.StringPtrInput
 }
 
 func (EventGridDataConnectionArgs) ElementType() reflect.Type {
