@@ -63,6 +63,7 @@ const (
 	azureBot                   = "Bot"                   // Bot
 	azureCDN                   = "Cdn"                   // CDN
 	azureCognitive             = "Cognitive"             // Cognitive
+	azureCommunication         = "Communication"         // Communication
 	azureCompute               = "Compute"               // Virtual Machines
 	azureContainerService      = "ContainerService"      // Azure Container Service
 	azureCore                  = "Core"                  // Base Resources
@@ -354,6 +355,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_api_management_custom_domain":               {Tok: azureResource(azureAPIManagement, "CustomDomain")},
 			"azurerm_api_management_policy":                      {Tok: azureResource(azureAPIManagement, "Policy")},
 			"azurerm_api_management_identity_provider_aadb2c":    {Tok: azureResource(azureAPIManagement, "IdentityProviderAadb2c")},
+			"azurerm_api_management_email_template":              {Tok: azureResource(azureAPIManagement, "EmailTemplate")},
 
 			// Analysis Services
 			"azurerm_analysis_services_server": {Tok: azureResource(azureAnalysisServices, "Server")},
@@ -475,12 +477,13 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_app_service_certificate_binding": {Tok: azureResource(azureAppService, "CertificateBinding")},
 
 			// AppPlatform
-			"azurerm_spring_cloud_service":           {Tok: azureResource(azureAppPlatform, "SpringCloudService")},
-			"azurerm_spring_cloud_app":               {Tok: azureResource(azureAppPlatform, "SpringCloudApp")},
-			"azurerm_spring_cloud_certificate":       {Tok: azureResource(azureAppPlatform, "SpringCloudCertificate")},
-			"azurerm_spring_cloud_active_deployment": {Tok: azureResource(azureAppPlatform, "SpringCloudActiveDeployment")},
-			"azurerm_spring_cloud_java_deployment":   {Tok: azureResource(azureAppPlatform, "SpringCloudJavaDeployment")},
-			"azurerm_spring_cloud_custom_domain":     {Tok: azureResource(azureAppPlatform, "SpringCloudCustomDomain")},
+			"azurerm_spring_cloud_service":               {Tok: azureResource(azureAppPlatform, "SpringCloudService")},
+			"azurerm_spring_cloud_app":                   {Tok: azureResource(azureAppPlatform, "SpringCloudApp")},
+			"azurerm_spring_cloud_certificate":           {Tok: azureResource(azureAppPlatform, "SpringCloudCertificate")},
+			"azurerm_spring_cloud_active_deployment":     {Tok: azureResource(azureAppPlatform, "SpringCloudActiveDeployment")},
+			"azurerm_spring_cloud_java_deployment":       {Tok: azureResource(azureAppPlatform, "SpringCloudJavaDeployment")},
+			"azurerm_spring_cloud_custom_domain":         {Tok: azureResource(azureAppPlatform, "SpringCloudCustomDomain")},
+			"azurerm_spring_cloud_app_redis_association": {Tok: azureResource(azureAppPlatform, "SpringCloudAppRedisAssociation")},
 
 			// Automation
 			"azurerm_automation_account":                {Tok: azureResource(azureAutomation, "Account")},
@@ -1359,6 +1362,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_vpn_server_configuration":               {Tok: azureResource(azureNetwork, "VpnServerConfiguration")},
 			"azurerm_ip_group":                               {Tok: azureResource(azureNetwork, "IPGroup")},
 			"azurerm_vpn_site":                               {Tok: azureResource(azureNetwork, "VpnSite")},
+			"azurerm_express_route_port":                     {Tok: azureResource(azureNetwork, "ExpressRoutePort")},
 
 			// Redis
 			"azurerm_redis_cache": {
@@ -1753,6 +1757,9 @@ func Provider() tfbridge.ProviderInfo {
 			// Management
 			"azurerm_management_group_template_deployment":      {Tok: azureResource(azureManagement, "GroupTemplateDeployment")},
 			"azurerm_management_group_subscription_association": {Tok: azureResource(azureManagement, "GroupSubscriptionAssociation")},
+
+			// communication
+			"azurerm_communication_service": {Tok: azureResource(azureCommunication, "Service")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_application_insights": {Tok: azureDataSource(azureAppInsights, "getInsights")},

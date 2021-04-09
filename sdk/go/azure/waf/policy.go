@@ -249,16 +249,12 @@ func (PolicyState) ElementType() reflect.Type {
 type policyArgs struct {
 	// One or more `customRules` blocks as defined below.
 	CustomRules []PolicyCustomRule `pulumi:"customRules"`
-	// A list of HTTP Listener IDs from an `network.ApplicationGateway`.
-	HttpListenerIds []string `pulumi:"httpListenerIds"`
 	// Resource location. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// A `managedRules` blocks as defined below.
 	ManagedRules PolicyManagedRules `pulumi:"managedRules"`
 	// The name of the policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A list of URL Path Map Path Rule IDs from an `network.ApplicationGateway`.
-	PathBasedRuleIds []string `pulumi:"pathBasedRuleIds"`
 	// A `policySettings` block as defined below.
 	PolicySettings *PolicyPolicySettings `pulumi:"policySettings"`
 	// The name of the resource group. Changing this forces a new resource to be created.
@@ -271,16 +267,12 @@ type policyArgs struct {
 type PolicyArgs struct {
 	// One or more `customRules` blocks as defined below.
 	CustomRules PolicyCustomRuleArrayInput
-	// A list of HTTP Listener IDs from an `network.ApplicationGateway`.
-	HttpListenerIds pulumi.StringArrayInput
 	// Resource location. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// A `managedRules` blocks as defined below.
 	ManagedRules PolicyManagedRulesInput
 	// The name of the policy. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A list of URL Path Map Path Rule IDs from an `network.ApplicationGateway`.
-	PathBasedRuleIds pulumi.StringArrayInput
 	// A `policySettings` block as defined below.
 	PolicySettings PolicyPolicySettingsPtrInput
 	// The name of the resource group. Changing this forces a new resource to be created.

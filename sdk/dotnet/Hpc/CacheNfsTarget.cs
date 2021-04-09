@@ -56,7 +56,7 @@ namespace Pulumi.Azure.Hpc
         public Output<string> TargetHostName { get; private set; } = null!;
 
         /// <summary>
-        /// The type of usage of the HPC Cache NFS Target.
+        /// The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
         /// </summary>
         [Output("usageModel")]
         public Output<string> UsageModel { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Azure.Hpc
         public Input<string> TargetHostName { get; set; } = null!;
 
         /// <summary>
-        /// The type of usage of the HPC Cache NFS Target.
+        /// The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
         /// </summary>
         [Input("usageModel", required: true)]
         public Input<string> UsageModel { get; set; } = null!;
@@ -193,7 +193,7 @@ namespace Pulumi.Azure.Hpc
         public Input<string>? TargetHostName { get; set; }
 
         /// <summary>
-        /// The type of usage of the HPC Cache NFS Target.
+        /// The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
         /// </summary>
         [Input("usageModel")]
         public Input<string>? UsageModel { get; set; }

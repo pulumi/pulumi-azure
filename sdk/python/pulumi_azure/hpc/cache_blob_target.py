@@ -83,7 +83,7 @@ class CacheBlobTarget(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access_policy_name: The name of the access policy applied to this target.
+        :param pulumi.Input[str] access_policy_name: The name of the access policy applied to this target. Defaults to `default`.
         :param pulumi.Input[str] cache_name: The name HPC Cache, which the HPC Cache Blob Target will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the HPC Cache Blob Target. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_path: The client-facing file path of the HPC Cache Blob Target.
@@ -144,7 +144,7 @@ class CacheBlobTarget(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access_policy_name: The name of the access policy applied to this target.
+        :param pulumi.Input[str] access_policy_name: The name of the access policy applied to this target. Defaults to `default`.
         :param pulumi.Input[str] cache_name: The name HPC Cache, which the HPC Cache Blob Target will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the HPC Cache Blob Target. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_path: The client-facing file path of the HPC Cache Blob Target.
@@ -165,9 +165,9 @@ class CacheBlobTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessPolicyName")
-    def access_policy_name(self) -> pulumi.Output[str]:
+    def access_policy_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The name of the access policy applied to this target.
+        The name of the access policy applied to this target. Defaults to `default`.
         """
         return pulumi.get(self, "access_policy_name")
 

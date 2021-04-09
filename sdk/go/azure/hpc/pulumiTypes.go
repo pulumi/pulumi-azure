@@ -461,7 +461,159 @@ func (o CacheDefaultAccessPolicyAccessRuleArrayOutput) Index(i pulumi.IntInput) 
 	}).(CacheDefaultAccessPolicyAccessRuleOutput)
 }
 
+type CacheDns struct {
+	// The DNS search domain for the HPC Cache.
+	SearchDomain *string `pulumi:"searchDomain"`
+	// A list of DNS servers for the HPC Cache. At most three IP(s) are allowed to set.
+	Servers []string `pulumi:"servers"`
+}
+
+// CacheDnsInput is an input type that accepts CacheDnsArgs and CacheDnsOutput values.
+// You can construct a concrete instance of `CacheDnsInput` via:
+//
+//          CacheDnsArgs{...}
+type CacheDnsInput interface {
+	pulumi.Input
+
+	ToCacheDnsOutput() CacheDnsOutput
+	ToCacheDnsOutputWithContext(context.Context) CacheDnsOutput
+}
+
+type CacheDnsArgs struct {
+	// The DNS search domain for the HPC Cache.
+	SearchDomain pulumi.StringPtrInput `pulumi:"searchDomain"`
+	// A list of DNS servers for the HPC Cache. At most three IP(s) are allowed to set.
+	Servers pulumi.StringArrayInput `pulumi:"servers"`
+}
+
+func (CacheDnsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheDns)(nil)).Elem()
+}
+
+func (i CacheDnsArgs) ToCacheDnsOutput() CacheDnsOutput {
+	return i.ToCacheDnsOutputWithContext(context.Background())
+}
+
+func (i CacheDnsArgs) ToCacheDnsOutputWithContext(ctx context.Context) CacheDnsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheDnsOutput)
+}
+
+func (i CacheDnsArgs) ToCacheDnsPtrOutput() CacheDnsPtrOutput {
+	return i.ToCacheDnsPtrOutputWithContext(context.Background())
+}
+
+func (i CacheDnsArgs) ToCacheDnsPtrOutputWithContext(ctx context.Context) CacheDnsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheDnsOutput).ToCacheDnsPtrOutputWithContext(ctx)
+}
+
+// CacheDnsPtrInput is an input type that accepts CacheDnsArgs, CacheDnsPtr and CacheDnsPtrOutput values.
+// You can construct a concrete instance of `CacheDnsPtrInput` via:
+//
+//          CacheDnsArgs{...}
+//
+//  or:
+//
+//          nil
+type CacheDnsPtrInput interface {
+	pulumi.Input
+
+	ToCacheDnsPtrOutput() CacheDnsPtrOutput
+	ToCacheDnsPtrOutputWithContext(context.Context) CacheDnsPtrOutput
+}
+
+type cacheDnsPtrType CacheDnsArgs
+
+func CacheDnsPtr(v *CacheDnsArgs) CacheDnsPtrInput {
+	return (*cacheDnsPtrType)(v)
+}
+
+func (*cacheDnsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheDns)(nil)).Elem()
+}
+
+func (i *cacheDnsPtrType) ToCacheDnsPtrOutput() CacheDnsPtrOutput {
+	return i.ToCacheDnsPtrOutputWithContext(context.Background())
+}
+
+func (i *cacheDnsPtrType) ToCacheDnsPtrOutputWithContext(ctx context.Context) CacheDnsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheDnsPtrOutput)
+}
+
+type CacheDnsOutput struct{ *pulumi.OutputState }
+
+func (CacheDnsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheDns)(nil)).Elem()
+}
+
+func (o CacheDnsOutput) ToCacheDnsOutput() CacheDnsOutput {
+	return o
+}
+
+func (o CacheDnsOutput) ToCacheDnsOutputWithContext(ctx context.Context) CacheDnsOutput {
+	return o
+}
+
+func (o CacheDnsOutput) ToCacheDnsPtrOutput() CacheDnsPtrOutput {
+	return o.ToCacheDnsPtrOutputWithContext(context.Background())
+}
+
+func (o CacheDnsOutput) ToCacheDnsPtrOutputWithContext(ctx context.Context) CacheDnsPtrOutput {
+	return o.ApplyT(func(v CacheDns) *CacheDns {
+		return &v
+	}).(CacheDnsPtrOutput)
+}
+
+// The DNS search domain for the HPC Cache.
+func (o CacheDnsOutput) SearchDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheDns) *string { return v.SearchDomain }).(pulumi.StringPtrOutput)
+}
+
+// A list of DNS servers for the HPC Cache. At most three IP(s) are allowed to set.
+func (o CacheDnsOutput) Servers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CacheDns) []string { return v.Servers }).(pulumi.StringArrayOutput)
+}
+
+type CacheDnsPtrOutput struct{ *pulumi.OutputState }
+
+func (CacheDnsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheDns)(nil)).Elem()
+}
+
+func (o CacheDnsPtrOutput) ToCacheDnsPtrOutput() CacheDnsPtrOutput {
+	return o
+}
+
+func (o CacheDnsPtrOutput) ToCacheDnsPtrOutputWithContext(ctx context.Context) CacheDnsPtrOutput {
+	return o
+}
+
+func (o CacheDnsPtrOutput) Elem() CacheDnsOutput {
+	return o.ApplyT(func(v *CacheDns) CacheDns { return *v }).(CacheDnsOutput)
+}
+
+// The DNS search domain for the HPC Cache.
+func (o CacheDnsPtrOutput) SearchDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheDns) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SearchDomain
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of DNS servers for the HPC Cache. At most three IP(s) are allowed to set.
+func (o CacheDnsPtrOutput) Servers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CacheDns) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Servers
+	}).(pulumi.StringArrayOutput)
+}
+
 type CacheNfsTargetNamespaceJunction struct {
+	// The name of the access policy applied to this target. Defaults to `default`.
+	AccessPolicyName *string `pulumi:"accessPolicyName"`
 	// The client-facing file path of this NFS target within the HPC Cache NFS Target.
 	NamespacePath string `pulumi:"namespacePath"`
 	// The NFS export of this NFS target within the HPC Cache NFS Target.
@@ -482,6 +634,8 @@ type CacheNfsTargetNamespaceJunctionInput interface {
 }
 
 type CacheNfsTargetNamespaceJunctionArgs struct {
+	// The name of the access policy applied to this target. Defaults to `default`.
+	AccessPolicyName pulumi.StringPtrInput `pulumi:"accessPolicyName"`
 	// The client-facing file path of this NFS target within the HPC Cache NFS Target.
 	NamespacePath pulumi.StringInput `pulumi:"namespacePath"`
 	// The NFS export of this NFS target within the HPC Cache NFS Target.
@@ -541,6 +695,11 @@ func (o CacheNfsTargetNamespaceJunctionOutput) ToCacheNfsTargetNamespaceJunction
 	return o
 }
 
+// The name of the access policy applied to this target. Defaults to `default`.
+func (o CacheNfsTargetNamespaceJunctionOutput) AccessPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheNfsTargetNamespaceJunction) *string { return v.AccessPolicyName }).(pulumi.StringPtrOutput)
+}
+
 // The client-facing file path of this NFS target within the HPC Cache NFS Target.
 func (o CacheNfsTargetNamespaceJunctionOutput) NamespacePath() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheNfsTargetNamespaceJunction) string { return v.NamespacePath }).(pulumi.StringOutput)
@@ -583,6 +742,8 @@ func init() {
 	pulumi.RegisterOutputType(CacheDefaultAccessPolicyPtrOutput{})
 	pulumi.RegisterOutputType(CacheDefaultAccessPolicyAccessRuleOutput{})
 	pulumi.RegisterOutputType(CacheDefaultAccessPolicyAccessRuleArrayOutput{})
+	pulumi.RegisterOutputType(CacheDnsOutput{})
+	pulumi.RegisterOutputType(CacheDnsPtrOutput{})
 	pulumi.RegisterOutputType(CacheNfsTargetNamespaceJunctionOutput{})
 	pulumi.RegisterOutputType(CacheNfsTargetNamespaceJunctionArrayOutput{})
 }

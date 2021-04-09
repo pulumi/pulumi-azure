@@ -106,10 +106,10 @@ namespace Pulumi.Azure.Hpc
     public partial class CacheBlobTarget : Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the access policy applied to this target.
+        /// The name of the access policy applied to this target. Defaults to `default`.
         /// </summary>
         [Output("accessPolicyName")]
-        public Output<string> AccessPolicyName { get; private set; } = null!;
+        public Output<string?> AccessPolicyName { get; private set; } = null!;
 
         /// <summary>
         /// The name HPC Cache, which the HPC Cache Blob Target will be added to. Changing this forces a new resource to be created.
@@ -188,7 +188,7 @@ namespace Pulumi.Azure.Hpc
     public sealed class CacheBlobTargetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the access policy applied to this target.
+        /// The name of the access policy applied to this target. Defaults to `default`.
         /// </summary>
         [Input("accessPolicyName")]
         public Input<string>? AccessPolicyName { get; set; }
@@ -231,7 +231,7 @@ namespace Pulumi.Azure.Hpc
     public sealed class CacheBlobTargetState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the access policy applied to this target.
+        /// The name of the access policy applied to this target. Defaults to `default`.
         /// </summary>
         [Input("accessPolicyName")]
         public Input<string>? AccessPolicyName { get; set; }

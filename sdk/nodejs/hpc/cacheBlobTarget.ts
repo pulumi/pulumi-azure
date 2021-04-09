@@ -99,9 +99,9 @@ export class CacheBlobTarget extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the access policy applied to this target.
+     * The name of the access policy applied to this target. Defaults to `default`.
      */
-    public readonly accessPolicyName!: pulumi.Output<string>;
+    public readonly accessPolicyName!: pulumi.Output<string | undefined>;
     /**
      * The name HPC Cache, which the HPC Cache Blob Target will be added to. Changing this forces a new resource to be created.
      */
@@ -175,7 +175,7 @@ export class CacheBlobTarget extends pulumi.CustomResource {
  */
 export interface CacheBlobTargetState {
     /**
-     * The name of the access policy applied to this target.
+     * The name of the access policy applied to this target. Defaults to `default`.
      */
     readonly accessPolicyName?: pulumi.Input<string>;
     /**
@@ -205,7 +205,7 @@ export interface CacheBlobTargetState {
  */
 export interface CacheBlobTargetArgs {
     /**
-     * The name of the access policy applied to this target.
+     * The name of the access policy applied to this target. Defaults to `default`.
      */
     readonly accessPolicyName?: pulumi.Input<string>;
     /**

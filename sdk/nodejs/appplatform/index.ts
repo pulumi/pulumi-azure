@@ -9,6 +9,7 @@ export * from "./getSpringCloudApp";
 export * from "./getSpringCloudService";
 export * from "./springCloudActiveDeployment";
 export * from "./springCloudApp";
+export * from "./springCloudAppRedisAssociation";
 export * from "./springCloudCertificate";
 export * from "./springCloudCustomDomain";
 export * from "./springCloudJavaDeployment";
@@ -17,6 +18,7 @@ export * from "./springCloudService";
 // Import resources to register:
 import { SpringCloudActiveDeployment } from "./springCloudActiveDeployment";
 import { SpringCloudApp } from "./springCloudApp";
+import { SpringCloudAppRedisAssociation } from "./springCloudAppRedisAssociation";
 import { SpringCloudCertificate } from "./springCloudCertificate";
 import { SpringCloudCustomDomain } from "./springCloudCustomDomain";
 import { SpringCloudJavaDeployment } from "./springCloudJavaDeployment";
@@ -30,6 +32,8 @@ const _module = {
                 return new SpringCloudActiveDeployment(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudApp:SpringCloudApp":
                 return new SpringCloudApp(name, <any>undefined, { urn })
+            case "azure:appplatform/springCloudAppRedisAssociation:SpringCloudAppRedisAssociation":
+                return new SpringCloudAppRedisAssociation(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudCertificate:SpringCloudCertificate":
                 return new SpringCloudCertificate(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudCustomDomain:SpringCloudCustomDomain":
@@ -45,6 +49,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudActiveDeployment", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudApp", _module)
+pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudAppRedisAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudCertificate", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudCustomDomain", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudJavaDeployment", _module)

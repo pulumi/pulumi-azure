@@ -15,6 +15,7 @@ from .backend import *
 from .certificate import *
 from .custom_domain import *
 from .diagnostic import *
+from .email_template import *
 from .get_api import *
 from .get_api_version_set import *
 from .get_group import *
@@ -80,6 +81,8 @@ def _register_module():
                 return CustomDomain(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:apimanagement/diagnostic:Diagnostic":
                 return Diagnostic(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:apimanagement/emailTemplate:EmailTemplate":
+                return EmailTemplate(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:apimanagement/group:Group":
                 return Group(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:apimanagement/groupUser:GroupUser":
@@ -137,6 +140,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "apimanagement/certificate", _module_instance)
     pulumi.runtime.register_resource_module("azure", "apimanagement/customDomain", _module_instance)
     pulumi.runtime.register_resource_module("azure", "apimanagement/diagnostic", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "apimanagement/emailTemplate", _module_instance)
     pulumi.runtime.register_resource_module("azure", "apimanagement/group", _module_instance)
     pulumi.runtime.register_resource_module("azure", "apimanagement/groupUser", _module_instance)
     pulumi.runtime.register_resource_module("azure", "apimanagement/identityProviderAad", _module_instance)

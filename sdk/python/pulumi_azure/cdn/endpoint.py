@@ -39,29 +39,6 @@ class Endpoint(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        A CDN Endpoint is the entity within a CDN Profile containing configuration information regarding caching behaviours and origins. The CDN Endpoint is exposed using the URL format <endpointname>.azureedge.net.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_profile = azure.cdn.Profile("exampleProfile",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard_Verizon")
-        example_endpoint = azure.cdn.Endpoint("exampleEndpoint",
-            profile_name=example_profile.name,
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            origins=[azure.cdn.EndpointOriginArgs(
-                name="example",
-                host_name="www.contoso.com",
-            )])
-        ```
-
         ## Import
 
         CDN Endpoints can be imported using the `resource id`, e.g.

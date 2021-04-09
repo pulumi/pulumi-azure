@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Waf.Outputs
         /// </summary>
         public readonly string? Type;
         /// <summary>
-        /// The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0` and `3.1`.
+        /// The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
         /// </summary>
         public readonly string Version;
 

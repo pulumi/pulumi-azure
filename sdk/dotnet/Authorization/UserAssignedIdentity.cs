@@ -86,6 +86,12 @@ namespace Pulumi.Azure.Authorization
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Tenant ID associated with the user assigned identity.
+        /// </summary>
+        [Output("tenantId")]
+        public Output<string> TenantId { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a UserAssignedIdentity resource with the given unique name, arguments, and options.
@@ -220,6 +226,12 @@ namespace Pulumi.Azure.Authorization
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Tenant ID associated with the user assigned identity.
+        /// </summary>
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
 
         public UserAssignedIdentityState()
         {

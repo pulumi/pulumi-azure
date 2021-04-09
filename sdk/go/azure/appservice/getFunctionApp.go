@@ -56,6 +56,8 @@ type LookupFunctionAppResult struct {
 	AppServicePlanId string `pulumi:"appServicePlanId"`
 	// A key-value pair of App Settings.
 	AppSettings map[string]string `pulumi:"appSettings"`
+	// The mode of the Function App's client certificates requirement for incoming requests.
+	ClientCertMode string `pulumi:"clientCertMode"`
 	// An `connectionString` block as defined below.
 	ConnectionStrings []GetFunctionAppConnectionString `pulumi:"connectionStrings"`
 	// An identifier used by App Service to perform domain ownership verification via DNS TXT record.

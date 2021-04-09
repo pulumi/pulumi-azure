@@ -86,6 +86,8 @@ type Cache struct {
 	CacheSizeInGb pulumi.IntOutput `pulumi:"cacheSizeInGb"`
 	// A `defaultAccessPolicy` block as defined below.
 	DefaultAccessPolicy CacheDefaultAccessPolicyOutput `pulumi:"defaultAccessPolicy"`
+	// A `dns` block as defined below.
+	Dns CacheDnsPtrOutput `pulumi:"dns"`
 	// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// A list of IP Addresses where the HPC Cache can be mounted.
@@ -94,6 +96,8 @@ type Cache struct {
 	Mtu pulumi.IntPtrOutput `pulumi:"mtu"`
 	// The name of the HPC Cache. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
+	NtpServer pulumi.StringPtrOutput `pulumi:"ntpServer"`
 	// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
@@ -151,6 +155,8 @@ type cacheState struct {
 	CacheSizeInGb *int `pulumi:"cacheSizeInGb"`
 	// A `defaultAccessPolicy` block as defined below.
 	DefaultAccessPolicy *CacheDefaultAccessPolicy `pulumi:"defaultAccessPolicy"`
+	// A `dns` block as defined below.
+	Dns *CacheDns `pulumi:"dns"`
 	// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// A list of IP Addresses where the HPC Cache can be mounted.
@@ -159,6 +165,8 @@ type cacheState struct {
 	Mtu *int `pulumi:"mtu"`
 	// The name of the HPC Cache. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
+	NtpServer *string `pulumi:"ntpServer"`
 	// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
@@ -176,6 +184,8 @@ type CacheState struct {
 	CacheSizeInGb pulumi.IntPtrInput
 	// A `defaultAccessPolicy` block as defined below.
 	DefaultAccessPolicy CacheDefaultAccessPolicyPtrInput
+	// A `dns` block as defined below.
+	Dns CacheDnsPtrInput
 	// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// A list of IP Addresses where the HPC Cache can be mounted.
@@ -184,6 +194,8 @@ type CacheState struct {
 	Mtu pulumi.IntPtrInput
 	// The name of the HPC Cache. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
+	NtpServer pulumi.StringPtrInput
 	// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
@@ -205,12 +217,16 @@ type cacheArgs struct {
 	CacheSizeInGb int `pulumi:"cacheSizeInGb"`
 	// A `defaultAccessPolicy` block as defined below.
 	DefaultAccessPolicy *CacheDefaultAccessPolicy `pulumi:"defaultAccessPolicy"`
+	// A `dns` block as defined below.
+	Dns *CacheDns `pulumi:"dns"`
 	// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
 	Mtu *int `pulumi:"mtu"`
 	// The name of the HPC Cache. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
+	NtpServer *string `pulumi:"ntpServer"`
 	// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
@@ -229,12 +245,16 @@ type CacheArgs struct {
 	CacheSizeInGb pulumi.IntInput
 	// A `defaultAccessPolicy` block as defined below.
 	DefaultAccessPolicy CacheDefaultAccessPolicyPtrInput
+	// A `dns` block as defined below.
+	Dns CacheDnsPtrInput
 	// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
 	Mtu pulumi.IntPtrInput
 	// The name of the HPC Cache. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
+	NtpServer pulumi.StringPtrInput
 	// The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.

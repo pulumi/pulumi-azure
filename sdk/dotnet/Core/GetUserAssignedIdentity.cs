@@ -35,12 +35,15 @@ namespace Pulumi.Azure.Core
         ///         }));
         ///         this.UaiClientId = example.Apply(example =&gt; example.ClientId);
         ///         this.UaiPrincipalId = example.Apply(example =&gt; example.PrincipalId);
+        ///         this.UaiTenantId = example.Apply(example =&gt; example.TenantId);
         ///     }
         /// 
         ///     [Output("uaiClientId")]
         ///     public Output&lt;string&gt; UaiClientId { get; set; }
         ///     [Output("uaiPrincipalId")]
         ///     public Output&lt;string&gt; UaiPrincipalId { get; set; }
+        ///     [Output("uaiTenantId")]
+        ///     public Output&lt;string&gt; UaiTenantId { get; set; }
         /// }
         /// ```
         /// {{% /example %}}
@@ -96,6 +99,10 @@ namespace Pulumi.Azure.Core
         /// A mapping of tags assigned to the User Assigned Identity.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// The Tenant ID of the User Assigned Identity.
+        /// </summary>
+        public readonly string TenantId;
 
         [OutputConstructor]
         private GetUserAssignedIdentityResult(
@@ -111,7 +118,9 @@ namespace Pulumi.Azure.Core
 
             string resourceGroupName,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string> tags,
+
+            string tenantId)
         {
             ClientId = clientId;
             Id = id;
@@ -120,6 +129,7 @@ namespace Pulumi.Azure.Core
             PrincipalId = principalId;
             ResourceGroupName = resourceGroupName;
             Tags = tags;
+            TenantId = tenantId;
         }
     }
 }

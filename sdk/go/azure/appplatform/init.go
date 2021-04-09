@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewSpringCloudActiveDeployment(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:appplatform/springCloudApp:SpringCloudApp":
 		r, err = NewSpringCloudApp(ctx, name, nil, pulumi.URN_(urn))
+	case "azure:appplatform/springCloudAppRedisAssociation:SpringCloudAppRedisAssociation":
+		r, err = NewSpringCloudAppRedisAssociation(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:appplatform/springCloudCertificate:SpringCloudCertificate":
 		r, err = NewSpringCloudCertificate(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:appplatform/springCloudCustomDomain:SpringCloudCustomDomain":
@@ -53,6 +55,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"appplatform/springCloudApp",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appplatform/springCloudAppRedisAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

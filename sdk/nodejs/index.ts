@@ -28,6 +28,7 @@ import * as blueprint from "./blueprint";
 import * as bot from "./bot";
 import * as cdn from "./cdn";
 import * as cognitive from "./cognitive";
+import * as communication from "./communication";
 import * as compute from "./compute";
 import * as config from "./config";
 import * as containerservice from "./containerservice";
@@ -127,6 +128,7 @@ export {
     bot,
     cdn,
     cognitive,
+    communication,
     compute,
     config,
     containerservice,

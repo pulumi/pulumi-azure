@@ -124,6 +124,10 @@ export class EventGridDataConnection extends pulumi.CustomResource {
      */
     public readonly clusterName!: pulumi.Output<string>;
     /**
+     * Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+     */
+    public readonly dataFormat!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
      */
     public readonly databaseName!: pulumi.Output<string>;
@@ -142,6 +146,10 @@ export class EventGridDataConnection extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+     */
+    public readonly mappingRuleName!: pulumi.Output<string | undefined>;
+    /**
      * The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -157,6 +165,10 @@ export class EventGridDataConnection extends pulumi.CustomResource {
      * Specifies the resource id of the Storage Account this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
     public readonly storageAccountId!: pulumi.Output<string>;
+    /**
+     * Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+     */
+    public readonly tableName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a EventGridDataConnection resource with the given unique name, arguments, and options.
@@ -173,14 +185,17 @@ export class EventGridDataConnection extends pulumi.CustomResource {
             const state = argsOrState as EventGridDataConnectionState | undefined;
             inputs["blobStorageEventType"] = state ? state.blobStorageEventType : undefined;
             inputs["clusterName"] = state ? state.clusterName : undefined;
+            inputs["dataFormat"] = state ? state.dataFormat : undefined;
             inputs["databaseName"] = state ? state.databaseName : undefined;
             inputs["eventhubConsumerGroupName"] = state ? state.eventhubConsumerGroupName : undefined;
             inputs["eventhubId"] = state ? state.eventhubId : undefined;
             inputs["location"] = state ? state.location : undefined;
+            inputs["mappingRuleName"] = state ? state.mappingRuleName : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["skipFirstRecord"] = state ? state.skipFirstRecord : undefined;
             inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            inputs["tableName"] = state ? state.tableName : undefined;
         } else {
             const args = argsOrState as EventGridDataConnectionArgs | undefined;
             if ((!args || args.clusterName === undefined) && !opts.urn) {
@@ -203,14 +218,17 @@ export class EventGridDataConnection extends pulumi.CustomResource {
             }
             inputs["blobStorageEventType"] = args ? args.blobStorageEventType : undefined;
             inputs["clusterName"] = args ? args.clusterName : undefined;
+            inputs["dataFormat"] = args ? args.dataFormat : undefined;
             inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["eventhubConsumerGroupName"] = args ? args.eventhubConsumerGroupName : undefined;
             inputs["eventhubId"] = args ? args.eventhubId : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["mappingRuleName"] = args ? args.mappingRuleName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["skipFirstRecord"] = args ? args.skipFirstRecord : undefined;
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            inputs["tableName"] = args ? args.tableName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -234,6 +252,10 @@ export interface EventGridDataConnectionState {
      */
     readonly clusterName?: pulumi.Input<string>;
     /**
+     * Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+     */
+    readonly dataFormat?: pulumi.Input<string>;
+    /**
      * Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
      */
     readonly databaseName?: pulumi.Input<string>;
@@ -252,6 +274,10 @@ export interface EventGridDataConnectionState {
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+     */
+    readonly mappingRuleName?: pulumi.Input<string>;
+    /**
      * The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
@@ -267,6 +293,10 @@ export interface EventGridDataConnectionState {
      * Specifies the resource id of the Storage Account this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
     readonly storageAccountId?: pulumi.Input<string>;
+    /**
+     * Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+     */
+    readonly tableName?: pulumi.Input<string>;
 }
 
 /**
@@ -283,6 +313,10 @@ export interface EventGridDataConnectionArgs {
      * Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
      */
     readonly clusterName: pulumi.Input<string>;
+    /**
+     * Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+     */
+    readonly dataFormat?: pulumi.Input<string>;
     /**
      * Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
      */
@@ -302,6 +336,10 @@ export interface EventGridDataConnectionArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+     */
+    readonly mappingRuleName?: pulumi.Input<string>;
+    /**
      * The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
@@ -317,4 +355,8 @@ export interface EventGridDataConnectionArgs {
      * Specifies the resource id of the Storage Account this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
     readonly storageAccountId: pulumi.Input<string>;
+    /**
+     * Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+     */
+    readonly tableName?: pulumi.Input<string>;
 }

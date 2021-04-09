@@ -111,7 +111,7 @@ import (
 type ManagedDisk struct {
 	pulumi.CustomResourceState
 
-	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
+	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `sourceUri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `sourceResourceId`), `FromImage` (Copy a Platform Image, specified with `imageReferenceId`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `sourceResourceId`).
 	CreateOption pulumi.StringOutput `pulumi:"createOption"`
 	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
 	DiskEncryptionSetId pulumi.StringPtrOutput `pulumi:"diskEncryptionSetId"`
@@ -185,7 +185,7 @@ func GetManagedDisk(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedDisk resources.
 type managedDiskState struct {
-	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
+	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `sourceUri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `sourceResourceId`), `FromImage` (Copy a Platform Image, specified with `imageReferenceId`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `sourceResourceId`).
 	CreateOption *string `pulumi:"createOption"`
 	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
@@ -222,7 +222,7 @@ type managedDiskState struct {
 }
 
 type ManagedDiskState struct {
-	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
+	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `sourceUri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `sourceResourceId`), `FromImage` (Copy a Platform Image, specified with `imageReferenceId`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `sourceResourceId`).
 	CreateOption pulumi.StringPtrInput
 	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
 	DiskEncryptionSetId pulumi.StringPtrInput
@@ -263,7 +263,7 @@ func (ManagedDiskState) ElementType() reflect.Type {
 }
 
 type managedDiskArgs struct {
-	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
+	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `sourceUri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `sourceResourceId`), `FromImage` (Copy a Platform Image, specified with `imageReferenceId`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `sourceResourceId`).
 	CreateOption string `pulumi:"createOption"`
 	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
@@ -301,7 +301,7 @@ type managedDiskArgs struct {
 
 // The set of arguments for constructing a ManagedDisk resource.
 type ManagedDiskArgs struct {
-	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
+	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `sourceUri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `sourceResourceId`), `FromImage` (Copy a Platform Image, specified with `imageReferenceId`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `sourceResourceId`).
 	CreateOption pulumi.StringInput
 	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
 	DiskEncryptionSetId pulumi.StringPtrInput

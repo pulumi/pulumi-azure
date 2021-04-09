@@ -21,6 +21,7 @@ import * as utilities from "../utilities";
  * });
  * export const uaiClientId = example.then(example => example.clientId);
  * export const uaiPrincipalId = example.then(example => example.principalId);
+ * export const uaiTenantId = example.then(example => example.tenantId);
  * ```
  */
 export function getUserAssignedIdentity(args: GetUserAssignedIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetUserAssignedIdentityResult> {
@@ -77,4 +78,8 @@ export interface GetUserAssignedIdentityResult {
      * A mapping of tags assigned to the User Assigned Identity.
      */
     readonly tags: {[key: string]: string};
+    /**
+     * The Tenant ID of the User Assigned Identity.
+     */
+    readonly tenantId: string;
 }

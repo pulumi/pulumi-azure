@@ -13,6 +13,12 @@ namespace Pulumi.Azure.Hpc.Inputs
     public sealed class CacheNfsTargetNamespaceJunctionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the access policy applied to this target. Defaults to `default`.
+        /// </summary>
+        [Input("accessPolicyName")]
+        public Input<string>? AccessPolicyName { get; set; }
+
+        /// <summary>
         /// The client-facing file path of this NFS target within the HPC Cache NFS Target.
         /// </summary>
         [Input("namespacePath", required: true)]

@@ -133,6 +133,12 @@ namespace Pulumi.Azure.Kusto
         public Output<string> ClusterName { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+        /// </summary>
+        [Output("dataFormat")]
+        public Output<string?> DataFormat { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
         /// </summary>
         [Output("databaseName")]
@@ -159,6 +165,12 @@ namespace Pulumi.Azure.Kusto
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+        /// </summary>
+        [Output("mappingRuleName")]
+        public Output<string?> MappingRuleName { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -181,6 +193,12 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Output("storageAccountId")]
         public Output<string> StorageAccountId { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+        /// </summary>
+        [Output("tableName")]
+        public Output<string?> TableName { get; private set; } = null!;
 
 
         /// <summary>
@@ -243,6 +261,12 @@ namespace Pulumi.Azure.Kusto
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
+        /// Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+        /// </summary>
+        [Input("dataFormat")]
+        public Input<string>? DataFormat { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
         /// </summary>
         [Input("databaseName", required: true)]
@@ -269,6 +293,12 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+        /// </summary>
+        [Input("mappingRuleName")]
+        public Input<string>? MappingRuleName { get; set; }
+
+        /// <summary>
         /// The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -292,6 +322,12 @@ namespace Pulumi.Azure.Kusto
         [Input("storageAccountId", required: true)]
         public Input<string> StorageAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+        /// </summary>
+        [Input("tableName")]
+        public Input<string>? TableName { get; set; }
+
         public EventGridDataConnectionArgs()
         {
         }
@@ -312,6 +348,12 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
+
+        /// <summary>
+        /// Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+        /// </summary>
+        [Input("dataFormat")]
+        public Input<string>? DataFormat { get; set; }
 
         /// <summary>
         /// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
@@ -340,6 +382,12 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+        /// </summary>
+        [Input("mappingRuleName")]
+        public Input<string>? MappingRuleName { get; set; }
+
+        /// <summary>
         /// The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -362,6 +410,12 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
+
+        /// <summary>
+        /// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+        /// </summary>
+        [Input("tableName")]
+        public Input<string>? TableName { get; set; }
 
         public EventGridDataConnectionState()
         {

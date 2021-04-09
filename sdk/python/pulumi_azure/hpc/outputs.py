@@ -13,6 +13,7 @@ __all__ = [
     'CacheAccessPolicyAccessRule',
     'CacheDefaultAccessPolicy',
     'CacheDefaultAccessPolicyAccessRule',
+    'CacheDns',
     'CacheNfsTargetNamespaceJunction',
 ]
 
@@ -246,18 +247,55 @@ class CacheDefaultAccessPolicyAccessRule(dict):
 
 
 @pulumi.output_type
+class CacheDns(dict):
+    def __init__(__self__, *,
+                 servers: Sequence[str],
+                 search_domain: Optional[str] = None):
+        """
+        :param Sequence[str] servers: A list of DNS servers for the HPC Cache. At most three IP(s) are allowed to set.
+        :param str search_domain: The DNS search domain for the HPC Cache.
+        """
+        pulumi.set(__self__, "servers", servers)
+        if search_domain is not None:
+            pulumi.set(__self__, "search_domain", search_domain)
+
+    @property
+    @pulumi.getter
+    def servers(self) -> Sequence[str]:
+        """
+        A list of DNS servers for the HPC Cache. At most three IP(s) are allowed to set.
+        """
+        return pulumi.get(self, "servers")
+
+    @property
+    @pulumi.getter(name="searchDomain")
+    def search_domain(self) -> Optional[str]:
+        """
+        The DNS search domain for the HPC Cache.
+        """
+        return pulumi.get(self, "search_domain")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class CacheNfsTargetNamespaceJunction(dict):
     def __init__(__self__, *,
                  namespace_path: str,
                  nfs_export: str,
+                 access_policy_name: Optional[str] = None,
                  target_path: Optional[str] = None):
         """
         :param str namespace_path: The client-facing file path of this NFS target within the HPC Cache NFS Target.
         :param str nfs_export: The NFS export of this NFS target within the HPC Cache NFS Target.
+        :param str access_policy_name: The name of the access policy applied to this target. Defaults to `default`.
         :param str target_path: The relative subdirectory path from the `nfs_export` to map to the `namespace_path`. Defaults to `""`, in which case the whole `nfs_export` is exported.
         """
         pulumi.set(__self__, "namespace_path", namespace_path)
         pulumi.set(__self__, "nfs_export", nfs_export)
+        if access_policy_name is not None:
+            pulumi.set(__self__, "access_policy_name", access_policy_name)
         if target_path is not None:
             pulumi.set(__self__, "target_path", target_path)
 
@@ -276,6 +314,14 @@ class CacheNfsTargetNamespaceJunction(dict):
         The NFS export of this NFS target within the HPC Cache NFS Target.
         """
         return pulumi.get(self, "nfs_export")
+
+    @property
+    @pulumi.getter(name="accessPolicyName")
+    def access_policy_name(self) -> Optional[str]:
+        """
+        The name of the access policy applied to this target. Defaults to `default`.
+        """
+        return pulumi.get(self, "access_policy_name")
 
     @property
     @pulumi.getter(name="targetPath")

@@ -654,7 +654,7 @@ type PolicyManagedRulesManagedRuleSet struct {
 	RuleGroupOverrides []PolicyManagedRulesManagedRuleSetRuleGroupOverride `pulumi:"ruleGroupOverrides"`
 	// The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`.
 	Type *string `pulumi:"type"`
-	// The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0` and `3.1`.
+	// The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
 	Version string `pulumi:"version"`
 }
 
@@ -674,7 +674,7 @@ type PolicyManagedRulesManagedRuleSetArgs struct {
 	RuleGroupOverrides PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayInput `pulumi:"ruleGroupOverrides"`
 	// The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0` and `3.1`.
+	// The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -741,7 +741,7 @@ func (o PolicyManagedRulesManagedRuleSetOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyManagedRulesManagedRuleSet) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0` and `3.1`.
+// The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
 func (o PolicyManagedRulesManagedRuleSetOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyManagedRulesManagedRuleSet) string { return v.Version }).(pulumi.StringOutput)
 }

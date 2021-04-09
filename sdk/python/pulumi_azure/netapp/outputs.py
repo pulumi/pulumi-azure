@@ -156,6 +156,7 @@ class VolumeExportPolicyRule(dict):
                  nfsv3_enabled: Optional[bool] = None,
                  nfsv4_enabled: Optional[bool] = None,
                  protocols_enabled: Optional[str] = None,
+                 root_access_enabled: Optional[bool] = None,
                  unix_read_only: Optional[bool] = None,
                  unix_read_write: Optional[bool] = None):
         """
@@ -178,6 +179,8 @@ class VolumeExportPolicyRule(dict):
             pulumi.set(__self__, "nfsv4_enabled", nfsv4_enabled)
         if protocols_enabled is not None:
             pulumi.set(__self__, "protocols_enabled", protocols_enabled)
+        if root_access_enabled is not None:
+            pulumi.set(__self__, "root_access_enabled", root_access_enabled)
         if unix_read_only is not None:
             pulumi.set(__self__, "unix_read_only", unix_read_only)
         if unix_read_write is not None:
@@ -230,6 +233,11 @@ class VolumeExportPolicyRule(dict):
         A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
         """
         return pulumi.get(self, "protocols_enabled")
+
+    @property
+    @pulumi.getter(name="rootAccessEnabled")
+    def root_access_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "root_access_enabled")
 
     @property
     @pulumi.getter(name="unixReadOnly")

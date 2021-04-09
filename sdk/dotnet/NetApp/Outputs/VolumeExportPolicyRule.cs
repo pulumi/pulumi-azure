@@ -33,6 +33,7 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
         /// </summary>
         public readonly string? ProtocolsEnabled;
+        public readonly bool? RootAccessEnabled;
         /// <summary>
         /// The index number of the rule.
         /// </summary>
@@ -58,6 +59,8 @@ namespace Pulumi.Azure.NetApp.Outputs
 
             string? protocolsEnabled,
 
+            bool? rootAccessEnabled,
+
             int ruleIndex,
 
             bool? unixReadOnly,
@@ -69,6 +72,7 @@ namespace Pulumi.Azure.NetApp.Outputs
             Nfsv3Enabled = nfsv3Enabled;
             Nfsv4Enabled = nfsv4Enabled;
             ProtocolsEnabled = protocolsEnabled;
+            RootAccessEnabled = rootAccessEnabled;
             RuleIndex = ruleIndex;
             UnixReadOnly = unixReadOnly;
             UnixReadWrite = unixReadWrite;

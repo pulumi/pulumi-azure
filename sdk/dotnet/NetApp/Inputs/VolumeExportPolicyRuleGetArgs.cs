@@ -48,6 +48,9 @@ namespace Pulumi.Azure.NetApp.Inputs
         [Input("protocolsEnabled")]
         public Input<string>? ProtocolsEnabled { get; set; }
 
+        [Input("rootAccessEnabled")]
+        public Input<bool>? RootAccessEnabled { get; set; }
+
         /// <summary>
         /// The index number of the rule.
         /// </summary>

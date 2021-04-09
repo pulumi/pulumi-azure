@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Hpc.Outputs
     public sealed class CacheNfsTargetNamespaceJunction
     {
         /// <summary>
+        /// The name of the access policy applied to this target. Defaults to `default`.
+        /// </summary>
+        public readonly string? AccessPolicyName;
+        /// <summary>
         /// The client-facing file path of this NFS target within the HPC Cache NFS Target.
         /// </summary>
         public readonly string NamespacePath;
@@ -28,12 +32,15 @@ namespace Pulumi.Azure.Hpc.Outputs
 
         [OutputConstructor]
         private CacheNfsTargetNamespaceJunction(
+            string? accessPolicyName,
+
             string namespacePath,
 
             string nfsExport,
 
             string? targetPath)
         {
+            AccessPolicyName = accessPolicyName;
             NamespacePath = namespacePath;
             NfsExport = nfsExport;
             TargetPath = targetPath;

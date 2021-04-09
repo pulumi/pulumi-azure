@@ -71,6 +71,8 @@ type UserAssignedIdentity struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Tenant ID associated with the user assigned identity.
+	TenantId pulumi.StringOutput `pulumi:"tenantId"`
 }
 
 // NewUserAssignedIdentity registers a new resource with the given unique name, arguments, and options.
@@ -120,6 +122,8 @@ type userAssignedIdentityState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Tenant ID associated with the user assigned identity.
+	TenantId *string `pulumi:"tenantId"`
 }
 
 type UserAssignedIdentityState struct {
@@ -138,6 +142,8 @@ type UserAssignedIdentityState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Tenant ID associated with the user assigned identity.
+	TenantId pulumi.StringPtrInput
 }
 
 func (UserAssignedIdentityState) ElementType() reflect.Type {

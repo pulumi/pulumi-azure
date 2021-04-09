@@ -189,6 +189,7 @@ class VolumeExportPolicyRuleArgs:
                  nfsv3_enabled: Optional[pulumi.Input[bool]] = None,
                  nfsv4_enabled: Optional[pulumi.Input[bool]] = None,
                  protocols_enabled: Optional[pulumi.Input[str]] = None,
+                 root_access_enabled: Optional[pulumi.Input[bool]] = None,
                  unix_read_only: Optional[pulumi.Input[bool]] = None,
                  unix_read_write: Optional[pulumi.Input[bool]] = None):
         """
@@ -220,6 +221,8 @@ class VolumeExportPolicyRuleArgs:
             pulumi.set(__self__, "nfsv4_enabled", nfsv4_enabled)
         if protocols_enabled is not None:
             pulumi.set(__self__, "protocols_enabled", protocols_enabled)
+        if root_access_enabled is not None:
+            pulumi.set(__self__, "root_access_enabled", root_access_enabled)
         if unix_read_only is not None:
             pulumi.set(__self__, "unix_read_only", unix_read_only)
         if unix_read_write is not None:
@@ -296,6 +299,15 @@ class VolumeExportPolicyRuleArgs:
     @protocols_enabled.setter
     def protocols_enabled(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "protocols_enabled", value)
+
+    @property
+    @pulumi.getter(name="rootAccessEnabled")
+    def root_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "root_access_enabled")
+
+    @root_access_enabled.setter
+    def root_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "root_access_enabled", value)
 
     @property
     @pulumi.getter(name="unixReadOnly")

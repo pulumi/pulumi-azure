@@ -39,6 +39,10 @@ namespace Pulumi.Azure.Policy.Inputs
 
         [Input("policyGroupNames")]
         private InputList<string>? _policyGroupNames;
+
+        /// <summary>
+        /// A list of names of the policy definition groups that this policy definition reference belongs to.
+        /// </summary>
         public InputList<string> PolicyGroupNames
         {
             get => _policyGroupNames ?? (_policyGroupNames = new InputList<string>());

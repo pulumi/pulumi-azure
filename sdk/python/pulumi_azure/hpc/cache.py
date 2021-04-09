@@ -19,9 +19,11 @@ class Cache(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_size_in_gb: Optional[pulumi.Input[int]] = None,
                  default_access_policy: Optional[pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArgs']]] = None,
+                 dns: Optional[pulumi.Input[pulumi.InputType['CacheDnsArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mtu: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 ntp_server: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  root_squash_enabled: Optional[pulumi.Input[bool]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
@@ -71,9 +73,11 @@ class Cache(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArgs']] default_access_policy: A `default_access_policy` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CacheDnsArgs']] dns: A `dns` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] mtu: The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
         :param pulumi.Input[str] name: The name of the HPC Cache. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] ntp_server: The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] root_squash_enabled: Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
         :param pulumi.Input[str] sku_name: The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
@@ -100,9 +104,11 @@ class Cache(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cache_size_in_gb'")
             __props__['cache_size_in_gb'] = cache_size_in_gb
             __props__['default_access_policy'] = default_access_policy
+            __props__['dns'] = dns
             __props__['location'] = location
             __props__['mtu'] = mtu
             __props__['name'] = name
+            __props__['ntp_server'] = ntp_server
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -129,10 +135,12 @@ class Cache(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cache_size_in_gb: Optional[pulumi.Input[int]] = None,
             default_access_policy: Optional[pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArgs']]] = None,
+            dns: Optional[pulumi.Input[pulumi.InputType['CacheDnsArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             mount_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             mtu: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            ntp_server: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             root_squash_enabled: Optional[pulumi.Input[bool]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
@@ -146,10 +154,12 @@ class Cache(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArgs']] default_access_policy: A `default_access_policy` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CacheDnsArgs']] dns: A `dns` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] mount_addresses: A list of IP Addresses where the HPC Cache can be mounted.
         :param pulumi.Input[int] mtu: The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
         :param pulumi.Input[str] name: The name of the HPC Cache. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] ntp_server: The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] root_squash_enabled: Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
         :param pulumi.Input[str] sku_name: The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
@@ -161,10 +171,12 @@ class Cache(pulumi.CustomResource):
 
         __props__["cache_size_in_gb"] = cache_size_in_gb
         __props__["default_access_policy"] = default_access_policy
+        __props__["dns"] = dns
         __props__["location"] = location
         __props__["mount_addresses"] = mount_addresses
         __props__["mtu"] = mtu
         __props__["name"] = name
+        __props__["ntp_server"] = ntp_server
         __props__["resource_group_name"] = resource_group_name
         __props__["root_squash_enabled"] = root_squash_enabled
         __props__["sku_name"] = sku_name
@@ -186,6 +198,14 @@ class Cache(pulumi.CustomResource):
         A `default_access_policy` block as defined below.
         """
         return pulumi.get(self, "default_access_policy")
+
+    @property
+    @pulumi.getter
+    def dns(self) -> pulumi.Output[Optional['outputs.CacheDns']]:
+        """
+        A `dns` block as defined below.
+        """
+        return pulumi.get(self, "dns")
 
     @property
     @pulumi.getter
@@ -218,6 +238,14 @@ class Cache(pulumi.CustomResource):
         The name of the HPC Cache. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="ntpServer")
+    def ntp_server(self) -> pulumi.Output[Optional[str]]:
+        """
+        The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
+        """
+        return pulumi.get(self, "ntp_server")
 
     @property
     @pulumi.getter(name="resourceGroupName")

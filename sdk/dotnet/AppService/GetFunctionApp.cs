@@ -83,6 +83,10 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly ImmutableDictionary<string, string> AppSettings;
         /// <summary>
+        /// The mode of the Function App's client certificates requirement for incoming requests.
+        /// </summary>
+        public readonly string ClientCertMode;
+        /// <summary>
         /// An `connection_string` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFunctionAppConnectionStringResult> ConnectionStrings;
@@ -141,6 +145,8 @@ namespace Pulumi.Azure.AppService
 
             ImmutableDictionary<string, string> appSettings,
 
+            string clientCertMode,
+
             ImmutableArray<Outputs.GetFunctionAppConnectionStringResult> connectionStrings,
 
             string customDomainVerificationId,
@@ -175,6 +181,7 @@ namespace Pulumi.Azure.AppService
         {
             AppServicePlanId = appServicePlanId;
             AppSettings = appSettings;
+            ClientCertMode = clientCertMode;
             ConnectionStrings = connectionStrings;
             CustomDomainVerificationId = customDomainVerificationId;
             DefaultHostname = defaultHostname;

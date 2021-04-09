@@ -11,6 +11,7 @@ from .express_route_circuit import *
 from .express_route_circuit_authorization import *
 from .express_route_circuit_peering import *
 from .express_route_gateway import *
+from .express_route_port import *
 from .firewall import *
 from .firewall_application_rule_collection import *
 from .firewall_nat_rule_collection import *
@@ -118,6 +119,8 @@ def _register_module():
                 return ExpressRouteCircuitPeering(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:network/expressRouteGateway:ExpressRouteGateway":
                 return ExpressRouteGateway(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:network/expressRoutePort:ExpressRoutePort":
+                return ExpressRoutePort(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:network/firewall:Firewall":
                 return Firewall(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:network/firewallApplicationRuleCollection:FirewallApplicationRuleCollection":
@@ -233,6 +236,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "network/expressRouteCircuitAuthorization", _module_instance)
     pulumi.runtime.register_resource_module("azure", "network/expressRouteCircuitPeering", _module_instance)
     pulumi.runtime.register_resource_module("azure", "network/expressRouteGateway", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "network/expressRoutePort", _module_instance)
     pulumi.runtime.register_resource_module("azure", "network/firewall", _module_instance)
     pulumi.runtime.register_resource_module("azure", "network/firewallApplicationRuleCollection", _module_instance)
     pulumi.runtime.register_resource_module("azure", "network/firewallNatRuleCollection", _module_instance)

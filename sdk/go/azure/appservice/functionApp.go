@@ -202,6 +202,8 @@ type FunctionApp struct {
 	AuthSettings FunctionAppAuthSettingsOutput `pulumi:"authSettings"`
 	// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled pulumi.BoolOutput `pulumi:"clientAffinityEnabled"`
+	// The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
+	ClientCertMode pulumi.StringPtrOutput `pulumi:"clientCertMode"`
 	// An `connectionString` block as defined below.
 	ConnectionStrings FunctionAppConnectionStringArrayOutput `pulumi:"connectionStrings"`
 	// An identifier used by App Service to perform domain ownership verification via DNS TXT record.
@@ -293,6 +295,8 @@ type functionAppState struct {
 	AuthSettings *FunctionAppAuthSettings `pulumi:"authSettings"`
 	// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
+	// The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
+	ClientCertMode *string `pulumi:"clientCertMode"`
 	// An `connectionString` block as defined below.
 	ConnectionStrings []FunctionAppConnectionString `pulumi:"connectionStrings"`
 	// An identifier used by App Service to perform domain ownership verification via DNS TXT record.
@@ -350,6 +354,8 @@ type FunctionAppState struct {
 	AuthSettings FunctionAppAuthSettingsPtrInput
 	// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled pulumi.BoolPtrInput
+	// The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
+	ClientCertMode pulumi.StringPtrInput
 	// An `connectionString` block as defined below.
 	ConnectionStrings FunctionAppConnectionStringArrayInput
 	// An identifier used by App Service to perform domain ownership verification via DNS TXT record.
@@ -411,6 +417,8 @@ type functionAppArgs struct {
 	AuthSettings *FunctionAppAuthSettings `pulumi:"authSettings"`
 	// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
+	// The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
+	ClientCertMode *string `pulumi:"clientCertMode"`
 	// An `connectionString` block as defined below.
 	ConnectionStrings []FunctionAppConnectionString `pulumi:"connectionStrings"`
 	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
@@ -457,6 +465,8 @@ type FunctionAppArgs struct {
 	AuthSettings FunctionAppAuthSettingsPtrInput
 	// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled pulumi.BoolPtrInput
+	// The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
+	ClientCertMode pulumi.StringPtrInput
 	// An `connectionString` block as defined below.
 	ConnectionStrings FunctionAppConnectionStringArrayInput
 	// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.

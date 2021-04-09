@@ -269,7 +269,7 @@ class PolicyManagedRulesManagedRuleSet(dict):
                  rule_group_overrides: Optional[Sequence['outputs.PolicyManagedRulesManagedRuleSetRuleGroupOverride']] = None,
                  type: Optional[str] = None):
         """
-        :param str version: The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0` and `3.1`.
+        :param str version: The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
         :param Sequence['PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs'] rule_group_overrides: One or more `rule_group_override` block defined below.
         :param str type: The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`.
         """
@@ -283,7 +283,7 @@ class PolicyManagedRulesManagedRuleSet(dict):
     @pulumi.getter
     def version(self) -> str:
         """
-        The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0` and `3.1`.
+        The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
         """
         return pulumi.get(self, "version")
 

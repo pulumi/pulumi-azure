@@ -85,6 +85,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['client_id'] = None
             __props__['principal_id'] = None
+            __props__['tenant_id'] = None
         super(UserAssignedIdentity, __self__).__init__(
             'azure:msi/userAssignedIdentity:UserAssignedIdentity',
             resource_name,
@@ -100,7 +101,8 @@ class UserAssignedIdentity(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             principal_id: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'UserAssignedIdentity':
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tenant_id: Optional[pulumi.Input[str]] = None) -> 'UserAssignedIdentity':
         """
         Get an existing UserAssignedIdentity resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -117,6 +119,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the user assigned identity.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] tenant_id: Tenant ID associated with the user assigned identity.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -128,6 +131,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
         __props__["principal_id"] = principal_id
         __props__["resource_group_name"] = resource_group_name
         __props__["tags"] = tags
+        __props__["tenant_id"] = tenant_id
         return UserAssignedIdentity(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -180,6 +184,14 @@ class UserAssignedIdentity(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Output[str]:
+        """
+        Tenant ID associated with the user assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

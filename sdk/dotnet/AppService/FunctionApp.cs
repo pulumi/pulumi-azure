@@ -186,6 +186,12 @@ namespace Pulumi.Azure.AppService
         public Output<bool> ClientAffinityEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
+        /// </summary>
+        [Output("clientCertMode")]
+        public Output<string?> ClientCertMode { get; private set; } = null!;
+
+        /// <summary>
         /// An `connection_string` block as defined below.
         /// </summary>
         [Output("connectionStrings")]
@@ -396,6 +402,12 @@ namespace Pulumi.Azure.AppService
         [Input("clientAffinityEnabled")]
         public Input<bool>? ClientAffinityEnabled { get; set; }
 
+        /// <summary>
+        /// The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
+        /// </summary>
+        [Input("clientCertMode")]
+        public Input<string>? ClientCertMode { get; set; }
+
         [Input("connectionStrings")]
         private InputList<Inputs.FunctionAppConnectionStringArgs>? _connectionStrings;
 
@@ -543,6 +555,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("clientAffinityEnabled")]
         public Input<bool>? ClientAffinityEnabled { get; set; }
+
+        /// <summary>
+        /// The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
+        /// </summary>
+        [Input("clientCertMode")]
+        public Input<string>? ClientCertMode { get; set; }
 
         [Input("connectionStrings")]
         private InputList<Inputs.FunctionAppConnectionStringGetArgs>? _connectionStrings;

@@ -5486,6 +5486,760 @@ func (o ExpressRouteCircuitSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ExpressRoutePortIdentity struct {
+	// Specifies a list with a single user managed identity id to be assigned to the Express Route Port. Currently, exactly one id is allowed to specify.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The type of the identity used for the Express Route Port. Currently, the only possible values is `UserAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// ExpressRoutePortIdentityInput is an input type that accepts ExpressRoutePortIdentityArgs and ExpressRoutePortIdentityOutput values.
+// You can construct a concrete instance of `ExpressRoutePortIdentityInput` via:
+//
+//          ExpressRoutePortIdentityArgs{...}
+type ExpressRoutePortIdentityInput interface {
+	pulumi.Input
+
+	ToExpressRoutePortIdentityOutput() ExpressRoutePortIdentityOutput
+	ToExpressRoutePortIdentityOutputWithContext(context.Context) ExpressRoutePortIdentityOutput
+}
+
+type ExpressRoutePortIdentityArgs struct {
+	// Specifies a list with a single user managed identity id to be assigned to the Express Route Port. Currently, exactly one id is allowed to specify.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The type of the identity used for the Express Route Port. Currently, the only possible values is `UserAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ExpressRoutePortIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRoutePortIdentity)(nil)).Elem()
+}
+
+func (i ExpressRoutePortIdentityArgs) ToExpressRoutePortIdentityOutput() ExpressRoutePortIdentityOutput {
+	return i.ToExpressRoutePortIdentityOutputWithContext(context.Background())
+}
+
+func (i ExpressRoutePortIdentityArgs) ToExpressRoutePortIdentityOutputWithContext(ctx context.Context) ExpressRoutePortIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRoutePortIdentityOutput)
+}
+
+func (i ExpressRoutePortIdentityArgs) ToExpressRoutePortIdentityPtrOutput() ExpressRoutePortIdentityPtrOutput {
+	return i.ToExpressRoutePortIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ExpressRoutePortIdentityArgs) ToExpressRoutePortIdentityPtrOutputWithContext(ctx context.Context) ExpressRoutePortIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRoutePortIdentityOutput).ToExpressRoutePortIdentityPtrOutputWithContext(ctx)
+}
+
+// ExpressRoutePortIdentityPtrInput is an input type that accepts ExpressRoutePortIdentityArgs, ExpressRoutePortIdentityPtr and ExpressRoutePortIdentityPtrOutput values.
+// You can construct a concrete instance of `ExpressRoutePortIdentityPtrInput` via:
+//
+//          ExpressRoutePortIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type ExpressRoutePortIdentityPtrInput interface {
+	pulumi.Input
+
+	ToExpressRoutePortIdentityPtrOutput() ExpressRoutePortIdentityPtrOutput
+	ToExpressRoutePortIdentityPtrOutputWithContext(context.Context) ExpressRoutePortIdentityPtrOutput
+}
+
+type expressRoutePortIdentityPtrType ExpressRoutePortIdentityArgs
+
+func ExpressRoutePortIdentityPtr(v *ExpressRoutePortIdentityArgs) ExpressRoutePortIdentityPtrInput {
+	return (*expressRoutePortIdentityPtrType)(v)
+}
+
+func (*expressRoutePortIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressRoutePortIdentity)(nil)).Elem()
+}
+
+func (i *expressRoutePortIdentityPtrType) ToExpressRoutePortIdentityPtrOutput() ExpressRoutePortIdentityPtrOutput {
+	return i.ToExpressRoutePortIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *expressRoutePortIdentityPtrType) ToExpressRoutePortIdentityPtrOutputWithContext(ctx context.Context) ExpressRoutePortIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRoutePortIdentityPtrOutput)
+}
+
+type ExpressRoutePortIdentityOutput struct{ *pulumi.OutputState }
+
+func (ExpressRoutePortIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRoutePortIdentity)(nil)).Elem()
+}
+
+func (o ExpressRoutePortIdentityOutput) ToExpressRoutePortIdentityOutput() ExpressRoutePortIdentityOutput {
+	return o
+}
+
+func (o ExpressRoutePortIdentityOutput) ToExpressRoutePortIdentityOutputWithContext(ctx context.Context) ExpressRoutePortIdentityOutput {
+	return o
+}
+
+func (o ExpressRoutePortIdentityOutput) ToExpressRoutePortIdentityPtrOutput() ExpressRoutePortIdentityPtrOutput {
+	return o.ToExpressRoutePortIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ExpressRoutePortIdentityOutput) ToExpressRoutePortIdentityPtrOutputWithContext(ctx context.Context) ExpressRoutePortIdentityPtrOutput {
+	return o.ApplyT(func(v ExpressRoutePortIdentity) *ExpressRoutePortIdentity {
+		return &v
+	}).(ExpressRoutePortIdentityPtrOutput)
+}
+
+// Specifies a list with a single user managed identity id to be assigned to the Express Route Port. Currently, exactly one id is allowed to specify.
+func (o ExpressRoutePortIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExpressRoutePortIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The type of the identity used for the Express Route Port. Currently, the only possible values is `UserAssigned`.
+func (o ExpressRoutePortIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ExpressRoutePortIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ExpressRoutePortIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ExpressRoutePortIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressRoutePortIdentity)(nil)).Elem()
+}
+
+func (o ExpressRoutePortIdentityPtrOutput) ToExpressRoutePortIdentityPtrOutput() ExpressRoutePortIdentityPtrOutput {
+	return o
+}
+
+func (o ExpressRoutePortIdentityPtrOutput) ToExpressRoutePortIdentityPtrOutputWithContext(ctx context.Context) ExpressRoutePortIdentityPtrOutput {
+	return o
+}
+
+func (o ExpressRoutePortIdentityPtrOutput) Elem() ExpressRoutePortIdentityOutput {
+	return o.ApplyT(func(v *ExpressRoutePortIdentity) ExpressRoutePortIdentity { return *v }).(ExpressRoutePortIdentityOutput)
+}
+
+// Specifies a list with a single user managed identity id to be assigned to the Express Route Port. Currently, exactly one id is allowed to specify.
+func (o ExpressRoutePortIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ExpressRoutePortIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The type of the identity used for the Express Route Port. Currently, the only possible values is `UserAssigned`.
+func (o ExpressRoutePortIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRoutePortIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ExpressRoutePortLink1 struct {
+	// Whether enable administration state on the Express Route Port Link? Defaults to `false`.
+	AdminEnabled *bool `pulumi:"adminEnabled"`
+	// The connector type of the Express Route Port Link.
+	ConnectorType *string `pulumi:"connectorType"`
+	// The ID of this Express Route Port Link.
+	Id *string `pulumi:"id"`
+	// The interface name of the Azure router associated with the Express Route Port Link.
+	InterfaceName *string `pulumi:"interfaceName"`
+	// The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+	MacsecCakKeyvaultSecretId *string `pulumi:"macsecCakKeyvaultSecretId"`
+	// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+	MacsecCipher *string `pulumi:"macsecCipher"`
+	// The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
+	MacsecCknKeyvaultSecretId *string `pulumi:"macsecCknKeyvaultSecretId"`
+	// The ID that maps from the Express Route Port Link to the patch panel port.
+	PatchPanelId *string `pulumi:"patchPanelId"`
+	// The ID that maps from the patch panel port to the rack.
+	RackId *string `pulumi:"rackId"`
+	// The name of the Azure router associated with the Express Route Port Link.
+	RouterName *string `pulumi:"routerName"`
+}
+
+// ExpressRoutePortLink1Input is an input type that accepts ExpressRoutePortLink1Args and ExpressRoutePortLink1Output values.
+// You can construct a concrete instance of `ExpressRoutePortLink1Input` via:
+//
+//          ExpressRoutePortLink1Args{...}
+type ExpressRoutePortLink1Input interface {
+	pulumi.Input
+
+	ToExpressRoutePortLink1Output() ExpressRoutePortLink1Output
+	ToExpressRoutePortLink1OutputWithContext(context.Context) ExpressRoutePortLink1Output
+}
+
+type ExpressRoutePortLink1Args struct {
+	// Whether enable administration state on the Express Route Port Link? Defaults to `false`.
+	AdminEnabled pulumi.BoolPtrInput `pulumi:"adminEnabled"`
+	// The connector type of the Express Route Port Link.
+	ConnectorType pulumi.StringPtrInput `pulumi:"connectorType"`
+	// The ID of this Express Route Port Link.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The interface name of the Azure router associated with the Express Route Port Link.
+	InterfaceName pulumi.StringPtrInput `pulumi:"interfaceName"`
+	// The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+	MacsecCakKeyvaultSecretId pulumi.StringPtrInput `pulumi:"macsecCakKeyvaultSecretId"`
+	// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+	MacsecCipher pulumi.StringPtrInput `pulumi:"macsecCipher"`
+	// The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
+	MacsecCknKeyvaultSecretId pulumi.StringPtrInput `pulumi:"macsecCknKeyvaultSecretId"`
+	// The ID that maps from the Express Route Port Link to the patch panel port.
+	PatchPanelId pulumi.StringPtrInput `pulumi:"patchPanelId"`
+	// The ID that maps from the patch panel port to the rack.
+	RackId pulumi.StringPtrInput `pulumi:"rackId"`
+	// The name of the Azure router associated with the Express Route Port Link.
+	RouterName pulumi.StringPtrInput `pulumi:"routerName"`
+}
+
+func (ExpressRoutePortLink1Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRoutePortLink1)(nil)).Elem()
+}
+
+func (i ExpressRoutePortLink1Args) ToExpressRoutePortLink1Output() ExpressRoutePortLink1Output {
+	return i.ToExpressRoutePortLink1OutputWithContext(context.Background())
+}
+
+func (i ExpressRoutePortLink1Args) ToExpressRoutePortLink1OutputWithContext(ctx context.Context) ExpressRoutePortLink1Output {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRoutePortLink1Output)
+}
+
+func (i ExpressRoutePortLink1Args) ToExpressRoutePortLink1PtrOutput() ExpressRoutePortLink1PtrOutput {
+	return i.ToExpressRoutePortLink1PtrOutputWithContext(context.Background())
+}
+
+func (i ExpressRoutePortLink1Args) ToExpressRoutePortLink1PtrOutputWithContext(ctx context.Context) ExpressRoutePortLink1PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRoutePortLink1Output).ToExpressRoutePortLink1PtrOutputWithContext(ctx)
+}
+
+// ExpressRoutePortLink1PtrInput is an input type that accepts ExpressRoutePortLink1Args, ExpressRoutePortLink1Ptr and ExpressRoutePortLink1PtrOutput values.
+// You can construct a concrete instance of `ExpressRoutePortLink1PtrInput` via:
+//
+//          ExpressRoutePortLink1Args{...}
+//
+//  or:
+//
+//          nil
+type ExpressRoutePortLink1PtrInput interface {
+	pulumi.Input
+
+	ToExpressRoutePortLink1PtrOutput() ExpressRoutePortLink1PtrOutput
+	ToExpressRoutePortLink1PtrOutputWithContext(context.Context) ExpressRoutePortLink1PtrOutput
+}
+
+type expressRoutePortLink1PtrType ExpressRoutePortLink1Args
+
+func ExpressRoutePortLink1Ptr(v *ExpressRoutePortLink1Args) ExpressRoutePortLink1PtrInput {
+	return (*expressRoutePortLink1PtrType)(v)
+}
+
+func (*expressRoutePortLink1PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressRoutePortLink1)(nil)).Elem()
+}
+
+func (i *expressRoutePortLink1PtrType) ToExpressRoutePortLink1PtrOutput() ExpressRoutePortLink1PtrOutput {
+	return i.ToExpressRoutePortLink1PtrOutputWithContext(context.Background())
+}
+
+func (i *expressRoutePortLink1PtrType) ToExpressRoutePortLink1PtrOutputWithContext(ctx context.Context) ExpressRoutePortLink1PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRoutePortLink1PtrOutput)
+}
+
+type ExpressRoutePortLink1Output struct{ *pulumi.OutputState }
+
+func (ExpressRoutePortLink1Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRoutePortLink1)(nil)).Elem()
+}
+
+func (o ExpressRoutePortLink1Output) ToExpressRoutePortLink1Output() ExpressRoutePortLink1Output {
+	return o
+}
+
+func (o ExpressRoutePortLink1Output) ToExpressRoutePortLink1OutputWithContext(ctx context.Context) ExpressRoutePortLink1Output {
+	return o
+}
+
+func (o ExpressRoutePortLink1Output) ToExpressRoutePortLink1PtrOutput() ExpressRoutePortLink1PtrOutput {
+	return o.ToExpressRoutePortLink1PtrOutputWithContext(context.Background())
+}
+
+func (o ExpressRoutePortLink1Output) ToExpressRoutePortLink1PtrOutputWithContext(ctx context.Context) ExpressRoutePortLink1PtrOutput {
+	return o.ApplyT(func(v ExpressRoutePortLink1) *ExpressRoutePortLink1 {
+		return &v
+	}).(ExpressRoutePortLink1PtrOutput)
+}
+
+// Whether enable administration state on the Express Route Port Link? Defaults to `false`.
+func (o ExpressRoutePortLink1Output) AdminEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ExpressRoutePortLink1) *bool { return v.AdminEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The connector type of the Express Route Port Link.
+func (o ExpressRoutePortLink1Output) ConnectorType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressRoutePortLink1) *string { return v.ConnectorType }).(pulumi.StringPtrOutput)
+}
+
+// The ID of this Express Route Port Link.
+func (o ExpressRoutePortLink1Output) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressRoutePortLink1) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The interface name of the Azure router associated with the Express Route Port Link.
+func (o ExpressRoutePortLink1Output) InterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressRoutePortLink1) *string { return v.InterfaceName }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+func (o ExpressRoutePortLink1Output) MacsecCakKeyvaultSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressRoutePortLink1) *string { return v.MacsecCakKeyvaultSecretId }).(pulumi.StringPtrOutput)
+}
+
+// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+func (o ExpressRoutePortLink1Output) MacsecCipher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressRoutePortLink1) *string { return v.MacsecCipher }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
+func (o ExpressRoutePortLink1Output) MacsecCknKeyvaultSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressRoutePortLink1) *string { return v.MacsecCknKeyvaultSecretId }).(pulumi.StringPtrOutput)
+}
+
+// The ID that maps from the Express Route Port Link to the patch panel port.
+func (o ExpressRoutePortLink1Output) PatchPanelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressRoutePortLink1) *string { return v.PatchPanelId }).(pulumi.StringPtrOutput)
+}
+
+// The ID that maps from the patch panel port to the rack.
+func (o ExpressRoutePortLink1Output) RackId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressRoutePortLink1) *string { return v.RackId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Azure router associated with the Express Route Port Link.
+func (o ExpressRoutePortLink1Output) RouterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressRoutePortLink1) *string { return v.RouterName }).(pulumi.StringPtrOutput)
+}
+
+type ExpressRoutePortLink1PtrOutput struct{ *pulumi.OutputState }
+
+func (ExpressRoutePortLink1PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressRoutePortLink1)(nil)).Elem()
+}
+
+func (o ExpressRoutePortLink1PtrOutput) ToExpressRoutePortLink1PtrOutput() ExpressRoutePortLink1PtrOutput {
+	return o
+}
+
+func (o ExpressRoutePortLink1PtrOutput) ToExpressRoutePortLink1PtrOutputWithContext(ctx context.Context) ExpressRoutePortLink1PtrOutput {
+	return o
+}
+
+func (o ExpressRoutePortLink1PtrOutput) Elem() ExpressRoutePortLink1Output {
+	return o.ApplyT(func(v *ExpressRoutePortLink1) ExpressRoutePortLink1 { return *v }).(ExpressRoutePortLink1Output)
+}
+
+// Whether enable administration state on the Express Route Port Link? Defaults to `false`.
+func (o ExpressRoutePortLink1PtrOutput) AdminEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ExpressRoutePortLink1) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AdminEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The connector type of the Express Route Port Link.
+func (o ExpressRoutePortLink1PtrOutput) ConnectorType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRoutePortLink1) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectorType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of this Express Route Port Link.
+func (o ExpressRoutePortLink1PtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRoutePortLink1) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The interface name of the Azure router associated with the Express Route Port Link.
+func (o ExpressRoutePortLink1PtrOutput) InterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRoutePortLink1) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InterfaceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+func (o ExpressRoutePortLink1PtrOutput) MacsecCakKeyvaultSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRoutePortLink1) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MacsecCakKeyvaultSecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+func (o ExpressRoutePortLink1PtrOutput) MacsecCipher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRoutePortLink1) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MacsecCipher
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
+func (o ExpressRoutePortLink1PtrOutput) MacsecCknKeyvaultSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRoutePortLink1) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MacsecCknKeyvaultSecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID that maps from the Express Route Port Link to the patch panel port.
+func (o ExpressRoutePortLink1PtrOutput) PatchPanelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRoutePortLink1) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PatchPanelId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID that maps from the patch panel port to the rack.
+func (o ExpressRoutePortLink1PtrOutput) RackId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRoutePortLink1) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RackId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the Azure router associated with the Express Route Port Link.
+func (o ExpressRoutePortLink1PtrOutput) RouterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRoutePortLink1) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RouterName
+	}).(pulumi.StringPtrOutput)
+}
+
+type ExpressRoutePortLink2 struct {
+	// Whether enable administration state on the Express Route Port Link? Defaults to `false`.
+	AdminEnabled *bool `pulumi:"adminEnabled"`
+	// The connector type of the Express Route Port Link.
+	ConnectorType *string `pulumi:"connectorType"`
+	// The ID of this Express Route Port Link.
+	Id *string `pulumi:"id"`
+	// The interface name of the Azure router associated with the Express Route Port Link.
+	InterfaceName *string `pulumi:"interfaceName"`
+	// The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+	MacsecCakKeyvaultSecretId *string `pulumi:"macsecCakKeyvaultSecretId"`
+	// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+	MacsecCipher *string `pulumi:"macsecCipher"`
+	// The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
+	MacsecCknKeyvaultSecretId *string `pulumi:"macsecCknKeyvaultSecretId"`
+	// The ID that maps from the Express Route Port Link to the patch panel port.
+	PatchPanelId *string `pulumi:"patchPanelId"`
+	// The ID that maps from the patch panel port to the rack.
+	RackId *string `pulumi:"rackId"`
+	// The name of the Azure router associated with the Express Route Port Link.
+	RouterName *string `pulumi:"routerName"`
+}
+
+// ExpressRoutePortLink2Input is an input type that accepts ExpressRoutePortLink2Args and ExpressRoutePortLink2Output values.
+// You can construct a concrete instance of `ExpressRoutePortLink2Input` via:
+//
+//          ExpressRoutePortLink2Args{...}
+type ExpressRoutePortLink2Input interface {
+	pulumi.Input
+
+	ToExpressRoutePortLink2Output() ExpressRoutePortLink2Output
+	ToExpressRoutePortLink2OutputWithContext(context.Context) ExpressRoutePortLink2Output
+}
+
+type ExpressRoutePortLink2Args struct {
+	// Whether enable administration state on the Express Route Port Link? Defaults to `false`.
+	AdminEnabled pulumi.BoolPtrInput `pulumi:"adminEnabled"`
+	// The connector type of the Express Route Port Link.
+	ConnectorType pulumi.StringPtrInput `pulumi:"connectorType"`
+	// The ID of this Express Route Port Link.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The interface name of the Azure router associated with the Express Route Port Link.
+	InterfaceName pulumi.StringPtrInput `pulumi:"interfaceName"`
+	// The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+	MacsecCakKeyvaultSecretId pulumi.StringPtrInput `pulumi:"macsecCakKeyvaultSecretId"`
+	// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+	MacsecCipher pulumi.StringPtrInput `pulumi:"macsecCipher"`
+	// The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
+	MacsecCknKeyvaultSecretId pulumi.StringPtrInput `pulumi:"macsecCknKeyvaultSecretId"`
+	// The ID that maps from the Express Route Port Link to the patch panel port.
+	PatchPanelId pulumi.StringPtrInput `pulumi:"patchPanelId"`
+	// The ID that maps from the patch panel port to the rack.
+	RackId pulumi.StringPtrInput `pulumi:"rackId"`
+	// The name of the Azure router associated with the Express Route Port Link.
+	RouterName pulumi.StringPtrInput `pulumi:"routerName"`
+}
+
+func (ExpressRoutePortLink2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRoutePortLink2)(nil)).Elem()
+}
+
+func (i ExpressRoutePortLink2Args) ToExpressRoutePortLink2Output() ExpressRoutePortLink2Output {
+	return i.ToExpressRoutePortLink2OutputWithContext(context.Background())
+}
+
+func (i ExpressRoutePortLink2Args) ToExpressRoutePortLink2OutputWithContext(ctx context.Context) ExpressRoutePortLink2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRoutePortLink2Output)
+}
+
+func (i ExpressRoutePortLink2Args) ToExpressRoutePortLink2PtrOutput() ExpressRoutePortLink2PtrOutput {
+	return i.ToExpressRoutePortLink2PtrOutputWithContext(context.Background())
+}
+
+func (i ExpressRoutePortLink2Args) ToExpressRoutePortLink2PtrOutputWithContext(ctx context.Context) ExpressRoutePortLink2PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRoutePortLink2Output).ToExpressRoutePortLink2PtrOutputWithContext(ctx)
+}
+
+// ExpressRoutePortLink2PtrInput is an input type that accepts ExpressRoutePortLink2Args, ExpressRoutePortLink2Ptr and ExpressRoutePortLink2PtrOutput values.
+// You can construct a concrete instance of `ExpressRoutePortLink2PtrInput` via:
+//
+//          ExpressRoutePortLink2Args{...}
+//
+//  or:
+//
+//          nil
+type ExpressRoutePortLink2PtrInput interface {
+	pulumi.Input
+
+	ToExpressRoutePortLink2PtrOutput() ExpressRoutePortLink2PtrOutput
+	ToExpressRoutePortLink2PtrOutputWithContext(context.Context) ExpressRoutePortLink2PtrOutput
+}
+
+type expressRoutePortLink2PtrType ExpressRoutePortLink2Args
+
+func ExpressRoutePortLink2Ptr(v *ExpressRoutePortLink2Args) ExpressRoutePortLink2PtrInput {
+	return (*expressRoutePortLink2PtrType)(v)
+}
+
+func (*expressRoutePortLink2PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressRoutePortLink2)(nil)).Elem()
+}
+
+func (i *expressRoutePortLink2PtrType) ToExpressRoutePortLink2PtrOutput() ExpressRoutePortLink2PtrOutput {
+	return i.ToExpressRoutePortLink2PtrOutputWithContext(context.Background())
+}
+
+func (i *expressRoutePortLink2PtrType) ToExpressRoutePortLink2PtrOutputWithContext(ctx context.Context) ExpressRoutePortLink2PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRoutePortLink2PtrOutput)
+}
+
+type ExpressRoutePortLink2Output struct{ *pulumi.OutputState }
+
+func (ExpressRoutePortLink2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRoutePortLink2)(nil)).Elem()
+}
+
+func (o ExpressRoutePortLink2Output) ToExpressRoutePortLink2Output() ExpressRoutePortLink2Output {
+	return o
+}
+
+func (o ExpressRoutePortLink2Output) ToExpressRoutePortLink2OutputWithContext(ctx context.Context) ExpressRoutePortLink2Output {
+	return o
+}
+
+func (o ExpressRoutePortLink2Output) ToExpressRoutePortLink2PtrOutput() ExpressRoutePortLink2PtrOutput {
+	return o.ToExpressRoutePortLink2PtrOutputWithContext(context.Background())
+}
+
+func (o ExpressRoutePortLink2Output) ToExpressRoutePortLink2PtrOutputWithContext(ctx context.Context) ExpressRoutePortLink2PtrOutput {
+	return o.ApplyT(func(v ExpressRoutePortLink2) *ExpressRoutePortLink2 {
+		return &v
+	}).(ExpressRoutePortLink2PtrOutput)
+}
+
+// Whether enable administration state on the Express Route Port Link? Defaults to `false`.
+func (o ExpressRoutePortLink2Output) AdminEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ExpressRoutePortLink2) *bool { return v.AdminEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The connector type of the Express Route Port Link.
+func (o ExpressRoutePortLink2Output) ConnectorType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressRoutePortLink2) *string { return v.ConnectorType }).(pulumi.StringPtrOutput)
+}
+
+// The ID of this Express Route Port Link.
+func (o ExpressRoutePortLink2Output) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressRoutePortLink2) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The interface name of the Azure router associated with the Express Route Port Link.
+func (o ExpressRoutePortLink2Output) InterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressRoutePortLink2) *string { return v.InterfaceName }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+func (o ExpressRoutePortLink2Output) MacsecCakKeyvaultSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressRoutePortLink2) *string { return v.MacsecCakKeyvaultSecretId }).(pulumi.StringPtrOutput)
+}
+
+// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+func (o ExpressRoutePortLink2Output) MacsecCipher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressRoutePortLink2) *string { return v.MacsecCipher }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
+func (o ExpressRoutePortLink2Output) MacsecCknKeyvaultSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressRoutePortLink2) *string { return v.MacsecCknKeyvaultSecretId }).(pulumi.StringPtrOutput)
+}
+
+// The ID that maps from the Express Route Port Link to the patch panel port.
+func (o ExpressRoutePortLink2Output) PatchPanelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressRoutePortLink2) *string { return v.PatchPanelId }).(pulumi.StringPtrOutput)
+}
+
+// The ID that maps from the patch panel port to the rack.
+func (o ExpressRoutePortLink2Output) RackId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressRoutePortLink2) *string { return v.RackId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Azure router associated with the Express Route Port Link.
+func (o ExpressRoutePortLink2Output) RouterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressRoutePortLink2) *string { return v.RouterName }).(pulumi.StringPtrOutput)
+}
+
+type ExpressRoutePortLink2PtrOutput struct{ *pulumi.OutputState }
+
+func (ExpressRoutePortLink2PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressRoutePortLink2)(nil)).Elem()
+}
+
+func (o ExpressRoutePortLink2PtrOutput) ToExpressRoutePortLink2PtrOutput() ExpressRoutePortLink2PtrOutput {
+	return o
+}
+
+func (o ExpressRoutePortLink2PtrOutput) ToExpressRoutePortLink2PtrOutputWithContext(ctx context.Context) ExpressRoutePortLink2PtrOutput {
+	return o
+}
+
+func (o ExpressRoutePortLink2PtrOutput) Elem() ExpressRoutePortLink2Output {
+	return o.ApplyT(func(v *ExpressRoutePortLink2) ExpressRoutePortLink2 { return *v }).(ExpressRoutePortLink2Output)
+}
+
+// Whether enable administration state on the Express Route Port Link? Defaults to `false`.
+func (o ExpressRoutePortLink2PtrOutput) AdminEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ExpressRoutePortLink2) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AdminEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The connector type of the Express Route Port Link.
+func (o ExpressRoutePortLink2PtrOutput) ConnectorType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRoutePortLink2) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectorType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of this Express Route Port Link.
+func (o ExpressRoutePortLink2PtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRoutePortLink2) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The interface name of the Azure router associated with the Express Route Port Link.
+func (o ExpressRoutePortLink2PtrOutput) InterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRoutePortLink2) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InterfaceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+func (o ExpressRoutePortLink2PtrOutput) MacsecCakKeyvaultSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRoutePortLink2) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MacsecCakKeyvaultSecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+func (o ExpressRoutePortLink2PtrOutput) MacsecCipher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRoutePortLink2) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MacsecCipher
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
+func (o ExpressRoutePortLink2PtrOutput) MacsecCknKeyvaultSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRoutePortLink2) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MacsecCknKeyvaultSecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID that maps from the Express Route Port Link to the patch panel port.
+func (o ExpressRoutePortLink2PtrOutput) PatchPanelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRoutePortLink2) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PatchPanelId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID that maps from the patch panel port to the rack.
+func (o ExpressRoutePortLink2PtrOutput) RackId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRoutePortLink2) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RackId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the Azure router associated with the Express Route Port Link.
+func (o ExpressRoutePortLink2PtrOutput) RouterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRoutePortLink2) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RouterName
+	}).(pulumi.StringPtrOutput)
+}
+
 type FirewallApplicationRuleCollectionRule struct {
 	// Specifies a description for the rule.
 	Description *string `pulumi:"description"`
@@ -22141,6 +22895,12 @@ func init() {
 	pulumi.RegisterOutputType(ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput{})
 	pulumi.RegisterOutputType(ExpressRouteCircuitSkuOutput{})
 	pulumi.RegisterOutputType(ExpressRouteCircuitSkuPtrOutput{})
+	pulumi.RegisterOutputType(ExpressRoutePortIdentityOutput{})
+	pulumi.RegisterOutputType(ExpressRoutePortIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ExpressRoutePortLink1Output{})
+	pulumi.RegisterOutputType(ExpressRoutePortLink1PtrOutput{})
+	pulumi.RegisterOutputType(ExpressRoutePortLink2Output{})
+	pulumi.RegisterOutputType(ExpressRoutePortLink2PtrOutput{})
 	pulumi.RegisterOutputType(FirewallApplicationRuleCollectionRuleOutput{})
 	pulumi.RegisterOutputType(FirewallApplicationRuleCollectionRuleArrayOutput{})
 	pulumi.RegisterOutputType(FirewallApplicationRuleCollectionRuleProtocolOutput{})

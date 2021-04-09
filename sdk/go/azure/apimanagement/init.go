@@ -45,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewCustomDomain(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:apimanagement/diagnostic:Diagnostic":
 		r, err = NewDiagnostic(ctx, name, nil, pulumi.URN_(urn))
+	case "azure:apimanagement/emailTemplate:EmailTemplate":
+		r, err = NewEmailTemplate(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:apimanagement/group:Group":
 		r, err = NewGroup(ctx, name, nil, pulumi.URN_(urn))
 	case "azure:apimanagement/groupUser:GroupUser":
@@ -155,6 +157,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"apimanagement/diagnostic",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"apimanagement/emailTemplate",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

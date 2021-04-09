@@ -63,6 +63,10 @@ export interface GetFunctionAppResult {
      */
     readonly appSettings: {[key: string]: string};
     /**
+     * The mode of the Function App's client certificates requirement for incoming requests.
+     */
+    readonly clientCertMode: string;
+    /**
      * An `connectionString` block as defined below.
      */
     readonly connectionStrings: outputs.appservice.GetFunctionAppConnectionString[];

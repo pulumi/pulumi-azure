@@ -25,6 +25,9 @@ namespace Pulumi.Azure.Policy.Outputs
         /// The ID of the policy definition or policy set definition that will be included in this policy set definition.
         /// </summary>
         public readonly string PolicyDefinitionId;
+        /// <summary>
+        /// A list of names of the policy definition groups that this policy definition reference belongs to.
+        /// </summary>
         public readonly ImmutableArray<string> PolicyGroupNames;
         /// <summary>
         /// A unique ID within this policy set definition for this policy definition reference.

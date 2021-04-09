@@ -86,6 +86,30 @@ class Endpoint(pulumi.CustomResource):
             ))
         ```
 
+        Using a Private Link Service Alias with existing resources:
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        rg = azure.core.get_resource_group(name="example-resources")
+        vnet = azure.network.get_virtual_network(name="example-network",
+            resource_group_name=rg.name)
+        subnet = azure.network.get_subnet(name="default",
+            virtual_network_name=vnet.name,
+            resource_group_name=rg.name)
+        example = azure.privatelink.Endpoint("example",
+            location=rg.location,
+            resource_group_name=rg.name,
+            subnet_id=subnet.id,
+            private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
+                name="example-privateserviceconnection",
+                private_connection_resource_alias="example-privatelinkservice.d20286c8-4ea5-11eb-9584-8f53157226c6.centralus.azure.privatelinkservice",
+                is_manual_connection=True,
+                request_message="PL",
+            ))
+        ```
+
         ## Import
 
         Private Endpoints can be imported using the `resource id`, e.g.

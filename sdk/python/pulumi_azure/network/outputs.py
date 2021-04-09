@@ -46,6 +46,9 @@ __all__ = [
     'ExpressRouteCircuitPeeringIpv6MicrosoftPeering',
     'ExpressRouteCircuitPeeringMicrosoftPeeringConfig',
     'ExpressRouteCircuitSku',
+    'ExpressRoutePortIdentity',
+    'ExpressRoutePortLink1',
+    'ExpressRoutePortLink2',
     'FirewallApplicationRuleCollectionRule',
     'FirewallApplicationRuleCollectionRuleProtocol',
     'FirewallIpConfiguration',
@@ -2654,6 +2657,299 @@ class ExpressRouteCircuitSku(dict):
         The service tier. Possible values are `Basic`, `Local`, `Standard` or `Premium`.
         """
         return pulumi.get(self, "tier")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ExpressRoutePortIdentity(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 identity_ids: Optional[Sequence[str]] = None):
+        """
+        :param str type: The type of the identity used for the Express Route Port. Currently, the only possible values is `UserAssigned`.
+        :param Sequence[str] identity_ids: Specifies a list with a single user managed identity id to be assigned to the Express Route Port. Currently, exactly one id is allowed to specify.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the identity used for the Express Route Port. Currently, the only possible values is `UserAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list with a single user managed identity id to be assigned to the Express Route Port. Currently, exactly one id is allowed to specify.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ExpressRoutePortLink1(dict):
+    def __init__(__self__, *,
+                 admin_enabled: Optional[bool] = None,
+                 connector_type: Optional[str] = None,
+                 id: Optional[str] = None,
+                 interface_name: Optional[str] = None,
+                 macsec_cak_keyvault_secret_id: Optional[str] = None,
+                 macsec_cipher: Optional[str] = None,
+                 macsec_ckn_keyvault_secret_id: Optional[str] = None,
+                 patch_panel_id: Optional[str] = None,
+                 rack_id: Optional[str] = None,
+                 router_name: Optional[str] = None):
+        """
+        :param bool admin_enabled: Whether enable administration state on the Express Route Port Link? Defaults to `false`.
+        :param str connector_type: The connector type of the Express Route Port Link.
+        :param str id: The ID of this Express Route Port Link.
+        :param str interface_name: The interface name of the Azure router associated with the Express Route Port Link.
+        :param str macsec_cak_keyvault_secret_id: The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+        :param str macsec_cipher: The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+        :param str macsec_ckn_keyvault_secret_id: The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
+        :param str patch_panel_id: The ID that maps from the Express Route Port Link to the patch panel port.
+        :param str rack_id: The ID that maps from the patch panel port to the rack.
+        :param str router_name: The name of the Azure router associated with the Express Route Port Link.
+        """
+        if admin_enabled is not None:
+            pulumi.set(__self__, "admin_enabled", admin_enabled)
+        if connector_type is not None:
+            pulumi.set(__self__, "connector_type", connector_type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if interface_name is not None:
+            pulumi.set(__self__, "interface_name", interface_name)
+        if macsec_cak_keyvault_secret_id is not None:
+            pulumi.set(__self__, "macsec_cak_keyvault_secret_id", macsec_cak_keyvault_secret_id)
+        if macsec_cipher is not None:
+            pulumi.set(__self__, "macsec_cipher", macsec_cipher)
+        if macsec_ckn_keyvault_secret_id is not None:
+            pulumi.set(__self__, "macsec_ckn_keyvault_secret_id", macsec_ckn_keyvault_secret_id)
+        if patch_panel_id is not None:
+            pulumi.set(__self__, "patch_panel_id", patch_panel_id)
+        if rack_id is not None:
+            pulumi.set(__self__, "rack_id", rack_id)
+        if router_name is not None:
+            pulumi.set(__self__, "router_name", router_name)
+
+    @property
+    @pulumi.getter(name="adminEnabled")
+    def admin_enabled(self) -> Optional[bool]:
+        """
+        Whether enable administration state on the Express Route Port Link? Defaults to `false`.
+        """
+        return pulumi.get(self, "admin_enabled")
+
+    @property
+    @pulumi.getter(name="connectorType")
+    def connector_type(self) -> Optional[str]:
+        """
+        The connector type of the Express Route Port Link.
+        """
+        return pulumi.get(self, "connector_type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The ID of this Express Route Port Link.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="interfaceName")
+    def interface_name(self) -> Optional[str]:
+        """
+        The interface name of the Azure router associated with the Express Route Port Link.
+        """
+        return pulumi.get(self, "interface_name")
+
+    @property
+    @pulumi.getter(name="macsecCakKeyvaultSecretId")
+    def macsec_cak_keyvault_secret_id(self) -> Optional[str]:
+        """
+        The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+        """
+        return pulumi.get(self, "macsec_cak_keyvault_secret_id")
+
+    @property
+    @pulumi.getter(name="macsecCipher")
+    def macsec_cipher(self) -> Optional[str]:
+        """
+        The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+        """
+        return pulumi.get(self, "macsec_cipher")
+
+    @property
+    @pulumi.getter(name="macsecCknKeyvaultSecretId")
+    def macsec_ckn_keyvault_secret_id(self) -> Optional[str]:
+        """
+        The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
+        """
+        return pulumi.get(self, "macsec_ckn_keyvault_secret_id")
+
+    @property
+    @pulumi.getter(name="patchPanelId")
+    def patch_panel_id(self) -> Optional[str]:
+        """
+        The ID that maps from the Express Route Port Link to the patch panel port.
+        """
+        return pulumi.get(self, "patch_panel_id")
+
+    @property
+    @pulumi.getter(name="rackId")
+    def rack_id(self) -> Optional[str]:
+        """
+        The ID that maps from the patch panel port to the rack.
+        """
+        return pulumi.get(self, "rack_id")
+
+    @property
+    @pulumi.getter(name="routerName")
+    def router_name(self) -> Optional[str]:
+        """
+        The name of the Azure router associated with the Express Route Port Link.
+        """
+        return pulumi.get(self, "router_name")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ExpressRoutePortLink2(dict):
+    def __init__(__self__, *,
+                 admin_enabled: Optional[bool] = None,
+                 connector_type: Optional[str] = None,
+                 id: Optional[str] = None,
+                 interface_name: Optional[str] = None,
+                 macsec_cak_keyvault_secret_id: Optional[str] = None,
+                 macsec_cipher: Optional[str] = None,
+                 macsec_ckn_keyvault_secret_id: Optional[str] = None,
+                 patch_panel_id: Optional[str] = None,
+                 rack_id: Optional[str] = None,
+                 router_name: Optional[str] = None):
+        """
+        :param bool admin_enabled: Whether enable administration state on the Express Route Port Link? Defaults to `false`.
+        :param str connector_type: The connector type of the Express Route Port Link.
+        :param str id: The ID of this Express Route Port Link.
+        :param str interface_name: The interface name of the Azure router associated with the Express Route Port Link.
+        :param str macsec_cak_keyvault_secret_id: The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+        :param str macsec_cipher: The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+        :param str macsec_ckn_keyvault_secret_id: The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
+        :param str patch_panel_id: The ID that maps from the Express Route Port Link to the patch panel port.
+        :param str rack_id: The ID that maps from the patch panel port to the rack.
+        :param str router_name: The name of the Azure router associated with the Express Route Port Link.
+        """
+        if admin_enabled is not None:
+            pulumi.set(__self__, "admin_enabled", admin_enabled)
+        if connector_type is not None:
+            pulumi.set(__self__, "connector_type", connector_type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if interface_name is not None:
+            pulumi.set(__self__, "interface_name", interface_name)
+        if macsec_cak_keyvault_secret_id is not None:
+            pulumi.set(__self__, "macsec_cak_keyvault_secret_id", macsec_cak_keyvault_secret_id)
+        if macsec_cipher is not None:
+            pulumi.set(__self__, "macsec_cipher", macsec_cipher)
+        if macsec_ckn_keyvault_secret_id is not None:
+            pulumi.set(__self__, "macsec_ckn_keyvault_secret_id", macsec_ckn_keyvault_secret_id)
+        if patch_panel_id is not None:
+            pulumi.set(__self__, "patch_panel_id", patch_panel_id)
+        if rack_id is not None:
+            pulumi.set(__self__, "rack_id", rack_id)
+        if router_name is not None:
+            pulumi.set(__self__, "router_name", router_name)
+
+    @property
+    @pulumi.getter(name="adminEnabled")
+    def admin_enabled(self) -> Optional[bool]:
+        """
+        Whether enable administration state on the Express Route Port Link? Defaults to `false`.
+        """
+        return pulumi.get(self, "admin_enabled")
+
+    @property
+    @pulumi.getter(name="connectorType")
+    def connector_type(self) -> Optional[str]:
+        """
+        The connector type of the Express Route Port Link.
+        """
+        return pulumi.get(self, "connector_type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The ID of this Express Route Port Link.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="interfaceName")
+    def interface_name(self) -> Optional[str]:
+        """
+        The interface name of the Azure router associated with the Express Route Port Link.
+        """
+        return pulumi.get(self, "interface_name")
+
+    @property
+    @pulumi.getter(name="macsecCakKeyvaultSecretId")
+    def macsec_cak_keyvault_secret_id(self) -> Optional[str]:
+        """
+        The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+        """
+        return pulumi.get(self, "macsec_cak_keyvault_secret_id")
+
+    @property
+    @pulumi.getter(name="macsecCipher")
+    def macsec_cipher(self) -> Optional[str]:
+        """
+        The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+        """
+        return pulumi.get(self, "macsec_cipher")
+
+    @property
+    @pulumi.getter(name="macsecCknKeyvaultSecretId")
+    def macsec_ckn_keyvault_secret_id(self) -> Optional[str]:
+        """
+        The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
+        """
+        return pulumi.get(self, "macsec_ckn_keyvault_secret_id")
+
+    @property
+    @pulumi.getter(name="patchPanelId")
+    def patch_panel_id(self) -> Optional[str]:
+        """
+        The ID that maps from the Express Route Port Link to the patch panel port.
+        """
+        return pulumi.get(self, "patch_panel_id")
+
+    @property
+    @pulumi.getter(name="rackId")
+    def rack_id(self) -> Optional[str]:
+        """
+        The ID that maps from the patch panel port to the rack.
+        """
+        return pulumi.get(self, "rack_id")
+
+    @property
+    @pulumi.getter(name="routerName")
+    def router_name(self) -> Optional[str]:
+        """
+        The name of the Azure router associated with the Express Route Port Link.
+        """
+        return pulumi.get(self, "router_name")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
