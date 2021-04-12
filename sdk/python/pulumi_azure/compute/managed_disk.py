@@ -5,15 +5,292 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ManagedDisk']
+__all__ = ['ManagedDiskArgs', 'ManagedDisk']
+
+@pulumi.input_type
+class ManagedDiskArgs:
+    def __init__(__self__, *,
+                 create_option: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 storage_account_type: pulumi.Input[str],
+                 disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+                 disk_iops_read_write: Optional[pulumi.Input[int]] = None,
+                 disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
+                 disk_size_gb: Optional[pulumi.Input[int]] = None,
+                 encryption_settings: Optional[pulumi.Input['ManagedDiskEncryptionSettingsArgs']] = None,
+                 image_reference_id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 os_type: Optional[pulumi.Input[str]] = None,
+                 source_resource_id: Optional[pulumi.Input[str]] = None,
+                 source_uri: Optional[pulumi.Input[str]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zones: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ManagedDisk resource.
+        :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `source_uri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `source_resource_id`), `FromImage` (Copy a Platform Image, specified with `image_reference_id`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `source_resource_id`).
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Disk should exist.
+        :param pulumi.Input[str] storage_account_type: The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
+        :param pulumi.Input[str] disk_encryption_set_id: The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
+        :param pulumi.Input[int] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+        :param pulumi.Input[int] disk_mbps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
+        :param pulumi.Input[int] disk_size_gb: Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
+        :param pulumi.Input['ManagedDiskEncryptionSettingsArgs'] encryption_settings: A `encryption_settings` block as defined below.
+        :param pulumi.Input[str] image_reference_id: ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`.
+        :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] os_type: Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
+        :param pulumi.Input[str] source_resource_id: The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
+        :param pulumi.Input[str] source_uri: URI to a valid VHD file to be used when `create_option` is `Import`.
+        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] zones: A collection containing the availability zone to allocate the Managed Disk in.
+        """
+        pulumi.set(__self__, "create_option", create_option)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "storage_account_type", storage_account_type)
+        if disk_encryption_set_id is not None:
+            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+        if disk_iops_read_write is not None:
+            pulumi.set(__self__, "disk_iops_read_write", disk_iops_read_write)
+        if disk_mbps_read_write is not None:
+            pulumi.set(__self__, "disk_mbps_read_write", disk_mbps_read_write)
+        if disk_size_gb is not None:
+            pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+        if encryption_settings is not None:
+            pulumi.set(__self__, "encryption_settings", encryption_settings)
+        if image_reference_id is not None:
+            pulumi.set(__self__, "image_reference_id", image_reference_id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+        if source_resource_id is not None:
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
+        if source_uri is not None:
+            pulumi.set(__self__, "source_uri", source_uri)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="createOption")
+    def create_option(self) -> pulumi.Input[str]:
+        """
+        The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `source_uri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `source_resource_id`), `FromImage` (Copy a Platform Image, specified with `image_reference_id`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `source_resource_id`).
+        """
+        return pulumi.get(self, "create_option")
+
+    @create_option.setter
+    def create_option(self, value: pulumi.Input[str]):
+        pulumi.set(self, "create_option", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Resource Group where the Managed Disk should exist.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="storageAccountType")
+    def storage_account_type(self) -> pulumi.Input[str]:
+        """
+        The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
+        """
+        return pulumi.get(self, "storage_account_type")
+
+    @storage_account_type.setter
+    def storage_account_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_type", value)
+
+    @property
+    @pulumi.getter(name="diskEncryptionSetId")
+    def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
+        """
+        return pulumi.get(self, "disk_encryption_set_id")
+
+    @disk_encryption_set_id.setter
+    def disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_encryption_set_id", value)
+
+    @property
+    @pulumi.getter(name="diskIopsReadWrite")
+    def disk_iops_read_write(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+        """
+        return pulumi.get(self, "disk_iops_read_write")
+
+    @disk_iops_read_write.setter
+    def disk_iops_read_write(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "disk_iops_read_write", value)
+
+    @property
+    @pulumi.getter(name="diskMbpsReadWrite")
+    def disk_mbps_read_write(self) -> Optional[pulumi.Input[int]]:
+        """
+        The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
+        """
+        return pulumi.get(self, "disk_mbps_read_write")
+
+    @disk_mbps_read_write.setter
+    def disk_mbps_read_write(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "disk_mbps_read_write", value)
+
+    @property
+    @pulumi.getter(name="diskSizeGb")
+    def disk_size_gb(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
+        """
+        return pulumi.get(self, "disk_size_gb")
+
+    @disk_size_gb.setter
+    def disk_size_gb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "disk_size_gb", value)
+
+    @property
+    @pulumi.getter(name="encryptionSettings")
+    def encryption_settings(self) -> Optional[pulumi.Input['ManagedDiskEncryptionSettingsArgs']]:
+        """
+        A `encryption_settings` block as defined below.
+        """
+        return pulumi.get(self, "encryption_settings")
+
+    @encryption_settings.setter
+    def encryption_settings(self, value: Optional[pulumi.Input['ManagedDiskEncryptionSettingsArgs']]):
+        pulumi.set(self, "encryption_settings", value)
+
+    @property
+    @pulumi.getter(name="imageReferenceId")
+    def image_reference_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`.
+        """
+        return pulumi.get(self, "image_reference_id")
+
+    @image_reference_id.setter
+    def image_reference_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_reference_id", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
+        """
+        return pulumi.get(self, "os_type")
+
+    @os_type.setter
+    def os_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "os_type", value)
+
+    @property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
+        """
+        return pulumi.get(self, "source_resource_id")
+
+    @source_resource_id.setter
+    def source_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_resource_id", value)
+
+    @property
+    @pulumi.getter(name="sourceUri")
+    def source_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        URI to a valid VHD file to be used when `create_option` is `Import`.
+        """
+        return pulumi.get(self, "source_uri")
+
+    @source_uri.setter
+    def source_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_uri", value)
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @storage_account_id.setter
+    def storage_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_id", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[pulumi.Input[str]]:
+        """
+        A collection containing the availability zone to allocate the Managed Disk in.
+        """
+        return pulumi.get(self, "zones")
+
+    @zones.setter
+    def zones(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "zones", value)
 
 
 class ManagedDisk(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -114,6 +391,104 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zones: A collection containing the availability zone to allocate the Managed Disk in.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ManagedDiskArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a managed disk.
+
+        ## Example Usage
+        ### With Create Empty
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_managed_disk = azure.compute.ManagedDisk("exampleManagedDisk",
+            location="West US 2",
+            resource_group_name=example_resource_group.name,
+            storage_account_type="Standard_LRS",
+            create_option="Empty",
+            disk_size_gb=1,
+            tags={
+                "environment": "staging",
+            })
+        ```
+        ### With Create Copy
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        source = azure.compute.ManagedDisk("source",
+            location="West US 2",
+            resource_group_name=example.name,
+            storage_account_type="Standard_LRS",
+            create_option="Empty",
+            disk_size_gb=1,
+            tags={
+                "environment": "staging",
+            })
+        copy = azure.compute.ManagedDisk("copy",
+            location="West US 2",
+            resource_group_name=example.name,
+            storage_account_type="Standard_LRS",
+            create_option="Copy",
+            source_resource_id=source.id,
+            disk_size_gb=1,
+            tags={
+                "environment": "staging",
+            })
+        ```
+
+        ## Import
+
+        Managed Disks can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:compute/managedDisk:ManagedDisk example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.compute/disks/manageddisk1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ManagedDiskArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ManagedDiskArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 create_option: Optional[pulumi.Input[str]] = None,
+                 disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+                 disk_iops_read_write: Optional[pulumi.Input[int]] = None,
+                 disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
+                 disk_size_gb: Optional[pulumi.Input[int]] = None,
+                 encryption_settings: Optional[pulumi.Input[pulumi.InputType['ManagedDiskEncryptionSettingsArgs']]] = None,
+                 image_reference_id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 os_type: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 source_resource_id: Optional[pulumi.Input[str]] = None,
+                 source_uri: Optional[pulumi.Input[str]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None,
+                 storage_account_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zones: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

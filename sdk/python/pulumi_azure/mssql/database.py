@@ -5,15 +5,409 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Database']
+__all__ = ['DatabaseArgs', 'Database']
+
+@pulumi.input_type
+class DatabaseArgs:
+    def __init__(__self__, *,
+                 server_id: pulumi.Input[str],
+                 auto_pause_delay_in_minutes: Optional[pulumi.Input[int]] = None,
+                 collation: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input[str]] = None,
+                 creation_source_database_id: Optional[pulumi.Input[str]] = None,
+                 elastic_pool_id: Optional[pulumi.Input[str]] = None,
+                 extended_auditing_policy: Optional[pulumi.Input['DatabaseExtendedAuditingPolicyArgs']] = None,
+                 license_type: Optional[pulumi.Input[str]] = None,
+                 long_term_retention_policy: Optional[pulumi.Input['DatabaseLongTermRetentionPolicyArgs']] = None,
+                 max_size_gb: Optional[pulumi.Input[int]] = None,
+                 min_capacity: Optional[pulumi.Input[float]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 read_replica_count: Optional[pulumi.Input[int]] = None,
+                 read_scale: Optional[pulumi.Input[bool]] = None,
+                 recover_database_id: Optional[pulumi.Input[str]] = None,
+                 restore_dropped_database_id: Optional[pulumi.Input[str]] = None,
+                 restore_point_in_time: Optional[pulumi.Input[str]] = None,
+                 sample_name: Optional[pulumi.Input[str]] = None,
+                 short_term_retention_policy: Optional[pulumi.Input['DatabaseShortTermRetentionPolicyArgs']] = None,
+                 sku_name: Optional[pulumi.Input[str]] = None,
+                 storage_account_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 threat_detection_policy: Optional[pulumi.Input['DatabaseThreatDetectionPolicyArgs']] = None,
+                 zone_redundant: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a Database resource.
+        :param pulumi.Input[str] server_id: The id of the Ms SQL Server on which to create the database. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] auto_pause_delay_in_minutes: Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
+        :param pulumi.Input[str] collation: Specifies the collation of the database. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] create_mode: The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+        :param pulumi.Input[str] creation_source_database_id: The id of the source database to be referred to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] elastic_pool_id: Specifies the ID of the elastic pool containing this database.
+        :param pulumi.Input['DatabaseExtendedAuditingPolicyArgs'] extended_auditing_policy: A `extended_auditing_policy` block as defined below.
+        :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
+        :param pulumi.Input['DatabaseLongTermRetentionPolicyArgs'] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
+        :param pulumi.Input[int] max_size_gb: The max size of the database in gigabytes.
+        :param pulumi.Input[float] min_capacity: Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
+        :param pulumi.Input[str] name: The name of the Ms SQL Database. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] read_replica_count: The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
+        :param pulumi.Input[bool] read_scale: If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
+        :param pulumi.Input[str] recover_database_id: The ID of the database to be recovered. This property is only applicable when the `create_mode` is `Recovery`.
+        :param pulumi.Input[str] restore_dropped_database_id: The ID of the database to be restored. This property is only applicable when the `create_mode` is `Restore`.
+        :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore`  databases.
+        :param pulumi.Input[str] sample_name: Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
+        :param pulumi.Input['DatabaseShortTermRetentionPolicyArgs'] short_term_retention_policy: A `short_term_retention_policy` block as defined below.
+        :param pulumi.Input[str] sku_name: Specifies the name of the sku used by the database. Changing this forces a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
+        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input['DatabaseThreatDetectionPolicyArgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
+        """
+        pulumi.set(__self__, "server_id", server_id)
+        if auto_pause_delay_in_minutes is not None:
+            pulumi.set(__self__, "auto_pause_delay_in_minutes", auto_pause_delay_in_minutes)
+        if collation is not None:
+            pulumi.set(__self__, "collation", collation)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
+        if creation_source_database_id is not None:
+            pulumi.set(__self__, "creation_source_database_id", creation_source_database_id)
+        if elastic_pool_id is not None:
+            pulumi.set(__self__, "elastic_pool_id", elastic_pool_id)
+        if extended_auditing_policy is not None:
+            warnings.warn("""the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""extended_auditing_policy is deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""")
+        if extended_auditing_policy is not None:
+            pulumi.set(__self__, "extended_auditing_policy", extended_auditing_policy)
+        if license_type is not None:
+            pulumi.set(__self__, "license_type", license_type)
+        if long_term_retention_policy is not None:
+            pulumi.set(__self__, "long_term_retention_policy", long_term_retention_policy)
+        if max_size_gb is not None:
+            pulumi.set(__self__, "max_size_gb", max_size_gb)
+        if min_capacity is not None:
+            pulumi.set(__self__, "min_capacity", min_capacity)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if read_replica_count is not None:
+            pulumi.set(__self__, "read_replica_count", read_replica_count)
+        if read_scale is not None:
+            pulumi.set(__self__, "read_scale", read_scale)
+        if recover_database_id is not None:
+            pulumi.set(__self__, "recover_database_id", recover_database_id)
+        if restore_dropped_database_id is not None:
+            pulumi.set(__self__, "restore_dropped_database_id", restore_dropped_database_id)
+        if restore_point_in_time is not None:
+            pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
+        if sample_name is not None:
+            pulumi.set(__self__, "sample_name", sample_name)
+        if short_term_retention_policy is not None:
+            pulumi.set(__self__, "short_term_retention_policy", short_term_retention_policy)
+        if sku_name is not None:
+            pulumi.set(__self__, "sku_name", sku_name)
+        if storage_account_type is not None:
+            pulumi.set(__self__, "storage_account_type", storage_account_type)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if threat_detection_policy is not None:
+            pulumi.set(__self__, "threat_detection_policy", threat_detection_policy)
+        if zone_redundant is not None:
+            pulumi.set(__self__, "zone_redundant", zone_redundant)
+
+    @property
+    @pulumi.getter(name="serverId")
+    def server_id(self) -> pulumi.Input[str]:
+        """
+        The id of the Ms SQL Server on which to create the database. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "server_id")
+
+    @server_id.setter
+    def server_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server_id", value)
+
+    @property
+    @pulumi.getter(name="autoPauseDelayInMinutes")
+    def auto_pause_delay_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
+        """
+        return pulumi.get(self, "auto_pause_delay_in_minutes")
+
+    @auto_pause_delay_in_minutes.setter
+    def auto_pause_delay_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "auto_pause_delay_in_minutes", value)
+
+    @property
+    @pulumi.getter
+    def collation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the collation of the database. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "collation")
+
+    @collation.setter
+    def collation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "collation", value)
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @create_mode.setter
+    def create_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create_mode", value)
+
+    @property
+    @pulumi.getter(name="creationSourceDatabaseId")
+    def creation_source_database_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of the source database to be referred to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "creation_source_database_id")
+
+    @creation_source_database_id.setter
+    def creation_source_database_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "creation_source_database_id", value)
+
+    @property
+    @pulumi.getter(name="elasticPoolId")
+    def elastic_pool_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of the elastic pool containing this database.
+        """
+        return pulumi.get(self, "elastic_pool_id")
+
+    @elastic_pool_id.setter
+    def elastic_pool_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "elastic_pool_id", value)
+
+    @property
+    @pulumi.getter(name="extendedAuditingPolicy")
+    def extended_auditing_policy(self) -> Optional[pulumi.Input['DatabaseExtendedAuditingPolicyArgs']]:
+        """
+        A `extended_auditing_policy` block as defined below.
+        """
+        return pulumi.get(self, "extended_auditing_policy")
+
+    @extended_auditing_policy.setter
+    def extended_auditing_policy(self, value: Optional[pulumi.Input['DatabaseExtendedAuditingPolicyArgs']]):
+        pulumi.set(self, "extended_auditing_policy", value)
+
+    @property
+    @pulumi.getter(name="licenseType")
+    def license_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
+        """
+        return pulumi.get(self, "license_type")
+
+    @license_type.setter
+    def license_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "license_type", value)
+
+    @property
+    @pulumi.getter(name="longTermRetentionPolicy")
+    def long_term_retention_policy(self) -> Optional[pulumi.Input['DatabaseLongTermRetentionPolicyArgs']]:
+        """
+        A `long_term_retention_policy` block as defined below.
+        """
+        return pulumi.get(self, "long_term_retention_policy")
+
+    @long_term_retention_policy.setter
+    def long_term_retention_policy(self, value: Optional[pulumi.Input['DatabaseLongTermRetentionPolicyArgs']]):
+        pulumi.set(self, "long_term_retention_policy", value)
+
+    @property
+    @pulumi.getter(name="maxSizeGb")
+    def max_size_gb(self) -> Optional[pulumi.Input[int]]:
+        """
+        The max size of the database in gigabytes.
+        """
+        return pulumi.get(self, "max_size_gb")
+
+    @max_size_gb.setter
+    def max_size_gb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_size_gb", value)
+
+    @property
+    @pulumi.getter(name="minCapacity")
+    def min_capacity(self) -> Optional[pulumi.Input[float]]:
+        """
+        Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
+        """
+        return pulumi.get(self, "min_capacity")
+
+    @min_capacity.setter
+    def min_capacity(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "min_capacity", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Ms SQL Database. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="readReplicaCount")
+    def read_replica_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
+        """
+        return pulumi.get(self, "read_replica_count")
+
+    @read_replica_count.setter
+    def read_replica_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "read_replica_count", value)
+
+    @property
+    @pulumi.getter(name="readScale")
+    def read_scale(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
+        """
+        return pulumi.get(self, "read_scale")
+
+    @read_scale.setter
+    def read_scale(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "read_scale", value)
+
+    @property
+    @pulumi.getter(name="recoverDatabaseId")
+    def recover_database_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the database to be recovered. This property is only applicable when the `create_mode` is `Recovery`.
+        """
+        return pulumi.get(self, "recover_database_id")
+
+    @recover_database_id.setter
+    def recover_database_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recover_database_id", value)
+
+    @property
+    @pulumi.getter(name="restoreDroppedDatabaseId")
+    def restore_dropped_database_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the database to be restored. This property is only applicable when the `create_mode` is `Restore`.
+        """
+        return pulumi.get(self, "restore_dropped_database_id")
+
+    @restore_dropped_database_id.setter
+    def restore_dropped_database_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "restore_dropped_database_id", value)
+
+    @property
+    @pulumi.getter(name="restorePointInTime")
+    def restore_point_in_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore`  databases.
+        """
+        return pulumi.get(self, "restore_point_in_time")
+
+    @restore_point_in_time.setter
+    def restore_point_in_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "restore_point_in_time", value)
+
+    @property
+    @pulumi.getter(name="sampleName")
+    def sample_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
+        """
+        return pulumi.get(self, "sample_name")
+
+    @sample_name.setter
+    def sample_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sample_name", value)
+
+    @property
+    @pulumi.getter(name="shortTermRetentionPolicy")
+    def short_term_retention_policy(self) -> Optional[pulumi.Input['DatabaseShortTermRetentionPolicyArgs']]:
+        """
+        A `short_term_retention_policy` block as defined below.
+        """
+        return pulumi.get(self, "short_term_retention_policy")
+
+    @short_term_retention_policy.setter
+    def short_term_retention_policy(self, value: Optional[pulumi.Input['DatabaseShortTermRetentionPolicyArgs']]):
+        pulumi.set(self, "short_term_retention_policy", value)
+
+    @property
+    @pulumi.getter(name="skuName")
+    def sku_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the sku used by the database. Changing this forces a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
+        """
+        return pulumi.get(self, "sku_name")
+
+    @sku_name.setter
+    def sku_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku_name", value)
+
+    @property
+    @pulumi.getter(name="storageAccountType")
+    def storage_account_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
+        """
+        return pulumi.get(self, "storage_account_type")
+
+    @storage_account_type.setter
+    def storage_account_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_type", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="threatDetectionPolicy")
+    def threat_detection_policy(self) -> Optional[pulumi.Input['DatabaseThreatDetectionPolicyArgs']]:
+        """
+        Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        """
+        return pulumi.get(self, "threat_detection_policy")
+
+    @threat_detection_policy.setter
+    def threat_detection_policy(self, value: Optional[pulumi.Input['DatabaseThreatDetectionPolicyArgs']]):
+        pulumi.set(self, "threat_detection_policy", value)
+
+    @property
+    @pulumi.getter(name="zoneRedundant")
+    def zone_redundant(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
+        """
+        return pulumi.get(self, "zone_redundant")
+
+    @zone_redundant.setter
+    def zone_redundant(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "zone_redundant", value)
 
 
 class Database(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -121,6 +515,104 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DatabaseArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a MS SQL Database.
+
+        > **NOTE:** The Database Extended Auditing Policy Can be set inline here as well as with the mssql_database_extended_auditing_policy resource resource. You can only use one or the other and using both will cause a conflict.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_sql_server = azure.sql.SqlServer("exampleSqlServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="4dm1n157r470r",
+            administrator_login_password="4-v3ry-53cr37-p455w0rd")
+        test = azure.mssql.Database("test",
+            server_id=example_sql_server.id,
+            collation="SQL_Latin1_General_CP1_CI_AS",
+            license_type="LicenseIncluded",
+            max_size_gb=4,
+            read_scale=True,
+            sku_name="BC_Gen5_2",
+            zone_redundant=True,
+            extended_auditing_policy=azure.mssql.DatabaseExtendedAuditingPolicyArgs(
+                storage_endpoint=example_account.primary_blob_endpoint,
+                storage_account_access_key=example_account.primary_access_key,
+                storage_account_access_key_is_secondary=True,
+                retention_in_days=6,
+            ),
+            tags={
+                "foo": "bar",
+            })
+        ```
+
+        ## Import
+
+        SQL Database can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:mssql/database:Database example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/databases/example1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param DatabaseArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DatabaseArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_pause_delay_in_minutes: Optional[pulumi.Input[int]] = None,
+                 collation: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input[str]] = None,
+                 creation_source_database_id: Optional[pulumi.Input[str]] = None,
+                 elastic_pool_id: Optional[pulumi.Input[str]] = None,
+                 extended_auditing_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseExtendedAuditingPolicyArgs']]] = None,
+                 license_type: Optional[pulumi.Input[str]] = None,
+                 long_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']]] = None,
+                 max_size_gb: Optional[pulumi.Input[int]] = None,
+                 min_capacity: Optional[pulumi.Input[float]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 read_replica_count: Optional[pulumi.Input[int]] = None,
+                 read_scale: Optional[pulumi.Input[bool]] = None,
+                 recover_database_id: Optional[pulumi.Input[str]] = None,
+                 restore_dropped_database_id: Optional[pulumi.Input[str]] = None,
+                 restore_point_in_time: Optional[pulumi.Input[str]] = None,
+                 sample_name: Optional[pulumi.Input[str]] = None,
+                 server_id: Optional[pulumi.Input[str]] = None,
+                 short_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseShortTermRetentionPolicyArgs']]] = None,
+                 sku_name: Optional[pulumi.Input[str]] = None,
+                 storage_account_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']]] = None,
+                 zone_redundant: Optional[pulumi.Input[bool]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

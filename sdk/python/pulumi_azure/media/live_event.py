@@ -5,15 +5,246 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LiveEvent']
+__all__ = ['LiveEventArgs', 'LiveEvent']
+
+@pulumi.input_type
+class LiveEventArgs:
+    def __init__(__self__, *,
+                 input: pulumi.Input['LiveEventInputArgs'],
+                 media_services_account_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 auto_start_enabled: Optional[pulumi.Input[bool]] = None,
+                 cross_site_access_policy: Optional[pulumi.Input['LiveEventCrossSiteAccessPolicyArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 encoding: Optional[pulumi.Input['LiveEventEncodingArgs']] = None,
+                 hostname_prefix: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 preview: Optional[pulumi.Input['LiveEventPreviewArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 transcription_languages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 use_static_hostname: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a LiveEvent resource.
+        :param pulumi.Input['LiveEventInputArgs'] input: A `input` block as defined below.
+        :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Live Event to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Live Event should exist. Changing this forces a new Live Event to be created.
+        :param pulumi.Input[bool] auto_start_enabled: The flag indicates if the resource should be automatically started on creation. Default is `false`.
+        :param pulumi.Input['LiveEventCrossSiteAccessPolicyArgs'] cross_site_access_policy: A `cross_site_access_policy` block as defined below.
+        :param pulumi.Input[str] description: A description for the live event.
+        :param pulumi.Input['LiveEventEncodingArgs'] encoding: A `encoding` block as defined below.
+        :param pulumi.Input[str] hostname_prefix: When `use_static_hostname` is set to true, the `hostname_prefix` specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center.
+        :param pulumi.Input[str] location: The Azure Region where the Live Event should exist. Changing this forces a new Live Event to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Live Event. Changing this forces a new Live Event to be created.
+        :param pulumi.Input['LiveEventPreviewArgs'] preview: A `preview` block as defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Live Event.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] transcription_languages: Specifies a list of languages (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in `BCP-47` format (e.g: `en-US`). [See the Microsoft Documentation for more information about the live transcription feature and the list of supported languages](https://go.microsoft.com/fwlink/?linkid=2133742 ).
+        :param pulumi.Input[bool] use_static_hostname: Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created.
+               ---
+        """
+        pulumi.set(__self__, "input", input)
+        pulumi.set(__self__, "media_services_account_name", media_services_account_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if auto_start_enabled is not None:
+            pulumi.set(__self__, "auto_start_enabled", auto_start_enabled)
+        if cross_site_access_policy is not None:
+            pulumi.set(__self__, "cross_site_access_policy", cross_site_access_policy)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if hostname_prefix is not None:
+            pulumi.set(__self__, "hostname_prefix", hostname_prefix)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if preview is not None:
+            pulumi.set(__self__, "preview", preview)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if transcription_languages is not None:
+            pulumi.set(__self__, "transcription_languages", transcription_languages)
+        if use_static_hostname is not None:
+            pulumi.set(__self__, "use_static_hostname", use_static_hostname)
+
+    @property
+    @pulumi.getter
+    def input(self) -> pulumi.Input['LiveEventInputArgs']:
+        """
+        A `input` block as defined below.
+        """
+        return pulumi.get(self, "input")
+
+    @input.setter
+    def input(self, value: pulumi.Input['LiveEventInputArgs']):
+        pulumi.set(self, "input", value)
+
+    @property
+    @pulumi.getter(name="mediaServicesAccountName")
+    def media_services_account_name(self) -> pulumi.Input[str]:
+        """
+        The Media Services account name. Changing this forces a new Live Event to be created.
+        """
+        return pulumi.get(self, "media_services_account_name")
+
+    @media_services_account_name.setter
+    def media_services_account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "media_services_account_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Resource Group where the Live Event should exist. Changing this forces a new Live Event to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="autoStartEnabled")
+    def auto_start_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The flag indicates if the resource should be automatically started on creation. Default is `false`.
+        """
+        return pulumi.get(self, "auto_start_enabled")
+
+    @auto_start_enabled.setter
+    def auto_start_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_start_enabled", value)
+
+    @property
+    @pulumi.getter(name="crossSiteAccessPolicy")
+    def cross_site_access_policy(self) -> Optional[pulumi.Input['LiveEventCrossSiteAccessPolicyArgs']]:
+        """
+        A `cross_site_access_policy` block as defined below.
+        """
+        return pulumi.get(self, "cross_site_access_policy")
+
+    @cross_site_access_policy.setter
+    def cross_site_access_policy(self, value: Optional[pulumi.Input['LiveEventCrossSiteAccessPolicyArgs']]):
+        pulumi.set(self, "cross_site_access_policy", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for the live event.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def encoding(self) -> Optional[pulumi.Input['LiveEventEncodingArgs']]:
+        """
+        A `encoding` block as defined below.
+        """
+        return pulumi.get(self, "encoding")
+
+    @encoding.setter
+    def encoding(self, value: Optional[pulumi.Input['LiveEventEncodingArgs']]):
+        pulumi.set(self, "encoding", value)
+
+    @property
+    @pulumi.getter(name="hostnamePrefix")
+    def hostname_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        When `use_static_hostname` is set to true, the `hostname_prefix` specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center.
+        """
+        return pulumi.get(self, "hostname_prefix")
+
+    @hostname_prefix.setter
+    def hostname_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hostname_prefix", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Region where the Live Event should exist. Changing this forces a new Live Event to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Live Event. Changing this forces a new Live Event to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def preview(self) -> Optional[pulumi.Input['LiveEventPreviewArgs']]:
+        """
+        A `preview` block as defined below.
+        """
+        return pulumi.get(self, "preview")
+
+    @preview.setter
+    def preview(self, value: Optional[pulumi.Input['LiveEventPreviewArgs']]):
+        pulumi.set(self, "preview", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags which should be assigned to the Live Event.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="transcriptionLanguages")
+    def transcription_languages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of languages (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in `BCP-47` format (e.g: `en-US`). [See the Microsoft Documentation for more information about the live transcription feature and the list of supported languages](https://go.microsoft.com/fwlink/?linkid=2133742 ).
+        """
+        return pulumi.get(self, "transcription_languages")
+
+    @transcription_languages.setter
+    def transcription_languages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "transcription_languages", value)
+
+    @property
+    @pulumi.getter(name="useStaticHostname")
+    def use_static_hostname(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created.
+        ---
+        """
+        return pulumi.get(self, "use_static_hostname")
+
+    @use_static_hostname.setter
+    def use_static_hostname(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_static_hostname", value)
 
 
 class LiveEvent(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -113,6 +344,105 @@ class LiveEvent(pulumi.CustomResource):
         :param pulumi.Input[bool] use_static_hostname: Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created.
                ---
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: LiveEventArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Live Event.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="GRS")
+        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
+                id=example_account.id,
+                is_primary=True,
+            )])
+        example_live_event = azure.media.LiveEvent("exampleLiveEvent",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            media_services_account_name=example_service_account.name,
+            description="My Event Description",
+            input=azure.media.LiveEventInputArgs(
+                streaming_protocol="RTMP",
+                ip_access_control_allows=[azure.media.LiveEventInputIpAccessControlAllowArgs(
+                    name="AllowAll",
+                    address="0.0.0.0",
+                    subnet_prefix_length=0,
+                )],
+            ),
+            encoding=azure.media.LiveEventEncodingArgs(
+                type="Standard",
+                preset_name="Default720p",
+                stretch_mode="AutoFit",
+                key_frame_interval="PT2S",
+            ),
+            preview=azure.media.LiveEventPreviewArgs(
+                ip_access_control_allows=[azure.media.LiveEventPreviewIpAccessControlAllowArgs(
+                    name="AllowAll",
+                    address="0.0.0.0",
+                    subnet_prefix_length=0,
+                )],
+            ),
+            use_static_hostname=True,
+            hostname_prefix="special-event",
+            transcription_languages=["en-US"])
+        ```
+
+        ## Import
+
+        Live Events can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:media/liveEvent:LiveEvent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Media/mediaservices/account1/liveevents/event1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param LiveEventArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(LiveEventArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_start_enabled: Optional[pulumi.Input[bool]] = None,
+                 cross_site_access_policy: Optional[pulumi.Input[pulumi.InputType['LiveEventCrossSiteAccessPolicyArgs']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 encoding: Optional[pulumi.Input[pulumi.InputType['LiveEventEncodingArgs']]] = None,
+                 hostname_prefix: Optional[pulumi.Input[str]] = None,
+                 input: Optional[pulumi.Input[pulumi.InputType['LiveEventInputArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 media_services_account_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 preview: Optional[pulumi.Input[pulumi.InputType['LiveEventPreviewArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 transcription_languages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 use_static_hostname: Optional[pulumi.Input[bool]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

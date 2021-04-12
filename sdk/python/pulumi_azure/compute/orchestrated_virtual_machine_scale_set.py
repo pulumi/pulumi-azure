@@ -5,13 +5,147 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['OrchestratedVirtualMachineScaleSet']
+__all__ = ['OrchestratedVirtualMachineScaleSetArgs', 'OrchestratedVirtualMachineScaleSet']
+
+@pulumi.input_type
+class OrchestratedVirtualMachineScaleSetArgs:
+    def __init__(__self__, *,
+                 platform_fault_domain_count: pulumi.Input[int],
+                 resource_group_name: pulumi.Input[str],
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+                 single_placement_group: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zones: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a OrchestratedVirtualMachineScaleSet resource.
+        :param pulumi.Input[int] platform_fault_domain_count: Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: The Azure location where the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] single_placement_group: Should the Orchestrated Virtual Machine Scale Set use single placement group? Defaults to `false`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
+        :param pulumi.Input[str] zones: A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "platform_fault_domain_count", platform_fault_domain_count)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if proximity_placement_group_id is not None:
+            pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
+        if single_placement_group is not None:
+            pulumi.set(__self__, "single_placement_group", single_placement_group)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="platformFaultDomainCount")
+    def platform_fault_domain_count(self) -> pulumi.Input[int]:
+        """
+        Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "platform_fault_domain_count")
+
+    @platform_fault_domain_count.setter
+    def platform_fault_domain_count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "platform_fault_domain_count", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure location where the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="proximityPlacementGroupId")
+    def proximity_placement_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "proximity_placement_group_id")
+
+    @proximity_placement_group_id.setter
+    def proximity_placement_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "proximity_placement_group_id", value)
+
+    @property
+    @pulumi.getter(name="singlePlacementGroup")
+    def single_placement_group(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Orchestrated Virtual Machine Scale Set use single placement group? Defaults to `false`.
+        """
+        return pulumi.get(self, "single_placement_group")
+
+    @single_placement_group.setter
+    def single_placement_group(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "single_placement_group", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[pulumi.Input[str]]:
+        """
+        A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "zones")
+
+    @zones.setter
+    def zones(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "zones", value)
 
 
 class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -66,6 +200,67 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
         :param pulumi.Input[str] zones: A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: OrchestratedVirtualMachineScaleSetArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an Orchestrated Virtual Machine Scale Set.
+
+        > **Note:** Orchestrated Virtual Machine Scale Sets are in Public Preview and it may receive breaking changes - [more details can be found in the Azure Documentation](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/orchestration-modes).
+
+        > **Note:** Azure is planning to deprecate the `single_placement_group` attribute in the Orchestrated Virtual Machine Scale Set starting from api-version `2019-12-01` and there will be a breaking change in the Orchestrated Virtual Machine Scale Set.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_orchestrated_virtual_machine_scale_set = azure.compute.OrchestratedVirtualMachineScaleSet("exampleOrchestratedVirtualMachineScaleSet",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            platform_fault_domain_count=1,
+            zones=["1"])
+        ```
+
+        ## Import
+
+        An Orchestrated Virtual Machine Scale Set can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/Microsoft.Compute/virtualMachineScaleSets/scaleset1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param OrchestratedVirtualMachineScaleSetArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(OrchestratedVirtualMachineScaleSetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
+                 proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 single_placement_group: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zones: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

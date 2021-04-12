@@ -5,13 +5,177 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['VirtualMachineScaleSetExtension']
+__all__ = ['VirtualMachineScaleSetExtensionArgs', 'VirtualMachineScaleSetExtension']
+
+@pulumi.input_type
+class VirtualMachineScaleSetExtensionArgs:
+    def __init__(__self__, *,
+                 publisher: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 type_handler_version: pulumi.Input[str],
+                 virtual_machine_scale_set_id: pulumi.Input[str],
+                 auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
+                 force_update_tag: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 protected_settings: Optional[pulumi.Input[str]] = None,
+                 provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 settings: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a VirtualMachineScaleSetExtension resource.
+        :param pulumi.Input[str] publisher: Specifies the Publisher of the Extension. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] type: Specifies the Type of the Extension. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+        :param pulumi.Input[str] virtual_machine_scale_set_id: The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] auto_upgrade_minor_version: Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
+        :param pulumi.Input[str] force_update_tag: A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
+        :param pulumi.Input[str] name: The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] provision_after_extensions: An ordered list of Extension names which this should be provisioned after.
+        :param pulumi.Input[str] settings: A JSON String which specifies Settings for the Extension.
+        """
+        pulumi.set(__self__, "publisher", publisher)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "type_handler_version", type_handler_version)
+        pulumi.set(__self__, "virtual_machine_scale_set_id", virtual_machine_scale_set_id)
+        if auto_upgrade_minor_version is not None:
+            pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
+        if force_update_tag is not None:
+            pulumi.set(__self__, "force_update_tag", force_update_tag)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if protected_settings is not None:
+            pulumi.set(__self__, "protected_settings", protected_settings)
+        if provision_after_extensions is not None:
+            pulumi.set(__self__, "provision_after_extensions", provision_after_extensions)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> pulumi.Input[str]:
+        """
+        Specifies the Publisher of the Extension. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "publisher")
+
+    @publisher.setter
+    def publisher(self, value: pulumi.Input[str]):
+        pulumi.set(self, "publisher", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Specifies the Type of the Extension. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="typeHandlerVersion")
+    def type_handler_version(self) -> pulumi.Input[str]:
+        """
+        Specifies the version of the extension to use, available versions can be found using the Azure CLI.
+        """
+        return pulumi.get(self, "type_handler_version")
+
+    @type_handler_version.setter
+    def type_handler_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type_handler_version", value)
+
+    @property
+    @pulumi.getter(name="virtualMachineScaleSetId")
+    def virtual_machine_scale_set_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "virtual_machine_scale_set_id")
+
+    @virtual_machine_scale_set_id.setter
+    def virtual_machine_scale_set_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "virtual_machine_scale_set_id", value)
+
+    @property
+    @pulumi.getter(name="autoUpgradeMinorVersion")
+    def auto_upgrade_minor_version(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
+        """
+        return pulumi.get(self, "auto_upgrade_minor_version")
+
+    @auto_upgrade_minor_version.setter
+    def auto_upgrade_minor_version(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_upgrade_minor_version", value)
+
+    @property
+    @pulumi.getter(name="forceUpdateTag")
+    def force_update_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
+        """
+        return pulumi.get(self, "force_update_tag")
+
+    @force_update_tag.setter
+    def force_update_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "force_update_tag", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="protectedSettings")
+    def protected_settings(self) -> Optional[pulumi.Input[str]]:
+        """
+        A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
+        """
+        return pulumi.get(self, "protected_settings")
+
+    @protected_settings.setter
+    def protected_settings(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protected_settings", value)
+
+    @property
+    @pulumi.getter(name="provisionAfterExtensions")
+    def provision_after_extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An ordered list of Extension names which this should be provisioned after.
+        """
+        return pulumi.get(self, "provision_after_extensions")
+
+    @provision_after_extensions.setter
+    def provision_after_extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "provision_after_extensions", value)
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional[pulumi.Input[str]]:
+        """
+        A JSON String which specifies Settings for the Extension.
+        """
+        return pulumi.get(self, "settings")
+
+    @settings.setter
+    def settings(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "settings", value)
 
 
 class VirtualMachineScaleSetExtension(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -73,6 +237,72 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         :param pulumi.Input[str] virtual_machine_scale_set_id: The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VirtualMachineScaleSetExtensionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an Extension for a Virtual Machine Scale Set.
+
+        > **NOTE:** This resource is not intended to be used with the `compute.ScaleSet` resource - instead it's intended for this to be used with the `compute.LinuxVirtualMachineScaleSet` and `compute.WindowsVirtualMachineScaleSet` resources.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_azure as azure
+
+        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet")
+        #...
+        example_virtual_machine_scale_set_extension = azure.compute.VirtualMachineScaleSetExtension("exampleVirtualMachineScaleSetExtension",
+            virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
+            publisher="Microsoft.Azure.Extensions",
+            type="CustomScript",
+            type_handler_version="2.0",
+            settings=json.dumps({
+                "commandToExecute": "echo $HOSTNAME",
+            }))
+        ```
+
+        ## Import
+
+        Virtual Machine Scale Set Extensions can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:compute/virtualMachineScaleSetExtension:VirtualMachineScaleSetExtension test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/virtualMachineScaleSets/scaleSet1/extensions/extension1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param VirtualMachineScaleSetExtensionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualMachineScaleSetExtensionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
+                 force_update_tag: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 protected_settings: Optional[pulumi.Input[str]] = None,
+                 provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 publisher: Optional[pulumi.Input[str]] = None,
+                 settings: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 type_handler_version: Optional[pulumi.Input[str]] = None,
+                 virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

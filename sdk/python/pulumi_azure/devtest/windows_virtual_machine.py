@@ -5,15 +5,270 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['WindowsVirtualMachine']
+__all__ = ['WindowsVirtualMachineArgs', 'WindowsVirtualMachine']
+
+@pulumi.input_type
+class WindowsVirtualMachineArgs:
+    def __init__(__self__, *,
+                 gallery_image_reference: pulumi.Input['WindowsVirtualMachineGalleryImageReferenceArgs'],
+                 lab_name: pulumi.Input[str],
+                 lab_subnet_name: pulumi.Input[str],
+                 lab_virtual_network_id: pulumi.Input[str],
+                 password: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 size: pulumi.Input[str],
+                 storage_type: pulumi.Input[str],
+                 username: pulumi.Input[str],
+                 allow_claim: Optional[pulumi.Input[bool]] = None,
+                 disallow_public_ip_address: Optional[pulumi.Input[bool]] = None,
+                 inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineInboundNatRuleArgs']]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 notes: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a WindowsVirtualMachine resource.
+        :param pulumi.Input['WindowsVirtualMachineGalleryImageReferenceArgs'] gallery_image_reference: A `gallery_image_reference` block as defined below.
+        :param pulumi.Input[str] lab_name: Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] lab_subnet_name: The name of a Subnet within the Dev Test Virtual Network where this machine should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] lab_virtual_network_id: The ID of the Dev Test Virtual Network where this Virtual Machine should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] password: The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] size: The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_type: The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+        :param pulumi.Input[str] username: The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] allow_claim: Can this Virtual Machine be claimed by users? Defaults to `true`.
+        :param pulumi.Input[bool] disallow_public_ip_address: Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineInboundNatRuleArgs']]] inbound_nat_rules: One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] notes: Any notes about the Virtual Machine.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "gallery_image_reference", gallery_image_reference)
+        pulumi.set(__self__, "lab_name", lab_name)
+        pulumi.set(__self__, "lab_subnet_name", lab_subnet_name)
+        pulumi.set(__self__, "lab_virtual_network_id", lab_virtual_network_id)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "storage_type", storage_type)
+        pulumi.set(__self__, "username", username)
+        if allow_claim is not None:
+            pulumi.set(__self__, "allow_claim", allow_claim)
+        if disallow_public_ip_address is not None:
+            pulumi.set(__self__, "disallow_public_ip_address", disallow_public_ip_address)
+        if inbound_nat_rules is not None:
+            pulumi.set(__self__, "inbound_nat_rules", inbound_nat_rules)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if notes is not None:
+            pulumi.set(__self__, "notes", notes)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="galleryImageReference")
+    def gallery_image_reference(self) -> pulumi.Input['WindowsVirtualMachineGalleryImageReferenceArgs']:
+        """
+        A `gallery_image_reference` block as defined below.
+        """
+        return pulumi.get(self, "gallery_image_reference")
+
+    @gallery_image_reference.setter
+    def gallery_image_reference(self, value: pulumi.Input['WindowsVirtualMachineGalleryImageReferenceArgs']):
+        pulumi.set(self, "gallery_image_reference", value)
+
+    @property
+    @pulumi.getter(name="labName")
+    def lab_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "lab_name")
+
+    @lab_name.setter
+    def lab_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "lab_name", value)
+
+    @property
+    @pulumi.getter(name="labSubnetName")
+    def lab_subnet_name(self) -> pulumi.Input[str]:
+        """
+        The name of a Subnet within the Dev Test Virtual Network where this machine should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "lab_subnet_name")
+
+    @lab_subnet_name.setter
+    def lab_subnet_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "lab_subnet_name", value)
+
+    @property
+    @pulumi.getter(name="labVirtualNetworkId")
+    def lab_virtual_network_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Dev Test Virtual Network where this Virtual Machine should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "lab_virtual_network_id")
+
+    @lab_virtual_network_id.setter
+    def lab_virtual_network_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "lab_virtual_network_id", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[str]:
+        """
+        The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def size(self) -> pulumi.Input[str]:
+        """
+        The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: pulumi.Input[str]):
+        pulumi.set(self, "size", value)
+
+    @property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> pulumi.Input[str]:
+        """
+        The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+        """
+        return pulumi.get(self, "storage_type")
+
+    @storage_type.setter
+    def storage_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_type", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[str]:
+        """
+        The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "username", value)
+
+    @property
+    @pulumi.getter(name="allowClaim")
+    def allow_claim(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Can this Virtual Machine be claimed by users? Defaults to `true`.
+        """
+        return pulumi.get(self, "allow_claim")
+
+    @allow_claim.setter
+    def allow_claim(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_claim", value)
+
+    @property
+    @pulumi.getter(name="disallowPublicIpAddress")
+    def disallow_public_ip_address(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "disallow_public_ip_address")
+
+    @disallow_public_ip_address.setter
+    def disallow_public_ip_address(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disallow_public_ip_address", value)
+
+    @property
+    @pulumi.getter(name="inboundNatRules")
+    def inbound_nat_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineInboundNatRuleArgs']]]]:
+        """
+        One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "inbound_nat_rules")
+
+    @inbound_nat_rules.setter
+    def inbound_nat_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineInboundNatRuleArgs']]]]):
+        pulumi.set(self, "inbound_nat_rules", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[pulumi.Input[str]]:
+        """
+        Any notes about the Virtual Machine.
+        """
+        return pulumi.get(self, "notes")
+
+    @notes.setter
+    def notes(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "notes", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class WindowsVirtualMachine(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -66,6 +321,57 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] username: The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: WindowsVirtualMachineArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Windows Virtual Machine within a Dev Test Lab.
+
+        ## Import
+
+        DevTest Windows Virtual Machines can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:devtest/windowsVirtualMachine:WindowsVirtualMachine machine1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1/virtualmachines/machine1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param WindowsVirtualMachineArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(WindowsVirtualMachineArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_claim: Optional[pulumi.Input[bool]] = None,
+                 disallow_public_ip_address: Optional[pulumi.Input[bool]] = None,
+                 gallery_image_reference: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineGalleryImageReferenceArgs']]] = None,
+                 inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineInboundNatRuleArgs']]]]] = None,
+                 lab_name: Optional[pulumi.Input[str]] = None,
+                 lab_subnet_name: Optional[pulumi.Input[str]] = None,
+                 lab_virtual_network_id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 notes: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 size: Optional[pulumi.Input[str]] = None,
+                 storage_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 username: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

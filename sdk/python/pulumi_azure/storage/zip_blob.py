@@ -5,10 +5,171 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ZipBlob']
+__all__ = ['ZipBlobArgs', 'ZipBlob']
+
+@pulumi.input_type
+class ZipBlobArgs:
+    def __init__(__self__, *,
+                 storage_account_name: pulumi.Input[str],
+                 storage_container_name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 access_tier: Optional[pulumi.Input[str]] = None,
+                 content: Optional[pulumi.Input[pulumi.Archive]] = None,
+                 content_md5: Optional[pulumi.Input[str]] = None,
+                 content_type: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parallelism: Optional[pulumi.Input[int]] = None,
+                 size: Optional[pulumi.Input[int]] = None,
+                 source_content: Optional[pulumi.Input[str]] = None,
+                 source_uri: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ZipBlob resource.
+        """
+        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        pulumi.set(__self__, "storage_container_name", storage_container_name)
+        pulumi.set(__self__, "type", type)
+        if access_tier is not None:
+            pulumi.set(__self__, "access_tier", access_tier)
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if content_md5 is not None:
+            pulumi.set(__self__, "content_md5", content_md5)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parallelism is not None:
+            pulumi.set(__self__, "parallelism", parallelism)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if source_content is not None:
+            pulumi.set(__self__, "source_content", source_content)
+        if source_uri is not None:
+            pulumi.set(__self__, "source_uri", source_uri)
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "storage_account_name")
+
+    @storage_account_name.setter
+    def storage_account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_name", value)
+
+    @property
+    @pulumi.getter(name="storageContainerName")
+    def storage_container_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "storage_container_name")
+
+    @storage_container_name.setter
+    def storage_container_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_container_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="accessTier")
+    def access_tier(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "access_tier")
+
+    @access_tier.setter
+    def access_tier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_tier", value)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[pulumi.Input[pulumi.Archive]]:
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: Optional[pulumi.Input[pulumi.Archive]]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter(name="contentMd5")
+    def content_md5(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "content_md5")
+
+    @content_md5.setter
+    def content_md5(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_md5", value)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_type", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def parallelism(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "parallelism")
+
+    @parallelism.setter
+    def parallelism(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "parallelism", value)
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "size", value)
+
+    @property
+    @pulumi.getter(name="sourceContent")
+    def source_content(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "source_content")
+
+    @source_content.setter
+    def source_content(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_content", value)
+
+    @property
+    @pulumi.getter(name="sourceUri")
+    def source_uri(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "source_uri")
+
+    @source_uri.setter
+    def source_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_uri", value)
+
 
 warnings.warn("""ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead.""", DeprecationWarning)
 
@@ -16,6 +177,7 @@ warnings.warn("""ZipBlob resource is deprecated in the 2.0 version of the provid
 class ZipBlob(pulumi.CustomResource):
     warnings.warn("""ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead.""", DeprecationWarning)
 
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -40,6 +202,45 @@ class ZipBlob(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ZipBlobArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Create a ZipBlob resource with the given unique name, props, and options.
+        :param str resource_name: The name of the resource.
+        :param ZipBlobArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ZipBlobArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 access_tier: Optional[pulumi.Input[str]] = None,
+                 content: Optional[pulumi.Input[pulumi.Archive]] = None,
+                 content_md5: Optional[pulumi.Input[str]] = None,
+                 content_type: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parallelism: Optional[pulumi.Input[int]] = None,
+                 size: Optional[pulumi.Input[int]] = None,
+                 source_content: Optional[pulumi.Input[str]] = None,
+                 source_uri: Optional[pulumi.Input[str]] = None,
+                 storage_account_name: Optional[pulumi.Input[str]] = None,
+                 storage_container_name: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         pulumi.log.warn("""ZipBlob is deprecated: ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead.""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

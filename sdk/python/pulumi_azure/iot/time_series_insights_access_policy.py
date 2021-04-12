@@ -5,13 +5,98 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['TimeSeriesInsightsAccessPolicy']
+__all__ = ['TimeSeriesInsightsAccessPolicyArgs', 'TimeSeriesInsightsAccessPolicy']
+
+@pulumi.input_type
+class TimeSeriesInsightsAccessPolicyArgs:
+    def __init__(__self__, *,
+                 principal_object_id: pulumi.Input[str],
+                 roles: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 time_series_insights_environment_id: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a TimeSeriesInsightsAccessPolicy resource.
+        :param pulumi.Input[str] principal_object_id: The id of the principal in Azure Active Directory.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list of roles to apply to the Access Policy. Valid values include `Contributor` and `Reader`.
+        :param pulumi.Input[str] time_series_insights_environment_id: The resource ID of the Azure IoT Time Series Insights Environment in which to create the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] description: The description of the Azure IoT Time Series Insights Access Policy.
+        :param pulumi.Input[str] name: Specifies the name of the Azure IoT Time Series Insights Access Policy. Changing this forces a new resource to be created. Must be globally unique.
+        """
+        pulumi.set(__self__, "principal_object_id", principal_object_id)
+        pulumi.set(__self__, "roles", roles)
+        pulumi.set(__self__, "time_series_insights_environment_id", time_series_insights_environment_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="principalObjectId")
+    def principal_object_id(self) -> pulumi.Input[str]:
+        """
+        The id of the principal in Azure Active Directory.
+        """
+        return pulumi.get(self, "principal_object_id")
+
+    @principal_object_id.setter
+    def principal_object_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "principal_object_id", value)
+
+    @property
+    @pulumi.getter
+    def roles(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of roles to apply to the Access Policy. Valid values include `Contributor` and `Reader`.
+        """
+        return pulumi.get(self, "roles")
+
+    @roles.setter
+    def roles(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "roles", value)
+
+    @property
+    @pulumi.getter(name="timeSeriesInsightsEnvironmentId")
+    def time_series_insights_environment_id(self) -> pulumi.Input[str]:
+        """
+        The resource ID of the Azure IoT Time Series Insights Environment in which to create the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "time_series_insights_environment_id")
+
+    @time_series_insights_environment_id.setter
+    def time_series_insights_environment_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "time_series_insights_environment_id", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Azure IoT Time Series Insights Access Policy.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Azure IoT Time Series Insights Access Policy. Changing this forces a new resource to be created. Must be globally unique.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class TimeSeriesInsightsAccessPolicy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -60,6 +145,64 @@ class TimeSeriesInsightsAccessPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list of roles to apply to the Access Policy. Valid values include `Contributor` and `Reader`.
         :param pulumi.Input[str] time_series_insights_environment_id: The resource ID of the Azure IoT Time Series Insights Environment in which to create the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: TimeSeriesInsightsAccessPolicyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an Azure IoT Time Series Insights Access Policy.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_time_series_insights_standard_environment = azure.iot.TimeSeriesInsightsStandardEnvironment("exampleTimeSeriesInsightsStandardEnvironment",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="S1_1",
+            data_retention_time="P30D")
+        example_time_series_insights_access_policy = azure.iot.TimeSeriesInsightsAccessPolicy("exampleTimeSeriesInsightsAccessPolicy",
+            time_series_insights_environment_id=example_time_series_insights_standard_environment.name,
+            principal_object_id="aGUID",
+            roles=["Reader"])
+        ```
+
+        ## Import
+
+        Azure IoT Time Series Insights Access Policy can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:iot/timeSeriesInsightsAccessPolicy:TimeSeriesInsightsAccessPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.TimeSeriesInsights/environments/environment1/accessPolicies/example
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param TimeSeriesInsightsAccessPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(TimeSeriesInsightsAccessPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 principal_object_id: Optional[pulumi.Input[str]] = None,
+                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 time_series_insights_environment_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

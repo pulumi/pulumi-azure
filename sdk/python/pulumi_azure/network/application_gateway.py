@@ -5,15 +5,446 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ApplicationGateway']
+__all__ = ['ApplicationGatewayArgs', 'ApplicationGateway']
+
+@pulumi.input_type
+class ApplicationGatewayArgs:
+    def __init__(__self__, *,
+                 backend_address_pools: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgs']]],
+                 backend_http_settings: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingArgs']]],
+                 frontend_ip_configurations: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendIpConfigurationArgs']]],
+                 frontend_ports: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendPortArgs']]],
+                 gateway_ip_configurations: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayGatewayIpConfigurationArgs']]],
+                 http_listeners: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHttpListenerArgs']]],
+                 request_routing_rules: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRequestRoutingRuleArgs']]],
+                 resource_group_name: pulumi.Input[str],
+                 sku: pulumi.Input['ApplicationGatewaySkuArgs'],
+                 authentication_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayAuthenticationCertificateArgs']]]] = None,
+                 autoscale_configuration: Optional[pulumi.Input['ApplicationGatewayAutoscaleConfigurationArgs']] = None,
+                 custom_error_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayCustomErrorConfigurationArgs']]]] = None,
+                 enable_http2: Optional[pulumi.Input[bool]] = None,
+                 firewall_policy_id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['ApplicationGatewayIdentityArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 probes: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayProbeArgs']]]] = None,
+                 redirect_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRedirectConfigurationArgs']]]] = None,
+                 rewrite_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetArgs']]]] = None,
+                 ssl_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslCertificateArgs']]]] = None,
+                 ssl_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslPolicyArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 trusted_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayTrustedRootCertificateArgs']]]] = None,
+                 url_path_maps: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayUrlPathMapArgs']]]] = None,
+                 waf_configuration: Optional[pulumi.Input['ApplicationGatewayWafConfigurationArgs']] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a ApplicationGateway resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgs']]] backend_address_pools: One or more `backend_address_pool` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingArgs']]] backend_http_settings: One or more `backend_http_settings` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendIpConfigurationArgs']]] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendPortArgs']]] frontend_ports: One or more `frontend_port` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayGatewayIpConfigurationArgs']]] gateway_ip_configurations: One or more `gateway_ip_configuration` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHttpListenerArgs']]] http_listeners: One or more `http_listener` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRequestRoutingRuleArgs']]] request_routing_rules: One or more `request_routing_rule` blocks as defined below.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input['ApplicationGatewaySkuArgs'] sku: A `sku` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayAuthenticationCertificateArgs']]] authentication_certificates: One or more `authentication_certificate` blocks as defined below.
+        :param pulumi.Input['ApplicationGatewayAutoscaleConfigurationArgs'] autoscale_configuration: A `autoscale_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayCustomErrorConfigurationArgs']]] custom_error_configurations: One or more `custom_error_configuration` blocks as defined below.
+        :param pulumi.Input[bool] enable_http2: Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
+        :param pulumi.Input[str] firewall_policy_id: The ID of the Web Application Firewall Policy.
+        :param pulumi.Input['ApplicationGatewayIdentityArgs'] identity: A `identity` block.
+        :param pulumi.Input[str] location: The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Application Gateway. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayProbeArgs']]] probes: One or more `probe` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRedirectConfigurationArgs']]] redirect_configurations: A `redirect_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetArgs']]] rewrite_rule_sets: One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslCertificateArgs']]] ssl_certificates: One or more `ssl_certificate` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslPolicyArgs']]] ssl_policies: a `ssl policy` block as defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayTrustedRootCertificateArgs']]] trusted_root_certificates: One or more `trusted_root_certificate` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayUrlPathMapArgs']]] url_path_maps: One or more `url_path_map` blocks as defined below.
+        :param pulumi.Input['ApplicationGatewayWafConfigurationArgs'] waf_configuration: A `waf_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A collection of availability zones to spread the Application Gateway over.
+        """
+        pulumi.set(__self__, "backend_address_pools", backend_address_pools)
+        pulumi.set(__self__, "backend_http_settings", backend_http_settings)
+        pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
+        pulumi.set(__self__, "frontend_ports", frontend_ports)
+        pulumi.set(__self__, "gateway_ip_configurations", gateway_ip_configurations)
+        pulumi.set(__self__, "http_listeners", http_listeners)
+        pulumi.set(__self__, "request_routing_rules", request_routing_rules)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku", sku)
+        if authentication_certificates is not None:
+            pulumi.set(__self__, "authentication_certificates", authentication_certificates)
+        if autoscale_configuration is not None:
+            pulumi.set(__self__, "autoscale_configuration", autoscale_configuration)
+        if custom_error_configurations is not None:
+            pulumi.set(__self__, "custom_error_configurations", custom_error_configurations)
+        if enable_http2 is not None:
+            pulumi.set(__self__, "enable_http2", enable_http2)
+        if firewall_policy_id is not None:
+            pulumi.set(__self__, "firewall_policy_id", firewall_policy_id)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if probes is not None:
+            pulumi.set(__self__, "probes", probes)
+        if redirect_configurations is not None:
+            pulumi.set(__self__, "redirect_configurations", redirect_configurations)
+        if rewrite_rule_sets is not None:
+            pulumi.set(__self__, "rewrite_rule_sets", rewrite_rule_sets)
+        if ssl_certificates is not None:
+            pulumi.set(__self__, "ssl_certificates", ssl_certificates)
+        if ssl_policies is not None:
+            pulumi.set(__self__, "ssl_policies", ssl_policies)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if trusted_root_certificates is not None:
+            pulumi.set(__self__, "trusted_root_certificates", trusted_root_certificates)
+        if url_path_maps is not None:
+            pulumi.set(__self__, "url_path_maps", url_path_maps)
+        if waf_configuration is not None:
+            pulumi.set(__self__, "waf_configuration", waf_configuration)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="backendAddressPools")
+    def backend_address_pools(self) -> pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgs']]]:
+        """
+        One or more `backend_address_pool` blocks as defined below.
+        """
+        return pulumi.get(self, "backend_address_pools")
+
+    @backend_address_pools.setter
+    def backend_address_pools(self, value: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgs']]]):
+        pulumi.set(self, "backend_address_pools", value)
+
+    @property
+    @pulumi.getter(name="backendHttpSettings")
+    def backend_http_settings(self) -> pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingArgs']]]:
+        """
+        One or more `backend_http_settings` blocks as defined below.
+        """
+        return pulumi.get(self, "backend_http_settings")
+
+    @backend_http_settings.setter
+    def backend_http_settings(self, value: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingArgs']]]):
+        pulumi.set(self, "backend_http_settings", value)
+
+    @property
+    @pulumi.getter(name="frontendIpConfigurations")
+    def frontend_ip_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendIpConfigurationArgs']]]:
+        """
+        One or more `frontend_ip_configuration` blocks as defined below.
+        """
+        return pulumi.get(self, "frontend_ip_configurations")
+
+    @frontend_ip_configurations.setter
+    def frontend_ip_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendIpConfigurationArgs']]]):
+        pulumi.set(self, "frontend_ip_configurations", value)
+
+    @property
+    @pulumi.getter(name="frontendPorts")
+    def frontend_ports(self) -> pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendPortArgs']]]:
+        """
+        One or more `frontend_port` blocks as defined below.
+        """
+        return pulumi.get(self, "frontend_ports")
+
+    @frontend_ports.setter
+    def frontend_ports(self, value: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendPortArgs']]]):
+        pulumi.set(self, "frontend_ports", value)
+
+    @property
+    @pulumi.getter(name="gatewayIpConfigurations")
+    def gateway_ip_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayGatewayIpConfigurationArgs']]]:
+        """
+        One or more `gateway_ip_configuration` blocks as defined below.
+        """
+        return pulumi.get(self, "gateway_ip_configurations")
+
+    @gateway_ip_configurations.setter
+    def gateway_ip_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayGatewayIpConfigurationArgs']]]):
+        pulumi.set(self, "gateway_ip_configurations", value)
+
+    @property
+    @pulumi.getter(name="httpListeners")
+    def http_listeners(self) -> pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHttpListenerArgs']]]:
+        """
+        One or more `http_listener` blocks as defined below.
+        """
+        return pulumi.get(self, "http_listeners")
+
+    @http_listeners.setter
+    def http_listeners(self, value: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHttpListenerArgs']]]):
+        pulumi.set(self, "http_listeners", value)
+
+    @property
+    @pulumi.getter(name="requestRoutingRules")
+    def request_routing_rules(self) -> pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRequestRoutingRuleArgs']]]:
+        """
+        One or more `request_routing_rule` blocks as defined below.
+        """
+        return pulumi.get(self, "request_routing_rules")
+
+    @request_routing_rules.setter
+    def request_routing_rules(self, value: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRequestRoutingRuleArgs']]]):
+        pulumi.set(self, "request_routing_rules", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Input['ApplicationGatewaySkuArgs']:
+        """
+        A `sku` block as defined below.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: pulumi.Input['ApplicationGatewaySkuArgs']):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter(name="authenticationCertificates")
+    def authentication_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayAuthenticationCertificateArgs']]]]:
+        """
+        One or more `authentication_certificate` blocks as defined below.
+        """
+        return pulumi.get(self, "authentication_certificates")
+
+    @authentication_certificates.setter
+    def authentication_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayAuthenticationCertificateArgs']]]]):
+        pulumi.set(self, "authentication_certificates", value)
+
+    @property
+    @pulumi.getter(name="autoscaleConfiguration")
+    def autoscale_configuration(self) -> Optional[pulumi.Input['ApplicationGatewayAutoscaleConfigurationArgs']]:
+        """
+        A `autoscale_configuration` block as defined below.
+        """
+        return pulumi.get(self, "autoscale_configuration")
+
+    @autoscale_configuration.setter
+    def autoscale_configuration(self, value: Optional[pulumi.Input['ApplicationGatewayAutoscaleConfigurationArgs']]):
+        pulumi.set(self, "autoscale_configuration", value)
+
+    @property
+    @pulumi.getter(name="customErrorConfigurations")
+    def custom_error_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayCustomErrorConfigurationArgs']]]]:
+        """
+        One or more `custom_error_configuration` blocks as defined below.
+        """
+        return pulumi.get(self, "custom_error_configurations")
+
+    @custom_error_configurations.setter
+    def custom_error_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayCustomErrorConfigurationArgs']]]]):
+        pulumi.set(self, "custom_error_configurations", value)
+
+    @property
+    @pulumi.getter(name="enableHttp2")
+    def enable_http2(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
+        """
+        return pulumi.get(self, "enable_http2")
+
+    @enable_http2.setter
+    def enable_http2(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_http2", value)
+
+    @property
+    @pulumi.getter(name="firewallPolicyId")
+    def firewall_policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Web Application Firewall Policy.
+        """
+        return pulumi.get(self, "firewall_policy_id")
+
+    @firewall_policy_id.setter
+    def firewall_policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "firewall_policy_id", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ApplicationGatewayIdentityArgs']]:
+        """
+        A `identity` block.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ApplicationGatewayIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Application Gateway. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def probes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayProbeArgs']]]]:
+        """
+        One or more `probe` blocks as defined below.
+        """
+        return pulumi.get(self, "probes")
+
+    @probes.setter
+    def probes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayProbeArgs']]]]):
+        pulumi.set(self, "probes", value)
+
+    @property
+    @pulumi.getter(name="redirectConfigurations")
+    def redirect_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRedirectConfigurationArgs']]]]:
+        """
+        A `redirect_configuration` block as defined below.
+        """
+        return pulumi.get(self, "redirect_configurations")
+
+    @redirect_configurations.setter
+    def redirect_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRedirectConfigurationArgs']]]]):
+        pulumi.set(self, "redirect_configurations", value)
+
+    @property
+    @pulumi.getter(name="rewriteRuleSets")
+    def rewrite_rule_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetArgs']]]]:
+        """
+        One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
+        """
+        return pulumi.get(self, "rewrite_rule_sets")
+
+    @rewrite_rule_sets.setter
+    def rewrite_rule_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetArgs']]]]):
+        pulumi.set(self, "rewrite_rule_sets", value)
+
+    @property
+    @pulumi.getter(name="sslCertificates")
+    def ssl_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslCertificateArgs']]]]:
+        """
+        One or more `ssl_certificate` blocks as defined below.
+        """
+        return pulumi.get(self, "ssl_certificates")
+
+    @ssl_certificates.setter
+    def ssl_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslCertificateArgs']]]]):
+        pulumi.set(self, "ssl_certificates", value)
+
+    @property
+    @pulumi.getter(name="sslPolicies")
+    def ssl_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslPolicyArgs']]]]:
+        """
+        a `ssl policy` block as defined below.
+        """
+        return pulumi.get(self, "ssl_policies")
+
+    @ssl_policies.setter
+    def ssl_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslPolicyArgs']]]]):
+        pulumi.set(self, "ssl_policies", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="trustedRootCertificates")
+    def trusted_root_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayTrustedRootCertificateArgs']]]]:
+        """
+        One or more `trusted_root_certificate` blocks as defined below.
+        """
+        return pulumi.get(self, "trusted_root_certificates")
+
+    @trusted_root_certificates.setter
+    def trusted_root_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayTrustedRootCertificateArgs']]]]):
+        pulumi.set(self, "trusted_root_certificates", value)
+
+    @property
+    @pulumi.getter(name="urlPathMaps")
+    def url_path_maps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayUrlPathMapArgs']]]]:
+        """
+        One or more `url_path_map` blocks as defined below.
+        """
+        return pulumi.get(self, "url_path_maps")
+
+    @url_path_maps.setter
+    def url_path_maps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayUrlPathMapArgs']]]]):
+        pulumi.set(self, "url_path_maps", value)
+
+    @property
+    @pulumi.getter(name="wafConfiguration")
+    def waf_configuration(self) -> Optional[pulumi.Input['ApplicationGatewayWafConfigurationArgs']]:
+        """
+        A `waf_configuration` block as defined below.
+        """
+        return pulumi.get(self, "waf_configuration")
+
+    @waf_configuration.setter
+    def waf_configuration(self, value: Optional[pulumi.Input['ApplicationGatewayWafConfigurationArgs']]):
+        pulumi.set(self, "waf_configuration", value)
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A collection of availability zones to spread the Application Gateway over.
+        """
+        return pulumi.get(self, "zones")
+
+    @zones.setter
+    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "zones", value)
 
 
 class ApplicationGateway(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -164,6 +595,144 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ApplicationGatewayWafConfigurationArgs']] waf_configuration: A `waf_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A collection of availability zones to spread the Application Gateway over.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ApplicationGatewayArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an Application Gateway.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            address_spaces=["10.254.0.0/16"])
+        frontend = azure.network.Subnet("frontend",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.254.0.0/24"])
+        backend = azure.network.Subnet("backend",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.254.2.0/24"])
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            allocation_method="Dynamic")
+        backend_address_pool_name = example_virtual_network.name.apply(lambda name: f"{name}-beap")
+        frontend_port_name = example_virtual_network.name.apply(lambda name: f"{name}-feport")
+        frontend_ip_configuration_name = example_virtual_network.name.apply(lambda name: f"{name}-feip")
+        http_setting_name = example_virtual_network.name.apply(lambda name: f"{name}-be-htst")
+        listener_name = example_virtual_network.name.apply(lambda name: f"{name}-httplstn")
+        request_routing_rule_name = example_virtual_network.name.apply(lambda name: f"{name}-rqrt")
+        redirect_configuration_name = example_virtual_network.name.apply(lambda name: f"{name}-rdrcfg")
+        network = azure.network.ApplicationGateway("network",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku=azure.network.ApplicationGatewaySkuArgs(
+                name="Standard_Small",
+                tier="Standard",
+                capacity=2,
+            ),
+            gateway_ip_configurations=[azure.network.ApplicationGatewayGatewayIpConfigurationArgs(
+                name="my-gateway-ip-configuration",
+                subnet_id=frontend.id,
+            )],
+            frontend_ports=[azure.network.ApplicationGatewayFrontendPortArgs(
+                name=frontend_port_name,
+                port=80,
+            )],
+            frontend_ip_configurations=[azure.network.ApplicationGatewayFrontendIpConfigurationArgs(
+                name=frontend_ip_configuration_name,
+                public_ip_address_id=example_public_ip.id,
+            )],
+            backend_address_pools=[azure.network.ApplicationGatewayBackendAddressPoolArgs(
+                name=backend_address_pool_name,
+            )],
+            backend_http_settings=[azure.network.ApplicationGatewayBackendHttpSettingArgs(
+                name=http_setting_name,
+                cookie_based_affinity="Disabled",
+                path="/path1/",
+                port=80,
+                protocol="Http",
+                request_timeout=60,
+            )],
+            http_listeners=[azure.network.ApplicationGatewayHttpListenerArgs(
+                name=listener_name,
+                frontend_ip_configuration_name=frontend_ip_configuration_name,
+                frontend_port_name=frontend_port_name,
+                protocol="Http",
+            )],
+            request_routing_rules=[azure.network.ApplicationGatewayRequestRoutingRuleArgs(
+                name=request_routing_rule_name,
+                rule_type="Basic",
+                http_listener_name=listener_name,
+                backend_address_pool_name=backend_address_pool_name,
+                backend_http_settings_name=http_setting_name,
+            )])
+        ```
+
+        ## Import
+
+        Application Gateway's can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:network/applicationGateway:ApplicationGateway example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/applicationGateways/myGateway1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ApplicationGatewayArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ApplicationGatewayArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 authentication_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayAuthenticationCertificateArgs']]]]] = None,
+                 autoscale_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewayAutoscaleConfigurationArgs']]] = None,
+                 backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayBackendAddressPoolArgs']]]]] = None,
+                 backend_http_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayBackendHttpSettingArgs']]]]] = None,
+                 custom_error_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayCustomErrorConfigurationArgs']]]]] = None,
+                 enable_http2: Optional[pulumi.Input[bool]] = None,
+                 firewall_policy_id: Optional[pulumi.Input[str]] = None,
+                 frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendIpConfigurationArgs']]]]] = None,
+                 frontend_ports: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendPortArgs']]]]] = None,
+                 gateway_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayGatewayIpConfigurationArgs']]]]] = None,
+                 http_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayHttpListenerArgs']]]]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewayIdentityArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 probes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayProbeArgs']]]]] = None,
+                 redirect_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRedirectConfigurationArgs']]]]] = None,
+                 request_routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRequestRoutingRuleArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 rewrite_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRewriteRuleSetArgs']]]]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewaySkuArgs']]] = None,
+                 ssl_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslCertificateArgs']]]]] = None,
+                 ssl_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslPolicyArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 trusted_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayTrustedRootCertificateArgs']]]]] = None,
+                 url_path_maps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayUrlPathMapArgs']]]]] = None,
+                 waf_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewayWafConfigurationArgs']]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

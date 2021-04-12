@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['SubnetNetworkSecurityGroupAssociation']
+__all__ = ['SubnetNetworkSecurityGroupAssociationArgs', 'SubnetNetworkSecurityGroupAssociation']
+
+@pulumi.input_type
+class SubnetNetworkSecurityGroupAssociationArgs:
+    def __init__(__self__, *,
+                 network_security_group_id: pulumi.Input[str],
+                 subnet_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a SubnetNetworkSecurityGroupAssociation resource.
+        :param pulumi.Input[str] network_security_group_id: The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "network_security_group_id", network_security_group_id)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="networkSecurityGroupId")
+    def network_security_group_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "network_security_group_id")
+
+    @network_security_group_id.setter
+    def network_security_group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "network_security_group_id", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Subnet. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subnet_id", value)
 
 
 class SubnetNetworkSecurityGroupAssociation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -70,6 +108,77 @@ class SubnetNetworkSecurityGroupAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] network_security_group_id: The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet. Changing this forces a new resource to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SubnetNetworkSecurityGroupAssociationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Associates a Network Security Group with a Subnet within a Virtual Network.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            security_rules=[azure.network.NetworkSecurityGroupSecurityRuleArgs(
+                name="test123",
+                priority=100,
+                direction="Inbound",
+                access="Allow",
+                protocol="Tcp",
+                source_port_range="*",
+                destination_port_range="*",
+                source_address_prefix="*",
+                destination_address_prefix="*",
+            )])
+        example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation",
+            subnet_id=example_subnet.id,
+            network_security_group_id=example_network_security_group.id)
+        ```
+
+        ## Import
+
+        Subnet `<->` Network Security Group Associations can be imported using the `resource id` of the Subnet, e.g.
+
+        ```sh
+         $ pulumi import azure:network/subnetNetworkSecurityGroupAssociation:SubnetNetworkSecurityGroupAssociation association1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1/subnets/mysubnet1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param SubnetNetworkSecurityGroupAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SubnetNetworkSecurityGroupAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 network_security_group_id: Optional[pulumi.Input[str]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

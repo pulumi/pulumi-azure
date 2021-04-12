@@ -5,15 +5,230 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Registry']
+__all__ = ['RegistryArgs', 'Registry']
+
+@pulumi.input_type
+class RegistryArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 admin_enabled: Optional[pulumi.Input[bool]] = None,
+                 georeplication_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_rule_set: Optional[pulumi.Input['RegistryNetworkRuleSetArgs']] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 quarantine_policy_enabled: Optional[pulumi.Input[bool]] = None,
+                 retention_policy: Optional[pulumi.Input['RegistryRetentionPolicyArgs']] = None,
+                 sku: Optional[pulumi.Input[str]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 trust_policy: Optional[pulumi.Input['RegistryTrustPolicyArgs']] = None):
+        """
+        The set of arguments for constructing a Registry resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] admin_enabled: Specifies whether the admin user is enabled. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] georeplication_locations: A list of Azure locations where the container registry should be geo-replicated.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Container Registry. Changing this forces a new resource to be created.
+        :param pulumi.Input['RegistryNetworkRuleSetArgs'] network_rule_set: A `network_rule_set` block as documented below.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
+        :param pulumi.Input[bool] quarantine_policy_enabled: Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
+        :param pulumi.Input['RegistryRetentionPolicyArgs'] retention_policy: A `retention_policy` block as documented below.
+        :param pulumi.Input[str] sku: The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
+        :param pulumi.Input[str] storage_account_id: The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input['RegistryTrustPolicyArgs'] trust_policy: A `trust_policy` block as documented below.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if admin_enabled is not None:
+            pulumi.set(__self__, "admin_enabled", admin_enabled)
+        if georeplication_locations is not None:
+            pulumi.set(__self__, "georeplication_locations", georeplication_locations)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if network_rule_set is not None:
+            pulumi.set(__self__, "network_rule_set", network_rule_set)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+        if quarantine_policy_enabled is not None:
+            pulumi.set(__self__, "quarantine_policy_enabled", quarantine_policy_enabled)
+        if retention_policy is not None:
+            pulumi.set(__self__, "retention_policy", retention_policy)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if trust_policy is not None:
+            pulumi.set(__self__, "trust_policy", trust_policy)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="adminEnabled")
+    def admin_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the admin user is enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "admin_enabled")
+
+    @admin_enabled.setter
+    def admin_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "admin_enabled", value)
+
+    @property
+    @pulumi.getter(name="georeplicationLocations")
+    def georeplication_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Azure locations where the container registry should be geo-replicated.
+        """
+        return pulumi.get(self, "georeplication_locations")
+
+    @georeplication_locations.setter
+    def georeplication_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "georeplication_locations", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Container Registry. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="networkRuleSet")
+    def network_rule_set(self) -> Optional[pulumi.Input['RegistryNetworkRuleSetArgs']]:
+        """
+        A `network_rule_set` block as documented below.
+        """
+        return pulumi.get(self, "network_rule_set")
+
+    @network_rule_set.setter
+    def network_rule_set(self, value: Optional[pulumi.Input['RegistryNetworkRuleSetArgs']]):
+        pulumi.set(self, "network_rule_set", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether public network access is allowed for the container registry. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
+    @pulumi.getter(name="quarantinePolicyEnabled")
+    def quarantine_policy_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "quarantine_policy_enabled")
+
+    @quarantine_policy_enabled.setter
+    def quarantine_policy_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "quarantine_policy_enabled", value)
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> Optional[pulumi.Input['RegistryRetentionPolicyArgs']]:
+        """
+        A `retention_policy` block as documented below.
+        """
+        return pulumi.get(self, "retention_policy")
+
+    @retention_policy.setter
+    def retention_policy(self, value: Optional[pulumi.Input['RegistryRetentionPolicyArgs']]):
+        pulumi.set(self, "retention_policy", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @storage_account_id.setter
+    def storage_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_id", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="trustPolicy")
+    def trust_policy(self) -> Optional[pulumi.Input['RegistryTrustPolicyArgs']]:
+        """
+        A `trust_policy` block as documented below.
+        """
+        return pulumi.get(self, "trust_policy")
+
+    @trust_policy.setter
+    def trust_policy(self, value: Optional[pulumi.Input['RegistryTrustPolicyArgs']]):
+        pulumi.set(self, "trust_policy", value)
 
 
 class Registry(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -78,6 +293,72 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['RegistryTrustPolicyArgs']] trust_policy: A `trust_policy` block as documented below.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RegistryArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an Azure Container Registry.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        acr = azure.containerservice.Registry("acr",
+            resource_group_name=rg.name,
+            location=rg.location,
+            sku="Premium",
+            admin_enabled=False,
+            georeplication_locations=[
+                "East US",
+                "West Europe",
+            ])
+        ```
+
+        ## Import
+
+        Container Registries can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:containerservice/registry:Registry example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/mygroup1/providers/Microsoft.ContainerRegistry/registries/myregistry1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param RegistryArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RegistryArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 admin_enabled: Optional[pulumi.Input[bool]] = None,
+                 georeplication_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_rule_set: Optional[pulumi.Input[pulumi.InputType['RegistryNetworkRuleSetArgs']]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 quarantine_policy_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 retention_policy: Optional[pulumi.Input[pulumi.InputType['RegistryRetentionPolicyArgs']]] = None,
+                 sku: Optional[pulumi.Input[str]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 trust_policy: Optional[pulumi.Input[pulumi.InputType['RegistryTrustPolicyArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

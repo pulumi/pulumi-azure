@@ -5,15 +5,179 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ExpressRoutePort']
+__all__ = ['ExpressRoutePortArgs', 'ExpressRoutePort']
+
+@pulumi.input_type
+class ExpressRoutePortArgs:
+    def __init__(__self__, *,
+                 bandwidth_in_gbps: pulumi.Input[int],
+                 encapsulation: pulumi.Input[str],
+                 peering_location: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 identity: Optional[pulumi.Input['ExpressRoutePortIdentityArgs']] = None,
+                 link1: Optional[pulumi.Input['ExpressRoutePortLink1Args']] = None,
+                 link2: Optional[pulumi.Input['ExpressRoutePortLink2Args']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a ExpressRoutePort resource.
+        :param pulumi.Input[int] bandwidth_in_gbps: Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created.
+        :param pulumi.Input[str] encapsulation: The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
+        :param pulumi.Input[str] peering_location: The name of the peering location that this Express Route Port is physically mapped to. Changing this forces a new Express Route Port to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Express Route Port should exist. Changing this forces a new Express Route Port to be created.
+        :param pulumi.Input['ExpressRoutePortIdentityArgs'] identity: A `identity` block as defined below.
+        :param pulumi.Input['ExpressRoutePortLink1Args'] link1: A list of `link` blocks as defined below.
+        :param pulumi.Input['ExpressRoutePortLink2Args'] link2: A list of `link` blocks as defined below.
+        :param pulumi.Input[str] location: The Azure Region where the Express Route Port should exist. Changing this forces a new Express Route Port to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Express Route Port. Changing this forces a new Express Route Port to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Express Route Port.
+        """
+        pulumi.set(__self__, "bandwidth_in_gbps", bandwidth_in_gbps)
+        pulumi.set(__self__, "encapsulation", encapsulation)
+        pulumi.set(__self__, "peering_location", peering_location)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if link1 is not None:
+            pulumi.set(__self__, "link1", link1)
+        if link2 is not None:
+            pulumi.set(__self__, "link2", link2)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="bandwidthInGbps")
+    def bandwidth_in_gbps(self) -> pulumi.Input[int]:
+        """
+        Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created.
+        """
+        return pulumi.get(self, "bandwidth_in_gbps")
+
+    @bandwidth_in_gbps.setter
+    def bandwidth_in_gbps(self, value: pulumi.Input[int]):
+        pulumi.set(self, "bandwidth_in_gbps", value)
+
+    @property
+    @pulumi.getter
+    def encapsulation(self) -> pulumi.Input[str]:
+        """
+        The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
+        """
+        return pulumi.get(self, "encapsulation")
+
+    @encapsulation.setter
+    def encapsulation(self, value: pulumi.Input[str]):
+        pulumi.set(self, "encapsulation", value)
+
+    @property
+    @pulumi.getter(name="peeringLocation")
+    def peering_location(self) -> pulumi.Input[str]:
+        """
+        The name of the peering location that this Express Route Port is physically mapped to. Changing this forces a new Express Route Port to be created.
+        """
+        return pulumi.get(self, "peering_location")
+
+    @peering_location.setter
+    def peering_location(self, value: pulumi.Input[str]):
+        pulumi.set(self, "peering_location", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Resource Group where the Express Route Port should exist. Changing this forces a new Express Route Port to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ExpressRoutePortIdentityArgs']]:
+        """
+        A `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ExpressRoutePortIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def link1(self) -> Optional[pulumi.Input['ExpressRoutePortLink1Args']]:
+        """
+        A list of `link` blocks as defined below.
+        """
+        return pulumi.get(self, "link1")
+
+    @link1.setter
+    def link1(self, value: Optional[pulumi.Input['ExpressRoutePortLink1Args']]):
+        pulumi.set(self, "link1", value)
+
+    @property
+    @pulumi.getter
+    def link2(self) -> Optional[pulumi.Input['ExpressRoutePortLink2Args']]:
+        """
+        A list of `link` blocks as defined below.
+        """
+        return pulumi.get(self, "link2")
+
+    @link2.setter
+    def link2(self, value: Optional[pulumi.Input['ExpressRoutePortLink2Args']]):
+        pulumi.set(self, "link2", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Region where the Express Route Port should exist. Changing this forces a new Express Route Port to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Express Route Port. Changing this forces a new Express Route Port to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags which should be assigned to the Express Route Port.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class ExpressRoutePort(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -69,6 +233,66 @@ class ExpressRoutePort(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Express Route Port should exist. Changing this forces a new Express Route Port to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Express Route Port.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ExpressRoutePortArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Express Route Port.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_express_route_port = azure.network.ExpressRoutePort("exampleExpressRoutePort",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            peering_location="Airtel-Chennai-CLS",
+            bandwidth_in_gbps=10,
+            encapsulation="Dot1Q")
+        ```
+
+        ## Import
+
+        Express Route Ports can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:network/expressRoutePort:ExpressRoutePort example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/expressRoutePorts/port1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ExpressRoutePortArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ExpressRoutePortArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 bandwidth_in_gbps: Optional[pulumi.Input[int]] = None,
+                 encapsulation: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ExpressRoutePortIdentityArgs']]] = None,
+                 link1: Optional[pulumi.Input[pulumi.InputType['ExpressRoutePortLink1Args']]] = None,
+                 link2: Optional[pulumi.Input[pulumi.InputType['ExpressRoutePortLink2Args']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 peering_location: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

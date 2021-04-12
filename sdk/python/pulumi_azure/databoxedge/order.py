@@ -5,15 +5,83 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Order']
+__all__ = ['OrderArgs', 'Order']
+
+@pulumi.input_type
+class OrderArgs:
+    def __init__(__self__, *,
+                 contact: pulumi.Input['OrderContactArgs'],
+                 device_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 shipment_address: pulumi.Input['OrderShipmentAddressArgs']):
+        """
+        The set of arguments for constructing a Order resource.
+        :param pulumi.Input['OrderContactArgs'] contact: A `contact` block as defined below.
+        :param pulumi.Input[str] device_name: The name of the Databox Edge Device this order is for. Changing this forces a new Databox Edge Order to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Databox Edge Order should exist. Changing this forces a new Databox Edge Order to be created.
+        :param pulumi.Input['OrderShipmentAddressArgs'] shipment_address: A `shipment_address block as defined below.
+        """
+        pulumi.set(__self__, "contact", contact)
+        pulumi.set(__self__, "device_name", device_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "shipment_address", shipment_address)
+
+    @property
+    @pulumi.getter
+    def contact(self) -> pulumi.Input['OrderContactArgs']:
+        """
+        A `contact` block as defined below.
+        """
+        return pulumi.get(self, "contact")
+
+    @contact.setter
+    def contact(self, value: pulumi.Input['OrderContactArgs']):
+        pulumi.set(self, "contact", value)
+
+    @property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Databox Edge Device this order is for. Changing this forces a new Databox Edge Order to be created.
+        """
+        return pulumi.get(self, "device_name")
+
+    @device_name.setter
+    def device_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "device_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Resource Group where the Databox Edge Order should exist. Changing this forces a new Databox Edge Order to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="shipmentAddress")
+    def shipment_address(self) -> pulumi.Input['OrderShipmentAddressArgs']:
+        """
+        A `shipment_address block as defined below.
+        """
+        return pulumi.get(self, "shipment_address")
+
+    @shipment_address.setter
+    def shipment_address(self, value: pulumi.Input['OrderShipmentAddressArgs']):
+        pulumi.set(self, "shipment_address", value)
 
 
 class Order(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -71,6 +139,74 @@ class Order(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Databox Edge Order should exist. Changing this forces a new Databox Edge Order to be created.
         :param pulumi.Input[pulumi.InputType['OrderShipmentAddressArgs']] shipment_address: A `shipment_address block as defined below.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: OrderArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Databox Edge Order.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_device = azure.databoxedge.Device("exampleDevice",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku_name="Edge-Standard")
+        example_order = azure.databoxedge.Order("exampleOrder",
+            resource_group_name=example_resource_group.name,
+            device_name=example_device.name,
+            contact=azure.databoxedge.OrderContactArgs(
+                company_name="Contoso Corporation",
+                name="Bart",
+                email_lists=["bart@example.com"],
+                phone="(800) 867-5309",
+            ),
+            shipment_address=azure.databoxedge.OrderShipmentAddressArgs(
+                addresses=["740 Evergreen Terrace"],
+                city="Springfield",
+                country="United States",
+                postal_code="97403",
+                state="OR",
+            ))
+        ```
+
+        ## Import
+
+        Databox Edge Orders can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:databoxedge/order:Order example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/device1/orders/default
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param OrderArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(OrderArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 contact: Optional[pulumi.Input[pulumi.InputType['OrderContactArgs']]] = None,
+                 device_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 shipment_address: Optional[pulumi.Input[pulumi.InputType['OrderShipmentAddressArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

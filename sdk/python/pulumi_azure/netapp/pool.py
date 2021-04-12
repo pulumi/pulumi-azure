@@ -5,13 +5,129 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Pool']
+__all__ = ['PoolArgs', 'Pool']
+
+@pulumi.input_type
+class PoolArgs:
+    def __init__(__self__, *,
+                 account_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 service_level: pulumi.Input[str],
+                 size_in_tb: pulumi.Input[int],
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Pool resource.
+        :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] service_level: The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+        :param pulumi.Input[int] size_in_tb: Provisioned size of the pool in TB. Value must be between `4` and `500`.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the NetApp Pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "service_level", service_level)
+        pulumi.set(__self__, "size_in_tb", size_in_tb)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[str]:
+        """
+        The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="serviceLevel")
+    def service_level(self) -> pulumi.Input[str]:
+        """
+        The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+        """
+        return pulumi.get(self, "service_level")
+
+    @service_level.setter
+    def service_level(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_level", value)
+
+    @property
+    @pulumi.getter(name="sizeInTb")
+    def size_in_tb(self) -> pulumi.Input[int]:
+        """
+        Provisioned size of the pool in TB. Value must be between `4` and `500`.
+        """
+        return pulumi.get(self, "size_in_tb")
+
+    @size_in_tb.setter
+    def size_in_tb(self, value: pulumi.Input[int]):
+        pulumi.set(self, "size_in_tb", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the NetApp Pool. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Pool(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -64,6 +180,66 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[int] size_in_tb: Provisioned size of the pool in TB. Value must be between `4` and `500`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: PoolArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Pool within a NetApp Account.
+
+        ## NetApp Pool Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.netapp.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_pool = azure.netapp.Pool("examplePool",
+            account_name=example_account.name,
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            service_level="Premium",
+            size_in_tb=4)
+        ```
+
+        ## Import
+
+        NetApp Pool can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:netapp/pool:Pool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param PoolArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PoolArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_level: Optional[pulumi.Input[str]] = None,
+                 size_in_tb: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

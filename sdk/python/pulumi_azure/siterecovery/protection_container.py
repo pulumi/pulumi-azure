@@ -5,13 +5,82 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ProtectionContainer']
+__all__ = ['ProtectionContainerArgs', 'ProtectionContainer']
+
+@pulumi.input_type
+class ProtectionContainerArgs:
+    def __init__(__self__, *,
+                 recovery_fabric_name: pulumi.Input[str],
+                 recovery_vault_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ProtectionContainer resource.
+        :param pulumi.Input[str] recovery_fabric_name: Name of fabric that should contain this protection container.
+        :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
+        :param pulumi.Input[str] name: The name of the network mapping.
+        """
+        pulumi.set(__self__, "recovery_fabric_name", recovery_fabric_name)
+        pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="recoveryFabricName")
+    def recovery_fabric_name(self) -> pulumi.Input[str]:
+        """
+        Name of fabric that should contain this protection container.
+        """
+        return pulumi.get(self, "recovery_fabric_name")
+
+    @recovery_fabric_name.setter
+    def recovery_fabric_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "recovery_fabric_name", value)
+
+    @property
+    @pulumi.getter(name="recoveryVaultName")
+    def recovery_vault_name(self) -> pulumi.Input[str]:
+        """
+        The name of the vault that should be updated.
+        """
+        return pulumi.get(self, "recovery_vault_name")
+
+    @recovery_vault_name.setter
+    def recovery_vault_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "recovery_vault_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group where the vault that should be updated is located.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the network mapping.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class ProtectionContainer(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -62,6 +131,67 @@ class ProtectionContainer(pulumi.CustomResource):
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ProtectionContainerArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Azure Site Recovery protection container. Protection containers serve as containers for replicated VMs and belong to a single region / recovery fabric. Protection containers can contain more than one replicated VM. To replicate a VM, a container must exist in both the source and target Azure regions.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        primary = azure.core.ResourceGroup("primary", location="West US")
+        secondary = azure.core.ResourceGroup("secondary", location="East US")
+        vault = azure.recoveryservices.Vault("vault",
+            location=secondary.location,
+            resource_group_name=secondary.name,
+            sku="Standard")
+        fabric = azure.siterecovery.Fabric("fabric",
+            resource_group_name=secondary.name,
+            recovery_vault_name=vault.name,
+            location=primary.location)
+        protection_container = azure.siterecovery.ProtectionContainer("protection-container",
+            resource_group_name=secondary.name,
+            recovery_vault_name=vault.name,
+            recovery_fabric_name=fabric.name)
+        ```
+
+        ## Import
+
+        Site Recovery Protection Containers can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:siterecovery/protectionContainer:ProtectionContainer mycontainer /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationFabrics/fabric-name/replicationProtectionContainers/protection-container-name
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ProtectionContainerArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ProtectionContainerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 recovery_fabric_name: Optional[pulumi.Input[str]] = None,
+                 recovery_vault_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

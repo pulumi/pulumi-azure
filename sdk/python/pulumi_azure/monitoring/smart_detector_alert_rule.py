@@ -5,15 +5,193 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SmartDetectorAlertRule']
+__all__ = ['SmartDetectorAlertRuleArgs', 'SmartDetectorAlertRule']
+
+@pulumi.input_type
+class SmartDetectorAlertRuleArgs:
+    def __init__(__self__, *,
+                 action_group: pulumi.Input['SmartDetectorAlertRuleActionGroupArgs'],
+                 detector_type: pulumi.Input[str],
+                 frequency: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 scope_resource_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 severity: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 throttling_duration: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a SmartDetectorAlertRule resource.
+        :param pulumi.Input['SmartDetectorAlertRuleActionGroupArgs'] action_group: An `action_group` block as defined below.
+        :param pulumi.Input[str] detector_type: Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible value is `FailureAnomaliesDetector`.
+        :param pulumi.Input[str] frequency: Specifies the frequency of this Smart Detector Alert Rule in ISO8601 format.
+        :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which the Monitor Smart Detector Alert Rule should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_resource_ids: Specifies the scopes of this Smart Detector Alert Rule.
+        :param pulumi.Input[str] severity: Specifies the severity of this Smart Detector Alert Rule. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3` or `Sev4`.
+        :param pulumi.Input[str] description: Specifies a description for the Smart Detector Alert Rule.
+        :param pulumi.Input[bool] enabled: Is the Smart Detector Alert Rule enabled? Defaults to `true`.
+        :param pulumi.Input[str] name: Specifies the name of the Monitor Smart Detector Alert Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] throttling_duration: Specifies the duration (in ISO8601 format) to wait before notifying on the alert rule again.
+        """
+        pulumi.set(__self__, "action_group", action_group)
+        pulumi.set(__self__, "detector_type", detector_type)
+        pulumi.set(__self__, "frequency", frequency)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "scope_resource_ids", scope_resource_ids)
+        pulumi.set(__self__, "severity", severity)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if throttling_duration is not None:
+            pulumi.set(__self__, "throttling_duration", throttling_duration)
+
+    @property
+    @pulumi.getter(name="actionGroup")
+    def action_group(self) -> pulumi.Input['SmartDetectorAlertRuleActionGroupArgs']:
+        """
+        An `action_group` block as defined below.
+        """
+        return pulumi.get(self, "action_group")
+
+    @action_group.setter
+    def action_group(self, value: pulumi.Input['SmartDetectorAlertRuleActionGroupArgs']):
+        pulumi.set(self, "action_group", value)
+
+    @property
+    @pulumi.getter(name="detectorType")
+    def detector_type(self) -> pulumi.Input[str]:
+        """
+        Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible value is `FailureAnomaliesDetector`.
+        """
+        return pulumi.get(self, "detector_type")
+
+    @detector_type.setter
+    def detector_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "detector_type", value)
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> pulumi.Input[str]:
+        """
+        Specifies the frequency of this Smart Detector Alert Rule in ISO8601 format.
+        """
+        return pulumi.get(self, "frequency")
+
+    @frequency.setter
+    def frequency(self, value: pulumi.Input[str]):
+        pulumi.set(self, "frequency", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the resource group in which the Monitor Smart Detector Alert Rule should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="scopeResourceIds")
+    def scope_resource_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies the scopes of this Smart Detector Alert Rule.
+        """
+        return pulumi.get(self, "scope_resource_ids")
+
+    @scope_resource_ids.setter
+    def scope_resource_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "scope_resource_ids", value)
+
+    @property
+    @pulumi.getter
+    def severity(self) -> pulumi.Input[str]:
+        """
+        Specifies the severity of this Smart Detector Alert Rule. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3` or `Sev4`.
+        """
+        return pulumi.get(self, "severity")
+
+    @severity.setter
+    def severity(self, value: pulumi.Input[str]):
+        pulumi.set(self, "severity", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a description for the Smart Detector Alert Rule.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the Smart Detector Alert Rule enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Monitor Smart Detector Alert Rule. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="throttlingDuration")
+    def throttling_duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the duration (in ISO8601 format) to wait before notifying on the alert rule again.
+        """
+        return pulumi.get(self, "throttling_duration")
+
+    @throttling_duration.setter
+    def throttling_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "throttling_duration", value)
 
 
 class SmartDetectorAlertRule(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -81,6 +259,77 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] throttling_duration: Specifies the duration (in ISO8601 format) to wait before notifying on the alert rule again.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SmartDetectorAlertRuleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an Monitor Smart Detector Alert Rule.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_insights = azure.appinsights.Insights("exampleInsights",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            application_type="web")
+        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
+            resource_group_name=example_resource_group.name,
+            short_name="exampleactiongroup")
+        example_smart_detector_alert_rule = azure.monitoring.SmartDetectorAlertRule("exampleSmartDetectorAlertRule",
+            resource_group_name=example_resource_group.name,
+            severity="Sev0",
+            scope_resource_ids=[example_insights.id],
+            frequency="PT1M",
+            detector_type="FailureAnomaliesDetector",
+            action_group=azure.monitoring.SmartDetectorAlertRuleActionGroupArgs(
+                ids=[azurerm_monitor_action_group["test"]["id"]],
+            ))
+        ```
+
+        ## Import
+
+        Monitor Smart Detector Alert Rule can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:monitoring/smartDetectorAlertRule:SmartDetectorAlertRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AlertsManagement/smartdetectoralertrules/rule1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param SmartDetectorAlertRuleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SmartDetectorAlertRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 action_group: Optional[pulumi.Input[pulumi.InputType['SmartDetectorAlertRuleActionGroupArgs']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 detector_type: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 frequency: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scope_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 severity: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 throttling_duration: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

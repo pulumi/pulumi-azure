@@ -5,13 +5,146 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['DedicatedHost']
+__all__ = ['DedicatedHostArgs', 'DedicatedHost']
+
+@pulumi.input_type
+class DedicatedHostArgs:
+    def __init__(__self__, *,
+                 dedicated_host_group_id: pulumi.Input[str],
+                 platform_fault_domain: pulumi.Input[int],
+                 sku_name: pulumi.Input[str],
+                 auto_replace_on_failure: Optional[pulumi.Input[bool]] = None,
+                 license_type: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a DedicatedHost resource.
+        :param pulumi.Input[str] dedicated_host_group_id: Specifies the ID of the Dedicated Host Group where the Dedicated Host should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] platform_fault_domain: Specify the fault domain of the Dedicated Host Group in which to create the Dedicated Host. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku_name: Specify the sku name of the Dedicated Host. Possible values are `DSv3-Type1`, `DSv3-Type2`, `DSv4-Type1`, `ESv3-Type1`, `ESv3-Type2`,`FSv2-Type2`, `DASv4-Type1`, `DCSv2-Type1`, `DDSv4-Type1`, `DSv3-Type1`, `DSv3-Type2`, `DSv3-Type3`, `DSv4-Type1`, `EASv4-Type1`, `EDSv4-Type1`, `ESv3-Type1`, `ESv3-Type2`, `ESv3-Type3`, `ESv4-Type1`, `FSv2-Type2`, `FSv2-Type3`, `LSv2-Type1`, `MS-Type1`, `MSm-Type1`, `MSmv2-Type1`, `MSv2-Type1`, `NVASv4-Type1`, and `NVSv3-Type1`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] auto_replace_on_failure: Should the Dedicated Host automatically be replaced in case of a Hardware Failure? Defaults to `true`.
+        :param pulumi.Input[str] license_type: Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `None`, `Windows_Server_Hybrid` and `Windows_Server_Perpetual`. Defaults to `None`.
+        :param pulumi.Input[str] location: Specify the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of this Dedicated Host. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "dedicated_host_group_id", dedicated_host_group_id)
+        pulumi.set(__self__, "platform_fault_domain", platform_fault_domain)
+        pulumi.set(__self__, "sku_name", sku_name)
+        if auto_replace_on_failure is not None:
+            pulumi.set(__self__, "auto_replace_on_failure", auto_replace_on_failure)
+        if license_type is not None:
+            pulumi.set(__self__, "license_type", license_type)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="dedicatedHostGroupId")
+    def dedicated_host_group_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the ID of the Dedicated Host Group where the Dedicated Host should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "dedicated_host_group_id")
+
+    @dedicated_host_group_id.setter
+    def dedicated_host_group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "dedicated_host_group_id", value)
+
+    @property
+    @pulumi.getter(name="platformFaultDomain")
+    def platform_fault_domain(self) -> pulumi.Input[int]:
+        """
+        Specify the fault domain of the Dedicated Host Group in which to create the Dedicated Host. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "platform_fault_domain")
+
+    @platform_fault_domain.setter
+    def platform_fault_domain(self, value: pulumi.Input[int]):
+        pulumi.set(self, "platform_fault_domain", value)
+
+    @property
+    @pulumi.getter(name="skuName")
+    def sku_name(self) -> pulumi.Input[str]:
+        """
+        Specify the sku name of the Dedicated Host. Possible values are `DSv3-Type1`, `DSv3-Type2`, `DSv4-Type1`, `ESv3-Type1`, `ESv3-Type2`,`FSv2-Type2`, `DASv4-Type1`, `DCSv2-Type1`, `DDSv4-Type1`, `DSv3-Type1`, `DSv3-Type2`, `DSv3-Type3`, `DSv4-Type1`, `EASv4-Type1`, `EDSv4-Type1`, `ESv3-Type1`, `ESv3-Type2`, `ESv3-Type3`, `ESv4-Type1`, `FSv2-Type2`, `FSv2-Type3`, `LSv2-Type1`, `MS-Type1`, `MSm-Type1`, `MSmv2-Type1`, `MSv2-Type1`, `NVASv4-Type1`, and `NVSv3-Type1`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "sku_name")
+
+    @sku_name.setter
+    def sku_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sku_name", value)
+
+    @property
+    @pulumi.getter(name="autoReplaceOnFailure")
+    def auto_replace_on_failure(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the Dedicated Host automatically be replaced in case of a Hardware Failure? Defaults to `true`.
+        """
+        return pulumi.get(self, "auto_replace_on_failure")
+
+    @auto_replace_on_failure.setter
+    def auto_replace_on_failure(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_replace_on_failure", value)
+
+    @property
+    @pulumi.getter(name="licenseType")
+    def license_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `None`, `Windows_Server_Hybrid` and `Windows_Server_Perpetual`. Defaults to `None`.
+        """
+        return pulumi.get(self, "license_type")
+
+    @license_type.setter
+    def license_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "license_type", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of this Dedicated Host. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class DedicatedHost(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -66,6 +199,67 @@ class DedicatedHost(pulumi.CustomResource):
         :param pulumi.Input[str] sku_name: Specify the sku name of the Dedicated Host. Possible values are `DSv3-Type1`, `DSv3-Type2`, `DSv4-Type1`, `ESv3-Type1`, `ESv3-Type2`,`FSv2-Type2`, `DASv4-Type1`, `DCSv2-Type1`, `DDSv4-Type1`, `DSv3-Type1`, `DSv3-Type2`, `DSv3-Type3`, `DSv4-Type1`, `EASv4-Type1`, `EDSv4-Type1`, `ESv3-Type1`, `ESv3-Type2`, `ESv3-Type3`, `ESv4-Type1`, `FSv2-Type2`, `FSv2-Type3`, `LSv2-Type1`, `MS-Type1`, `MSm-Type1`, `MSmv2-Type1`, `MSv2-Type1`, `NVASv4-Type1`, and `NVSv3-Type1`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DedicatedHostArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manage a Dedicated Host within a Dedicated Host Group.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_dedicated_host_group = azure.compute.DedicatedHostGroup("exampleDedicatedHostGroup",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            platform_fault_domain_count=2)
+        example_dedicated_host = azure.compute.DedicatedHost("exampleDedicatedHost",
+            location=example_resource_group.location,
+            dedicated_host_group_id=example_dedicated_host_group.id,
+            sku_name="DSv3-Type1",
+            platform_fault_domain=1)
+        ```
+
+        ## Import
+
+        Dedicated Hosts can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:compute/dedicatedHost:DedicatedHost example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/hostGroups/group1/hosts/host1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param DedicatedHostArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DedicatedHostArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_replace_on_failure: Optional[pulumi.Input[bool]] = None,
+                 dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
+                 license_type: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 platform_fault_domain: Optional[pulumi.Input[int]] = None,
+                 sku_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

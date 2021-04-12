@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ClusterCustomerManagedKey']
+__all__ = ['ClusterCustomerManagedKeyArgs', 'ClusterCustomerManagedKey']
+
+@pulumi.input_type
+class ClusterCustomerManagedKeyArgs:
+    def __init__(__self__, *,
+                 key_vault_key_id: pulumi.Input[str],
+                 log_analytics_cluster_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a ClusterCustomerManagedKey resource.
+        :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key to use for encryption.
+        :param pulumi.Input[str] log_analytics_cluster_id: The ID of the Log Analytics Cluster. Changing this forces a new Log Analytics Cluster Customer Managed Key to be created.
+        """
+        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        pulumi.set(__self__, "log_analytics_cluster_id", log_analytics_cluster_id)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Key Vault Key to use for encryption.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @key_vault_key_id.setter
+    def key_vault_key_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_vault_key_id", value)
+
+    @property
+    @pulumi.getter(name="logAnalyticsClusterId")
+    def log_analytics_cluster_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Log Analytics Cluster. Changing this forces a new Log Analytics Cluster Customer Managed Key to be created.
+        """
+        return pulumi.get(self, "log_analytics_cluster_id")
+
+    @log_analytics_cluster_id.setter
+    def log_analytics_cluster_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_analytics_cluster_id", value)
 
 
 class ClusterCustomerManagedKey(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -36,6 +74,43 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key to use for encryption.
         :param pulumi.Input[str] log_analytics_cluster_id: The ID of the Log Analytics Cluster. Changing this forces a new Log Analytics Cluster Customer Managed Key to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ClusterCustomerManagedKeyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Log Analytics Cluster Customer Managed Key.
+
+        ## Import
+
+        Log Analytics Cluster Customer Managed Keys can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:loganalytics/clusterCustomerManagedKey:ClusterCustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.OperationalInsights/clusters/cluster1/CMK
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ClusterCustomerManagedKeyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ClusterCustomerManagedKeyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 key_vault_key_id: Optional[pulumi.Input[str]] = None,
+                 log_analytics_cluster_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -22,55 +22,56 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:compute/availabilitySet:AvailabilitySet":
-		r, err = NewAvailabilitySet(ctx, name, nil, pulumi.URN_(urn))
+		r = &AvailabilitySet{}
 	case "azure:compute/bastionHost:BastionHost":
-		r, err = NewBastionHost(ctx, name, nil, pulumi.URN_(urn))
+		r = &BastionHost{}
 	case "azure:compute/dataDiskAttachment:DataDiskAttachment":
-		r, err = NewDataDiskAttachment(ctx, name, nil, pulumi.URN_(urn))
+		r = &DataDiskAttachment{}
 	case "azure:compute/dedicatedHost:DedicatedHost":
-		r, err = NewDedicatedHost(ctx, name, nil, pulumi.URN_(urn))
+		r = &DedicatedHost{}
 	case "azure:compute/dedicatedHostGroup:DedicatedHostGroup":
-		r, err = NewDedicatedHostGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &DedicatedHostGroup{}
 	case "azure:compute/diskAccess:DiskAccess":
-		r, err = NewDiskAccess(ctx, name, nil, pulumi.URN_(urn))
+		r = &DiskAccess{}
 	case "azure:compute/diskEncryptionSet:DiskEncryptionSet":
-		r, err = NewDiskEncryptionSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &DiskEncryptionSet{}
 	case "azure:compute/extension:Extension":
-		r, err = NewExtension(ctx, name, nil, pulumi.URN_(urn))
+		r = &Extension{}
 	case "azure:compute/image:Image":
-		r, err = NewImage(ctx, name, nil, pulumi.URN_(urn))
+		r = &Image{}
 	case "azure:compute/linuxVirtualMachine:LinuxVirtualMachine":
-		r, err = NewLinuxVirtualMachine(ctx, name, nil, pulumi.URN_(urn))
+		r = &LinuxVirtualMachine{}
 	case "azure:compute/linuxVirtualMachineScaleSet:LinuxVirtualMachineScaleSet":
-		r, err = NewLinuxVirtualMachineScaleSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &LinuxVirtualMachineScaleSet{}
 	case "azure:compute/managedDisk:ManagedDisk":
-		r, err = NewManagedDisk(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagedDisk{}
 	case "azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet":
-		r, err = NewOrchestratedVirtualMachineScaleSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &OrchestratedVirtualMachineScaleSet{}
 	case "azure:compute/scaleSet:ScaleSet":
-		r, err = NewScaleSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &ScaleSet{}
 	case "azure:compute/sharedImage:SharedImage":
-		r, err = NewSharedImage(ctx, name, nil, pulumi.URN_(urn))
+		r = &SharedImage{}
 	case "azure:compute/sharedImageGallery:SharedImageGallery":
-		r, err = NewSharedImageGallery(ctx, name, nil, pulumi.URN_(urn))
+		r = &SharedImageGallery{}
 	case "azure:compute/sharedImageVersion:SharedImageVersion":
-		r, err = NewSharedImageVersion(ctx, name, nil, pulumi.URN_(urn))
+		r = &SharedImageVersion{}
 	case "azure:compute/snapshot:Snapshot":
-		r, err = NewSnapshot(ctx, name, nil, pulumi.URN_(urn))
+		r = &Snapshot{}
 	case "azure:compute/sshPublicKey:SshPublicKey":
-		r, err = NewSshPublicKey(ctx, name, nil, pulumi.URN_(urn))
+		r = &SshPublicKey{}
 	case "azure:compute/virtualMachine:VirtualMachine":
-		r, err = NewVirtualMachine(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualMachine{}
 	case "azure:compute/virtualMachineScaleSetExtension:VirtualMachineScaleSetExtension":
-		r, err = NewVirtualMachineScaleSetExtension(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualMachineScaleSetExtension{}
 	case "azure:compute/windowsVirtualMachine:WindowsVirtualMachine":
-		r, err = NewWindowsVirtualMachine(ctx, name, nil, pulumi.URN_(urn))
+		r = &WindowsVirtualMachine{}
 	case "azure:compute/windowsVirtualMachineScaleSet:WindowsVirtualMachineScaleSet":
-		r, err = NewWindowsVirtualMachineScaleSet(ctx, name, nil, pulumi.URN_(urn))
+		r = &WindowsVirtualMachineScaleSet{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

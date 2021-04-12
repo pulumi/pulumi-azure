@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['NatGatewayPublicIpAssociation']
+__all__ = ['NatGatewayPublicIpAssociationArgs', 'NatGatewayPublicIpAssociation']
+
+@pulumi.input_type
+class NatGatewayPublicIpAssociationArgs:
+    def __init__(__self__, *,
+                 nat_gateway_id: pulumi.Input[str],
+                 public_ip_address_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a NatGatewayPublicIpAssociation resource.
+        :param pulumi.Input[str] nat_gateway_id: The ID of the Nat Gateway. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] public_ip_address_id: The ID of the Public IP which this Nat Gateway which should be connected to. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
+        pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
+
+    @property
+    @pulumi.getter(name="natGatewayId")
+    def nat_gateway_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Nat Gateway. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "nat_gateway_id")
+
+    @nat_gateway_id.setter
+    def nat_gateway_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "nat_gateway_id", value)
+
+    @property
+    @pulumi.getter(name="publicIpAddressId")
+    def public_ip_address_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Public IP which this Nat Gateway which should be connected to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "public_ip_address_id")
+
+    @public_ip_address_id.setter
+    def public_ip_address_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "public_ip_address_id", value)
 
 
 class NatGatewayPublicIpAssociation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -57,6 +95,64 @@ class NatGatewayPublicIpAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] nat_gateway_id: The ID of the Nat Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[str] public_ip_address_id: The ID of the Public IP which this Nat Gateway which should be connected to. Changing this forces a new resource to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: NatGatewayPublicIpAssociationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages the association between a Nat Gateway and a Public IP.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            allocation_method="Static",
+            sku="Standard")
+        example_nat_gateway = azure.network.NatGateway("exampleNatGateway",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Standard")
+        example_nat_gateway_public_ip_association = azure.network.NatGatewayPublicIpAssociation("exampleNatGatewayPublicIpAssociation",
+            nat_gateway_id=example_nat_gateway.id,
+            public_ip_address_id=example_public_ip.id)
+        ```
+
+        ## Import
+
+        Associations between Nat Gateway and Public IP Addresses can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:network/natGatewayPublicIpAssociation:NatGatewayPublicIpAssociation example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/publicIPAddresses/myPublicIpAddress1"
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param NatGatewayPublicIpAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(NatGatewayPublicIpAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 nat_gateway_id: Optional[pulumi.Input[str]] = None,
+                 public_ip_address_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

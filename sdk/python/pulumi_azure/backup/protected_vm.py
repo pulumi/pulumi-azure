@@ -5,13 +5,97 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ProtectedVM']
+__all__ = ['ProtectedVMArgs', 'ProtectedVM']
+
+@pulumi.input_type
+class ProtectedVMArgs:
+    def __init__(__self__, *,
+                 backup_policy_id: pulumi.Input[str],
+                 recovery_vault_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 source_vm_id: pulumi.Input[str],
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a ProtectedVM resource.
+        :param pulumi.Input[str] backup_policy_id: Specifies the id of the backup policy to use.
+        :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_vm_id: Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "backup_policy_id", backup_policy_id)
+        pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "source_vm_id", source_vm_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="backupPolicyId")
+    def backup_policy_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the id of the backup policy to use.
+        """
+        return pulumi.get(self, "backup_policy_id")
+
+    @backup_policy_id.setter
+    def backup_policy_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "backup_policy_id", value)
+
+    @property
+    @pulumi.getter(name="recoveryVaultName")
+    def recovery_vault_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "recovery_vault_name")
+
+    @recovery_vault_name.setter
+    def recovery_vault_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "recovery_vault_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="sourceVmId")
+    def source_vm_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "source_vm_id")
+
+    @source_vm_id.setter
+    def source_vm_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_vm_id", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class ProtectedVM(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -69,6 +153,73 @@ class ProtectedVM(pulumi.CustomResource):
         :param pulumi.Input[str] source_vm_id: Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ProtectedVMArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages Azure Backup for an Azure VM
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_vault = azure.recoveryservices.Vault("exampleVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard")
+        example_policy_vm = azure.backup.PolicyVM("examplePolicyVM",
+            resource_group_name=example_resource_group.name,
+            recovery_vault_name=example_vault.name,
+            backup=azure.backup.PolicyVMBackupArgs(
+                frequency="Daily",
+                time="23:00",
+            ))
+        vm1 = azure.backup.ProtectedVM("vm1",
+            resource_group_name=example_resource_group.name,
+            recovery_vault_name=example_vault.name,
+            source_vm_id=azurerm_virtual_machine["example"]["id"],
+            backup_policy_id=example_policy_vm.id)
+        ```
+
+        ## Import
+
+        Recovery Services Protected VMs can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:backup/protectedVM:ProtectedVM item1 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/example-recovery-vault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;group1;vm1/protectedItems/vm;iaasvmcontainerv2;group1;vm1"
+        ```
+
+         Note the ID requires quoting as there are semicolons
+
+        :param str resource_name: The name of the resource.
+        :param ProtectedVMArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ProtectedVMArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 backup_policy_id: Optional[pulumi.Input[str]] = None,
+                 recovery_vault_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 source_vm_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

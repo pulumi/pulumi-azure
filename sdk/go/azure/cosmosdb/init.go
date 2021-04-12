@@ -22,31 +22,32 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:cosmosdb/account:Account":
-		r, err = NewAccount(ctx, name, nil, pulumi.URN_(urn))
+		r = &Account{}
 	case "azure:cosmosdb/cassandraKeyspace:CassandraKeyspace":
-		r, err = NewCassandraKeyspace(ctx, name, nil, pulumi.URN_(urn))
+		r = &CassandraKeyspace{}
 	case "azure:cosmosdb/cassandraTable:CassandraTable":
-		r, err = NewCassandraTable(ctx, name, nil, pulumi.URN_(urn))
+		r = &CassandraTable{}
 	case "azure:cosmosdb/gremlinDatabase:GremlinDatabase":
-		r, err = NewGremlinDatabase(ctx, name, nil, pulumi.URN_(urn))
+		r = &GremlinDatabase{}
 	case "azure:cosmosdb/gremlinGraph:GremlinGraph":
-		r, err = NewGremlinGraph(ctx, name, nil, pulumi.URN_(urn))
+		r = &GremlinGraph{}
 	case "azure:cosmosdb/mongoCollection:MongoCollection":
-		r, err = NewMongoCollection(ctx, name, nil, pulumi.URN_(urn))
+		r = &MongoCollection{}
 	case "azure:cosmosdb/mongoDatabase:MongoDatabase":
-		r, err = NewMongoDatabase(ctx, name, nil, pulumi.URN_(urn))
+		r = &MongoDatabase{}
 	case "azure:cosmosdb/sqlContainer:SqlContainer":
-		r, err = NewSqlContainer(ctx, name, nil, pulumi.URN_(urn))
+		r = &SqlContainer{}
 	case "azure:cosmosdb/sqlDatabase:SqlDatabase":
-		r, err = NewSqlDatabase(ctx, name, nil, pulumi.URN_(urn))
+		r = &SqlDatabase{}
 	case "azure:cosmosdb/sqlStoredProcedure:SqlStoredProcedure":
-		r, err = NewSqlStoredProcedure(ctx, name, nil, pulumi.URN_(urn))
+		r = &SqlStoredProcedure{}
 	case "azure:cosmosdb/table:Table":
-		r, err = NewTable(ctx, name, nil, pulumi.URN_(urn))
+		r = &Table{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

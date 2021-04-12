@@ -5,15 +5,133 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Vault']
+__all__ = ['VaultArgs', 'Vault']
+
+@pulumi.input_type
+class VaultArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 sku: pulumi.Input[str],
+                 identity: Optional[pulumi.Input['VaultIdentityArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 soft_delete_enabled: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Vault resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku: Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
+        :param pulumi.Input['VaultIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] soft_delete_enabled: Is soft delete enable for this Vault? Defaults to `true`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku", sku)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if soft_delete_enabled is not None:
+            pulumi.set(__self__, "soft_delete_enabled", soft_delete_enabled)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Input[str]:
+        """
+        Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['VaultIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['VaultIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Recovery Services Vault. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="softDeleteEnabled")
+    def soft_delete_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is soft delete enable for this Vault? Defaults to `true`.
+        """
+        return pulumi.get(self, "soft_delete_enabled")
+
+    @soft_delete_enabled.setter
+    def soft_delete_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "soft_delete_enabled", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Vault(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -62,6 +180,62 @@ class Vault(pulumi.CustomResource):
         :param pulumi.Input[bool] soft_delete_enabled: Is soft delete enable for this Vault? Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VaultArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Recovery Services Vault.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        vault = azure.recoveryservices.Vault("vault",
+            location=rg.location,
+            resource_group_name=rg.name,
+            sku="Standard",
+            soft_delete_enabled=True)
+        ```
+
+        ## Import
+
+        Recovery Services Vaults can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:recoveryservices/vault:Vault vault1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/vault1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param VaultArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VaultArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['VaultIdentityArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[str]] = None,
+                 soft_delete_enabled: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

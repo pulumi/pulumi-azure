@@ -5,15 +5,275 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['KeyVault']
+__all__ = ['KeyVaultArgs', 'KeyVault']
+
+@pulumi.input_type
+class KeyVaultArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 sku_name: pulumi.Input[str],
+                 tenant_id: pulumi.Input[str],
+                 access_policies: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]]] = None,
+                 contacts: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultContactArgs']]]] = None,
+                 enable_rbac_authorization: Optional[pulumi.Input[bool]] = None,
+                 enabled_for_deployment: Optional[pulumi.Input[bool]] = None,
+                 enabled_for_disk_encryption: Optional[pulumi.Input[bool]] = None,
+                 enabled_for_template_deployment: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_acls: Optional[pulumi.Input['KeyVaultNetworkAclsArgs']] = None,
+                 purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
+                 soft_delete_enabled: Optional[pulumi.Input[bool]] = None,
+                 soft_delete_retention_days: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a KeyVault resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku_name: The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
+        :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+        :param pulumi.Input[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]] access_policies: A list of up to 16 objects describing access policies, as described below.
+        :param pulumi.Input[Sequence[pulumi.Input['KeyVaultContactArgs']]] contacts: One or more `contact` block as defined below.
+        :param pulumi.Input[bool] enable_rbac_authorization: Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
+        :param pulumi.Input[bool] enabled_for_deployment: Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
+        :param pulumi.Input[bool] enabled_for_disk_encryption: Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
+        :param pulumi.Input[bool] enabled_for_template_deployment: Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Key Vault. Changing this forces a new resource to be created.
+        :param pulumi.Input['KeyVaultNetworkAclsArgs'] network_acls: A `network_acls` block as defined below.
+        :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+        :param pulumi.Input[int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku_name", sku_name)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if access_policies is not None:
+            pulumi.set(__self__, "access_policies", access_policies)
+        if contacts is not None:
+            pulumi.set(__self__, "contacts", contacts)
+        if enable_rbac_authorization is not None:
+            pulumi.set(__self__, "enable_rbac_authorization", enable_rbac_authorization)
+        if enabled_for_deployment is not None:
+            pulumi.set(__self__, "enabled_for_deployment", enabled_for_deployment)
+        if enabled_for_disk_encryption is not None:
+            pulumi.set(__self__, "enabled_for_disk_encryption", enabled_for_disk_encryption)
+        if enabled_for_template_deployment is not None:
+            pulumi.set(__self__, "enabled_for_template_deployment", enabled_for_template_deployment)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if network_acls is not None:
+            pulumi.set(__self__, "network_acls", network_acls)
+        if purge_protection_enabled is not None:
+            pulumi.set(__self__, "purge_protection_enabled", purge_protection_enabled)
+        if soft_delete_enabled is not None:
+            warnings.warn("""Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field is no longer configurable and can be safely removed. This field will be removed in version 3.0 of the Azure Provider.""", DeprecationWarning)
+            pulumi.log.warn("""soft_delete_enabled is deprecated: Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field is no longer configurable and can be safely removed. This field will be removed in version 3.0 of the Azure Provider.""")
+        if soft_delete_enabled is not None:
+            pulumi.set(__self__, "soft_delete_enabled", soft_delete_enabled)
+        if soft_delete_retention_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_days", soft_delete_retention_days)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="skuName")
+    def sku_name(self) -> pulumi.Input[str]:
+        """
+        The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
+        """
+        return pulumi.get(self, "sku_name")
+
+    @sku_name.setter
+    def sku_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sku_name", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Input[str]:
+        """
+        The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tenant_id", value)
+
+    @property
+    @pulumi.getter(name="accessPolicies")
+    def access_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]]]:
+        """
+        A list of up to 16 objects describing access policies, as described below.
+        """
+        return pulumi.get(self, "access_policies")
+
+    @access_policies.setter
+    def access_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultAccessPolicyArgs']]]]):
+        pulumi.set(self, "access_policies", value)
+
+    @property
+    @pulumi.getter
+    def contacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultContactArgs']]]]:
+        """
+        One or more `contact` block as defined below.
+        """
+        return pulumi.get(self, "contacts")
+
+    @contacts.setter
+    def contacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultContactArgs']]]]):
+        pulumi.set(self, "contacts", value)
+
+    @property
+    @pulumi.getter(name="enableRbacAuthorization")
+    def enable_rbac_authorization(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
+        """
+        return pulumi.get(self, "enable_rbac_authorization")
+
+    @enable_rbac_authorization.setter
+    def enable_rbac_authorization(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_rbac_authorization", value)
+
+    @property
+    @pulumi.getter(name="enabledForDeployment")
+    def enabled_for_deployment(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
+        """
+        return pulumi.get(self, "enabled_for_deployment")
+
+    @enabled_for_deployment.setter
+    def enabled_for_deployment(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled_for_deployment", value)
+
+    @property
+    @pulumi.getter(name="enabledForDiskEncryption")
+    def enabled_for_disk_encryption(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
+        """
+        return pulumi.get(self, "enabled_for_disk_encryption")
+
+    @enabled_for_disk_encryption.setter
+    def enabled_for_disk_encryption(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled_for_disk_encryption", value)
+
+    @property
+    @pulumi.getter(name="enabledForTemplateDeployment")
+    def enabled_for_template_deployment(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
+        """
+        return pulumi.get(self, "enabled_for_template_deployment")
+
+    @enabled_for_template_deployment.setter
+    def enabled_for_template_deployment(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled_for_template_deployment", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Key Vault. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="networkAcls")
+    def network_acls(self) -> Optional[pulumi.Input['KeyVaultNetworkAclsArgs']]:
+        """
+        A `network_acls` block as defined below.
+        """
+        return pulumi.get(self, "network_acls")
+
+    @network_acls.setter
+    def network_acls(self, value: Optional[pulumi.Input['KeyVaultNetworkAclsArgs']]):
+        pulumi.set(self, "network_acls", value)
+
+    @property
+    @pulumi.getter(name="purgeProtectionEnabled")
+    def purge_protection_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Purge Protection enabled for this Key Vault? Defaults to `false`.
+        """
+        return pulumi.get(self, "purge_protection_enabled")
+
+    @purge_protection_enabled.setter
+    def purge_protection_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "purge_protection_enabled", value)
+
+    @property
+    @pulumi.getter(name="softDeleteEnabled")
+    def soft_delete_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "soft_delete_enabled")
+
+    @soft_delete_enabled.setter
+    def soft_delete_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "soft_delete_enabled", value)
+
+    @property
+    @pulumi.getter(name="softDeleteRetentionDays")
+    def soft_delete_retention_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
+        """
+        return pulumi.get(self, "soft_delete_retention_days")
+
+    @soft_delete_retention_days.setter
+    def soft_delete_retention_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "soft_delete_retention_days", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class KeyVault(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -96,6 +356,88 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: KeyVaultArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Key Vault.
+
+        ## Disclaimers
+
+        > **Note:** It's possible to define Key Vault Access Policies both within the `keyvault.KeyVault` resource via the `access_policy` block and by using the `keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
+
+        > **Note:** This provider will automatically recover a soft-deleted Key Vault during Creation if one is found - you can opt out of this using the `features` configuration within the Provider configuration block.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            enabled_for_disk_encryption=True,
+            tenant_id=current.tenant_id,
+            soft_delete_retention_days=7,
+            purge_protection_enabled=False,
+            sku_name="standard",
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+                tenant_id=current.tenant_id,
+                object_id=current.object_id,
+                key_permissions=["Get"],
+                secret_permissions=["Get"],
+                storage_permissions=["Get"],
+            )])
+        ```
+
+        ## Import
+
+        Key Vault's can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:keyvault/keyVault:KeyVault example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.KeyVault/vaults/vault1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param KeyVaultArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(KeyVaultArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 access_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultAccessPolicyArgs']]]]] = None,
+                 contacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultContactArgs']]]]] = None,
+                 enable_rbac_authorization: Optional[pulumi.Input[bool]] = None,
+                 enabled_for_deployment: Optional[pulumi.Input[bool]] = None,
+                 enabled_for_disk_encryption: Optional[pulumi.Input[bool]] = None,
+                 enabled_for_template_deployment: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_acls: Optional[pulumi.Input[pulumi.InputType['KeyVaultNetworkAclsArgs']]] = None,
+                 purge_protection_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku_name: Optional[pulumi.Input[str]] = None,
+                 soft_delete_enabled: Optional[pulumi.Input[bool]] = None,
+                 soft_delete_retention_days: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

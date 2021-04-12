@@ -5,15 +5,166 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Domain']
+__all__ = ['DomainArgs', 'Domain']
+
+@pulumi.input_type
+class DomainArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DomainInboundIpRuleArgs']]]] = None,
+                 input_mapping_default_values: Optional[pulumi.Input['DomainInputMappingDefaultValuesArgs']] = None,
+                 input_mapping_fields: Optional[pulumi.Input['DomainInputMappingFieldsArgs']] = None,
+                 input_schema: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Domain resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainInboundIpRuleArgs']]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
+        :param pulumi.Input['DomainInputMappingDefaultValuesArgs'] input_mapping_default_values: A `input_mapping_default_values` block as defined below.
+        :param pulumi.Input['DomainInputMappingFieldsArgs'] input_mapping_fields: A `input_mapping_fields` block as defined below.
+        :param pulumi.Input[str] input_schema: Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if inbound_ip_rules is not None:
+            pulumi.set(__self__, "inbound_ip_rules", inbound_ip_rules)
+        if input_mapping_default_values is not None:
+            pulumi.set(__self__, "input_mapping_default_values", input_mapping_default_values)
+        if input_mapping_fields is not None:
+            pulumi.set(__self__, "input_mapping_fields", input_mapping_fields)
+        if input_schema is not None:
+            pulumi.set(__self__, "input_schema", input_schema)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="inboundIpRules")
+    def inbound_ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainInboundIpRuleArgs']]]]:
+        """
+        One or more `inbound_ip_rule` blocks as defined below.
+        """
+        return pulumi.get(self, "inbound_ip_rules")
+
+    @inbound_ip_rules.setter
+    def inbound_ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainInboundIpRuleArgs']]]]):
+        pulumi.set(self, "inbound_ip_rules", value)
+
+    @property
+    @pulumi.getter(name="inputMappingDefaultValues")
+    def input_mapping_default_values(self) -> Optional[pulumi.Input['DomainInputMappingDefaultValuesArgs']]:
+        """
+        A `input_mapping_default_values` block as defined below.
+        """
+        return pulumi.get(self, "input_mapping_default_values")
+
+    @input_mapping_default_values.setter
+    def input_mapping_default_values(self, value: Optional[pulumi.Input['DomainInputMappingDefaultValuesArgs']]):
+        pulumi.set(self, "input_mapping_default_values", value)
+
+    @property
+    @pulumi.getter(name="inputMappingFields")
+    def input_mapping_fields(self) -> Optional[pulumi.Input['DomainInputMappingFieldsArgs']]:
+        """
+        A `input_mapping_fields` block as defined below.
+        """
+        return pulumi.get(self, "input_mapping_fields")
+
+    @input_mapping_fields.setter
+    def input_mapping_fields(self, value: Optional[pulumi.Input['DomainInputMappingFieldsArgs']]):
+        pulumi.set(self, "input_mapping_fields", value)
+
+    @property
+    @pulumi.getter(name="inputSchema")
+    def input_schema(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "input_schema")
+
+    @input_schema.setter
+    def input_schema(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "input_schema", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not public network access is allowed for this server. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Domain(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -67,6 +218,65 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DomainArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an EventGrid Domain
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_domain = azure.eventgrid.Domain("exampleDomain",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tags={
+                "environment": "Production",
+            })
+        ```
+
+        ## Import
+
+        EventGrid Domains can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:eventgrid/domain:Domain domain1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/domains/domain1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param DomainArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DomainArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainInboundIpRuleArgs']]]]] = None,
+                 input_mapping_default_values: Optional[pulumi.Input[pulumi.InputType['DomainInputMappingDefaultValuesArgs']]] = None,
+                 input_mapping_fields: Optional[pulumi.Input[pulumi.InputType['DomainInputMappingFieldsArgs']]] = None,
+                 input_schema: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

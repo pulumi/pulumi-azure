@@ -5,15 +5,114 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['CacheNfsTarget']
+__all__ = ['CacheNfsTargetArgs', 'CacheNfsTarget']
+
+@pulumi.input_type
+class CacheNfsTargetArgs:
+    def __init__(__self__, *,
+                 cache_name: pulumi.Input[str],
+                 namespace_junctions: pulumi.Input[Sequence[pulumi.Input['CacheNfsTargetNamespaceJunctionArgs']]],
+                 resource_group_name: pulumi.Input[str],
+                 target_host_name: pulumi.Input[str],
+                 usage_model: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a CacheNfsTarget resource.
+        :param pulumi.Input[str] cache_name: The name HPC Cache, which the HPC Cache NFS Target will be added to. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['CacheNfsTargetNamespaceJunctionArgs']]] namespace_junctions: Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_juntion` block supports fields documented below.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the HPC Cache NFS Target. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] target_host_name: The IP address or fully qualified domain name (FQDN) of the HPC Cache NFS target. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] usage_model: The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
+        :param pulumi.Input[str] name: The name of the HPC Cache NFS Target. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "cache_name", cache_name)
+        pulumi.set(__self__, "namespace_junctions", namespace_junctions)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "target_host_name", target_host_name)
+        pulumi.set(__self__, "usage_model", usage_model)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="cacheName")
+    def cache_name(self) -> pulumi.Input[str]:
+        """
+        The name HPC Cache, which the HPC Cache NFS Target will be added to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cache_name")
+
+    @cache_name.setter
+    def cache_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cache_name", value)
+
+    @property
+    @pulumi.getter(name="namespaceJunctions")
+    def namespace_junctions(self) -> pulumi.Input[Sequence[pulumi.Input['CacheNfsTargetNamespaceJunctionArgs']]]:
+        """
+        Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_juntion` block supports fields documented below.
+        """
+        return pulumi.get(self, "namespace_junctions")
+
+    @namespace_junctions.setter
+    def namespace_junctions(self, value: pulumi.Input[Sequence[pulumi.Input['CacheNfsTargetNamespaceJunctionArgs']]]):
+        pulumi.set(self, "namespace_junctions", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Resource Group in which to create the HPC Cache NFS Target. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="targetHostName")
+    def target_host_name(self) -> pulumi.Input[str]:
+        """
+        The IP address or fully qualified domain name (FQDN) of the HPC Cache NFS target. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "target_host_name")
+
+    @target_host_name.setter
+    def target_host_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_host_name", value)
+
+    @property
+    @pulumi.getter(name="usageModel")
+    def usage_model(self) -> pulumi.Input[str]:
+        """
+        The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
+        """
+        return pulumi.get(self, "usage_model")
+
+    @usage_model.setter
+    def usage_model(self, value: pulumi.Input[str]):
+        pulumi.set(self, "usage_model", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the HPC Cache NFS Target. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class CacheNfsTarget(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +147,49 @@ class CacheNfsTarget(pulumi.CustomResource):
         :param pulumi.Input[str] target_host_name: The IP address or fully qualified domain name (FQDN) of the HPC Cache NFS target. Changing this forces a new resource to be created.
         :param pulumi.Input[str] usage_model: The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: CacheNfsTargetArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a NFS Target within a HPC Cache.
+
+        > **NOTE:**: By request of the service team the provider no longer automatically registering the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace 'Microsoft.StorageCache'`.
+
+        ## Import
+
+        NFS Target within a HPC Cache can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:hpc/cacheNfsTarget:CacheNfsTarget example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StorageCache/caches/cache1/storageTargets/target1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param CacheNfsTargetArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(CacheNfsTargetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cache_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 namespace_junctions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CacheNfsTargetNamespaceJunctionArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 target_host_name: Optional[pulumi.Input[str]] = None,
+                 usage_model: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

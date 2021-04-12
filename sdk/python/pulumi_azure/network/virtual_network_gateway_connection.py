@@ -5,15 +5,396 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['VirtualNetworkGatewayConnection']
+__all__ = ['VirtualNetworkGatewayConnectionArgs', 'VirtualNetworkGatewayConnection']
+
+@pulumi.input_type
+class VirtualNetworkGatewayConnectionArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 virtual_network_gateway_id: pulumi.Input[str],
+                 authorization_key: Optional[pulumi.Input[str]] = None,
+                 connection_protocol: Optional[pulumi.Input[str]] = None,
+                 dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
+                 enable_bgp: Optional[pulumi.Input[bool]] = None,
+                 express_route_circuit_id: Optional[pulumi.Input[str]] = None,
+                 express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
+                 ipsec_policy: Optional[pulumi.Input['VirtualNetworkGatewayConnectionIpsecPolicyArgs']] = None,
+                 local_azure_ip_address_enabled: Optional[pulumi.Input[bool]] = None,
+                 local_network_gateway_id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 peer_virtual_network_gateway_id: Optional[pulumi.Input[str]] = None,
+                 routing_weight: Optional[pulumi.Input[int]] = None,
+                 shared_key: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 traffic_selector_policy: Optional[pulumi.Input['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs']] = None,
+                 use_policy_based_traffic_selectors: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a VirtualNetworkGatewayConnection resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
+               create the connection Changing the name forces a new resource to be created.
+        :param pulumi.Input[str] type: The type of connection. Valid options are `IPsec`
+               (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
+               Each connection type requires different mandatory arguments (refer to the
+               examples above). Changing the connection type will force a new connection
+               to be created.
+        :param pulumi.Input[str] virtual_network_gateway_id: The ID of the Virtual Network Gateway
+               in which the connection will be created. Changing the gateway forces a new
+               resource to be created.
+        :param pulumi.Input[str] authorization_key: The authorization key associated with the
+               Express Route Circuit. This field is required only if the type is an
+               ExpressRoute connection.
+        :param pulumi.Input[str] connection_protocol: The IKE protocol version to use. Possible
+               values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
+               Changing this value will force a resource to be created.
+               > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
+        :param pulumi.Input[int] dpd_timeout_seconds: The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) is enabled
+               for this connection. Defaults to `false`.
+        :param pulumi.Input[str] express_route_circuit_id: The ID of the Express Route Circuit
+               when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
+               The Express Route Circuit can be in the same or in a different subscription.
+        :param pulumi.Input[bool] express_route_gateway_bypass: If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
+        :param pulumi.Input['VirtualNetworkGatewayConnectionIpsecPolicyArgs'] ipsec_policy: A `ipsec_policy` block which is documented below.
+               Only a single policy can be defined for a connection. For details on
+               custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
+        :param pulumi.Input[bool] local_azure_ip_address_enabled: Use private local Azure IP for the connection. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] local_network_gateway_id: The ID of the local network gateway
+               when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
+        :param pulumi.Input[str] location: The location/region where the connection is
+               located. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the connection. Changing the name forces a
+               new resource to be created.
+        :param pulumi.Input[str] peer_virtual_network_gateway_id: The ID of the peer virtual
+               network gateway when creating a VNet-to-VNet connection (i.e. when `type`
+               is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or
+               in a different subscription.
+        :param pulumi.Input[int] routing_weight: The routing weight. Defaults to `10`.
+        :param pulumi.Input[str] shared_key: The shared IPSec key. A key could be provided if a
+               Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs'] traffic_selector_policy: A `traffic_selector_policy` which allows to specify traffic selector policy proposal to be used in a virtual network gateway connection.
+               Only one block can be defined for a connection.
+               For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+        :param pulumi.Input[bool] use_policy_based_traffic_selectors: If `true`, policy-based traffic
+               selectors are enabled for this connection. Enabling policy-based traffic
+               selectors requires an `ipsec_policy` block. Defaults to `false`.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "virtual_network_gateway_id", virtual_network_gateway_id)
+        if authorization_key is not None:
+            pulumi.set(__self__, "authorization_key", authorization_key)
+        if connection_protocol is not None:
+            pulumi.set(__self__, "connection_protocol", connection_protocol)
+        if dpd_timeout_seconds is not None:
+            pulumi.set(__self__, "dpd_timeout_seconds", dpd_timeout_seconds)
+        if enable_bgp is not None:
+            pulumi.set(__self__, "enable_bgp", enable_bgp)
+        if express_route_circuit_id is not None:
+            pulumi.set(__self__, "express_route_circuit_id", express_route_circuit_id)
+        if express_route_gateway_bypass is not None:
+            pulumi.set(__self__, "express_route_gateway_bypass", express_route_gateway_bypass)
+        if ipsec_policy is not None:
+            pulumi.set(__self__, "ipsec_policy", ipsec_policy)
+        if local_azure_ip_address_enabled is not None:
+            pulumi.set(__self__, "local_azure_ip_address_enabled", local_azure_ip_address_enabled)
+        if local_network_gateway_id is not None:
+            pulumi.set(__self__, "local_network_gateway_id", local_network_gateway_id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if peer_virtual_network_gateway_id is not None:
+            pulumi.set(__self__, "peer_virtual_network_gateway_id", peer_virtual_network_gateway_id)
+        if routing_weight is not None:
+            pulumi.set(__self__, "routing_weight", routing_weight)
+        if shared_key is not None:
+            pulumi.set(__self__, "shared_key", shared_key)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if traffic_selector_policy is not None:
+            pulumi.set(__self__, "traffic_selector_policy", traffic_selector_policy)
+        if use_policy_based_traffic_selectors is not None:
+            pulumi.set(__self__, "use_policy_based_traffic_selectors", use_policy_based_traffic_selectors)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which to
+        create the connection Changing the name forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of connection. Valid options are `IPsec`
+        (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
+        Each connection type requires different mandatory arguments (refer to the
+        examples above). Changing the connection type will force a new connection
+        to be created.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkGatewayId")
+    def virtual_network_gateway_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Virtual Network Gateway
+        in which the connection will be created. Changing the gateway forces a new
+        resource to be created.
+        """
+        return pulumi.get(self, "virtual_network_gateway_id")
+
+    @virtual_network_gateway_id.setter
+    def virtual_network_gateway_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "virtual_network_gateway_id", value)
+
+    @property
+    @pulumi.getter(name="authorizationKey")
+    def authorization_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The authorization key associated with the
+        Express Route Circuit. This field is required only if the type is an
+        ExpressRoute connection.
+        """
+        return pulumi.get(self, "authorization_key")
+
+    @authorization_key.setter
+    def authorization_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authorization_key", value)
+
+    @property
+    @pulumi.getter(name="connectionProtocol")
+    def connection_protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IKE protocol version to use. Possible
+        values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
+        Changing this value will force a resource to be created.
+        > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
+        """
+        return pulumi.get(self, "connection_protocol")
+
+    @connection_protocol.setter
+    def connection_protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_protocol", value)
+
+    @property
+    @pulumi.getter(name="dpdTimeoutSeconds")
+    def dpd_timeout_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "dpd_timeout_seconds")
+
+    @dpd_timeout_seconds.setter
+    def dpd_timeout_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "dpd_timeout_seconds", value)
+
+    @property
+    @pulumi.getter(name="enableBgp")
+    def enable_bgp(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If `true`, BGP (Border Gateway Protocol) is enabled
+        for this connection. Defaults to `false`.
+        """
+        return pulumi.get(self, "enable_bgp")
+
+    @enable_bgp.setter
+    def enable_bgp(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_bgp", value)
+
+    @property
+    @pulumi.getter(name="expressRouteCircuitId")
+    def express_route_circuit_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Express Route Circuit
+        when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
+        The Express Route Circuit can be in the same or in a different subscription.
+        """
+        return pulumi.get(self, "express_route_circuit_id")
+
+    @express_route_circuit_id.setter
+    def express_route_circuit_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "express_route_circuit_id", value)
+
+    @property
+    @pulumi.getter(name="expressRouteGatewayBypass")
+    def express_route_gateway_bypass(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
+        """
+        return pulumi.get(self, "express_route_gateway_bypass")
+
+    @express_route_gateway_bypass.setter
+    def express_route_gateway_bypass(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "express_route_gateway_bypass", value)
+
+    @property
+    @pulumi.getter(name="ipsecPolicy")
+    def ipsec_policy(self) -> Optional[pulumi.Input['VirtualNetworkGatewayConnectionIpsecPolicyArgs']]:
+        """
+        A `ipsec_policy` block which is documented below.
+        Only a single policy can be defined for a connection. For details on
+        custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
+        """
+        return pulumi.get(self, "ipsec_policy")
+
+    @ipsec_policy.setter
+    def ipsec_policy(self, value: Optional[pulumi.Input['VirtualNetworkGatewayConnectionIpsecPolicyArgs']]):
+        pulumi.set(self, "ipsec_policy", value)
+
+    @property
+    @pulumi.getter(name="localAzureIpAddressEnabled")
+    def local_azure_ip_address_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Use private local Azure IP for the connection. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "local_azure_ip_address_enabled")
+
+    @local_azure_ip_address_enabled.setter
+    def local_azure_ip_address_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "local_azure_ip_address_enabled", value)
+
+    @property
+    @pulumi.getter(name="localNetworkGatewayId")
+    def local_network_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the local network gateway
+        when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
+        """
+        return pulumi.get(self, "local_network_gateway_id")
+
+    @local_network_gateway_id.setter
+    def local_network_gateway_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "local_network_gateway_id", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location/region where the connection is
+        located. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the connection. Changing the name forces a
+        new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="peerVirtualNetworkGatewayId")
+    def peer_virtual_network_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the peer virtual
+        network gateway when creating a VNet-to-VNet connection (i.e. when `type`
+        is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or
+        in a different subscription.
+        """
+        return pulumi.get(self, "peer_virtual_network_gateway_id")
+
+    @peer_virtual_network_gateway_id.setter
+    def peer_virtual_network_gateway_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "peer_virtual_network_gateway_id", value)
+
+    @property
+    @pulumi.getter(name="routingWeight")
+    def routing_weight(self) -> Optional[pulumi.Input[int]]:
+        """
+        The routing weight. Defaults to `10`.
+        """
+        return pulumi.get(self, "routing_weight")
+
+    @routing_weight.setter
+    def routing_weight(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "routing_weight", value)
+
+    @property
+    @pulumi.getter(name="sharedKey")
+    def shared_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The shared IPSec key. A key could be provided if a
+        Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
+        """
+        return pulumi.get(self, "shared_key")
+
+    @shared_key.setter
+    def shared_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shared_key", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="trafficSelectorPolicy")
+    def traffic_selector_policy(self) -> Optional[pulumi.Input['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs']]:
+        """
+        A `traffic_selector_policy` which allows to specify traffic selector policy proposal to be used in a virtual network gateway connection.
+        Only one block can be defined for a connection.
+        For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
+        """
+        return pulumi.get(self, "traffic_selector_policy")
+
+    @traffic_selector_policy.setter
+    def traffic_selector_policy(self, value: Optional[pulumi.Input['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs']]):
+        pulumi.set(self, "traffic_selector_policy", value)
+
+    @property
+    @pulumi.getter(name="usePolicyBasedTrafficSelectors")
+    def use_policy_based_traffic_selectors(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If `true`, policy-based traffic
+        selectors are enabled for this connection. Enabling policy-based traffic
+        selectors requires an `ipsec_policy` block. Defaults to `false`.
+        """
+        return pulumi.get(self, "use_policy_based_traffic_selectors")
+
+    @use_policy_based_traffic_selectors.setter
+    def use_policy_based_traffic_selectors(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_policy_based_traffic_selectors", value)
 
 
 class VirtualNetworkGatewayConnection(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -224,6 +605,183 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                in which the connection will be created. Changing the gateway forces a new
                resource to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VirtualNetworkGatewayConnectionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a connection in an existing Virtual Network Gateway.
+
+        ## Example Usage
+        ### Site-to-Site connection
+
+        The following example shows a connection between an Azure virtual network
+        and an on-premises VPN device and network.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            address_spaces=["10.0.0.0/16"])
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"])
+        onpremise_local_network_gateway = azure.network.LocalNetworkGateway("onpremiseLocalNetworkGateway",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            gateway_address="168.62.225.23",
+            address_spaces=["10.1.1.0/24"])
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            allocation_method="Dynamic")
+        example_virtual_network_gateway = azure.network.VirtualNetworkGateway("exampleVirtualNetworkGateway",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            type="Vpn",
+            vpn_type="RouteBased",
+            active_active=False,
+            enable_bgp=False,
+            sku="Basic",
+            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
+                public_ip_address_id=example_public_ip.id,
+                private_ip_address_allocation="Dynamic",
+                subnet_id=example_subnet.id,
+            )])
+        onpremise_virtual_network_gateway_connection = azure.network.VirtualNetworkGatewayConnection("onpremiseVirtualNetworkGatewayConnection",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            type="IPsec",
+            virtual_network_gateway_id=example_virtual_network_gateway.id,
+            local_network_gateway_id=onpremise_local_network_gateway.id,
+            shared_key="4-v3ry-53cr37-1p53c-5h4r3d-k3y")
+        ```
+        ### VNet-to-VNet connection
+
+        The following example shows a connection between two Azure virtual network
+        in different locations/regions.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        us_resource_group = azure.core.ResourceGroup("usResourceGroup", location="East US")
+        us_virtual_network = azure.network.VirtualNetwork("usVirtualNetwork",
+            location=us_resource_group.location,
+            resource_group_name=us_resource_group.name,
+            address_spaces=["10.0.0.0/16"])
+        us_gateway = azure.network.Subnet("usGateway",
+            resource_group_name=us_resource_group.name,
+            virtual_network_name=us_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"])
+        us_public_ip = azure.network.PublicIp("usPublicIp",
+            location=us_resource_group.location,
+            resource_group_name=us_resource_group.name,
+            allocation_method="Dynamic")
+        us_virtual_network_gateway = azure.network.VirtualNetworkGateway("usVirtualNetworkGateway",
+            location=us_resource_group.location,
+            resource_group_name=us_resource_group.name,
+            type="Vpn",
+            vpn_type="RouteBased",
+            sku="Basic",
+            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
+                public_ip_address_id=us_public_ip.id,
+                private_ip_address_allocation="Dynamic",
+                subnet_id=us_gateway.id,
+            )])
+        europe_resource_group = azure.core.ResourceGroup("europeResourceGroup", location="West Europe")
+        europe_virtual_network = azure.network.VirtualNetwork("europeVirtualNetwork",
+            location=europe_resource_group.location,
+            resource_group_name=europe_resource_group.name,
+            address_spaces=["10.1.0.0/16"])
+        europe_gateway = azure.network.Subnet("europeGateway",
+            resource_group_name=europe_resource_group.name,
+            virtual_network_name=europe_virtual_network.name,
+            address_prefixes=["10.1.1.0/24"])
+        europe_public_ip = azure.network.PublicIp("europePublicIp",
+            location=europe_resource_group.location,
+            resource_group_name=europe_resource_group.name,
+            allocation_method="Dynamic")
+        europe_virtual_network_gateway = azure.network.VirtualNetworkGateway("europeVirtualNetworkGateway",
+            location=europe_resource_group.location,
+            resource_group_name=europe_resource_group.name,
+            type="Vpn",
+            vpn_type="RouteBased",
+            sku="Basic",
+            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
+                public_ip_address_id=europe_public_ip.id,
+                private_ip_address_allocation="Dynamic",
+                subnet_id=europe_gateway.id,
+            )])
+        us_to_europe = azure.network.VirtualNetworkGatewayConnection("usToEurope",
+            location=us_resource_group.location,
+            resource_group_name=us_resource_group.name,
+            type="Vnet2Vnet",
+            virtual_network_gateway_id=us_virtual_network_gateway.id,
+            peer_virtual_network_gateway_id=europe_virtual_network_gateway.id,
+            shared_key="4-v3ry-53cr37-1p53c-5h4r3d-k3y")
+        europe_to_us = azure.network.VirtualNetworkGatewayConnection("europeToUs",
+            location=europe_resource_group.location,
+            resource_group_name=europe_resource_group.name,
+            type="Vnet2Vnet",
+            virtual_network_gateway_id=europe_virtual_network_gateway.id,
+            peer_virtual_network_gateway_id=us_virtual_network_gateway.id,
+            shared_key="4-v3ry-53cr37-1p53c-5h4r3d-k3y")
+        ```
+
+        ## Import
+
+        Virtual Network Gateway Connections can be imported using their `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:network/virtualNetworkGatewayConnection:VirtualNetworkGatewayConnection exampleConnection /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.Network/connections/myConnection1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param VirtualNetworkGatewayConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualNetworkGatewayConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 authorization_key: Optional[pulumi.Input[str]] = None,
+                 connection_protocol: Optional[pulumi.Input[str]] = None,
+                 dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
+                 enable_bgp: Optional[pulumi.Input[bool]] = None,
+                 express_route_circuit_id: Optional[pulumi.Input[str]] = None,
+                 express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
+                 ipsec_policy: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionIpsecPolicyArgs']]] = None,
+                 local_azure_ip_address_enabled: Optional[pulumi.Input[bool]] = None,
+                 local_network_gateway_id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 peer_virtual_network_gateway_id: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 routing_weight: Optional[pulumi.Input[int]] = None,
+                 shared_key: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 traffic_selector_policy: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs']]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 use_policy_based_traffic_selectors: Optional[pulumi.Input[bool]] = None,
+                 virtual_network_gateway_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

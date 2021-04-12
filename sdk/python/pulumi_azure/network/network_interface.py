@@ -5,15 +5,165 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['NetworkInterface']
+__all__ = ['NetworkInterfaceArgs', 'NetworkInterface']
+
+@pulumi.input_type
+class NetworkInterfaceArgs:
+    def __init__(__self__, *,
+                 ip_configurations: pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIpConfigurationArgs']]],
+                 resource_group_name: pulumi.Input[str],
+                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
+                 enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
+                 internal_dns_name_label: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a NetworkInterface resource.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIpConfigurationArgs']]] ip_configurations: One or more `ip_configuration` blocks as defined below.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
+        :param pulumi.Input[bool] enable_accelerated_networking: Should Accelerated Networking be enabled? Defaults to `false`.
+        :param pulumi.Input[bool] enable_ip_forwarding: Should IP Forwarding be enabled? Defaults to `false`.
+        :param pulumi.Input[str] internal_dns_name_label: The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
+        :param pulumi.Input[str] location: The location where the Network Interface should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Network Interface. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "ip_configurations", ip_configurations)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if dns_servers is not None:
+            pulumi.set(__self__, "dns_servers", dns_servers)
+        if enable_accelerated_networking is not None:
+            pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
+        if enable_ip_forwarding is not None:
+            pulumi.set(__self__, "enable_ip_forwarding", enable_ip_forwarding)
+        if internal_dns_name_label is not None:
+            pulumi.set(__self__, "internal_dns_name_label", internal_dns_name_label)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIpConfigurationArgs']]]:
+        """
+        One or more `ip_configuration` blocks as defined below.
+        """
+        return pulumi.get(self, "ip_configurations")
+
+    @ip_configurations.setter
+    def ip_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIpConfigurationArgs']]]):
+        pulumi.set(self, "ip_configurations", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="dnsServers")
+    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
+        """
+        return pulumi.get(self, "dns_servers")
+
+    @dns_servers.setter
+    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "dns_servers", value)
+
+    @property
+    @pulumi.getter(name="enableAcceleratedNetworking")
+    def enable_accelerated_networking(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Accelerated Networking be enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "enable_accelerated_networking")
+
+    @enable_accelerated_networking.setter
+    def enable_accelerated_networking(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_accelerated_networking", value)
+
+    @property
+    @pulumi.getter(name="enableIpForwarding")
+    def enable_ip_forwarding(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should IP Forwarding be enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "enable_ip_forwarding")
+
+    @enable_ip_forwarding.setter
+    def enable_ip_forwarding(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_ip_forwarding", value)
+
+    @property
+    @pulumi.getter(name="internalDnsNameLabel")
+    def internal_dns_name_label(self) -> Optional[pulumi.Input[str]]:
+        """
+        The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
+        """
+        return pulumi.get(self, "internal_dns_name_label")
+
+    @internal_dns_name_label.setter
+    def internal_dns_name_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "internal_dns_name_label", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location where the Network Interface should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Network Interface. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class NetworkInterface(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -77,6 +227,75 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: NetworkInterfaceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Network Interface.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+                name="internal",
+                subnet_id=example_subnet.id,
+                private_ip_address_allocation="Dynamic",
+            )])
+        ```
+
+        ## Import
+
+        Network Interfaces can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:network/networkInterface:NetworkInterface example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkInterfaces/nic1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param NetworkInterfaceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkInterfaceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
+                 enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
+                 internal_dns_name_label: Optional[pulumi.Input[str]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIpConfigurationArgs']]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

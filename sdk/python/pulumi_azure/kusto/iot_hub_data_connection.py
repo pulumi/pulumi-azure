@@ -5,13 +5,159 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['IotHubDataConnection']
+__all__ = ['IotHubDataConnectionArgs', 'IotHubDataConnection']
+
+@pulumi.input_type
+class IotHubDataConnectionArgs:
+    def __init__(__self__, *,
+                 cluster_name: pulumi.Input[str],
+                 consumer_group: pulumi.Input[str],
+                 database_name: pulumi.Input[str],
+                 iothub_id: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 shared_access_policy_name: pulumi.Input[str],
+                 event_system_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a IotHubDataConnection resource.
+        :param pulumi.Input[str] cluster_name: Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] consumer_group: Specifies the IotHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] database_name: Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] iothub_id: Specifies the resource id of the IotHub this data connection will use for ingestion. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] shared_access_policy_name: Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_system_properties: Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Kusto IotHub Data Connection to create. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "cluster_name", cluster_name)
+        pulumi.set(__self__, "consumer_group", consumer_group)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "iothub_id", iothub_id)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
+        if event_system_properties is not None:
+            pulumi.set(__self__, "event_system_properties", event_system_properties)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_name", value)
+
+    @property
+    @pulumi.getter(name="consumerGroup")
+    def consumer_group(self) -> pulumi.Input[str]:
+        """
+        Specifies the IotHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "consumer_group")
+
+    @consumer_group.setter
+    def consumer_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "consumer_group", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="iothubId")
+    def iothub_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the resource id of the IotHub this data connection will use for ingestion. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "iothub_id")
+
+    @iothub_id.setter
+    def iothub_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "iothub_id", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="sharedAccessPolicyName")
+    def shared_access_policy_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "shared_access_policy_name")
+
+    @shared_access_policy_name.setter
+    def shared_access_policy_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "shared_access_policy_name", value)
+
+    @property
+    @pulumi.getter(name="eventSystemProperties")
+    def event_system_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "event_system_properties")
+
+    @event_system_properties.setter
+    def event_system_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "event_system_properties", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location where the Kusto Database should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Kusto IotHub Data Connection to create. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class IotHubDataConnection(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -100,6 +246,100 @@ class IotHubDataConnection(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] shared_access_policy_name: Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: IotHubDataConnectionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Kusto (also known as Azure Data Explorer) IotHub Data Connection
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_cluster = azure.kusto.Cluster("exampleCluster",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku=azure.kusto.ClusterSkuArgs(
+                name="Standard_D13_v2",
+                capacity=2,
+            ))
+        example_database = azure.kusto.Database("exampleDatabase",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            cluster_name=example_cluster.name,
+            hot_cache_period="P7D",
+            soft_delete_period="P31D")
+        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku=azure.iot.IoTHubSkuArgs(
+                name="B1",
+                capacity=1,
+            ))
+        example_shared_access_policy = azure.iot.SharedAccessPolicy("exampleSharedAccessPolicy",
+            resource_group_name=example_resource_group.name,
+            iothub_name=example_io_t_hub.name,
+            registry_read=True)
+        example_consumer_group = azure.iot.ConsumerGroup("exampleConsumerGroup",
+            resource_group_name=example_resource_group.name,
+            iothub_name=example_io_t_hub.name,
+            eventhub_endpoint_name="events")
+        example_iot_hub_data_connection = azure.kusto.IotHubDataConnection("exampleIotHubDataConnection",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            cluster_name=example_cluster.name,
+            database_name=example_database.name,
+            iothub_id=example_io_t_hub.id,
+            consumer_group=example_consumer_group.name,
+            shared_access_policy_name=example_shared_access_policy.name,
+            event_system_properties=[
+                "message-id",
+                "sequence-number",
+                "to",
+            ])
+        ```
+
+        ## Import
+
+        Kusto IotHub Data Connections can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:kusto/iotHubDataConnection:IotHubDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/Databases/database1/DataConnections/dataConnection1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param IotHubDataConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(IotHubDataConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cluster_name: Optional[pulumi.Input[str]] = None,
+                 consumer_group: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 event_system_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 iothub_id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 shared_access_policy_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

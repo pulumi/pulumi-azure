@@ -5,13 +5,96 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['EmailTemplate']
+__all__ = ['EmailTemplateArgs', 'EmailTemplate']
+
+@pulumi.input_type
+class EmailTemplateArgs:
+    def __init__(__self__, *,
+                 api_management_name: pulumi.Input[str],
+                 body: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 subject: pulumi.Input[str],
+                 template_name: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a EmailTemplate resource.
+        :param pulumi.Input[str] api_management_name: The name of the API Management Service in which the Email Template should exist. Changing this forces a new API Management Email Template to be created.
+        :param pulumi.Input[str] body: The body of the Email. Its format has to be a well-formed HTML document.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the API Management Email Template should exist. Changing this forces a new API Management Email Template to be created.
+        :param pulumi.Input[str] subject: The subject of the Email.
+        :param pulumi.Input[str] template_name: The name of the Email Template. Possible values are `AccountClosedDeveloper`, `ApplicationApprovedNotificationMessage`, `ConfirmSignUpIdentityDefault`, `EmailChangeIdentityDefault`, `InviteUserNotificationMessage`, `NewCommentNotificationMessage`, `NewDeveloperNotificationMessage`, `NewIssueNotificationMessage`, `PasswordResetByAdminNotificationMessage`, `PasswordResetIdentityDefault`, `PurchaseDeveloperNotificationMessage`, `QuotaLimitApproachingDeveloperNotificationMessage`, `RejectDeveloperNotificationMessage`, `RequestDeveloperNotificationMessage`. Changing this forces a new API Management Email Template to be created.
+        """
+        pulumi.set(__self__, "api_management_name", api_management_name)
+        pulumi.set(__self__, "body", body)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "subject", subject)
+        pulumi.set(__self__, "template_name", template_name)
+
+    @property
+    @pulumi.getter(name="apiManagementName")
+    def api_management_name(self) -> pulumi.Input[str]:
+        """
+        The name of the API Management Service in which the Email Template should exist. Changing this forces a new API Management Email Template to be created.
+        """
+        return pulumi.get(self, "api_management_name")
+
+    @api_management_name.setter
+    def api_management_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "api_management_name", value)
+
+    @property
+    @pulumi.getter
+    def body(self) -> pulumi.Input[str]:
+        """
+        The body of the Email. Its format has to be a well-formed HTML document.
+        """
+        return pulumi.get(self, "body")
+
+    @body.setter
+    def body(self, value: pulumi.Input[str]):
+        pulumi.set(self, "body", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Resource Group where the API Management Email Template should exist. Changing this forces a new API Management Email Template to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def subject(self) -> pulumi.Input[str]:
+        """
+        The subject of the Email.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subject", value)
+
+    @property
+    @pulumi.getter(name="templateName")
+    def template_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Email Template. Possible values are `AccountClosedDeveloper`, `ApplicationApprovedNotificationMessage`, `ConfirmSignUpIdentityDefault`, `EmailChangeIdentityDefault`, `InviteUserNotificationMessage`, `NewCommentNotificationMessage`, `NewDeveloperNotificationMessage`, `NewIssueNotificationMessage`, `PasswordResetByAdminNotificationMessage`, `PasswordResetIdentityDefault`, `PurchaseDeveloperNotificationMessage`, `QuotaLimitApproachingDeveloperNotificationMessage`, `RejectDeveloperNotificationMessage`, `RequestDeveloperNotificationMessage`. Changing this forces a new API Management Email Template to be created.
+        """
+        return pulumi.get(self, "template_name")
+
+    @template_name.setter
+    def template_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "template_name", value)
 
 
 class EmailTemplate(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +125,46 @@ class EmailTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] subject: The subject of the Email.
         :param pulumi.Input[str] template_name: The name of the Email Template. Possible values are `AccountClosedDeveloper`, `ApplicationApprovedNotificationMessage`, `ConfirmSignUpIdentityDefault`, `EmailChangeIdentityDefault`, `InviteUserNotificationMessage`, `NewCommentNotificationMessage`, `NewDeveloperNotificationMessage`, `NewIssueNotificationMessage`, `PasswordResetByAdminNotificationMessage`, `PasswordResetIdentityDefault`, `PurchaseDeveloperNotificationMessage`, `QuotaLimitApproachingDeveloperNotificationMessage`, `RejectDeveloperNotificationMessage`, `RequestDeveloperNotificationMessage`. Changing this forces a new API Management Email Template to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: EmailTemplateArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a API Management Email Template.
+
+        ## Import
+
+        API Management Email Templates can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:apimanagement/emailTemplate:EmailTemplate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/templates/template1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param EmailTemplateArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(EmailTemplateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 api_management_name: Optional[pulumi.Input[str]] = None,
+                 body: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 subject: Optional[pulumi.Input[str]] = None,
+                 template_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,15 +5,203 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['PolicySetDefinition']
+__all__ = ['PolicySetDefinitionArgs', 'PolicySetDefinition']
+
+@pulumi.input_type
+class PolicySetDefinitionArgs:
+    def __init__(__self__, *,
+                 display_name: pulumi.Input[str],
+                 policy_type: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 management_group_id: Optional[pulumi.Input[str]] = None,
+                 management_group_name: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[str]] = None,
+                 policy_definition_groups: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionGroupArgs']]]] = None,
+                 policy_definition_references: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionReferenceArgs']]]] = None,
+                 policy_definitions: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a PolicySetDefinition resource.
+        :param pulumi.Input[str] display_name: The display name of the policy set definition.
+        :param pulumi.Input[str] policy_type: The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] description: The description of the policy set definition.
+        :param pulumi.Input[str] management_group_id: The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] management_group_name: The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] metadata: The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
+        :param pulumi.Input[str] name: The name of the policy set definition. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] parameters: Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
+        :param pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionGroupArgs']]] policy_definition_groups: One or more `policy_definition_group` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionReferenceArgs']]] policy_definition_references: One or more `policy_definition_reference` blocks as defined below.
+        :param pulumi.Input[str] policy_definitions: The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
+        """
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "policy_type", policy_type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if management_group_id is not None:
+            warnings.warn("""Deprecated in favour of `management_group_name`""", DeprecationWarning)
+            pulumi.log.warn("""management_group_id is deprecated: Deprecated in favour of `management_group_name`""")
+        if management_group_id is not None:
+            pulumi.set(__self__, "management_group_id", management_group_id)
+        if management_group_name is not None:
+            pulumi.set(__self__, "management_group_name", management_group_name)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if policy_definition_groups is not None:
+            pulumi.set(__self__, "policy_definition_groups", policy_definition_groups)
+        if policy_definition_references is not None:
+            pulumi.set(__self__, "policy_definition_references", policy_definition_references)
+        if policy_definitions is not None:
+            warnings.warn("""Deprecated in favour of `policy_definition_reference`""", DeprecationWarning)
+            pulumi.log.warn("""policy_definitions is deprecated: Deprecated in favour of `policy_definition_reference`""")
+        if policy_definitions is not None:
+            pulumi.set(__self__, "policy_definitions", policy_definitions)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[str]:
+        """
+        The display name of the policy set definition.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="policyType")
+    def policy_type(self) -> pulumi.Input[str]:
+        """
+        The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "policy_type")
+
+    @policy_type.setter
+    def policy_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy_type", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the policy set definition.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="managementGroupId")
+    def management_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "management_group_id")
+
+    @management_group_id.setter
+    def management_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "management_group_id", value)
+
+    @property
+    @pulumi.getter(name="managementGroupName")
+    def management_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "management_group_name")
+
+    @management_group_name.setter
+    def management_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "management_group_name", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[str]]:
+        """
+        The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the policy set definition. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[str]]:
+        """
+        Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="policyDefinitionGroups")
+    def policy_definition_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionGroupArgs']]]]:
+        """
+        One or more `policy_definition_group` blocks as defined below.
+        """
+        return pulumi.get(self, "policy_definition_groups")
+
+    @policy_definition_groups.setter
+    def policy_definition_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionGroupArgs']]]]):
+        pulumi.set(self, "policy_definition_groups", value)
+
+    @property
+    @pulumi.getter(name="policyDefinitionReferences")
+    def policy_definition_references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionReferenceArgs']]]]:
+        """
+        One or more `policy_definition_reference` blocks as defined below.
+        """
+        return pulumi.get(self, "policy_definition_references")
+
+    @policy_definition_references.setter
+    def policy_definition_references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionReferenceArgs']]]]):
+        pulumi.set(self, "policy_definition_references", value)
+
+    @property
+    @pulumi.getter(name="policyDefinitions")
+    def policy_definitions(self) -> Optional[pulumi.Input[str]]:
+        """
+        The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
+        """
+        return pulumi.get(self, "policy_definitions")
+
+    @policy_definitions.setter
+    def policy_definitions(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_definitions", value)
 
 
 class PolicySetDefinition(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -95,6 +283,91 @@ class PolicySetDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] policy_definitions: The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions.
         :param pulumi.Input[str] policy_type: The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: PolicySetDefinitionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a policy set definition.
+
+        > **NOTE:**  Policy set definitions (also known as policy initiatives) do not take effect until they are assigned to a scope using a Policy Set Assignment.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.policy.PolicySetDefinition("example",
+            display_name="Test Policy Set",
+            parameters=\"\"\"    {
+                "allowedLocations": {
+                    "type": "Array",
+                    "metadata": {
+                        "description": "The list of allowed locations for resources.",
+                        "displayName": "Allowed locations",
+                        "strongType": "location"
+                    }
+                }
+            }
+
+        \"\"\",
+            policy_definition_references=[azure.policy.PolicySetDefinitionPolicyDefinitionReferenceArgs(
+                parameter_values=\"\"\"    {
+              "listOfAllowedLocations": {"value": "[parameters('allowedLocations')]"}
+            }
+            
+        \"\"\",
+                policy_definition_id="/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
+            )],
+            policy_type="Custom")
+        ```
+
+        ## Import
+
+        Policy Set Definitions can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:policy/policySetDefinition:PolicySetDefinition example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/policySetDefinitions/testPolicySet
+        ```
+
+         or
+
+        ```sh
+         $ pulumi import azure:policy/policySetDefinition:PolicySetDefinition example /providers/Microsoft.Management/managementGroups/my-mgmt-group-id/providers/Microsoft.Authorization/policySetDefinitions/testPolicySet
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param PolicySetDefinitionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PolicySetDefinitionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 management_group_id: Optional[pulumi.Input[str]] = None,
+                 management_group_name: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[str]] = None,
+                 policy_definition_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicySetDefinitionPolicyDefinitionGroupArgs']]]]] = None,
+                 policy_definition_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicySetDefinitionPolicyDefinitionReferenceArgs']]]]] = None,
+                 policy_definitions: Optional[pulumi.Input[str]] = None,
+                 policy_type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

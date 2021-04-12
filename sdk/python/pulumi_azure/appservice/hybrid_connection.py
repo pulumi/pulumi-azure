@@ -5,13 +5,112 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['HybridConnection']
+__all__ = ['HybridConnectionArgs', 'HybridConnection']
+
+@pulumi.input_type
+class HybridConnectionArgs:
+    def __init__(__self__, *,
+                 app_service_name: pulumi.Input[str],
+                 hostname: pulumi.Input[str],
+                 port: pulumi.Input[int],
+                 relay_id: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 send_key_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a HybridConnection resource.
+        :param pulumi.Input[str] app_service_name: Specifies the name of the App Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] hostname: The hostname of the endpoint.
+        :param pulumi.Input[int] port: The port of the endpoint.
+        :param pulumi.Input[str] relay_id: The ID of the Service Bus Relay. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] send_key_name: The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
+        """
+        pulumi.set(__self__, "app_service_name", app_service_name)
+        pulumi.set(__self__, "hostname", hostname)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "relay_id", relay_id)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if send_key_name is not None:
+            pulumi.set(__self__, "send_key_name", send_key_name)
+
+    @property
+    @pulumi.getter(name="appServiceName")
+    def app_service_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the App Service. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "app_service_name")
+
+    @app_service_name.setter
+    def app_service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_service_name", value)
+
+    @property
+    @pulumi.getter
+    def hostname(self) -> pulumi.Input[str]:
+        """
+        The hostname of the endpoint.
+        """
+        return pulumi.get(self, "hostname")
+
+    @hostname.setter
+    def hostname(self, value: pulumi.Input[str]):
+        pulumi.set(self, "hostname", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        """
+        The port of the endpoint.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="relayId")
+    def relay_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Service Bus Relay. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "relay_id")
+
+    @relay_id.setter
+    def relay_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "relay_id", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="sendKeyName")
+    def send_key_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
+        """
+        return pulumi.get(self, "send_key_name")
+
+    @send_key_name.setter
+    def send_key_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "send_key_name", value)
 
 
 class HybridConnection(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -81,6 +180,84 @@ class HybridConnection(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] send_key_name: The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: HybridConnectionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an App Service Hybrid Connection for an existing App Service, Relay and Service Bus.
+
+        ## Example Usage
+
+        This example provisions an App Service, a Relay Hybrid Connection, and a Service Bus using their outputs to create the App Service Hybrid Connection.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_plan = azure.appservice.Plan("examplePlan",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku=azure.appservice.PlanSkuArgs(
+                tier="Standard",
+                size="S1",
+            ))
+        example_app_service = azure.appservice.AppService("exampleAppService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            app_service_plan_id=example_plan.id)
+        example_namespace = azure.relay.Namespace("exampleNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku_name="Standard")
+        example_hybrid_connection = azure.relay.HybridConnection("exampleHybridConnection",
+            resource_group_name=example_resource_group.name,
+            relay_namespace_name=example_namespace.name,
+            user_metadata="examplemetadata")
+        example_appservice_hybrid_connection_hybrid_connection = azure.appservice.HybridConnection("exampleAppservice/hybridConnectionHybridConnection",
+            app_service_name=example_app_service.name,
+            resource_group_name=example_resource_group.name,
+            relay_id=example_hybrid_connection.id,
+            hostname="testhostname.example",
+            port=8080,
+            send_key_name="exampleSharedAccessKey")
+        ```
+
+        ## Import
+
+        App Service Hybrid Connections can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:appservice/hybridConnection:HybridConnection example /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/exampleResourceGroup1/providers/Microsoft.Web/sites/exampleAppService1/hybridConnectionNamespaces/exampleRN1/relays/exampleRHC1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param HybridConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(HybridConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 app_service_name: Optional[pulumi.Input[str]] = None,
+                 hostname: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 relay_id: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 send_key_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

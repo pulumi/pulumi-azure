@@ -5,15 +5,236 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Volume']
+__all__ = ['VolumeArgs', 'Volume']
+
+@pulumi.input_type
+class VolumeArgs:
+    def __init__(__self__, *,
+                 account_name: pulumi.Input[str],
+                 pool_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 service_level: pulumi.Input[str],
+                 storage_quota_in_gb: pulumi.Input[int],
+                 subnet_id: pulumi.Input[str],
+                 volume_path: pulumi.Input[str],
+                 create_from_snapshot_resource_id: Optional[pulumi.Input[str]] = None,
+                 data_protection_replication: Optional[pulumi.Input['VolumeDataProtectionReplicationArgs']] = None,
+                 export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeExportPolicyRuleArgs']]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Volume resource.
+        :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] pool_name: The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] service_level: The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+        :param pulumi.Input[int] storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes.
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] volume_path: A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`.
+        :param pulumi.Input[Sequence[pulumi.Input['VolumeExportPolicyRuleArgs']]] export_policy_rules: One or more `export_policy_rule` block defined below.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/en-us/azure/azure-netapp-files/create-volumes-dual-protocol) document.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "pool_name", pool_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "service_level", service_level)
+        pulumi.set(__self__, "storage_quota_in_gb", storage_quota_in_gb)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+        pulumi.set(__self__, "volume_path", volume_path)
+        if create_from_snapshot_resource_id is not None:
+            pulumi.set(__self__, "create_from_snapshot_resource_id", create_from_snapshot_resource_id)
+        if data_protection_replication is not None:
+            pulumi.set(__self__, "data_protection_replication", data_protection_replication)
+        if export_policy_rules is not None:
+            pulumi.set(__self__, "export_policy_rules", export_policy_rules)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if protocols is not None:
+            pulumi.set(__self__, "protocols", protocols)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[str]:
+        """
+        The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="poolName")
+    def pool_name(self) -> pulumi.Input[str]:
+        """
+        The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "pool_name")
+
+    @pool_name.setter
+    def pool_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "pool_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="serviceLevel")
+    def service_level(self) -> pulumi.Input[str]:
+        """
+        The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
+        """
+        return pulumi.get(self, "service_level")
+
+    @service_level.setter
+    def service_level(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_level", value)
+
+    @property
+    @pulumi.getter(name="storageQuotaInGb")
+    def storage_quota_in_gb(self) -> pulumi.Input[int]:
+        """
+        The maximum Storage Quota allowed for a file system in Gigabytes.
+        """
+        return pulumi.get(self, "storage_quota_in_gb")
+
+    @storage_quota_in_gb.setter
+    def storage_quota_in_gb(self, value: pulumi.Input[int]):
+        pulumi.set(self, "storage_quota_in_gb", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter(name="volumePath")
+    def volume_path(self) -> pulumi.Input[str]:
+        """
+        A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "volume_path")
+
+    @volume_path.setter
+    def volume_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "volume_path", value)
+
+    @property
+    @pulumi.getter(name="createFromSnapshotResourceId")
+    def create_from_snapshot_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`.
+        """
+        return pulumi.get(self, "create_from_snapshot_resource_id")
+
+    @create_from_snapshot_resource_id.setter
+    def create_from_snapshot_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create_from_snapshot_resource_id", value)
+
+    @property
+    @pulumi.getter(name="dataProtectionReplication")
+    def data_protection_replication(self) -> Optional[pulumi.Input['VolumeDataProtectionReplicationArgs']]:
+        return pulumi.get(self, "data_protection_replication")
+
+    @data_protection_replication.setter
+    def data_protection_replication(self, value: Optional[pulumi.Input['VolumeDataProtectionReplicationArgs']]):
+        pulumi.set(self, "data_protection_replication", value)
+
+    @property
+    @pulumi.getter(name="exportPolicyRules")
+    def export_policy_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeExportPolicyRuleArgs']]]]:
+        """
+        One or more `export_policy_rule` block defined below.
+        """
+        return pulumi.get(self, "export_policy_rules")
+
+    @export_policy_rules.setter
+    def export_policy_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeExportPolicyRuleArgs']]]]):
+        pulumi.set(self, "export_policy_rules", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the NetApp Volume. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/en-us/azure/azure-netapp-files/create-volumes-dual-protocol) document.
+        """
+        return pulumi.get(self, "protocols")
+
+    @protocols.setter
+    def protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "protocols", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Volume(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -114,6 +335,108 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] volume_path: A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VolumeArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a NetApp Volume.
+
+        ## NetApp Volume Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            address_spaces=["10.0.0.0/16"])
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"],
+            delegations=[azure.network.SubnetDelegationArgs(
+                name="netapp",
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                    name="Microsoft.Netapp/volumes",
+                    actions=[
+                        "Microsoft.Network/networkinterfaces/*",
+                        "Microsoft.Network/virtualNetworks/subnets/join/action",
+                    ],
+                ),
+            )])
+        example_account = azure.netapp.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_pool = azure.netapp.Pool("examplePool",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            account_name=example_account.name,
+            service_level="Premium",
+            size_in_tb=4)
+        example_volume = azure.netapp.Volume("exampleVolume",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            account_name=example_account.name,
+            pool_name=example_pool.name,
+            volume_path="my-unique-file-path",
+            service_level="Premium",
+            subnet_id=example_subnet.id,
+            protocols=["NFSv4.1"],
+            storage_quota_in_gb=100,
+            create_from_snapshot_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1/snapshots/snapshot1",
+            data_protection_replication=azure.netapp.VolumeDataProtectionReplicationArgs(
+                endpoint_type="dst",
+                remote_volume_location=azurerm_resource_group["example_primary"]["location"],
+                remote_volume_resource_id=azurerm_netapp_volume["example_primary"]["id"],
+                replication_frequency="10minutes",
+            ))
+        ```
+
+        ## Import
+
+        NetApp Volumes can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:netapp/volume:Volume example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param VolumeArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VolumeArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 create_from_snapshot_resource_id: Optional[pulumi.Input[str]] = None,
+                 data_protection_replication: Optional[pulumi.Input[pulumi.InputType['VolumeDataProtectionReplicationArgs']]] = None,
+                 export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 pool_name: Optional[pulumi.Input[str]] = None,
+                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_level: Optional[pulumi.Input[str]] = None,
+                 storage_quota_in_gb: Optional[pulumi.Input[int]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 volume_path: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

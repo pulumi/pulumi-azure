@@ -5,15 +5,115 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['EventHub']
+__all__ = ['EventHubArgs', 'EventHub']
+
+@pulumi.input_type
+class EventHubArgs:
+    def __init__(__self__, *,
+                 message_retention: pulumi.Input[int],
+                 namespace_name: pulumi.Input[str],
+                 partition_count: pulumi.Input[int],
+                 resource_group_name: pulumi.Input[str],
+                 capture_description: Optional[pulumi.Input['EventHubCaptureDescriptionArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a EventHub resource.
+        :param pulumi.Input[int] message_retention: Specifies the number of days to retain the events for this Event Hub.
+        :param pulumi.Input[str] namespace_name: Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] partition_count: Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
+        :param pulumi.Input['EventHubCaptureDescriptionArgs'] capture_description: A `capture_description` block as defined below.
+        :param pulumi.Input[str] name: Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "message_retention", message_retention)
+        pulumi.set(__self__, "namespace_name", namespace_name)
+        pulumi.set(__self__, "partition_count", partition_count)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if capture_description is not None:
+            pulumi.set(__self__, "capture_description", capture_description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="messageRetention")
+    def message_retention(self) -> pulumi.Input[int]:
+        """
+        Specifies the number of days to retain the events for this Event Hub.
+        """
+        return pulumi.get(self, "message_retention")
+
+    @message_retention.setter
+    def message_retention(self, value: pulumi.Input[int]):
+        pulumi.set(self, "message_retention", value)
+
+    @property
+    @pulumi.getter(name="namespaceName")
+    def namespace_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "namespace_name")
+
+    @namespace_name.setter
+    def namespace_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "namespace_name", value)
+
+    @property
+    @pulumi.getter(name="partitionCount")
+    def partition_count(self) -> pulumi.Input[int]:
+        """
+        Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "partition_count")
+
+    @partition_count.setter
+    def partition_count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "partition_count", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="captureDescription")
+    def capture_description(self) -> Optional[pulumi.Input['EventHubCaptureDescriptionArgs']]:
+        """
+        A `capture_description` block as defined below.
+        """
+        return pulumi.get(self, "capture_description")
+
+    @capture_description.setter
+    def capture_description(self, value: Optional[pulumi.Input['EventHubCaptureDescriptionArgs']]):
+        pulumi.set(self, "capture_description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class EventHub(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -68,6 +168,69 @@ class EventHub(pulumi.CustomResource):
         :param pulumi.Input[int] partition_count: Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: EventHubArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Event Hubs as a nested resource within a Event Hubs namespace.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            capacity=1,
+            tags={
+                "environment": "Production",
+            })
+        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
+            namespace_name=example_event_hub_namespace.name,
+            resource_group_name=example_resource_group.name,
+            partition_count=2,
+            message_retention=1)
+        ```
+
+        ## Import
+
+        EventHubs can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:eventhub/eventHub:EventHub eventhub1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1/eventhubs/eventhub1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param EventHubArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(EventHubArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 capture_description: Optional[pulumi.Input[pulumi.InputType['EventHubCaptureDescriptionArgs']]] = None,
+                 message_retention: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 namespace_name: Optional[pulumi.Input[str]] = None,
+                 partition_count: Optional[pulumi.Input[int]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,15 +5,54 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ManagementPolicy']
+__all__ = ['ManagementPolicyArgs', 'ManagementPolicy']
+
+@pulumi.input_type
+class ManagementPolicyArgs:
+    def __init__(__self__, *,
+                 storage_account_id: pulumi.Input[str],
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]]] = None):
+        """
+        The set of arguments for constructing a ManagementPolicy resource.
+        :param pulumi.Input[str] storage_account_id: Specifies the id of the storage account to apply the management policy to.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]] rules: A `rule` block as documented below.
+        """
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the id of the storage account to apply the management policy to.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @storage_account_id.setter
+    def storage_account_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_id", value)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]]]:
+        """
+        A `rule` block as documented below.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]]]):
+        pulumi.set(self, "rules", value)
 
 
 class ManagementPolicy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -96,6 +135,101 @@ class ManagementPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagementPolicyRuleArgs']]]] rules: A `rule` block as documented below.
         :param pulumi.Input[str] storage_account_id: Specifies the id of the storage account to apply the management policy to.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ManagementPolicyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an Azure Storage Account Management Policy.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS",
+            account_kind="BlobStorage")
+        example_management_policy = azure.storage.ManagementPolicy("exampleManagementPolicy",
+            storage_account_id=example_account.id,
+            rules=[
+                azure.storage.ManagementPolicyRuleArgs(
+                    name="rule1",
+                    enabled=True,
+                    filters=azure.storage.ManagementPolicyRuleFiltersArgs(
+                        prefix_matches=["container1/prefix1"],
+                        blob_types=["blockBlob"],
+                    ),
+                    actions=azure.storage.ManagementPolicyRuleActionsArgs(
+                        base_blob=azure.storage.ManagementPolicyRuleActionsBaseBlobArgs(
+                            tier_to_cool_after_days_since_modification_greater_than=10,
+                            tier_to_archive_after_days_since_modification_greater_than=50,
+                            delete_after_days_since_modification_greater_than=100,
+                        ),
+                        snapshot=azure.storage.ManagementPolicyRuleActionsSnapshotArgs(
+                            delete_after_days_since_creation_greater_than=30,
+                        ),
+                    ),
+                ),
+                azure.storage.ManagementPolicyRuleArgs(
+                    name="rule2",
+                    enabled=False,
+                    filters=azure.storage.ManagementPolicyRuleFiltersArgs(
+                        prefix_matches=[
+                            "container2/prefix1",
+                            "container2/prefix2",
+                        ],
+                        blob_types=["blockBlob"],
+                    ),
+                    actions=azure.storage.ManagementPolicyRuleActionsArgs(
+                        base_blob=azure.storage.ManagementPolicyRuleActionsBaseBlobArgs(
+                            tier_to_cool_after_days_since_modification_greater_than=11,
+                            tier_to_archive_after_days_since_modification_greater_than=51,
+                            delete_after_days_since_modification_greater_than=101,
+                        ),
+                        snapshot=azure.storage.ManagementPolicyRuleActionsSnapshotArgs(
+                            delete_after_days_since_creation_greater_than=31,
+                        ),
+                    ),
+                ),
+            ])
+        ```
+
+        ## Import
+
+        Storage Account Management Policies can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:storage/managementPolicy:ManagementPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Storage/storageAccounts/myaccountname/managementPolicies/default
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ManagementPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ManagementPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagementPolicyRuleArgs']]]]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

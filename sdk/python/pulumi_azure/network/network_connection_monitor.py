@@ -5,15 +5,223 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['NetworkConnectionMonitor']
+__all__ = ['NetworkConnectionMonitorArgs', 'NetworkConnectionMonitor']
+
+@pulumi.input_type
+class NetworkConnectionMonitorArgs:
+    def __init__(__self__, *,
+                 endpoints: pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointArgs']]],
+                 network_watcher_id: pulumi.Input[str],
+                 test_configurations: pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationArgs']]],
+                 test_groups: pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestGroupArgs']]],
+                 auto_start: Optional[pulumi.Input[bool]] = None,
+                 destination: Optional[pulumi.Input['NetworkConnectionMonitorDestinationArgs']] = None,
+                 interval_in_seconds: Optional[pulumi.Input[int]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 notes: Optional[pulumi.Input[str]] = None,
+                 output_workspace_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 source: Optional[pulumi.Input['NetworkConnectionMonitorSourceArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a NetworkConnectionMonitor resource.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointArgs']]] endpoints: A `endpoint` block as defined below.
+        :param pulumi.Input[str] network_watcher_id: The ID of the Network Watcher. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationArgs']]] test_configurations: A `test_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestGroupArgs']]] test_groups: A `test_group` block as defined below.
+        :param pulumi.Input[str] location: The Azure Region where the Network Connection Monitor should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Network Connection Monitor. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] notes: The description of the Network Connection Monitor.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] output_workspace_resource_ids: A list of IDs of the Log Analytics Workspace which will accept the output from the Network Connection Monitor.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Network Connection Monitor.
+        """
+        pulumi.set(__self__, "endpoints", endpoints)
+        pulumi.set(__self__, "network_watcher_id", network_watcher_id)
+        pulumi.set(__self__, "test_configurations", test_configurations)
+        pulumi.set(__self__, "test_groups", test_groups)
+        if auto_start is not None:
+            warnings.warn("""The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""", DeprecationWarning)
+            pulumi.log.warn("""auto_start is deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""")
+        if auto_start is not None:
+            pulumi.set(__self__, "auto_start", auto_start)
+        if destination is not None:
+            warnings.warn("""The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""", DeprecationWarning)
+            pulumi.log.warn("""destination is deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""")
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if interval_in_seconds is not None:
+            warnings.warn("""The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""", DeprecationWarning)
+            pulumi.log.warn("""interval_in_seconds is deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""")
+        if interval_in_seconds is not None:
+            pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if notes is not None:
+            pulumi.set(__self__, "notes", notes)
+        if output_workspace_resource_ids is not None:
+            pulumi.set(__self__, "output_workspace_resource_ids", output_workspace_resource_ids)
+        if source is not None:
+            warnings.warn("""The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""", DeprecationWarning)
+            pulumi.log.warn("""source is deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""")
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def endpoints(self) -> pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointArgs']]]:
+        """
+        A `endpoint` block as defined below.
+        """
+        return pulumi.get(self, "endpoints")
+
+    @endpoints.setter
+    def endpoints(self, value: pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointArgs']]]):
+        pulumi.set(self, "endpoints", value)
+
+    @property
+    @pulumi.getter(name="networkWatcherId")
+    def network_watcher_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Network Watcher. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "network_watcher_id")
+
+    @network_watcher_id.setter
+    def network_watcher_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "network_watcher_id", value)
+
+    @property
+    @pulumi.getter(name="testConfigurations")
+    def test_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationArgs']]]:
+        """
+        A `test_configuration` block as defined below.
+        """
+        return pulumi.get(self, "test_configurations")
+
+    @test_configurations.setter
+    def test_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationArgs']]]):
+        pulumi.set(self, "test_configurations", value)
+
+    @property
+    @pulumi.getter(name="testGroups")
+    def test_groups(self) -> pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestGroupArgs']]]:
+        """
+        A `test_group` block as defined below.
+        """
+        return pulumi.get(self, "test_groups")
+
+    @test_groups.setter
+    def test_groups(self, value: pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestGroupArgs']]]):
+        pulumi.set(self, "test_groups", value)
+
+    @property
+    @pulumi.getter(name="autoStart")
+    def auto_start(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "auto_start")
+
+    @auto_start.setter
+    def auto_start(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_start", value)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[pulumi.Input['NetworkConnectionMonitorDestinationArgs']]:
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: Optional[pulumi.Input['NetworkConnectionMonitorDestinationArgs']]):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter(name="intervalInSeconds")
+    def interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "interval_in_seconds")
+
+    @interval_in_seconds.setter
+    def interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval_in_seconds", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Region where the Network Connection Monitor should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Network Connection Monitor. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Network Connection Monitor.
+        """
+        return pulumi.get(self, "notes")
+
+    @notes.setter
+    def notes(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "notes", value)
+
+    @property
+    @pulumi.getter(name="outputWorkspaceResourceIds")
+    def output_workspace_resource_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of IDs of the Log Analytics Workspace which will accept the output from the Network Connection Monitor.
+        """
+        return pulumi.get(self, "output_workspace_resource_ids")
+
+    @output_workspace_resource_ids.setter
+    def output_workspace_resource_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "output_workspace_resource_ids", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input['NetworkConnectionMonitorSourceArgs']]:
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input['NetworkConnectionMonitorSourceArgs']]):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags which should be assigned to the Network Connection Monitor.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class NetworkConnectionMonitor(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -58,6 +266,56 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkConnectionMonitorTestConfigurationArgs']]]] test_configurations: A `test_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkConnectionMonitorTestGroupArgs']]]] test_groups: A `test_group` block as defined below.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: NetworkConnectionMonitorArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Network Connection Monitor.
+
+        > **NOTE:** Any Network Connection Monitor resource created with API versions 2019-06-01 or earlier (v1) are now incompatible with this provider, which now only supports v2.
+
+        ## Import
+
+        Network Connection Monitors can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:network/networkConnectionMonitor:NetworkConnectionMonitor example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/networkWatchers/watcher1/connectionMonitors/connectionMonitor1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param NetworkConnectionMonitorArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkConnectionMonitorArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_start: Optional[pulumi.Input[bool]] = None,
+                 destination: Optional[pulumi.Input[pulumi.InputType['NetworkConnectionMonitorDestinationArgs']]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkConnectionMonitorEndpointArgs']]]]] = None,
+                 interval_in_seconds: Optional[pulumi.Input[int]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_watcher_id: Optional[pulumi.Input[str]] = None,
+                 notes: Optional[pulumi.Input[str]] = None,
+                 output_workspace_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 source: Optional[pulumi.Input[pulumi.InputType['NetworkConnectionMonitorSourceArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 test_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkConnectionMonitorTestConfigurationArgs']]]]] = None,
+                 test_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkConnectionMonitorTestGroupArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

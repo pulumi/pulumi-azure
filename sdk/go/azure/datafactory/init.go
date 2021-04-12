@@ -22,71 +22,72 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:datafactory/datasetAzureBlob:DatasetAzureBlob":
-		r, err = NewDatasetAzureBlob(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatasetAzureBlob{}
 	case "azure:datafactory/datasetCosmosDBApi:DatasetCosmosDBApi":
-		r, err = NewDatasetCosmosDBApi(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatasetCosmosDBApi{}
 	case "azure:datafactory/datasetDelimitedText:DatasetDelimitedText":
-		r, err = NewDatasetDelimitedText(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatasetDelimitedText{}
 	case "azure:datafactory/datasetHttp:DatasetHttp":
-		r, err = NewDatasetHttp(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatasetHttp{}
 	case "azure:datafactory/datasetJson:DatasetJson":
-		r, err = NewDatasetJson(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatasetJson{}
 	case "azure:datafactory/datasetMysql:DatasetMysql":
-		r, err = NewDatasetMysql(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatasetMysql{}
 	case "azure:datafactory/datasetParquet:DatasetParquet":
-		r, err = NewDatasetParquet(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatasetParquet{}
 	case "azure:datafactory/datasetPostgresql:DatasetPostgresql":
-		r, err = NewDatasetPostgresql(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatasetPostgresql{}
 	case "azure:datafactory/datasetSqlServerTable:DatasetSqlServerTable":
-		r, err = NewDatasetSqlServerTable(ctx, name, nil, pulumi.URN_(urn))
+		r = &DatasetSqlServerTable{}
 	case "azure:datafactory/factory:Factory":
-		r, err = NewFactory(ctx, name, nil, pulumi.URN_(urn))
+		r = &Factory{}
 	case "azure:datafactory/integrationRuntimeManaged:IntegrationRuntimeManaged":
-		r, err = NewIntegrationRuntimeManaged(ctx, name, nil, pulumi.URN_(urn))
+		r = &IntegrationRuntimeManaged{}
 	case "azure:datafactory/integrationRuntimeRule:IntegrationRuntimeRule":
-		r, err = NewIntegrationRuntimeRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &IntegrationRuntimeRule{}
 	case "azure:datafactory/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted":
-		r, err = NewIntegrationRuntimeSelfHosted(ctx, name, nil, pulumi.URN_(urn))
+		r = &IntegrationRuntimeSelfHosted{}
 	case "azure:datafactory/integrationRuntimeSsis:IntegrationRuntimeSsis":
-		r, err = NewIntegrationRuntimeSsis(ctx, name, nil, pulumi.URN_(urn))
+		r = &IntegrationRuntimeSsis{}
 	case "azure:datafactory/linkedServiceAzureBlobStorage:LinkedServiceAzureBlobStorage":
-		r, err = NewLinkedServiceAzureBlobStorage(ctx, name, nil, pulumi.URN_(urn))
+		r = &LinkedServiceAzureBlobStorage{}
 	case "azure:datafactory/linkedServiceAzureFileStorage:LinkedServiceAzureFileStorage":
-		r, err = NewLinkedServiceAzureFileStorage(ctx, name, nil, pulumi.URN_(urn))
+		r = &LinkedServiceAzureFileStorage{}
 	case "azure:datafactory/linkedServiceAzureFunction:LinkedServiceAzureFunction":
-		r, err = NewLinkedServiceAzureFunction(ctx, name, nil, pulumi.URN_(urn))
+		r = &LinkedServiceAzureFunction{}
 	case "azure:datafactory/linkedServiceAzureSqlDatabase:LinkedServiceAzureSqlDatabase":
-		r, err = NewLinkedServiceAzureSqlDatabase(ctx, name, nil, pulumi.URN_(urn))
+		r = &LinkedServiceAzureSqlDatabase{}
 	case "azure:datafactory/linkedServiceAzureTableStorage:LinkedServiceAzureTableStorage":
-		r, err = NewLinkedServiceAzureTableStorage(ctx, name, nil, pulumi.URN_(urn))
+		r = &LinkedServiceAzureTableStorage{}
 	case "azure:datafactory/linkedServiceCosmosDb:LinkedServiceCosmosDb":
-		r, err = NewLinkedServiceCosmosDb(ctx, name, nil, pulumi.URN_(urn))
+		r = &LinkedServiceCosmosDb{}
 	case "azure:datafactory/linkedServiceDataLakeStorageGen2:LinkedServiceDataLakeStorageGen2":
-		r, err = NewLinkedServiceDataLakeStorageGen2(ctx, name, nil, pulumi.URN_(urn))
+		r = &LinkedServiceDataLakeStorageGen2{}
 	case "azure:datafactory/linkedServiceKeyVault:LinkedServiceKeyVault":
-		r, err = NewLinkedServiceKeyVault(ctx, name, nil, pulumi.URN_(urn))
+		r = &LinkedServiceKeyVault{}
 	case "azure:datafactory/linkedServiceMysql:LinkedServiceMysql":
-		r, err = NewLinkedServiceMysql(ctx, name, nil, pulumi.URN_(urn))
+		r = &LinkedServiceMysql{}
 	case "azure:datafactory/linkedServicePostgresql:LinkedServicePostgresql":
-		r, err = NewLinkedServicePostgresql(ctx, name, nil, pulumi.URN_(urn))
+		r = &LinkedServicePostgresql{}
 	case "azure:datafactory/linkedServiceSftp:LinkedServiceSftp":
-		r, err = NewLinkedServiceSftp(ctx, name, nil, pulumi.URN_(urn))
+		r = &LinkedServiceSftp{}
 	case "azure:datafactory/linkedServiceSnowflake:LinkedServiceSnowflake":
-		r, err = NewLinkedServiceSnowflake(ctx, name, nil, pulumi.URN_(urn))
+		r = &LinkedServiceSnowflake{}
 	case "azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer":
-		r, err = NewLinkedServiceSqlServer(ctx, name, nil, pulumi.URN_(urn))
+		r = &LinkedServiceSqlServer{}
 	case "azure:datafactory/linkedServiceSynapse:LinkedServiceSynapse":
-		r, err = NewLinkedServiceSynapse(ctx, name, nil, pulumi.URN_(urn))
+		r = &LinkedServiceSynapse{}
 	case "azure:datafactory/linkedServiceWeb:LinkedServiceWeb":
-		r, err = NewLinkedServiceWeb(ctx, name, nil, pulumi.URN_(urn))
+		r = &LinkedServiceWeb{}
 	case "azure:datafactory/pipeline:Pipeline":
-		r, err = NewPipeline(ctx, name, nil, pulumi.URN_(urn))
+		r = &Pipeline{}
 	case "azure:datafactory/triggerSchedule:TriggerSchedule":
-		r, err = NewTriggerSchedule(ctx, name, nil, pulumi.URN_(urn))
+		r = &TriggerSchedule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

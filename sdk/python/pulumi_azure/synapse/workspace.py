@@ -5,15 +5,227 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Workspace']
+__all__ = ['WorkspaceArgs', 'Workspace']
+
+@pulumi.input_type
+class WorkspaceArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 sql_administrator_login: pulumi.Input[str],
+                 sql_administrator_login_password: pulumi.Input[str],
+                 storage_data_lake_gen2_filesystem_id: pulumi.Input[str],
+                 aad_admin: Optional[pulumi.Input['WorkspaceAadAdminArgs']] = None,
+                 azure_devops_repo: Optional[pulumi.Input['WorkspaceAzureDevopsRepoArgs']] = None,
+                 github_repo: Optional[pulumi.Input['WorkspaceGithubRepoArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 managed_resource_group_name: Optional[pulumi.Input[str]] = None,
+                 managed_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 sql_identity_control_enabled: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Workspace resource.
+        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sql_administrator_login: Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sql_administrator_login_password: The Password associated with the `sql_administrator_login` for the SQL administrator.
+        :param pulumi.Input[str] storage_data_lake_gen2_filesystem_id: Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
+        :param pulumi.Input['WorkspaceAadAdminArgs'] aad_admin: An `aad_admin` block as defined below.
+        :param pulumi.Input['WorkspaceAzureDevopsRepoArgs'] azure_devops_repo: An `azure_devops_repo` block as defined below.
+        :param pulumi.Input['WorkspaceGithubRepoArgs'] github_repo: A `github_repo` block as defined below.
+        :param pulumi.Input[str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] managed_resource_group_name: Workspace managed resource group.
+        :param pulumi.Input[bool] managed_virtual_network_enabled: Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] sql_identity_control_enabled: Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse Workspace.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sql_administrator_login", sql_administrator_login)
+        pulumi.set(__self__, "sql_administrator_login_password", sql_administrator_login_password)
+        pulumi.set(__self__, "storage_data_lake_gen2_filesystem_id", storage_data_lake_gen2_filesystem_id)
+        if aad_admin is not None:
+            pulumi.set(__self__, "aad_admin", aad_admin)
+        if azure_devops_repo is not None:
+            pulumi.set(__self__, "azure_devops_repo", azure_devops_repo)
+        if github_repo is not None:
+            pulumi.set(__self__, "github_repo", github_repo)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if managed_resource_group_name is not None:
+            pulumi.set(__self__, "managed_resource_group_name", managed_resource_group_name)
+        if managed_virtual_network_enabled is not None:
+            pulumi.set(__self__, "managed_virtual_network_enabled", managed_virtual_network_enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if sql_identity_control_enabled is not None:
+            pulumi.set(__self__, "sql_identity_control_enabled", sql_identity_control_enabled)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="sqlAdministratorLogin")
+    def sql_administrator_login(self) -> pulumi.Input[str]:
+        """
+        Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "sql_administrator_login")
+
+    @sql_administrator_login.setter
+    def sql_administrator_login(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sql_administrator_login", value)
+
+    @property
+    @pulumi.getter(name="sqlAdministratorLoginPassword")
+    def sql_administrator_login_password(self) -> pulumi.Input[str]:
+        """
+        The Password associated with the `sql_administrator_login` for the SQL administrator.
+        """
+        return pulumi.get(self, "sql_administrator_login_password")
+
+    @sql_administrator_login_password.setter
+    def sql_administrator_login_password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sql_administrator_login_password", value)
+
+    @property
+    @pulumi.getter(name="storageDataLakeGen2FilesystemId")
+    def storage_data_lake_gen2_filesystem_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_data_lake_gen2_filesystem_id")
+
+    @storage_data_lake_gen2_filesystem_id.setter
+    def storage_data_lake_gen2_filesystem_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_data_lake_gen2_filesystem_id", value)
+
+    @property
+    @pulumi.getter(name="aadAdmin")
+    def aad_admin(self) -> Optional[pulumi.Input['WorkspaceAadAdminArgs']]:
+        """
+        An `aad_admin` block as defined below.
+        """
+        return pulumi.get(self, "aad_admin")
+
+    @aad_admin.setter
+    def aad_admin(self, value: Optional[pulumi.Input['WorkspaceAadAdminArgs']]):
+        pulumi.set(self, "aad_admin", value)
+
+    @property
+    @pulumi.getter(name="azureDevopsRepo")
+    def azure_devops_repo(self) -> Optional[pulumi.Input['WorkspaceAzureDevopsRepoArgs']]:
+        """
+        An `azure_devops_repo` block as defined below.
+        """
+        return pulumi.get(self, "azure_devops_repo")
+
+    @azure_devops_repo.setter
+    def azure_devops_repo(self, value: Optional[pulumi.Input['WorkspaceAzureDevopsRepoArgs']]):
+        pulumi.set(self, "azure_devops_repo", value)
+
+    @property
+    @pulumi.getter(name="githubRepo")
+    def github_repo(self) -> Optional[pulumi.Input['WorkspaceGithubRepoArgs']]:
+        """
+        A `github_repo` block as defined below.
+        """
+        return pulumi.get(self, "github_repo")
+
+    @github_repo.setter
+    def github_repo(self, value: Optional[pulumi.Input['WorkspaceGithubRepoArgs']]):
+        pulumi.set(self, "github_repo", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="managedResourceGroupName")
+    def managed_resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Workspace managed resource group.
+        """
+        return pulumi.get(self, "managed_resource_group_name")
+
+    @managed_resource_group_name.setter
+    def managed_resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="managedVirtualNetworkEnabled")
+    def managed_virtual_network_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "managed_virtual_network_enabled")
+
+    @managed_virtual_network_enabled.setter
+    def managed_virtual_network_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "managed_virtual_network_enabled", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="sqlIdentityControlEnabled")
+    def sql_identity_control_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
+        """
+        return pulumi.get(self, "sql_identity_control_enabled")
+
+    @sql_identity_control_enabled.setter
+    def sql_identity_control_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "sql_identity_control_enabled", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags which should be assigned to the Synapse Workspace.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Workspace(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -91,6 +303,85 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] storage_data_lake_gen2_filesystem_id: Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse Workspace.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: WorkspaceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Synapse Workspace.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS",
+            account_kind="StorageV2",
+            is_hns_enabled=True)
+        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
+        example_workspace = azure.synapse.Workspace("exampleWorkspace",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
+            sql_administrator_login="sqladminuser",
+            sql_administrator_login_password="H@Sh1CoR3!",
+            aad_admin=azure.synapse.WorkspaceAadAdminArgs(
+                login="AzureAD Admin",
+                object_id="00000000-0000-0000-0000-000000000000",
+                tenant_id="00000000-0000-0000-0000-000000000000",
+            ),
+            tags={
+                "Env": "production",
+            })
+        ```
+
+        ## Import
+
+        Synapse Workspace can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:synapse/workspace:Workspace example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param WorkspaceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(WorkspaceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 aad_admin: Optional[pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']]] = None,
+                 azure_devops_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArgs']]] = None,
+                 github_repo: Optional[pulumi.Input[pulumi.InputType['WorkspaceGithubRepoArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 managed_resource_group_name: Optional[pulumi.Input[str]] = None,
+                 managed_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sql_administrator_login: Optional[pulumi.Input[str]] = None,
+                 sql_administrator_login_password: Optional[pulumi.Input[str]] = None,
+                 sql_identity_control_enabled: Optional[pulumi.Input[bool]] = None,
+                 storage_data_lake_gen2_filesystem_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

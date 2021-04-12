@@ -5,13 +5,114 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ZoneVirtualNetworkLink']
+__all__ = ['ZoneVirtualNetworkLinkArgs', 'ZoneVirtualNetworkLink']
+
+@pulumi.input_type
+class ZoneVirtualNetworkLinkArgs:
+    def __init__(__self__, *,
+                 private_dns_zone_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 virtual_network_id: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
+                 registration_enabled: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a ZoneVirtualNetworkLink resource.
+        :param pulumi.Input[str] private_dns_zone_name: The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Private DNS Zone Virtual Network Link. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] registration_enabled: Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "private_dns_zone_name", private_dns_zone_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if registration_enabled is not None:
+            pulumi.set(__self__, "registration_enabled", registration_enabled)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="privateDnsZoneName")
+    def private_dns_zone_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "private_dns_zone_name")
+
+    @private_dns_zone_name.setter
+    def private_dns_zone_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "private_dns_zone_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkId")
+    def virtual_network_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "virtual_network_id")
+
+    @virtual_network_id.setter
+    def virtual_network_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "virtual_network_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Private DNS Zone Virtual Network Link. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="registrationEnabled")
+    def registration_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "registration_enabled")
+
+    @registration_enabled.setter
+    def registration_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "registration_enabled", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class ZoneVirtualNetworkLink(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -58,6 +159,61 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ZoneVirtualNetworkLinkArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Enables you to manage Private DNS zone Virtual Network Links. These Links enable DNS resolution and registration inside Azure Virtual Networks using Azure Private DNS.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink",
+            resource_group_name=example_resource_group.name,
+            private_dns_zone_name=example_zone.name,
+            virtual_network_id=azurerm_virtual_network["example"]["id"])
+        ```
+
+        ## Import
+
+        Private DNS Zone Virtual Network Links can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:privatedns/zoneVirtualNetworkLink:ZoneVirtualNetworkLink link1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/zone1.com/virtualNetworkLinks/myVnetLink1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ZoneVirtualNetworkLinkArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ZoneVirtualNetworkLinkArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 private_dns_zone_name: Optional[pulumi.Input[str]] = None,
+                 registration_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

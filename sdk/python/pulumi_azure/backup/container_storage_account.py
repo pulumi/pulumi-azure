@@ -5,13 +5,66 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ContainerStorageAccount']
+__all__ = ['ContainerStorageAccountArgs', 'ContainerStorageAccount']
+
+@pulumi.input_type
+class ContainerStorageAccountArgs:
+    def __init__(__self__, *,
+                 recovery_vault_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 storage_account_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a ContainerStorageAccount resource.
+        :param pulumi.Input[str] recovery_vault_name: The name of the vault where the storage account will be registered.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault is located.
+        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account to be registered
+        """
+        pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+
+    @property
+    @pulumi.getter(name="recoveryVaultName")
+    def recovery_vault_name(self) -> pulumi.Input[str]:
+        """
+        The name of the vault where the storage account will be registered.
+        """
+        return pulumi.get(self, "recovery_vault_name")
+
+    @recovery_vault_name.setter
+    def recovery_vault_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "recovery_vault_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group where the vault is located.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Storage Account to be registered
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @storage_account_id.setter
+    def storage_account_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_id", value)
 
 
 class ContainerStorageAccount(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -64,6 +117,70 @@ class ContainerStorageAccount(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault is located.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account to be registered
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ContainerStorageAccountArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages registration of a storage account with Azure Backup. Storage accounts must be registered with an Azure Recovery Vault in order to backup file shares within the storage account. Registering a storage account with a vault creates what is known as a protection container within Azure Recovery Services. Once the container is created, Azure file shares within the storage account can be backed up using the `backup.ProtectedFileShare` resource.
+
+        > **NOTE:** Azure Backup for Azure File Shares is currently in public preview. During the preview, the service is subject to additional limitations and unsupported backup scenarios. [Read More](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files#limitations-for-azure-file-share-backup-during-preview)
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        vault = azure.recoveryservices.Vault("vault",
+            location=rg.location,
+            resource_group_name=rg.name,
+            sku="Standard")
+        sa = azure.storage.Account("sa",
+            location=rg.location,
+            resource_group_name=rg.name,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        container = azure.backup.ContainerStorageAccount("container",
+            resource_group_name=rg.name,
+            recovery_vault_name=vault.name,
+            storage_account_id=sa.id)
+        ```
+
+        ## Import
+
+        Backup Storage Account Containers can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:backup/containerStorageAccount:ContainerStorageAccount mycontainer "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/backupFabrics/Azure/protectionContainers/StorageContainer;storage;storage-rg-name;storage-account"
+        ```
+
+         Note the ID requires quoting as there are semicolons
+
+        :param str resource_name: The name of the resource.
+        :param ContainerStorageAccountArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ContainerStorageAccountArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 recovery_vault_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

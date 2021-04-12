@@ -5,10 +5,170 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['RegistryWebook']
+__all__ = ['RegistryWebookArgs', 'RegistryWebook']
+
+@pulumi.input_type
+class RegistryWebookArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 registry_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 service_uri: pulumi.Input[str],
+                 custom_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a RegistryWebook resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chart_push`, `chart_delete`
+        :param pulumi.Input[str] registry_name: The Name of Container registry this Webhook belongs to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Registry Webhook. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] service_uri: Specifies the service URI for the Webhook to post notifications.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_headers: Custom headers that will be added to the webhook notifications request.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Container Registry Webhook. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] scope: Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events.
+        :param pulumi.Input[str] status: Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`.
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "registry_name", registry_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "service_uri", service_uri)
+        if custom_headers is not None:
+            pulumi.set(__self__, "custom_headers", custom_headers)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chart_push`, `chart_delete`
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter(name="registryName")
+    def registry_name(self) -> pulumi.Input[str]:
+        """
+        The Name of Container registry this Webhook belongs to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "registry_name")
+
+    @registry_name.setter
+    def registry_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "registry_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which to create the Container Registry Webhook. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="serviceUri")
+    def service_uri(self) -> pulumi.Input[str]:
+        """
+        Specifies the service URI for the Webhook to post notifications.
+        """
+        return pulumi.get(self, "service_uri")
+
+    @service_uri.setter
+    def service_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_uri", value)
+
+    @property
+    @pulumi.getter(name="customHeaders")
+    def custom_headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Custom headers that will be added to the webhook notifications request.
+        """
+        return pulumi.get(self, "custom_headers")
+
+    @custom_headers.setter
+    def custom_headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "custom_headers", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Container Registry Webhook. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 warnings.warn("""azure.containerservice.RegistryWebook has been deprecated in favor of azure.containerservice.RegistryWebhook""", DeprecationWarning)
 
@@ -16,6 +176,7 @@ warnings.warn("""azure.containerservice.RegistryWebook has been deprecated in fa
 class RegistryWebook(pulumi.CustomResource):
     warnings.warn("""azure.containerservice.RegistryWebook has been deprecated in favor of azure.containerservice.RegistryWebhook""", DeprecationWarning)
 
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -80,6 +241,76 @@ class RegistryWebook(pulumi.CustomResource):
         :param pulumi.Input[str] service_uri: Specifies the service URI for the Webhook to post notifications.
         :param pulumi.Input[str] status: Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RegistryWebookArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an Azure Container Registry Webhook.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        rg = azure.core.ResourceGroup("rg", location="West Europe")
+        acr = azure.containerservice.Registry("acr",
+            resource_group_name=rg.name,
+            location=rg.location,
+            sku="Standard",
+            admin_enabled=False)
+        webhook = azure.containerservice.RegistryWebhook("webhook",
+            resource_group_name=rg.name,
+            registry_name=acr.name,
+            location=rg.location,
+            service_uri="https://mywebhookreceiver.example/mytag",
+            status="enabled",
+            scope="mytag:*",
+            actions=["push"],
+            custom_headers={
+                "Content-Type": "application/json",
+            })
+        ```
+
+        ## Import
+
+        Container Registry Webhooks can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:containerservice/registryWebook:RegistryWebook example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/mygroup1/providers/Microsoft.ContainerRegistry/registries/myregistry1/webhooks/mywebhook1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param RegistryWebookArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RegistryWebookArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 custom_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 registry_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 service_uri: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         pulumi.log.warn("""RegistryWebook is deprecated: azure.containerservice.RegistryWebook has been deprecated in favor of azure.containerservice.RegistryWebhook""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

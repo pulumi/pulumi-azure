@@ -5,15 +5,242 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ApiDiagnostic']
+__all__ = ['ApiDiagnosticArgs', 'ApiDiagnostic']
+
+@pulumi.input_type
+class ApiDiagnosticArgs:
+    def __init__(__self__, *,
+                 api_management_logger_id: pulumi.Input[str],
+                 api_management_name: pulumi.Input[str],
+                 api_name: pulumi.Input[str],
+                 identifier: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 always_log_errors: Optional[pulumi.Input[bool]] = None,
+                 backend_request: Optional[pulumi.Input['ApiDiagnosticBackendRequestArgs']] = None,
+                 backend_response: Optional[pulumi.Input['ApiDiagnosticBackendResponseArgs']] = None,
+                 frontend_request: Optional[pulumi.Input['ApiDiagnosticFrontendRequestArgs']] = None,
+                 frontend_response: Optional[pulumi.Input['ApiDiagnosticFrontendResponseArgs']] = None,
+                 http_correlation_protocol: Optional[pulumi.Input[str]] = None,
+                 log_client_ip: Optional[pulumi.Input[bool]] = None,
+                 sampling_percentage: Optional[pulumi.Input[float]] = None,
+                 verbosity: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ApiDiagnostic resource.
+        :param pulumi.Input[str] api_management_logger_id: The ID (name) of the Diagnostics Logger.
+        :param pulumi.Input[str] api_management_name: The name of the API Management Service instance. Changing this forces a new API Management Service API Diagnostics Logs to be created.
+        :param pulumi.Input[str] api_name: The name of the API on which to configure the Diagnostics Logs. Changing this forces a new API Management Service API Diagnostics Logs to be created.
+        :param pulumi.Input[str] identifier: Identifier of the Diagnostics Logs. Possible values are `applicationinsights` and `azuremonitor`. Changing this forces a new API Management Service API Diagnostics Logs to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
+        :param pulumi.Input[bool] always_log_errors: Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
+        :param pulumi.Input['ApiDiagnosticBackendRequestArgs'] backend_request: A `backend_request` block as defined below.
+        :param pulumi.Input['ApiDiagnosticBackendResponseArgs'] backend_response: A `backend_response` block as defined below.
+        :param pulumi.Input['ApiDiagnosticFrontendRequestArgs'] frontend_request: A `frontend_request` block as defined below.
+        :param pulumi.Input['ApiDiagnosticFrontendResponseArgs'] frontend_response: A `frontend_response` block as defined below.
+        :param pulumi.Input[str] http_correlation_protocol: The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
+        :param pulumi.Input[bool] log_client_ip: Log client IP address.
+        :param pulumi.Input[float] sampling_percentage: Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+        :param pulumi.Input[str] verbosity: Logging verbosity. Possible values are `verbose`, `information` or `error`.
+        """
+        pulumi.set(__self__, "api_management_logger_id", api_management_logger_id)
+        pulumi.set(__self__, "api_management_name", api_management_name)
+        pulumi.set(__self__, "api_name", api_name)
+        pulumi.set(__self__, "identifier", identifier)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if always_log_errors is not None:
+            pulumi.set(__self__, "always_log_errors", always_log_errors)
+        if backend_request is not None:
+            pulumi.set(__self__, "backend_request", backend_request)
+        if backend_response is not None:
+            pulumi.set(__self__, "backend_response", backend_response)
+        if frontend_request is not None:
+            pulumi.set(__self__, "frontend_request", frontend_request)
+        if frontend_response is not None:
+            pulumi.set(__self__, "frontend_response", frontend_response)
+        if http_correlation_protocol is not None:
+            pulumi.set(__self__, "http_correlation_protocol", http_correlation_protocol)
+        if log_client_ip is not None:
+            pulumi.set(__self__, "log_client_ip", log_client_ip)
+        if sampling_percentage is not None:
+            pulumi.set(__self__, "sampling_percentage", sampling_percentage)
+        if verbosity is not None:
+            pulumi.set(__self__, "verbosity", verbosity)
+
+    @property
+    @pulumi.getter(name="apiManagementLoggerId")
+    def api_management_logger_id(self) -> pulumi.Input[str]:
+        """
+        The ID (name) of the Diagnostics Logger.
+        """
+        return pulumi.get(self, "api_management_logger_id")
+
+    @api_management_logger_id.setter
+    def api_management_logger_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "api_management_logger_id", value)
+
+    @property
+    @pulumi.getter(name="apiManagementName")
+    def api_management_name(self) -> pulumi.Input[str]:
+        """
+        The name of the API Management Service instance. Changing this forces a new API Management Service API Diagnostics Logs to be created.
+        """
+        return pulumi.get(self, "api_management_name")
+
+    @api_management_name.setter
+    def api_management_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "api_management_name", value)
+
+    @property
+    @pulumi.getter(name="apiName")
+    def api_name(self) -> pulumi.Input[str]:
+        """
+        The name of the API on which to configure the Diagnostics Logs. Changing this forces a new API Management Service API Diagnostics Logs to be created.
+        """
+        return pulumi.get(self, "api_name")
+
+    @api_name.setter
+    def api_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "api_name", value)
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> pulumi.Input[str]:
+        """
+        Identifier of the Diagnostics Logs. Possible values are `applicationinsights` and `azuremonitor`. Changing this forces a new API Management Service API Diagnostics Logs to be created.
+        """
+        return pulumi.get(self, "identifier")
+
+    @identifier.setter
+    def identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "identifier", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="alwaysLogErrors")
+    def always_log_errors(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
+        """
+        return pulumi.get(self, "always_log_errors")
+
+    @always_log_errors.setter
+    def always_log_errors(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "always_log_errors", value)
+
+    @property
+    @pulumi.getter(name="backendRequest")
+    def backend_request(self) -> Optional[pulumi.Input['ApiDiagnosticBackendRequestArgs']]:
+        """
+        A `backend_request` block as defined below.
+        """
+        return pulumi.get(self, "backend_request")
+
+    @backend_request.setter
+    def backend_request(self, value: Optional[pulumi.Input['ApiDiagnosticBackendRequestArgs']]):
+        pulumi.set(self, "backend_request", value)
+
+    @property
+    @pulumi.getter(name="backendResponse")
+    def backend_response(self) -> Optional[pulumi.Input['ApiDiagnosticBackendResponseArgs']]:
+        """
+        A `backend_response` block as defined below.
+        """
+        return pulumi.get(self, "backend_response")
+
+    @backend_response.setter
+    def backend_response(self, value: Optional[pulumi.Input['ApiDiagnosticBackendResponseArgs']]):
+        pulumi.set(self, "backend_response", value)
+
+    @property
+    @pulumi.getter(name="frontendRequest")
+    def frontend_request(self) -> Optional[pulumi.Input['ApiDiagnosticFrontendRequestArgs']]:
+        """
+        A `frontend_request` block as defined below.
+        """
+        return pulumi.get(self, "frontend_request")
+
+    @frontend_request.setter
+    def frontend_request(self, value: Optional[pulumi.Input['ApiDiagnosticFrontendRequestArgs']]):
+        pulumi.set(self, "frontend_request", value)
+
+    @property
+    @pulumi.getter(name="frontendResponse")
+    def frontend_response(self) -> Optional[pulumi.Input['ApiDiagnosticFrontendResponseArgs']]:
+        """
+        A `frontend_response` block as defined below.
+        """
+        return pulumi.get(self, "frontend_response")
+
+    @frontend_response.setter
+    def frontend_response(self, value: Optional[pulumi.Input['ApiDiagnosticFrontendResponseArgs']]):
+        pulumi.set(self, "frontend_response", value)
+
+    @property
+    @pulumi.getter(name="httpCorrelationProtocol")
+    def http_correlation_protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
+        """
+        return pulumi.get(self, "http_correlation_protocol")
+
+    @http_correlation_protocol.setter
+    def http_correlation_protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "http_correlation_protocol", value)
+
+    @property
+    @pulumi.getter(name="logClientIp")
+    def log_client_ip(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Log client IP address.
+        """
+        return pulumi.get(self, "log_client_ip")
+
+    @log_client_ip.setter
+    def log_client_ip(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "log_client_ip", value)
+
+    @property
+    @pulumi.getter(name="samplingPercentage")
+    def sampling_percentage(self) -> Optional[pulumi.Input[float]]:
+        """
+        Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
+        """
+        return pulumi.get(self, "sampling_percentage")
+
+    @sampling_percentage.setter
+    def sampling_percentage(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "sampling_percentage", value)
+
+    @property
+    @pulumi.getter
+    def verbosity(self) -> Optional[pulumi.Input[str]]:
+        """
+        Logging verbosity. Possible values are `verbose`, `information` or `error`.
+        """
+        return pulumi.get(self, "verbosity")
+
+    @verbosity.setter
+    def verbosity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "verbosity", value)
 
 
 class ApiDiagnostic(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -140,6 +367,133 @@ class ApiDiagnostic(pulumi.CustomResource):
         :param pulumi.Input[float] sampling_percentage: Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
         :param pulumi.Input[str] verbosity: Logging verbosity. Possible values are `verbose`, `information` or `error`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ApiDiagnosticArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a API Management Service API Diagnostics Logs.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_insights = azure.appinsights.Insights("exampleInsights",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            application_type="web")
+        example_service = azure.apimanagement.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            publisher_name="My Company",
+            publisher_email="company@mycompany.io",
+            sku_name="Developer_1")
+        example_api = azure.apimanagement.Api("exampleApi",
+            resource_group_name=example_resource_group.name,
+            api_management_name=example_service.name,
+            revision="1",
+            display_name="Example API",
+            path="example",
+            protocols=["https"],
+            import_=azure.apimanagement.ApiImportArgs(
+                content_format="swagger-link-json",
+                content_value="http://conferenceapi.azurewebsites.net/?format=json",
+            ))
+        example_logger = azure.apimanagement.Logger("exampleLogger",
+            api_management_name=example_service.name,
+            resource_group_name=example_resource_group.name,
+            application_insights=azure.apimanagement.LoggerApplicationInsightsArgs(
+                instrumentation_key=example_insights.instrumentation_key,
+            ))
+        example_api_diagnostic = azure.apimanagement.ApiDiagnostic("exampleApiDiagnostic",
+            resource_group_name=example_resource_group.name,
+            api_management_name=example_service.name,
+            api_name=example_api.name,
+            api_management_logger_id=example_logger.id,
+            sampling_percentage=5,
+            always_log_errors=True,
+            log_client_ip=True,
+            verbosity="Verbose",
+            http_correlation_protocol="W3C",
+            frontend_request=azure.apimanagement.ApiDiagnosticFrontendRequestArgs(
+                body_bytes=32,
+                headers_to_logs=[
+                    "content-type",
+                    "accept",
+                    "origin",
+                ],
+            ),
+            frontend_response=azure.apimanagement.ApiDiagnosticFrontendResponseArgs(
+                body_bytes=32,
+                headers_to_logs=[
+                    "content-type",
+                    "content-length",
+                    "origin",
+                ],
+            ),
+            backend_request=azure.apimanagement.ApiDiagnosticBackendRequestArgs(
+                body_bytes=32,
+                headers_to_logs=[
+                    "content-type",
+                    "accept",
+                    "origin",
+                ],
+            ),
+            backend_response=azure.apimanagement.ApiDiagnosticBackendResponseArgs(
+                body_bytes=32,
+                headers_to_logs=[
+                    "content-type",
+                    "content-length",
+                    "origin",
+                ],
+            ))
+        ```
+
+        ## Import
+
+        API Management Service API Diagnostics Logs can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:apimanagement/apiDiagnostic:ApiDiagnostic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/apis/api1/diagnostics/diagnostic1/loggers/logger1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ApiDiagnosticArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ApiDiagnosticArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 always_log_errors: Optional[pulumi.Input[bool]] = None,
+                 api_management_logger_id: Optional[pulumi.Input[str]] = None,
+                 api_management_name: Optional[pulumi.Input[str]] = None,
+                 api_name: Optional[pulumi.Input[str]] = None,
+                 backend_request: Optional[pulumi.Input[pulumi.InputType['ApiDiagnosticBackendRequestArgs']]] = None,
+                 backend_response: Optional[pulumi.Input[pulumi.InputType['ApiDiagnosticBackendResponseArgs']]] = None,
+                 frontend_request: Optional[pulumi.Input[pulumi.InputType['ApiDiagnosticFrontendRequestArgs']]] = None,
+                 frontend_response: Optional[pulumi.Input[pulumi.InputType['ApiDiagnosticFrontendResponseArgs']]] = None,
+                 http_correlation_protocol: Optional[pulumi.Input[str]] = None,
+                 identifier: Optional[pulumi.Input[str]] = None,
+                 log_client_ip: Optional[pulumi.Input[bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sampling_percentage: Optional[pulumi.Input[float]] = None,
+                 verbosity: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

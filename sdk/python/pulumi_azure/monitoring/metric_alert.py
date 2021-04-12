@@ -5,15 +5,277 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['MetricAlert']
+__all__ = ['MetricAlertArgs', 'MetricAlert']
+
+@pulumi.input_type
+class MetricAlertArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]]] = None,
+                 application_insights_web_test_location_availability_criteria: Optional[pulumi.Input['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs']] = None,
+                 auto_mitigate: Optional[pulumi.Input[bool]] = None,
+                 criterias: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 dynamic_criteria: Optional[pulumi.Input['MetricAlertDynamicCriteriaArgs']] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 frequency: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 severity: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_resource_location: Optional[pulumi.Input[str]] = None,
+                 target_resource_type: Optional[pulumi.Input[str]] = None,
+                 window_size: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a MetricAlert resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Metric Alert instance.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A set of strings of resource IDs at which the metric criteria should be applied.
+        :param pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]] actions: One or more `action` blocks as defined below.
+        :param pulumi.Input['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs'] application_insights_web_test_location_availability_criteria: A `application_insights_web_test_location_availability_criteria` block as defined below.
+        :param pulumi.Input[bool] auto_mitigate: Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaArgs']]] criterias: One or more (static) `criteria` blocks as defined below.
+        :param pulumi.Input[str] description: The description of this Metric Alert.
+        :param pulumi.Input['MetricAlertDynamicCriteriaArgs'] dynamic_criteria: A `dynamic_criteria` block as defined below.
+        :param pulumi.Input[bool] enabled: Should this Metric Alert be enabled? Defaults to `true`.
+        :param pulumi.Input[str] frequency: The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`.
+        :param pulumi.Input[str] name: The name of the Metric Alert. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] severity: The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] target_resource_location: The location of the target resource.
+        :param pulumi.Input[str] target_resource_type: The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
+        :param pulumi.Input[str] window_size: The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "scopes", scopes)
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if application_insights_web_test_location_availability_criteria is not None:
+            pulumi.set(__self__, "application_insights_web_test_location_availability_criteria", application_insights_web_test_location_availability_criteria)
+        if auto_mitigate is not None:
+            pulumi.set(__self__, "auto_mitigate", auto_mitigate)
+        if criterias is not None:
+            pulumi.set(__self__, "criterias", criterias)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if dynamic_criteria is not None:
+            pulumi.set(__self__, "dynamic_criteria", dynamic_criteria)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if frequency is not None:
+            pulumi.set(__self__, "frequency", frequency)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if severity is not None:
+            pulumi.set(__self__, "severity", severity)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if target_resource_location is not None:
+            pulumi.set(__self__, "target_resource_location", target_resource_location)
+        if target_resource_type is not None:
+            pulumi.set(__self__, "target_resource_type", target_resource_type)
+        if window_size is not None:
+            pulumi.set(__self__, "window_size", window_size)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which to create the Metric Alert instance.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A set of strings of resource IDs at which the metric criteria should be applied.
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "scopes", value)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]]]:
+        """
+        One or more `action` blocks as defined below.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter(name="applicationInsightsWebTestLocationAvailabilityCriteria")
+    def application_insights_web_test_location_availability_criteria(self) -> Optional[pulumi.Input['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs']]:
+        """
+        A `application_insights_web_test_location_availability_criteria` block as defined below.
+        """
+        return pulumi.get(self, "application_insights_web_test_location_availability_criteria")
+
+    @application_insights_web_test_location_availability_criteria.setter
+    def application_insights_web_test_location_availability_criteria(self, value: Optional[pulumi.Input['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs']]):
+        pulumi.set(self, "application_insights_web_test_location_availability_criteria", value)
+
+    @property
+    @pulumi.getter(name="autoMitigate")
+    def auto_mitigate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
+        """
+        return pulumi.get(self, "auto_mitigate")
+
+    @auto_mitigate.setter
+    def auto_mitigate(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_mitigate", value)
+
+    @property
+    @pulumi.getter
+    def criterias(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaArgs']]]]:
+        """
+        One or more (static) `criteria` blocks as defined below.
+        """
+        return pulumi.get(self, "criterias")
+
+    @criterias.setter
+    def criterias(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaArgs']]]]):
+        pulumi.set(self, "criterias", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of this Metric Alert.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="dynamicCriteria")
+    def dynamic_criteria(self) -> Optional[pulumi.Input['MetricAlertDynamicCriteriaArgs']]:
+        """
+        A `dynamic_criteria` block as defined below.
+        """
+        return pulumi.get(self, "dynamic_criteria")
+
+    @dynamic_criteria.setter
+    def dynamic_criteria(self, value: Optional[pulumi.Input['MetricAlertDynamicCriteriaArgs']]):
+        pulumi.set(self, "dynamic_criteria", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should this Metric Alert be enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> Optional[pulumi.Input[str]]:
+        """
+        The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`.
+        """
+        return pulumi.get(self, "frequency")
+
+    @frequency.setter
+    def frequency(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "frequency", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Metric Alert. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def severity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
+        """
+        return pulumi.get(self, "severity")
+
+    @severity.setter
+    def severity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "severity", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="targetResourceLocation")
+    def target_resource_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location of the target resource.
+        """
+        return pulumi.get(self, "target_resource_location")
+
+    @target_resource_location.setter
+    def target_resource_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_location", value)
+
+    @property
+    @pulumi.getter(name="targetResourceType")
+    def target_resource_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
+        """
+        return pulumi.get(self, "target_resource_type")
+
+    @target_resource_type.setter
+    def target_resource_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_type", value)
+
+    @property
+    @pulumi.getter(name="windowSize")
+    def window_size(self) -> Optional[pulumi.Input[str]]:
+        """
+        The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
+        """
+        return pulumi.get(self, "window_size")
+
+    @window_size.setter
+    def window_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "window_size", value)
 
 
 class MetricAlert(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -106,6 +368,97 @@ class MetricAlert(pulumi.CustomResource):
         :param pulumi.Input[str] target_resource_type: The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
         :param pulumi.Input[str] window_size: The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: MetricAlertArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Metric Alert within Azure Monitor.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        main_resource_group = azure.core.ResourceGroup("mainResourceGroup", location="West Europe")
+        to_monitor = azure.storage.Account("toMonitor",
+            resource_group_name=main_resource_group.name,
+            location=main_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        main_action_group = azure.monitoring.ActionGroup("mainActionGroup",
+            resource_group_name=main_resource_group.name,
+            short_name="exampleact",
+            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
+                name="callmyapi",
+                service_uri="http://example.com/alert",
+            )])
+        example = azure.monitoring.MetricAlert("example",
+            resource_group_name=main_resource_group.name,
+            scopes=[to_monitor.id],
+            description="Action will be triggered when Transactions count is greater than 50.",
+            criterias=[azure.monitoring.MetricAlertCriteriaArgs(
+                metric_namespace="Microsoft.Storage/storageAccounts",
+                metric_name="Transactions",
+                aggregation="Total",
+                operator="GreaterThan",
+                threshold=50,
+                dimensions=[azure.monitoring.MetricAlertCriteriaDimensionArgs(
+                    name="ApiName",
+                    operator="Include",
+                    values=["*"],
+                )],
+            )],
+            actions=[azure.monitoring.MetricAlertActionArgs(
+                action_group_id=main_action_group.id,
+            )])
+        ```
+
+        ## Import
+
+        Metric Alerts can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:monitoring/metricAlert:MetricAlert main /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/microsoft.insights/metricAlerts/example-metricalert
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param MetricAlertArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(MetricAlertArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertActionArgs']]]]] = None,
+                 application_insights_web_test_location_availability_criteria: Optional[pulumi.Input[pulumi.InputType['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs']]] = None,
+                 auto_mitigate: Optional[pulumi.Input[bool]] = None,
+                 criterias: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertCriteriaArgs']]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 dynamic_criteria: Optional[pulumi.Input[pulumi.InputType['MetricAlertDynamicCriteriaArgs']]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 frequency: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 severity: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_resource_location: Optional[pulumi.Input[str]] = None,
+                 target_resource_type: Optional[pulumi.Input[str]] = None,
+                 window_size: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

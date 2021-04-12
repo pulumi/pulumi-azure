@@ -22,43 +22,44 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:automation/account:Account":
-		r, err = NewAccount(ctx, name, nil, pulumi.URN_(urn))
+		r = &Account{}
 	case "azure:automation/boolVariable:BoolVariable":
-		r, err = NewBoolVariable(ctx, name, nil, pulumi.URN_(urn))
+		r = &BoolVariable{}
 	case "azure:automation/certificate:Certificate":
-		r, err = NewCertificate(ctx, name, nil, pulumi.URN_(urn))
+		r = &Certificate{}
 	case "azure:automation/connection:Connection":
-		r, err = NewConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &Connection{}
 	case "azure:automation/connectionCertificate:ConnectionCertificate":
-		r, err = NewConnectionCertificate(ctx, name, nil, pulumi.URN_(urn))
+		r = &ConnectionCertificate{}
 	case "azure:automation/connectionClassicCertificate:ConnectionClassicCertificate":
-		r, err = NewConnectionClassicCertificate(ctx, name, nil, pulumi.URN_(urn))
+		r = &ConnectionClassicCertificate{}
 	case "azure:automation/connectionServicePrincipal:ConnectionServicePrincipal":
-		r, err = NewConnectionServicePrincipal(ctx, name, nil, pulumi.URN_(urn))
+		r = &ConnectionServicePrincipal{}
 	case "azure:automation/credential:Credential":
-		r, err = NewCredential(ctx, name, nil, pulumi.URN_(urn))
+		r = &Credential{}
 	case "azure:automation/dateTimeVariable:DateTimeVariable":
-		r, err = NewDateTimeVariable(ctx, name, nil, pulumi.URN_(urn))
+		r = &DateTimeVariable{}
 	case "azure:automation/dscConfiguration:DscConfiguration":
-		r, err = NewDscConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &DscConfiguration{}
 	case "azure:automation/dscNodeConfiguration:DscNodeConfiguration":
-		r, err = NewDscNodeConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &DscNodeConfiguration{}
 	case "azure:automation/intVariable:IntVariable":
-		r, err = NewIntVariable(ctx, name, nil, pulumi.URN_(urn))
+		r = &IntVariable{}
 	case "azure:automation/jobSchedule:JobSchedule":
-		r, err = NewJobSchedule(ctx, name, nil, pulumi.URN_(urn))
+		r = &JobSchedule{}
 	case "azure:automation/module:Module":
-		r, err = NewModule(ctx, name, nil, pulumi.URN_(urn))
+		r = &Module{}
 	case "azure:automation/runBook:RunBook":
-		r, err = NewRunBook(ctx, name, nil, pulumi.URN_(urn))
+		r = &RunBook{}
 	case "azure:automation/schedule:Schedule":
-		r, err = NewSchedule(ctx, name, nil, pulumi.URN_(urn))
+		r = &Schedule{}
 	case "azure:automation/stringVariable:StringVariable":
-		r, err = NewStringVariable(ctx, name, nil, pulumi.URN_(urn))
+		r = &StringVariable{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

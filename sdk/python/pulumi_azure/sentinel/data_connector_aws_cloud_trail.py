@@ -5,13 +5,67 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['DataConnectorAwsCloudTrail']
+__all__ = ['DataConnectorAwsCloudTrailArgs', 'DataConnectorAwsCloudTrail']
+
+@pulumi.input_type
+class DataConnectorAwsCloudTrailArgs:
+    def __init__(__self__, *,
+                 aws_role_arn: pulumi.Input[str],
+                 log_analytics_workspace_id: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a DataConnectorAwsCloudTrail resource.
+        :param pulumi.Input[str] aws_role_arn: The ARN of the AWS CloudTrail role, which is connected to this AWS CloudTrail Data Connector.
+        :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace that this AWS CloudTrail Data Connector resides in. Changing this forces a new AWS CloudTrail Data Connector to be created.
+        :param pulumi.Input[str] name: The name which should be used for this AWS CloudTrail Data Connector. Changing this forces a new AWS CloudTrail Data Connector to be created.
+        """
+        pulumi.set(__self__, "aws_role_arn", aws_role_arn)
+        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="awsRoleArn")
+    def aws_role_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the AWS CloudTrail role, which is connected to this AWS CloudTrail Data Connector.
+        """
+        return pulumi.get(self, "aws_role_arn")
+
+    @aws_role_arn.setter
+    def aws_role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aws_role_arn", value)
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspaceId")
+    def log_analytics_workspace_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Log Analytics Workspace that this AWS CloudTrail Data Connector resides in. Changing this forces a new AWS CloudTrail Data Connector to be created.
+        """
+        return pulumi.get(self, "log_analytics_workspace_id")
+
+    @log_analytics_workspace_id.setter
+    def log_analytics_workspace_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_analytics_workspace_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this AWS CloudTrail Data Connector. Changing this forces a new AWS CloudTrail Data Connector to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class DataConnectorAwsCloudTrail(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -54,6 +108,60 @@ class DataConnectorAwsCloudTrail(pulumi.CustomResource):
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace that this AWS CloudTrail Data Connector resides in. Changing this forces a new AWS CloudTrail Data Connector to be created.
         :param pulumi.Input[str] name: The name which should be used for this AWS CloudTrail Data Connector. Changing this forces a new AWS CloudTrail Data Connector to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DataConnectorAwsCloudTrailArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a AWS CloudTrail Data Connector.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="PerGB2018")
+        example_data_connector_aws_cloud_trail = azure.sentinel.DataConnectorAwsCloudTrail("exampleDataConnectorAwsCloudTrail",
+            log_analytics_workspace_id=example_analytics_workspace.id,
+            aws_role_arn="arn:aws:iam::000000000000:role/role1")
+        ```
+
+        ## Import
+
+        AWS CloudTrail Data Connectors can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:sentinel/dataConnectorAwsCloudTrail:DataConnectorAwsCloudTrail example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param DataConnectorAwsCloudTrailArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DataConnectorAwsCloudTrailArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 aws_role_arn: Optional[pulumi.Input[str]] = None,
+                 log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

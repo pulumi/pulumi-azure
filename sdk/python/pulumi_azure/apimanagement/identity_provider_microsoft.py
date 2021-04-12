@@ -5,13 +5,81 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['IdentityProviderMicrosoft']
+__all__ = ['IdentityProviderMicrosoftArgs', 'IdentityProviderMicrosoft']
+
+@pulumi.input_type
+class IdentityProviderMicrosoftArgs:
+    def __init__(__self__, *,
+                 api_management_name: pulumi.Input[str],
+                 client_id: pulumi.Input[str],
+                 client_secret: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a IdentityProviderMicrosoft resource.
+        :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this Microsoft Identity Provider should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] client_id: Client Id of the Azure AD Application.
+        :param pulumi.Input[str] client_secret: Client secret of the Azure AD Application.
+        :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "api_management_name", api_management_name)
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+
+    @property
+    @pulumi.getter(name="apiManagementName")
+    def api_management_name(self) -> pulumi.Input[str]:
+        """
+        The Name of the API Management Service where this Microsoft Identity Provider should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "api_management_name")
+
+    @api_management_name.setter
+    def api_management_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "api_management_name", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        Client Id of the Azure AD Application.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Input[str]:
+        """
+        Client secret of the Azure AD Application.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
 
 
 class IdentityProviderMicrosoft(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -60,6 +128,65 @@ class IdentityProviderMicrosoft(pulumi.CustomResource):
         :param pulumi.Input[str] client_secret: Client secret of the Azure AD Application.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: IdentityProviderMicrosoftArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an API Management Microsoft Identity Provider.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service = azure.apimanagement.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            publisher_name="My Company",
+            publisher_email="company@mycompany.io",
+            sku_name="Developer_1")
+        example_identity_provider_microsoft = azure.apimanagement.IdentityProviderMicrosoft("exampleIdentityProviderMicrosoft",
+            resource_group_name=example_resource_group.name,
+            api_management_name=example_service.name,
+            client_id="00000000-0000-0000-0000-000000000000",
+            client_secret="00000000000000000000000000000000")
+        ```
+
+        ## Import
+
+        API Management Microsoft Identity Provider can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:apimanagement/identityProviderMicrosoft:IdentityProviderMicrosoft example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/identityProviders/microsoft
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param IdentityProviderMicrosoftArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(IdentityProviderMicrosoftArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 api_management_name: Optional[pulumi.Input[str]] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

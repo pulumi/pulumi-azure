@@ -5,13 +5,164 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Workflow']
+__all__ = ['WorkflowArgs', 'Workflow']
+
+@pulumi.input_type
+class WorkflowArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 integration_service_environment_id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 logic_app_integration_account_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workflow_schema: Optional[pulumi.Input[str]] = None,
+                 workflow_version: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Workflow resource.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] integration_service_environment_id: The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] logic_app_integration_account_id: The ID of the integration account linked by this Logic App Workflow.
+        :param pulumi.Input[str] name: Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of Key-Value pairs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] workflow_schema: Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] workflow_version: Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if integration_service_environment_id is not None:
+            pulumi.set(__self__, "integration_service_environment_id", integration_service_environment_id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if logic_app_integration_account_id is not None:
+            pulumi.set(__self__, "logic_app_integration_account_id", logic_app_integration_account_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if workflow_schema is not None:
+            pulumi.set(__self__, "workflow_schema", workflow_schema)
+        if workflow_version is not None:
+            pulumi.set(__self__, "workflow_version", workflow_version)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="integrationServiceEnvironmentId")
+    def integration_service_environment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Integration Service Environment to which this Logic App Workflow belongs.  Changing this forces a new Logic App Workflow to be created.
+        """
+        return pulumi.get(self, "integration_service_environment_id")
+
+    @integration_service_environment_id.setter
+    def integration_service_environment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "integration_service_environment_id", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="logicAppIntegrationAccountId")
+    def logic_app_integration_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the integration account linked by this Logic App Workflow.
+        """
+        return pulumi.get(self, "logic_app_integration_account_id")
+
+    @logic_app_integration_account_id.setter
+    def logic_app_integration_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logic_app_integration_account_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of Key-Value pairs.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="workflowSchema")
+    def workflow_schema(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "workflow_schema")
+
+    @workflow_schema.setter
+    def workflow_schema(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workflow_schema", value)
+
+    @property
+    @pulumi.getter(name="workflowVersion")
+    def workflow_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "workflow_version")
+
+    @workflow_version.setter
+    def workflow_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workflow_version", value)
 
 
 class Workflow(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -62,6 +213,62 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[str] workflow_schema: Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] workflow_version: Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: WorkflowArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Logic App Workflow.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_workflow = azure.logicapps.Workflow("exampleWorkflow",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        ```
+
+        ## Import
+
+        Logic App Workflows can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:logicapps/workflow:Workflow workflow1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param WorkflowArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(WorkflowArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 integration_service_environment_id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 logic_app_integration_account_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 workflow_schema: Optional[pulumi.Input[str]] = None,
+                 workflow_version: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

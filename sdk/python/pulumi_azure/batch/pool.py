@@ -5,15 +5,270 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Pool']
+__all__ = ['PoolArgs', 'Pool']
+
+@pulumi.input_type
+class PoolArgs:
+    def __init__(__self__, *,
+                 account_name: pulumi.Input[str],
+                 node_agent_sku_id: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 storage_image_reference: pulumi.Input['PoolStorageImageReferenceArgs'],
+                 vm_size: pulumi.Input[str],
+                 auto_scale: Optional[pulumi.Input['PoolAutoScaleArgs']] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input['PoolCertificateArgs']]]] = None,
+                 container_configuration: Optional[pulumi.Input['PoolContainerConfigurationArgs']] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 fixed_scale: Optional[pulumi.Input['PoolFixedScaleArgs']] = None,
+                 max_tasks_per_node: Optional[pulumi.Input[int]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_configuration: Optional[pulumi.Input['PoolNetworkConfigurationArgs']] = None,
+                 start_task: Optional[pulumi.Input['PoolStartTaskArgs']] = None,
+                 stop_pending_resize_operation: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a Pool resource.
+        :param pulumi.Input[str] account_name: Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] node_agent_sku_id: Specifies the Sku of the node agents that will be created in the Batch pool.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
+        :param pulumi.Input['PoolStorageImageReferenceArgs'] storage_image_reference: A `storage_image_reference` for the virtual machines that will compose the Batch pool.
+        :param pulumi.Input[str] vm_size: Specifies the size of the VM created in the Batch pool.
+        :param pulumi.Input['PoolAutoScaleArgs'] auto_scale: A `auto_scale` block that describes the scale settings when using auto scale.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolCertificateArgs']]] certificates: One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
+        :param pulumi.Input['PoolContainerConfigurationArgs'] container_configuration: The container configuration used in the pool's VMs.
+        :param pulumi.Input[str] display_name: Specifies the display name of the Batch pool.
+        :param pulumi.Input['PoolFixedScaleArgs'] fixed_scale: A `fixed_scale` block that describes the scale settings when using fixed scale.
+        :param pulumi.Input[int] max_tasks_per_node: Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom batch pool metadata.
+        :param pulumi.Input[str] name: Specifies the name of the Batch pool. Changing this forces a new resource to be created.
+        :param pulumi.Input['PoolNetworkConfigurationArgs'] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool.
+        :param pulumi.Input['PoolStartTaskArgs'] start_task: A `start_task` block that describes the start task settings for the Batch pool.
+        """
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "node_agent_sku_id", node_agent_sku_id)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "storage_image_reference", storage_image_reference)
+        pulumi.set(__self__, "vm_size", vm_size)
+        if auto_scale is not None:
+            pulumi.set(__self__, "auto_scale", auto_scale)
+        if certificates is not None:
+            pulumi.set(__self__, "certificates", certificates)
+        if container_configuration is not None:
+            pulumi.set(__self__, "container_configuration", container_configuration)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if fixed_scale is not None:
+            pulumi.set(__self__, "fixed_scale", fixed_scale)
+        if max_tasks_per_node is not None:
+            pulumi.set(__self__, "max_tasks_per_node", max_tasks_per_node)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if network_configuration is not None:
+            pulumi.set(__self__, "network_configuration", network_configuration)
+        if start_task is not None:
+            pulumi.set(__self__, "start_task", start_task)
+        if stop_pending_resize_operation is not None:
+            pulumi.set(__self__, "stop_pending_resize_operation", stop_pending_resize_operation)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="nodeAgentSkuId")
+    def node_agent_sku_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the Sku of the node agents that will be created in the Batch pool.
+        """
+        return pulumi.get(self, "node_agent_sku_id")
+
+    @node_agent_sku_id.setter
+    def node_agent_sku_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "node_agent_sku_id", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="storageImageReference")
+    def storage_image_reference(self) -> pulumi.Input['PoolStorageImageReferenceArgs']:
+        """
+        A `storage_image_reference` for the virtual machines that will compose the Batch pool.
+        """
+        return pulumi.get(self, "storage_image_reference")
+
+    @storage_image_reference.setter
+    def storage_image_reference(self, value: pulumi.Input['PoolStorageImageReferenceArgs']):
+        pulumi.set(self, "storage_image_reference", value)
+
+    @property
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> pulumi.Input[str]:
+        """
+        Specifies the size of the VM created in the Batch pool.
+        """
+        return pulumi.get(self, "vm_size")
+
+    @vm_size.setter
+    def vm_size(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vm_size", value)
+
+    @property
+    @pulumi.getter(name="autoScale")
+    def auto_scale(self) -> Optional[pulumi.Input['PoolAutoScaleArgs']]:
+        """
+        A `auto_scale` block that describes the scale settings when using auto scale.
+        """
+        return pulumi.get(self, "auto_scale")
+
+    @auto_scale.setter
+    def auto_scale(self, value: Optional[pulumi.Input['PoolAutoScaleArgs']]):
+        pulumi.set(self, "auto_scale", value)
+
+    @property
+    @pulumi.getter
+    def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolCertificateArgs']]]]:
+        """
+        One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
+        """
+        return pulumi.get(self, "certificates")
+
+    @certificates.setter
+    def certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PoolCertificateArgs']]]]):
+        pulumi.set(self, "certificates", value)
+
+    @property
+    @pulumi.getter(name="containerConfiguration")
+    def container_configuration(self) -> Optional[pulumi.Input['PoolContainerConfigurationArgs']]:
+        """
+        The container configuration used in the pool's VMs.
+        """
+        return pulumi.get(self, "container_configuration")
+
+    @container_configuration.setter
+    def container_configuration(self, value: Optional[pulumi.Input['PoolContainerConfigurationArgs']]):
+        pulumi.set(self, "container_configuration", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the display name of the Batch pool.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="fixedScale")
+    def fixed_scale(self) -> Optional[pulumi.Input['PoolFixedScaleArgs']]:
+        """
+        A `fixed_scale` block that describes the scale settings when using fixed scale.
+        """
+        return pulumi.get(self, "fixed_scale")
+
+    @fixed_scale.setter
+    def fixed_scale(self, value: Optional[pulumi.Input['PoolFixedScaleArgs']]):
+        pulumi.set(self, "fixed_scale", value)
+
+    @property
+    @pulumi.getter(name="maxTasksPerNode")
+    def max_tasks_per_node(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "max_tasks_per_node")
+
+    @max_tasks_per_node.setter
+    def max_tasks_per_node(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_tasks_per_node", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of custom batch pool metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Batch pool. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="networkConfiguration")
+    def network_configuration(self) -> Optional[pulumi.Input['PoolNetworkConfigurationArgs']]:
+        """
+        A `network_configuration` block that describes the network configurations for the Batch pool.
+        """
+        return pulumi.get(self, "network_configuration")
+
+    @network_configuration.setter
+    def network_configuration(self, value: Optional[pulumi.Input['PoolNetworkConfigurationArgs']]):
+        pulumi.set(self, "network_configuration", value)
+
+    @property
+    @pulumi.getter(name="startTask")
+    def start_task(self) -> Optional[pulumi.Input['PoolStartTaskArgs']]:
+        """
+        A `start_task` block that describes the start task settings for the Batch pool.
+        """
+        return pulumi.get(self, "start_task")
+
+    @start_task.setter
+    def start_task(self, value: Optional[pulumi.Input['PoolStartTaskArgs']]):
+        pulumi.set(self, "start_task", value)
+
+    @property
+    @pulumi.getter(name="stopPendingResizeOperation")
+    def stop_pending_resize_operation(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "stop_pending_resize_operation")
+
+    @stop_pending_resize_operation.setter
+    def stop_pending_resize_operation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "stop_pending_resize_operation", value)
 
 
 class Pool(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -65,6 +320,57 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PoolStorageImageReferenceArgs']] storage_image_reference: A `storage_image_reference` for the virtual machines that will compose the Batch pool.
         :param pulumi.Input[str] vm_size: Specifies the size of the VM created in the Batch pool.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: PoolArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an Azure Batch pool.
+
+        ## Import
+
+        Batch Pools can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:batch/pool:Pool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.Batch/batchAccounts/myBatchAccount1/pools/myBatchPool1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param PoolArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PoolArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 auto_scale: Optional[pulumi.Input[pulumi.InputType['PoolAutoScaleArgs']]] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolCertificateArgs']]]]] = None,
+                 container_configuration: Optional[pulumi.Input[pulumi.InputType['PoolContainerConfigurationArgs']]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 fixed_scale: Optional[pulumi.Input[pulumi.InputType['PoolFixedScaleArgs']]] = None,
+                 max_tasks_per_node: Optional[pulumi.Input[int]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_configuration: Optional[pulumi.Input[pulumi.InputType['PoolNetworkConfigurationArgs']]] = None,
+                 node_agent_sku_id: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 start_task: Optional[pulumi.Input[pulumi.InputType['PoolStartTaskArgs']]] = None,
+                 stop_pending_resize_operation: Optional[pulumi.Input[bool]] = None,
+                 storage_image_reference: Optional[pulumi.Input[pulumi.InputType['PoolStorageImageReferenceArgs']]] = None,
+                 vm_size: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -22,19 +22,20 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:appinsights/analyticsItem:AnalyticsItem":
-		r, err = NewAnalyticsItem(ctx, name, nil, pulumi.URN_(urn))
+		r = &AnalyticsItem{}
 	case "azure:appinsights/apiKey:ApiKey":
-		r, err = NewApiKey(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApiKey{}
 	case "azure:appinsights/insights:Insights":
-		r, err = NewInsights(ctx, name, nil, pulumi.URN_(urn))
+		r = &Insights{}
 	case "azure:appinsights/smartDetectionRule:SmartDetectionRule":
-		r, err = NewSmartDetectionRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &SmartDetectionRule{}
 	case "azure:appinsights/webTest:WebTest":
-		r, err = NewWebTest(ctx, name, nil, pulumi.URN_(urn))
+		r = &WebTest{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

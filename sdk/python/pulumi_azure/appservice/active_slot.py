@@ -5,13 +5,66 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ActiveSlot']
+__all__ = ['ActiveSlotArgs', 'ActiveSlot']
+
+@pulumi.input_type
+class ActiveSlotArgs:
+    def __init__(__self__, *,
+                 app_service_name: pulumi.Input[str],
+                 app_service_slot_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a ActiveSlot resource.
+        :param pulumi.Input[str] app_service_name: The name of the App Service within which the Slot exists.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] app_service_slot_name: The name of the App Service Slot which should be promoted to the Production Slot within the App Service.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "app_service_name", app_service_name)
+        pulumi.set(__self__, "app_service_slot_name", app_service_slot_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+
+    @property
+    @pulumi.getter(name="appServiceName")
+    def app_service_name(self) -> pulumi.Input[str]:
+        """
+        The name of the App Service within which the Slot exists.  Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "app_service_name")
+
+    @app_service_name.setter
+    def app_service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_service_name", value)
+
+    @property
+    @pulumi.getter(name="appServiceSlotName")
+    def app_service_slot_name(self) -> pulumi.Input[str]:
+        """
+        The name of the App Service Slot which should be promoted to the Production Slot within the App Service.
+        """
+        return pulumi.get(self, "app_service_slot_name")
+
+    @app_service_slot_name.setter
+    def app_service_slot_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_service_slot_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
 
 
 class ActiveSlot(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -55,6 +108,61 @@ class ActiveSlot(pulumi.CustomResource):
         :param pulumi.Input[str] app_service_slot_name: The name of the App Service Slot which should be promoted to the Production Slot within the App Service.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ActiveSlotArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Promotes an App Service Slot to Production within an App Service.
+
+        > **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `appservice.AppService` resource will be overwritten when promoting a Slot using the `appservice.ActiveSlot` resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_random as random
+
+        server = random.RandomId("server")
+        # ...
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup")
+        # ...
+        example_plan = azure.appservice.Plan("examplePlan")
+        # ...
+        example_app_service = azure.appservice.AppService("exampleAppService")
+        # ...
+        example_slot = azure.appservice.Slot("exampleSlot")
+        # ...
+        example_active_slot = azure.appservice.ActiveSlot("exampleActiveSlot",
+            resource_group_name=example_resource_group.name,
+            app_service_name=example_app_service.name,
+            app_service_slot_name=example_slot.name)
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ActiveSlotArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ActiveSlotArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 app_service_name: Optional[pulumi.Input[str]] = None,
+                 app_service_slot_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

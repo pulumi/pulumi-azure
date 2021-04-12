@@ -22,13 +22,14 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:role/assignment:Assignment":
-		r, err = NewAssignment(ctx, name, nil, pulumi.URN_(urn))
+		r = &Assignment{}
 	case "azure:role/definition:Definition":
-		r, err = NewDefinition(ctx, name, nil, pulumi.URN_(urn))
+		r = &Definition{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

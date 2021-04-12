@@ -5,12 +5,115 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Definition']
+__all__ = ['DefinitionArgs', 'Definition']
+
+@pulumi.input_type
+class DefinitionArgs:
+    def __init__(__self__, *,
+                 scope: pulumi.Input[str],
+                 assignable_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionPermissionArgs']]]] = None,
+                 role_definition_id: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Definition resource.
+        :param pulumi.Input[str] scope: The scope at which the Role Definition applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignable_scopes`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] assignable_scopes: One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
+        :param pulumi.Input[str] description: A description of the Role Definition.
+        :param pulumi.Input[str] name: The name of the Role Definition. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['DefinitionPermissionArgs']]] permissions: A `permissions` block as defined below.
+        :param pulumi.Input[str] role_definition_id: A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "scope", scope)
+        if assignable_scopes is not None:
+            pulumi.set(__self__, "assignable_scopes", assignable_scopes)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
+        if role_definition_id is not None:
+            pulumi.set(__self__, "role_definition_id", role_definition_id)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input[str]:
+        """
+        The scope at which the Role Definition applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignable_scopes`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter(name="assignableScopes")
+    def assignable_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
+        """
+        return pulumi.get(self, "assignable_scopes")
+
+    @assignable_scopes.setter
+    def assignable_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "assignable_scopes", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the Role Definition.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Role Definition. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionPermissionArgs']]]]:
+        """
+        A `permissions` block as defined below.
+        """
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionPermissionArgs']]]]):
+        pulumi.set(self, "permissions", value)
+
+    @property
+    @pulumi.getter(name="roleDefinitionId")
+    def role_definition_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "role_definition_id")
+
+    @role_definition_id.setter
+    def role_definition_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_definition_id", value)
+
 
 warnings.warn("""azure.role.Definition has been deprecated in favor of azure.authorization.RoleDefinition""", DeprecationWarning)
 
@@ -18,6 +121,7 @@ warnings.warn("""azure.role.Definition has been deprecated in favor of azure.aut
 class Definition(pulumi.CustomResource):
     warnings.warn("""azure.role.Definition has been deprecated in favor of azure.authorization.RoleDefinition""", DeprecationWarning)
 
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -67,6 +171,64 @@ class Definition(pulumi.CustomResource):
         :param pulumi.Input[str] role_definition_id: A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scope: The scope at which the Role Definition applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignable_scopes`. Changing this forces a new resource to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DefinitionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a custom Role Definition, used to assign Roles to Users/Principals. See ['Understand role definitions'](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-definitions) in the Azure documentation for more details.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        primary = azure.core.get_subscription()
+        example = azure.authorization.RoleDefinition("example",
+            scope=primary.id,
+            description="This is a custom role created",
+            permissions=[azure.authorization.RoleDefinitionPermissionArgs(
+                actions=["*"],
+                not_actions=[],
+            )],
+            assignable_scopes=[primary.id])
+        ```
+
+        ## Import
+
+        Role Definitions can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:role/definition:Definition example "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-0000-000000000000|/subscriptions/00000000-0000-0000-0000-000000000000"
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param DefinitionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DefinitionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 assignable_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionPermissionArgs']]]]] = None,
+                 role_definition_id: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         pulumi.log.warn("""Definition is deprecated: azure.role.Definition has been deprecated in favor of azure.authorization.RoleDefinition""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

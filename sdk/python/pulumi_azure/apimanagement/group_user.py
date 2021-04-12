@@ -5,13 +5,81 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['GroupUser']
+__all__ = ['GroupUserArgs', 'GroupUser']
+
+@pulumi.input_type
+class GroupUserArgs:
+    def __init__(__self__, *,
+                 api_management_name: pulumi.Input[str],
+                 group_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 user_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a GroupUser resource.
+        :param pulumi.Input[str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] group_name: The Name of the API Management Group within the API Management Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] user_id: The ID of the API Management User which should be assigned to this API Management Group. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "api_management_name", api_management_name)
+        pulumi.set(__self__, "group_name", group_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "user_id", user_id)
+
+    @property
+    @pulumi.getter(name="apiManagementName")
+    def api_management_name(self) -> pulumi.Input[str]:
+        """
+        The name of the API Management Service. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "api_management_name")
+
+    @api_management_name.setter
+    def api_management_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "api_management_name", value)
+
+    @property
+    @pulumi.getter(name="groupName")
+    def group_name(self) -> pulumi.Input[str]:
+        """
+        The Name of the API Management Group within the API Management Service. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "group_name")
+
+    @group_name.setter
+    def group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "group_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the API Management User which should be assigned to this API Management Group. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "user_id")
+
+    @user_id.setter
+    def user_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user_id", value)
 
 
 class GroupUser(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -56,6 +124,61 @@ class GroupUser(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_id: The ID of the API Management User which should be assigned to this API Management Group. Changing this forces a new resource to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: GroupUserArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an API Management User Assignment to a Group.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_user = azure.apimanagement.get_user(user_id="my-user",
+            api_management_name="example-apim",
+            resource_group_name="search-service")
+        example_group_user = azure.apimanagement.GroupUser("exampleGroupUser",
+            user_id=example_user.id,
+            group_name="example-group",
+            resource_group_name=example_user.resource_group_name,
+            api_management_name=example_user.api_management_name)
+        ```
+
+        ## Import
+
+        API Management Group Users can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:apimanagement/groupUser:GroupUser example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/groups/groupId/users/user123
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param GroupUserArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(GroupUserArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 api_management_name: Optional[pulumi.Input[str]] = None,
+                 group_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 user_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,15 +5,213 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['EventHubNamespace']
+__all__ = ['EventHubNamespaceArgs', 'EventHubNamespace']
+
+@pulumi.input_type
+class EventHubNamespaceArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 sku: pulumi.Input[str],
+                 auto_inflate_enabled: Optional[pulumi.Input[bool]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
+                 dedicated_cluster_id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['EventHubNamespaceIdentityArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 maximum_throughput_units: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_rulesets: Optional[pulumi.Input['EventHubNamespaceNetworkRulesetsArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zone_redundant: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a EventHubNamespace resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku: Defines which tier to use. Valid options are `Basic` and `Standard`.
+        :param pulumi.Input[bool] auto_inflate_enabled: Is Auto Inflate enabled for the EventHub Namespace?
+        :param pulumi.Input[int] capacity: Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `20`, but can be increased in blocks of 20 on a committed purchase basis.
+        :param pulumi.Input[str] dedicated_cluster_id: Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
+        :param pulumi.Input['EventHubNamespaceIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] maximum_throughput_units: Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
+        :param pulumi.Input[str] name: Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
+        :param pulumi.Input['EventHubNamespaceNetworkRulesetsArgs'] network_rulesets: A `network_rulesets` block as defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] zone_redundant: Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku", sku)
+        if auto_inflate_enabled is not None:
+            pulumi.set(__self__, "auto_inflate_enabled", auto_inflate_enabled)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if dedicated_cluster_id is not None:
+            pulumi.set(__self__, "dedicated_cluster_id", dedicated_cluster_id)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if maximum_throughput_units is not None:
+            pulumi.set(__self__, "maximum_throughput_units", maximum_throughput_units)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if network_rulesets is not None:
+            pulumi.set(__self__, "network_rulesets", network_rulesets)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if zone_redundant is not None:
+            pulumi.set(__self__, "zone_redundant", zone_redundant)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Input[str]:
+        """
+        Defines which tier to use. Valid options are `Basic` and `Standard`.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter(name="autoInflateEnabled")
+    def auto_inflate_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Auto Inflate enabled for the EventHub Namespace?
+        """
+        return pulumi.get(self, "auto_inflate_enabled")
+
+    @auto_inflate_enabled.setter
+    def auto_inflate_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_inflate_enabled", value)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `20`, but can be increased in blocks of 20 on a committed purchase basis.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter(name="dedicatedClusterId")
+    def dedicated_cluster_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "dedicated_cluster_id")
+
+    @dedicated_cluster_id.setter
+    def dedicated_cluster_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dedicated_cluster_id", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['EventHubNamespaceIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['EventHubNamespaceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="maximumThroughputUnits")
+    def maximum_throughput_units(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
+        """
+        return pulumi.get(self, "maximum_throughput_units")
+
+    @maximum_throughput_units.setter
+    def maximum_throughput_units(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_throughput_units", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="networkRulesets")
+    def network_rulesets(self) -> Optional[pulumi.Input['EventHubNamespaceNetworkRulesetsArgs']]:
+        """
+        A `network_rulesets` block as defined below.
+        """
+        return pulumi.get(self, "network_rulesets")
+
+    @network_rulesets.setter
+    def network_rulesets(self, value: Optional[pulumi.Input['EventHubNamespaceNetworkRulesetsArgs']]):
+        pulumi.set(self, "network_rulesets", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="zoneRedundant")
+    def zone_redundant(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
+        """
+        return pulumi.get(self, "zone_redundant")
+
+    @zone_redundant.setter
+    def zone_redundant(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "zone_redundant", value)
 
 
 class EventHubNamespace(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -75,6 +273,70 @@ class EventHubNamespace(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: EventHubNamespaceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an EventHub Namespace.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            capacity=2,
+            tags={
+                "environment": "Production",
+            })
+        ```
+
+        ## Import
+
+        EventHub Namespaces can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:eventhub/eventHubNamespace:EventHubNamespace namespace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param EventHubNamespaceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(EventHubNamespaceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_inflate_enabled: Optional[pulumi.Input[bool]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
+                 dedicated_cluster_id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['EventHubNamespaceIdentityArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 maximum_throughput_units: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_rulesets: Optional[pulumi.Input[pulumi.InputType['EventHubNamespaceNetworkRulesetsArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zone_redundant: Optional[pulumi.Input[bool]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

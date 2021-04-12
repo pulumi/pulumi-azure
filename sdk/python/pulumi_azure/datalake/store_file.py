@@ -5,13 +5,66 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['StoreFile']
+__all__ = ['StoreFileArgs', 'StoreFile']
+
+@pulumi.input_type
+class StoreFileArgs:
+    def __init__(__self__, *,
+                 account_name: pulumi.Input[str],
+                 local_file_path: pulumi.Input[str],
+                 remote_file_path: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a StoreFile resource.
+        :param pulumi.Input[str] account_name: Specifies the name of the Data Lake Store for which the File should created.
+        :param pulumi.Input[str] local_file_path: The path to the local file to be added to the Data Lake Store.
+        :param pulumi.Input[str] remote_file_path: The path created for the file on the Data Lake Store.
+        """
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "local_file_path", local_file_path)
+        pulumi.set(__self__, "remote_file_path", remote_file_path)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the Data Lake Store for which the File should created.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="localFilePath")
+    def local_file_path(self) -> pulumi.Input[str]:
+        """
+        The path to the local file to be added to the Data Lake Store.
+        """
+        return pulumi.get(self, "local_file_path")
+
+    @local_file_path.setter
+    def local_file_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "local_file_path", value)
+
+    @property
+    @pulumi.getter(name="remoteFilePath")
+    def remote_file_path(self) -> pulumi.Input[str]:
+        """
+        The path created for the file on the Data Lake Store.
+        """
+        return pulumi.get(self, "remote_file_path")
+
+    @remote_file_path.setter
+    def remote_file_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "remote_file_path", value)
 
 
 class StoreFile(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -41,6 +94,47 @@ class StoreFile(pulumi.CustomResource):
         :param pulumi.Input[str] local_file_path: The path to the local file to be added to the Data Lake Store.
         :param pulumi.Input[str] remote_file_path: The path created for the file on the Data Lake Store.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: StoreFileArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Azure Data Lake Store File.
+
+        > **Note:** If you want to change the data in the remote file without changing the `local_file_path`, then
+        taint the resource so the `datalake.StoreFile` gets recreated with the new data.
+
+        ## Import
+
+        Data Lake Store File's can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:datalake/storeFile:StoreFile txt
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param StoreFileArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(StoreFileArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 local_file_path: Optional[pulumi.Input[str]] = None,
+                 remote_file_path: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

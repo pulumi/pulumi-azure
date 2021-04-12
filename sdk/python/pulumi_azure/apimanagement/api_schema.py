@@ -5,13 +5,111 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ApiSchema']
+__all__ = ['ApiSchemaArgs', 'ApiSchema']
+
+@pulumi.input_type
+class ApiSchemaArgs:
+    def __init__(__self__, *,
+                 api_management_name: pulumi.Input[str],
+                 api_name: pulumi.Input[str],
+                 content_type: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 schema_id: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a ApiSchema resource.
+        :param pulumi.Input[str] api_management_name: The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] api_name: The name of the API within the API Management Service where this API Schema should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] content_type: The content type of the API Schema.
+        :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] schema_id: A unique identifier for this API Schema. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] value: The JSON escaped string defining the document representing the Schema.
+        """
+        pulumi.set(__self__, "api_management_name", api_management_name)
+        pulumi.set(__self__, "api_name", api_name)
+        pulumi.set(__self__, "content_type", content_type)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "schema_id", schema_id)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="apiManagementName")
+    def api_management_name(self) -> pulumi.Input[str]:
+        """
+        The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "api_management_name")
+
+    @api_management_name.setter
+    def api_management_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "api_management_name", value)
+
+    @property
+    @pulumi.getter(name="apiName")
+    def api_name(self) -> pulumi.Input[str]:
+        """
+        The name of the API within the API Management Service where this API Schema should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "api_name")
+
+    @api_name.setter
+    def api_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "api_name", value)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> pulumi.Input[str]:
+        """
+        The content type of the API Schema.
+        """
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "content_type", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="schemaId")
+    def schema_id(self) -> pulumi.Input[str]:
+        """
+        A unique identifier for this API Schema. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "schema_id")
+
+    @schema_id.setter
+    def schema_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "schema_id", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The JSON escaped string defining the document representing the Schema.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 class ApiSchema(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -63,6 +161,66 @@ class ApiSchema(pulumi.CustomResource):
         :param pulumi.Input[str] schema_id: A unique identifier for this API Schema. Changing this forces a new resource to be created.
         :param pulumi.Input[str] value: The JSON escaped string defining the document representing the Schema.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ApiSchemaArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an API Schema within an API Management Service.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_api = azure.apimanagement.get_api(name="search-api",
+            api_management_name="search-api-management",
+            resource_group_name="search-service",
+            revision="2")
+        example_api_schema = azure.apimanagement.ApiSchema("exampleApiSchema",
+            api_name=example_api.name,
+            api_management_name=example_api.api_management_name,
+            resource_group_name=example_api.resource_group_name,
+            schema_id="example-sche,a",
+            content_type="application/vnd.ms-azure-apim.xsd+xml",
+            value=(lambda path: open(path).read())("api_management_api_schema.xml"))
+        ```
+
+        ## Import
+
+        API Management API Schema's can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:apimanagement/apiSchema:ApiSchema example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/schemas/schema1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ApiSchemaArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ApiSchemaArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 api_management_name: Optional[pulumi.Input[str]] = None,
+                 api_name: Optional[pulumi.Input[str]] = None,
+                 content_type: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 schema_id: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,15 +5,260 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['StreamingEndpoint']
+__all__ = ['StreamingEndpointArgs', 'StreamingEndpoint']
+
+@pulumi.input_type
+class StreamingEndpointArgs:
+    def __init__(__self__, *,
+                 media_services_account_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 scale_units: pulumi.Input[int],
+                 access_control: Optional[pulumi.Input['StreamingEndpointAccessControlArgs']] = None,
+                 auto_start_enabled: Optional[pulumi.Input[bool]] = None,
+                 cdn_enabled: Optional[pulumi.Input[bool]] = None,
+                 cdn_profile: Optional[pulumi.Input[str]] = None,
+                 cdn_provider: Optional[pulumi.Input[str]] = None,
+                 cross_site_access_policy: Optional[pulumi.Input['StreamingEndpointCrossSiteAccessPolicyArgs']] = None,
+                 custom_host_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 max_cache_age_seconds: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a StreamingEndpoint resource.
+        :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Streaming Endpoint to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
+        :param pulumi.Input[int] scale_units: The number of scale units.
+        :param pulumi.Input['StreamingEndpointAccessControlArgs'] access_control: A `access_control` block as defined below.
+        :param pulumi.Input[bool] auto_start_enabled: The flag indicates if the resource should be automatically started on creation.
+        :param pulumi.Input[bool] cdn_enabled: The CDN enabled flag.
+        :param pulumi.Input[str] cdn_profile: The CDN profile name.
+        :param pulumi.Input[str] cdn_provider: The CDN provider name. Supported value are `StandardVerizon`,`PremiumVerizon` and `StandardAkamai`
+        :param pulumi.Input['StreamingEndpointCrossSiteAccessPolicyArgs'] cross_site_access_policy: A `cross_site_access_policy` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_host_names: The custom host names of the streaming endpoint.
+        :param pulumi.Input[str] description: The streaming endpoint description.
+        :param pulumi.Input[str] location: The Azure Region where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
+        :param pulumi.Input[int] max_cache_age_seconds: Max cache age in seconds.
+        :param pulumi.Input[str] name: The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Streaming Endpoint.
+        """
+        pulumi.set(__self__, "media_services_account_name", media_services_account_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "scale_units", scale_units)
+        if access_control is not None:
+            pulumi.set(__self__, "access_control", access_control)
+        if auto_start_enabled is not None:
+            pulumi.set(__self__, "auto_start_enabled", auto_start_enabled)
+        if cdn_enabled is not None:
+            pulumi.set(__self__, "cdn_enabled", cdn_enabled)
+        if cdn_profile is not None:
+            pulumi.set(__self__, "cdn_profile", cdn_profile)
+        if cdn_provider is not None:
+            pulumi.set(__self__, "cdn_provider", cdn_provider)
+        if cross_site_access_policy is not None:
+            pulumi.set(__self__, "cross_site_access_policy", cross_site_access_policy)
+        if custom_host_names is not None:
+            pulumi.set(__self__, "custom_host_names", custom_host_names)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if max_cache_age_seconds is not None:
+            pulumi.set(__self__, "max_cache_age_seconds", max_cache_age_seconds)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="mediaServicesAccountName")
+    def media_services_account_name(self) -> pulumi.Input[str]:
+        """
+        The Media Services account name. Changing this forces a new Streaming Endpoint to be created.
+        """
+        return pulumi.get(self, "media_services_account_name")
+
+    @media_services_account_name.setter
+    def media_services_account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "media_services_account_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Resource Group where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="scaleUnits")
+    def scale_units(self) -> pulumi.Input[int]:
+        """
+        The number of scale units.
+        """
+        return pulumi.get(self, "scale_units")
+
+    @scale_units.setter
+    def scale_units(self, value: pulumi.Input[int]):
+        pulumi.set(self, "scale_units", value)
+
+    @property
+    @pulumi.getter(name="accessControl")
+    def access_control(self) -> Optional[pulumi.Input['StreamingEndpointAccessControlArgs']]:
+        """
+        A `access_control` block as defined below.
+        """
+        return pulumi.get(self, "access_control")
+
+    @access_control.setter
+    def access_control(self, value: Optional[pulumi.Input['StreamingEndpointAccessControlArgs']]):
+        pulumi.set(self, "access_control", value)
+
+    @property
+    @pulumi.getter(name="autoStartEnabled")
+    def auto_start_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The flag indicates if the resource should be automatically started on creation.
+        """
+        return pulumi.get(self, "auto_start_enabled")
+
+    @auto_start_enabled.setter
+    def auto_start_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_start_enabled", value)
+
+    @property
+    @pulumi.getter(name="cdnEnabled")
+    def cdn_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The CDN enabled flag.
+        """
+        return pulumi.get(self, "cdn_enabled")
+
+    @cdn_enabled.setter
+    def cdn_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cdn_enabled", value)
+
+    @property
+    @pulumi.getter(name="cdnProfile")
+    def cdn_profile(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CDN profile name.
+        """
+        return pulumi.get(self, "cdn_profile")
+
+    @cdn_profile.setter
+    def cdn_profile(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cdn_profile", value)
+
+    @property
+    @pulumi.getter(name="cdnProvider")
+    def cdn_provider(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CDN provider name. Supported value are `StandardVerizon`,`PremiumVerizon` and `StandardAkamai`
+        """
+        return pulumi.get(self, "cdn_provider")
+
+    @cdn_provider.setter
+    def cdn_provider(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cdn_provider", value)
+
+    @property
+    @pulumi.getter(name="crossSiteAccessPolicy")
+    def cross_site_access_policy(self) -> Optional[pulumi.Input['StreamingEndpointCrossSiteAccessPolicyArgs']]:
+        """
+        A `cross_site_access_policy` block as defined below.
+        """
+        return pulumi.get(self, "cross_site_access_policy")
+
+    @cross_site_access_policy.setter
+    def cross_site_access_policy(self, value: Optional[pulumi.Input['StreamingEndpointCrossSiteAccessPolicyArgs']]):
+        pulumi.set(self, "cross_site_access_policy", value)
+
+    @property
+    @pulumi.getter(name="customHostNames")
+    def custom_host_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The custom host names of the streaming endpoint.
+        """
+        return pulumi.get(self, "custom_host_names")
+
+    @custom_host_names.setter
+    def custom_host_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "custom_host_names", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The streaming endpoint description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Region where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="maxCacheAgeSeconds")
+    def max_cache_age_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Max cache age in seconds.
+        """
+        return pulumi.get(self, "max_cache_age_seconds")
+
+    @max_cache_age_seconds.setter
+    def max_cache_age_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_cache_age_seconds", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags which should be assigned to the Streaming Endpoint.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class StreamingEndpoint(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -139,6 +384,131 @@ class StreamingEndpoint(pulumi.CustomResource):
         :param pulumi.Input[int] scale_units: The number of scale units.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Streaming Endpoint.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: StreamingEndpointArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Streaming Endpoint.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="GRS")
+        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
+                id=example_account.id,
+                is_primary=True,
+            )])
+        example_streaming_endpoint = azure.media.StreamingEndpoint("exampleStreamingEndpoint",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            media_services_account_name=example_service_account.name,
+            scale_units=2)
+        ```
+        ### With Access Control
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="GRS")
+        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
+                id=example_account.id,
+                is_primary=True,
+            )])
+        example_streaming_endpoint = azure.media.StreamingEndpoint("exampleStreamingEndpoint",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            media_services_account_name=example_service_account.name,
+            scale_units=2,
+            access_control=azure.media.StreamingEndpointAccessControlArgs(
+                ip_allows=[
+                    azure.media.StreamingEndpointAccessControlIpAllowArgs(
+                        name="AllowedIP",
+                        address="192.168.1.1",
+                    ),
+                    azure.media.StreamingEndpointAccessControlIpAllowArgs(
+                        name="AnotherIp",
+                        address="192.168.1.2",
+                    ),
+                ],
+                akamai_signature_header_authentication_keys=[
+                    azure.media.StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs(
+                        identifier="id1",
+                        expiration="2030-12-31T16:00:00Z",
+                        base64_key="dGVzdGlkMQ==",
+                    ),
+                    azure.media.StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs(
+                        identifier="id2",
+                        expiration="2032-01-28T16:00:00Z",
+                        base64_key="dGVzdGlkMQ==",
+                    ),
+                ],
+            ))
+        ```
+
+        ## Import
+
+        Streaming Endpoints can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:media/streamingEndpoint:StreamingEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/mediaservices/service1/streamingendpoints/endpoint1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param StreamingEndpointArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(StreamingEndpointArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 access_control: Optional[pulumi.Input[pulumi.InputType['StreamingEndpointAccessControlArgs']]] = None,
+                 auto_start_enabled: Optional[pulumi.Input[bool]] = None,
+                 cdn_enabled: Optional[pulumi.Input[bool]] = None,
+                 cdn_profile: Optional[pulumi.Input[str]] = None,
+                 cdn_provider: Optional[pulumi.Input[str]] = None,
+                 cross_site_access_policy: Optional[pulumi.Input[pulumi.InputType['StreamingEndpointCrossSiteAccessPolicyArgs']]] = None,
+                 custom_host_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 max_cache_age_seconds: Optional[pulumi.Input[int]] = None,
+                 media_services_account_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scale_units: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

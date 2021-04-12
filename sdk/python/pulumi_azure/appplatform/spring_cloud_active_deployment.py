@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['SpringCloudActiveDeployment']
+__all__ = ['SpringCloudActiveDeploymentArgs', 'SpringCloudActiveDeployment']
+
+@pulumi.input_type
+class SpringCloudActiveDeploymentArgs:
+    def __init__(__self__, *,
+                 deployment_name: pulumi.Input[str],
+                 spring_cloud_app_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a SpringCloudActiveDeployment resource.
+        :param pulumi.Input[str] deployment_name: Specifies the name of Spring Cloud Deployment which is going to be active.
+        :param pulumi.Input[str] spring_cloud_app_id: Specifies the id of the Spring Cloud Application. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "deployment_name", deployment_name)
+        pulumi.set(__self__, "spring_cloud_app_id", spring_cloud_app_id)
+
+    @property
+    @pulumi.getter(name="deploymentName")
+    def deployment_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of Spring Cloud Deployment which is going to be active.
+        """
+        return pulumi.get(self, "deployment_name")
+
+    @deployment_name.setter
+    def deployment_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "deployment_name", value)
+
+    @property
+    @pulumi.getter(name="springCloudAppId")
+    def spring_cloud_app_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the id of the Spring Cloud Application. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "spring_cloud_app_id")
+
+    @spring_cloud_app_id.setter
+    def spring_cloud_app_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "spring_cloud_app_id", value)
 
 
 class SpringCloudActiveDeployment(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -67,6 +105,74 @@ class SpringCloudActiveDeployment(pulumi.CustomResource):
         :param pulumi.Input[str] deployment_name: Specifies the name of Spring Cloud Deployment which is going to be active.
         :param pulumi.Input[str] spring_cloud_app_id: Specifies the id of the Spring Cloud Application. Changing this forces a new resource to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SpringCloudActiveDeploymentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an Active Azure Spring Cloud Deployment.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
+            resource_group_name=example_resource_group.name,
+            service_name=example_spring_cloud_service.name,
+            identity=azure.appplatform.SpringCloudAppIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_spring_cloud_java_deployment = azure.appplatform.SpringCloudJavaDeployment("exampleSpringCloudJavaDeployment",
+            spring_cloud_app_id=example_spring_cloud_app.id,
+            cpu=2,
+            memory_in_gb=4,
+            instance_count=2,
+            jvm_options="-XX:+PrintGC",
+            runtime_version="Java_11",
+            environment_variables={
+                "Env": "Staging",
+            })
+        example_spring_cloud_active_deployment = azure.appplatform.SpringCloudActiveDeployment("exampleSpringCloudActiveDeployment",
+            spring_cloud_app_id=example_spring_cloud_app.id,
+            deployment_name=example_spring_cloud_java_deployment.name)
+        ```
+
+        ## Import
+
+        Spring Cloud Active Deployment can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:appplatform/springCloudActiveDeployment:SpringCloudActiveDeployment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.AppPlatform/Spring/service1/apps/app1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param SpringCloudActiveDeploymentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudActiveDeploymentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 deployment_name: Optional[pulumi.Input[str]] = None,
+                 spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

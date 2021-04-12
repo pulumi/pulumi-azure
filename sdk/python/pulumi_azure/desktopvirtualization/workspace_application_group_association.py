@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['WorkspaceApplicationGroupAssociation']
+__all__ = ['WorkspaceApplicationGroupAssociationArgs', 'WorkspaceApplicationGroupAssociation']
+
+@pulumi.input_type
+class WorkspaceApplicationGroupAssociationArgs:
+    def __init__(__self__, *,
+                 application_group_id: pulumi.Input[str],
+                 workspace_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a WorkspaceApplicationGroupAssociation resource.
+        :param pulumi.Input[str] application_group_id: The resource ID for the Virtual Desktop Application Group.
+        :param pulumi.Input[str] workspace_id: The resource ID for the Virtual Desktop Workspace.
+        """
+        pulumi.set(__self__, "application_group_id", application_group_id)
+        pulumi.set(__self__, "workspace_id", workspace_id)
+
+    @property
+    @pulumi.getter(name="applicationGroupId")
+    def application_group_id(self) -> pulumi.Input[str]:
+        """
+        The resource ID for the Virtual Desktop Application Group.
+        """
+        return pulumi.get(self, "application_group_id")
+
+    @application_group_id.setter
+    def application_group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "application_group_id", value)
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> pulumi.Input[str]:
+        """
+        The resource ID for the Virtual Desktop Workspace.
+        """
+        return pulumi.get(self, "workspace_id")
+
+    @workspace_id.setter
+    def workspace_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workspace_id", value)
 
 
 class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -61,6 +99,68 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] application_group_id: The resource ID for the Virtual Desktop Application Group.
         :param pulumi.Input[str] workspace_id: The resource ID for the Virtual Desktop Workspace.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: WorkspaceApplicationGroupAssociationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Virtual Desktop Workspace Application Group Association.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example", location="West Europe")
+        pooledbreadthfirst = azure.desktopvirtualization.HostPool("pooledbreadthfirst",
+            location=example.location,
+            resource_group_name=example.name,
+            type="Pooled",
+            load_balancer_type="BreadthFirst")
+        remoteapp = azure.desktopvirtualization.ApplicationGroup("remoteapp",
+            location=example.location,
+            resource_group_name=example.name,
+            type="RemoteApp",
+            host_pool_id=pooledbreadthfirst.id)
+        workspace = azure.desktopvirtualization.Workspace("workspace",
+            location=example.location,
+            resource_group_name=example.name)
+        workspaceremoteapp = azure.desktopvirtualization.WorkspaceApplicationGroupAssociation("workspaceremoteapp",
+            workspace_id=workspace.id,
+            application_group_id=remoteapp.id)
+        ```
+
+        ## Import
+
+        Associations between Virtual Desktop Workspaces and Virtual Desktop Application Groups can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:desktopvirtualization/workspaceApplicationGroupAssociation:WorkspaceApplicationGroupAssociation association1 "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myGroup1/providers/Microsoft.DesktopVirtualization/workspaces/myworkspace|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/applicationGroups/myapplicationgroup"
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param WorkspaceApplicationGroupAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(WorkspaceApplicationGroupAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 application_group_id: Optional[pulumi.Input[str]] = None,
+                 workspace_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

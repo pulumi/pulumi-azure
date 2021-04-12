@@ -5,15 +5,264 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['HostPool']
+__all__ = ['HostPoolArgs', 'HostPool']
+
+@pulumi.input_type
+class HostPoolArgs:
+    def __init__(__self__, *,
+                 load_balancer_type: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 custom_rdp_properties: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 maximum_sessions_allowed: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 personal_desktop_assignment_type: Optional[pulumi.Input[str]] = None,
+                 preferred_app_group_type: Optional[pulumi.Input[str]] = None,
+                 registration_info: Optional[pulumi.Input['HostPoolRegistrationInfoArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 validate_environment: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a HostPool resource.
+        :param pulumi.Input[str] load_balancer_type: `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
+               `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
+               `Persistent` should be used if the host pool type is `Personal`
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
+               create the Virtual Desktop Host Pool. Changing the resource group name forces
+               a new resource to be created.
+        :param pulumi.Input[str] type: The type of the Virtual Desktop Host Pool. Valid options are
+               `Personal` or `Pooled`. Changing the type forces a new resource to be created.
+        :param pulumi.Input[str] custom_rdp_properties: A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+        :param pulumi.Input[str] description: A description for the Virtual Desktop Host Pool.
+        :param pulumi.Input[str] friendly_name: A friendly name for the Virtual Desktop Host Pool.
+        :param pulumi.Input[str] location: The location/region where the Virtual Desktop Host Pool is
+               located. Changing the location/region forces a new resource to be created.
+        :param pulumi.Input[int] maximum_sessions_allowed: A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host.
+               Should only be set if the `type` of your Virtual Desktop Host Pool is `Pooled`.
+        :param pulumi.Input[str] name: The name of the Virtual Desktop Host Pool. Changing the name
+               forces a new resource to be created.
+        :param pulumi.Input[str] personal_desktop_assignment_type: `Automatic` assignment – The service will select an available host and assign it to an user.
+               `Direct` Assignment – Admin selects a specific host to assign to an user.
+        :param pulumi.Input[str] preferred_app_group_type: Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
+               Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
+        :param pulumi.Input['HostPoolRegistrationInfoArgs'] registration_info: A `registration_info` block which is documented below. Specifies configuration on the registration information of the Virtual Desktop Host Pool.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] validate_environment: Allows you to test service changes before they are deployed to production. Defaults to `false`.
+        """
+        pulumi.set(__self__, "load_balancer_type", load_balancer_type)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "type", type)
+        if custom_rdp_properties is not None:
+            pulumi.set(__self__, "custom_rdp_properties", custom_rdp_properties)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if friendly_name is not None:
+            pulumi.set(__self__, "friendly_name", friendly_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if maximum_sessions_allowed is not None:
+            pulumi.set(__self__, "maximum_sessions_allowed", maximum_sessions_allowed)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if personal_desktop_assignment_type is not None:
+            pulumi.set(__self__, "personal_desktop_assignment_type", personal_desktop_assignment_type)
+        if preferred_app_group_type is not None:
+            pulumi.set(__self__, "preferred_app_group_type", preferred_app_group_type)
+        if registration_info is not None:
+            pulumi.set(__self__, "registration_info", registration_info)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if validate_environment is not None:
+            pulumi.set(__self__, "validate_environment", validate_environment)
+
+    @property
+    @pulumi.getter(name="loadBalancerType")
+    def load_balancer_type(self) -> pulumi.Input[str]:
+        """
+        `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool.
+        `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
+        `Persistent` should be used if the host pool type is `Personal`
+        """
+        return pulumi.get(self, "load_balancer_type")
+
+    @load_balancer_type.setter
+    def load_balancer_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "load_balancer_type", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which to
+        create the Virtual Desktop Host Pool. Changing the resource group name forces
+        a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of the Virtual Desktop Host Pool. Valid options are
+        `Personal` or `Pooled`. Changing the type forces a new resource to be created.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="customRdpProperties")
+    def custom_rdp_properties(self) -> Optional[pulumi.Input[str]]:
+        """
+        A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files).
+        """
+        return pulumi.get(self, "custom_rdp_properties")
+
+    @custom_rdp_properties.setter
+    def custom_rdp_properties(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_rdp_properties", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for the Virtual Desktop Host Pool.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly name for the Virtual Desktop Host Pool.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @friendly_name.setter
+    def friendly_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "friendly_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location/region where the Virtual Desktop Host Pool is
+        located. Changing the location/region forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="maximumSessionsAllowed")
+    def maximum_sessions_allowed(self) -> Optional[pulumi.Input[int]]:
+        """
+        A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host.
+        Should only be set if the `type` of your Virtual Desktop Host Pool is `Pooled`.
+        """
+        return pulumi.get(self, "maximum_sessions_allowed")
+
+    @maximum_sessions_allowed.setter
+    def maximum_sessions_allowed(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_sessions_allowed", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Virtual Desktop Host Pool. Changing the name
+        forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="personalDesktopAssignmentType")
+    def personal_desktop_assignment_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        `Automatic` assignment – The service will select an available host and assign it to an user.
+        `Direct` Assignment – Admin selects a specific host to assign to an user.
+        """
+        return pulumi.get(self, "personal_desktop_assignment_type")
+
+    @personal_desktop_assignment_type.setter
+    def personal_desktop_assignment_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "personal_desktop_assignment_type", value)
+
+    @property
+    @pulumi.getter(name="preferredAppGroupType")
+    def preferred_app_group_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Option to specify the preferred Application Group type for the Virtual Desktop Host Pool.
+        Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`.
+        """
+        return pulumi.get(self, "preferred_app_group_type")
+
+    @preferred_app_group_type.setter
+    def preferred_app_group_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "preferred_app_group_type", value)
+
+    @property
+    @pulumi.getter(name="registrationInfo")
+    def registration_info(self) -> Optional[pulumi.Input['HostPoolRegistrationInfoArgs']]:
+        """
+        A `registration_info` block which is documented below. Specifies configuration on the registration information of the Virtual Desktop Host Pool.
+        """
+        return pulumi.get(self, "registration_info")
+
+    @registration_info.setter
+    def registration_info(self, value: Optional[pulumi.Input['HostPoolRegistrationInfoArgs']]):
+        pulumi.set(self, "registration_info", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="validateEnvironment")
+    def validate_environment(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allows you to test service changes before they are deployed to production. Defaults to `false`.
+        """
+        return pulumi.get(self, "validate_environment")
+
+    @validate_environment.setter
+    def validate_environment(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "validate_environment", value)
 
 
 class HostPool(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -91,6 +340,74 @@ class HostPool(pulumi.CustomResource):
                `Personal` or `Pooled`. Changing the type forces a new resource to be created.
         :param pulumi.Input[bool] validate_environment: Allows you to test service changes before they are deployed to production. Defaults to `false`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: HostPoolArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Virtual Desktop Host Pool.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_host_pool = azure.desktopvirtualization.HostPool("exampleHostPool",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            friendly_name="pooleddepthfirst",
+            validate_environment=True,
+            custom_rdp_properties="audiocapturemode:i:1;audiomode:i:0;",
+            description="Acceptance Test: A pooled host pool - pooleddepthfirst",
+            type="Pooled",
+            maximum_sessions_allowed=50,
+            load_balancer_type="DepthFirst")
+        ```
+
+        ## Import
+
+        Virtual Desktop Host Pools can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:desktopvirtualization/hostPool:HostPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/hostpools/myhostpool
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param HostPoolArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(HostPoolArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 custom_rdp_properties: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 friendly_name: Optional[pulumi.Input[str]] = None,
+                 load_balancer_type: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 maximum_sessions_allowed: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 personal_desktop_assignment_type: Optional[pulumi.Input[str]] = None,
+                 preferred_app_group_type: Optional[pulumi.Input[str]] = None,
+                 registration_info: Optional[pulumi.Input[pulumi.InputType['HostPoolRegistrationInfoArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 validate_environment: Optional[pulumi.Input[bool]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

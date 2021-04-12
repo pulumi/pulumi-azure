@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:management/group:Group":
-		r, err = NewGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &Group{}
 	case "azure:management/groupSubscriptionAssociation:GroupSubscriptionAssociation":
-		r, err = NewGroupSubscriptionAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &GroupSubscriptionAssociation{}
 	case "azure:management/groupTemplateDeployment:GroupTemplateDeployment":
-		r, err = NewGroupTemplateDeployment(ctx, name, nil, pulumi.URN_(urn))
+		r = &GroupTemplateDeployment{}
 	case "azure:management/lock:Lock":
-		r, err = NewLock(ctx, name, nil, pulumi.URN_(urn))
+		r = &Lock{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

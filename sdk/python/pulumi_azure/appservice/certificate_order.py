@@ -5,15 +5,182 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['CertificateOrder']
+__all__ = ['CertificateOrderArgs', 'CertificateOrder']
+
+@pulumi.input_type
+class CertificateOrderArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 auto_renew: Optional[pulumi.Input[bool]] = None,
+                 csr: Optional[pulumi.Input[str]] = None,
+                 distinguished_name: Optional[pulumi.Input[str]] = None,
+                 key_size: Optional[pulumi.Input[int]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 product_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 validity_in_years: Optional[pulumi.Input[int]] = None):
+        """
+        The set of arguments for constructing a CertificateOrder resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] auto_renew: true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
+        :param pulumi.Input[str] csr: Last CSR that was created for this order.
+        :param pulumi.Input[str] distinguished_name: The Distinguished Name for the App Service Certificate Order.
+        :param pulumi.Input[int] key_size: Certificate key size.  Defaults to 2048.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
+        :param pulumi.Input[str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] product_type: Certificate product type, such as `Standard` or `WildCard`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[int] validity_in_years: Duration in years (must be between `1` and `3`).  Defaults to `1`.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if auto_renew is not None:
+            pulumi.set(__self__, "auto_renew", auto_renew)
+        if csr is not None:
+            pulumi.set(__self__, "csr", csr)
+        if distinguished_name is not None:
+            pulumi.set(__self__, "distinguished_name", distinguished_name)
+        if key_size is not None:
+            pulumi.set(__self__, "key_size", key_size)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if product_type is not None:
+            pulumi.set(__self__, "product_type", product_type)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if validity_in_years is not None:
+            pulumi.set(__self__, "validity_in_years", validity_in_years)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="autoRenew")
+    def auto_renew(self) -> Optional[pulumi.Input[bool]]:
+        """
+        true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
+        """
+        return pulumi.get(self, "auto_renew")
+
+    @auto_renew.setter
+    def auto_renew(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_renew", value)
+
+    @property
+    @pulumi.getter
+    def csr(self) -> Optional[pulumi.Input[str]]:
+        """
+        Last CSR that was created for this order.
+        """
+        return pulumi.get(self, "csr")
+
+    @csr.setter
+    def csr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "csr", value)
+
+    @property
+    @pulumi.getter(name="distinguishedName")
+    def distinguished_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Distinguished Name for the App Service Certificate Order.
+        """
+        return pulumi.get(self, "distinguished_name")
+
+    @distinguished_name.setter
+    def distinguished_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "distinguished_name", value)
+
+    @property
+    @pulumi.getter(name="keySize")
+    def key_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Certificate key size.  Defaults to 2048.
+        """
+        return pulumi.get(self, "key_size")
+
+    @key_size.setter
+    def key_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "key_size", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the certificate. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="productType")
+    def product_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Certificate product type, such as `Standard` or `WildCard`.
+        """
+        return pulumi.get(self, "product_type")
+
+    @product_type.setter
+    def product_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "product_type", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="validityInYears")
+    def validity_in_years(self) -> Optional[pulumi.Input[int]]:
+        """
+        Duration in years (must be between `1` and `3`).  Defaults to `1`.
+        """
+        return pulumi.get(self, "validity_in_years")
+
+    @validity_in_years.setter
+    def validity_in_years(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "validity_in_years", value)
 
 
 class CertificateOrder(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -68,6 +235,65 @@ class CertificateOrder(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[int] validity_in_years: Duration in years (must be between `1` and `3`).  Defaults to `1`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: CertificateOrderArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an App Service Certificate Order.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_certificate_order = azure.appservice.CertificateOrder("exampleCertificateOrder",
+            resource_group_name=example_resource_group.name,
+            location="global",
+            distinguished_name="CN=example.com",
+            product_type="Standard")
+        ```
+
+        ## Import
+
+        App Service Certificate Orders can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:appservice/certificateOrder:CertificateOrder example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.CertificateRegistration/certificateOrders/certificateorder1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param CertificateOrderArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(CertificateOrderArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_renew: Optional[pulumi.Input[bool]] = None,
+                 csr: Optional[pulumi.Input[str]] = None,
+                 distinguished_name: Optional[pulumi.Input[str]] = None,
+                 key_size: Optional[pulumi.Input[int]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 product_type: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 validity_in_years: Optional[pulumi.Input[int]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

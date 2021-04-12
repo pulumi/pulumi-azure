@@ -22,29 +22,30 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:privatedns/aAAARecord:AAAARecord":
-		r, err = NewAAAARecord(ctx, name, nil, pulumi.URN_(urn))
+		r = &AAAARecord{}
 	case "azure:privatedns/aRecord:ARecord":
-		r, err = NewARecord(ctx, name, nil, pulumi.URN_(urn))
+		r = &ARecord{}
 	case "azure:privatedns/cnameRecord:CnameRecord":
-		r, err = NewCnameRecord(ctx, name, nil, pulumi.URN_(urn))
+		r = &CnameRecord{}
 	case "azure:privatedns/linkService:LinkService":
-		r, err = NewLinkService(ctx, name, nil, pulumi.URN_(urn))
+		r = &LinkService{}
 	case "azure:privatedns/mxRecord:MxRecord":
-		r, err = NewMxRecord(ctx, name, nil, pulumi.URN_(urn))
+		r = &MxRecord{}
 	case "azure:privatedns/pTRRecord:PTRRecord":
-		r, err = NewPTRRecord(ctx, name, nil, pulumi.URN_(urn))
+		r = &PTRRecord{}
 	case "azure:privatedns/sRVRecord:SRVRecord":
-		r, err = NewSRVRecord(ctx, name, nil, pulumi.URN_(urn))
+		r = &SRVRecord{}
 	case "azure:privatedns/txtRecord:TxtRecord":
-		r, err = NewTxtRecord(ctx, name, nil, pulumi.URN_(urn))
+		r = &TxtRecord{}
 	case "azure:privatedns/zone:Zone":
-		r, err = NewZone(ctx, name, nil, pulumi.URN_(urn))
+		r = &Zone{}
 	case "azure:privatedns/zoneVirtualNetworkLink:ZoneVirtualNetworkLink":
-		r, err = NewZoneVirtualNetworkLink(ctx, name, nil, pulumi.URN_(urn))
+		r = &ZoneVirtualNetworkLink{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

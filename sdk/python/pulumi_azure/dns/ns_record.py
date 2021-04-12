@@ -5,13 +5,113 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['NsRecord']
+__all__ = ['NsRecordArgs', 'NsRecord']
+
+@pulumi.input_type
+class NsRecordArgs:
+    def __init__(__self__, *,
+                 records: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 resource_group_name: pulumi.Input[str],
+                 ttl: pulumi.Input[int],
+                 zone_name: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a NsRecord resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] records: A list of values that make up the NS record.
+        :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
+        :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the DNS NS Record.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "records", records)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "ttl", ttl)
+        pulumi.set(__self__, "zone_name", zone_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def records(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of values that make up the NS record.
+        """
+        return pulumi.get(self, "records")
+
+    @records.setter
+    def records(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "records", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def ttl(self) -> pulumi.Input[int]:
+        """
+        The Time To Live (TTL) of the DNS record in seconds.
+        """
+        return pulumi.get(self, "ttl")
+
+    @ttl.setter
+    def ttl(self, value: pulumi.Input[int]):
+        pulumi.set(self, "ttl", value)
+
+    @property
+    @pulumi.getter(name="zoneName")
+    def zone_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "zone_name")
+
+    @zone_name.setter
+    def zone_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "zone_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the DNS NS Record.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class NsRecord(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -65,6 +165,68 @@ class NsRecord(pulumi.CustomResource):
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: NsRecordArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Enables you to manage DNS NS Records within Azure DNS.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
+        example_ns_record = azure.dns.NsRecord("exampleNsRecord",
+            zone_name=example_zone.name,
+            resource_group_name=example_resource_group.name,
+            ttl=300,
+            records=[
+                "ns1.contoso.com",
+                "ns2.contoso.com",
+            ],
+            tags={
+                "Environment": "Production",
+            })
+        ```
+
+        ## Import
+
+        NS records can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:dns/nsRecord:NsRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnszones/zone1/NS/myrecord1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param NsRecordArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(NsRecordArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 records: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 ttl: Optional[pulumi.Input[int]] = None,
+                 zone_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

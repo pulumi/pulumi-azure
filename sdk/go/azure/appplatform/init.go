@@ -22,23 +22,24 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:appplatform/springCloudActiveDeployment:SpringCloudActiveDeployment":
-		r, err = NewSpringCloudActiveDeployment(ctx, name, nil, pulumi.URN_(urn))
+		r = &SpringCloudActiveDeployment{}
 	case "azure:appplatform/springCloudApp:SpringCloudApp":
-		r, err = NewSpringCloudApp(ctx, name, nil, pulumi.URN_(urn))
+		r = &SpringCloudApp{}
 	case "azure:appplatform/springCloudAppRedisAssociation:SpringCloudAppRedisAssociation":
-		r, err = NewSpringCloudAppRedisAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &SpringCloudAppRedisAssociation{}
 	case "azure:appplatform/springCloudCertificate:SpringCloudCertificate":
-		r, err = NewSpringCloudCertificate(ctx, name, nil, pulumi.URN_(urn))
+		r = &SpringCloudCertificate{}
 	case "azure:appplatform/springCloudCustomDomain:SpringCloudCustomDomain":
-		r, err = NewSpringCloudCustomDomain(ctx, name, nil, pulumi.URN_(urn))
+		r = &SpringCloudCustomDomain{}
 	case "azure:appplatform/springCloudJavaDeployment:SpringCloudJavaDeployment":
-		r, err = NewSpringCloudJavaDeployment(ctx, name, nil, pulumi.URN_(urn))
+		r = &SpringCloudJavaDeployment{}
 	case "azure:appplatform/springCloudService:SpringCloudService":
-		r, err = NewSpringCloudService(ctx, name, nil, pulumi.URN_(urn))
+		r = &SpringCloudService{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

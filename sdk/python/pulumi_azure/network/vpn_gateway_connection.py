@@ -5,15 +5,116 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['VpnGatewayConnection']
+__all__ = ['VpnGatewayConnectionArgs', 'VpnGatewayConnection']
+
+@pulumi.input_type
+class VpnGatewayConnectionArgs:
+    def __init__(__self__, *,
+                 remote_vpn_site_id: pulumi.Input[str],
+                 vpn_gateway_id: pulumi.Input[str],
+                 vpn_links: pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkArgs']]],
+                 internet_security_enabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 routings: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionRoutingArgs']]]] = None):
+        """
+        The set of arguments for constructing a VpnGatewayConnection resource.
+        :param pulumi.Input[str] remote_vpn_site_id: The ID of the remote VPN Site, which will connect to the VPN Gateway. Changing this forces a new VPN Gateway Connection to be created.
+        :param pulumi.Input[str] vpn_gateway_id: The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkArgs']]] vpn_links: One or more `vpn_link` blocks as defined below.
+        :param pulumi.Input[bool] internet_security_enabled: Whether Internet Security is enabled for this VPN Connection. Defaults to `false`.
+        :param pulumi.Input[str] name: The name which should be used for this VPN Gateway Connection. Changing this forces a new VPN Gateway Connection to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionRoutingArgs']]] routings: A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
+        """
+        pulumi.set(__self__, "remote_vpn_site_id", remote_vpn_site_id)
+        pulumi.set(__self__, "vpn_gateway_id", vpn_gateway_id)
+        pulumi.set(__self__, "vpn_links", vpn_links)
+        if internet_security_enabled is not None:
+            pulumi.set(__self__, "internet_security_enabled", internet_security_enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if routings is not None:
+            pulumi.set(__self__, "routings", routings)
+
+    @property
+    @pulumi.getter(name="remoteVpnSiteId")
+    def remote_vpn_site_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the remote VPN Site, which will connect to the VPN Gateway. Changing this forces a new VPN Gateway Connection to be created.
+        """
+        return pulumi.get(self, "remote_vpn_site_id")
+
+    @remote_vpn_site_id.setter
+    def remote_vpn_site_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "remote_vpn_site_id", value)
+
+    @property
+    @pulumi.getter(name="vpnGatewayId")
+    def vpn_gateway_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created.
+        """
+        return pulumi.get(self, "vpn_gateway_id")
+
+    @vpn_gateway_id.setter
+    def vpn_gateway_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vpn_gateway_id", value)
+
+    @property
+    @pulumi.getter(name="vpnLinks")
+    def vpn_links(self) -> pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkArgs']]]:
+        """
+        One or more `vpn_link` blocks as defined below.
+        """
+        return pulumi.get(self, "vpn_links")
+
+    @vpn_links.setter
+    def vpn_links(self, value: pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkArgs']]]):
+        pulumi.set(self, "vpn_links", value)
+
+    @property
+    @pulumi.getter(name="internetSecurityEnabled")
+    def internet_security_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether Internet Security is enabled for this VPN Connection. Defaults to `false`.
+        """
+        return pulumi.get(self, "internet_security_enabled")
+
+    @internet_security_enabled.setter
+    def internet_security_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "internet_security_enabled", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this VPN Gateway Connection. Changing this forces a new VPN Gateway Connection to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def routings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionRoutingArgs']]]]:
+        """
+        A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
+        """
+        return pulumi.get(self, "routings")
+
+    @routings.setter
+    def routings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionRoutingArgs']]]]):
+        pulumi.set(self, "routings", value)
 
 
 class VpnGatewayConnection(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +147,47 @@ class VpnGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[str] vpn_gateway_id: The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayConnectionVpnLinkArgs']]]] vpn_links: One or more `vpn_link` blocks as defined below.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VpnGatewayConnectionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a VPN Gateway Connection.
+
+        ## Import
+
+        VPN Gateway Connections can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:network/vpnGatewayConnection:VpnGatewayConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/vpnGateways/gateway1/vpnConnections/conn1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param VpnGatewayConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VpnGatewayConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 internet_security_enabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 remote_vpn_site_id: Optional[pulumi.Input[str]] = None,
+                 routings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayConnectionRoutingArgs']]]]] = None,
+                 vpn_gateway_id: Optional[pulumi.Input[str]] = None,
+                 vpn_links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayConnectionVpnLinkArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

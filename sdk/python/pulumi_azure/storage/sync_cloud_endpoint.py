@@ -5,13 +5,98 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['SyncCloudEndpoint']
+__all__ = ['SyncCloudEndpointArgs', 'SyncCloudEndpoint']
+
+@pulumi.input_type
+class SyncCloudEndpointArgs:
+    def __init__(__self__, *,
+                 file_share_name: pulumi.Input[str],
+                 storage_account_id: pulumi.Input[str],
+                 storage_sync_group_id: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
+                 storage_account_tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a SyncCloudEndpoint resource.
+        :param pulumi.Input[str] file_share_name: The Storage Share name to be synchronized in this Storage Sync Cloud Endpoint. Changing this forces a new Storage Sync Cloud Endpoint to be created.
+        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where the Storage Share exists. Changing this forces a new Storage Sync Cloud Endpoint to be created.
+        :param pulumi.Input[str] storage_sync_group_id: The ID of the Storage Sync Group where this Cloud Endpoint should be created. Changing this forces a new Storage Sync Cloud Endpoint to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Storage Sync Cloud Endpoint. Changing this forces a new Storage Sync Cloud Endpoint to be created.
+        :param pulumi.Input[str] storage_account_tenant_id: The Tenant ID of the Storage Account where the Storage Share exists. Changing this forces a new Storage Sync Cloud Endpoint to be created. Defaults to the current tenant id.
+        """
+        pulumi.set(__self__, "file_share_name", file_share_name)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        pulumi.set(__self__, "storage_sync_group_id", storage_sync_group_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if storage_account_tenant_id is not None:
+            pulumi.set(__self__, "storage_account_tenant_id", storage_account_tenant_id)
+
+    @property
+    @pulumi.getter(name="fileShareName")
+    def file_share_name(self) -> pulumi.Input[str]:
+        """
+        The Storage Share name to be synchronized in this Storage Sync Cloud Endpoint. Changing this forces a new Storage Sync Cloud Endpoint to be created.
+        """
+        return pulumi.get(self, "file_share_name")
+
+    @file_share_name.setter
+    def file_share_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file_share_name", value)
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Storage Account where the Storage Share exists. Changing this forces a new Storage Sync Cloud Endpoint to be created.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @storage_account_id.setter
+    def storage_account_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_id", value)
+
+    @property
+    @pulumi.getter(name="storageSyncGroupId")
+    def storage_sync_group_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Storage Sync Group where this Cloud Endpoint should be created. Changing this forces a new Storage Sync Cloud Endpoint to be created.
+        """
+        return pulumi.get(self, "storage_sync_group_id")
+
+    @storage_sync_group_id.setter
+    def storage_sync_group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_sync_group_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Storage Sync Cloud Endpoint. Changing this forces a new Storage Sync Cloud Endpoint to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="storageAccountTenantId")
+    def storage_account_tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Tenant ID of the Storage Account where the Storage Share exists. Changing this forces a new Storage Sync Cloud Endpoint to be created. Defaults to the current tenant id.
+        """
+        return pulumi.get(self, "storage_account_tenant_id")
+
+    @storage_account_tenant_id.setter
+    def storage_account_tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_tenant_id", value)
 
 
 class SyncCloudEndpoint(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -74,6 +159,78 @@ class SyncCloudEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_tenant_id: The Tenant ID of the Storage Account where the Storage Share exists. Changing this forces a new Storage Sync Cloud Endpoint to be created. Defaults to the current tenant id.
         :param pulumi.Input[str] storage_sync_group_id: The ID of the Storage Sync Group where this Cloud Endpoint should be created. Changing this forces a new Storage Sync Cloud Endpoint to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SyncCloudEndpointArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Storage Sync Cloud Endpoint.
+
+        > **NOTE:** Please ensure Azure File Sync has access to the storage account in your subscription, which indicates that `Microsoft.StorageSync` is assigned role `Reader and Data Access` ( refer to details [here](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-troubleshooting-steps)).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_sync = azure.storage.Sync("exampleSync",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_sync_group = azure.storage.SyncGroup("exampleSyncGroup", storage_sync_id=example_sync.id)
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_share = azure.storage.Share("exampleShare",
+            storage_account_name=example_account.name,
+            acls=[azure.storage.ShareAclArgs(
+                id="GhostedRecall",
+                access_policies=[{
+                    "permissions": "r",
+                }],
+            )])
+        example_sync_cloud_endpoint = azure.storage.SyncCloudEndpoint("exampleSyncCloudEndpoint",
+            storage_sync_group_id=example_sync_group.id,
+            file_share_name=example_share.name,
+            storage_account_id=example_account.id)
+        ```
+
+        ## Import
+
+        Storage Sync Cloud Endpoints can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:storage/syncCloudEndpoint:SyncCloudEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StorageSync/storageSyncServices/sync1/syncGroups/syncgroup1/cloudEndpoints/cloudEndpoint1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param SyncCloudEndpointArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SyncCloudEndpointArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 file_share_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None,
+                 storage_account_tenant_id: Optional[pulumi.Input[str]] = None,
+                 storage_sync_group_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

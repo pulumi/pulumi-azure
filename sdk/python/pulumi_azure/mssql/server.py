@@ -5,15 +5,230 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Server']
+__all__ = ['ServerArgs', 'Server']
+
+@pulumi.input_type
+class ServerArgs:
+    def __init__(__self__, *,
+                 administrator_login: pulumi.Input[str],
+                 administrator_login_password: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 version: pulumi.Input[str],
+                 azuread_administrator: Optional[pulumi.Input['ServerAzureadAdministratorArgs']] = None,
+                 connection_policy: Optional[pulumi.Input[str]] = None,
+                 extended_auditing_policy: Optional[pulumi.Input['ServerExtendedAuditingPolicyArgs']] = None,
+                 identity: Optional[pulumi.Input['ServerIdentityArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 minimum_tls_version: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Server resource.
+        :param pulumi.Input[str] administrator_login: The administrator login name for the new server. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server.
+        :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+        :param pulumi.Input['ServerAzureadAdministratorArgs'] azuread_administrator: An `azuread_administrator` block as defined below.
+        :param pulumi.Input[str] connection_policy: The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
+        :param pulumi.Input['ServerExtendedAuditingPolicyArgs'] extended_auditing_policy: A `extended_auditing_policy` block as defined below.
+        :param pulumi.Input['ServerIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] minimum_tls_version: The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` and `1.2`.
+        :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "administrator_login", administrator_login)
+        pulumi.set(__self__, "administrator_login_password", administrator_login_password)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "version", version)
+        if azuread_administrator is not None:
+            pulumi.set(__self__, "azuread_administrator", azuread_administrator)
+        if connection_policy is not None:
+            pulumi.set(__self__, "connection_policy", connection_policy)
+        if extended_auditing_policy is not None:
+            warnings.warn("""the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""extended_auditing_policy is deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""")
+        if extended_auditing_policy is not None:
+            pulumi.set(__self__, "extended_auditing_policy", extended_auditing_policy)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if minimum_tls_version is not None:
+            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="administratorLogin")
+    def administrator_login(self) -> pulumi.Input[str]:
+        """
+        The administrator login name for the new server. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "administrator_login")
+
+    @administrator_login.setter
+    def administrator_login(self, value: pulumi.Input[str]):
+        pulumi.set(self, "administrator_login", value)
+
+    @property
+    @pulumi.getter(name="administratorLoginPassword")
+    def administrator_login_password(self) -> pulumi.Input[str]:
+        """
+        The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+        """
+        return pulumi.get(self, "administrator_login_password")
+
+    @administrator_login_password.setter
+    def administrator_login_password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "administrator_login_password", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which to create the Microsoft SQL Server.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[str]:
+        """
+        The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "version", value)
+
+    @property
+    @pulumi.getter(name="azureadAdministrator")
+    def azuread_administrator(self) -> Optional[pulumi.Input['ServerAzureadAdministratorArgs']]:
+        """
+        An `azuread_administrator` block as defined below.
+        """
+        return pulumi.get(self, "azuread_administrator")
+
+    @azuread_administrator.setter
+    def azuread_administrator(self, value: Optional[pulumi.Input['ServerAzureadAdministratorArgs']]):
+        pulumi.set(self, "azuread_administrator", value)
+
+    @property
+    @pulumi.getter(name="connectionPolicy")
+    def connection_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
+        """
+        return pulumi.get(self, "connection_policy")
+
+    @connection_policy.setter
+    def connection_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_policy", value)
+
+    @property
+    @pulumi.getter(name="extendedAuditingPolicy")
+    def extended_auditing_policy(self) -> Optional[pulumi.Input['ServerExtendedAuditingPolicyArgs']]:
+        """
+        A `extended_auditing_policy` block as defined below.
+        """
+        return pulumi.get(self, "extended_auditing_policy")
+
+    @extended_auditing_policy.setter
+    def extended_auditing_policy(self, value: Optional[pulumi.Input['ServerExtendedAuditingPolicyArgs']]):
+        pulumi.set(self, "extended_auditing_policy", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ServerIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ServerIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` and `1.2`.
+        """
+        return pulumi.get(self, "minimum_tls_version")
+
+    @minimum_tls_version.setter
+    def minimum_tls_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "minimum_tls_version", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not public network access is allowed for this server. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Server(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -94,6 +309,88 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ServerArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Microsoft SQL Azure Database Server.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_server = azure.mssql.Server("exampleServer",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            version="12.0",
+            administrator_login="missadministrator",
+            administrator_login_password="thisIsKat11",
+            minimum_tls_version="1.2",
+            azuread_administrator=azure.mssql.ServerAzureadAdministratorArgs(
+                login_username="AzureAD Admin",
+                object_id="00000000-0000-0000-0000-000000000000",
+            ),
+            extended_auditing_policy=azure.mssql.ServerExtendedAuditingPolicyArgs(
+                storage_endpoint=example_account.primary_blob_endpoint,
+                storage_account_access_key=example_account.primary_access_key,
+                storage_account_access_key_is_secondary=True,
+                retention_in_days=6,
+            ),
+            tags={
+                "environment": "production",
+            })
+        ```
+
+        ## Import
+
+        SQL Servers can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:mssql/server:Server example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ServerArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ServerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 administrator_login: Optional[pulumi.Input[str]] = None,
+                 administrator_login_password: Optional[pulumi.Input[str]] = None,
+                 azuread_administrator: Optional[pulumi.Input[pulumi.InputType['ServerAzureadAdministratorArgs']]] = None,
+                 connection_policy: Optional[pulumi.Input[str]] = None,
+                 extended_auditing_policy: Optional[pulumi.Input[pulumi.InputType['ServerExtendedAuditingPolicyArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ServerIdentityArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 minimum_tls_version: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

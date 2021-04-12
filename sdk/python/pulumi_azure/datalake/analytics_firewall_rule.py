@@ -5,13 +5,97 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['AnalyticsFirewallRule']
+__all__ = ['AnalyticsFirewallRuleArgs', 'AnalyticsFirewallRule']
+
+@pulumi.input_type
+class AnalyticsFirewallRuleArgs:
+    def __init__(__self__, *,
+                 account_name: pulumi.Input[str],
+                 end_ip_address: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 start_ip_address: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a AnalyticsFirewallRule resource.
+        :param pulumi.Input[str] account_name: Specifies the name of the Data Lake Analytics for which the Firewall Rule should take effect.
+        :param pulumi.Input[str] end_ip_address: The End IP Address for the firewall rule.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Lake Analytics.
+        :param pulumi.Input[str] start_ip_address: The Start IP address for the firewall rule.
+        :param pulumi.Input[str] name: Specifies the name of the Data Lake Analytics. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
+        """
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "end_ip_address", end_ip_address)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "start_ip_address", start_ip_address)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the Data Lake Analytics for which the Firewall Rule should take effect.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="endIpAddress")
+    def end_ip_address(self) -> pulumi.Input[str]:
+        """
+        The End IP Address for the firewall rule.
+        """
+        return pulumi.get(self, "end_ip_address")
+
+    @end_ip_address.setter
+    def end_ip_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "end_ip_address", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which to create the Data Lake Analytics.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="startIpAddress")
+    def start_ip_address(self) -> pulumi.Input[str]:
+        """
+        The Start IP address for the firewall rule.
+        """
+        return pulumi.get(self, "start_ip_address")
+
+    @start_ip_address.setter
+    def start_ip_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "start_ip_address", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Data Lake Analytics. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class AnalyticsFirewallRule(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -63,6 +147,67 @@ class AnalyticsFirewallRule(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Lake Analytics.
         :param pulumi.Input[str] start_ip_address: The Start IP address for the firewall rule.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AnalyticsFirewallRuleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Azure Data Lake Analytics Firewall Rule.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_store = azure.datalake.Store("exampleStore",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        example_analytics_account = azure.datalake.AnalyticsAccount("exampleAnalyticsAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            default_store_account_name=example_store.name)
+        example_analytics_firewall_rule = azure.datalake.AnalyticsFirewallRule("exampleAnalyticsFirewallRule",
+            account_name=azurerm_data_lake_analytics["example"]["name"],
+            resource_group_name=example_resource_group.name,
+            start_ip_address="1.2.3.4",
+            end_ip_address="2.3.4.5")
+        ```
+
+        ## Import
+
+        Data Lake Analytics Firewall Rules can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:datalake/analyticsFirewallRule:AnalyticsFirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DataLakeAnalytics/accounts/mydatalakeaccount/firewallRules/rule1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param AnalyticsFirewallRuleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AnalyticsFirewallRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 end_ip_address: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 start_ip_address: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
