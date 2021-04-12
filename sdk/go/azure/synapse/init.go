@@ -22,21 +22,22 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:synapse/firewallRule:FirewallRule":
-		r, err = NewFirewallRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &FirewallRule{}
 	case "azure:synapse/managedPrivateEndpoint:ManagedPrivateEndpoint":
-		r, err = NewManagedPrivateEndpoint(ctx, name, nil, pulumi.URN_(urn))
+		r = &ManagedPrivateEndpoint{}
 	case "azure:synapse/roleAssignment:RoleAssignment":
-		r, err = NewRoleAssignment(ctx, name, nil, pulumi.URN_(urn))
+		r = &RoleAssignment{}
 	case "azure:synapse/sparkPool:SparkPool":
-		r, err = NewSparkPool(ctx, name, nil, pulumi.URN_(urn))
+		r = &SparkPool{}
 	case "azure:synapse/sqlPool:SqlPool":
-		r, err = NewSqlPool(ctx, name, nil, pulumi.URN_(urn))
+		r = &SqlPool{}
 	case "azure:synapse/workspace:Workspace":
-		r, err = NewWorkspace(ctx, name, nil, pulumi.URN_(urn))
+		r = &Workspace{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

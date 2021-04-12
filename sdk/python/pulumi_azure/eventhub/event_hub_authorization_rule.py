@@ -5,10 +5,127 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['EventHubAuthorizationRule']
+__all__ = ['EventHubAuthorizationRuleArgs', 'EventHubAuthorizationRule']
+
+@pulumi.input_type
+class EventHubAuthorizationRuleArgs:
+    def __init__(__self__, *,
+                 eventhub_name: pulumi.Input[str],
+                 namespace_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 listen: Optional[pulumi.Input[bool]] = None,
+                 manage: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 send: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a EventHubAuthorizationRule resource.
+        :param pulumi.Input[str] eventhub_name: Specifies the name of the EventHub. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] namespace_name: Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] listen: Does this Authorization Rule have permissions to Listen to the Event Hub? Defaults to `false`.
+        :param pulumi.Input[bool] manage: Does this Authorization Rule have permissions to Manage to the Event Hub? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+        :param pulumi.Input[str] name: Specifies the name of the EventHub Authorization Rule resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] send: Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
+        """
+        pulumi.set(__self__, "eventhub_name", eventhub_name)
+        pulumi.set(__self__, "namespace_name", namespace_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if listen is not None:
+            pulumi.set(__self__, "listen", listen)
+        if manage is not None:
+            pulumi.set(__self__, "manage", manage)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if send is not None:
+            pulumi.set(__self__, "send", send)
+
+    @property
+    @pulumi.getter(name="eventhubName")
+    def eventhub_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the EventHub. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "eventhub_name")
+
+    @eventhub_name.setter
+    def eventhub_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "eventhub_name", value)
+
+    @property
+    @pulumi.getter(name="namespaceName")
+    def namespace_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "namespace_name")
+
+    @namespace_name.setter
+    def namespace_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "namespace_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def listen(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Does this Authorization Rule have permissions to Listen to the Event Hub? Defaults to `false`.
+        """
+        return pulumi.get(self, "listen")
+
+    @listen.setter
+    def listen(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "listen", value)
+
+    @property
+    @pulumi.getter
+    def manage(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Does this Authorization Rule have permissions to Manage to the Event Hub? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+        """
+        return pulumi.get(self, "manage")
+
+    @manage.setter
+    def manage(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "manage", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the EventHub Authorization Rule resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def send(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
+        """
+        return pulumi.get(self, "send")
+
+    @send.setter
+    def send(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "send", value)
+
 
 warnings.warn("""azure.eventhub.EventHubAuthorizationRule has been deprecated in favor of azure.eventhub.AuthorizationRule""", DeprecationWarning)
 
@@ -16,6 +133,7 @@ warnings.warn("""azure.eventhub.EventHubAuthorizationRule has been deprecated in
 class EventHubAuthorizationRule(pulumi.CustomResource):
     warnings.warn("""azure.eventhub.EventHubAuthorizationRule has been deprecated in favor of azure.eventhub.AuthorizationRule""", DeprecationWarning)
 
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -79,6 +197,77 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] send: Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: EventHubAuthorizationRuleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Event Hubs authorization Rule within an Event Hub.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
+            location="West US",
+            resource_group_name=example_resource_group.name,
+            sku="Basic",
+            capacity=2,
+            tags={
+                "environment": "Production",
+            })
+        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
+            namespace_name=example_event_hub_namespace.name,
+            resource_group_name=example_resource_group.name,
+            partition_count=2,
+            message_retention=2)
+        example_authorization_rule = azure.eventhub.AuthorizationRule("exampleAuthorizationRule",
+            namespace_name=example_event_hub_namespace.name,
+            eventhub_name=example_event_hub.name,
+            resource_group_name=example_resource_group.name,
+            listen=True,
+            send=False,
+            manage=False)
+        ```
+
+        ## Import
+
+        EventHub Authorization Rules can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:eventhub/eventHubAuthorizationRule:EventHubAuthorizationRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1/eventhubs/eventhub1/authorizationRules/rule1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param EventHubAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(EventHubAuthorizationRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 eventhub_name: Optional[pulumi.Input[str]] = None,
+                 listen: Optional[pulumi.Input[bool]] = None,
+                 manage: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 namespace_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 send: Optional[pulumi.Input[bool]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         pulumi.log.warn("""EventHubAuthorizationRule is deprecated: azure.eventhub.EventHubAuthorizationRule has been deprecated in favor of azure.eventhub.AuthorizationRule""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

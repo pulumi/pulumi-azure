@@ -5,13 +5,102 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Dashboard']
+__all__ = ['DashboardArgs', 'Dashboard']
+
+@pulumi.input_type
+class DashboardArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 dashboard_properties: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Dashboard resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
+               create the dashboard.
+        :param pulumi.Input[str] dashboard_properties: JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Shared Dashboard. This should be be 64 chars max, only alphanumeric and hyphens (no spaces). For a more friendly display name, add the `hidden-title` tag.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if dashboard_properties is not None:
+            pulumi.set(__self__, "dashboard_properties", dashboard_properties)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which to
+        create the dashboard.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="dashboardProperties")
+    def dashboard_properties(self) -> Optional[pulumi.Input[str]]:
+        """
+        JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
+        """
+        return pulumi.get(self, "dashboard_properties")
+
+    @dashboard_properties.setter
+    def dashboard_properties(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dashboard_properties", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Shared Dashboard. This should be be 64 chars max, only alphanumeric and hyphens (no spaces). For a more friendly display name, add the `hidden-title` tag.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Dashboard(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -180,6 +269,183 @@ class Dashboard(pulumi.CustomResource):
                create the dashboard.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DashboardArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a shared dashboard in the Azure Portal.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        config = pulumi.Config()
+        md_content = config.get("mdContent")
+        if md_content is None:
+            md_content = "# Hello all :)"
+        video_link = config.get("videoLink")
+        if video_link is None:
+            video_link = "https://www.youtube.com/watch?v=......"
+        current = azure.core.get_subscription()
+        my_group = azure.core.ResourceGroup("my-group", location="West Europe")
+        my_board = azure.dashboard.Dashboard("my-board",
+            resource_group_name=my_group.name,
+            location=my_group.location,
+            tags={
+                "source": "managed",
+            },
+            dashboard_properties=f\"\"\"{{
+           "lenses": {{
+                "0": {{
+                    "order": 0,
+                    "parts": {{
+                        "0": {{
+                            "position": {{
+                                "x": 0,
+                                "y": 0,
+                                "rowSpan": 2,
+                                "colSpan": 3
+                            }},
+                            "metadata": {{
+                                "inputs": [],
+                                "type": "Extension/HubsExtension/PartType/MarkdownPart",
+                                "settings": {{
+                                    "content": {{
+                                        "settings": {{
+                                            "content": "{md_content}",
+                                            "subtitle": "",
+                                            "title": ""
+                                        }}
+                                    }}
+                                }}
+                            }}
+                        }},               
+                        "1": {{
+                            "position": {{
+                                "x": 5,
+                                "y": 0,
+                                "rowSpan": 4,
+                                "colSpan": 6
+                            }},
+                            "metadata": {{
+                                "inputs": [],
+                                "type": "Extension/HubsExtension/PartType/VideoPart",
+                                "settings": {{
+                                    "content": {{
+                                        "settings": {{
+                                            "title": "Important Information",
+                                            "subtitle": "",
+                                            "src": "{video_link}",
+                                            "autoplay": true
+                                        }}
+                                    }}
+                                }}
+                            }}
+                        }},
+                        "2": {{
+                            "position": {{
+                                "x": 0,
+                                "y": 4,
+                                "rowSpan": 4,
+                                "colSpan": 6
+                            }},
+                            "metadata": {{
+                                "inputs": [
+                                    {{
+                                        "name": "ComponentId",
+                                        "value": "/subscriptions/{current.subscription_id}/resourceGroups/myRG/providers/microsoft.insights/components/myWebApp"
+                                    }}
+                                ],
+                                "type": "Extension/AppInsightsExtension/PartType/AppMapGalPt",
+                                "settings": {{}},
+                                "asset": {{
+                                    "idInputName": "ComponentId",
+                                    "type": "ApplicationInsights"
+                                }}
+                            }}
+                        }}              
+                    }}
+                }}
+            }},
+            "metadata": {{
+                "model": {{
+                    "timeRange": {{
+                        "value": {{
+                            "relative": {{
+                                "duration": 24,
+                                "timeUnit": 1
+                            }}
+                        }},
+                        "type": "MsPortalFx.Composition.Configuration.ValueTypes.TimeRange"
+                    }},
+                    "filterLocale": {{
+                        "value": "en-us"
+                    }},
+                    "filters": {{
+                        "value": {{
+                            "MsPortalFx_TimeRange": {{
+                                "model": {{
+                                    "format": "utc",
+                                    "granularity": "auto",
+                                    "relative": "24h"
+                                }},
+                                "displayCache": {{
+                                    "name": "UTC Time",
+                                    "value": "Past 24 hours"
+                                }},
+                                "filteredPartIds": [
+                                    "StartboardPart-UnboundPart-ae44fef5-76b8-46b0-86f0-2b3f47bad1c7"
+                                ]
+                            }}
+                        }}
+                    }}
+                }}
+            }}
+        }}
+        \"\"\")
+        ```
+
+        It is recommended to follow the steps outlined
+        [here](https://docs.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards-create-programmatically#fetch-the-json-representation-of-the-dashboard) to create a Dashboard in the Portal and extract the relevant JSON to use in this resource. From the extracted JSON, the contents of the `properties: {}` object can used. Variables can be injected as needed - see above example.
+
+        ## Import
+
+        Dashboards can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:dashboard/dashboard:Dashboard my-board /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Portal/dashboards/00000000-0000-0000-0000-000000000000
+        ```
+
+         Note the URI in the above sample can be found using the Resource Explorer tool in the Azure Portal.
+
+        :param str resource_name: The name of the resource.
+        :param DashboardArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DashboardArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 dashboard_properties: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

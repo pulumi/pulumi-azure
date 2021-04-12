@@ -5,15 +5,114 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['FunctionJavaScriptUDF']
+__all__ = ['FunctionJavaScriptUDFArgs', 'FunctionJavaScriptUDF']
+
+@pulumi.input_type
+class FunctionJavaScriptUDFArgs:
+    def __init__(__self__, *,
+                 inputs: pulumi.Input[Sequence[pulumi.Input['FunctionJavaScriptUDFInputArgs']]],
+                 output: pulumi.Input['FunctionJavaScriptUDFOutputArgs'],
+                 resource_group_name: pulumi.Input[str],
+                 script: pulumi.Input[str],
+                 stream_analytics_job_name: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a FunctionJavaScriptUDF resource.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionJavaScriptUDFInputArgs']]] inputs: One or more `input` blocks as defined below.
+        :param pulumi.Input['FunctionJavaScriptUDFOutputArgs'] output: An `output` blocks as defined below.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] script: The JavaScript of this UDF Function.
+        :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the JavaScript UDF Function. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "inputs", inputs)
+        pulumi.set(__self__, "output", output)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "script", script)
+        pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> pulumi.Input[Sequence[pulumi.Input['FunctionJavaScriptUDFInputArgs']]]:
+        """
+        One or more `input` blocks as defined below.
+        """
+        return pulumi.get(self, "inputs")
+
+    @inputs.setter
+    def inputs(self, value: pulumi.Input[Sequence[pulumi.Input['FunctionJavaScriptUDFInputArgs']]]):
+        pulumi.set(self, "inputs", value)
+
+    @property
+    @pulumi.getter
+    def output(self) -> pulumi.Input['FunctionJavaScriptUDFOutputArgs']:
+        """
+        An `output` blocks as defined below.
+        """
+        return pulumi.get(self, "output")
+
+    @output.setter
+    def output(self, value: pulumi.Input['FunctionJavaScriptUDFOutputArgs']):
+        pulumi.set(self, "output", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def script(self) -> pulumi.Input[str]:
+        """
+        The JavaScript of this UDF Function.
+        """
+        return pulumi.get(self, "script")
+
+    @script.setter
+    def script(self, value: pulumi.Input[str]):
+        pulumi.set(self, "script", value)
+
+    @property
+    @pulumi.getter(name="streamAnalyticsJobName")
+    def stream_analytics_job_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "stream_analytics_job_name")
+
+    @stream_analytics_job_name.setter
+    def stream_analytics_job_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "stream_analytics_job_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the JavaScript UDF Function. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class FunctionJavaScriptUDF(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -70,6 +169,71 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
         :param pulumi.Input[str] script: The JavaScript of this UDF Function.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: FunctionJavaScriptUDFArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a JavaScript UDF Function within Stream Analytics Streaming Job.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.get_resource_group(name="example-resources")
+        example_job = azure.streamanalytics.get_job(name="example-job",
+            resource_group_name=azurerm_resource_group["example"]["name"])
+        example_function_java_script_udf = azure.streamanalytics.FunctionJavaScriptUDF("exampleFunctionJavaScriptUDF",
+            stream_analytics_job_name=example_job.name,
+            resource_group_name=example_job.resource_group_name,
+            script=\"\"\"function getRandomNumber(in) {
+          return in;
+        }
+        \"\"\",
+            inputs=[azure.streamanalytics.FunctionJavaScriptUDFInputArgs(
+                type="bigint",
+            )],
+            output=azure.streamanalytics.FunctionJavaScriptUDFOutputArgs(
+                type="bigint",
+            ))
+        ```
+
+        ## Import
+
+        Stream Analytics JavaScript UDF Functions can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:streamanalytics/functionJavaScriptUDF:FunctionJavaScriptUDF example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/outputs/output1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param FunctionJavaScriptUDFArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(FunctionJavaScriptUDFArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 inputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionJavaScriptUDFInputArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 output: Optional[pulumi.Input[pulumi.InputType['FunctionJavaScriptUDFOutputArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 script: Optional[pulumi.Input[str]] = None,
+                 stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

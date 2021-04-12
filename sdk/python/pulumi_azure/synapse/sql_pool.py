@@ -5,15 +5,165 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SqlPool']
+__all__ = ['SqlPoolArgs', 'SqlPool']
+
+@pulumi.input_type
+class SqlPoolArgs:
+    def __init__(__self__, *,
+                 sku_name: pulumi.Input[str],
+                 synapse_workspace_id: pulumi.Input[str],
+                 collation: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input[str]] = None,
+                 data_encrypted: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 recovery_database_id: Optional[pulumi.Input[str]] = None,
+                 restore: Optional[pulumi.Input['SqlPoolRestoreArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a SqlPool resource.
+        :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Synapse Sql Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
+        :param pulumi.Input[str] synapse_workspace_id: The ID of Synapse Workspace within which this Sql Pool should be created. Changing this forces a new Synapse Sql Pool to be created.
+        :param pulumi.Input[str] collation: The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] create_mode: Specifies how to create the Sql Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`.
+        :param pulumi.Input[bool] data_encrypted: Is transparent data encryption enabled? Defaults to `false`.
+        :param pulumi.Input[str] name: The name which should be used for this Synapse Sql Pool. Changing this forces a new synapse SqlPool to be created.
+        :param pulumi.Input[str] recovery_database_id: The ID of the Synapse Sql Pool or Sql Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse Sql Pool to be created.
+        :param pulumi.Input['SqlPoolRestoreArgs'] restore: A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse Sql Pool.
+        """
+        pulumi.set(__self__, "sku_name", sku_name)
+        pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
+        if collation is not None:
+            pulumi.set(__self__, "collation", collation)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
+        if data_encrypted is not None:
+            pulumi.set(__self__, "data_encrypted", data_encrypted)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if recovery_database_id is not None:
+            pulumi.set(__self__, "recovery_database_id", recovery_database_id)
+        if restore is not None:
+            pulumi.set(__self__, "restore", restore)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="skuName")
+    def sku_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the SKU Name for this Synapse Sql Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
+        """
+        return pulumi.get(self, "sku_name")
+
+    @sku_name.setter
+    def sku_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sku_name", value)
+
+    @property
+    @pulumi.getter(name="synapseWorkspaceId")
+    def synapse_workspace_id(self) -> pulumi.Input[str]:
+        """
+        The ID of Synapse Workspace within which this Sql Pool should be created. Changing this forces a new Synapse Sql Pool to be created.
+        """
+        return pulumi.get(self, "synapse_workspace_id")
+
+    @synapse_workspace_id.setter
+    def synapse_workspace_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "synapse_workspace_id", value)
+
+    @property
+    @pulumi.getter
+    def collation(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "collation")
+
+    @collation.setter
+    def collation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "collation", value)
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies how to create the Sql Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @create_mode.setter
+    def create_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create_mode", value)
+
+    @property
+    @pulumi.getter(name="dataEncrypted")
+    def data_encrypted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is transparent data encryption enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "data_encrypted")
+
+    @data_encrypted.setter
+    def data_encrypted(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "data_encrypted", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Synapse Sql Pool. Changing this forces a new synapse SqlPool to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="recoveryDatabaseId")
+    def recovery_database_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Synapse Sql Pool or Sql Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse Sql Pool to be created.
+        """
+        return pulumi.get(self, "recovery_database_id")
+
+    @recovery_database_id.setter
+    def recovery_database_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recovery_database_id", value)
+
+    @property
+    @pulumi.getter
+    def restore(self) -> Optional[pulumi.Input['SqlPoolRestoreArgs']]:
+        """
+        A `restore` block as defined below. only applicable when `create_mode` is set to `PointInTimeRestore`.
+        """
+        return pulumi.get(self, "restore")
+
+    @restore.setter
+    def restore(self, value: Optional[pulumi.Input['SqlPoolRestoreArgs']]):
+        pulumi.set(self, "restore", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags which should be assigned to the Synapse Sql Pool.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class SqlPool(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -78,6 +228,76 @@ class SqlPool(pulumi.CustomResource):
         :param pulumi.Input[str] synapse_workspace_id: The ID of Synapse Workspace within which this Sql Pool should be created. Changing this forces a new Synapse Sql Pool to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse Sql Pool.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SqlPoolArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Synapse Sql Pool.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS",
+            account_kind="BlobStorage")
+        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
+        example_workspace = azure.synapse.Workspace("exampleWorkspace",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
+            sql_administrator_login="sqladminuser",
+            sql_administrator_login_password="H@Sh1CoR3!")
+        example_sql_pool = azure.synapse.SqlPool("exampleSqlPool",
+            synapse_workspace_id=example_workspace.id,
+            sku_name="DW100c",
+            create_mode="Default")
+        ```
+
+        ## Import
+
+        Synapse Sql Pool can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:synapse/sqlPool:SqlPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/sqlPools/sqlPool1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param SqlPoolArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SqlPoolArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 collation: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input[str]] = None,
+                 data_encrypted: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 recovery_database_id: Optional[pulumi.Input[str]] = None,
+                 restore: Optional[pulumi.Input[pulumi.InputType['SqlPoolRestoreArgs']]] = None,
+                 sku_name: Optional[pulumi.Input[str]] = None,
+                 synapse_workspace_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

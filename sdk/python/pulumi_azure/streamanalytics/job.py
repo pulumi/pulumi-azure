@@ -5,13 +5,210 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Job']
+__all__ = ['JobArgs', 'Job']
+
+@pulumi.input_type
+class JobArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 streaming_units: pulumi.Input[int],
+                 transformation_query: pulumi.Input[str],
+                 compatibility_level: Optional[pulumi.Input[str]] = None,
+                 data_locale: Optional[pulumi.Input[str]] = None,
+                 events_late_arrival_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
+                 events_out_of_order_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
+                 events_out_of_order_policy: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 output_error_policy: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Job resource.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] streaming_units: Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+        :param pulumi.Input[str] transformation_query: Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
+        :param pulumi.Input[str] compatibility_level: Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0` and `1.1`.
+        :param pulumi.Input[str] data_locale: Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
+        :param pulumi.Input[int] events_late_arrival_max_delay_in_seconds: Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
+        :param pulumi.Input[int] events_out_of_order_max_delay_in_seconds: Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `5`.
+        :param pulumi.Input[str] events_out_of_order_policy: Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
+        :param pulumi.Input[str] location: The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] output_error_policy: Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.  Default is `Drop`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "streaming_units", streaming_units)
+        pulumi.set(__self__, "transformation_query", transformation_query)
+        if compatibility_level is not None:
+            pulumi.set(__self__, "compatibility_level", compatibility_level)
+        if data_locale is not None:
+            pulumi.set(__self__, "data_locale", data_locale)
+        if events_late_arrival_max_delay_in_seconds is not None:
+            pulumi.set(__self__, "events_late_arrival_max_delay_in_seconds", events_late_arrival_max_delay_in_seconds)
+        if events_out_of_order_max_delay_in_seconds is not None:
+            pulumi.set(__self__, "events_out_of_order_max_delay_in_seconds", events_out_of_order_max_delay_in_seconds)
+        if events_out_of_order_policy is not None:
+            pulumi.set(__self__, "events_out_of_order_policy", events_out_of_order_policy)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if output_error_policy is not None:
+            pulumi.set(__self__, "output_error_policy", output_error_policy)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="streamingUnits")
+    def streaming_units(self) -> pulumi.Input[int]:
+        """
+        Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+        """
+        return pulumi.get(self, "streaming_units")
+
+    @streaming_units.setter
+    def streaming_units(self, value: pulumi.Input[int]):
+        pulumi.set(self, "streaming_units", value)
+
+    @property
+    @pulumi.getter(name="transformationQuery")
+    def transformation_query(self) -> pulumi.Input[str]:
+        """
+        Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
+        """
+        return pulumi.get(self, "transformation_query")
+
+    @transformation_query.setter
+    def transformation_query(self, value: pulumi.Input[str]):
+        pulumi.set(self, "transformation_query", value)
+
+    @property
+    @pulumi.getter(name="compatibilityLevel")
+    def compatibility_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0` and `1.1`.
+        """
+        return pulumi.get(self, "compatibility_level")
+
+    @compatibility_level.setter
+    def compatibility_level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compatibility_level", value)
+
+    @property
+    @pulumi.getter(name="dataLocale")
+    def data_locale(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
+        """
+        return pulumi.get(self, "data_locale")
+
+    @data_locale.setter
+    def data_locale(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_locale", value)
+
+    @property
+    @pulumi.getter(name="eventsLateArrivalMaxDelayInSeconds")
+    def events_late_arrival_max_delay_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
+        """
+        return pulumi.get(self, "events_late_arrival_max_delay_in_seconds")
+
+    @events_late_arrival_max_delay_in_seconds.setter
+    def events_late_arrival_max_delay_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "events_late_arrival_max_delay_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="eventsOutOfOrderMaxDelayInSeconds")
+    def events_out_of_order_max_delay_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `5`.
+        """
+        return pulumi.get(self, "events_out_of_order_max_delay_in_seconds")
+
+    @events_out_of_order_max_delay_in_seconds.setter
+    def events_out_of_order_max_delay_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "events_out_of_order_max_delay_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="eventsOutOfOrderPolicy")
+    def events_out_of_order_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
+        """
+        return pulumi.get(self, "events_out_of_order_policy")
+
+    @events_out_of_order_policy.setter
+    def events_out_of_order_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "events_out_of_order_policy", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Stream Analytics Job. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="outputErrorPolicy")
+    def output_error_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.  Default is `Drop`.
+        """
+        return pulumi.get(self, "output_error_policy")
+
+    @output_error_policy.setter
+    def output_error_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "output_error_policy", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags assigned to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Job(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -82,6 +279,79 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         :param pulumi.Input[str] transformation_query: Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: JobArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Stream Analytics Job.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_job = azure.streamanalytics.Job("exampleJob",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            compatibility_level="1.1",
+            data_locale="en-GB",
+            events_late_arrival_max_delay_in_seconds=60,
+            events_out_of_order_max_delay_in_seconds=50,
+            events_out_of_order_policy="Adjust",
+            output_error_policy="Drop",
+            streaming_units=3,
+            tags={
+                "environment": "Example",
+            },
+            transformation_query=\"\"\"    SELECT *
+            INTO [YourOutputAlias]
+            FROM [YourInputAlias]
+        \"\"\")
+        ```
+
+        ## Import
+
+        Stream Analytics Job's can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:streamanalytics/job:Job example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param JobArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(JobArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 compatibility_level: Optional[pulumi.Input[str]] = None,
+                 data_locale: Optional[pulumi.Input[str]] = None,
+                 events_late_arrival_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
+                 events_out_of_order_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
+                 events_out_of_order_policy: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 output_error_policy: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 streaming_units: Optional[pulumi.Input[int]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 transformation_query: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

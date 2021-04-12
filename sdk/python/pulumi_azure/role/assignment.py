@@ -5,10 +5,160 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Assignment']
+__all__ = ['AssignmentArgs', 'Assignment']
+
+@pulumi.input_type
+class AssignmentArgs:
+    def __init__(__self__, *,
+                 principal_id: pulumi.Input[str],
+                 scope: pulumi.Input[str],
+                 condition: Optional[pulumi.Input[str]] = None,
+                 condition_version: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 role_definition_id: Optional[pulumi.Input[str]] = None,
+                 role_definition_name: Optional[pulumi.Input[str]] = None,
+                 skip_service_principal_aad_check: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a Assignment resource.
+        :param pulumi.Input[str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] scope: The scope at which the Role Assignment applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`, or `/providers/Microsoft.Management/managementGroups/myMG`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] condition: The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] condition_version: The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] description: The description for this Role Assignment. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] role_definition_id: The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+        :param pulumi.Input[str] role_definition_name: The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+        :param pulumi.Input[bool] skip_service_principal_aad_check: If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. If it is not a `Service Principal` identity it will cause the role assignment to fail. Defaults to `false`.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "scope", scope)
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if condition_version is not None:
+            pulumi.set(__self__, "condition_version", condition_version)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if role_definition_id is not None:
+            pulumi.set(__self__, "role_definition_id", role_definition_id)
+        if role_definition_name is not None:
+            pulumi.set(__self__, "role_definition_name", role_definition_name)
+        if skip_service_principal_aad_check is not None:
+            pulumi.set(__self__, "skip_service_principal_aad_check", skip_service_principal_aad_check)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input[str]:
+        """
+        The scope at which the Role Assignment applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`, or `/providers/Microsoft.Management/managementGroups/myMG`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> Optional[pulumi.Input[str]]:
+        """
+        The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "condition")
+
+    @condition.setter
+    def condition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "condition", value)
+
+    @property
+    @pulumi.getter(name="conditionVersion")
+    def condition_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "condition_version")
+
+    @condition_version.setter
+    def condition_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "condition_version", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description for this Role Assignment. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="roleDefinitionId")
+    def role_definition_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+        """
+        return pulumi.get(self, "role_definition_id")
+
+    @role_definition_id.setter
+    def role_definition_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_definition_id", value)
+
+    @property
+    @pulumi.getter(name="roleDefinitionName")
+    def role_definition_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+        """
+        return pulumi.get(self, "role_definition_name")
+
+    @role_definition_name.setter
+    def role_definition_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_definition_name", value)
+
+    @property
+    @pulumi.getter(name="skipServicePrincipalAadCheck")
+    def skip_service_principal_aad_check(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. If it is not a `Service Principal` identity it will cause the role assignment to fail. Defaults to `false`.
+        """
+        return pulumi.get(self, "skip_service_principal_aad_check")
+
+    @skip_service_principal_aad_check.setter
+    def skip_service_principal_aad_check(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_service_principal_aad_check", value)
+
 
 warnings.warn("""azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment""", DeprecationWarning)
 
@@ -16,6 +166,7 @@ warnings.warn("""azure.role.Assignment has been deprecated in favor of azure.aut
 class Assignment(pulumi.CustomResource):
     warnings.warn("""azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment""", DeprecationWarning)
 
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -138,6 +289,134 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.Input[str] scope: The scope at which the Role Assignment applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`, or `/providers/Microsoft.Management/managementGroups/myMG`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] skip_service_principal_aad_check: If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. If it is not a `Service Principal` identity it will cause the role assignment to fail. Defaults to `false`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AssignmentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Assigns a given Principal (User or Group) to a given Role.
+
+        ## Example Usage
+        ### Using A Built-In Role)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        primary = azure.core.get_subscription()
+        example_client_config = azure.core.get_client_config()
+        example_assignment = azure.authorization.Assignment("exampleAssignment",
+            scope=primary.id,
+            role_definition_name="Reader",
+            principal_id=example_client_config.object_id)
+        ```
+        ### Custom Role & Service Principal)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        primary = azure.core.get_subscription()
+        example_client_config = azure.core.get_client_config()
+        example_role_definition = azure.authorization.RoleDefinition("exampleRoleDefinition",
+            role_definition_id="00000000-0000-0000-0000-000000000000",
+            scope=primary.id,
+            permissions=[azure.authorization.RoleDefinitionPermissionArgs(
+                actions=["Microsoft.Resources/subscriptions/resourceGroups/read"],
+                not_actions=[],
+            )],
+            assignable_scopes=[primary.id])
+        example_assignment = azure.authorization.Assignment("exampleAssignment",
+            name="00000000-0000-0000-0000-000000000000",
+            scope=primary.id,
+            role_definition_id=example_role_definition.role_definition_resource_id,
+            principal_id=example_client_config.object_id)
+        ```
+        ### Custom Role & User)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        primary = azure.core.get_subscription()
+        example_client_config = azure.core.get_client_config()
+        example_role_definition = azure.authorization.RoleDefinition("exampleRoleDefinition",
+            role_definition_id="00000000-0000-0000-0000-000000000000",
+            scope=primary.id,
+            permissions=[azure.authorization.RoleDefinitionPermissionArgs(
+                actions=["Microsoft.Resources/subscriptions/resourceGroups/read"],
+                not_actions=[],
+            )],
+            assignable_scopes=[primary.id])
+        example_assignment = azure.authorization.Assignment("exampleAssignment",
+            name="00000000-0000-0000-0000-000000000000",
+            scope=primary.id,
+            role_definition_id=example_role_definition.role_definition_resource_id,
+            principal_id=example_client_config.object_id)
+        ```
+        ### Custom Role & Management Group)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        primary = azure.core.get_subscription()
+        example_client_config = azure.core.get_client_config()
+        example_group = azure.management.get_group()
+        example_role_definition = azure.authorization.RoleDefinition("exampleRoleDefinition",
+            role_definition_id="00000000-0000-0000-0000-000000000000",
+            scope=primary.id,
+            permissions=[azure.authorization.RoleDefinitionPermissionArgs(
+                actions=["Microsoft.Resources/subscriptions/resourceGroups/read"],
+                not_actions=[],
+            )],
+            assignable_scopes=[primary.id])
+        example_assignment = azure.authorization.Assignment("exampleAssignment",
+            name="00000000-0000-0000-0000-000000000000",
+            scope=data["azurerm_management_group"]["primary"]["id"],
+            role_definition_id=example_role_definition.role_definition_resource_id,
+            principal_id=example_client_config.object_id)
+        ```
+
+        ## Import
+
+        Role Assignments can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:role/assignment:Assignment example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000
+        ```
+
+         - for scope `Subscription`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000` - for scope `Resource Group`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000`
+
+        :param str resource_name: The name of the resource.
+        :param AssignmentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AssignmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 condition: Optional[pulumi.Input[str]] = None,
+                 condition_version: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 role_definition_id: Optional[pulumi.Input[str]] = None,
+                 role_definition_name: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 skip_service_principal_aad_check: Optional[pulumi.Input[bool]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         pulumi.log.warn("""Assignment is deprecated: azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

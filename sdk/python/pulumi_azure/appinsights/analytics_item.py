@@ -5,13 +5,113 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['AnalyticsItem']
+__all__ = ['AnalyticsItemArgs', 'AnalyticsItem']
+
+@pulumi.input_type
+class AnalyticsItemArgs:
+    def __init__(__self__, *,
+                 application_insights_id: pulumi.Input[str],
+                 content: pulumi.Input[str],
+                 scope: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 function_alias: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a AnalyticsItem resource.
+        :param pulumi.Input[str] application_insights_id: The ID of the Application Insights component on which the Analytics Item exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] content: The content for the Analytics Item, for example the query text if `type` is `query`.
+        :param pulumi.Input[str] scope: The scope for the Analytics Item. Can be `shared` or `user`. Changing this forces a new resource to be created. Must be `shared` for functions.
+        :param pulumi.Input[str] type: The type of Analytics Item to create. Can be one of `query`, `function`, `folder`, `recent`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] function_alias: The alias to use for the function. Required when `type` is `function`.
+        :param pulumi.Input[str] name: Specifies the name of the Application Insights Analytics Item. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "application_insights_id", application_insights_id)
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "scope", scope)
+        pulumi.set(__self__, "type", type)
+        if function_alias is not None:
+            pulumi.set(__self__, "function_alias", function_alias)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="applicationInsightsId")
+    def application_insights_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Application Insights component on which the Analytics Item exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "application_insights_id")
+
+    @application_insights_id.setter
+    def application_insights_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "application_insights_id", value)
+
+    @property
+    @pulumi.getter
+    def content(self) -> pulumi.Input[str]:
+        """
+        The content for the Analytics Item, for example the query text if `type` is `query`.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: pulumi.Input[str]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input[str]:
+        """
+        The scope for the Analytics Item. Can be `shared` or `user`. Changing this forces a new resource to be created. Must be `shared` for functions.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of Analytics Item to create. Can be one of `query`, `function`, `folder`, `recent`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="functionAlias")
+    def function_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        The alias to use for the function. Required when `type` is `function`.
+        """
+        return pulumi.get(self, "function_alias")
+
+    @function_alias.setter
+    def function_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "function_alias", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Application Insights Analytics Item. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class AnalyticsItem(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -64,6 +164,67 @@ class AnalyticsItem(pulumi.CustomResource):
         :param pulumi.Input[str] scope: The scope for the Analytics Item. Can be `shared` or `user`. Changing this forces a new resource to be created. Must be `shared` for functions.
         :param pulumi.Input[str] type: The type of Analytics Item to create. Can be one of `query`, `function`, `folder`, `recent`. Changing this forces a new resource to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AnalyticsItemArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an Application Insights Analytics Item component.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_insights = azure.appinsights.Insights("exampleInsights",
+            location="West Europe",
+            resource_group_name=example_resource_group.name,
+            application_type="web")
+        example_analytics_item = azure.appinsights.AnalyticsItem("exampleAnalyticsItem",
+            application_insights_id=example_insights.id,
+            content="requests //simple example query",
+            scope="shared",
+            type="query")
+        ```
+
+        ## Import
+
+        Application Insights Analytics Items can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:appinsights/analyticsItem:AnalyticsItem example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.insights/components/analyticsItems/11111111-1111-1111-1111-111111111111
+        ```
+
+         To find the Analytics Item ID you can query the REST API using the [`az rest` CLI command](https://docs.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest#az-rest), e.g. az rest --method GET --uri "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.insights/components/appinsightstest/analyticsItems?api-version=2015-05-01"
+
+        :param str resource_name: The name of the resource.
+        :param AnalyticsItemArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AnalyticsItemArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 application_insights_id: Optional[pulumi.Input[str]] = None,
+                 content: Optional[pulumi.Input[str]] = None,
+                 function_alias: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

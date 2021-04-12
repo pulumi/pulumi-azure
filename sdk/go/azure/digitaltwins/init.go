@@ -22,17 +22,18 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:digitaltwins/endpointEventGrid:EndpointEventGrid":
-		r, err = NewEndpointEventGrid(ctx, name, nil, pulumi.URN_(urn))
+		r = &EndpointEventGrid{}
 	case "azure:digitaltwins/endpointEventHub:EndpointEventHub":
-		r, err = NewEndpointEventHub(ctx, name, nil, pulumi.URN_(urn))
+		r = &EndpointEventHub{}
 	case "azure:digitaltwins/endpointServicebus:EndpointServicebus":
-		r, err = NewEndpointServicebus(ctx, name, nil, pulumi.URN_(urn))
+		r = &EndpointServicebus{}
 	case "azure:digitaltwins/instance:Instance":
-		r, err = NewInstance(ctx, name, nil, pulumi.URN_(urn))
+		r = &Instance{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

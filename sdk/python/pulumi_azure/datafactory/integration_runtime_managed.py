@@ -5,15 +5,228 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['IntegrationRuntimeManaged']
+__all__ = ['IntegrationRuntimeManagedArgs', 'IntegrationRuntimeManaged']
+
+@pulumi.input_type
+class IntegrationRuntimeManagedArgs:
+    def __init__(__self__, *,
+                 data_factory_name: pulumi.Input[str],
+                 node_size: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 catalog_info: Optional[pulumi.Input['IntegrationRuntimeManagedCatalogInfoArgs']] = None,
+                 custom_setup_script: Optional[pulumi.Input['IntegrationRuntimeManagedCustomSetupScriptArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 edition: Optional[pulumi.Input[str]] = None,
+                 license_type: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 max_parallel_executions_per_node: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 number_of_nodes: Optional[pulumi.Input[int]] = None,
+                 vnet_integration: Optional[pulumi.Input['IntegrationRuntimeManagedVnetIntegrationArgs']] = None):
+        """
+        The set of arguments for constructing a IntegrationRuntimeManaged resource.
+        :param pulumi.Input[str] data_factory_name: Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] node_size: The size of the nodes on which the Managed Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
+        :param pulumi.Input['IntegrationRuntimeManagedCatalogInfoArgs'] catalog_info: A `catalog_info` block as defined below.
+        :param pulumi.Input['IntegrationRuntimeManagedCustomSetupScriptArgs'] custom_setup_script: A `custom_setup_script` block as defined below.
+        :param pulumi.Input[str] description: Integration runtime description.
+        :param pulumi.Input[str] edition: The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
+        :param pulumi.Input[str] license_type: The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] max_parallel_executions_per_node: Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+        :param pulumi.Input[str] name: Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        :param pulumi.Input[int] number_of_nodes: Number of nodes for the Managed Integration Runtime. Max is `10`. Defaults to `1`.
+        :param pulumi.Input['IntegrationRuntimeManagedVnetIntegrationArgs'] vnet_integration: A `vnet_integration` block as defined below.
+        """
+        pulumi.set(__self__, "data_factory_name", data_factory_name)
+        pulumi.set(__self__, "node_size", node_size)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if catalog_info is not None:
+            pulumi.set(__self__, "catalog_info", catalog_info)
+        if custom_setup_script is not None:
+            pulumi.set(__self__, "custom_setup_script", custom_setup_script)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if edition is not None:
+            pulumi.set(__self__, "edition", edition)
+        if license_type is not None:
+            pulumi.set(__self__, "license_type", license_type)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if max_parallel_executions_per_node is not None:
+            pulumi.set(__self__, "max_parallel_executions_per_node", max_parallel_executions_per_node)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if number_of_nodes is not None:
+            pulumi.set(__self__, "number_of_nodes", number_of_nodes)
+        if vnet_integration is not None:
+            pulumi.set(__self__, "vnet_integration", vnet_integration)
+
+    @property
+    @pulumi.getter(name="dataFactoryName")
+    def data_factory_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "data_factory_name")
+
+    @data_factory_name.setter
+    def data_factory_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_factory_name", value)
+
+    @property
+    @pulumi.getter(name="nodeSize")
+    def node_size(self) -> pulumi.Input[str]:
+        """
+        The size of the nodes on which the Managed Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
+        """
+        return pulumi.get(self, "node_size")
+
+    @node_size.setter
+    def node_size(self, value: pulumi.Input[str]):
+        pulumi.set(self, "node_size", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="catalogInfo")
+    def catalog_info(self) -> Optional[pulumi.Input['IntegrationRuntimeManagedCatalogInfoArgs']]:
+        """
+        A `catalog_info` block as defined below.
+        """
+        return pulumi.get(self, "catalog_info")
+
+    @catalog_info.setter
+    def catalog_info(self, value: Optional[pulumi.Input['IntegrationRuntimeManagedCatalogInfoArgs']]):
+        pulumi.set(self, "catalog_info", value)
+
+    @property
+    @pulumi.getter(name="customSetupScript")
+    def custom_setup_script(self) -> Optional[pulumi.Input['IntegrationRuntimeManagedCustomSetupScriptArgs']]:
+        """
+        A `custom_setup_script` block as defined below.
+        """
+        return pulumi.get(self, "custom_setup_script")
+
+    @custom_setup_script.setter
+    def custom_setup_script(self, value: Optional[pulumi.Input['IntegrationRuntimeManagedCustomSetupScriptArgs']]):
+        pulumi.set(self, "custom_setup_script", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Integration runtime description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def edition(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
+        """
+        return pulumi.get(self, "edition")
+
+    @edition.setter
+    def edition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "edition", value)
+
+    @property
+    @pulumi.getter(name="licenseType")
+    def license_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
+        """
+        return pulumi.get(self, "license_type")
+
+    @license_type.setter
+    def license_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "license_type", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="maxParallelExecutionsPerNode")
+    def max_parallel_executions_per_node(self) -> Optional[pulumi.Input[int]]:
+        """
+        Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+        """
+        return pulumi.get(self, "max_parallel_executions_per_node")
+
+    @max_parallel_executions_per_node.setter
+    def max_parallel_executions_per_node(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_parallel_executions_per_node", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="numberOfNodes")
+    def number_of_nodes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of nodes for the Managed Integration Runtime. Max is `10`. Defaults to `1`.
+        """
+        return pulumi.get(self, "number_of_nodes")
+
+    @number_of_nodes.setter
+    def number_of_nodes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "number_of_nodes", value)
+
+    @property
+    @pulumi.getter(name="vnetIntegration")
+    def vnet_integration(self) -> Optional[pulumi.Input['IntegrationRuntimeManagedVnetIntegrationArgs']]:
+        """
+        A `vnet_integration` block as defined below.
+        """
+        return pulumi.get(self, "vnet_integration")
+
+    @vnet_integration.setter
+    def vnet_integration(self, value: Optional[pulumi.Input['IntegrationRuntimeManagedVnetIntegrationArgs']]):
+        pulumi.set(self, "vnet_integration", value)
 
 
 class IntegrationRuntimeManaged(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -79,6 +292,73 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['IntegrationRuntimeManagedVnetIntegrationArgs']] vnet_integration: A `vnet_integration` block as defined below.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: IntegrationRuntimeManagedArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an Azure Data Factory Managed Integration Runtime.
+
+        > **NOTE:** The `datafactory.IntegrationRuntimeManaged` resource has been superseded by the `datafactory.IntegrationRuntimeSsis` resource. We recommend using the `datafactory.IntegrationRuntimeSsis` resource for new deployments.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_factory = azure.datafactory.Factory("exampleFactory",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_integration_runtime_managed = azure.datafactory.IntegrationRuntimeManaged("exampleIntegrationRuntimeManaged",
+            data_factory_name=example_factory.name,
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            node_size="Standard_D8_v3")
+        ```
+
+        ## Import
+
+        Data Factory Integration Managed Runtimes can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:datafactory/integrationRuntimeManaged:IntegrationRuntimeManaged example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/integrationruntimes/example
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param IntegrationRuntimeManagedArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(IntegrationRuntimeManagedArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 catalog_info: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeManagedCatalogInfoArgs']]] = None,
+                 custom_setup_script: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeManagedCustomSetupScriptArgs']]] = None,
+                 data_factory_name: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 edition: Optional[pulumi.Input[str]] = None,
+                 license_type: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 max_parallel_executions_per_node: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 node_size: Optional[pulumi.Input[str]] = None,
+                 number_of_nodes: Optional[pulumi.Input[int]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 vnet_integration: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeManagedVnetIntegrationArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

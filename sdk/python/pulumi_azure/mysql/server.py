@@ -5,15 +5,386 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Server']
+__all__ = ['ServerArgs', 'Server']
+
+@pulumi.input_type
+class ServerArgs:
+    def __init__(__self__, *,
+                 resource_group_name: pulumi.Input[str],
+                 sku_name: pulumi.Input[str],
+                 version: pulumi.Input[str],
+                 administrator_login: Optional[pulumi.Input[str]] = None,
+                 administrator_login_password: Optional[pulumi.Input[str]] = None,
+                 auto_grow_enabled: Optional[pulumi.Input[bool]] = None,
+                 backup_retention_days: Optional[pulumi.Input[int]] = None,
+                 create_mode: Optional[pulumi.Input[str]] = None,
+                 creation_source_server_id: Optional[pulumi.Input[str]] = None,
+                 geo_redundant_backup_enabled: Optional[pulumi.Input[bool]] = None,
+                 identity: Optional[pulumi.Input['ServerIdentityArgs']] = None,
+                 infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 restore_point_in_time: Optional[pulumi.Input[str]] = None,
+                 ssl_enforcement: Optional[pulumi.Input[str]] = None,
+                 ssl_enforcement_enabled: Optional[pulumi.Input[bool]] = None,
+                 ssl_minimal_tls_version_enforced: Optional[pulumi.Input[str]] = None,
+                 storage_mb: Optional[pulumi.Input[int]] = None,
+                 storage_profile: Optional[pulumi.Input['ServerStorageProfileArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 threat_detection_policy: Optional[pulumi.Input['ServerThreatDetectionPolicyArgs']] = None):
+        """
+        The set of arguments for constructing a Server resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the MySQL Server. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku_name: Specifies the SKU Name for this MySQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#sku).
+        :param pulumi.Input[str] version: Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] administrator_login: The Administrator Login for the MySQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] administrator_login_password: The Password associated with the `administrator_login` for the MySQL Server. Required when `create_mode` is `Default`.
+        :param pulumi.Input[bool] auto_grow_enabled: Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+        :param pulumi.Input[int] backup_retention_days: Backup retention days for the server, supported values are between `7` and `35` days.
+        :param pulumi.Input[str] create_mode: The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default`.
+        :param pulumi.Input[str] creation_source_server_id: For creation modes other than `Default`, the source server ID to use.
+        :param pulumi.Input[bool] geo_redundant_backup_enabled: Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not supported for the Basic tier.
+        :param pulumi.Input['ServerIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[bool] infrastructure_encryption_enabled: Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the MySQL Server. Changing this forces a new resource to be created. This needs to be globally unique within Azure.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
+        :param pulumi.Input[str] restore_point_in_time: When `create_mode` is `PointInTimeRestore`, specifies the point in time to restore from `creation_source_server_id`.
+        :param pulumi.Input[bool] ssl_enforcement_enabled: Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+        :param pulumi.Input[str] ssl_minimal_tls_version_enforced: The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
+        :param pulumi.Input[int] storage_mb: Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input['ServerThreatDetectionPolicyArgs'] threat_detection_policy: Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
+        """
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku_name", sku_name)
+        pulumi.set(__self__, "version", version)
+        if administrator_login is not None:
+            pulumi.set(__self__, "administrator_login", administrator_login)
+        if administrator_login_password is not None:
+            pulumi.set(__self__, "administrator_login_password", administrator_login_password)
+        if auto_grow_enabled is not None:
+            pulumi.set(__self__, "auto_grow_enabled", auto_grow_enabled)
+        if backup_retention_days is not None:
+            pulumi.set(__self__, "backup_retention_days", backup_retention_days)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
+        if creation_source_server_id is not None:
+            pulumi.set(__self__, "creation_source_server_id", creation_source_server_id)
+        if geo_redundant_backup_enabled is not None:
+            pulumi.set(__self__, "geo_redundant_backup_enabled", geo_redundant_backup_enabled)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if infrastructure_encryption_enabled is not None:
+            pulumi.set(__self__, "infrastructure_encryption_enabled", infrastructure_encryption_enabled)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+        if restore_point_in_time is not None:
+            pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
+        if ssl_enforcement is not None:
+            warnings.warn("""this has been moved to the boolean attribute `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""ssl_enforcement is deprecated: this has been moved to the boolean attribute `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.""")
+        if ssl_enforcement is not None:
+            pulumi.set(__self__, "ssl_enforcement", ssl_enforcement)
+        if ssl_enforcement_enabled is not None:
+            pulumi.set(__self__, "ssl_enforcement_enabled", ssl_enforcement_enabled)
+        if ssl_minimal_tls_version_enforced is not None:
+            pulumi.set(__self__, "ssl_minimal_tls_version_enforced", ssl_minimal_tls_version_enforced)
+        if storage_mb is not None:
+            pulumi.set(__self__, "storage_mb", storage_mb)
+        if storage_profile is not None:
+            warnings.warn("""all storage_profile properties have been moved to the top level. This block will be removed in version 3.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""storage_profile is deprecated: all storage_profile properties have been moved to the top level. This block will be removed in version 3.0 of the provider.""")
+        if storage_profile is not None:
+            pulumi.set(__self__, "storage_profile", storage_profile)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if threat_detection_policy is not None:
+            pulumi.set(__self__, "threat_detection_policy", threat_detection_policy)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which to create the MySQL Server. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="skuName")
+    def sku_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the SKU Name for this MySQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#sku).
+        """
+        return pulumi.get(self, "sku_name")
+
+    @sku_name.setter
+    def sku_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sku_name", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[str]:
+        """
+        Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "version", value)
+
+    @property
+    @pulumi.getter(name="administratorLogin")
+    def administrator_login(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Administrator Login for the MySQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "administrator_login")
+
+    @administrator_login.setter
+    def administrator_login(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "administrator_login", value)
+
+    @property
+    @pulumi.getter(name="administratorLoginPassword")
+    def administrator_login_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Password associated with the `administrator_login` for the MySQL Server. Required when `create_mode` is `Default`.
+        """
+        return pulumi.get(self, "administrator_login_password")
+
+    @administrator_login_password.setter
+    def administrator_login_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "administrator_login_password", value)
+
+    @property
+    @pulumi.getter(name="autoGrowEnabled")
+    def auto_grow_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+        """
+        return pulumi.get(self, "auto_grow_enabled")
+
+    @auto_grow_enabled.setter
+    def auto_grow_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_grow_enabled", value)
+
+    @property
+    @pulumi.getter(name="backupRetentionDays")
+    def backup_retention_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Backup retention days for the server, supported values are between `7` and `35` days.
+        """
+        return pulumi.get(self, "backup_retention_days")
+
+    @backup_retention_days.setter
+    def backup_retention_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "backup_retention_days", value)
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default`.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @create_mode.setter
+    def create_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create_mode", value)
+
+    @property
+    @pulumi.getter(name="creationSourceServerId")
+    def creation_source_server_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        For creation modes other than `Default`, the source server ID to use.
+        """
+        return pulumi.get(self, "creation_source_server_id")
+
+    @creation_source_server_id.setter
+    def creation_source_server_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "creation_source_server_id", value)
+
+    @property
+    @pulumi.getter(name="geoRedundantBackupEnabled")
+    def geo_redundant_backup_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not supported for the Basic tier.
+        """
+        return pulumi.get(self, "geo_redundant_backup_enabled")
+
+    @geo_redundant_backup_enabled.setter
+    def geo_redundant_backup_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "geo_redundant_backup_enabled", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ServerIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ServerIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="infrastructureEncryptionEnabled")
+    def infrastructure_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "infrastructure_encryption_enabled")
+
+    @infrastructure_encryption_enabled.setter
+    def infrastructure_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "infrastructure_encryption_enabled", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the MySQL Server. Changing this forces a new resource to be created. This needs to be globally unique within Azure.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not public network access is allowed for this server. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
+    @pulumi.getter(name="restorePointInTime")
+    def restore_point_in_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        When `create_mode` is `PointInTimeRestore`, specifies the point in time to restore from `creation_source_server_id`.
+        """
+        return pulumi.get(self, "restore_point_in_time")
+
+    @restore_point_in_time.setter
+    def restore_point_in_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "restore_point_in_time", value)
+
+    @property
+    @pulumi.getter(name="sslEnforcement")
+    def ssl_enforcement(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ssl_enforcement")
+
+    @ssl_enforcement.setter
+    def ssl_enforcement(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssl_enforcement", value)
+
+    @property
+    @pulumi.getter(name="sslEnforcementEnabled")
+    def ssl_enforcement_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+        """
+        return pulumi.get(self, "ssl_enforcement_enabled")
+
+    @ssl_enforcement_enabled.setter
+    def ssl_enforcement_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ssl_enforcement_enabled", value)
+
+    @property
+    @pulumi.getter(name="sslMinimalTlsVersionEnforced")
+    def ssl_minimal_tls_version_enforced(self) -> Optional[pulumi.Input[str]]:
+        """
+        The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
+        """
+        return pulumi.get(self, "ssl_minimal_tls_version_enforced")
+
+    @ssl_minimal_tls_version_enforced.setter
+    def ssl_minimal_tls_version_enforced(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssl_minimal_tls_version_enforced", value)
+
+    @property
+    @pulumi.getter(name="storageMb")
+    def storage_mb(self) -> Optional[pulumi.Input[int]]:
+        """
+        Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
+        """
+        return pulumi.get(self, "storage_mb")
+
+    @storage_mb.setter
+    def storage_mb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "storage_mb", value)
+
+    @property
+    @pulumi.getter(name="storageProfile")
+    def storage_profile(self) -> Optional[pulumi.Input['ServerStorageProfileArgs']]:
+        return pulumi.get(self, "storage_profile")
+
+    @storage_profile.setter
+    def storage_profile(self, value: Optional[pulumi.Input['ServerStorageProfileArgs']]):
+        pulumi.set(self, "storage_profile", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="threatDetectionPolicy")
+    def threat_detection_policy(self) -> Optional[pulumi.Input['ServerThreatDetectionPolicyArgs']]:
+        """
+        Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
+        """
+        return pulumi.get(self, "threat_detection_policy")
+
+    @threat_detection_policy.setter
+    def threat_detection_policy(self, value: Optional[pulumi.Input['ServerThreatDetectionPolicyArgs']]):
+        pulumi.set(self, "threat_detection_policy", value)
 
 
 class Server(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -102,6 +473,88 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServerThreatDetectionPolicyArgs']] threat_detection_policy: Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[str] version: Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ServerArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a MySQL Server.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_server = azure.mysql.Server("exampleServer",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            administrator_login="mysqladminun",
+            administrator_login_password="H@Sh1CoR3!",
+            sku_name="B_Gen5_2",
+            storage_mb=5120,
+            version="5.7",
+            auto_grow_enabled=True,
+            backup_retention_days=7,
+            geo_redundant_backup_enabled=False,
+            infrastructure_encryption_enabled=False,
+            public_network_access_enabled=True,
+            ssl_enforcement_enabled=True,
+            ssl_minimal_tls_version_enforced="TLS1_2")
+        ```
+
+        ## Import
+
+        MySQL Server's can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:mysql/server:Server server1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMySQL/servers/server1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ServerArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ServerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 administrator_login: Optional[pulumi.Input[str]] = None,
+                 administrator_login_password: Optional[pulumi.Input[str]] = None,
+                 auto_grow_enabled: Optional[pulumi.Input[bool]] = None,
+                 backup_retention_days: Optional[pulumi.Input[int]] = None,
+                 create_mode: Optional[pulumi.Input[str]] = None,
+                 creation_source_server_id: Optional[pulumi.Input[str]] = None,
+                 geo_redundant_backup_enabled: Optional[pulumi.Input[bool]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ServerIdentityArgs']]] = None,
+                 infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 restore_point_in_time: Optional[pulumi.Input[str]] = None,
+                 sku_name: Optional[pulumi.Input[str]] = None,
+                 ssl_enforcement: Optional[pulumi.Input[str]] = None,
+                 ssl_enforcement_enabled: Optional[pulumi.Input[bool]] = None,
+                 ssl_minimal_tls_version_enforced: Optional[pulumi.Input[str]] = None,
+                 storage_mb: Optional[pulumi.Input[int]] = None,
+                 storage_profile: Optional[pulumi.Input[pulumi.InputType['ServerStorageProfileArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['ServerThreatDetectionPolicyArgs']]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

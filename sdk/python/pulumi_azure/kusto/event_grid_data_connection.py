@@ -5,13 +5,231 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['EventGridDataConnection']
+__all__ = ['EventGridDataConnectionArgs', 'EventGridDataConnection']
+
+@pulumi.input_type
+class EventGridDataConnectionArgs:
+    def __init__(__self__, *,
+                 cluster_name: pulumi.Input[str],
+                 database_name: pulumi.Input[str],
+                 eventhub_consumer_group_name: pulumi.Input[str],
+                 eventhub_id: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 storage_account_id: pulumi.Input[str],
+                 blob_storage_event_type: Optional[pulumi.Input[str]] = None,
+                 data_format: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 mapping_rule_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 skip_first_record: Optional[pulumi.Input[bool]] = None,
+                 table_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a EventGridDataConnection resource.
+        :param pulumi.Input[str] cluster_name: Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] database_name: Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] eventhub_consumer_group_name: Specifies the Event Hub consumer group this data connection will use for
+               ingestion. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] eventhub_id: Specifies the resource id of the Event Hub this data connection will use for ingestion.
+               Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_id: Specifies the resource id of the Storage Account this data connection will use for ingestion. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] blob_storage_event_type: Specifies the blob storage event type that needs to be processed. Possible
+               Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults
+               to `Microsoft.Storage.BlobCreated`.
+        :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+        :param pulumi.Input[str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] mapping_rule_name: Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+        :param pulumi.Input[str] name: The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] skip_first_record: is the first record of every file ignored? Defaults to `false`.
+        :param pulumi.Input[str] table_name: Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+        """
+        pulumi.set(__self__, "cluster_name", cluster_name)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "eventhub_consumer_group_name", eventhub_consumer_group_name)
+        pulumi.set(__self__, "eventhub_id", eventhub_id)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if blob_storage_event_type is not None:
+            pulumi.set(__self__, "blob_storage_event_type", blob_storage_event_type)
+        if data_format is not None:
+            pulumi.set(__self__, "data_format", data_format)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if mapping_rule_name is not None:
+            pulumi.set(__self__, "mapping_rule_name", mapping_rule_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if skip_first_record is not None:
+            pulumi.set(__self__, "skip_first_record", skip_first_record)
+        if table_name is not None:
+            pulumi.set(__self__, "table_name", table_name)
+
+    @property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_name", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="eventhubConsumerGroupName")
+    def eventhub_consumer_group_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the Event Hub consumer group this data connection will use for
+        ingestion. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "eventhub_consumer_group_name")
+
+    @eventhub_consumer_group_name.setter
+    def eventhub_consumer_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "eventhub_consumer_group_name", value)
+
+    @property
+    @pulumi.getter(name="eventhubId")
+    def eventhub_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the resource id of the Event Hub this data connection will use for ingestion.
+        Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "eventhub_id")
+
+    @eventhub_id.setter
+    def eventhub_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "eventhub_id", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the resource id of the Storage Account this data connection will use for ingestion. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @storage_account_id.setter
+    def storage_account_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_account_id", value)
+
+    @property
+    @pulumi.getter(name="blobStorageEventType")
+    def blob_storage_event_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the blob storage event type that needs to be processed. Possible
+        Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults
+        to `Microsoft.Storage.BlobCreated`.
+        """
+        return pulumi.get(self, "blob_storage_event_type")
+
+    @blob_storage_event_type.setter
+    def blob_storage_event_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "blob_storage_event_type", value)
+
+    @property
+    @pulumi.getter(name="dataFormat")
+    def data_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
+        """
+        return pulumi.get(self, "data_format")
+
+    @data_format.setter
+    def data_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_format", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location where the Kusto Database should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="mappingRuleName")
+    def mapping_rule_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
+        """
+        return pulumi.get(self, "mapping_rule_name")
+
+    @mapping_rule_name.setter
+    def mapping_rule_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mapping_rule_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="skipFirstRecord")
+    def skip_first_record(self) -> Optional[pulumi.Input[bool]]:
+        """
+        is the first record of every file ignored? Defaults to `false`.
+        """
+        return pulumi.get(self, "skip_first_record")
+
+    @skip_first_record.setter
+    def skip_first_record(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_first_record", value)
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the target table name used for the message ingestion. Table must exist before resource is created.
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "table_name", value)
 
 
 class EventGridDataConnection(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -123,6 +341,115 @@ class EventGridDataConnection(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_id: Specifies the resource id of the Storage Account this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] table_name: Specifies the target table name used for the message ingestion. Table must exist before resource is created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: EventGridDataConnectionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Kusto (also known as Azure Data Explorer) Event Grid Data Connection
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_cluster = azure.kusto.Cluster("exampleCluster",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku=azure.kusto.ClusterSkuArgs(
+                name="Standard_D13_v2",
+                capacity=2,
+            ))
+        example_database = azure.kusto.Database("exampleDatabase",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            cluster_name=example_cluster.name,
+            hot_cache_period="P7D",
+            soft_delete_period="P31D")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="GRS")
+        test_event_hub_namespace = azure.eventhub.EventHubNamespace("testEventHubNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard")
+        test_event_hub = azure.eventhub.EventHub("testEventHub",
+            namespace_name=azurerm_eventhub_namespace["example"]["name"],
+            resource_group_name=example_resource_group.name,
+            partition_count=1,
+            message_retention=1)
+        example_consumer_group = azure.eventhub.ConsumerGroup("exampleConsumerGroup",
+            namespace_name=azurerm_eventhub_namespace["example"]["name"],
+            eventhub_name=azurerm_eventhub["example"]["name"],
+            resource_group_name=example_resource_group.name)
+        example_event_subscription = azure.eventgrid.EventSubscription("exampleEventSubscription",
+            scope=example_account.id,
+            eventhub_endpoint_id=azurerm_eventhub["example"]["id"],
+            event_delivery_schema="EventGridSchema",
+            included_event_types=[
+                "Microsoft.Storage.BlobCreated",
+                "Microsoft.Storage.BlobRenamed",
+            ],
+            retry_policy=azure.eventgrid.EventSubscriptionRetryPolicyArgs(
+                event_time_to_live=144,
+                max_delivery_attempts=10,
+            ))
+        example_event_grid_data_connection = azure.kusto.EventGridDataConnection("exampleEventGridDataConnection",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            cluster_name=example_cluster.name,
+            database_name=example_database.name,
+            storage_account_id=example_account.id,
+            eventhub_id=azurerm_eventhub["example"]["id"],
+            eventhub_consumer_group_name=example_consumer_group.name,
+            opts=pulumi.ResourceOptions(depends_on=[example_event_subscription]))
+        ```
+
+        ## Import
+
+        Kusto Event Grid Data Connections can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:kusto/eventGridDataConnection:EventGridDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/Databases/database1/DataConnections/dataConnection1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param EventGridDataConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(EventGridDataConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 blob_storage_event_type: Optional[pulumi.Input[str]] = None,
+                 cluster_name: Optional[pulumi.Input[str]] = None,
+                 data_format: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
+                 eventhub_id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 mapping_rule_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 skip_first_record: Optional[pulumi.Input[bool]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None,
+                 table_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

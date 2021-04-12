@@ -5,13 +5,127 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['NetworkMapping']
+__all__ = ['NetworkMappingArgs', 'NetworkMapping']
+
+@pulumi.input_type
+class NetworkMappingArgs:
+    def __init__(__self__, *,
+                 recovery_vault_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 source_network_id: pulumi.Input[str],
+                 source_recovery_fabric_name: pulumi.Input[str],
+                 target_network_id: pulumi.Input[str],
+                 target_recovery_fabric_name: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a NetworkMapping resource.
+        :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated.
+        :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located.
+        :param pulumi.Input[str] source_network_id: The id of the primary network.
+        :param pulumi.Input[str] source_recovery_fabric_name: Specifies the ASR fabric where mapping should be created.
+        :param pulumi.Input[str] target_network_id: The id of the recovery network.
+        :param pulumi.Input[str] target_recovery_fabric_name: The Azure Site Recovery fabric object corresponding to the recovery Azure region.
+        :param pulumi.Input[str] name: The name of the network mapping.
+        """
+        pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "source_network_id", source_network_id)
+        pulumi.set(__self__, "source_recovery_fabric_name", source_recovery_fabric_name)
+        pulumi.set(__self__, "target_network_id", target_network_id)
+        pulumi.set(__self__, "target_recovery_fabric_name", target_recovery_fabric_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="recoveryVaultName")
+    def recovery_vault_name(self) -> pulumi.Input[str]:
+        """
+        The name of the vault that should be updated.
+        """
+        return pulumi.get(self, "recovery_vault_name")
+
+    @recovery_vault_name.setter
+    def recovery_vault_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "recovery_vault_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Name of the resource group where the vault that should be updated is located.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="sourceNetworkId")
+    def source_network_id(self) -> pulumi.Input[str]:
+        """
+        The id of the primary network.
+        """
+        return pulumi.get(self, "source_network_id")
+
+    @source_network_id.setter
+    def source_network_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_network_id", value)
+
+    @property
+    @pulumi.getter(name="sourceRecoveryFabricName")
+    def source_recovery_fabric_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the ASR fabric where mapping should be created.
+        """
+        return pulumi.get(self, "source_recovery_fabric_name")
+
+    @source_recovery_fabric_name.setter
+    def source_recovery_fabric_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_recovery_fabric_name", value)
+
+    @property
+    @pulumi.getter(name="targetNetworkId")
+    def target_network_id(self) -> pulumi.Input[str]:
+        """
+        The id of the recovery network.
+        """
+        return pulumi.get(self, "target_network_id")
+
+    @target_network_id.setter
+    def target_network_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_network_id", value)
+
+    @property
+    @pulumi.getter(name="targetRecoveryFabricName")
+    def target_recovery_fabric_name(self) -> pulumi.Input[str]:
+        """
+        The Azure Site Recovery fabric object corresponding to the recovery Azure region.
+        """
+        return pulumi.get(self, "target_recovery_fabric_name")
+
+    @target_recovery_fabric_name.setter
+    def target_recovery_fabric_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_recovery_fabric_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the network mapping.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class NetworkMapping(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -85,6 +199,87 @@ class NetworkMapping(pulumi.CustomResource):
         :param pulumi.Input[str] target_network_id: The id of the recovery network.
         :param pulumi.Input[str] target_recovery_fabric_name: The Azure Site Recovery fabric object corresponding to the recovery Azure region.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: NetworkMappingArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a site recovery network mapping on Azure. A network mapping decides how to translate connected netwroks when a VM is migrated from one region to another.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        primary_resource_group = azure.core.ResourceGroup("primaryResourceGroup", location="West US")
+        secondary_resource_group = azure.core.ResourceGroup("secondaryResourceGroup", location="East US")
+        vault = azure.recoveryservices.Vault("vault",
+            location=secondary_resource_group.location,
+            resource_group_name=secondary_resource_group.name,
+            sku="Standard")
+        primary_fabric = azure.siterecovery.Fabric("primaryFabric",
+            resource_group_name=secondary_resource_group.name,
+            recovery_vault_name=vault.name,
+            location=primary_resource_group.location)
+        secondary_fabric = azure.siterecovery.Fabric("secondaryFabric",
+            resource_group_name=secondary_resource_group.name,
+            recovery_vault_name=vault.name,
+            location=secondary_resource_group.location,
+            opts=pulumi.ResourceOptions(depends_on=[primary_fabric]))
+        # Avoids issues with crearing fabrics simultainusly
+        primary_virtual_network = azure.network.VirtualNetwork("primaryVirtualNetwork",
+            resource_group_name=primary_resource_group.name,
+            address_spaces=["192.168.1.0/24"],
+            location=primary_resource_group.location)
+        secondary_virtual_network = azure.network.VirtualNetwork("secondaryVirtualNetwork",
+            resource_group_name=secondary_resource_group.name,
+            address_spaces=["192.168.2.0/24"],
+            location=secondary_resource_group.location)
+        recovery_mapping = azure.siterecovery.NetworkMapping("recovery-mapping",
+            resource_group_name=secondary_resource_group.name,
+            recovery_vault_name=vault.name,
+            source_recovery_fabric_name="primary-fabric",
+            target_recovery_fabric_name="secondary-fabric",
+            source_network_id=primary_virtual_network.id,
+            target_network_id=secondary_virtual_network.id)
+        ```
+
+        ## Import
+
+        Site Recovery Network Mapping can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:siterecovery/networkMapping:NetworkMapping mymapping /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationFabrics/primary-fabric-name/replicationNetworks/azureNetwork/replicationNetworkMappings/mapping-name
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param NetworkMappingArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkMappingArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 recovery_vault_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 source_network_id: Optional[pulumi.Input[str]] = None,
+                 source_recovery_fabric_name: Optional[pulumi.Input[str]] = None,
+                 target_network_id: Optional[pulumi.Input[str]] = None,
+                 target_recovery_fabric_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

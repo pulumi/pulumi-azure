@@ -22,29 +22,30 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:dns/aRecord:ARecord":
-		r, err = NewARecord(ctx, name, nil, pulumi.URN_(urn))
+		r = &ARecord{}
 	case "azure:dns/aaaaRecord:AaaaRecord":
-		r, err = NewAaaaRecord(ctx, name, nil, pulumi.URN_(urn))
+		r = &AaaaRecord{}
 	case "azure:dns/cNameRecord:CNameRecord":
-		r, err = NewCNameRecord(ctx, name, nil, pulumi.URN_(urn))
+		r = &CNameRecord{}
 	case "azure:dns/caaRecord:CaaRecord":
-		r, err = NewCaaRecord(ctx, name, nil, pulumi.URN_(urn))
+		r = &CaaRecord{}
 	case "azure:dns/mxRecord:MxRecord":
-		r, err = NewMxRecord(ctx, name, nil, pulumi.URN_(urn))
+		r = &MxRecord{}
 	case "azure:dns/nsRecord:NsRecord":
-		r, err = NewNsRecord(ctx, name, nil, pulumi.URN_(urn))
+		r = &NsRecord{}
 	case "azure:dns/ptrRecord:PtrRecord":
-		r, err = NewPtrRecord(ctx, name, nil, pulumi.URN_(urn))
+		r = &PtrRecord{}
 	case "azure:dns/srvRecord:SrvRecord":
-		r, err = NewSrvRecord(ctx, name, nil, pulumi.URN_(urn))
+		r = &SrvRecord{}
 	case "azure:dns/txtRecord:TxtRecord":
-		r, err = NewTxtRecord(ctx, name, nil, pulumi.URN_(urn))
+		r = &TxtRecord{}
 	case "azure:dns/zone:Zone":
-		r, err = NewZone(ctx, name, nil, pulumi.URN_(urn))
+		r = &Zone{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

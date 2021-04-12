@@ -5,15 +5,116 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Definition']
+__all__ = ['DefinitionArgs', 'Definition']
+
+@pulumi.input_type
+class DefinitionArgs:
+    def __init__(__self__, *,
+                 authorizations: pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]],
+                 managing_tenant_id: pulumi.Input[str],
+                 scope: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 lighthouse_definition_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Definition resource.
+        :param pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]] authorizations: An authorization block as defined below.
+        :param pulumi.Input[str] managing_tenant_id: The ID of the managing tenant.
+        :param pulumi.Input[str] scope: The ID of the managed subscription.
+        :param pulumi.Input[str] description: A description of the Lighthouse Definition.
+        :param pulumi.Input[str] lighthouse_definition_id: A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Lighthouse Definition.
+        """
+        pulumi.set(__self__, "authorizations", authorizations)
+        pulumi.set(__self__, "managing_tenant_id", managing_tenant_id)
+        pulumi.set(__self__, "scope", scope)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if lighthouse_definition_id is not None:
+            pulumi.set(__self__, "lighthouse_definition_id", lighthouse_definition_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def authorizations(self) -> pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]]:
+        """
+        An authorization block as defined below.
+        """
+        return pulumi.get(self, "authorizations")
+
+    @authorizations.setter
+    def authorizations(self, value: pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]]):
+        pulumi.set(self, "authorizations", value)
+
+    @property
+    @pulumi.getter(name="managingTenantId")
+    def managing_tenant_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the managing tenant.
+        """
+        return pulumi.get(self, "managing_tenant_id")
+
+    @managing_tenant_id.setter
+    def managing_tenant_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "managing_tenant_id", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input[str]:
+        """
+        The ID of the managed subscription.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the Lighthouse Definition.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="lighthouseDefinitionId")
+    def lighthouse_definition_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "lighthouse_definition_id")
+
+    @lighthouse_definition_id.setter
+    def lighthouse_definition_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lighthouse_definition_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Lighthouse Definition.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class Definition(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -64,6 +165,65 @@ class Definition(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Lighthouse Definition.
         :param pulumi.Input[str] scope: The ID of the managed subscription.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DefinitionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a [Lighthouse](https://docs.microsoft.com/en-us/azure/lighthouse) Definition.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        contributor = azure.authorization.get_role_definition(role_definition_id="b24988ac-6180-42a0-ab88-20f7382dd24c")
+        example = azure.lighthouse.Definition("example",
+            description="This is a lighthouse definition created IaC",
+            managing_tenant_id="00000000-0000-0000-0000-000000000000",
+            scope="/subscriptions/00000000-0000-0000-0000-000000000000",
+            authorizations=[azure.lighthouse.DefinitionAuthorizationArgs(
+                principal_id="00000000-0000-0000-0000-000000000000",
+                role_definition_id=contributor.role_definition_id,
+                principal_display_name="Tier 1 Support",
+            )])
+        ```
+
+        ## Import
+
+        Lighthouse Definitions can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:lighthouse/definition:Definition example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationDefinitions/00000000-0000-0000-0000-000000000000
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param DefinitionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DefinitionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionAuthorizationArgs']]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 lighthouse_definition_id: Optional[pulumi.Input[str]] = None,
+                 managing_tenant_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

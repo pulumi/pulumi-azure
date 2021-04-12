@@ -5,15 +5,114 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['FirewallNatRuleCollection']
+__all__ = ['FirewallNatRuleCollectionArgs', 'FirewallNatRuleCollection']
+
+@pulumi.input_type
+class FirewallNatRuleCollectionArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input[str],
+                 azure_firewall_name: pulumi.Input[str],
+                 priority: pulumi.Input[int],
+                 resource_group_name: pulumi.Input[str],
+                 rules: pulumi.Input[Sequence[pulumi.Input['FirewallNatRuleCollectionRuleArgs']]],
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a FirewallNatRuleCollection resource.
+        :param pulumi.Input[str] action: Specifies the action the rule will apply to matching traffic. Possible values are `Dnat` and `Snat`.
+        :param pulumi.Input[str] azure_firewall_name: Specifies the name of the Firewall in which the NAT Rule Collection should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] priority: Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
+        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallNatRuleCollectionRuleArgs']]] rules: One or more `rule` blocks as defined below.
+        :param pulumi.Input[str] name: Specifies the name of the NAT Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "azure_firewall_name", azure_firewall_name)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "rules", rules)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input[str]:
+        """
+        Specifies the action the rule will apply to matching traffic. Possible values are `Dnat` and `Snat`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter(name="azureFirewallName")
+    def azure_firewall_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the Firewall in which the NAT Rule Collection should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "azure_firewall_name")
+
+    @azure_firewall_name.setter
+    def azure_firewall_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "azure_firewall_name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        """
+        Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['FirewallNatRuleCollectionRuleArgs']]]:
+        """
+        One or more `rule` blocks as defined below.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['FirewallNatRuleCollectionRuleArgs']]]):
+        pulumi.set(self, "rules", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the NAT Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class FirewallNatRuleCollection(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -93,6 +192,94 @@ class FirewallNatRuleCollection(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallNatRuleCollectionRuleArgs']]]] rules: One or more `rule` blocks as defined below.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: FirewallNatRuleCollectionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a NAT Rule Collection within an Azure Firewall.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"])
+        example_public_ip = azure.network.PublicIp("examplePublicIp",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            allocation_method="Static",
+            sku="Standard")
+        example_firewall = azure.network.Firewall("exampleFirewall",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            ip_configurations=[azure.network.FirewallIpConfigurationArgs(
+                name="configuration",
+                subnet_id=example_subnet.id,
+                public_ip_address_id=example_public_ip.id,
+            )])
+        example_firewall_nat_rule_collection = azure.network.FirewallNatRuleCollection("exampleFirewallNatRuleCollection",
+            azure_firewall_name=example_firewall.name,
+            resource_group_name=example_resource_group.name,
+            priority=100,
+            action="Dnat",
+            rules=[azure.network.FirewallNatRuleCollectionRuleArgs(
+                name="testrule",
+                source_addresses=["10.0.0.0/16"],
+                destination_ports=["53"],
+                destination_addresses=[example_public_ip.ip_address],
+                translated_port="53",
+                translated_address="8.8.8.8",
+                protocols=[
+                    "TCP",
+                    "UDP",
+                ],
+            )])
+        ```
+
+        ## Import
+
+        Azure Firewall NAT Rule Collections can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:network/firewallNatRuleCollection:FirewallNatRuleCollection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/azureFirewalls/myfirewall/natRuleCollections/mycollection
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param FirewallNatRuleCollectionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(FirewallNatRuleCollectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 action: Optional[pulumi.Input[str]] = None,
+                 azure_firewall_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallNatRuleCollectionRuleArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

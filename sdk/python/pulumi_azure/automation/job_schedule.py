@@ -5,13 +5,125 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['JobSchedule']
+__all__ = ['JobScheduleArgs', 'JobSchedule']
+
+@pulumi.input_type
+class JobScheduleArgs:
+    def __init__(__self__, *,
+                 automation_account_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 runbook_name: pulumi.Input[str],
+                 schedule_name: pulumi.Input[str],
+                 job_schedule_id: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 run_on: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a JobSchedule resource.
+        :param pulumi.Input[str] automation_account_name: The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] runbook_name: The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] job_schedule_id: The UUID identifying the Automation Job Schedule.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] run_on: Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "automation_account_name", automation_account_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "runbook_name", runbook_name)
+        pulumi.set(__self__, "schedule_name", schedule_name)
+        if job_schedule_id is not None:
+            pulumi.set(__self__, "job_schedule_id", job_schedule_id)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if run_on is not None:
+            pulumi.set(__self__, "run_on", run_on)
+
+    @property
+    @pulumi.getter(name="automationAccountName")
+    def automation_account_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "automation_account_name")
+
+    @automation_account_name.setter
+    def automation_account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "automation_account_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="runbookName")
+    def runbook_name(self) -> pulumi.Input[str]:
+        """
+        The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "runbook_name")
+
+    @runbook_name.setter
+    def runbook_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "runbook_name", value)
+
+    @property
+    @pulumi.getter(name="scheduleName")
+    def schedule_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "schedule_name")
+
+    @schedule_name.setter
+    def schedule_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "schedule_name", value)
+
+    @property
+    @pulumi.getter(name="jobScheduleId")
+    def job_schedule_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The UUID identifying the Automation Job Schedule.
+        """
+        return pulumi.get(self, "job_schedule_id")
+
+    @job_schedule_id.setter
+    def job_schedule_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "job_schedule_id", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="runOn")
+    def run_on(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "run_on")
+
+    @run_on.setter
+    def run_on(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "run_on", value)
 
 
 class JobSchedule(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -64,6 +176,67 @@ class JobSchedule(pulumi.CustomResource):
         :param pulumi.Input[str] run_on: Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
         :param pulumi.Input[str] runbook_name: The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: JobScheduleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Links an Automation Runbook and Schedule.
+
+        ## Example Usage
+
+        This is an example of just the Job Schedule.
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.automation.JobSchedule("example",
+            automation_account_name="tf-automation-account",
+            parameters={
+                "resourcegroup": "tf-rgr-vm",
+                "vmname": "TF-VM-01",
+            },
+            resource_group_name="tf-rgr-automation",
+            runbook_name="Get-VirtualMachine",
+            schedule_name="hour")
+        ```
+
+        ## Import
+
+        Automation Job Schedules can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:automation/jobSchedule:JobSchedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/jobSchedules/10000000-1001-1001-1001-000000000001
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param JobScheduleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(JobScheduleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 automation_account_name: Optional[pulumi.Input[str]] = None,
+                 job_schedule_id: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 run_on: Optional[pulumi.Input[str]] = None,
+                 runbook_name: Optional[pulumi.Input[str]] = None,
+                 schedule_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

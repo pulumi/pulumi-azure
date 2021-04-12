@@ -5,13 +5,133 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['TenantTemplateDeployment']
+__all__ = ['TenantTemplateDeploymentArgs', 'TenantTemplateDeployment']
+
+@pulumi.input_type
+class TenantTemplateDeploymentArgs:
+    def __init__(__self__, *,
+                 debug_level: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters_content: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 template_content: Optional[pulumi.Input[str]] = None,
+                 template_spec_version_id: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a TenantTemplateDeployment resource.
+        :param pulumi.Input[str] debug_level: The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
+        :param pulumi.Input[str] location: The Azure Region where the Template should exist. Changing this forces a new Template to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Template. Changing this forces a new Template to be created.
+        :param pulumi.Input[str] parameters_content: The contents of the ARM Template parameters file - containing a JSON list of parameters.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Template.
+        :param pulumi.Input[str] template_content: The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
+        :param pulumi.Input[str] template_spec_version_id: The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
+        """
+        if debug_level is not None:
+            pulumi.set(__self__, "debug_level", debug_level)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parameters_content is not None:
+            pulumi.set(__self__, "parameters_content", parameters_content)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if template_content is not None:
+            pulumi.set(__self__, "template_content", template_content)
+        if template_spec_version_id is not None:
+            pulumi.set(__self__, "template_spec_version_id", template_spec_version_id)
+
+    @property
+    @pulumi.getter(name="debugLevel")
+    def debug_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
+        """
+        return pulumi.get(self, "debug_level")
+
+    @debug_level.setter
+    def debug_level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "debug_level", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Region where the Template should exist. Changing this forces a new Template to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Template. Changing this forces a new Template to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="parametersContent")
+    def parameters_content(self) -> Optional[pulumi.Input[str]]:
+        """
+        The contents of the ARM Template parameters file - containing a JSON list of parameters.
+        """
+        return pulumi.get(self, "parameters_content")
+
+    @parameters_content.setter
+    def parameters_content(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parameters_content", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags which should be assigned to the Template.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="templateContent")
+    def template_content(self) -> Optional[pulumi.Input[str]]:
+        """
+        The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
+        """
+        return pulumi.get(self, "template_content")
+
+    @template_content.setter
+    def template_content(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template_content", value)
+
+    @property
+    @pulumi.getter(name="templateSpecVersionId")
+    def template_spec_version_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
+        """
+        return pulumi.get(self, "template_spec_version_id")
+
+    @template_spec_version_id.setter
+    def template_spec_version_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template_spec_version_id", value)
 
 
 class TenantTemplateDeployment(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +164,46 @@ class TenantTemplateDeployment(pulumi.CustomResource):
         :param pulumi.Input[str] template_content: The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
         :param pulumi.Input[str] template_spec_version_id: The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[TenantTemplateDeploymentArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        ## Import
+
+        Tenant Template Deployments can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:core/tenantTemplateDeployment:TenantTemplateDeployment example /providers/Microsoft.Resources/deployments/deploy1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param TenantTemplateDeploymentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(TenantTemplateDeploymentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 debug_level: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters_content: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 template_content: Optional[pulumi.Input[str]] = None,
+                 template_spec_version_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

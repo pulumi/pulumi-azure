@@ -22,29 +22,30 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:sentinel/alertRuleFusion:AlertRuleFusion":
-		r, err = NewAlertRuleFusion(ctx, name, nil, pulumi.URN_(urn))
+		r = &AlertRuleFusion{}
 	case "azure:sentinel/alertRuleMsSecurityIncident:AlertRuleMsSecurityIncident":
-		r, err = NewAlertRuleMsSecurityIncident(ctx, name, nil, pulumi.URN_(urn))
+		r = &AlertRuleMsSecurityIncident{}
 	case "azure:sentinel/alertRuleScheduled:AlertRuleScheduled":
-		r, err = NewAlertRuleScheduled(ctx, name, nil, pulumi.URN_(urn))
+		r = &AlertRuleScheduled{}
 	case "azure:sentinel/dataConnectorAwsCloudTrail:DataConnectorAwsCloudTrail":
-		r, err = NewDataConnectorAwsCloudTrail(ctx, name, nil, pulumi.URN_(urn))
+		r = &DataConnectorAwsCloudTrail{}
 	case "azure:sentinel/dataConnectorAzureActiveDirectory:DataConnectorAzureActiveDirectory":
-		r, err = NewDataConnectorAzureActiveDirectory(ctx, name, nil, pulumi.URN_(urn))
+		r = &DataConnectorAzureActiveDirectory{}
 	case "azure:sentinel/dataConnectorAzureAdvancedThreadProtection:DataConnectorAzureAdvancedThreadProtection":
-		r, err = NewDataConnectorAzureAdvancedThreadProtection(ctx, name, nil, pulumi.URN_(urn))
+		r = &DataConnectorAzureAdvancedThreadProtection{}
 	case "azure:sentinel/dataConnectorAzureSecurityCenter:DataConnectorAzureSecurityCenter":
-		r, err = NewDataConnectorAzureSecurityCenter(ctx, name, nil, pulumi.URN_(urn))
+		r = &DataConnectorAzureSecurityCenter{}
 	case "azure:sentinel/dataConnectorMicrosoftCloudAppSecurity:DataConnectorMicrosoftCloudAppSecurity":
-		r, err = NewDataConnectorMicrosoftCloudAppSecurity(ctx, name, nil, pulumi.URN_(urn))
+		r = &DataConnectorMicrosoftCloudAppSecurity{}
 	case "azure:sentinel/dataConnectorOffice365:DataConnectorOffice365":
-		r, err = NewDataConnectorOffice365(ctx, name, nil, pulumi.URN_(urn))
+		r = &DataConnectorOffice365{}
 	case "azure:sentinel/dataConnectorThreatIntelligence:DataConnectorThreatIntelligence":
-		r, err = NewDataConnectorThreatIntelligence(ctx, name, nil, pulumi.URN_(urn))
+		r = &DataConnectorThreatIntelligence{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

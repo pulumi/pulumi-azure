@@ -5,15 +5,194 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Schedule']
+__all__ = ['ScheduleArgs', 'Schedule']
+
+@pulumi.input_type
+class ScheduleArgs:
+    def __init__(__self__, *,
+                 lab_name: pulumi.Input[str],
+                 notification_settings: pulumi.Input['ScheduleNotificationSettingsArgs'],
+                 resource_group_name: pulumi.Input[str],
+                 task_type: pulumi.Input[str],
+                 time_zone_id: pulumi.Input[str],
+                 daily_recurrence: Optional[pulumi.Input['ScheduleDailyRecurrenceArgs']] = None,
+                 hourly_recurrence: Optional[pulumi.Input['ScheduleHourlyRecurrenceArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 weekly_recurrence: Optional[pulumi.Input['ScheduleWeeklyRecurrenceArgs']] = None):
+        """
+        The set of arguments for constructing a Schedule resource.
+        :param pulumi.Input[str] lab_name: The name of the dev test lab. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] task_type: The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
+        :param pulumi.Input[str] time_zone_id: The time zone ID (e.g. Pacific Standard time).
+        :param pulumi.Input[str] location: The location where the schedule is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the dev test lab schedule. Valid value for name depends on the `task_type`. For instance for task_type `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
+        :param pulumi.Input[str] status: The status of this schedule. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "lab_name", lab_name)
+        pulumi.set(__self__, "notification_settings", notification_settings)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "task_type", task_type)
+        pulumi.set(__self__, "time_zone_id", time_zone_id)
+        if daily_recurrence is not None:
+            pulumi.set(__self__, "daily_recurrence", daily_recurrence)
+        if hourly_recurrence is not None:
+            pulumi.set(__self__, "hourly_recurrence", hourly_recurrence)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if weekly_recurrence is not None:
+            pulumi.set(__self__, "weekly_recurrence", weekly_recurrence)
+
+    @property
+    @pulumi.getter(name="labName")
+    def lab_name(self) -> pulumi.Input[str]:
+        """
+        The name of the dev test lab. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "lab_name")
+
+    @lab_name.setter
+    def lab_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "lab_name", value)
+
+    @property
+    @pulumi.getter(name="notificationSettings")
+    def notification_settings(self) -> pulumi.Input['ScheduleNotificationSettingsArgs']:
+        return pulumi.get(self, "notification_settings")
+
+    @notification_settings.setter
+    def notification_settings(self, value: pulumi.Input['ScheduleNotificationSettingsArgs']):
+        pulumi.set(self, "notification_settings", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="taskType")
+    def task_type(self) -> pulumi.Input[str]:
+        """
+        The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
+        """
+        return pulumi.get(self, "task_type")
+
+    @task_type.setter
+    def task_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "task_type", value)
+
+    @property
+    @pulumi.getter(name="timeZoneId")
+    def time_zone_id(self) -> pulumi.Input[str]:
+        """
+        The time zone ID (e.g. Pacific Standard time).
+        """
+        return pulumi.get(self, "time_zone_id")
+
+    @time_zone_id.setter
+    def time_zone_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "time_zone_id", value)
+
+    @property
+    @pulumi.getter(name="dailyRecurrence")
+    def daily_recurrence(self) -> Optional[pulumi.Input['ScheduleDailyRecurrenceArgs']]:
+        return pulumi.get(self, "daily_recurrence")
+
+    @daily_recurrence.setter
+    def daily_recurrence(self, value: Optional[pulumi.Input['ScheduleDailyRecurrenceArgs']]):
+        pulumi.set(self, "daily_recurrence", value)
+
+    @property
+    @pulumi.getter(name="hourlyRecurrence")
+    def hourly_recurrence(self) -> Optional[pulumi.Input['ScheduleHourlyRecurrenceArgs']]:
+        return pulumi.get(self, "hourly_recurrence")
+
+    @hourly_recurrence.setter
+    def hourly_recurrence(self, value: Optional[pulumi.Input['ScheduleHourlyRecurrenceArgs']]):
+        pulumi.set(self, "hourly_recurrence", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location where the schedule is created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the dev test lab schedule. Valid value for name depends on the `task_type`. For instance for task_type `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of this schedule. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="weeklyRecurrence")
+    def weekly_recurrence(self) -> Optional[pulumi.Input['ScheduleWeeklyRecurrenceArgs']]:
+        return pulumi.get(self, "weekly_recurrence")
+
+    @weekly_recurrence.setter
+    def weekly_recurrence(self, value: Optional[pulumi.Input['ScheduleWeeklyRecurrenceArgs']]):
+        pulumi.set(self, "weekly_recurrence", value)
 
 
 class Schedule(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -83,6 +262,82 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] task_type: The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
         :param pulumi.Input[str] time_zone_id: The time zone ID (e.g. Pacific Standard time).
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ScheduleArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages automated startup and shutdown schedules for Azure Dev Test Lab.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_lab = azure.devtest.Lab("exampleLab",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_schedule = azure.devtest.Schedule("exampleSchedule",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            lab_name=example_lab.name,
+            weekly_recurrence=azure.devtest.ScheduleWeeklyRecurrenceArgs(
+                time="1100",
+                week_days=[
+                    "Monday",
+                    "Tuesday",
+                ],
+            ),
+            time_zone_id="Pacific Standard Time",
+            task_type="LabVmsStartupTask",
+            notification_settings=azure.devtest.ScheduleNotificationSettingsArgs(),
+            tags={
+                "environment": "Production",
+            })
+        ```
+
+        ## Import
+
+        DevTest Schedule's can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:devtest/schedule:Schedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DevTestLab/labs/myDevTestLab/schedules/labvmautostart
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ScheduleArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ScheduleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 daily_recurrence: Optional[pulumi.Input[pulumi.InputType['ScheduleDailyRecurrenceArgs']]] = None,
+                 hourly_recurrence: Optional[pulumi.Input[pulumi.InputType['ScheduleHourlyRecurrenceArgs']]] = None,
+                 lab_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 notification_settings: Optional[pulumi.Input[pulumi.InputType['ScheduleNotificationSettingsArgs']]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 task_type: Optional[pulumi.Input[str]] = None,
+                 time_zone_id: Optional[pulumi.Input[str]] = None,
+                 weekly_recurrence: Optional[pulumi.Input[pulumi.InputType['ScheduleWeeklyRecurrenceArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

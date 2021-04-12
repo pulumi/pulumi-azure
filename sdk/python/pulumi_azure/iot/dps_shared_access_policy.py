@@ -5,13 +5,147 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['DpsSharedAccessPolicy']
+__all__ = ['DpsSharedAccessPolicyArgs', 'DpsSharedAccessPolicy']
+
+@pulumi.input_type
+class DpsSharedAccessPolicyArgs:
+    def __init__(__self__, *,
+                 iothub_dps_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 enrollment_read: Optional[pulumi.Input[bool]] = None,
+                 enrollment_write: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 registration_read: Optional[pulumi.Input[bool]] = None,
+                 registration_write: Optional[pulumi.Input[bool]] = None,
+                 service_config: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a DpsSharedAccessPolicy resource.
+        :param pulumi.Input[str] iothub_dps_name: The name of the IoT Hub Device Provisioning service to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enrollment_read: Adds `EnrollmentRead` permission to this Shared Access Account. It allows read access to enrollment data.
+        :param pulumi.Input[bool] enrollment_write: Adds `EnrollmentWrite` permission to this Shared Access Account. It allows write access to enrollment data.
+        :param pulumi.Input[str] name: Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] registration_read: Adds `RegistrationStatusRead` permission to this Shared Access Account. It allows read access to device registrations.
+        :param pulumi.Input[bool] registration_write: Adds `RegistrationStatusWrite` permission to this Shared Access Account. It allows write access to device registrations.
+        :param pulumi.Input[bool] service_config: Adds `ServiceConfig` permission to this Shared Access Account. It allows configuration of the Device Provisioning Service.
+        """
+        pulumi.set(__self__, "iothub_dps_name", iothub_dps_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if enrollment_read is not None:
+            pulumi.set(__self__, "enrollment_read", enrollment_read)
+        if enrollment_write is not None:
+            pulumi.set(__self__, "enrollment_write", enrollment_write)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if registration_read is not None:
+            pulumi.set(__self__, "registration_read", registration_read)
+        if registration_write is not None:
+            pulumi.set(__self__, "registration_write", registration_write)
+        if service_config is not None:
+            pulumi.set(__self__, "service_config", service_config)
+
+    @property
+    @pulumi.getter(name="iothubDpsName")
+    def iothub_dps_name(self) -> pulumi.Input[str]:
+        """
+        The name of the IoT Hub Device Provisioning service to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "iothub_dps_name")
+
+    @iothub_dps_name.setter
+    def iothub_dps_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "iothub_dps_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="enrollmentRead")
+    def enrollment_read(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Adds `EnrollmentRead` permission to this Shared Access Account. It allows read access to enrollment data.
+        """
+        return pulumi.get(self, "enrollment_read")
+
+    @enrollment_read.setter
+    def enrollment_read(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enrollment_read", value)
+
+    @property
+    @pulumi.getter(name="enrollmentWrite")
+    def enrollment_write(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Adds `EnrollmentWrite` permission to this Shared Access Account. It allows write access to enrollment data.
+        """
+        return pulumi.get(self, "enrollment_write")
+
+    @enrollment_write.setter
+    def enrollment_write(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enrollment_write", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="registrationRead")
+    def registration_read(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Adds `RegistrationStatusRead` permission to this Shared Access Account. It allows read access to device registrations.
+        """
+        return pulumi.get(self, "registration_read")
+
+    @registration_read.setter
+    def registration_read(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "registration_read", value)
+
+    @property
+    @pulumi.getter(name="registrationWrite")
+    def registration_write(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Adds `RegistrationStatusWrite` permission to this Shared Access Account. It allows write access to device registrations.
+        """
+        return pulumi.get(self, "registration_write")
+
+    @registration_write.setter
+    def registration_write(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "registration_write", value)
+
+    @property
+    @pulumi.getter(name="serviceConfig")
+    def service_config(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Adds `ServiceConfig` permission to this Shared Access Account. It allows configuration of the Device Provisioning Service.
+        """
+        return pulumi.get(self, "service_config")
+
+    @service_config.setter
+    def service_config(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "service_config", value)
 
 
 class DpsSharedAccessPolicy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -69,6 +203,70 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] service_config: Adds `ServiceConfig` permission to this Shared Access Account. It allows configuration of the Device Provisioning Service.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DpsSharedAccessPolicyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an IotHub Device Provisioning Service Shared Access Policy
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_iot_hub_dps = azure.iot.IotHubDps("exampleIotHubDps",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku=azure.iot.IotHubDpsSkuArgs(
+                name="S1",
+                capacity=1,
+            ))
+        example_dps_shared_access_policy = azure.iot.DpsSharedAccessPolicy("exampleDpsSharedAccessPolicy",
+            resource_group_name=example_resource_group.name,
+            iothub_dps_name=example_iot_hub_dps.name,
+            enrollment_write=True,
+            enrollment_read=True)
+        ```
+
+        ## Import
+
+        IoTHub Device Provisioning Service Shared Access Policies can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:iot/dpsSharedAccessPolicy:DpsSharedAccessPolicy shared_access_policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/provisioningServices/dps1/keys/shared_access_policy1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param DpsSharedAccessPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DpsSharedAccessPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 enrollment_read: Optional[pulumi.Input[bool]] = None,
+                 enrollment_write: Optional[pulumi.Input[bool]] = None,
+                 iothub_dps_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 registration_read: Optional[pulumi.Input[bool]] = None,
+                 registration_write: Optional[pulumi.Input[bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_config: Optional[pulumi.Input[bool]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

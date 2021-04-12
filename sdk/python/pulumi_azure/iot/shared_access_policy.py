@@ -5,13 +5,131 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['SharedAccessPolicy']
+__all__ = ['SharedAccessPolicyArgs', 'SharedAccessPolicy']
+
+@pulumi.input_type
+class SharedAccessPolicyArgs:
+    def __init__(__self__, *,
+                 iothub_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 device_connect: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 registry_read: Optional[pulumi.Input[bool]] = None,
+                 registry_write: Optional[pulumi.Input[bool]] = None,
+                 service_connect: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a SharedAccessPolicy resource.
+        :param pulumi.Input[str] iothub_name: The name of the IoTHub to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] device_connect: Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
+        :param pulumi.Input[str] name: Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] registry_read: Adds `RegistryRead` permission to this Shared Access Account. It allows read access to the identity registry.
+        :param pulumi.Input[bool] registry_write: Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
+        :param pulumi.Input[bool] service_connect: Adds `ServiceConnect` permission to this Shared Access Account. It allows sending and receiving on the cloud-side endpoints.
+        """
+        pulumi.set(__self__, "iothub_name", iothub_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if device_connect is not None:
+            pulumi.set(__self__, "device_connect", device_connect)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if registry_read is not None:
+            pulumi.set(__self__, "registry_read", registry_read)
+        if registry_write is not None:
+            pulumi.set(__self__, "registry_write", registry_write)
+        if service_connect is not None:
+            pulumi.set(__self__, "service_connect", service_connect)
+
+    @property
+    @pulumi.getter(name="iothubName")
+    def iothub_name(self) -> pulumi.Input[str]:
+        """
+        The name of the IoTHub to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "iothub_name")
+
+    @iothub_name.setter
+    def iothub_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "iothub_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="deviceConnect")
+    def device_connect(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
+        """
+        return pulumi.get(self, "device_connect")
+
+    @device_connect.setter
+    def device_connect(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "device_connect", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="registryRead")
+    def registry_read(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Adds `RegistryRead` permission to this Shared Access Account. It allows read access to the identity registry.
+        """
+        return pulumi.get(self, "registry_read")
+
+    @registry_read.setter
+    def registry_read(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "registry_read", value)
+
+    @property
+    @pulumi.getter(name="registryWrite")
+    def registry_write(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
+        """
+        return pulumi.get(self, "registry_write")
+
+    @registry_write.setter
+    def registry_write(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "registry_write", value)
+
+    @property
+    @pulumi.getter(name="serviceConnect")
+    def service_connect(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Adds `ServiceConnect` permission to this Shared Access Account. It allows sending and receiving on the cloud-side endpoints.
+        """
+        return pulumi.get(self, "service_connect")
+
+    @service_connect.setter
+    def service_connect(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "service_connect", value)
 
 
 class SharedAccessPolicy(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -67,6 +185,69 @@ class SharedAccessPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] service_connect: Adds `ServiceConnect` permission to this Shared Access Account. It allows sending and receiving on the cloud-side endpoints.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SharedAccessPolicyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an IotHub Shared Access Policy
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            sku=azure.iot.IoTHubSkuArgs(
+                name="S1",
+                capacity=1,
+            ))
+        example_shared_access_policy = azure.iot.SharedAccessPolicy("exampleSharedAccessPolicy",
+            resource_group_name=example_resource_group.name,
+            iothub_name=example_io_t_hub.name,
+            registry_read=True,
+            registry_write=True)
+        ```
+
+        ## Import
+
+        IoTHub Shared Access Policies can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:iot/sharedAccessPolicy:SharedAccessPolicy shared_access_policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/IotHubKeys/shared_access_policy1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param SharedAccessPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SharedAccessPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 device_connect: Optional[pulumi.Input[bool]] = None,
+                 iothub_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 registry_read: Optional[pulumi.Input[bool]] = None,
+                 registry_write: Optional[pulumi.Input[bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_connect: Optional[pulumi.Input[bool]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

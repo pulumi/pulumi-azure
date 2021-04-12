@@ -5,15 +5,105 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['CassandraTable']
+__all__ = ['CassandraTableArgs', 'CassandraTable']
+
+@pulumi.input_type
+class CassandraTableArgs:
+    def __init__(__self__, *,
+                 cassandra_keyspace_id: pulumi.Input[str],
+                 schema: pulumi.Input['CassandraTableSchemaArgs'],
+                 autoscale_settings: Optional[pulumi.Input['CassandraTableAutoscaleSettingsArgs']] = None,
+                 default_ttl: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 throughput: Optional[pulumi.Input[int]] = None):
+        """
+        The set of arguments for constructing a CassandraTable resource.
+        :param pulumi.Input[str] cassandra_keyspace_id: The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
+        :param pulumi.Input['CassandraTableSchemaArgs'] schema: A `schema` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "cassandra_keyspace_id", cassandra_keyspace_id)
+        pulumi.set(__self__, "schema", schema)
+        if autoscale_settings is not None:
+            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+        if default_ttl is not None:
+            pulumi.set(__self__, "default_ttl", default_ttl)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+
+    @property
+    @pulumi.getter(name="cassandraKeyspaceId")
+    def cassandra_keyspace_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cassandra_keyspace_id")
+
+    @cassandra_keyspace_id.setter
+    def cassandra_keyspace_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cassandra_keyspace_id", value)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> pulumi.Input['CassandraTableSchemaArgs']:
+        """
+        A `schema` block as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: pulumi.Input['CassandraTableSchemaArgs']):
+        pulumi.set(self, "schema", value)
+
+    @property
+    @pulumi.getter(name="autoscaleSettings")
+    def autoscale_settings(self) -> Optional[pulumi.Input['CassandraTableAutoscaleSettingsArgs']]:
+        return pulumi.get(self, "autoscale_settings")
+
+    @autoscale_settings.setter
+    def autoscale_settings(self, value: Optional[pulumi.Input['CassandraTableAutoscaleSettingsArgs']]):
+        pulumi.set(self, "autoscale_settings", value)
+
+    @property
+    @pulumi.getter(name="defaultTtl")
+    def default_ttl(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "default_ttl")
+
+    @default_ttl.setter
+    def default_ttl(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "default_ttl", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "throughput")
+
+    @throughput.setter
+    def throughput(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "throughput", value)
 
 
 class CassandraTable(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -87,6 +177,91 @@ class CassandraTable(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['CassandraTableSchemaArgs']] schema: A `schema` block as defined below. Changing this forces a new resource to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: CassandraTableArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Cassandra Table within a Cosmos DB Cassandra Keyspace.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.get_resource_group(name="tflex-cosmosdb-account-rg")
+        example_account = azure.cosmosdb.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            offer_type="Standard",
+            capabilities=[azure.cosmosdb.AccountCapabilityArgs(
+                name="EnableCassandra",
+            )],
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+                consistency_level="Strong",
+            ),
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+                location="West US",
+                failover_priority=0,
+            )])
+        example_cassandra_keyspace = azure.cosmosdb.CassandraKeyspace("exampleCassandraKeyspace",
+            resource_group_name=example_account.resource_group_name,
+            account_name=example_account.name,
+            throughput=400)
+        example_cassandra_table = azure.cosmosdb.CassandraTable("exampleCassandraTable",
+            cassandra_keyspace_id=example_cassandra_keyspace.id,
+            schema=azure.cosmosdb.CassandraTableSchemaArgs(
+                columns=[
+                    azure.cosmosdb.CassandraTableSchemaColumnArgs(
+                        name="test1",
+                        type="ascii",
+                    ),
+                    azure.cosmosdb.CassandraTableSchemaColumnArgs(
+                        name="test2",
+                        type="int",
+                    ),
+                ],
+                partition_keys=[azure.cosmosdb.CassandraTableSchemaPartitionKeyArgs(
+                    name="test1",
+                )],
+            ))
+        ```
+
+        ## Import
+
+        Cosmos Cassandra Table can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:cosmosdb/cassandraTable:CassandraTable ks1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/cassandraKeyspaces/ks1/tables/table1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param CassandraTableArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(CassandraTableArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 autoscale_settings: Optional[pulumi.Input[pulumi.InputType['CassandraTableAutoscaleSettingsArgs']]] = None,
+                 cassandra_keyspace_id: Optional[pulumi.Input[str]] = None,
+                 default_ttl: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 schema: Optional[pulumi.Input[pulumi.InputType['CassandraTableSchemaArgs']]] = None,
+                 throughput: Optional[pulumi.Input[int]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,188 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['IdentityProviderAadb2c']
+__all__ = ['IdentityProviderAadb2cArgs', 'IdentityProviderAadb2c']
+
+@pulumi.input_type
+class IdentityProviderAadb2cArgs:
+    def __init__(__self__, *,
+                 allowed_tenant: pulumi.Input[str],
+                 api_management_name: pulumi.Input[str],
+                 authority: pulumi.Input[str],
+                 client_id: pulumi.Input[str],
+                 client_secret: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 signin_policy: pulumi.Input[str],
+                 signin_tenant: pulumi.Input[str],
+                 signup_policy: pulumi.Input[str],
+                 password_reset_policy: Optional[pulumi.Input[str]] = None,
+                 profile_editing_policy: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a IdentityProviderAadb2c resource.
+        :param pulumi.Input[str] allowed_tenant: The allowed AAD tenant, usually your B2C tenant domain.
+        :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] authority: OpenID Connect discovery endpoint hostname, usually your b2clogin.com domain.
+        :param pulumi.Input[str] client_id: Client ID of the Application in your B2C tenant.
+        :param pulumi.Input[str] client_secret: Client secret of the Application in your B2C tenant.
+        :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] signin_policy: Signin Policy Name.
+        :param pulumi.Input[str] signin_tenant: The tenant to use instead of Common when logging into Active Directory, usually your B2C tenant domain.
+        :param pulumi.Input[str] signup_policy: Signup Policy Name.
+        :param pulumi.Input[str] password_reset_policy: Password reset Policy Name.
+        :param pulumi.Input[str] profile_editing_policy: Profile editing Policy Name.
+        """
+        pulumi.set(__self__, "allowed_tenant", allowed_tenant)
+        pulumi.set(__self__, "api_management_name", api_management_name)
+        pulumi.set(__self__, "authority", authority)
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "signin_policy", signin_policy)
+        pulumi.set(__self__, "signin_tenant", signin_tenant)
+        pulumi.set(__self__, "signup_policy", signup_policy)
+        if password_reset_policy is not None:
+            pulumi.set(__self__, "password_reset_policy", password_reset_policy)
+        if profile_editing_policy is not None:
+            pulumi.set(__self__, "profile_editing_policy", profile_editing_policy)
+
+    @property
+    @pulumi.getter(name="allowedTenant")
+    def allowed_tenant(self) -> pulumi.Input[str]:
+        """
+        The allowed AAD tenant, usually your B2C tenant domain.
+        """
+        return pulumi.get(self, "allowed_tenant")
+
+    @allowed_tenant.setter
+    def allowed_tenant(self, value: pulumi.Input[str]):
+        pulumi.set(self, "allowed_tenant", value)
+
+    @property
+    @pulumi.getter(name="apiManagementName")
+    def api_management_name(self) -> pulumi.Input[str]:
+        """
+        The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "api_management_name")
+
+    @api_management_name.setter
+    def api_management_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "api_management_name", value)
+
+    @property
+    @pulumi.getter
+    def authority(self) -> pulumi.Input[str]:
+        """
+        OpenID Connect discovery endpoint hostname, usually your b2clogin.com domain.
+        """
+        return pulumi.get(self, "authority")
+
+    @authority.setter
+    def authority(self, value: pulumi.Input[str]):
+        pulumi.set(self, "authority", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        Client ID of the Application in your B2C tenant.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Input[str]:
+        """
+        Client secret of the Application in your B2C tenant.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="signinPolicy")
+    def signin_policy(self) -> pulumi.Input[str]:
+        """
+        Signin Policy Name.
+        """
+        return pulumi.get(self, "signin_policy")
+
+    @signin_policy.setter
+    def signin_policy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "signin_policy", value)
+
+    @property
+    @pulumi.getter(name="signinTenant")
+    def signin_tenant(self) -> pulumi.Input[str]:
+        """
+        The tenant to use instead of Common when logging into Active Directory, usually your B2C tenant domain.
+        """
+        return pulumi.get(self, "signin_tenant")
+
+    @signin_tenant.setter
+    def signin_tenant(self, value: pulumi.Input[str]):
+        pulumi.set(self, "signin_tenant", value)
+
+    @property
+    @pulumi.getter(name="signupPolicy")
+    def signup_policy(self) -> pulumi.Input[str]:
+        """
+        Signup Policy Name.
+        """
+        return pulumi.get(self, "signup_policy")
+
+    @signup_policy.setter
+    def signup_policy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "signup_policy", value)
+
+    @property
+    @pulumi.getter(name="passwordResetPolicy")
+    def password_reset_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Password reset Policy Name.
+        """
+        return pulumi.get(self, "password_reset_policy")
+
+    @password_reset_policy.setter
+    def password_reset_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password_reset_policy", value)
+
+    @property
+    @pulumi.getter(name="profileEditingPolicy")
+    def profile_editing_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Profile editing Policy Name.
+        """
+        return pulumi.get(self, "profile_editing_policy")
+
+    @profile_editing_policy.setter
+    def profile_editing_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "profile_editing_policy", value)
 
 
 class IdentityProviderAadb2c(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -54,6 +229,52 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
         :param pulumi.Input[str] signin_tenant: The tenant to use instead of Common when logging into Active Directory, usually your B2C tenant domain.
         :param pulumi.Input[str] signup_policy: Signup Policy Name.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: IdentityProviderAadb2cArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an API Management Azure AD B2C Identity Provider.
+
+        ## Import
+
+        API Management Azure AD B2C Identity Providers can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:apimanagement/identityProviderAadb2c:IdentityProviderAadb2c example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service1/identityProviders/AadB2C
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param IdentityProviderAadb2cArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(IdentityProviderAadb2cArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 allowed_tenant: Optional[pulumi.Input[str]] = None,
+                 api_management_name: Optional[pulumi.Input[str]] = None,
+                 authority: Optional[pulumi.Input[str]] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 password_reset_policy: Optional[pulumi.Input[str]] = None,
+                 profile_editing_policy: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 signin_policy: Optional[pulumi.Input[str]] = None,
+                 signin_tenant: Optional[pulumi.Input[str]] = None,
+                 signup_policy: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

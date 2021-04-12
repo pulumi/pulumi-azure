@@ -5,13 +5,82 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['BackendAddressPoolAddress']
+__all__ = ['BackendAddressPoolAddressArgs', 'BackendAddressPoolAddress']
+
+@pulumi.input_type
+class BackendAddressPoolAddressArgs:
+    def __init__(__self__, *,
+                 backend_address_pool_id: pulumi.Input[str],
+                 ip_address: pulumi.Input[str],
+                 virtual_network_id: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a BackendAddressPoolAddress resource.
+        :param pulumi.Input[str] backend_address_pool_id: The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
+        :param pulumi.Input[str] ip_address: The Static IP Address which should be allocated to this Backend Address Pool.
+        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network within which the Backend Address Pool should exist.
+        :param pulumi.Input[str] name: The name which should be used for this Backend Address Pool Address. Changing this forces a new Backend Address Pool Address to be created.
+        """
+        pulumi.set(__self__, "backend_address_pool_id", backend_address_pool_id)
+        pulumi.set(__self__, "ip_address", ip_address)
+        pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="backendAddressPoolId")
+    def backend_address_pool_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
+        """
+        return pulumi.get(self, "backend_address_pool_id")
+
+    @backend_address_pool_id.setter
+    def backend_address_pool_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "backend_address_pool_id", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> pulumi.Input[str]:
+        """
+        The Static IP Address which should be allocated to this Backend Address Pool.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkId")
+    def virtual_network_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Virtual Network within which the Backend Address Pool should exist.
+        """
+        return pulumi.get(self, "virtual_network_id")
+
+    @virtual_network_id.setter
+    def virtual_network_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "virtual_network_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Backend Address Pool Address. Changing this forces a new Backend Address Pool Address to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class BackendAddressPoolAddress(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -60,6 +129,65 @@ class BackendAddressPoolAddress(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Backend Address Pool Address. Changing this forces a new Backend Address Pool Address to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network within which the Backend Address Pool should exist.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: BackendAddressPoolAddressArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Backend Address within a Backend Address Pool.
+
+        > **Note:** Backend Addresses can only be added to a `Standard` SKU Load Balancer.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_virtual_network = azure.network.get_virtual_network(name="example-network",
+            resource_group_name="example-resources")
+        example_lb = azure.lb.get_lb(name="example-lb",
+            resource_group_name="example-resources")
+        example_backend_address_pool = azure.lb.get_backend_address_pool(name="first",
+            loadbalancer_id=example_lb.id)
+        example_backend_address_pool_address = azure.lb.BackendAddressPoolAddress("exampleBackendAddressPoolAddress",
+            backend_address_pool_id=example_backend_address_pool.id,
+            virtual_network_id=example_virtual_network.id,
+            ip_address="10.0.0.1")
+        ```
+
+        ## Import
+
+        Backend Address Pool Addresses can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:lb/backendAddressPoolAddress:BackendAddressPoolAddress example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/loadBalancer1/backendAddressPools/backendAddressPool1/addresses/address1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param BackendAddressPoolAddressArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(BackendAddressPoolAddressArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 backend_address_pool_id: Optional[pulumi.Input[str]] = None,
+                 ip_address: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 virtual_network_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

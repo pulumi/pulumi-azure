@@ -5,15 +5,193 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ExpressRouteCircuitPeering']
+__all__ = ['ExpressRouteCircuitPeeringArgs', 'ExpressRouteCircuitPeering']
+
+@pulumi.input_type
+class ExpressRouteCircuitPeeringArgs:
+    def __init__(__self__, *,
+                 express_route_circuit_name: pulumi.Input[str],
+                 peering_type: pulumi.Input[str],
+                 primary_peer_address_prefix: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 secondary_peer_address_prefix: pulumi.Input[str],
+                 vlan_id: pulumi.Input[int],
+                 ipv6: Optional[pulumi.Input['ExpressRouteCircuitPeeringIpv6Args']] = None,
+                 microsoft_peering_config: Optional[pulumi.Input['ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs']] = None,
+                 peer_asn: Optional[pulumi.Input[int]] = None,
+                 route_filter_id: Optional[pulumi.Input[str]] = None,
+                 shared_key: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ExpressRouteCircuitPeering resource.
+        :param pulumi.Input[str] express_route_circuit_name: The name of the ExpressRoute Circuit in which to create the Peering.
+        :param pulumi.Input[str] peering_type: The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] primary_peer_address_prefix: A subnet for the primary link.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Express Route Circuit Peering. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] secondary_peer_address_prefix: A subnet for the secondary link.
+        :param pulumi.Input[int] vlan_id: A valid VLAN ID to establish this peering on.
+        :param pulumi.Input['ExpressRouteCircuitPeeringIpv6Args'] ipv6: A `ipv6` block as defined below.
+        :param pulumi.Input['ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs'] microsoft_peering_config: A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering`.
+        :param pulumi.Input[int] peer_asn: The Either a 16-bit or a 32-bit ASN. Can either be public or private.
+        :param pulumi.Input[str] route_filter_id: The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+        :param pulumi.Input[str] shared_key: The shared key. Can be a maximum of 25 characters.
+        """
+        pulumi.set(__self__, "express_route_circuit_name", express_route_circuit_name)
+        pulumi.set(__self__, "peering_type", peering_type)
+        pulumi.set(__self__, "primary_peer_address_prefix", primary_peer_address_prefix)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "secondary_peer_address_prefix", secondary_peer_address_prefix)
+        pulumi.set(__self__, "vlan_id", vlan_id)
+        if ipv6 is not None:
+            pulumi.set(__self__, "ipv6", ipv6)
+        if microsoft_peering_config is not None:
+            pulumi.set(__self__, "microsoft_peering_config", microsoft_peering_config)
+        if peer_asn is not None:
+            pulumi.set(__self__, "peer_asn", peer_asn)
+        if route_filter_id is not None:
+            pulumi.set(__self__, "route_filter_id", route_filter_id)
+        if shared_key is not None:
+            pulumi.set(__self__, "shared_key", shared_key)
+
+    @property
+    @pulumi.getter(name="expressRouteCircuitName")
+    def express_route_circuit_name(self) -> pulumi.Input[str]:
+        """
+        The name of the ExpressRoute Circuit in which to create the Peering.
+        """
+        return pulumi.get(self, "express_route_circuit_name")
+
+    @express_route_circuit_name.setter
+    def express_route_circuit_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "express_route_circuit_name", value)
+
+    @property
+    @pulumi.getter(name="peeringType")
+    def peering_type(self) -> pulumi.Input[str]:
+        """
+        The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "peering_type")
+
+    @peering_type.setter
+    def peering_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "peering_type", value)
+
+    @property
+    @pulumi.getter(name="primaryPeerAddressPrefix")
+    def primary_peer_address_prefix(self) -> pulumi.Input[str]:
+        """
+        A subnet for the primary link.
+        """
+        return pulumi.get(self, "primary_peer_address_prefix")
+
+    @primary_peer_address_prefix.setter
+    def primary_peer_address_prefix(self, value: pulumi.Input[str]):
+        pulumi.set(self, "primary_peer_address_prefix", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which to create the Express Route Circuit Peering. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="secondaryPeerAddressPrefix")
+    def secondary_peer_address_prefix(self) -> pulumi.Input[str]:
+        """
+        A subnet for the secondary link.
+        """
+        return pulumi.get(self, "secondary_peer_address_prefix")
+
+    @secondary_peer_address_prefix.setter
+    def secondary_peer_address_prefix(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secondary_peer_address_prefix", value)
+
+    @property
+    @pulumi.getter(name="vlanId")
+    def vlan_id(self) -> pulumi.Input[int]:
+        """
+        A valid VLAN ID to establish this peering on.
+        """
+        return pulumi.get(self, "vlan_id")
+
+    @vlan_id.setter
+    def vlan_id(self, value: pulumi.Input[int]):
+        pulumi.set(self, "vlan_id", value)
+
+    @property
+    @pulumi.getter
+    def ipv6(self) -> Optional[pulumi.Input['ExpressRouteCircuitPeeringIpv6Args']]:
+        """
+        A `ipv6` block as defined below.
+        """
+        return pulumi.get(self, "ipv6")
+
+    @ipv6.setter
+    def ipv6(self, value: Optional[pulumi.Input['ExpressRouteCircuitPeeringIpv6Args']]):
+        pulumi.set(self, "ipv6", value)
+
+    @property
+    @pulumi.getter(name="microsoftPeeringConfig")
+    def microsoft_peering_config(self) -> Optional[pulumi.Input['ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs']]:
+        """
+        A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering`.
+        """
+        return pulumi.get(self, "microsoft_peering_config")
+
+    @microsoft_peering_config.setter
+    def microsoft_peering_config(self, value: Optional[pulumi.Input['ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs']]):
+        pulumi.set(self, "microsoft_peering_config", value)
+
+    @property
+    @pulumi.getter(name="peerAsn")
+    def peer_asn(self) -> Optional[pulumi.Input[int]]:
+        """
+        The Either a 16-bit or a 32-bit ASN. Can either be public or private.
+        """
+        return pulumi.get(self, "peer_asn")
+
+    @peer_asn.setter
+    def peer_asn(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "peer_asn", value)
+
+    @property
+    @pulumi.getter(name="routeFilterId")
+    def route_filter_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+        """
+        return pulumi.get(self, "route_filter_id")
+
+    @route_filter_id.setter
+    def route_filter_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "route_filter_id", value)
+
+    @property
+    @pulumi.getter(name="sharedKey")
+    def shared_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The shared key. Can be a maximum of 25 characters.
+        """
+        return pulumi.get(self, "shared_key")
+
+    @shared_key.setter
+    def shared_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shared_key", value)
 
 
 class ExpressRouteCircuitPeering(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -98,6 +276,94 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         :param pulumi.Input[str] shared_key: The shared key. Can be a maximum of 25 characters.
         :param pulumi.Input[int] vlan_id: A valid VLAN ID to establish this peering on.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ExpressRouteCircuitPeeringArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an ExpressRoute Circuit Peering.
+
+        ## Example Usage
+        ### Creating A Microsoft Peering)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_express_route_circuit = azure.network.ExpressRouteCircuit("exampleExpressRouteCircuit",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            service_provider_name="Equinix",
+            peering_location="Silicon Valley",
+            bandwidth_in_mbps=50,
+            sku=azure.network.ExpressRouteCircuitSkuArgs(
+                tier="Standard",
+                family="MeteredData",
+            ),
+            allow_classic_operations=False,
+            tags={
+                "environment": "Production",
+            })
+        example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering",
+            peering_type="MicrosoftPeering",
+            express_route_circuit_name=example_express_route_circuit.name,
+            resource_group_name=example_resource_group.name,
+            peer_asn=100,
+            primary_peer_address_prefix="123.0.0.0/30",
+            secondary_peer_address_prefix="123.0.0.4/30",
+            vlan_id=300,
+            microsoft_peering_config=azure.network.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs(
+                advertised_public_prefixes=["123.1.0.0/24"],
+            ),
+            ipv6=azure.network.ExpressRouteCircuitPeeringIpv6Args(
+                primary_peer_address_prefix="2002:db01::/126",
+                secondary_peer_address_prefix="2003:db01::/126",
+                microsoft_peering=azure.network.ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs(
+                    advertised_public_prefixes=["2002:db01::/126"],
+                ),
+            ))
+        ```
+
+        ## Import
+
+        ExpressRoute Circuit Peerings can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:network/expressRouteCircuitPeering:ExpressRouteCircuitPeering peering1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/expressRouteCircuits/myExpressRoute/peerings/peering1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ExpressRouteCircuitPeeringArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ExpressRouteCircuitPeeringArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 express_route_circuit_name: Optional[pulumi.Input[str]] = None,
+                 ipv6: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringIpv6Args']]] = None,
+                 microsoft_peering_config: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs']]] = None,
+                 peer_asn: Optional[pulumi.Input[int]] = None,
+                 peering_type: Optional[pulumi.Input[str]] = None,
+                 primary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 route_filter_id: Optional[pulumi.Input[str]] = None,
+                 secondary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
+                 shared_key: Optional[pulumi.Input[str]] = None,
+                 vlan_id: Optional[pulumi.Input[int]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

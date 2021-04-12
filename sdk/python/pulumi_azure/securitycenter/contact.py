@@ -5,13 +5,82 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Contact']
+__all__ = ['ContactArgs', 'Contact']
+
+@pulumi.input_type
+class ContactArgs:
+    def __init__(__self__, *,
+                 alert_notifications: pulumi.Input[bool],
+                 alerts_to_admins: pulumi.Input[bool],
+                 email: pulumi.Input[str],
+                 phone: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Contact resource.
+        :param pulumi.Input[bool] alert_notifications: Whether to send security alerts notifications to the security contact.
+        :param pulumi.Input[bool] alerts_to_admins: Whether to send security alerts notifications to subscription admins.
+        :param pulumi.Input[str] email: The email of the Security Center Contact.
+        :param pulumi.Input[str] phone: The phone number of the Security Center Contact.
+        """
+        pulumi.set(__self__, "alert_notifications", alert_notifications)
+        pulumi.set(__self__, "alerts_to_admins", alerts_to_admins)
+        pulumi.set(__self__, "email", email)
+        if phone is not None:
+            pulumi.set(__self__, "phone", phone)
+
+    @property
+    @pulumi.getter(name="alertNotifications")
+    def alert_notifications(self) -> pulumi.Input[bool]:
+        """
+        Whether to send security alerts notifications to the security contact.
+        """
+        return pulumi.get(self, "alert_notifications")
+
+    @alert_notifications.setter
+    def alert_notifications(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "alert_notifications", value)
+
+    @property
+    @pulumi.getter(name="alertsToAdmins")
+    def alerts_to_admins(self) -> pulumi.Input[bool]:
+        """
+        Whether to send security alerts notifications to subscription admins.
+        """
+        return pulumi.get(self, "alerts_to_admins")
+
+    @alerts_to_admins.setter
+    def alerts_to_admins(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "alerts_to_admins", value)
+
+    @property
+    @pulumi.getter
+    def email(self) -> pulumi.Input[str]:
+        """
+        The email of the Security Center Contact.
+        """
+        return pulumi.get(self, "email")
+
+    @email.setter
+    def email(self, value: pulumi.Input[str]):
+        pulumi.set(self, "email", value)
+
+    @property
+    @pulumi.getter
+    def phone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The phone number of the Security Center Contact.
+        """
+        return pulumi.get(self, "phone")
+
+    @phone.setter
+    def phone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "phone", value)
 
 
 class Contact(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -55,6 +124,60 @@ class Contact(pulumi.CustomResource):
         :param pulumi.Input[str] email: The email of the Security Center Contact.
         :param pulumi.Input[str] phone: The phone number of the Security Center Contact.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ContactArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages the subscription's Security Center Contact.
+
+        > **NOTE:** Owner access permission is required.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.securitycenter.Contact("example",
+            alert_notifications=True,
+            alerts_to_admins=True,
+            email="contact@example.com",
+            phone="+1-555-555-5555")
+        ```
+
+        ## Import
+
+        The contact can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:securitycenter/contact:Contact example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/securityContacts/default1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ContactArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ContactArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 alert_notifications: Optional[pulumi.Input[bool]] = None,
+                 alerts_to_admins: Optional[pulumi.Input[bool]] = None,
+                 email: Optional[pulumi.Input[str]] = None,
+                 phone: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

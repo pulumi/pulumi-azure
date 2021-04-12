@@ -22,21 +22,22 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:siterecovery/fabric:Fabric":
-		r, err = NewFabric(ctx, name, nil, pulumi.URN_(urn))
+		r = &Fabric{}
 	case "azure:siterecovery/networkMapping:NetworkMapping":
-		r, err = NewNetworkMapping(ctx, name, nil, pulumi.URN_(urn))
+		r = &NetworkMapping{}
 	case "azure:siterecovery/protectionContainer:ProtectionContainer":
-		r, err = NewProtectionContainer(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProtectionContainer{}
 	case "azure:siterecovery/protectionContainerMapping:ProtectionContainerMapping":
-		r, err = NewProtectionContainerMapping(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProtectionContainerMapping{}
 	case "azure:siterecovery/replicatedVM:ReplicatedVM":
-		r, err = NewReplicatedVM(ctx, name, nil, pulumi.URN_(urn))
+		r = &ReplicatedVM{}
 	case "azure:siterecovery/replicationPolicy:ReplicationPolicy":
-		r, err = NewReplicationPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &ReplicationPolicy{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

@@ -5,15 +5,145 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ResourceGroupExport']
+__all__ = ['ResourceGroupExportArgs', 'ResourceGroupExport']
+
+@pulumi.input_type
+class ResourceGroupExportArgs:
+    def __init__(__self__, *,
+                 delivery_info: pulumi.Input['ResourceGroupExportDeliveryInfoArgs'],
+                 query: pulumi.Input['ResourceGroupExportQueryArgs'],
+                 recurrence_period_end: pulumi.Input[str],
+                 recurrence_period_start: pulumi.Input[str],
+                 recurrence_type: pulumi.Input[str],
+                 resource_group_id: pulumi.Input[str],
+                 active: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ResourceGroupExport resource.
+        :param pulumi.Input['ResourceGroupExportDeliveryInfoArgs'] delivery_info: A `delivery_info` block as defined below.
+        :param pulumi.Input['ResourceGroupExportQueryArgs'] query: A `query` block as defined below.
+        :param pulumi.Input[str] recurrence_period_end: The date the export will stop capturing information.
+        :param pulumi.Input[str] recurrence_period_start: The date the export will start capturing information.
+        :param pulumi.Input[str] recurrence_type: How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`.
+        :param pulumi.Input[str] resource_group_id: The id of the resource group in which to export information.
+        :param pulumi.Input[bool] active: Is the cost management export active? Default is `true`.
+        :param pulumi.Input[str] name: Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "delivery_info", delivery_info)
+        pulumi.set(__self__, "query", query)
+        pulumi.set(__self__, "recurrence_period_end", recurrence_period_end)
+        pulumi.set(__self__, "recurrence_period_start", recurrence_period_start)
+        pulumi.set(__self__, "recurrence_type", recurrence_type)
+        pulumi.set(__self__, "resource_group_id", resource_group_id)
+        if active is not None:
+            pulumi.set(__self__, "active", active)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="deliveryInfo")
+    def delivery_info(self) -> pulumi.Input['ResourceGroupExportDeliveryInfoArgs']:
+        """
+        A `delivery_info` block as defined below.
+        """
+        return pulumi.get(self, "delivery_info")
+
+    @delivery_info.setter
+    def delivery_info(self, value: pulumi.Input['ResourceGroupExportDeliveryInfoArgs']):
+        pulumi.set(self, "delivery_info", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> pulumi.Input['ResourceGroupExportQueryArgs']:
+        """
+        A `query` block as defined below.
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: pulumi.Input['ResourceGroupExportQueryArgs']):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="recurrencePeriodEnd")
+    def recurrence_period_end(self) -> pulumi.Input[str]:
+        """
+        The date the export will stop capturing information.
+        """
+        return pulumi.get(self, "recurrence_period_end")
+
+    @recurrence_period_end.setter
+    def recurrence_period_end(self, value: pulumi.Input[str]):
+        pulumi.set(self, "recurrence_period_end", value)
+
+    @property
+    @pulumi.getter(name="recurrencePeriodStart")
+    def recurrence_period_start(self) -> pulumi.Input[str]:
+        """
+        The date the export will start capturing information.
+        """
+        return pulumi.get(self, "recurrence_period_start")
+
+    @recurrence_period_start.setter
+    def recurrence_period_start(self, value: pulumi.Input[str]):
+        pulumi.set(self, "recurrence_period_start", value)
+
+    @property
+    @pulumi.getter(name="recurrenceType")
+    def recurrence_type(self) -> pulumi.Input[str]:
+        """
+        How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`.
+        """
+        return pulumi.get(self, "recurrence_type")
+
+    @recurrence_type.setter
+    def recurrence_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "recurrence_type", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupId")
+    def resource_group_id(self) -> pulumi.Input[str]:
+        """
+        The id of the resource group in which to export information.
+        """
+        return pulumi.get(self, "resource_group_id")
+
+    @resource_group_id.setter
+    def resource_group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_id", value)
+
+    @property
+    @pulumi.getter
+    def active(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the cost management export active? Default is `true`.
+        """
+        return pulumi.get(self, "active")
+
+    @active.setter
+    def active(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "active", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class ResourceGroupExport(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -78,6 +208,77 @@ class ResourceGroupExport(pulumi.CustomResource):
         :param pulumi.Input[str] recurrence_type: How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`.
         :param pulumi.Input[str] resource_group_id: The id of the resource group in which to export information.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ResourceGroupExportArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an Azure Cost Management Export for a Resource Group.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_resource_group_export = azure.costmanagement.ResourceGroupExport("exampleResourceGroupExport",
+            resource_group_id=example_resource_group.id,
+            recurrence_type="Monthly",
+            recurrence_period_start="2020-08-18T00:00:00Z",
+            recurrence_period_end="2020-09-18T00:00:00Z",
+            delivery_info=azure.costmanagement.ResourceGroupExportDeliveryInfoArgs(
+                storage_account_id=example_account.id,
+                container_name="examplecontainer",
+                root_folder_path="/root/updated",
+            ),
+            query=azure.costmanagement.ResourceGroupExportQueryArgs(
+                type="Usage",
+                time_frame="WeekToDate",
+            ))
+        ```
+
+        ## Import
+
+        Cost Management Export for a Resource Group can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:costmanagement/resourceGroupExport:ResourceGroupExport example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.CostManagement/exports/example
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ResourceGroupExportArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ResourceGroupExportArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 active: Optional[pulumi.Input[bool]] = None,
+                 delivery_info: Optional[pulumi.Input[pulumi.InputType['ResourceGroupExportDeliveryInfoArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 query: Optional[pulumi.Input[pulumi.InputType['ResourceGroupExportQueryArgs']]] = None,
+                 recurrence_period_end: Optional[pulumi.Input[str]] = None,
+                 recurrence_period_start: Optional[pulumi.Input[str]] = None,
+                 recurrence_type: Optional[pulumi.Input[str]] = None,
+                 resource_group_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

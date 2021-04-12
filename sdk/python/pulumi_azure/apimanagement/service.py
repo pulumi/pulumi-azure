@@ -5,15 +5,341 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Service']
+__all__ = ['ServiceArgs', 'Service']
+
+@pulumi.input_type
+class ServiceArgs:
+    def __init__(__self__, *,
+                 publisher_email: pulumi.Input[str],
+                 publisher_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 sku_name: pulumi.Input[str],
+                 additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]]] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]]] = None,
+                 hostname_configuration: Optional[pulumi.Input['ServiceHostnameConfigurationArgs']] = None,
+                 identity: Optional[pulumi.Input['ServiceIdentityArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 notification_sender_email: Optional[pulumi.Input[str]] = None,
+                 policy: Optional[pulumi.Input['ServicePolicyArgs']] = None,
+                 protocols: Optional[pulumi.Input['ServiceProtocolsArgs']] = None,
+                 security: Optional[pulumi.Input['ServiceSecurityArgs']] = None,
+                 sign_in: Optional[pulumi.Input['ServiceSignInArgs']] = None,
+                 sign_up: Optional[pulumi.Input['ServiceSignUpArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tenant_access: Optional[pulumi.Input['ServiceTenantAccessArgs']] = None,
+                 virtual_network_configuration: Optional[pulumi.Input['ServiceVirtualNetworkConfigurationArgs']] = None,
+                 virtual_network_type: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Service resource.
+        :param pulumi.Input[str] publisher_email: The email of publisher/company.
+        :param pulumi.Input[str] publisher_name: The name of publisher/company.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku_name: `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]] additional_locations: One or more `additional_location` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]] certificates: One or more (up to 10) `certificate` blocks as defined below.
+        :param pulumi.Input['ServiceHostnameConfigurationArgs'] hostname_configuration: A `hostname_configuration` block as defined below.
+        :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block is documented below.
+        :param pulumi.Input[str] location: The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the API Management Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] notification_sender_email: Email address from which the notification will be sent.
+        :param pulumi.Input['ServicePolicyArgs'] policy: A `policy` block as defined below.
+        :param pulumi.Input['ServiceProtocolsArgs'] protocols: A `protocols` block as defined below.
+        :param pulumi.Input['ServiceSecurityArgs'] security: A `security` block as defined below.
+        :param pulumi.Input['ServiceSignInArgs'] sign_in: A `sign_in` block as defined below.
+        :param pulumi.Input['ServiceSignUpArgs'] sign_up: A `sign_up` block as defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
+        :param pulumi.Input['ServiceTenantAccessArgs'] tenant_access: A `tenant_access` block as defined below.
+        :param pulumi.Input['ServiceVirtualNetworkConfigurationArgs'] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+        :param pulumi.Input[str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. 
+               > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
+        """
+        pulumi.set(__self__, "publisher_email", publisher_email)
+        pulumi.set(__self__, "publisher_name", publisher_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "sku_name", sku_name)
+        if additional_locations is not None:
+            pulumi.set(__self__, "additional_locations", additional_locations)
+        if certificates is not None:
+            pulumi.set(__self__, "certificates", certificates)
+        if hostname_configuration is not None:
+            pulumi.set(__self__, "hostname_configuration", hostname_configuration)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if notification_sender_email is not None:
+            pulumi.set(__self__, "notification_sender_email", notification_sender_email)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if protocols is not None:
+            pulumi.set(__self__, "protocols", protocols)
+        if security is not None:
+            pulumi.set(__self__, "security", security)
+        if sign_in is not None:
+            pulumi.set(__self__, "sign_in", sign_in)
+        if sign_up is not None:
+            pulumi.set(__self__, "sign_up", sign_up)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tenant_access is not None:
+            pulumi.set(__self__, "tenant_access", tenant_access)
+        if virtual_network_configuration is not None:
+            pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
+        if virtual_network_type is not None:
+            pulumi.set(__self__, "virtual_network_type", virtual_network_type)
+
+    @property
+    @pulumi.getter(name="publisherEmail")
+    def publisher_email(self) -> pulumi.Input[str]:
+        """
+        The email of publisher/company.
+        """
+        return pulumi.get(self, "publisher_email")
+
+    @publisher_email.setter
+    def publisher_email(self, value: pulumi.Input[str]):
+        pulumi.set(self, "publisher_email", value)
+
+    @property
+    @pulumi.getter(name="publisherName")
+    def publisher_name(self) -> pulumi.Input[str]:
+        """
+        The name of publisher/company.
+        """
+        return pulumi.get(self, "publisher_name")
+
+    @publisher_name.setter
+    def publisher_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "publisher_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="skuName")
+    def sku_name(self) -> pulumi.Input[str]:
+        """
+        `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+        """
+        return pulumi.get(self, "sku_name")
+
+    @sku_name.setter
+    def sku_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sku_name", value)
+
+    @property
+    @pulumi.getter(name="additionalLocations")
+    def additional_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]]]:
+        """
+        One or more `additional_location` blocks as defined below.
+        """
+        return pulumi.get(self, "additional_locations")
+
+    @additional_locations.setter
+    def additional_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]]]):
+        pulumi.set(self, "additional_locations", value)
+
+    @property
+    @pulumi.getter
+    def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]]]:
+        """
+        One or more (up to 10) `certificate` blocks as defined below.
+        """
+        return pulumi.get(self, "certificates")
+
+    @certificates.setter
+    def certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]]]):
+        pulumi.set(self, "certificates", value)
+
+    @property
+    @pulumi.getter(name="hostnameConfiguration")
+    def hostname_configuration(self) -> Optional[pulumi.Input['ServiceHostnameConfigurationArgs']]:
+        """
+        A `hostname_configuration` block as defined below.
+        """
+        return pulumi.get(self, "hostname_configuration")
+
+    @hostname_configuration.setter
+    def hostname_configuration(self, value: Optional[pulumi.Input['ServiceHostnameConfigurationArgs']]):
+        pulumi.set(self, "hostname_configuration", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ServiceIdentityArgs']]:
+        """
+        An `identity` block is documented below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ServiceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the API Management Service. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="notificationSenderEmail")
+    def notification_sender_email(self) -> Optional[pulumi.Input[str]]:
+        """
+        Email address from which the notification will be sent.
+        """
+        return pulumi.get(self, "notification_sender_email")
+
+    @notification_sender_email.setter
+    def notification_sender_email(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "notification_sender_email", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input['ServicePolicyArgs']]:
+        """
+        A `policy` block as defined below.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input['ServicePolicyArgs']]):
+        pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter
+    def protocols(self) -> Optional[pulumi.Input['ServiceProtocolsArgs']]:
+        """
+        A `protocols` block as defined below.
+        """
+        return pulumi.get(self, "protocols")
+
+    @protocols.setter
+    def protocols(self, value: Optional[pulumi.Input['ServiceProtocolsArgs']]):
+        pulumi.set(self, "protocols", value)
+
+    @property
+    @pulumi.getter
+    def security(self) -> Optional[pulumi.Input['ServiceSecurityArgs']]:
+        """
+        A `security` block as defined below.
+        """
+        return pulumi.get(self, "security")
+
+    @security.setter
+    def security(self, value: Optional[pulumi.Input['ServiceSecurityArgs']]):
+        pulumi.set(self, "security", value)
+
+    @property
+    @pulumi.getter(name="signIn")
+    def sign_in(self) -> Optional[pulumi.Input['ServiceSignInArgs']]:
+        """
+        A `sign_in` block as defined below.
+        """
+        return pulumi.get(self, "sign_in")
+
+    @sign_in.setter
+    def sign_in(self, value: Optional[pulumi.Input['ServiceSignInArgs']]):
+        pulumi.set(self, "sign_in", value)
+
+    @property
+    @pulumi.getter(name="signUp")
+    def sign_up(self) -> Optional[pulumi.Input['ServiceSignUpArgs']]:
+        """
+        A `sign_up` block as defined below.
+        """
+        return pulumi.get(self, "sign_up")
+
+    @sign_up.setter
+    def sign_up(self, value: Optional[pulumi.Input['ServiceSignUpArgs']]):
+        pulumi.set(self, "sign_up", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags assigned to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tenantAccess")
+    def tenant_access(self) -> Optional[pulumi.Input['ServiceTenantAccessArgs']]:
+        """
+        A `tenant_access` block as defined below.
+        """
+        return pulumi.get(self, "tenant_access")
+
+    @tenant_access.setter
+    def tenant_access(self, value: Optional[pulumi.Input['ServiceTenantAccessArgs']]):
+        pulumi.set(self, "tenant_access", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkConfiguration")
+    def virtual_network_configuration(self) -> Optional[pulumi.Input['ServiceVirtualNetworkConfigurationArgs']]:
+        """
+        A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+        """
+        return pulumi.get(self, "virtual_network_configuration")
+
+    @virtual_network_configuration.setter
+    def virtual_network_configuration(self, value: Optional[pulumi.Input['ServiceVirtualNetworkConfigurationArgs']]):
+        pulumi.set(self, "virtual_network_configuration", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkType")
+    def virtual_network_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. 
+        > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
+        """
+        return pulumi.get(self, "virtual_network_type")
+
+    @virtual_network_type.setter
+    def virtual_network_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_type", value)
 
 
 class Service(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -103,6 +429,89 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. 
                > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ServiceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an API Management Service.
+
+        ## Disclaimers
+
+        > **Note:** It's possible to define Custom Domains both within the `apimanagement.Service` resource via the `hostname_configurations` block and by using the `apimanagement.CustomDomain` resource. However it's not possible to use both methods to manage Custom Domains within an API Management Service, since there'll be conflicts.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_service = azure.apimanagement.Service("exampleService",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            publisher_name="My Company",
+            publisher_email="company@exmaple.com",
+            sku_name="Developer_1",
+            policy=azure.apimanagement.ServicePolicyArgs(
+                xml_content=\"\"\"    <policies>
+              <inbound />
+              <backend />
+              <outbound />
+              <on-error />
+            </policies>
+        \"\"\",
+            ))
+        ```
+
+        ## Import
+
+        API Management Services can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:apimanagement/service:Service example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ServiceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]]] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]]] = None,
+                 hostname_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceHostnameConfigurationArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ServiceIdentityArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 notification_sender_email: Optional[pulumi.Input[str]] = None,
+                 policy: Optional[pulumi.Input[pulumi.InputType['ServicePolicyArgs']]] = None,
+                 protocols: Optional[pulumi.Input[pulumi.InputType['ServiceProtocolsArgs']]] = None,
+                 publisher_email: Optional[pulumi.Input[str]] = None,
+                 publisher_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 security: Optional[pulumi.Input[pulumi.InputType['ServiceSecurityArgs']]] = None,
+                 sign_in: Optional[pulumi.Input[pulumi.InputType['ServiceSignInArgs']]] = None,
+                 sign_up: Optional[pulumi.Input[pulumi.InputType['ServiceSignUpArgs']]] = None,
+                 sku_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tenant_access: Optional[pulumi.Input[pulumi.InputType['ServiceTenantAccessArgs']]] = None,
+                 virtual_network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceVirtualNetworkConfigurationArgs']]] = None,
+                 virtual_network_type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

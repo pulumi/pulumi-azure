@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Setting']
+__all__ = ['SettingArgs', 'Setting']
+
+@pulumi.input_type
+class SettingArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 setting_name: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a Setting resource.
+        :param pulumi.Input[bool] enabled: Boolean flag to enable/disable data access.
+        :param pulumi.Input[str] setting_name: The setting to manage. Possible values are `MCAS` and `WDATP`.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "setting_name", setting_name)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Boolean flag to enable/disable data access.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="settingName")
+    def setting_name(self) -> pulumi.Input[str]:
+        """
+        The setting to manage. Possible values are `MCAS` and `WDATP`.
+        """
+        return pulumi.get(self, "setting_name")
+
+    @setting_name.setter
+    def setting_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "setting_name", value)
 
 
 class Setting(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -51,6 +89,58 @@ class Setting(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Boolean flag to enable/disable data access.
         :param pulumi.Input[str] setting_name: The setting to manage. Possible values are `MCAS` and `WDATP`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SettingArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages the Data Access Settings for Azure Security Center.
+
+        > **NOTE:** This resource requires the `Owner` permission on the Subscription.
+
+        > **NOTE:** Deletion of this resource does not change or reset the data access settings
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.securitycenter.Setting("example",
+            enabled=True,
+            setting_name="MCAS")
+        ```
+
+        ## Import
+
+        The setting can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:securitycenter/setting:Setting example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/settings/<setting_name>
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param SettingArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SettingArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 setting_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

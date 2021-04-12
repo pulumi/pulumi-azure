@@ -5,13 +5,66 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Agreement']
+__all__ = ['AgreementArgs', 'Agreement']
+
+@pulumi.input_type
+class AgreementArgs:
+    def __init__(__self__, *,
+                 offer: pulumi.Input[str],
+                 plan: pulumi.Input[str],
+                 publisher: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a Agreement resource.
+        :param pulumi.Input[str] offer: The Offer of the Marketplace Image. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] plan: The Plan of the Marketplace Image. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] publisher: The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "offer", offer)
+        pulumi.set(__self__, "plan", plan)
+        pulumi.set(__self__, "publisher", publisher)
+
+    @property
+    @pulumi.getter
+    def offer(self) -> pulumi.Input[str]:
+        """
+        The Offer of the Marketplace Image. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "offer")
+
+    @offer.setter
+    def offer(self, value: pulumi.Input[str]):
+        pulumi.set(self, "offer", value)
+
+    @property
+    @pulumi.getter
+    def plan(self) -> pulumi.Input[str]:
+        """
+        The Plan of the Marketplace Image. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "plan")
+
+    @plan.setter
+    def plan(self, value: pulumi.Input[str]):
+        pulumi.set(self, "plan", value)
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> pulumi.Input[str]:
+        """
+        The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "publisher")
+
+    @publisher.setter
+    def publisher(self, value: pulumi.Input[str]):
+        pulumi.set(self, "publisher", value)
 
 
 class Agreement(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -50,6 +103,56 @@ class Agreement(pulumi.CustomResource):
         :param pulumi.Input[str] plan: The Plan of the Marketplace Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] publisher: The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AgreementArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Allows accepting the Legal Terms for a Marketplace Image.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        barracuda = azure.marketplace.Agreement("barracuda",
+            offer="waf",
+            plan="hourly",
+            publisher="barracudanetworks")
+        ```
+
+        ## Import
+
+        Marketplace Agreement can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:marketplace/agreement:Agreement example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.MarketplaceOrdering/agreements/publisher1/offers/offer1/plans/plan1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param AgreementArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AgreementArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 offer: Optional[pulumi.Input[str]] = None,
+                 plan: Optional[pulumi.Input[str]] = None,
+                 publisher: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

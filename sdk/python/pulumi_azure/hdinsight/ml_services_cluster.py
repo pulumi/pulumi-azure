@@ -5,15 +5,189 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['MLServicesCluster']
+__all__ = ['MLServicesClusterArgs', 'MLServicesCluster']
+
+@pulumi.input_type
+class MLServicesClusterArgs:
+    def __init__(__self__, *,
+                 cluster_version: pulumi.Input[str],
+                 gateway: pulumi.Input['MLServicesClusterGatewayArgs'],
+                 resource_group_name: pulumi.Input[str],
+                 roles: pulumi.Input['MLServicesClusterRolesArgs'],
+                 rstudio: pulumi.Input[bool],
+                 tier: pulumi.Input[str],
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['MLServicesClusterStorageAccountArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tls_min_version: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a MLServicesCluster resource.
+        :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input['MLServicesClusterGatewayArgs'] gateway: A `gateway` block as defined below.
+        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight ML Services Cluster should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input['MLServicesClusterRolesArgs'] roles: A `roles` block as defined below.
+        :param pulumi.Input[bool] rstudio: Should R Studio community edition for ML Services be installed? Changing this forces a new resource to be created.
+        :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight ML Services Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight ML Services Cluster should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name for this HDInsight ML Services Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['MLServicesClusterStorageAccountArgs']]] storage_accounts: One or more `storage_account` block as defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight ML Services Cluster.
+        """
+        pulumi.set(__self__, "cluster_version", cluster_version)
+        pulumi.set(__self__, "gateway", gateway)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "roles", roles)
+        pulumi.set(__self__, "rstudio", rstudio)
+        pulumi.set(__self__, "tier", tier)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if storage_accounts is not None:
+            pulumi.set(__self__, "storage_accounts", storage_accounts)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tls_min_version is not None:
+            pulumi.set(__self__, "tls_min_version", tls_min_version)
+
+    @property
+    @pulumi.getter(name="clusterVersion")
+    def cluster_version(self) -> pulumi.Input[str]:
+        """
+        Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cluster_version")
+
+    @cluster_version.setter
+    def cluster_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_version", value)
+
+    @property
+    @pulumi.getter
+    def gateway(self) -> pulumi.Input['MLServicesClusterGatewayArgs']:
+        """
+        A `gateway` block as defined below.
+        """
+        return pulumi.get(self, "gateway")
+
+    @gateway.setter
+    def gateway(self, value: pulumi.Input['MLServicesClusterGatewayArgs']):
+        pulumi.set(self, "gateway", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the Resource Group in which this HDInsight ML Services Cluster should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def roles(self) -> pulumi.Input['MLServicesClusterRolesArgs']:
+        """
+        A `roles` block as defined below.
+        """
+        return pulumi.get(self, "roles")
+
+    @roles.setter
+    def roles(self, value: pulumi.Input['MLServicesClusterRolesArgs']):
+        pulumi.set(self, "roles", value)
+
+    @property
+    @pulumi.getter
+    def rstudio(self) -> pulumi.Input[bool]:
+        """
+        Should R Studio community edition for ML Services be installed? Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "rstudio")
+
+    @rstudio.setter
+    def rstudio(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "rstudio", value)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> pulumi.Input[str]:
+        """
+        Specifies the Tier which should be used for this HDInsight ML Services Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tier", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Azure Region which this HDInsight ML Services Cluster should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name for this HDInsight ML Services Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="storageAccounts")
+    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MLServicesClusterStorageAccountArgs']]]]:
+        """
+        One or more `storage_account` block as defined below.
+        """
+        return pulumi.get(self, "storage_accounts")
+
+    @storage_accounts.setter
+    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MLServicesClusterStorageAccountArgs']]]]):
+        pulumi.set(self, "storage_accounts", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of Tags which should be assigned to this HDInsight ML Services Cluster.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tlsMinVersion")
+    def tls_min_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "tls_min_version")
+
+    @tls_min_version.setter
+    def tls_min_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tls_min_version", value)
 
 
 class MLServicesCluster(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -113,6 +287,110 @@ class MLServicesCluster(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight ML Services Cluster.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight ML Services Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: MLServicesClusterArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a HDInsight ML Services Cluster.
+
+        !> **Note:** [HDInsight 3.6 is deprecated and will be retired on 2020-12-31 - HDInsight 4.0 no longer supports ML Services Clusters](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#available-versions) - as such this resource is deprecated and will be removed in the next major version of the Provider.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.storage.Account("exampleAccount",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_container = azure.storage.Container("exampleContainer",
+            storage_account_name=example_account.name,
+            container_access_type="private")
+        example_ml_services_cluster = azure.hdinsight.MLServicesCluster("exampleMLServicesCluster",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            cluster_version="3.6",
+            tier="Standard",
+            rstudio=True,
+            gateway=azure.hdinsight.MLServicesClusterGatewayArgs(
+                enabled=True,
+                username="acctestusrgw",
+                password="Password123!",
+            ),
+            storage_accounts=[azure.hdinsight.MLServicesClusterStorageAccountArgs(
+                storage_container_id=example_container.id,
+                storage_account_key=example_account.primary_access_key,
+                is_default=True,
+            )],
+            roles=azure.hdinsight.MLServicesClusterRolesArgs(
+                head_node=azure.hdinsight.MLServicesClusterRolesHeadNodeArgs(
+                    vm_size="Standard_D3_v2",
+                    username="acctestusrvm",
+                    password="AccTestvdSC4daf986!",
+                ),
+                worker_node=azure.hdinsight.MLServicesClusterRolesWorkerNodeArgs(
+                    vm_size="Standard_D4_V2",
+                    username="acctestusrvm",
+                    password="AccTestvdSC4daf986!",
+                    target_instance_count=3,
+                ),
+                zookeeper_node=azure.hdinsight.MLServicesClusterRolesZookeeperNodeArgs(
+                    vm_size="Standard_D3_v2",
+                    username="acctestusrvm",
+                    password="AccTestvdSC4daf986!",
+                ),
+                edge_node=azure.hdinsight.MLServicesClusterRolesEdgeNodeArgs(
+                    vm_size="Standard_D3_v2",
+                    username="acctestusrvm",
+                    password="AccTestvdSC4daf986!",
+                ),
+            ))
+        ```
+
+        ## Import
+
+        HDInsight ML Services Clusters can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:hdinsight/mLServicesCluster:MLServicesCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.HDInsight/clusters/cluster1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param MLServicesClusterArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(MLServicesClusterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cluster_version: Optional[pulumi.Input[str]] = None,
+                 gateway: Optional[pulumi.Input[pulumi.InputType['MLServicesClusterGatewayArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 roles: Optional[pulumi.Input[pulumi.InputType['MLServicesClusterRolesArgs']]] = None,
+                 rstudio: Optional[pulumi.Input[bool]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MLServicesClusterStorageAccountArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tier: Optional[pulumi.Input[str]] = None,
+                 tls_min_version: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

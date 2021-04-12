@@ -5,13 +5,113 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['DataDiskAttachment']
+__all__ = ['DataDiskAttachmentArgs', 'DataDiskAttachment']
+
+@pulumi.input_type
+class DataDiskAttachmentArgs:
+    def __init__(__self__, *,
+                 caching: pulumi.Input[str],
+                 lun: pulumi.Input[int],
+                 managed_disk_id: pulumi.Input[str],
+                 virtual_machine_id: pulumi.Input[str],
+                 create_option: Optional[pulumi.Input[str]] = None,
+                 write_accelerator_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a DataDiskAttachment resource.
+        :param pulumi.Input[str] caching: Specifies the caching requirements for this Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
+        :param pulumi.Input[int] lun: The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] managed_disk_id: The ID of an existing Managed Disk which should be attached. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] create_option: The Create Option of the Data Disk, such as `Empty` or `Attach`. Defaults to `Attach`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] write_accelerator_enabled: Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+        """
+        pulumi.set(__self__, "caching", caching)
+        pulumi.set(__self__, "lun", lun)
+        pulumi.set(__self__, "managed_disk_id", managed_disk_id)
+        pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+        if create_option is not None:
+            pulumi.set(__self__, "create_option", create_option)
+        if write_accelerator_enabled is not None:
+            pulumi.set(__self__, "write_accelerator_enabled", write_accelerator_enabled)
+
+    @property
+    @pulumi.getter
+    def caching(self) -> pulumi.Input[str]:
+        """
+        Specifies the caching requirements for this Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
+        """
+        return pulumi.get(self, "caching")
+
+    @caching.setter
+    def caching(self, value: pulumi.Input[str]):
+        pulumi.set(self, "caching", value)
+
+    @property
+    @pulumi.getter
+    def lun(self) -> pulumi.Input[int]:
+        """
+        The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "lun")
+
+    @lun.setter
+    def lun(self, value: pulumi.Input[int]):
+        pulumi.set(self, "lun", value)
+
+    @property
+    @pulumi.getter(name="managedDiskId")
+    def managed_disk_id(self) -> pulumi.Input[str]:
+        """
+        The ID of an existing Managed Disk which should be attached. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "managed_disk_id")
+
+    @managed_disk_id.setter
+    def managed_disk_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "managed_disk_id", value)
+
+    @property
+    @pulumi.getter(name="virtualMachineId")
+    def virtual_machine_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "virtual_machine_id")
+
+    @virtual_machine_id.setter
+    def virtual_machine_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "virtual_machine_id", value)
+
+    @property
+    @pulumi.getter(name="createOption")
+    def create_option(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Create Option of the Data Disk, such as `Empty` or `Attach`. Defaults to `Attach`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "create_option")
+
+    @create_option.setter
+    def create_option(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create_option", value)
+
+    @property
+    @pulumi.getter(name="writeAcceleratorEnabled")
+    def write_accelerator_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+        """
+        return pulumi.get(self, "write_accelerator_enabled")
+
+    @write_accelerator_enabled.setter
+    def write_accelerator_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "write_accelerator_enabled", value)
 
 
 class DataDiskAttachment(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -114,6 +214,117 @@ class DataDiskAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] write_accelerator_enabled: Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DataDiskAttachmentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages attaching a Disk to a Virtual Machine.
+
+        > **NOTE:** Data Disks can be attached either directly on the `compute.VirtualMachine` resource, or using the `compute.DataDiskAttachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
+
+        > **Please Note:** only Managed Disks are supported via this separate resource, Unmanaged Disks can be attached using the `storage_data_disk` block in the `compute.VirtualMachine` resource.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        config = pulumi.Config()
+        prefix = config.get("prefix")
+        if prefix is None:
+            prefix = "example"
+        vm_name = f"{prefix}-vm"
+        main_resource_group = azure.core.ResourceGroup("mainResourceGroup", location="West Europe")
+        main_virtual_network = azure.network.VirtualNetwork("mainVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=main_resource_group.location,
+            resource_group_name=main_resource_group.name)
+        internal = azure.network.Subnet("internal",
+            resource_group_name=main_resource_group.name,
+            virtual_network_name=main_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        main_network_interface = azure.network.NetworkInterface("mainNetworkInterface",
+            location=main_resource_group.location,
+            resource_group_name=main_resource_group.name,
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+                name="internal",
+                subnet_id=internal.id,
+                private_ip_address_allocation="Dynamic",
+            )])
+        example_virtual_machine = azure.compute.VirtualMachine("exampleVirtualMachine",
+            location=main_resource_group.location,
+            resource_group_name=main_resource_group.name,
+            network_interface_ids=[main_network_interface.id],
+            vm_size="Standard_F2",
+            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
+                publisher="Canonical",
+                offer="UbuntuServer",
+                sku="16.04-LTS",
+                version="latest",
+            ),
+            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
+                name="myosdisk1",
+                caching="ReadWrite",
+                create_option="FromImage",
+                managed_disk_type="Standard_LRS",
+            ),
+            os_profile=azure.compute.VirtualMachineOsProfileArgs(
+                computer_name=vm_name,
+                admin_username="testadmin",
+                admin_password="Password1234!",
+            ),
+            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
+                disable_password_authentication=False,
+            ))
+        example_managed_disk = azure.compute.ManagedDisk("exampleManagedDisk",
+            location=main_resource_group.location,
+            resource_group_name=main_resource_group.name,
+            storage_account_type="Standard_LRS",
+            create_option="Empty",
+            disk_size_gb=10)
+        example_data_disk_attachment = azure.compute.DataDiskAttachment("exampleDataDiskAttachment",
+            managed_disk_id=example_managed_disk.id,
+            virtual_machine_id=example_virtual_machine.id,
+            lun=10,
+            caching="ReadWrite")
+        ```
+
+        ## Import
+
+        Virtual Machines Data Disk Attachments can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:compute/dataDiskAttachment:DataDiskAttachment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.compute/virtualMachines/machine1/dataDisks/disk1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param DataDiskAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DataDiskAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 caching: Optional[pulumi.Input[str]] = None,
+                 create_option: Optional[pulumi.Input[str]] = None,
+                 lun: Optional[pulumi.Input[int]] = None,
+                 managed_disk_id: Optional[pulumi.Input[str]] = None,
+                 virtual_machine_id: Optional[pulumi.Input[str]] = None,
+                 write_accelerator_enabled: Optional[pulumi.Input[bool]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

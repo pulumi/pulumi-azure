@@ -5,15 +5,196 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['PolicyVM']
+__all__ = ['PolicyVMArgs', 'PolicyVM']
+
+@pulumi.input_type
+class PolicyVMArgs:
+    def __init__(__self__, *,
+                 backup: pulumi.Input['PolicyVMBackupArgs'],
+                 recovery_vault_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 instant_restore_retention_days: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 retention_daily: Optional[pulumi.Input['PolicyVMRetentionDailyArgs']] = None,
+                 retention_monthly: Optional[pulumi.Input['PolicyVMRetentionMonthlyArgs']] = None,
+                 retention_weekly: Optional[pulumi.Input['PolicyVMRetentionWeeklyArgs']] = None,
+                 retention_yearly: Optional[pulumi.Input['PolicyVMRetentionYearlyArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 timezone: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a PolicyVM resource.
+        :param pulumi.Input['PolicyVMBackupArgs'] backup: Configures the Policy backup frequency, times & days as documented in the `backup` block below.
+        :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] instant_restore_retention_days: Specifies the instant restore retention range in days.
+        :param pulumi.Input[str] name: Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
+        :param pulumi.Input['PolicyVMRetentionDailyArgs'] retention_daily: Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
+        :param pulumi.Input['PolicyVMRetentionMonthlyArgs'] retention_monthly: Configures the policy monthly retention as documented in the `retention_monthly` block below.
+        :param pulumi.Input['PolicyVMRetentionWeeklyArgs'] retention_weekly: Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
+        :param pulumi.Input['PolicyVMRetentionYearlyArgs'] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] timezone: Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
+        """
+        pulumi.set(__self__, "backup", backup)
+        pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if instant_restore_retention_days is not None:
+            pulumi.set(__self__, "instant_restore_retention_days", instant_restore_retention_days)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if retention_daily is not None:
+            pulumi.set(__self__, "retention_daily", retention_daily)
+        if retention_monthly is not None:
+            pulumi.set(__self__, "retention_monthly", retention_monthly)
+        if retention_weekly is not None:
+            pulumi.set(__self__, "retention_weekly", retention_weekly)
+        if retention_yearly is not None:
+            pulumi.set(__self__, "retention_yearly", retention_yearly)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+
+    @property
+    @pulumi.getter
+    def backup(self) -> pulumi.Input['PolicyVMBackupArgs']:
+        """
+        Configures the Policy backup frequency, times & days as documented in the `backup` block below.
+        """
+        return pulumi.get(self, "backup")
+
+    @backup.setter
+    def backup(self, value: pulumi.Input['PolicyVMBackupArgs']):
+        pulumi.set(self, "backup", value)
+
+    @property
+    @pulumi.getter(name="recoveryVaultName")
+    def recovery_vault_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "recovery_vault_name")
+
+    @recovery_vault_name.setter
+    def recovery_vault_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "recovery_vault_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="instantRestoreRetentionDays")
+    def instant_restore_retention_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the instant restore retention range in days.
+        """
+        return pulumi.get(self, "instant_restore_retention_days")
+
+    @instant_restore_retention_days.setter
+    def instant_restore_retention_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "instant_restore_retention_days", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="retentionDaily")
+    def retention_daily(self) -> Optional[pulumi.Input['PolicyVMRetentionDailyArgs']]:
+        """
+        Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
+        """
+        return pulumi.get(self, "retention_daily")
+
+    @retention_daily.setter
+    def retention_daily(self, value: Optional[pulumi.Input['PolicyVMRetentionDailyArgs']]):
+        pulumi.set(self, "retention_daily", value)
+
+    @property
+    @pulumi.getter(name="retentionMonthly")
+    def retention_monthly(self) -> Optional[pulumi.Input['PolicyVMRetentionMonthlyArgs']]:
+        """
+        Configures the policy monthly retention as documented in the `retention_monthly` block below.
+        """
+        return pulumi.get(self, "retention_monthly")
+
+    @retention_monthly.setter
+    def retention_monthly(self, value: Optional[pulumi.Input['PolicyVMRetentionMonthlyArgs']]):
+        pulumi.set(self, "retention_monthly", value)
+
+    @property
+    @pulumi.getter(name="retentionWeekly")
+    def retention_weekly(self) -> Optional[pulumi.Input['PolicyVMRetentionWeeklyArgs']]:
+        """
+        Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
+        """
+        return pulumi.get(self, "retention_weekly")
+
+    @retention_weekly.setter
+    def retention_weekly(self, value: Optional[pulumi.Input['PolicyVMRetentionWeeklyArgs']]):
+        pulumi.set(self, "retention_weekly", value)
+
+    @property
+    @pulumi.getter(name="retentionYearly")
+    def retention_yearly(self) -> Optional[pulumi.Input['PolicyVMRetentionYearlyArgs']]:
+        """
+        Configures the policy yearly retention as documented in the `retention_yearly` block below.
+        """
+        return pulumi.get(self, "retention_yearly")
+
+    @retention_yearly.setter
+    def retention_yearly(self, value: Optional[pulumi.Input['PolicyVMRetentionYearlyArgs']]):
+        pulumi.set(self, "retention_yearly", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
+        """
+        return pulumi.get(self, "timezone")
+
+    @timezone.setter
+    def timezone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timezone", value)
 
 
 class PolicyVM(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -106,6 +287,102 @@ class PolicyVM(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] timezone: Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: PolicyVMArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an Azure Backup VM Backup Policy.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_vault = azure.recoveryservices.Vault("exampleVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard")
+        example_policy_vm = azure.backup.PolicyVM("examplePolicyVM",
+            resource_group_name=example_resource_group.name,
+            recovery_vault_name=example_vault.name,
+            timezone="UTC",
+            backup=azure.backup.PolicyVMBackupArgs(
+                frequency="Daily",
+                time="23:00",
+            ),
+            retention_daily=azure.backup.PolicyVMRetentionDailyArgs(
+                count=10,
+            ),
+            retention_weekly=azure.backup.PolicyVMRetentionWeeklyArgs(
+                count=42,
+                weekdays=[
+                    "Sunday",
+                    "Wednesday",
+                    "Friday",
+                    "Saturday",
+                ],
+            ),
+            retention_monthly=azure.backup.PolicyVMRetentionMonthlyArgs(
+                count=7,
+                weekdays=[
+                    "Sunday",
+                    "Wednesday",
+                ],
+                weeks=[
+                    "First",
+                    "Last",
+                ],
+            ),
+            retention_yearly=azure.backup.PolicyVMRetentionYearlyArgs(
+                count=77,
+                weekdays=["Sunday"],
+                weeks=["Last"],
+                months=["January"],
+            ))
+        ```
+
+        ## Import
+
+        VM Backup Policies can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:backup/policyVM:PolicyVM policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/example-recovery-vault/backupPolicies/policy1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param PolicyVMArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PolicyVMArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 backup: Optional[pulumi.Input[pulumi.InputType['PolicyVMBackupArgs']]] = None,
+                 instant_restore_retention_days: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 recovery_vault_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 retention_daily: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionDailyArgs']]] = None,
+                 retention_monthly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionMonthlyArgs']]] = None,
+                 retention_weekly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionWeeklyArgs']]] = None,
+                 retention_yearly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionYearlyArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 timezone: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

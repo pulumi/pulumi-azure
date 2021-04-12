@@ -5,10 +5,254 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Subscription']
+__all__ = ['SubscriptionArgs', 'Subscription']
+
+@pulumi.input_type
+class SubscriptionArgs:
+    def __init__(__self__, *,
+                 max_delivery_count: pulumi.Input[int],
+                 namespace_name: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 topic_name: pulumi.Input[str],
+                 auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
+                 dead_lettering_on_filter_evaluation_error: Optional[pulumi.Input[bool]] = None,
+                 dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
+                 default_message_ttl: Optional[pulumi.Input[str]] = None,
+                 enable_batched_operations: Optional[pulumi.Input[bool]] = None,
+                 forward_dead_lettered_messages_to: Optional[pulumi.Input[str]] = None,
+                 forward_to: Optional[pulumi.Input[str]] = None,
+                 lock_duration: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 requires_session: Optional[pulumi.Input[bool]] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Subscription resource.
+        :param pulumi.Input[int] max_delivery_count: The maximum number of deliveries.
+        :param pulumi.Input[str] namespace_name: The name of the ServiceBus Namespace to create this Subscription in. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] topic_name: The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] auto_delete_on_idle: The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
+        :param pulumi.Input[bool] dead_lettering_on_filter_evaluation_error: Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
+        :param pulumi.Input[bool] dead_lettering_on_message_expiration: Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
+        :param pulumi.Input[str] default_message_ttl: The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+        :param pulumi.Input[bool] enable_batched_operations: Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
+        :param pulumi.Input[str] forward_dead_lettered_messages_to: The name of a Queue or Topic to automatically forward Dead Letter messages to.
+        :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to.
+        :param pulumi.Input[str] lock_duration: The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P1M`.
+        :param pulumi.Input[str] name: Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] requires_session: Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] status: The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
+        """
+        pulumi.set(__self__, "max_delivery_count", max_delivery_count)
+        pulumi.set(__self__, "namespace_name", namespace_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "topic_name", topic_name)
+        if auto_delete_on_idle is not None:
+            pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
+        if dead_lettering_on_filter_evaluation_error is not None:
+            pulumi.set(__self__, "dead_lettering_on_filter_evaluation_error", dead_lettering_on_filter_evaluation_error)
+        if dead_lettering_on_message_expiration is not None:
+            pulumi.set(__self__, "dead_lettering_on_message_expiration", dead_lettering_on_message_expiration)
+        if default_message_ttl is not None:
+            pulumi.set(__self__, "default_message_ttl", default_message_ttl)
+        if enable_batched_operations is not None:
+            pulumi.set(__self__, "enable_batched_operations", enable_batched_operations)
+        if forward_dead_lettered_messages_to is not None:
+            pulumi.set(__self__, "forward_dead_lettered_messages_to", forward_dead_lettered_messages_to)
+        if forward_to is not None:
+            pulumi.set(__self__, "forward_to", forward_to)
+        if lock_duration is not None:
+            pulumi.set(__self__, "lock_duration", lock_duration)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if requires_session is not None:
+            pulumi.set(__self__, "requires_session", requires_session)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="maxDeliveryCount")
+    def max_delivery_count(self) -> pulumi.Input[int]:
+        """
+        The maximum number of deliveries.
+        """
+        return pulumi.get(self, "max_delivery_count")
+
+    @max_delivery_count.setter
+    def max_delivery_count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_delivery_count", value)
+
+    @property
+    @pulumi.getter(name="namespaceName")
+    def namespace_name(self) -> pulumi.Input[str]:
+        """
+        The name of the ServiceBus Namespace to create this Subscription in. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "namespace_name")
+
+    @namespace_name.setter
+    def namespace_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "namespace_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="topicName")
+    def topic_name(self) -> pulumi.Input[str]:
+        """
+        The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "topic_name")
+
+    @topic_name.setter
+    def topic_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "topic_name", value)
+
+    @property
+    @pulumi.getter(name="autoDeleteOnIdle")
+    def auto_delete_on_idle(self) -> Optional[pulumi.Input[str]]:
+        """
+        The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
+        """
+        return pulumi.get(self, "auto_delete_on_idle")
+
+    @auto_delete_on_idle.setter
+    def auto_delete_on_idle(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auto_delete_on_idle", value)
+
+    @property
+    @pulumi.getter(name="deadLetteringOnFilterEvaluationError")
+    def dead_lettering_on_filter_evaluation_error(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
+        """
+        return pulumi.get(self, "dead_lettering_on_filter_evaluation_error")
+
+    @dead_lettering_on_filter_evaluation_error.setter
+    def dead_lettering_on_filter_evaluation_error(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dead_lettering_on_filter_evaluation_error", value)
+
+    @property
+    @pulumi.getter(name="deadLetteringOnMessageExpiration")
+    def dead_lettering_on_message_expiration(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
+        """
+        return pulumi.get(self, "dead_lettering_on_message_expiration")
+
+    @dead_lettering_on_message_expiration.setter
+    def dead_lettering_on_message_expiration(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dead_lettering_on_message_expiration", value)
+
+    @property
+    @pulumi.getter(name="defaultMessageTtl")
+    def default_message_ttl(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+        """
+        return pulumi.get(self, "default_message_ttl")
+
+    @default_message_ttl.setter
+    def default_message_ttl(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_message_ttl", value)
+
+    @property
+    @pulumi.getter(name="enableBatchedOperations")
+    def enable_batched_operations(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag which controls whether the Subscription supports batched operations. Defaults to `false`.
+        """
+        return pulumi.get(self, "enable_batched_operations")
+
+    @enable_batched_operations.setter
+    def enable_batched_operations(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_batched_operations", value)
+
+    @property
+    @pulumi.getter(name="forwardDeadLetteredMessagesTo")
+    def forward_dead_lettered_messages_to(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of a Queue or Topic to automatically forward Dead Letter messages to.
+        """
+        return pulumi.get(self, "forward_dead_lettered_messages_to")
+
+    @forward_dead_lettered_messages_to.setter
+    def forward_dead_lettered_messages_to(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "forward_dead_lettered_messages_to", value)
+
+    @property
+    @pulumi.getter(name="forwardTo")
+    def forward_to(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of a Queue or Topic to automatically forward messages to.
+        """
+        return pulumi.get(self, "forward_to")
+
+    @forward_to.setter
+    def forward_to(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "forward_to", value)
+
+    @property
+    @pulumi.getter(name="lockDuration")
+    def lock_duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P1M`.
+        """
+        return pulumi.get(self, "lock_duration")
+
+    @lock_duration.setter
+    def lock_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lock_duration", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="requiresSession")
+    def requires_session(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "requires_session")
+
+    @requires_session.setter
+    def requires_session(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "requires_session", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
 
 warnings.warn("""azure.eventhub.Subscription has been deprecated in favor of azure.servicebus.Subscription""", DeprecationWarning)
 
@@ -16,6 +260,7 @@ warnings.warn("""azure.eventhub.Subscription has been deprecated in favor of azu
 class Subscription(pulumi.CustomResource):
     warnings.warn("""azure.eventhub.Subscription has been deprecated in favor of azure.servicebus.Subscription""", DeprecationWarning)
 
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -91,6 +336,81 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[str] status: The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
         :param pulumi.Input[str] topic_name: The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SubscriptionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a ServiceBus Subscription.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_namespace = azure.servicebus.Namespace("exampleNamespace",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            sku="Standard",
+            tags={
+                "source": "example",
+            })
+        example_topic = azure.servicebus.Topic("exampleTopic",
+            resource_group_name=example_resource_group.name,
+            namespace_name=example_namespace.name,
+            enable_partitioning=True)
+        example_subscription = azure.servicebus.Subscription("exampleSubscription",
+            resource_group_name=example_resource_group.name,
+            namespace_name=example_namespace.name,
+            topic_name=example_topic.name,
+            max_delivery_count=1)
+        ```
+
+        ## Import
+
+        Service Bus Subscriptions can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:eventhub/subscription:Subscription example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.servicebus/namespaces/sbns1/topics/sntopic1/subscriptions/sbsub1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param SubscriptionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SubscriptionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
+                 dead_lettering_on_filter_evaluation_error: Optional[pulumi.Input[bool]] = None,
+                 dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
+                 default_message_ttl: Optional[pulumi.Input[str]] = None,
+                 enable_batched_operations: Optional[pulumi.Input[bool]] = None,
+                 forward_dead_lettered_messages_to: Optional[pulumi.Input[str]] = None,
+                 forward_to: Optional[pulumi.Input[str]] = None,
+                 lock_duration: Optional[pulumi.Input[str]] = None,
+                 max_delivery_count: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 namespace_name: Optional[pulumi.Input[str]] = None,
+                 requires_session: Optional[pulumi.Input[bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 topic_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         pulumi.log.warn("""Subscription is deprecated: azure.eventhub.Subscription has been deprecated in favor of azure.servicebus.Subscription""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

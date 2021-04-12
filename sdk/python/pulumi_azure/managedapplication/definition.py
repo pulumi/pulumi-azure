@@ -5,15 +5,212 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Definition']
+__all__ = ['DefinitionArgs', 'Definition']
+
+@pulumi.input_type
+class DefinitionArgs:
+    def __init__(__self__, *,
+                 display_name: pulumi.Input[str],
+                 lock_level: pulumi.Input[str],
+                 resource_group_name: pulumi.Input[str],
+                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]]] = None,
+                 create_ui_definition: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 main_template: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 package_enabled: Optional[pulumi.Input[bool]] = None,
+                 package_file_uri: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a Definition resource.
+        :param pulumi.Input[str] display_name: Specifies the managed application definition display name.
+        :param pulumi.Input[str] lock_level: Specifies the managed application lock level. Valid values include `CanNotDelete`, `None`, `ReadOnly`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Application Definition should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]] authorizations: One or more `authorization` block defined below.
+        :param pulumi.Input[str] create_ui_definition: Specifies the `createUiDefinition` json for the backing template with `Microsoft.Solutions/applications` resource.
+        :param pulumi.Input[str] description: Specifies the managed application definition description.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] main_template: Specifies the inline main template json which has resources to be provisioned.
+        :param pulumi.Input[str] name: Specifies the name of the Managed Application Definition. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] package_enabled: Is the package enabled? Defaults to `true`.
+        :param pulumi.Input[str] package_file_uri: Specifies the managed application definition package file Uri.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "lock_level", lock_level)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if authorizations is not None:
+            pulumi.set(__self__, "authorizations", authorizations)
+        if create_ui_definition is not None:
+            pulumi.set(__self__, "create_ui_definition", create_ui_definition)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if main_template is not None:
+            pulumi.set(__self__, "main_template", main_template)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if package_enabled is not None:
+            pulumi.set(__self__, "package_enabled", package_enabled)
+        if package_file_uri is not None:
+            pulumi.set(__self__, "package_file_uri", package_file_uri)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the managed application definition display name.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="lockLevel")
+    def lock_level(self) -> pulumi.Input[str]:
+        """
+        Specifies the managed application lock level. Valid values include `CanNotDelete`, `None`, `ReadOnly`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "lock_level")
+
+    @lock_level.setter
+    def lock_level(self, value: pulumi.Input[str]):
+        pulumi.set(self, "lock_level", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Resource Group where the Managed Application Definition should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]]]:
+        """
+        One or more `authorization` block defined below.
+        """
+        return pulumi.get(self, "authorizations")
+
+    @authorizations.setter
+    def authorizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]]]):
+        pulumi.set(self, "authorizations", value)
+
+    @property
+    @pulumi.getter(name="createUiDefinition")
+    def create_ui_definition(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the `createUiDefinition` json for the backing template with `Microsoft.Solutions/applications` resource.
+        """
+        return pulumi.get(self, "create_ui_definition")
+
+    @create_ui_definition.setter
+    def create_ui_definition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create_ui_definition", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the managed application definition description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="mainTemplate")
+    def main_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the inline main template json which has resources to be provisioned.
+        """
+        return pulumi.get(self, "main_template")
+
+    @main_template.setter
+    def main_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "main_template", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Managed Application Definition. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="packageEnabled")
+    def package_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the package enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "package_enabled")
+
+    @package_enabled.setter
+    def package_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "package_enabled", value)
+
+    @property
+    @pulumi.getter(name="packageFileUri")
+    def package_file_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the managed application definition package file Uri.
+        """
+        return pulumi.get(self, "package_file_uri")
+
+    @package_file_uri.setter
+    def package_file_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "package_file_uri", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class Definition(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -79,6 +276,74 @@ class Definition(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Application Definition should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DefinitionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Managed Application Definition.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        current = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_definition = azure.managedapplication.Definition("exampleDefinition",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            lock_level="ReadOnly",
+            package_file_uri="https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
+            display_name="TestManagedApplicationDefinition",
+            description="Test Managed Application Definition",
+            authorizations=[azure.managedapplication.DefinitionAuthorizationArgs(
+                service_principal_id=current.object_id,
+                role_definition_id="a094b430-dad3-424d-ae58-13f72fd72591",
+            )])
+        ```
+
+        ## Import
+
+        Managed Application Definition can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:managedapplication/definition:Definition example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Solutions/applicationDefinitions/appDefinition1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param DefinitionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DefinitionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefinitionAuthorizationArgs']]]]] = None,
+                 create_ui_definition: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 lock_level: Optional[pulumi.Input[str]] = None,
+                 main_template: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 package_enabled: Optional[pulumi.Input[bool]] = None,
+                 package_file_uri: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

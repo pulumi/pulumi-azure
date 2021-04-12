@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['GroupSubscriptionAssociation']
+__all__ = ['GroupSubscriptionAssociationArgs', 'GroupSubscriptionAssociation']
+
+@pulumi.input_type
+class GroupSubscriptionAssociationArgs:
+    def __init__(__self__, *,
+                 management_group_id: pulumi.Input[str],
+                 subscription_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a GroupSubscriptionAssociation resource.
+        :param pulumi.Input[str] management_group_id: The ID of the Management Group to associate the Subscription with. Changing this forces a new Management to be created.
+        :param pulumi.Input[str] subscription_id: The ID of the Subscription to be associated with the Management Group. Changing this forces a new Management to be created.
+        """
+        pulumi.set(__self__, "management_group_id", management_group_id)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="managementGroupId")
+    def management_group_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Management Group to associate the Subscription with. Changing this forces a new Management to be created.
+        """
+        return pulumi.get(self, "management_group_id")
+
+    @management_group_id.setter
+    def management_group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "management_group_id", value)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Subscription to be associated with the Management Group. Changing this forces a new Management to be created.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subscription_id", value)
 
 
 class GroupSubscriptionAssociation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -51,6 +89,58 @@ class GroupSubscriptionAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] management_group_id: The ID of the Management Group to associate the Subscription with. Changing this forces a new Management to be created.
         :param pulumi.Input[str] subscription_id: The ID of the Subscription to be associated with the Management Group. Changing this forces a new Management to be created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: GroupSubscriptionAssociationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Management Group Subscription Association.
+
+        !> **Note:** When using this resource, configuring `subscription_ids` on the `management.Group` resource is not supported.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_group = azure.management.get_group(name="exampleManagementGroup")
+        example_subscription = azure.core.get_subscription(subscription_id="12345678-1234-1234-1234-123456789012")
+        example_group_subscription_association = azure.management.GroupSubscriptionAssociation("exampleGroupSubscriptionAssociation",
+            management_group_id=example_group.id,
+            subscription_id=example_subscription.id)
+        ```
+
+        ## Import
+
+        Managements can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:management/groupSubscriptionAssociation:GroupSubscriptionAssociation example /managementGroup/MyManagementGroup/subscription/12345678-1234-1234-1234-123456789012
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param GroupSubscriptionAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(GroupSubscriptionAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 management_group_id: Optional[pulumi.Input[str]] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

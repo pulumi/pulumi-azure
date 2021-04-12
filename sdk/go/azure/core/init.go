@@ -22,25 +22,26 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:core/customProvider:CustomProvider":
-		r, err = NewCustomProvider(ctx, name, nil, pulumi.URN_(urn))
+		r = &CustomProvider{}
 	case "azure:core/resourceGroup:ResourceGroup":
-		r, err = NewResourceGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &ResourceGroup{}
 	case "azure:core/resourceGroupTemplateDeployment:ResourceGroupTemplateDeployment":
-		r, err = NewResourceGroupTemplateDeployment(ctx, name, nil, pulumi.URN_(urn))
+		r = &ResourceGroupTemplateDeployment{}
 	case "azure:core/resourceProviderRegistration:ResourceProviderRegistration":
-		r, err = NewResourceProviderRegistration(ctx, name, nil, pulumi.URN_(urn))
+		r = &ResourceProviderRegistration{}
 	case "azure:core/subscription:Subscription":
-		r, err = NewSubscription(ctx, name, nil, pulumi.URN_(urn))
+		r = &Subscription{}
 	case "azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment":
-		r, err = NewSubscriptionTemplateDeployment(ctx, name, nil, pulumi.URN_(urn))
+		r = &SubscriptionTemplateDeployment{}
 	case "azure:core/templateDeployment:TemplateDeployment":
-		r, err = NewTemplateDeployment(ctx, name, nil, pulumi.URN_(urn))
+		r = &TemplateDeployment{}
 	case "azure:core/tenantTemplateDeployment:TenantTemplateDeployment":
-		r, err = NewTenantTemplateDeployment(ctx, name, nil, pulumi.URN_(urn))
+		r = &TenantTemplateDeployment{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

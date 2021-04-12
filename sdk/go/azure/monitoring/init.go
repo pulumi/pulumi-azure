@@ -22,31 +22,32 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:monitoring/actionGroup:ActionGroup":
-		r, err = NewActionGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &ActionGroup{}
 	case "azure:monitoring/actionRuleActionGroup:ActionRuleActionGroup":
-		r, err = NewActionRuleActionGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &ActionRuleActionGroup{}
 	case "azure:monitoring/actionRuleSuppression:ActionRuleSuppression":
-		r, err = NewActionRuleSuppression(ctx, name, nil, pulumi.URN_(urn))
+		r = &ActionRuleSuppression{}
 	case "azure:monitoring/activityLogAlert:ActivityLogAlert":
-		r, err = NewActivityLogAlert(ctx, name, nil, pulumi.URN_(urn))
+		r = &ActivityLogAlert{}
 	case "azure:monitoring/autoscaleSetting:AutoscaleSetting":
-		r, err = NewAutoscaleSetting(ctx, name, nil, pulumi.URN_(urn))
+		r = &AutoscaleSetting{}
 	case "azure:monitoring/diagnosticSetting:DiagnosticSetting":
-		r, err = NewDiagnosticSetting(ctx, name, nil, pulumi.URN_(urn))
+		r = &DiagnosticSetting{}
 	case "azure:monitoring/logProfile:LogProfile":
-		r, err = NewLogProfile(ctx, name, nil, pulumi.URN_(urn))
+		r = &LogProfile{}
 	case "azure:monitoring/metricAlert:MetricAlert":
-		r, err = NewMetricAlert(ctx, name, nil, pulumi.URN_(urn))
+		r = &MetricAlert{}
 	case "azure:monitoring/scheduledQueryRulesAlert:ScheduledQueryRulesAlert":
-		r, err = NewScheduledQueryRulesAlert(ctx, name, nil, pulumi.URN_(urn))
+		r = &ScheduledQueryRulesAlert{}
 	case "azure:monitoring/scheduledQueryRulesLog:ScheduledQueryRulesLog":
-		r, err = NewScheduledQueryRulesLog(ctx, name, nil, pulumi.URN_(urn))
+		r = &ScheduledQueryRulesLog{}
 	case "azure:monitoring/smartDetectorAlertRule:SmartDetectorAlertRule":
-		r, err = NewSmartDetectorAlertRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &SmartDetectorAlertRule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

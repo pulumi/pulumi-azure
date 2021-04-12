@@ -5,15 +5,148 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['AutoscaleSetting']
+__all__ = ['AutoscaleSettingArgs', 'AutoscaleSetting']
+
+@pulumi.input_type
+class AutoscaleSettingArgs:
+    def __init__(__self__, *,
+                 profiles: pulumi.Input[Sequence[pulumi.Input['AutoscaleSettingProfileArgs']]],
+                 resource_group_name: pulumi.Input[str],
+                 target_resource_id: pulumi.Input[str],
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 notification: Optional[pulumi.Input['AutoscaleSettingNotificationArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The set of arguments for constructing a AutoscaleSetting resource.
+        :param pulumi.Input[Sequence[pulumi.Input['AutoscaleSettingProfileArgs']]] profiles: Specifies one or more (up to 20) `profile` blocks as defined below.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] target_resource_id: Specifies the resource ID of the resource that the autoscale setting should be added to.
+        :param pulumi.Input[bool] enabled: Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the AutoScale Setting. Changing this forces a new resource to be created.
+        :param pulumi.Input['AutoscaleSettingNotificationArgs'] notification: Specifies a `notification` block as defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        pulumi.set(__self__, "profiles", profiles)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "target_resource_id", target_resource_id)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if notification is not None:
+            pulumi.set(__self__, "notification", notification)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def profiles(self) -> pulumi.Input[Sequence[pulumi.Input['AutoscaleSettingProfileArgs']]]:
+        """
+        Specifies one or more (up to 20) `profile` blocks as defined below.
+        """
+        return pulumi.get(self, "profiles")
+
+    @profiles.setter
+    def profiles(self, value: pulumi.Input[Sequence[pulumi.Input['AutoscaleSettingProfileArgs']]]):
+        pulumi.set(self, "profiles", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="targetResourceId")
+    def target_resource_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the resource ID of the resource that the autoscale setting should be added to.
+        """
+        return pulumi.get(self, "target_resource_id")
+
+    @target_resource_id.setter
+    def target_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_resource_id", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the AutoScale Setting. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def notification(self) -> Optional[pulumi.Input['AutoscaleSettingNotificationArgs']]:
+        """
+        Specifies a `notification` block as defined below.
+        """
+        return pulumi.get(self, "notification")
+
+    @notification.setter
+    def notification(self, value: Optional[pulumi.Input['AutoscaleSettingNotificationArgs']]):
+        pulumi.set(self, "notification", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class AutoscaleSetting(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -274,6 +407,273 @@ class AutoscaleSetting(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] target_resource_id: Specifies the resource ID of the resource that the autoscale setting should be added to.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: AutoscaleSettingArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a AutoScale Setting which can be applied to Virtual Machine Scale Sets, App Services and other scalable resources.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_scale_set = azure.compute.ScaleSet("exampleScaleSet")
+        # ...
+        example_autoscale_setting = azure.monitoring.AutoscaleSetting("exampleAutoscaleSetting",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            target_resource_id=example_scale_set.id,
+            profiles=[azure.monitoring.AutoscaleSettingProfileArgs(
+                name="defaultProfile",
+                capacity=azure.monitoring.AutoscaleSettingProfileCapacityArgs(
+                    default=1,
+                    minimum=1,
+                    maximum=10,
+                ),
+                rules=[
+                    azure.monitoring.AutoscaleSettingProfileRuleArgs(
+                        metric_trigger=azure.monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs(
+                            metric_name="Percentage CPU",
+                            metric_resource_id=example_scale_set.id,
+                            time_grain="PT1M",
+                            statistic="Average",
+                            time_window="PT5M",
+                            time_aggregation="Average",
+                            operator="GreaterThan",
+                            threshold=75,
+                            metric_namespace="microsoft.compute/virtualmachinescalesets",
+                            dimensions=[azure.monitoring.AutoscaleSettingProfileRuleMetricTriggerDimensionArgs(
+                                name="AppName",
+                                operator="Equals",
+                                values=["App1"],
+                            )],
+                        ),
+                        scale_action=azure.monitoring.AutoscaleSettingProfileRuleScaleActionArgs(
+                            direction="Increase",
+                            type="ChangeCount",
+                            value=1,
+                            cooldown="PT1M",
+                        ),
+                    ),
+                    azure.monitoring.AutoscaleSettingProfileRuleArgs(
+                        metric_trigger=azure.monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs(
+                            metric_name="Percentage CPU",
+                            metric_resource_id=example_scale_set.id,
+                            time_grain="PT1M",
+                            statistic="Average",
+                            time_window="PT5M",
+                            time_aggregation="Average",
+                            operator="LessThan",
+                            threshold=25,
+                        ),
+                        scale_action=azure.monitoring.AutoscaleSettingProfileRuleScaleActionArgs(
+                            direction="Decrease",
+                            type="ChangeCount",
+                            value=1,
+                            cooldown="PT1M",
+                        ),
+                    ),
+                ],
+            )],
+            notification=azure.monitoring.AutoscaleSettingNotificationArgs(
+                email=azure.monitoring.AutoscaleSettingNotificationEmailArgs(
+                    send_to_subscription_administrator=True,
+                    send_to_subscription_co_administrator=True,
+                    custom_emails=["admin@contoso.com"],
+                ),
+            ))
+        ```
+        ### Repeating On Weekends)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_scale_set = azure.compute.ScaleSet("exampleScaleSet")
+        # ...
+        example_autoscale_setting = azure.monitoring.AutoscaleSetting("exampleAutoscaleSetting",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            target_resource_id=example_scale_set.id,
+            profiles=[azure.monitoring.AutoscaleSettingProfileArgs(
+                name="Weekends",
+                capacity=azure.monitoring.AutoscaleSettingProfileCapacityArgs(
+                    default=1,
+                    minimum=1,
+                    maximum=10,
+                ),
+                rules=[
+                    azure.monitoring.AutoscaleSettingProfileRuleArgs(
+                        metric_trigger=azure.monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs(
+                            metric_name="Percentage CPU",
+                            metric_resource_id=example_scale_set.id,
+                            time_grain="PT1M",
+                            statistic="Average",
+                            time_window="PT5M",
+                            time_aggregation="Average",
+                            operator="GreaterThan",
+                            threshold=90,
+                        ),
+                        scale_action=azure.monitoring.AutoscaleSettingProfileRuleScaleActionArgs(
+                            direction="Increase",
+                            type="ChangeCount",
+                            value=2,
+                            cooldown="PT1M",
+                        ),
+                    ),
+                    azure.monitoring.AutoscaleSettingProfileRuleArgs(
+                        metric_trigger=azure.monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs(
+                            metric_name="Percentage CPU",
+                            metric_resource_id=example_scale_set.id,
+                            time_grain="PT1M",
+                            statistic="Average",
+                            time_window="PT5M",
+                            time_aggregation="Average",
+                            operator="LessThan",
+                            threshold=10,
+                        ),
+                        scale_action=azure.monitoring.AutoscaleSettingProfileRuleScaleActionArgs(
+                            direction="Decrease",
+                            type="ChangeCount",
+                            value=2,
+                            cooldown="PT1M",
+                        ),
+                    ),
+                ],
+                recurrence=azure.monitoring.AutoscaleSettingProfileRecurrenceArgs(
+                    frequency="Week",
+                    timezone="Pacific Standard Time",
+                    days=[
+                        "Saturday",
+                        "Sunday",
+                    ],
+                    hours=[12],
+                    minutes=[0],
+                ),
+            )],
+            notification=azure.monitoring.AutoscaleSettingNotificationArgs(
+                email=azure.monitoring.AutoscaleSettingNotificationEmailArgs(
+                    send_to_subscription_administrator=True,
+                    send_to_subscription_co_administrator=True,
+                    custom_emails=["admin@contoso.com"],
+                ),
+            ))
+        ```
+        ### For Fixed Dates)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_scale_set = azure.compute.ScaleSet("exampleScaleSet")
+        # ...
+        example_autoscale_setting = azure.monitoring.AutoscaleSetting("exampleAutoscaleSetting",
+            enabled=True,
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            target_resource_id=example_scale_set.id,
+            profiles=[azure.monitoring.AutoscaleSettingProfileArgs(
+                name="forJuly",
+                capacity=azure.monitoring.AutoscaleSettingProfileCapacityArgs(
+                    default=1,
+                    minimum=1,
+                    maximum=10,
+                ),
+                rules=[
+                    azure.monitoring.AutoscaleSettingProfileRuleArgs(
+                        metric_trigger=azure.monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs(
+                            metric_name="Percentage CPU",
+                            metric_resource_id=example_scale_set.id,
+                            time_grain="PT1M",
+                            statistic="Average",
+                            time_window="PT5M",
+                            time_aggregation="Average",
+                            operator="GreaterThan",
+                            threshold=90,
+                        ),
+                        scale_action=azure.monitoring.AutoscaleSettingProfileRuleScaleActionArgs(
+                            direction="Increase",
+                            type="ChangeCount",
+                            value=2,
+                            cooldown="PT1M",
+                        ),
+                    ),
+                    azure.monitoring.AutoscaleSettingProfileRuleArgs(
+                        metric_trigger=azure.monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs(
+                            metric_name="Percentage CPU",
+                            metric_resource_id=example_scale_set.id,
+                            time_grain="PT1M",
+                            statistic="Average",
+                            time_window="PT5M",
+                            time_aggregation="Average",
+                            operator="LessThan",
+                            threshold=10,
+                        ),
+                        scale_action=azure.monitoring.AutoscaleSettingProfileRuleScaleActionArgs(
+                            direction="Decrease",
+                            type="ChangeCount",
+                            value=2,
+                            cooldown="PT1M",
+                        ),
+                    ),
+                ],
+                fixed_date=azure.monitoring.AutoscaleSettingProfileFixedDateArgs(
+                    timezone="Pacific Standard Time",
+                    start="2020-07-01T00:00:00Z",
+                    end="2020-07-31T23:59:59Z",
+                ),
+            )],
+            notification=azure.monitoring.AutoscaleSettingNotificationArgs(
+                email=azure.monitoring.AutoscaleSettingNotificationEmailArgs(
+                    send_to_subscription_administrator=True,
+                    send_to_subscription_co_administrator=True,
+                    custom_emails=["admin@contoso.com"],
+                ),
+            ))
+        ```
+
+        ## Import
+
+        AutoScale Setting can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:monitoring/autoscaleSetting:AutoscaleSetting example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/microsoft.insights/autoscalesettings/setting1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param AutoscaleSettingArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(AutoscaleSettingArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 notification: Optional[pulumi.Input[pulumi.InputType['AutoscaleSettingNotificationArgs']]] = None,
+                 profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoscaleSettingProfileArgs']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_resource_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

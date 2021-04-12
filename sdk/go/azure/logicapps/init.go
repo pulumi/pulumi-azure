@@ -22,25 +22,26 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:logicapps/actionCustom:ActionCustom":
-		r, err = NewActionCustom(ctx, name, nil, pulumi.URN_(urn))
+		r = &ActionCustom{}
 	case "azure:logicapps/actionHttp:ActionHttp":
-		r, err = NewActionHttp(ctx, name, nil, pulumi.URN_(urn))
+		r = &ActionHttp{}
 	case "azure:logicapps/integrationAccount:IntegrationAccount":
-		r, err = NewIntegrationAccount(ctx, name, nil, pulumi.URN_(urn))
+		r = &IntegrationAccount{}
 	case "azure:logicapps/interationServiceEnvironment:InterationServiceEnvironment":
-		r, err = NewInterationServiceEnvironment(ctx, name, nil, pulumi.URN_(urn))
+		r = &InterationServiceEnvironment{}
 	case "azure:logicapps/triggerCustom:TriggerCustom":
-		r, err = NewTriggerCustom(ctx, name, nil, pulumi.URN_(urn))
+		r = &TriggerCustom{}
 	case "azure:logicapps/triggerHttpRequest:TriggerHttpRequest":
-		r, err = NewTriggerHttpRequest(ctx, name, nil, pulumi.URN_(urn))
+		r = &TriggerHttpRequest{}
 	case "azure:logicapps/triggerRecurrence:TriggerRecurrence":
-		r, err = NewTriggerRecurrence(ctx, name, nil, pulumi.URN_(urn))
+		r = &TriggerRecurrence{}
 	case "azure:logicapps/workflow:Workflow":
-		r, err = NewWorkflow(ctx, name, nil, pulumi.URN_(urn))
+		r = &Workflow{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

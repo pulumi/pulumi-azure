@@ -5,15 +5,117 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Share']
+__all__ = ['ShareArgs', 'Share']
+
+@pulumi.input_type
+class ShareArgs:
+    def __init__(__self__, *,
+                 account_id: pulumi.Input[str],
+                 kind: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 snapshot_schedule: Optional[pulumi.Input['ShareSnapshotScheduleArgs']] = None,
+                 terms: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Share resource.
+        :param pulumi.Input[str] account_id: The ID of the Data Share account in which the Data Share is created. Changing this forces a new Data Share to be created.
+        :param pulumi.Input[str] kind: The kind of the Data Share. Possible values are `CopyBased` and `InPlace`. Changing this forces a new Data Share to be created.
+        :param pulumi.Input[str] description: The Data Share's description.
+        :param pulumi.Input[str] name: The name which should be used for this Data Share. Changing this forces a new Data Share to be created.
+        :param pulumi.Input['ShareSnapshotScheduleArgs'] snapshot_schedule: A `snapshot_schedule` block as defined below.
+        :param pulumi.Input[str] terms: The terms of the Data Share.
+        """
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "kind", kind)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if snapshot_schedule is not None:
+            pulumi.set(__self__, "snapshot_schedule", snapshot_schedule)
+        if terms is not None:
+            pulumi.set(__self__, "terms", terms)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Data Share account in which the Data Share is created. Changing this forces a new Data Share to be created.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[str]:
+        """
+        The kind of the Data Share. Possible values are `CopyBased` and `InPlace`. Changing this forces a new Data Share to be created.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Data Share's description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Data Share. Changing this forces a new Data Share to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="snapshotSchedule")
+    def snapshot_schedule(self) -> Optional[pulumi.Input['ShareSnapshotScheduleArgs']]:
+        """
+        A `snapshot_schedule` block as defined below.
+        """
+        return pulumi.get(self, "snapshot_schedule")
+
+    @snapshot_schedule.setter
+    def snapshot_schedule(self, value: Optional[pulumi.Input['ShareSnapshotScheduleArgs']]):
+        pulumi.set(self, "snapshot_schedule", value)
+
+    @property
+    @pulumi.getter
+    def terms(self) -> Optional[pulumi.Input[str]]:
+        """
+        The terms of the Data Share.
+        """
+        return pulumi.get(self, "terms")
+
+    @terms.setter
+    def terms(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "terms", value)
 
 
 class Share(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -71,6 +173,72 @@ class Share(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ShareSnapshotScheduleArgs']] snapshot_schedule: A `snapshot_schedule` block as defined below.
         :param pulumi.Input[str] terms: The terms of the Data Share.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ShareArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Data Share.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_account = azure.datashare.Account("exampleAccount",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            tags={
+                "foo": "bar",
+            })
+        example_share = azure.datashare.Share("exampleShare",
+            account_id=example_account.id,
+            kind="CopyBased",
+            description="example desc",
+            terms="example terms",
+            snapshot_schedule=azure.datashare.ShareSnapshotScheduleArgs(
+                name="example-ss",
+                recurrence="Day",
+                start_time="2020-04-17T04:47:52.9614956Z",
+            ))
+        ```
+
+        ## Import
+
+        Data Shares can be imported using the `resource id`, e.g.
+
+        ```sh
+         $ pulumi import azure:datashare/share:Share example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ShareArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ShareArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 snapshot_schedule: Optional[pulumi.Input[pulumi.InputType['ShareSnapshotScheduleArgs']]] = None,
+                 terms: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

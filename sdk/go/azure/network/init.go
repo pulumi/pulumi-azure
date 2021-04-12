@@ -22,129 +22,130 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azure:network/applicationGateway:ApplicationGateway":
-		r, err = NewApplicationGateway(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApplicationGateway{}
 	case "azure:network/applicationSecurityGroup:ApplicationSecurityGroup":
-		r, err = NewApplicationSecurityGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &ApplicationSecurityGroup{}
 	case "azure:network/bgpConnection:BgpConnection":
-		r, err = NewBgpConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &BgpConnection{}
 	case "azure:network/ddosProtectionPlan:DdosProtectionPlan":
-		r, err = NewDdosProtectionPlan(ctx, name, nil, pulumi.URN_(urn))
+		r = &DdosProtectionPlan{}
 	case "azure:network/expressRouteCircuit:ExpressRouteCircuit":
-		r, err = NewExpressRouteCircuit(ctx, name, nil, pulumi.URN_(urn))
+		r = &ExpressRouteCircuit{}
 	case "azure:network/expressRouteCircuitAuthorization:ExpressRouteCircuitAuthorization":
-		r, err = NewExpressRouteCircuitAuthorization(ctx, name, nil, pulumi.URN_(urn))
+		r = &ExpressRouteCircuitAuthorization{}
 	case "azure:network/expressRouteCircuitPeering:ExpressRouteCircuitPeering":
-		r, err = NewExpressRouteCircuitPeering(ctx, name, nil, pulumi.URN_(urn))
+		r = &ExpressRouteCircuitPeering{}
 	case "azure:network/expressRouteGateway:ExpressRouteGateway":
-		r, err = NewExpressRouteGateway(ctx, name, nil, pulumi.URN_(urn))
+		r = &ExpressRouteGateway{}
 	case "azure:network/expressRoutePort:ExpressRoutePort":
-		r, err = NewExpressRoutePort(ctx, name, nil, pulumi.URN_(urn))
+		r = &ExpressRoutePort{}
 	case "azure:network/firewall:Firewall":
-		r, err = NewFirewall(ctx, name, nil, pulumi.URN_(urn))
+		r = &Firewall{}
 	case "azure:network/firewallApplicationRuleCollection:FirewallApplicationRuleCollection":
-		r, err = NewFirewallApplicationRuleCollection(ctx, name, nil, pulumi.URN_(urn))
+		r = &FirewallApplicationRuleCollection{}
 	case "azure:network/firewallNatRuleCollection:FirewallNatRuleCollection":
-		r, err = NewFirewallNatRuleCollection(ctx, name, nil, pulumi.URN_(urn))
+		r = &FirewallNatRuleCollection{}
 	case "azure:network/firewallNetworkRuleCollection:FirewallNetworkRuleCollection":
-		r, err = NewFirewallNetworkRuleCollection(ctx, name, nil, pulumi.URN_(urn))
+		r = &FirewallNetworkRuleCollection{}
 	case "azure:network/firewallPolicy:FirewallPolicy":
-		r, err = NewFirewallPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &FirewallPolicy{}
 	case "azure:network/firewallPolicyRuleCollectionGroup:FirewallPolicyRuleCollectionGroup":
-		r, err = NewFirewallPolicyRuleCollectionGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &FirewallPolicyRuleCollectionGroup{}
 	case "azure:network/iPGroup:IPGroup":
-		r, err = NewIPGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &IPGroup{}
 	case "azure:network/localNetworkGateway:LocalNetworkGateway":
-		r, err = NewLocalNetworkGateway(ctx, name, nil, pulumi.URN_(urn))
+		r = &LocalNetworkGateway{}
 	case "azure:network/natGateway:NatGateway":
-		r, err = NewNatGateway(ctx, name, nil, pulumi.URN_(urn))
+		r = &NatGateway{}
 	case "azure:network/natGatewayPublicIpAssociation:NatGatewayPublicIpAssociation":
-		r, err = NewNatGatewayPublicIpAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &NatGatewayPublicIpAssociation{}
 	case "azure:network/networkConnectionMonitor:NetworkConnectionMonitor":
-		r, err = NewNetworkConnectionMonitor(ctx, name, nil, pulumi.URN_(urn))
+		r = &NetworkConnectionMonitor{}
 	case "azure:network/networkInterface:NetworkInterface":
-		r, err = NewNetworkInterface(ctx, name, nil, pulumi.URN_(urn))
+		r = &NetworkInterface{}
 	case "azure:network/networkInterfaceApplicationGatewayBackendAddressPoolAssociation:NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation":
-		r, err = NewNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation{}
 	case "azure:network/networkInterfaceApplicationSecurityGroupAssociation:NetworkInterfaceApplicationSecurityGroupAssociation":
-		r, err = NewNetworkInterfaceApplicationSecurityGroupAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &NetworkInterfaceApplicationSecurityGroupAssociation{}
 	case "azure:network/networkInterfaceBackendAddressPoolAssociation:NetworkInterfaceBackendAddressPoolAssociation":
-		r, err = NewNetworkInterfaceBackendAddressPoolAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &NetworkInterfaceBackendAddressPoolAssociation{}
 	case "azure:network/networkInterfaceNatRuleAssociation:NetworkInterfaceNatRuleAssociation":
-		r, err = NewNetworkInterfaceNatRuleAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &NetworkInterfaceNatRuleAssociation{}
 	case "azure:network/networkInterfaceSecurityGroupAssociation:NetworkInterfaceSecurityGroupAssociation":
-		r, err = NewNetworkInterfaceSecurityGroupAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &NetworkInterfaceSecurityGroupAssociation{}
 	case "azure:network/networkPacketCapture:NetworkPacketCapture":
-		r, err = NewNetworkPacketCapture(ctx, name, nil, pulumi.URN_(urn))
+		r = &NetworkPacketCapture{}
 	case "azure:network/networkSecurityGroup:NetworkSecurityGroup":
-		r, err = NewNetworkSecurityGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &NetworkSecurityGroup{}
 	case "azure:network/networkSecurityRule:NetworkSecurityRule":
-		r, err = NewNetworkSecurityRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &NetworkSecurityRule{}
 	case "azure:network/networkWatcher:NetworkWatcher":
-		r, err = NewNetworkWatcher(ctx, name, nil, pulumi.URN_(urn))
+		r = &NetworkWatcher{}
 	case "azure:network/networkWatcherFlowLog:NetworkWatcherFlowLog":
-		r, err = NewNetworkWatcherFlowLog(ctx, name, nil, pulumi.URN_(urn))
+		r = &NetworkWatcherFlowLog{}
 	case "azure:network/packetCapture:PacketCapture":
-		r, err = NewPacketCapture(ctx, name, nil, pulumi.URN_(urn))
+		r = &PacketCapture{}
 	case "azure:network/pointToPointVpnGateway:PointToPointVpnGateway":
-		r, err = NewPointToPointVpnGateway(ctx, name, nil, pulumi.URN_(urn))
+		r = &PointToPointVpnGateway{}
 	case "azure:network/profile:Profile":
-		r, err = NewProfile(ctx, name, nil, pulumi.URN_(urn))
+		r = &Profile{}
 	case "azure:network/publicIp:PublicIp":
-		r, err = NewPublicIp(ctx, name, nil, pulumi.URN_(urn))
+		r = &PublicIp{}
 	case "azure:network/publicIpPrefix:PublicIpPrefix":
-		r, err = NewPublicIpPrefix(ctx, name, nil, pulumi.URN_(urn))
+		r = &PublicIpPrefix{}
 	case "azure:network/route:Route":
-		r, err = NewRoute(ctx, name, nil, pulumi.URN_(urn))
+		r = &Route{}
 	case "azure:network/routeFilter:RouteFilter":
-		r, err = NewRouteFilter(ctx, name, nil, pulumi.URN_(urn))
+		r = &RouteFilter{}
 	case "azure:network/routeTable:RouteTable":
-		r, err = NewRouteTable(ctx, name, nil, pulumi.URN_(urn))
+		r = &RouteTable{}
 	case "azure:network/securityPartnerProvider:SecurityPartnerProvider":
-		r, err = NewSecurityPartnerProvider(ctx, name, nil, pulumi.URN_(urn))
+		r = &SecurityPartnerProvider{}
 	case "azure:network/subnet:Subnet":
-		r, err = NewSubnet(ctx, name, nil, pulumi.URN_(urn))
+		r = &Subnet{}
 	case "azure:network/subnetNatGatewayAssociation:SubnetNatGatewayAssociation":
-		r, err = NewSubnetNatGatewayAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &SubnetNatGatewayAssociation{}
 	case "azure:network/subnetNetworkSecurityGroupAssociation:SubnetNetworkSecurityGroupAssociation":
-		r, err = NewSubnetNetworkSecurityGroupAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &SubnetNetworkSecurityGroupAssociation{}
 	case "azure:network/subnetRouteTableAssociation:SubnetRouteTableAssociation":
-		r, err = NewSubnetRouteTableAssociation(ctx, name, nil, pulumi.URN_(urn))
+		r = &SubnetRouteTableAssociation{}
 	case "azure:network/subnetServiceEndpointStoragePolicy:SubnetServiceEndpointStoragePolicy":
-		r, err = NewSubnetServiceEndpointStoragePolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &SubnetServiceEndpointStoragePolicy{}
 	case "azure:network/trafficManagerEndpoint:TrafficManagerEndpoint":
-		r, err = NewTrafficManagerEndpoint(ctx, name, nil, pulumi.URN_(urn))
+		r = &TrafficManagerEndpoint{}
 	case "azure:network/trafficManagerProfile:TrafficManagerProfile":
-		r, err = NewTrafficManagerProfile(ctx, name, nil, pulumi.URN_(urn))
+		r = &TrafficManagerProfile{}
 	case "azure:network/virtualHub:VirtualHub":
-		r, err = NewVirtualHub(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualHub{}
 	case "azure:network/virtualHubConnection:VirtualHubConnection":
-		r, err = NewVirtualHubConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualHubConnection{}
 	case "azure:network/virtualHubIp:VirtualHubIp":
-		r, err = NewVirtualHubIp(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualHubIp{}
 	case "azure:network/virtualHubRouteTable:VirtualHubRouteTable":
-		r, err = NewVirtualHubRouteTable(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualHubRouteTable{}
 	case "azure:network/virtualNetwork:VirtualNetwork":
-		r, err = NewVirtualNetwork(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualNetwork{}
 	case "azure:network/virtualNetworkGateway:VirtualNetworkGateway":
-		r, err = NewVirtualNetworkGateway(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualNetworkGateway{}
 	case "azure:network/virtualNetworkGatewayConnection:VirtualNetworkGatewayConnection":
-		r, err = NewVirtualNetworkGatewayConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualNetworkGatewayConnection{}
 	case "azure:network/virtualNetworkPeering:VirtualNetworkPeering":
-		r, err = NewVirtualNetworkPeering(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualNetworkPeering{}
 	case "azure:network/virtualWan:VirtualWan":
-		r, err = NewVirtualWan(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualWan{}
 	case "azure:network/vpnGateway:VpnGateway":
-		r, err = NewVpnGateway(ctx, name, nil, pulumi.URN_(urn))
+		r = &VpnGateway{}
 	case "azure:network/vpnGatewayConnection:VpnGatewayConnection":
-		r, err = NewVpnGatewayConnection(ctx, name, nil, pulumi.URN_(urn))
+		r = &VpnGatewayConnection{}
 	case "azure:network/vpnServerConfiguration:VpnServerConfiguration":
-		r, err = NewVpnServerConfiguration(ctx, name, nil, pulumi.URN_(urn))
+		r = &VpnServerConfiguration{}
 	case "azure:network/vpnSite:VpnSite":
-		r, err = NewVpnSite(ctx, name, nil, pulumi.URN_(urn))
+		r = &VpnSite{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 
