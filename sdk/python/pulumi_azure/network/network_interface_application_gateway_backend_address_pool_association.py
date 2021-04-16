@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs', 'NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation']
 
@@ -63,6 +63,62 @@ class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs:
         pulumi.set(self, "network_interface_id", value)
 
 
+@pulumi.input_type
+class _NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationState:
+    def __init__(__self__, *,
+                 backend_address_pool_id: Optional[pulumi.Input[str]] = None,
+                 ip_configuration_name: Optional[pulumi.Input[str]] = None,
+                 network_interface_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation resources.
+        :param pulumi.Input[str] backend_address_pool_id: The ID of the Application Gateway's Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] ip_configuration_name: The Name of the IP Configuration within the Network Interface which should be connected to the Backend Address Pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_interface_id: The ID of the Network Interface. Changing this forces a new resource to be created.
+        """
+        if backend_address_pool_id is not None:
+            pulumi.set(__self__, "backend_address_pool_id", backend_address_pool_id)
+        if ip_configuration_name is not None:
+            pulumi.set(__self__, "ip_configuration_name", ip_configuration_name)
+        if network_interface_id is not None:
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
+
+    @property
+    @pulumi.getter(name="backendAddressPoolId")
+    def backend_address_pool_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Application Gateway's Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "backend_address_pool_id")
+
+    @backend_address_pool_id.setter
+    def backend_address_pool_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "backend_address_pool_id", value)
+
+    @property
+    @pulumi.getter(name="ipConfigurationName")
+    def ip_configuration_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Name of the IP Configuration within the Network Interface which should be connected to the Backend Address Pool. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "ip_configuration_name")
+
+    @ip_configuration_name.setter
+    def ip_configuration_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_configuration_name", value)
+
+    @property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Network Interface. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "network_interface_id")
+
+    @network_interface_id.setter
+    def network_interface_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_interface_id", value)
+
+
 class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -71,9 +127,7 @@ class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(pulumi.Cus
                  backend_address_pool_id: Optional[pulumi.Input[str]] = None,
                  ip_configuration_name: Optional[pulumi.Input[str]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages the association between a Network Interface and a Application Gateway's Backend Address Pool.
 
@@ -298,15 +352,7 @@ class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(pulumi.Cus
                  backend_address_pool_id: Optional[pulumi.Input[str]] = None,
                  ip_configuration_name: Optional[pulumi.Input[str]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -316,17 +362,17 @@ class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(pulumi.Cus
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs.__new__(NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs)
 
             if backend_address_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'backend_address_pool_id'")
-            __props__['backend_address_pool_id'] = backend_address_pool_id
+            __props__.__dict__["backend_address_pool_id"] = backend_address_pool_id
             if ip_configuration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'ip_configuration_name'")
-            __props__['ip_configuration_name'] = ip_configuration_name
+            __props__.__dict__["ip_configuration_name"] = ip_configuration_name
             if network_interface_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_interface_id'")
-            __props__['network_interface_id'] = network_interface_id
+            __props__.__dict__["network_interface_id"] = network_interface_id
         super(NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation, __self__).__init__(
             'azure:network/networkInterfaceApplicationGatewayBackendAddressPoolAssociation:NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation',
             resource_name,
@@ -353,11 +399,11 @@ class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(pulumi.Cus
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationState.__new__(_NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationState)
 
-        __props__["backend_address_pool_id"] = backend_address_pool_id
-        __props__["ip_configuration_name"] = ip_configuration_name
-        __props__["network_interface_id"] = network_interface_id
+        __props__.__dict__["backend_address_pool_id"] = backend_address_pool_id
+        __props__.__dict__["ip_configuration_name"] = ip_configuration_name
+        __props__.__dict__["network_interface_id"] = network_interface_id
         return NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -383,10 +429,4 @@ class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(pulumi.Cus
         The ID of the Network Interface. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_interface_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

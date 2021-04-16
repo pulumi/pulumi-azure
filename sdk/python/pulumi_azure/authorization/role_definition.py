@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -115,6 +115,126 @@ class RoleDefinitionArgs:
         pulumi.set(self, "role_definition_id", value)
 
 
+@pulumi.input_type
+class _RoleDefinitionState:
+    def __init__(__self__, *,
+                 assignable_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['RoleDefinitionPermissionArgs']]]] = None,
+                 role_definition_id: Optional[pulumi.Input[str]] = None,
+                 role_definition_resource_id: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering RoleDefinition resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] assignable_scopes: One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
+        :param pulumi.Input[str] description: A description of the Role Definition.
+        :param pulumi.Input[str] name: The name of the Role Definition. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['RoleDefinitionPermissionArgs']]] permissions: A `permissions` block as defined below.
+        :param pulumi.Input[str] role_definition_id: A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] role_definition_resource_id: The Azure Resource Manager ID for the resource.
+        :param pulumi.Input[str] scope: The scope at which the Role Definition applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignable_scopes`. Changing this forces a new resource to be created.
+        """
+        if assignable_scopes is not None:
+            pulumi.set(__self__, "assignable_scopes", assignable_scopes)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
+        if role_definition_id is not None:
+            pulumi.set(__self__, "role_definition_id", role_definition_id)
+        if role_definition_resource_id is not None:
+            pulumi.set(__self__, "role_definition_resource_id", role_definition_resource_id)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+
+    @property
+    @pulumi.getter(name="assignableScopes")
+    def assignable_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
+        """
+        return pulumi.get(self, "assignable_scopes")
+
+    @assignable_scopes.setter
+    def assignable_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "assignable_scopes", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the Role Definition.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Role Definition. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoleDefinitionPermissionArgs']]]]:
+        """
+        A `permissions` block as defined below.
+        """
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoleDefinitionPermissionArgs']]]]):
+        pulumi.set(self, "permissions", value)
+
+    @property
+    @pulumi.getter(name="roleDefinitionId")
+    def role_definition_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "role_definition_id")
+
+    @role_definition_id.setter
+    def role_definition_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_definition_id", value)
+
+    @property
+    @pulumi.getter(name="roleDefinitionResourceId")
+    def role_definition_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Resource Manager ID for the resource.
+        """
+        return pulumi.get(self, "role_definition_resource_id")
+
+    @role_definition_resource_id.setter
+    def role_definition_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_definition_resource_id", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        The scope at which the Role Definition applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignable_scopes`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scope", value)
+
+
 class RoleDefinition(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -126,9 +246,7 @@ class RoleDefinition(pulumi.CustomResource):
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleDefinitionPermissionArgs']]]]] = None,
                  role_definition_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a custom Role Definition, used to assign Roles to Users/Principals. See ['Understand role definitions'](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-definitions) in the Azure documentation for more details.
 
@@ -221,15 +339,7 @@ class RoleDefinition(pulumi.CustomResource):
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleDefinitionPermissionArgs']]]]] = None,
                  role_definition_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -239,17 +349,17 @@ class RoleDefinition(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RoleDefinitionArgs.__new__(RoleDefinitionArgs)
 
-            __props__['assignable_scopes'] = assignable_scopes
-            __props__['description'] = description
-            __props__['name'] = name
-            __props__['permissions'] = permissions
-            __props__['role_definition_id'] = role_definition_id
+            __props__.__dict__["assignable_scopes"] = assignable_scopes
+            __props__.__dict__["description"] = description
+            __props__.__dict__["name"] = name
+            __props__.__dict__["permissions"] = permissions
+            __props__.__dict__["role_definition_id"] = role_definition_id
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
-            __props__['scope'] = scope
-            __props__['role_definition_resource_id'] = None
+            __props__.__dict__["scope"] = scope
+            __props__.__dict__["role_definition_resource_id"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:role/definition:Definition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RoleDefinition, __self__).__init__(
@@ -286,15 +396,15 @@ class RoleDefinition(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _RoleDefinitionState.__new__(_RoleDefinitionState)
 
-        __props__["assignable_scopes"] = assignable_scopes
-        __props__["description"] = description
-        __props__["name"] = name
-        __props__["permissions"] = permissions
-        __props__["role_definition_id"] = role_definition_id
-        __props__["role_definition_resource_id"] = role_definition_resource_id
-        __props__["scope"] = scope
+        __props__.__dict__["assignable_scopes"] = assignable_scopes
+        __props__.__dict__["description"] = description
+        __props__.__dict__["name"] = name
+        __props__.__dict__["permissions"] = permissions
+        __props__.__dict__["role_definition_id"] = role_definition_id
+        __props__.__dict__["role_definition_resource_id"] = role_definition_resource_id
+        __props__.__dict__["scope"] = scope
         return RoleDefinition(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -352,10 +462,4 @@ class RoleDefinition(pulumi.CustomResource):
         The scope at which the Role Definition applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignable_scopes`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "scope")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -2,7 +2,11 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Depend on Pulumi 3.0, which includes improvements to Python resource arguments and key translation, Go SDK performance,
+  Node SDK performance, general availability of Automation API, and more.  
+  **PLEASE NOTE THE FOLLOWING BREAKING CHANGES:**
+  * `azure.redis.Cache` will now allow more than 1 `zone` to be specified.
+  * `azure.network.getGatewayConnection` can now return more than 1 `trafficSelectorPolicy`
 
 ---
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -323,6 +323,832 @@ class AccountArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _AccountState:
+    def __init__(__self__, *,
+                 access_tier: Optional[pulumi.Input[str]] = None,
+                 account_kind: Optional[pulumi.Input[str]] = None,
+                 account_replication_type: Optional[pulumi.Input[str]] = None,
+                 account_tier: Optional[pulumi.Input[str]] = None,
+                 allow_blob_public_access: Optional[pulumi.Input[bool]] = None,
+                 blob_properties: Optional[pulumi.Input['AccountBlobPropertiesArgs']] = None,
+                 custom_domain: Optional[pulumi.Input['AccountCustomDomainArgs']] = None,
+                 enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
+                 identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
+                 is_hns_enabled: Optional[pulumi.Input[bool]] = None,
+                 large_file_share_enabled: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 min_tls_version: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_rules: Optional[pulumi.Input['AccountNetworkRulesArgs']] = None,
+                 primary_access_key: Optional[pulumi.Input[str]] = None,
+                 primary_blob_connection_string: Optional[pulumi.Input[str]] = None,
+                 primary_blob_endpoint: Optional[pulumi.Input[str]] = None,
+                 primary_blob_host: Optional[pulumi.Input[str]] = None,
+                 primary_connection_string: Optional[pulumi.Input[str]] = None,
+                 primary_dfs_endpoint: Optional[pulumi.Input[str]] = None,
+                 primary_dfs_host: Optional[pulumi.Input[str]] = None,
+                 primary_file_endpoint: Optional[pulumi.Input[str]] = None,
+                 primary_file_host: Optional[pulumi.Input[str]] = None,
+                 primary_location: Optional[pulumi.Input[str]] = None,
+                 primary_queue_endpoint: Optional[pulumi.Input[str]] = None,
+                 primary_queue_host: Optional[pulumi.Input[str]] = None,
+                 primary_table_endpoint: Optional[pulumi.Input[str]] = None,
+                 primary_table_host: Optional[pulumi.Input[str]] = None,
+                 primary_web_endpoint: Optional[pulumi.Input[str]] = None,
+                 primary_web_host: Optional[pulumi.Input[str]] = None,
+                 queue_properties: Optional[pulumi.Input['AccountQueuePropertiesArgs']] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 secondary_access_key: Optional[pulumi.Input[str]] = None,
+                 secondary_blob_connection_string: Optional[pulumi.Input[str]] = None,
+                 secondary_blob_endpoint: Optional[pulumi.Input[str]] = None,
+                 secondary_blob_host: Optional[pulumi.Input[str]] = None,
+                 secondary_connection_string: Optional[pulumi.Input[str]] = None,
+                 secondary_dfs_endpoint: Optional[pulumi.Input[str]] = None,
+                 secondary_dfs_host: Optional[pulumi.Input[str]] = None,
+                 secondary_file_endpoint: Optional[pulumi.Input[str]] = None,
+                 secondary_file_host: Optional[pulumi.Input[str]] = None,
+                 secondary_location: Optional[pulumi.Input[str]] = None,
+                 secondary_queue_endpoint: Optional[pulumi.Input[str]] = None,
+                 secondary_queue_host: Optional[pulumi.Input[str]] = None,
+                 secondary_table_endpoint: Optional[pulumi.Input[str]] = None,
+                 secondary_table_host: Optional[pulumi.Input[str]] = None,
+                 secondary_web_endpoint: Optional[pulumi.Input[str]] = None,
+                 secondary_web_host: Optional[pulumi.Input[str]] = None,
+                 static_website: Optional[pulumi.Input['AccountStaticWebsiteArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Account resources.
+        :param pulumi.Input[str] access_tier: Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
+        :param pulumi.Input[str] account_kind: Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+        :param pulumi.Input[str] account_replication_type: Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
+        :param pulumi.Input[str] account_tier: Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] allow_blob_public_access: Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
+        :param pulumi.Input['AccountBlobPropertiesArgs'] blob_properties: A `blob_properties` block as defined below.
+        :param pulumi.Input['AccountCustomDomainArgs'] custom_domain: A `custom_domain` block as documented below.
+        :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
+               for more information. Defaults to `true`.
+        :param pulumi.Input['AccountIdentityArgs'] identity: A `identity` block as defined below.
+        :param pulumi.Input[bool] is_hns_enabled: Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] large_file_share_enabled: Is Large File Share Enabled?
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] min_tls_version: The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
+        :param pulumi.Input[str] name: Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+        :param pulumi.Input['AccountNetworkRulesArgs'] network_rules: A `network_rules` block as documented below.
+        :param pulumi.Input[str] primary_access_key: The primary access key for the storage account.
+        :param pulumi.Input[str] primary_blob_connection_string: The connection string associated with the primary blob location.
+        :param pulumi.Input[str] primary_blob_endpoint: The endpoint URL for blob storage in the primary location.
+        :param pulumi.Input[str] primary_blob_host: The hostname with port if applicable for blob storage in the primary location.
+        :param pulumi.Input[str] primary_connection_string: The connection string associated with the primary location.
+        :param pulumi.Input[str] primary_dfs_endpoint: The endpoint URL for DFS storage in the primary location.
+        :param pulumi.Input[str] primary_dfs_host: The hostname with port if applicable for DFS storage in the primary location.
+        :param pulumi.Input[str] primary_file_endpoint: The endpoint URL for file storage in the primary location.
+        :param pulumi.Input[str] primary_file_host: The hostname with port if applicable for file storage in the primary location.
+        :param pulumi.Input[str] primary_location: The primary location of the storage account.
+        :param pulumi.Input[str] primary_queue_endpoint: The endpoint URL for queue storage in the primary location.
+        :param pulumi.Input[str] primary_queue_host: The hostname with port if applicable for queue storage in the primary location.
+        :param pulumi.Input[str] primary_table_endpoint: The endpoint URL for table storage in the primary location.
+        :param pulumi.Input[str] primary_table_host: The hostname with port if applicable for table storage in the primary location.
+        :param pulumi.Input[str] primary_web_endpoint: The endpoint URL for web storage in the primary location.
+        :param pulumi.Input[str] primary_web_host: The hostname with port if applicable for web storage in the primary location.
+        :param pulumi.Input['AccountQueuePropertiesArgs'] queue_properties: A `queue_properties` block as defined below.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] secondary_access_key: The secondary access key for the storage account.
+        :param pulumi.Input[str] secondary_blob_connection_string: The connection string associated with the secondary blob location.
+        :param pulumi.Input[str] secondary_blob_endpoint: The endpoint URL for blob storage in the secondary location.
+        :param pulumi.Input[str] secondary_blob_host: The hostname with port if applicable for blob storage in the secondary location.
+        :param pulumi.Input[str] secondary_connection_string: The connection string associated with the secondary location.
+        :param pulumi.Input[str] secondary_dfs_endpoint: The endpoint URL for DFS storage in the secondary location.
+        :param pulumi.Input[str] secondary_dfs_host: The hostname with port if applicable for DFS storage in the secondary location.
+        :param pulumi.Input[str] secondary_file_endpoint: The endpoint URL for file storage in the secondary location.
+        :param pulumi.Input[str] secondary_file_host: The hostname with port if applicable for file storage in the secondary location.
+        :param pulumi.Input[str] secondary_location: The secondary location of the storage account.
+        :param pulumi.Input[str] secondary_queue_endpoint: The endpoint URL for queue storage in the secondary location.
+        :param pulumi.Input[str] secondary_queue_host: The hostname with port if applicable for queue storage in the secondary location.
+        :param pulumi.Input[str] secondary_table_endpoint: The endpoint URL for table storage in the secondary location.
+        :param pulumi.Input[str] secondary_table_host: The hostname with port if applicable for table storage in the secondary location.
+        :param pulumi.Input[str] secondary_web_endpoint: The endpoint URL for web storage in the secondary location.
+        :param pulumi.Input[str] secondary_web_host: The hostname with port if applicable for web storage in the secondary location.
+        :param pulumi.Input['AccountStaticWebsiteArgs'] static_website: A `static_website` block as defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        if access_tier is not None:
+            pulumi.set(__self__, "access_tier", access_tier)
+        if account_kind is not None:
+            pulumi.set(__self__, "account_kind", account_kind)
+        if account_replication_type is not None:
+            pulumi.set(__self__, "account_replication_type", account_replication_type)
+        if account_tier is not None:
+            pulumi.set(__self__, "account_tier", account_tier)
+        if allow_blob_public_access is not None:
+            pulumi.set(__self__, "allow_blob_public_access", allow_blob_public_access)
+        if blob_properties is not None:
+            pulumi.set(__self__, "blob_properties", blob_properties)
+        if custom_domain is not None:
+            pulumi.set(__self__, "custom_domain", custom_domain)
+        if enable_https_traffic_only is not None:
+            pulumi.set(__self__, "enable_https_traffic_only", enable_https_traffic_only)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if is_hns_enabled is not None:
+            pulumi.set(__self__, "is_hns_enabled", is_hns_enabled)
+        if large_file_share_enabled is not None:
+            pulumi.set(__self__, "large_file_share_enabled", large_file_share_enabled)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if min_tls_version is not None:
+            pulumi.set(__self__, "min_tls_version", min_tls_version)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if network_rules is not None:
+            pulumi.set(__self__, "network_rules", network_rules)
+        if primary_access_key is not None:
+            pulumi.set(__self__, "primary_access_key", primary_access_key)
+        if primary_blob_connection_string is not None:
+            pulumi.set(__self__, "primary_blob_connection_string", primary_blob_connection_string)
+        if primary_blob_endpoint is not None:
+            pulumi.set(__self__, "primary_blob_endpoint", primary_blob_endpoint)
+        if primary_blob_host is not None:
+            pulumi.set(__self__, "primary_blob_host", primary_blob_host)
+        if primary_connection_string is not None:
+            pulumi.set(__self__, "primary_connection_string", primary_connection_string)
+        if primary_dfs_endpoint is not None:
+            pulumi.set(__self__, "primary_dfs_endpoint", primary_dfs_endpoint)
+        if primary_dfs_host is not None:
+            pulumi.set(__self__, "primary_dfs_host", primary_dfs_host)
+        if primary_file_endpoint is not None:
+            pulumi.set(__self__, "primary_file_endpoint", primary_file_endpoint)
+        if primary_file_host is not None:
+            pulumi.set(__self__, "primary_file_host", primary_file_host)
+        if primary_location is not None:
+            pulumi.set(__self__, "primary_location", primary_location)
+        if primary_queue_endpoint is not None:
+            pulumi.set(__self__, "primary_queue_endpoint", primary_queue_endpoint)
+        if primary_queue_host is not None:
+            pulumi.set(__self__, "primary_queue_host", primary_queue_host)
+        if primary_table_endpoint is not None:
+            pulumi.set(__self__, "primary_table_endpoint", primary_table_endpoint)
+        if primary_table_host is not None:
+            pulumi.set(__self__, "primary_table_host", primary_table_host)
+        if primary_web_endpoint is not None:
+            pulumi.set(__self__, "primary_web_endpoint", primary_web_endpoint)
+        if primary_web_host is not None:
+            pulumi.set(__self__, "primary_web_host", primary_web_host)
+        if queue_properties is not None:
+            pulumi.set(__self__, "queue_properties", queue_properties)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if secondary_access_key is not None:
+            pulumi.set(__self__, "secondary_access_key", secondary_access_key)
+        if secondary_blob_connection_string is not None:
+            pulumi.set(__self__, "secondary_blob_connection_string", secondary_blob_connection_string)
+        if secondary_blob_endpoint is not None:
+            pulumi.set(__self__, "secondary_blob_endpoint", secondary_blob_endpoint)
+        if secondary_blob_host is not None:
+            pulumi.set(__self__, "secondary_blob_host", secondary_blob_host)
+        if secondary_connection_string is not None:
+            pulumi.set(__self__, "secondary_connection_string", secondary_connection_string)
+        if secondary_dfs_endpoint is not None:
+            pulumi.set(__self__, "secondary_dfs_endpoint", secondary_dfs_endpoint)
+        if secondary_dfs_host is not None:
+            pulumi.set(__self__, "secondary_dfs_host", secondary_dfs_host)
+        if secondary_file_endpoint is not None:
+            pulumi.set(__self__, "secondary_file_endpoint", secondary_file_endpoint)
+        if secondary_file_host is not None:
+            pulumi.set(__self__, "secondary_file_host", secondary_file_host)
+        if secondary_location is not None:
+            pulumi.set(__self__, "secondary_location", secondary_location)
+        if secondary_queue_endpoint is not None:
+            pulumi.set(__self__, "secondary_queue_endpoint", secondary_queue_endpoint)
+        if secondary_queue_host is not None:
+            pulumi.set(__self__, "secondary_queue_host", secondary_queue_host)
+        if secondary_table_endpoint is not None:
+            pulumi.set(__self__, "secondary_table_endpoint", secondary_table_endpoint)
+        if secondary_table_host is not None:
+            pulumi.set(__self__, "secondary_table_host", secondary_table_host)
+        if secondary_web_endpoint is not None:
+            pulumi.set(__self__, "secondary_web_endpoint", secondary_web_endpoint)
+        if secondary_web_host is not None:
+            pulumi.set(__self__, "secondary_web_host", secondary_web_host)
+        if static_website is not None:
+            pulumi.set(__self__, "static_website", static_website)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="accessTier")
+    def access_tier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
+        """
+        return pulumi.get(self, "access_tier")
+
+    @access_tier.setter
+    def access_tier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_tier", value)
+
+    @property
+    @pulumi.getter(name="accountKind")
+    def account_kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
+        """
+        return pulumi.get(self, "account_kind")
+
+    @account_kind.setter
+    def account_kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_kind", value)
+
+    @property
+    @pulumi.getter(name="accountReplicationType")
+    def account_replication_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
+        """
+        return pulumi.get(self, "account_replication_type")
+
+    @account_replication_type.setter
+    def account_replication_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_replication_type", value)
+
+    @property
+    @pulumi.getter(name="accountTier")
+    def account_tier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "account_tier")
+
+    @account_tier.setter
+    def account_tier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_tier", value)
+
+    @property
+    @pulumi.getter(name="allowBlobPublicAccess")
+    def allow_blob_public_access(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
+        """
+        return pulumi.get(self, "allow_blob_public_access")
+
+    @allow_blob_public_access.setter
+    def allow_blob_public_access(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_blob_public_access", value)
+
+    @property
+    @pulumi.getter(name="blobProperties")
+    def blob_properties(self) -> Optional[pulumi.Input['AccountBlobPropertiesArgs']]:
+        """
+        A `blob_properties` block as defined below.
+        """
+        return pulumi.get(self, "blob_properties")
+
+    @blob_properties.setter
+    def blob_properties(self, value: Optional[pulumi.Input['AccountBlobPropertiesArgs']]):
+        pulumi.set(self, "blob_properties", value)
+
+    @property
+    @pulumi.getter(name="customDomain")
+    def custom_domain(self) -> Optional[pulumi.Input['AccountCustomDomainArgs']]:
+        """
+        A `custom_domain` block as documented below.
+        """
+        return pulumi.get(self, "custom_domain")
+
+    @custom_domain.setter
+    def custom_domain(self, value: Optional[pulumi.Input['AccountCustomDomainArgs']]):
+        pulumi.set(self, "custom_domain", value)
+
+    @property
+    @pulumi.getter(name="enableHttpsTrafficOnly")
+    def enable_https_traffic_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
+        for more information. Defaults to `true`.
+        """
+        return pulumi.get(self, "enable_https_traffic_only")
+
+    @enable_https_traffic_only.setter
+    def enable_https_traffic_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_https_traffic_only", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['AccountIdentityArgs']]:
+        """
+        A `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['AccountIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="isHnsEnabled")
+    def is_hns_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "is_hns_enabled")
+
+    @is_hns_enabled.setter
+    def is_hns_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_hns_enabled", value)
+
+    @property
+    @pulumi.getter(name="largeFileShareEnabled")
+    def large_file_share_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Large File Share Enabled?
+        """
+        return pulumi.get(self, "large_file_share_enabled")
+
+    @large_file_share_enabled.setter
+    def large_file_share_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "large_file_share_enabled", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="minTlsVersion")
+    def min_tls_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
+        """
+        return pulumi.get(self, "min_tls_version")
+
+    @min_tls_version.setter
+    def min_tls_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "min_tls_version", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="networkRules")
+    def network_rules(self) -> Optional[pulumi.Input['AccountNetworkRulesArgs']]:
+        """
+        A `network_rules` block as documented below.
+        """
+        return pulumi.get(self, "network_rules")
+
+    @network_rules.setter
+    def network_rules(self, value: Optional[pulumi.Input['AccountNetworkRulesArgs']]):
+        pulumi.set(self, "network_rules", value)
+
+    @property
+    @pulumi.getter(name="primaryAccessKey")
+    def primary_access_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The primary access key for the storage account.
+        """
+        return pulumi.get(self, "primary_access_key")
+
+    @primary_access_key.setter
+    def primary_access_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_access_key", value)
+
+    @property
+    @pulumi.getter(name="primaryBlobConnectionString")
+    def primary_blob_connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The connection string associated with the primary blob location.
+        """
+        return pulumi.get(self, "primary_blob_connection_string")
+
+    @primary_blob_connection_string.setter
+    def primary_blob_connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_blob_connection_string", value)
+
+    @property
+    @pulumi.getter(name="primaryBlobEndpoint")
+    def primary_blob_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint URL for blob storage in the primary location.
+        """
+        return pulumi.get(self, "primary_blob_endpoint")
+
+    @primary_blob_endpoint.setter
+    def primary_blob_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_blob_endpoint", value)
+
+    @property
+    @pulumi.getter(name="primaryBlobHost")
+    def primary_blob_host(self) -> Optional[pulumi.Input[str]]:
+        """
+        The hostname with port if applicable for blob storage in the primary location.
+        """
+        return pulumi.get(self, "primary_blob_host")
+
+    @primary_blob_host.setter
+    def primary_blob_host(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_blob_host", value)
+
+    @property
+    @pulumi.getter(name="primaryConnectionString")
+    def primary_connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The connection string associated with the primary location.
+        """
+        return pulumi.get(self, "primary_connection_string")
+
+    @primary_connection_string.setter
+    def primary_connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_connection_string", value)
+
+    @property
+    @pulumi.getter(name="primaryDfsEndpoint")
+    def primary_dfs_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint URL for DFS storage in the primary location.
+        """
+        return pulumi.get(self, "primary_dfs_endpoint")
+
+    @primary_dfs_endpoint.setter
+    def primary_dfs_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_dfs_endpoint", value)
+
+    @property
+    @pulumi.getter(name="primaryDfsHost")
+    def primary_dfs_host(self) -> Optional[pulumi.Input[str]]:
+        """
+        The hostname with port if applicable for DFS storage in the primary location.
+        """
+        return pulumi.get(self, "primary_dfs_host")
+
+    @primary_dfs_host.setter
+    def primary_dfs_host(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_dfs_host", value)
+
+    @property
+    @pulumi.getter(name="primaryFileEndpoint")
+    def primary_file_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint URL for file storage in the primary location.
+        """
+        return pulumi.get(self, "primary_file_endpoint")
+
+    @primary_file_endpoint.setter
+    def primary_file_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_file_endpoint", value)
+
+    @property
+    @pulumi.getter(name="primaryFileHost")
+    def primary_file_host(self) -> Optional[pulumi.Input[str]]:
+        """
+        The hostname with port if applicable for file storage in the primary location.
+        """
+        return pulumi.get(self, "primary_file_host")
+
+    @primary_file_host.setter
+    def primary_file_host(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_file_host", value)
+
+    @property
+    @pulumi.getter(name="primaryLocation")
+    def primary_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The primary location of the storage account.
+        """
+        return pulumi.get(self, "primary_location")
+
+    @primary_location.setter
+    def primary_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_location", value)
+
+    @property
+    @pulumi.getter(name="primaryQueueEndpoint")
+    def primary_queue_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint URL for queue storage in the primary location.
+        """
+        return pulumi.get(self, "primary_queue_endpoint")
+
+    @primary_queue_endpoint.setter
+    def primary_queue_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_queue_endpoint", value)
+
+    @property
+    @pulumi.getter(name="primaryQueueHost")
+    def primary_queue_host(self) -> Optional[pulumi.Input[str]]:
+        """
+        The hostname with port if applicable for queue storage in the primary location.
+        """
+        return pulumi.get(self, "primary_queue_host")
+
+    @primary_queue_host.setter
+    def primary_queue_host(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_queue_host", value)
+
+    @property
+    @pulumi.getter(name="primaryTableEndpoint")
+    def primary_table_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint URL for table storage in the primary location.
+        """
+        return pulumi.get(self, "primary_table_endpoint")
+
+    @primary_table_endpoint.setter
+    def primary_table_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_table_endpoint", value)
+
+    @property
+    @pulumi.getter(name="primaryTableHost")
+    def primary_table_host(self) -> Optional[pulumi.Input[str]]:
+        """
+        The hostname with port if applicable for table storage in the primary location.
+        """
+        return pulumi.get(self, "primary_table_host")
+
+    @primary_table_host.setter
+    def primary_table_host(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_table_host", value)
+
+    @property
+    @pulumi.getter(name="primaryWebEndpoint")
+    def primary_web_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint URL for web storage in the primary location.
+        """
+        return pulumi.get(self, "primary_web_endpoint")
+
+    @primary_web_endpoint.setter
+    def primary_web_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_web_endpoint", value)
+
+    @property
+    @pulumi.getter(name="primaryWebHost")
+    def primary_web_host(self) -> Optional[pulumi.Input[str]]:
+        """
+        The hostname with port if applicable for web storage in the primary location.
+        """
+        return pulumi.get(self, "primary_web_host")
+
+    @primary_web_host.setter
+    def primary_web_host(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_web_host", value)
+
+    @property
+    @pulumi.getter(name="queueProperties")
+    def queue_properties(self) -> Optional[pulumi.Input['AccountQueuePropertiesArgs']]:
+        """
+        A `queue_properties` block as defined below.
+        """
+        return pulumi.get(self, "queue_properties")
+
+    @queue_properties.setter
+    def queue_properties(self, value: Optional[pulumi.Input['AccountQueuePropertiesArgs']]):
+        pulumi.set(self, "queue_properties", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="secondaryAccessKey")
+    def secondary_access_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The secondary access key for the storage account.
+        """
+        return pulumi.get(self, "secondary_access_key")
+
+    @secondary_access_key.setter
+    def secondary_access_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_access_key", value)
+
+    @property
+    @pulumi.getter(name="secondaryBlobConnectionString")
+    def secondary_blob_connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The connection string associated with the secondary blob location.
+        """
+        return pulumi.get(self, "secondary_blob_connection_string")
+
+    @secondary_blob_connection_string.setter
+    def secondary_blob_connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_blob_connection_string", value)
+
+    @property
+    @pulumi.getter(name="secondaryBlobEndpoint")
+    def secondary_blob_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint URL for blob storage in the secondary location.
+        """
+        return pulumi.get(self, "secondary_blob_endpoint")
+
+    @secondary_blob_endpoint.setter
+    def secondary_blob_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_blob_endpoint", value)
+
+    @property
+    @pulumi.getter(name="secondaryBlobHost")
+    def secondary_blob_host(self) -> Optional[pulumi.Input[str]]:
+        """
+        The hostname with port if applicable for blob storage in the secondary location.
+        """
+        return pulumi.get(self, "secondary_blob_host")
+
+    @secondary_blob_host.setter
+    def secondary_blob_host(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_blob_host", value)
+
+    @property
+    @pulumi.getter(name="secondaryConnectionString")
+    def secondary_connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The connection string associated with the secondary location.
+        """
+        return pulumi.get(self, "secondary_connection_string")
+
+    @secondary_connection_string.setter
+    def secondary_connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_connection_string", value)
+
+    @property
+    @pulumi.getter(name="secondaryDfsEndpoint")
+    def secondary_dfs_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint URL for DFS storage in the secondary location.
+        """
+        return pulumi.get(self, "secondary_dfs_endpoint")
+
+    @secondary_dfs_endpoint.setter
+    def secondary_dfs_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_dfs_endpoint", value)
+
+    @property
+    @pulumi.getter(name="secondaryDfsHost")
+    def secondary_dfs_host(self) -> Optional[pulumi.Input[str]]:
+        """
+        The hostname with port if applicable for DFS storage in the secondary location.
+        """
+        return pulumi.get(self, "secondary_dfs_host")
+
+    @secondary_dfs_host.setter
+    def secondary_dfs_host(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_dfs_host", value)
+
+    @property
+    @pulumi.getter(name="secondaryFileEndpoint")
+    def secondary_file_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint URL for file storage in the secondary location.
+        """
+        return pulumi.get(self, "secondary_file_endpoint")
+
+    @secondary_file_endpoint.setter
+    def secondary_file_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_file_endpoint", value)
+
+    @property
+    @pulumi.getter(name="secondaryFileHost")
+    def secondary_file_host(self) -> Optional[pulumi.Input[str]]:
+        """
+        The hostname with port if applicable for file storage in the secondary location.
+        """
+        return pulumi.get(self, "secondary_file_host")
+
+    @secondary_file_host.setter
+    def secondary_file_host(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_file_host", value)
+
+    @property
+    @pulumi.getter(name="secondaryLocation")
+    def secondary_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The secondary location of the storage account.
+        """
+        return pulumi.get(self, "secondary_location")
+
+    @secondary_location.setter
+    def secondary_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_location", value)
+
+    @property
+    @pulumi.getter(name="secondaryQueueEndpoint")
+    def secondary_queue_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint URL for queue storage in the secondary location.
+        """
+        return pulumi.get(self, "secondary_queue_endpoint")
+
+    @secondary_queue_endpoint.setter
+    def secondary_queue_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_queue_endpoint", value)
+
+    @property
+    @pulumi.getter(name="secondaryQueueHost")
+    def secondary_queue_host(self) -> Optional[pulumi.Input[str]]:
+        """
+        The hostname with port if applicable for queue storage in the secondary location.
+        """
+        return pulumi.get(self, "secondary_queue_host")
+
+    @secondary_queue_host.setter
+    def secondary_queue_host(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_queue_host", value)
+
+    @property
+    @pulumi.getter(name="secondaryTableEndpoint")
+    def secondary_table_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint URL for table storage in the secondary location.
+        """
+        return pulumi.get(self, "secondary_table_endpoint")
+
+    @secondary_table_endpoint.setter
+    def secondary_table_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_table_endpoint", value)
+
+    @property
+    @pulumi.getter(name="secondaryTableHost")
+    def secondary_table_host(self) -> Optional[pulumi.Input[str]]:
+        """
+        The hostname with port if applicable for table storage in the secondary location.
+        """
+        return pulumi.get(self, "secondary_table_host")
+
+    @secondary_table_host.setter
+    def secondary_table_host(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_table_host", value)
+
+    @property
+    @pulumi.getter(name="secondaryWebEndpoint")
+    def secondary_web_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint URL for web storage in the secondary location.
+        """
+        return pulumi.get(self, "secondary_web_endpoint")
+
+    @secondary_web_endpoint.setter
+    def secondary_web_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_web_endpoint", value)
+
+    @property
+    @pulumi.getter(name="secondaryWebHost")
+    def secondary_web_host(self) -> Optional[pulumi.Input[str]]:
+        """
+        The hostname with port if applicable for web storage in the secondary location.
+        """
+        return pulumi.get(self, "secondary_web_host")
+
+    @secondary_web_host.setter
+    def secondary_web_host(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_web_host", value)
+
+    @property
+    @pulumi.getter(name="staticWebsite")
+    def static_website(self) -> Optional[pulumi.Input['AccountStaticWebsiteArgs']]:
+        """
+        A `static_website` block as defined below.
+        """
+        return pulumi.get(self, "static_website")
+
+    @static_website.setter
+    def static_website(self, value: Optional[pulumi.Input['AccountStaticWebsiteArgs']]):
+        pulumi.set(self, "static_website", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
 class Account(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -347,9 +1173,7 @@ class Account(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  static_website: Optional[pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages an Azure Storage Account.
 
@@ -535,15 +1359,7 @@ class Account(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  static_website: Optional[pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -553,65 +1369,65 @@ class Account(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AccountArgs.__new__(AccountArgs)
 
-            __props__['access_tier'] = access_tier
-            __props__['account_kind'] = account_kind
+            __props__.__dict__["access_tier"] = access_tier
+            __props__.__dict__["account_kind"] = account_kind
             if account_replication_type is None and not opts.urn:
                 raise TypeError("Missing required property 'account_replication_type'")
-            __props__['account_replication_type'] = account_replication_type
+            __props__.__dict__["account_replication_type"] = account_replication_type
             if account_tier is None and not opts.urn:
                 raise TypeError("Missing required property 'account_tier'")
-            __props__['account_tier'] = account_tier
-            __props__['allow_blob_public_access'] = allow_blob_public_access
-            __props__['blob_properties'] = blob_properties
-            __props__['custom_domain'] = custom_domain
-            __props__['enable_https_traffic_only'] = enable_https_traffic_only
-            __props__['identity'] = identity
-            __props__['is_hns_enabled'] = is_hns_enabled
-            __props__['large_file_share_enabled'] = large_file_share_enabled
-            __props__['location'] = location
-            __props__['min_tls_version'] = min_tls_version
-            __props__['name'] = name
-            __props__['network_rules'] = network_rules
-            __props__['queue_properties'] = queue_properties
+            __props__.__dict__["account_tier"] = account_tier
+            __props__.__dict__["allow_blob_public_access"] = allow_blob_public_access
+            __props__.__dict__["blob_properties"] = blob_properties
+            __props__.__dict__["custom_domain"] = custom_domain
+            __props__.__dict__["enable_https_traffic_only"] = enable_https_traffic_only
+            __props__.__dict__["identity"] = identity
+            __props__.__dict__["is_hns_enabled"] = is_hns_enabled
+            __props__.__dict__["large_file_share_enabled"] = large_file_share_enabled
+            __props__.__dict__["location"] = location
+            __props__.__dict__["min_tls_version"] = min_tls_version
+            __props__.__dict__["name"] = name
+            __props__.__dict__["network_rules"] = network_rules
+            __props__.__dict__["queue_properties"] = queue_properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['static_website'] = static_website
-            __props__['tags'] = tags
-            __props__['primary_access_key'] = None
-            __props__['primary_blob_connection_string'] = None
-            __props__['primary_blob_endpoint'] = None
-            __props__['primary_blob_host'] = None
-            __props__['primary_connection_string'] = None
-            __props__['primary_dfs_endpoint'] = None
-            __props__['primary_dfs_host'] = None
-            __props__['primary_file_endpoint'] = None
-            __props__['primary_file_host'] = None
-            __props__['primary_location'] = None
-            __props__['primary_queue_endpoint'] = None
-            __props__['primary_queue_host'] = None
-            __props__['primary_table_endpoint'] = None
-            __props__['primary_table_host'] = None
-            __props__['primary_web_endpoint'] = None
-            __props__['primary_web_host'] = None
-            __props__['secondary_access_key'] = None
-            __props__['secondary_blob_connection_string'] = None
-            __props__['secondary_blob_endpoint'] = None
-            __props__['secondary_blob_host'] = None
-            __props__['secondary_connection_string'] = None
-            __props__['secondary_dfs_endpoint'] = None
-            __props__['secondary_dfs_host'] = None
-            __props__['secondary_file_endpoint'] = None
-            __props__['secondary_file_host'] = None
-            __props__['secondary_location'] = None
-            __props__['secondary_queue_endpoint'] = None
-            __props__['secondary_queue_host'] = None
-            __props__['secondary_table_endpoint'] = None
-            __props__['secondary_table_host'] = None
-            __props__['secondary_web_endpoint'] = None
-            __props__['secondary_web_host'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["static_website"] = static_website
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["primary_access_key"] = None
+            __props__.__dict__["primary_blob_connection_string"] = None
+            __props__.__dict__["primary_blob_endpoint"] = None
+            __props__.__dict__["primary_blob_host"] = None
+            __props__.__dict__["primary_connection_string"] = None
+            __props__.__dict__["primary_dfs_endpoint"] = None
+            __props__.__dict__["primary_dfs_host"] = None
+            __props__.__dict__["primary_file_endpoint"] = None
+            __props__.__dict__["primary_file_host"] = None
+            __props__.__dict__["primary_location"] = None
+            __props__.__dict__["primary_queue_endpoint"] = None
+            __props__.__dict__["primary_queue_host"] = None
+            __props__.__dict__["primary_table_endpoint"] = None
+            __props__.__dict__["primary_table_host"] = None
+            __props__.__dict__["primary_web_endpoint"] = None
+            __props__.__dict__["primary_web_host"] = None
+            __props__.__dict__["secondary_access_key"] = None
+            __props__.__dict__["secondary_blob_connection_string"] = None
+            __props__.__dict__["secondary_blob_endpoint"] = None
+            __props__.__dict__["secondary_blob_host"] = None
+            __props__.__dict__["secondary_connection_string"] = None
+            __props__.__dict__["secondary_dfs_endpoint"] = None
+            __props__.__dict__["secondary_dfs_host"] = None
+            __props__.__dict__["secondary_file_endpoint"] = None
+            __props__.__dict__["secondary_file_host"] = None
+            __props__.__dict__["secondary_location"] = None
+            __props__.__dict__["secondary_queue_endpoint"] = None
+            __props__.__dict__["secondary_queue_host"] = None
+            __props__.__dict__["secondary_table_endpoint"] = None
+            __props__.__dict__["secondary_table_host"] = None
+            __props__.__dict__["secondary_web_endpoint"] = None
+            __props__.__dict__["secondary_web_host"] = None
         super(Account, __self__).__init__(
             'azure:storage/account:Account',
             resource_name,
@@ -735,59 +1551,59 @@ class Account(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AccountState.__new__(_AccountState)
 
-        __props__["access_tier"] = access_tier
-        __props__["account_kind"] = account_kind
-        __props__["account_replication_type"] = account_replication_type
-        __props__["account_tier"] = account_tier
-        __props__["allow_blob_public_access"] = allow_blob_public_access
-        __props__["blob_properties"] = blob_properties
-        __props__["custom_domain"] = custom_domain
-        __props__["enable_https_traffic_only"] = enable_https_traffic_only
-        __props__["identity"] = identity
-        __props__["is_hns_enabled"] = is_hns_enabled
-        __props__["large_file_share_enabled"] = large_file_share_enabled
-        __props__["location"] = location
-        __props__["min_tls_version"] = min_tls_version
-        __props__["name"] = name
-        __props__["network_rules"] = network_rules
-        __props__["primary_access_key"] = primary_access_key
-        __props__["primary_blob_connection_string"] = primary_blob_connection_string
-        __props__["primary_blob_endpoint"] = primary_blob_endpoint
-        __props__["primary_blob_host"] = primary_blob_host
-        __props__["primary_connection_string"] = primary_connection_string
-        __props__["primary_dfs_endpoint"] = primary_dfs_endpoint
-        __props__["primary_dfs_host"] = primary_dfs_host
-        __props__["primary_file_endpoint"] = primary_file_endpoint
-        __props__["primary_file_host"] = primary_file_host
-        __props__["primary_location"] = primary_location
-        __props__["primary_queue_endpoint"] = primary_queue_endpoint
-        __props__["primary_queue_host"] = primary_queue_host
-        __props__["primary_table_endpoint"] = primary_table_endpoint
-        __props__["primary_table_host"] = primary_table_host
-        __props__["primary_web_endpoint"] = primary_web_endpoint
-        __props__["primary_web_host"] = primary_web_host
-        __props__["queue_properties"] = queue_properties
-        __props__["resource_group_name"] = resource_group_name
-        __props__["secondary_access_key"] = secondary_access_key
-        __props__["secondary_blob_connection_string"] = secondary_blob_connection_string
-        __props__["secondary_blob_endpoint"] = secondary_blob_endpoint
-        __props__["secondary_blob_host"] = secondary_blob_host
-        __props__["secondary_connection_string"] = secondary_connection_string
-        __props__["secondary_dfs_endpoint"] = secondary_dfs_endpoint
-        __props__["secondary_dfs_host"] = secondary_dfs_host
-        __props__["secondary_file_endpoint"] = secondary_file_endpoint
-        __props__["secondary_file_host"] = secondary_file_host
-        __props__["secondary_location"] = secondary_location
-        __props__["secondary_queue_endpoint"] = secondary_queue_endpoint
-        __props__["secondary_queue_host"] = secondary_queue_host
-        __props__["secondary_table_endpoint"] = secondary_table_endpoint
-        __props__["secondary_table_host"] = secondary_table_host
-        __props__["secondary_web_endpoint"] = secondary_web_endpoint
-        __props__["secondary_web_host"] = secondary_web_host
-        __props__["static_website"] = static_website
-        __props__["tags"] = tags
+        __props__.__dict__["access_tier"] = access_tier
+        __props__.__dict__["account_kind"] = account_kind
+        __props__.__dict__["account_replication_type"] = account_replication_type
+        __props__.__dict__["account_tier"] = account_tier
+        __props__.__dict__["allow_blob_public_access"] = allow_blob_public_access
+        __props__.__dict__["blob_properties"] = blob_properties
+        __props__.__dict__["custom_domain"] = custom_domain
+        __props__.__dict__["enable_https_traffic_only"] = enable_https_traffic_only
+        __props__.__dict__["identity"] = identity
+        __props__.__dict__["is_hns_enabled"] = is_hns_enabled
+        __props__.__dict__["large_file_share_enabled"] = large_file_share_enabled
+        __props__.__dict__["location"] = location
+        __props__.__dict__["min_tls_version"] = min_tls_version
+        __props__.__dict__["name"] = name
+        __props__.__dict__["network_rules"] = network_rules
+        __props__.__dict__["primary_access_key"] = primary_access_key
+        __props__.__dict__["primary_blob_connection_string"] = primary_blob_connection_string
+        __props__.__dict__["primary_blob_endpoint"] = primary_blob_endpoint
+        __props__.__dict__["primary_blob_host"] = primary_blob_host
+        __props__.__dict__["primary_connection_string"] = primary_connection_string
+        __props__.__dict__["primary_dfs_endpoint"] = primary_dfs_endpoint
+        __props__.__dict__["primary_dfs_host"] = primary_dfs_host
+        __props__.__dict__["primary_file_endpoint"] = primary_file_endpoint
+        __props__.__dict__["primary_file_host"] = primary_file_host
+        __props__.__dict__["primary_location"] = primary_location
+        __props__.__dict__["primary_queue_endpoint"] = primary_queue_endpoint
+        __props__.__dict__["primary_queue_host"] = primary_queue_host
+        __props__.__dict__["primary_table_endpoint"] = primary_table_endpoint
+        __props__.__dict__["primary_table_host"] = primary_table_host
+        __props__.__dict__["primary_web_endpoint"] = primary_web_endpoint
+        __props__.__dict__["primary_web_host"] = primary_web_host
+        __props__.__dict__["queue_properties"] = queue_properties
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["secondary_access_key"] = secondary_access_key
+        __props__.__dict__["secondary_blob_connection_string"] = secondary_blob_connection_string
+        __props__.__dict__["secondary_blob_endpoint"] = secondary_blob_endpoint
+        __props__.__dict__["secondary_blob_host"] = secondary_blob_host
+        __props__.__dict__["secondary_connection_string"] = secondary_connection_string
+        __props__.__dict__["secondary_dfs_endpoint"] = secondary_dfs_endpoint
+        __props__.__dict__["secondary_dfs_host"] = secondary_dfs_host
+        __props__.__dict__["secondary_file_endpoint"] = secondary_file_endpoint
+        __props__.__dict__["secondary_file_host"] = secondary_file_host
+        __props__.__dict__["secondary_location"] = secondary_location
+        __props__.__dict__["secondary_queue_endpoint"] = secondary_queue_endpoint
+        __props__.__dict__["secondary_queue_host"] = secondary_queue_host
+        __props__.__dict__["secondary_table_endpoint"] = secondary_table_endpoint
+        __props__.__dict__["secondary_table_host"] = secondary_table_host
+        __props__.__dict__["secondary_web_endpoint"] = secondary_web_endpoint
+        __props__.__dict__["secondary_web_host"] = secondary_web_host
+        __props__.__dict__["static_website"] = static_website
+        __props__.__dict__["tags"] = tags
         return Account(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1198,10 +2014,4 @@ class Account(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

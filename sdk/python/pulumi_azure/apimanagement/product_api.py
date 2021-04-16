@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ProductApiArgs', 'ProductApi']
 
@@ -78,6 +78,78 @@ class ProductApiArgs:
         pulumi.set(self, "resource_group_name", value)
 
 
+@pulumi.input_type
+class _ProductApiState:
+    def __init__(__self__, *,
+                 api_management_name: Optional[pulumi.Input[str]] = None,
+                 api_name: Optional[pulumi.Input[str]] = None,
+                 product_id: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ProductApi resources.
+        :param pulumi.Input[str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] api_name: The Name of the API Management API within the API Management Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] product_id: The ID of the API Management Product within the API Management Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
+        """
+        if api_management_name is not None:
+            pulumi.set(__self__, "api_management_name", api_management_name)
+        if api_name is not None:
+            pulumi.set(__self__, "api_name", api_name)
+        if product_id is not None:
+            pulumi.set(__self__, "product_id", product_id)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+
+    @property
+    @pulumi.getter(name="apiManagementName")
+    def api_management_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the API Management Service. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "api_management_name")
+
+    @api_management_name.setter
+    def api_management_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_management_name", value)
+
+    @property
+    @pulumi.getter(name="apiName")
+    def api_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Name of the API Management API within the API Management Service. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "api_name")
+
+    @api_name.setter
+    def api_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_name", value)
+
+    @property
+    @pulumi.getter(name="productId")
+    def product_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the API Management Product within the API Management Service. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "product_id")
+
+    @product_id.setter
+    def product_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "product_id", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+
 class ProductApi(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -87,9 +159,7 @@ class ProductApi(pulumi.CustomResource):
                  api_name: Optional[pulumi.Input[str]] = None,
                  product_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages an API Management API Assignment to a Product.
 
@@ -188,15 +258,7 @@ class ProductApi(pulumi.CustomResource):
                  api_name: Optional[pulumi.Input[str]] = None,
                  product_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -206,20 +268,20 @@ class ProductApi(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ProductApiArgs.__new__(ProductApiArgs)
 
             if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
-            __props__['api_management_name'] = api_management_name
+            __props__.__dict__["api_management_name"] = api_management_name
             if api_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_name'")
-            __props__['api_name'] = api_name
+            __props__.__dict__["api_name"] = api_name
             if product_id is None and not opts.urn:
                 raise TypeError("Missing required property 'product_id'")
-            __props__['product_id'] = product_id
+            __props__.__dict__["product_id"] = product_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
         super(ProductApi, __self__).__init__(
             'azure:apimanagement/productApi:ProductApi',
             resource_name,
@@ -248,12 +310,12 @@ class ProductApi(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ProductApiState.__new__(_ProductApiState)
 
-        __props__["api_management_name"] = api_management_name
-        __props__["api_name"] = api_name
-        __props__["product_id"] = product_id
-        __props__["resource_group_name"] = resource_group_name
+        __props__.__dict__["api_management_name"] = api_management_name
+        __props__.__dict__["api_name"] = api_name
+        __props__.__dict__["product_id"] = product_id
+        __props__.__dict__["resource_group_name"] = resource_group_name
         return ProductApi(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -287,10 +349,4 @@ class ProductApi(pulumi.CustomResource):
         The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

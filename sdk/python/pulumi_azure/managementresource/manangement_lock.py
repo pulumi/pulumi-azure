@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ManangementLockArgs', 'ManangementLock']
 
@@ -80,6 +80,78 @@ class ManangementLockArgs:
         pulumi.set(self, "notes", value)
 
 
+@pulumi.input_type
+class _ManangementLockState:
+    def __init__(__self__, *,
+                 lock_level: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 notes: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ManangementLock resources.
+        :param pulumi.Input[str] lock_level: Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Management Lock. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] notes: Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] scope: Specifies the scope at which the Management Lock should be created. Changing this forces a new resource to be created.
+        """
+        if lock_level is not None:
+            pulumi.set(__self__, "lock_level", lock_level)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if notes is not None:
+            pulumi.set(__self__, "notes", notes)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+
+    @property
+    @pulumi.getter(name="lockLevel")
+    def lock_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "lock_level")
+
+    @lock_level.setter
+    def lock_level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lock_level", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Management Lock. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def notes(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "notes")
+
+    @notes.setter
+    def notes(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "notes", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the scope at which the Management Lock should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scope", value)
+
+
 warnings.warn("""azure.managementresource.ManangementLock has been deprecated in favor of azure.management.Lock""", DeprecationWarning)
 
 
@@ -94,9 +166,7 @@ class ManangementLock(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a Management Lock which is scoped to a Subscription, Resource Group or Resource.
 
@@ -239,16 +309,8 @@ class ManangementLock(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         pulumi.log.warn("""ManangementLock is deprecated: azure.managementresource.ManangementLock has been deprecated in favor of azure.management.Lock""")
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -258,16 +320,16 @@ class ManangementLock(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ManangementLockArgs.__new__(ManangementLockArgs)
 
             if lock_level is None and not opts.urn:
                 raise TypeError("Missing required property 'lock_level'")
-            __props__['lock_level'] = lock_level
-            __props__['name'] = name
-            __props__['notes'] = notes
+            __props__.__dict__["lock_level"] = lock_level
+            __props__.__dict__["name"] = name
+            __props__.__dict__["notes"] = notes
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
-            __props__['scope'] = scope
+            __props__.__dict__["scope"] = scope
         super(ManangementLock, __self__).__init__(
             'azure:managementresource/manangementLock:ManangementLock',
             resource_name,
@@ -296,12 +358,12 @@ class ManangementLock(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ManangementLockState.__new__(_ManangementLockState)
 
-        __props__["lock_level"] = lock_level
-        __props__["name"] = name
-        __props__["notes"] = notes
-        __props__["scope"] = scope
+        __props__.__dict__["lock_level"] = lock_level
+        __props__.__dict__["name"] = name
+        __props__.__dict__["notes"] = notes
+        __props__.__dict__["scope"] = scope
         return ManangementLock(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -335,10 +397,4 @@ class ManangementLock(pulumi.CustomResource):
         Specifies the scope at which the Management Lock should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "scope")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -129,6 +129,126 @@ class TriggerRecurrenceArgs:
         pulumi.set(self, "time_zone", value)
 
 
+@pulumi.input_type
+class _TriggerRecurrenceState:
+    def __init__(__self__, *,
+                 frequency: Optional[pulumi.Input[str]] = None,
+                 interval: Optional[pulumi.Input[int]] = None,
+                 logic_app_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 schedule: Optional[pulumi.Input['TriggerRecurrenceScheduleArgs']] = None,
+                 start_time: Optional[pulumi.Input[str]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering TriggerRecurrence resources.
+        :param pulumi.Input[str] frequency: Specifies the Frequency at which this Trigger should be run. Possible values include `Month`, `Week`, `Day`, `Hour`, `Minute` and `Second`.
+        :param pulumi.Input[int] interval: Specifies interval used for the Frequency, for example a value of `4` for `interval` and `hour` for `frequency` would run the Trigger every 4 hours.
+        :param pulumi.Input[str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+        :param pulumi.Input['TriggerRecurrenceScheduleArgs'] schedule: A `schedule` block as specified below.
+        :param pulumi.Input[str] start_time: Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
+        :param pulumi.Input[str] time_zone: Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+        """
+        if frequency is not None:
+            pulumi.set(__self__, "frequency", frequency)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if logic_app_id is not None:
+            pulumi.set(__self__, "logic_app_id", logic_app_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Frequency at which this Trigger should be run. Possible values include `Month`, `Week`, `Day`, `Hour`, `Minute` and `Second`.
+        """
+        return pulumi.get(self, "frequency")
+
+    @frequency.setter
+    def frequency(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "frequency", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies interval used for the Frequency, for example a value of `4` for `interval` and `hour` for `frequency` would run the Trigger every 4 hours.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter(name="logicAppId")
+    def logic_app_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "logic_app_id")
+
+    @logic_app_id.setter
+    def logic_app_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logic_app_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional[pulumi.Input['TriggerRecurrenceScheduleArgs']]:
+        """
+        A `schedule` block as specified below.
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: Optional[pulumi.Input['TriggerRecurrenceScheduleArgs']]):
+        pulumi.set(self, "schedule", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
+        """
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
+
+
 class TriggerRecurrence(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -141,9 +261,7 @@ class TriggerRecurrence(pulumi.CustomResource):
                  schedule: Optional[pulumi.Input[pulumi.InputType['TriggerRecurrenceScheduleArgs']]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a Recurrence Trigger within a Logic App Workflow
 
@@ -236,15 +354,7 @@ class TriggerRecurrence(pulumi.CustomResource):
                  schedule: Optional[pulumi.Input[pulumi.InputType['TriggerRecurrenceScheduleArgs']]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -254,21 +364,21 @@ class TriggerRecurrence(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = TriggerRecurrenceArgs.__new__(TriggerRecurrenceArgs)
 
             if frequency is None and not opts.urn:
                 raise TypeError("Missing required property 'frequency'")
-            __props__['frequency'] = frequency
+            __props__.__dict__["frequency"] = frequency
             if interval is None and not opts.urn:
                 raise TypeError("Missing required property 'interval'")
-            __props__['interval'] = interval
+            __props__.__dict__["interval"] = interval
             if logic_app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'logic_app_id'")
-            __props__['logic_app_id'] = logic_app_id
-            __props__['name'] = name
-            __props__['schedule'] = schedule
-            __props__['start_time'] = start_time
-            __props__['time_zone'] = time_zone
+            __props__.__dict__["logic_app_id"] = logic_app_id
+            __props__.__dict__["name"] = name
+            __props__.__dict__["schedule"] = schedule
+            __props__.__dict__["start_time"] = start_time
+            __props__.__dict__["time_zone"] = time_zone
         super(TriggerRecurrence, __self__).__init__(
             'azure:logicapps/triggerRecurrence:TriggerRecurrence',
             resource_name,
@@ -303,15 +413,15 @@ class TriggerRecurrence(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _TriggerRecurrenceState.__new__(_TriggerRecurrenceState)
 
-        __props__["frequency"] = frequency
-        __props__["interval"] = interval
-        __props__["logic_app_id"] = logic_app_id
-        __props__["name"] = name
-        __props__["schedule"] = schedule
-        __props__["start_time"] = start_time
-        __props__["time_zone"] = time_zone
+        __props__.__dict__["frequency"] = frequency
+        __props__.__dict__["interval"] = interval
+        __props__.__dict__["logic_app_id"] = logic_app_id
+        __props__.__dict__["name"] = name
+        __props__.__dict__["schedule"] = schedule
+        __props__.__dict__["start_time"] = start_time
+        __props__.__dict__["time_zone"] = time_zone
         return TriggerRecurrence(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -369,10 +479,4 @@ class TriggerRecurrence(pulumi.CustomResource):
         Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
         """
         return pulumi.get(self, "time_zone")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

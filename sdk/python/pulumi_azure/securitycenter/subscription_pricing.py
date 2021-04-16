@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['SubscriptionPricingArgs', 'SubscriptionPricing']
 
@@ -49,6 +49,46 @@ class SubscriptionPricingArgs:
         pulumi.set(self, "resource_type", value)
 
 
+@pulumi.input_type
+class _SubscriptionPricingState:
+    def __init__(__self__, *,
+                 resource_type: Optional[pulumi.Input[str]] = None,
+                 tier: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering SubscriptionPricing resources.
+        :param pulumi.Input[str] resource_type: The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm` and `Dns`.
+        :param pulumi.Input[str] tier: The pricing tier to use. Possible values are `Free` and `Standard`.
+        """
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm` and `Dns`.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_type", value)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The pricing tier to use. Possible values are `Free` and `Standard`.
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tier", value)
+
+
 class SubscriptionPricing(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -56,9 +96,7 @@ class SubscriptionPricing(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages the Pricing Tier for Azure Security Center in the current subscription.
 
@@ -139,15 +177,7 @@ class SubscriptionPricing(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -157,12 +187,12 @@ class SubscriptionPricing(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SubscriptionPricingArgs.__new__(SubscriptionPricingArgs)
 
-            __props__['resource_type'] = resource_type
+            __props__.__dict__["resource_type"] = resource_type
             if tier is None and not opts.urn:
                 raise TypeError("Missing required property 'tier'")
-            __props__['tier'] = tier
+            __props__.__dict__["tier"] = tier
         super(SubscriptionPricing, __self__).__init__(
             'azure:securitycenter/subscriptionPricing:SubscriptionPricing',
             resource_name,
@@ -187,10 +217,10 @@ class SubscriptionPricing(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _SubscriptionPricingState.__new__(_SubscriptionPricingState)
 
-        __props__["resource_type"] = resource_type
-        __props__["tier"] = tier
+        __props__.__dict__["resource_type"] = resource_type
+        __props__.__dict__["tier"] = tier
         return SubscriptionPricing(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -208,10 +238,4 @@ class SubscriptionPricing(pulumi.CustomResource):
         The pricing tier to use. Possible values are `Free` and `Standard`.
         """
         return pulumi.get(self, "tier")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -160,6 +160,174 @@ class TrafficManagerProfileArgs:
         pulumi.set(self, "traffic_view_enabled", value)
 
 
+@pulumi.input_type
+class _TrafficManagerProfileState:
+    def __init__(__self__, *,
+                 dns_config: Optional[pulumi.Input['TrafficManagerProfileDnsConfigArgs']] = None,
+                 fqdn: Optional[pulumi.Input[str]] = None,
+                 max_return: Optional[pulumi.Input[int]] = None,
+                 monitor_config: Optional[pulumi.Input['TrafficManagerProfileMonitorConfigArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 profile_status: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 traffic_routing_method: Optional[pulumi.Input[str]] = None,
+                 traffic_view_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Input properties used for looking up and filtering TrafficManagerProfile resources.
+        :param pulumi.Input['TrafficManagerProfileDnsConfigArgs'] dns_config: This block specifies the DNS configuration of the Profile, it supports the fields documented below.
+        :param pulumi.Input[str] fqdn: The FQDN of the created Profile.
+        :param pulumi.Input[int] max_return: The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
+        :param pulumi.Input['TrafficManagerProfileMonitorConfigArgs'] monitor_config: This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
+        :param pulumi.Input[str] name: The name of the Traffic Manager profile. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] profile_status: The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Traffic Manager profile.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] traffic_routing_method: Specifies the algorithm used to route traffic, possible values are:
+        :param pulumi.Input[bool] traffic_view_enabled: Indicates whether Traffic View is enabled for the Traffic Manager profile.
+        """
+        if dns_config is not None:
+            pulumi.set(__self__, "dns_config", dns_config)
+        if fqdn is not None:
+            pulumi.set(__self__, "fqdn", fqdn)
+        if max_return is not None:
+            pulumi.set(__self__, "max_return", max_return)
+        if monitor_config is not None:
+            pulumi.set(__self__, "monitor_config", monitor_config)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if profile_status is not None:
+            pulumi.set(__self__, "profile_status", profile_status)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if traffic_routing_method is not None:
+            pulumi.set(__self__, "traffic_routing_method", traffic_routing_method)
+        if traffic_view_enabled is not None:
+            pulumi.set(__self__, "traffic_view_enabled", traffic_view_enabled)
+
+    @property
+    @pulumi.getter(name="dnsConfig")
+    def dns_config(self) -> Optional[pulumi.Input['TrafficManagerProfileDnsConfigArgs']]:
+        """
+        This block specifies the DNS configuration of the Profile, it supports the fields documented below.
+        """
+        return pulumi.get(self, "dns_config")
+
+    @dns_config.setter
+    def dns_config(self, value: Optional[pulumi.Input['TrafficManagerProfileDnsConfigArgs']]):
+        pulumi.set(self, "dns_config", value)
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The FQDN of the created Profile.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @fqdn.setter
+    def fqdn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fqdn", value)
+
+    @property
+    @pulumi.getter(name="maxReturn")
+    def max_return(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
+        """
+        return pulumi.get(self, "max_return")
+
+    @max_return.setter
+    def max_return(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_return", value)
+
+    @property
+    @pulumi.getter(name="monitorConfig")
+    def monitor_config(self) -> Optional[pulumi.Input['TrafficManagerProfileMonitorConfigArgs']]:
+        """
+        This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
+        """
+        return pulumi.get(self, "monitor_config")
+
+    @monitor_config.setter
+    def monitor_config(self, value: Optional[pulumi.Input['TrafficManagerProfileMonitorConfigArgs']]):
+        pulumi.set(self, "monitor_config", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Traffic Manager profile. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="profileStatus")
+    def profile_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
+        """
+        return pulumi.get(self, "profile_status")
+
+    @profile_status.setter
+    def profile_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "profile_status", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which to create the Traffic Manager profile.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="trafficRoutingMethod")
+    def traffic_routing_method(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the algorithm used to route traffic, possible values are:
+        """
+        return pulumi.get(self, "traffic_routing_method")
+
+    @traffic_routing_method.setter
+    def traffic_routing_method(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "traffic_routing_method", value)
+
+    @property
+    @pulumi.getter(name="trafficViewEnabled")
+    def traffic_view_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether Traffic View is enabled for the Traffic Manager profile.
+        """
+        return pulumi.get(self, "traffic_view_enabled")
+
+    @traffic_view_enabled.setter
+    def traffic_view_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "traffic_view_enabled", value)
+
+
 class TrafficManagerProfile(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -174,9 +342,7 @@ class TrafficManagerProfile(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  traffic_routing_method: Optional[pulumi.Input[str]] = None,
                  traffic_view_enabled: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a Traffic Manager Profile to which multiple endpoints can be attached.
 
@@ -307,15 +473,7 @@ class TrafficManagerProfile(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  traffic_routing_method: Optional[pulumi.Input[str]] = None,
                  traffic_view_enabled: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -325,26 +483,26 @@ class TrafficManagerProfile(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = TrafficManagerProfileArgs.__new__(TrafficManagerProfileArgs)
 
             if dns_config is None and not opts.urn:
                 raise TypeError("Missing required property 'dns_config'")
-            __props__['dns_config'] = dns_config
-            __props__['max_return'] = max_return
+            __props__.__dict__["dns_config"] = dns_config
+            __props__.__dict__["max_return"] = max_return
             if monitor_config is None and not opts.urn:
                 raise TypeError("Missing required property 'monitor_config'")
-            __props__['monitor_config'] = monitor_config
-            __props__['name'] = name
-            __props__['profile_status'] = profile_status
+            __props__.__dict__["monitor_config"] = monitor_config
+            __props__.__dict__["name"] = name
+            __props__.__dict__["profile_status"] = profile_status
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
             if traffic_routing_method is None and not opts.urn:
                 raise TypeError("Missing required property 'traffic_routing_method'")
-            __props__['traffic_routing_method'] = traffic_routing_method
-            __props__['traffic_view_enabled'] = traffic_view_enabled
-            __props__['fqdn'] = None
+            __props__.__dict__["traffic_routing_method"] = traffic_routing_method
+            __props__.__dict__["traffic_view_enabled"] = traffic_view_enabled
+            __props__.__dict__["fqdn"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:trafficmanager/profile:Profile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TrafficManagerProfile, __self__).__init__(
@@ -387,18 +545,18 @@ class TrafficManagerProfile(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _TrafficManagerProfileState.__new__(_TrafficManagerProfileState)
 
-        __props__["dns_config"] = dns_config
-        __props__["fqdn"] = fqdn
-        __props__["max_return"] = max_return
-        __props__["monitor_config"] = monitor_config
-        __props__["name"] = name
-        __props__["profile_status"] = profile_status
-        __props__["resource_group_name"] = resource_group_name
-        __props__["tags"] = tags
-        __props__["traffic_routing_method"] = traffic_routing_method
-        __props__["traffic_view_enabled"] = traffic_view_enabled
+        __props__.__dict__["dns_config"] = dns_config
+        __props__.__dict__["fqdn"] = fqdn
+        __props__.__dict__["max_return"] = max_return
+        __props__.__dict__["monitor_config"] = monitor_config
+        __props__.__dict__["name"] = name
+        __props__.__dict__["profile_status"] = profile_status
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["traffic_routing_method"] = traffic_routing_method
+        __props__.__dict__["traffic_view_enabled"] = traffic_view_enabled
         return TrafficManagerProfile(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -480,10 +638,4 @@ class TrafficManagerProfile(pulumi.CustomResource):
         Indicates whether Traffic View is enabled for the Traffic Manager profile.
         """
         return pulumi.get(self, "traffic_view_enabled")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

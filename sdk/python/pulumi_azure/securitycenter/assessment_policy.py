@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['AssessmentPolicyArgs', 'AssessmentPolicy']
 
@@ -128,6 +128,142 @@ class AssessmentPolicyArgs:
         pulumi.set(self, "user_impact", value)
 
 
+@pulumi.input_type
+class _AssessmentPolicyState:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 implementation_effort: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 remediation_description: Optional[pulumi.Input[str]] = None,
+                 severity: Optional[pulumi.Input[str]] = None,
+                 threats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 user_impact: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering AssessmentPolicy resources.
+        :param pulumi.Input[str] description: The description of the Security Center Assessment.
+        :param pulumi.Input[str] display_name: The user-friendly display name of the Security Center Assessment.
+        :param pulumi.Input[str] implementation_effort: The implementation effort which is used to remediate the Security Center Assessment. Possible values are `Low`, `Moderate` and `High`.
+        :param pulumi.Input[str] name: The GUID as the name of the Security Center Assessment Policy.
+        :param pulumi.Input[str] remediation_description: The description which is used to mitigate the security issue.
+        :param pulumi.Input[str] severity: The severity level of the Security Center Assessment. Possible values are `Low`, `Medium` and `High`. Defaults to `Medium`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] threats: A list of the threat impacts for the Security Center Assessment. Possible values are `AccountBreach`, `DataExfiltration`, `DataSpillage`, `DenialOfService`, `ElevationOfPrivilege`, `MaliciousInsider`, `MissingCoverage` and `ThreatResistance`.
+        :param pulumi.Input[str] user_impact: The user impact of the Security Center Assessment. Possible values are `Low`, `Moderate` and `High`.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if implementation_effort is not None:
+            pulumi.set(__self__, "implementation_effort", implementation_effort)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if remediation_description is not None:
+            pulumi.set(__self__, "remediation_description", remediation_description)
+        if severity is not None:
+            pulumi.set(__self__, "severity", severity)
+        if threats is not None:
+            pulumi.set(__self__, "threats", threats)
+        if user_impact is not None:
+            pulumi.set(__self__, "user_impact", user_impact)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Security Center Assessment.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user-friendly display name of the Security Center Assessment.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="implementationEffort")
+    def implementation_effort(self) -> Optional[pulumi.Input[str]]:
+        """
+        The implementation effort which is used to remediate the Security Center Assessment. Possible values are `Low`, `Moderate` and `High`.
+        """
+        return pulumi.get(self, "implementation_effort")
+
+    @implementation_effort.setter
+    def implementation_effort(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "implementation_effort", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The GUID as the name of the Security Center Assessment Policy.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="remediationDescription")
+    def remediation_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description which is used to mitigate the security issue.
+        """
+        return pulumi.get(self, "remediation_description")
+
+    @remediation_description.setter
+    def remediation_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "remediation_description", value)
+
+    @property
+    @pulumi.getter
+    def severity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The severity level of the Security Center Assessment. Possible values are `Low`, `Medium` and `High`. Defaults to `Medium`.
+        """
+        return pulumi.get(self, "severity")
+
+    @severity.setter
+    def severity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "severity", value)
+
+    @property
+    @pulumi.getter
+    def threats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the threat impacts for the Security Center Assessment. Possible values are `AccountBreach`, `DataExfiltration`, `DataSpillage`, `DenialOfService`, `ElevationOfPrivilege`, `MaliciousInsider`, `MissingCoverage` and `ThreatResistance`.
+        """
+        return pulumi.get(self, "threats")
+
+    @threats.setter
+    def threats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "threats", value)
+
+    @property
+    @pulumi.getter(name="userImpact")
+    def user_impact(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user impact of the Security Center Assessment. Possible values are `Low`, `Moderate` and `High`.
+        """
+        return pulumi.get(self, "user_impact")
+
+    @user_impact.setter
+    def user_impact(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_impact", value)
+
+
 class AssessmentPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -140,9 +276,7 @@ class AssessmentPolicy(pulumi.CustomResource):
                  severity: Optional[pulumi.Input[str]] = None,
                  threats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_impact: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages the Security Center Assessment Metadata for Azure Security Center.
 
@@ -227,15 +361,7 @@ class AssessmentPolicy(pulumi.CustomResource):
                  severity: Optional[pulumi.Input[str]] = None,
                  threats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_impact: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -245,20 +371,20 @@ class AssessmentPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AssessmentPolicyArgs.__new__(AssessmentPolicyArgs)
 
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")
-            __props__['description'] = description
+            __props__.__dict__["description"] = description
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
-            __props__['display_name'] = display_name
-            __props__['implementation_effort'] = implementation_effort
-            __props__['remediation_description'] = remediation_description
-            __props__['severity'] = severity
-            __props__['threats'] = threats
-            __props__['user_impact'] = user_impact
-            __props__['name'] = None
+            __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["implementation_effort"] = implementation_effort
+            __props__.__dict__["remediation_description"] = remediation_description
+            __props__.__dict__["severity"] = severity
+            __props__.__dict__["threats"] = threats
+            __props__.__dict__["user_impact"] = user_impact
+            __props__.__dict__["name"] = None
         super(AssessmentPolicy, __self__).__init__(
             'azure:securitycenter/assessmentPolicy:AssessmentPolicy',
             resource_name,
@@ -295,16 +421,16 @@ class AssessmentPolicy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AssessmentPolicyState.__new__(_AssessmentPolicyState)
 
-        __props__["description"] = description
-        __props__["display_name"] = display_name
-        __props__["implementation_effort"] = implementation_effort
-        __props__["name"] = name
-        __props__["remediation_description"] = remediation_description
-        __props__["severity"] = severity
-        __props__["threats"] = threats
-        __props__["user_impact"] = user_impact
+        __props__.__dict__["description"] = description
+        __props__.__dict__["display_name"] = display_name
+        __props__.__dict__["implementation_effort"] = implementation_effort
+        __props__.__dict__["name"] = name
+        __props__.__dict__["remediation_description"] = remediation_description
+        __props__.__dict__["severity"] = severity
+        __props__.__dict__["threats"] = threats
+        __props__.__dict__["user_impact"] = user_impact
         return AssessmentPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -370,10 +496,4 @@ class AssessmentPolicy(pulumi.CustomResource):
         The user impact of the Security Center Assessment. Possible values are `Low`, `Moderate` and `High`.
         """
         return pulumi.get(self, "user_impact")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -195,6 +195,209 @@ class CacheArgs:
         pulumi.set(self, "root_squash_enabled", value)
 
 
+@pulumi.input_type
+class _CacheState:
+    def __init__(__self__, *,
+                 cache_size_in_gb: Optional[pulumi.Input[int]] = None,
+                 default_access_policy: Optional[pulumi.Input['CacheDefaultAccessPolicyArgs']] = None,
+                 dns: Optional[pulumi.Input['CacheDnsArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 mount_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 mtu: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 ntp_server: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 root_squash_enabled: Optional[pulumi.Input[bool]] = None,
+                 sku_name: Optional[pulumi.Input[str]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Cache resources.
+        :param pulumi.Input[int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
+        :param pulumi.Input['CacheDefaultAccessPolicyArgs'] default_access_policy: A `default_access_policy` block as defined below.
+        :param pulumi.Input['CacheDnsArgs'] dns: A `dns` block as defined below.
+        :param pulumi.Input[str] location: Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] mount_addresses: A list of IP Addresses where the HPC Cache can be mounted.
+        :param pulumi.Input[int] mtu: The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+        :param pulumi.Input[str] name: The name of the HPC Cache. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] ntp_server: The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] root_squash_enabled: Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+        :param pulumi.Input[str] sku_name: The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
+        """
+        if cache_size_in_gb is not None:
+            pulumi.set(__self__, "cache_size_in_gb", cache_size_in_gb)
+        if default_access_policy is not None:
+            pulumi.set(__self__, "default_access_policy", default_access_policy)
+        if dns is not None:
+            pulumi.set(__self__, "dns", dns)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if mount_addresses is not None:
+            pulumi.set(__self__, "mount_addresses", mount_addresses)
+        if mtu is not None:
+            pulumi.set(__self__, "mtu", mtu)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if ntp_server is not None:
+            pulumi.set(__self__, "ntp_server", ntp_server)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if root_squash_enabled is not None:
+            warnings.warn("""This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.""", DeprecationWarning)
+            pulumi.log.warn("""root_squash_enabled is deprecated: This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.""")
+        if root_squash_enabled is not None:
+            pulumi.set(__self__, "root_squash_enabled", root_squash_enabled)
+        if sku_name is not None:
+            pulumi.set(__self__, "sku_name", sku_name)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="cacheSizeInGb")
+    def cache_size_in_gb(self) -> Optional[pulumi.Input[int]]:
+        """
+        The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cache_size_in_gb")
+
+    @cache_size_in_gb.setter
+    def cache_size_in_gb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "cache_size_in_gb", value)
+
+    @property
+    @pulumi.getter(name="defaultAccessPolicy")
+    def default_access_policy(self) -> Optional[pulumi.Input['CacheDefaultAccessPolicyArgs']]:
+        """
+        A `default_access_policy` block as defined below.
+        """
+        return pulumi.get(self, "default_access_policy")
+
+    @default_access_policy.setter
+    def default_access_policy(self, value: Optional[pulumi.Input['CacheDefaultAccessPolicyArgs']]):
+        pulumi.set(self, "default_access_policy", value)
+
+    @property
+    @pulumi.getter
+    def dns(self) -> Optional[pulumi.Input['CacheDnsArgs']]:
+        """
+        A `dns` block as defined below.
+        """
+        return pulumi.get(self, "dns")
+
+    @dns.setter
+    def dns(self, value: Optional[pulumi.Input['CacheDnsArgs']]):
+        pulumi.set(self, "dns", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="mountAddresses")
+    def mount_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of IP Addresses where the HPC Cache can be mounted.
+        """
+        return pulumi.get(self, "mount_addresses")
+
+    @mount_addresses.setter
+    def mount_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "mount_addresses", value)
+
+    @property
+    @pulumi.getter
+    def mtu(self) -> Optional[pulumi.Input[int]]:
+        """
+        The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
+        """
+        return pulumi.get(self, "mtu")
+
+    @mtu.setter
+    def mtu(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "mtu", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the HPC Cache. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="ntpServer")
+    def ntp_server(self) -> Optional[pulumi.Input[str]]:
+        """
+        The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
+        """
+        return pulumi.get(self, "ntp_server")
+
+    @ntp_server.setter
+    def ntp_server(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ntp_server", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="rootSquashEnabled")
+    def root_squash_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
+        """
+        return pulumi.get(self, "root_squash_enabled")
+
+    @root_squash_enabled.setter
+    def root_squash_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "root_squash_enabled", value)
+
+    @property
+    @pulumi.getter(name="skuName")
+    def sku_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "sku_name")
+
+    @sku_name.setter
+    def sku_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku_name", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
+
+
 class Cache(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -211,9 +414,7 @@ class Cache(pulumi.CustomResource):
                  root_squash_enabled: Optional[pulumi.Input[bool]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a HPC Cache.
 
@@ -336,15 +537,7 @@ class Cache(pulumi.CustomResource):
                  root_squash_enabled: Optional[pulumi.Input[bool]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -354,31 +547,31 @@ class Cache(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = CacheArgs.__new__(CacheArgs)
 
             if cache_size_in_gb is None and not opts.urn:
                 raise TypeError("Missing required property 'cache_size_in_gb'")
-            __props__['cache_size_in_gb'] = cache_size_in_gb
-            __props__['default_access_policy'] = default_access_policy
-            __props__['dns'] = dns
-            __props__['location'] = location
-            __props__['mtu'] = mtu
-            __props__['name'] = name
-            __props__['ntp_server'] = ntp_server
+            __props__.__dict__["cache_size_in_gb"] = cache_size_in_gb
+            __props__.__dict__["default_access_policy"] = default_access_policy
+            __props__.__dict__["dns"] = dns
+            __props__.__dict__["location"] = location
+            __props__.__dict__["mtu"] = mtu
+            __props__.__dict__["name"] = name
+            __props__.__dict__["ntp_server"] = ntp_server
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if root_squash_enabled is not None and not opts.urn:
                 warnings.warn("""This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.""", DeprecationWarning)
                 pulumi.log.warn("""root_squash_enabled is deprecated: This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.""")
-            __props__['root_squash_enabled'] = root_squash_enabled
+            __props__.__dict__["root_squash_enabled"] = root_squash_enabled
             if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")
-            __props__['sku_name'] = sku_name
+            __props__.__dict__["sku_name"] = sku_name
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
-            __props__['subnet_id'] = subnet_id
-            __props__['mount_addresses'] = None
+            __props__.__dict__["subnet_id"] = subnet_id
+            __props__.__dict__["mount_addresses"] = None
         super(Cache, __self__).__init__(
             'azure:hpc/cache:Cache',
             resource_name,
@@ -423,20 +616,20 @@ class Cache(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _CacheState.__new__(_CacheState)
 
-        __props__["cache_size_in_gb"] = cache_size_in_gb
-        __props__["default_access_policy"] = default_access_policy
-        __props__["dns"] = dns
-        __props__["location"] = location
-        __props__["mount_addresses"] = mount_addresses
-        __props__["mtu"] = mtu
-        __props__["name"] = name
-        __props__["ntp_server"] = ntp_server
-        __props__["resource_group_name"] = resource_group_name
-        __props__["root_squash_enabled"] = root_squash_enabled
-        __props__["sku_name"] = sku_name
-        __props__["subnet_id"] = subnet_id
+        __props__.__dict__["cache_size_in_gb"] = cache_size_in_gb
+        __props__.__dict__["default_access_policy"] = default_access_policy
+        __props__.__dict__["dns"] = dns
+        __props__.__dict__["location"] = location
+        __props__.__dict__["mount_addresses"] = mount_addresses
+        __props__.__dict__["mtu"] = mtu
+        __props__.__dict__["name"] = name
+        __props__.__dict__["ntp_server"] = ntp_server
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["root_squash_enabled"] = root_squash_enabled
+        __props__.__dict__["sku_name"] = sku_name
+        __props__.__dict__["subnet_id"] = subnet_id
         return Cache(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -534,10 +727,4 @@ class Cache(pulumi.CustomResource):
         The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['RoleAssignmentArgs', 'RoleAssignment']
 
@@ -63,6 +63,62 @@ class RoleAssignmentArgs:
         pulumi.set(self, "synapse_workspace_id", value)
 
 
+@pulumi.input_type
+class _RoleAssignmentState:
+    def __init__(__self__, *,
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 role_name: Optional[pulumi.Input[str]] = None,
+                 synapse_workspace_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering RoleAssignment resources.
+        :param pulumi.Input[str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Synapse Role Definition to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] role_name: The Role Name of the Synapse Built-In Role. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace on which to create the Role Assignment. Changing this forces a new resource to be created.
+        """
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if role_name is not None:
+            pulumi.set(__self__, "role_name", role_name)
+        if synapse_workspace_id is not None:
+            pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Principal (User, Group or Service Principal) to assign the Synapse Role Definition to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="roleName")
+    def role_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Role Name of the Synapse Built-In Role. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "role_name")
+
+    @role_name.setter
+    def role_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_name", value)
+
+    @property
+    @pulumi.getter(name="synapseWorkspaceId")
+    def synapse_workspace_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Synapse Workspace on which to create the Role Assignment. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "synapse_workspace_id")
+
+    @synapse_workspace_id.setter
+    def synapse_workspace_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "synapse_workspace_id", value)
+
+
 class RoleAssignment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -71,9 +127,7 @@ class RoleAssignment(pulumi.CustomResource):
                  principal_id: Optional[pulumi.Input[str]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
                  synapse_workspace_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Allows you to Manages a Synapse Role Assignment.
 
@@ -192,15 +246,7 @@ class RoleAssignment(pulumi.CustomResource):
                  principal_id: Optional[pulumi.Input[str]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
                  synapse_workspace_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -210,17 +256,17 @@ class RoleAssignment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RoleAssignmentArgs.__new__(RoleAssignmentArgs)
 
             if principal_id is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_id'")
-            __props__['principal_id'] = principal_id
+            __props__.__dict__["principal_id"] = principal_id
             if role_name is None and not opts.urn:
                 raise TypeError("Missing required property 'role_name'")
-            __props__['role_name'] = role_name
+            __props__.__dict__["role_name"] = role_name
             if synapse_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'synapse_workspace_id'")
-            __props__['synapse_workspace_id'] = synapse_workspace_id
+            __props__.__dict__["synapse_workspace_id"] = synapse_workspace_id
         super(RoleAssignment, __self__).__init__(
             'azure:synapse/roleAssignment:RoleAssignment',
             resource_name,
@@ -247,11 +293,11 @@ class RoleAssignment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _RoleAssignmentState.__new__(_RoleAssignmentState)
 
-        __props__["principal_id"] = principal_id
-        __props__["role_name"] = role_name
-        __props__["synapse_workspace_id"] = synapse_workspace_id
+        __props__.__dict__["principal_id"] = principal_id
+        __props__.__dict__["role_name"] = role_name
+        __props__.__dict__["synapse_workspace_id"] = synapse_workspace_id
         return RoleAssignment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -277,10 +323,4 @@ class RoleAssignment(pulumi.CustomResource):
         The ID of the Synapse Workspace on which to create the Role Assignment. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "synapse_workspace_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

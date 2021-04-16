@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -159,6 +159,154 @@ class ServiceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _ServiceState:
+    def __init__(__self__, *,
+                 access_policy_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 authentication_configuration: Optional[pulumi.Input['ServiceAuthenticationConfigurationArgs']] = None,
+                 cors_configuration: Optional[pulumi.Input['ServiceCorsConfigurationArgs']] = None,
+                 cosmosdb_throughput: Optional[pulumi.Input[int]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Service resources.
+        :param pulumi.Input['ServiceAuthenticationConfigurationArgs'] authentication_configuration: An `authentication_configuration` block as defined below.
+        :param pulumi.Input['ServiceCorsConfigurationArgs'] cors_configuration: A `cors_configuration` block as defined below.
+        :param pulumi.Input[int] cosmosdb_throughput: The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
+        :param pulumi.Input[str] kind: The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
+        :param pulumi.Input[str] location: Specifies the supported Azure Region where the Service should be created.
+        :param pulumi.Input[str] name: The name of the service instance. Used for service endpoint, must be unique within the audience.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Service.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        if access_policy_object_ids is not None:
+            pulumi.set(__self__, "access_policy_object_ids", access_policy_object_ids)
+        if authentication_configuration is not None:
+            pulumi.set(__self__, "authentication_configuration", authentication_configuration)
+        if cors_configuration is not None:
+            pulumi.set(__self__, "cors_configuration", cors_configuration)
+        if cosmosdb_throughput is not None:
+            pulumi.set(__self__, "cosmosdb_throughput", cosmosdb_throughput)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="accessPolicyObjectIds")
+    def access_policy_object_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "access_policy_object_ids")
+
+    @access_policy_object_ids.setter
+    def access_policy_object_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "access_policy_object_ids", value)
+
+    @property
+    @pulumi.getter(name="authenticationConfiguration")
+    def authentication_configuration(self) -> Optional[pulumi.Input['ServiceAuthenticationConfigurationArgs']]:
+        """
+        An `authentication_configuration` block as defined below.
+        """
+        return pulumi.get(self, "authentication_configuration")
+
+    @authentication_configuration.setter
+    def authentication_configuration(self, value: Optional[pulumi.Input['ServiceAuthenticationConfigurationArgs']]):
+        pulumi.set(self, "authentication_configuration", value)
+
+    @property
+    @pulumi.getter(name="corsConfiguration")
+    def cors_configuration(self) -> Optional[pulumi.Input['ServiceCorsConfigurationArgs']]:
+        """
+        A `cors_configuration` block as defined below.
+        """
+        return pulumi.get(self, "cors_configuration")
+
+    @cors_configuration.setter
+    def cors_configuration(self, value: Optional[pulumi.Input['ServiceCorsConfigurationArgs']]):
+        pulumi.set(self, "cors_configuration", value)
+
+    @property
+    @pulumi.getter(name="cosmosdbThroughput")
+    def cosmosdb_throughput(self) -> Optional[pulumi.Input[int]]:
+        """
+        The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
+        """
+        return pulumi.get(self, "cosmosdb_throughput")
+
+    @cosmosdb_throughput.setter
+    def cosmosdb_throughput(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "cosmosdb_throughput", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure Region where the Service should be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the service instance. Used for service endpoint, must be unique within the audience.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Resource Group in which to create the Service.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
 class Service(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -173,9 +321,7 @@ class Service(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a Healthcare Service.
 
@@ -317,15 +463,7 @@ class Service(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -335,19 +473,19 @@ class Service(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ServiceArgs.__new__(ServiceArgs)
 
-            __props__['access_policy_object_ids'] = access_policy_object_ids
-            __props__['authentication_configuration'] = authentication_configuration
-            __props__['cors_configuration'] = cors_configuration
-            __props__['cosmosdb_throughput'] = cosmosdb_throughput
-            __props__['kind'] = kind
-            __props__['location'] = location
-            __props__['name'] = name
+            __props__.__dict__["access_policy_object_ids"] = access_policy_object_ids
+            __props__.__dict__["authentication_configuration"] = authentication_configuration
+            __props__.__dict__["cors_configuration"] = cors_configuration
+            __props__.__dict__["cosmosdb_throughput"] = cosmosdb_throughput
+            __props__.__dict__["kind"] = kind
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
         super(Service, __self__).__init__(
             'azure:healthcare/service:Service',
             resource_name,
@@ -385,17 +523,17 @@ class Service(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ServiceState.__new__(_ServiceState)
 
-        __props__["access_policy_object_ids"] = access_policy_object_ids
-        __props__["authentication_configuration"] = authentication_configuration
-        __props__["cors_configuration"] = cors_configuration
-        __props__["cosmosdb_throughput"] = cosmosdb_throughput
-        __props__["kind"] = kind
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["resource_group_name"] = resource_group_name
-        __props__["tags"] = tags
+        __props__.__dict__["access_policy_object_ids"] = access_policy_object_ids
+        __props__.__dict__["authentication_configuration"] = authentication_configuration
+        __props__.__dict__["cors_configuration"] = cors_configuration
+        __props__.__dict__["cosmosdb_throughput"] = cosmosdb_throughput
+        __props__.__dict__["kind"] = kind
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["tags"] = tags
         return Service(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -466,10 +604,4 @@ class Service(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

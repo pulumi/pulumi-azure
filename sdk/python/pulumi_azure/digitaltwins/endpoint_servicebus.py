@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['EndpointServicebusArgs', 'EndpointServicebus']
 
@@ -95,6 +95,94 @@ class EndpointServicebusArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.input_type
+class _EndpointServicebusState:
+    def __init__(__self__, *,
+                 dead_letter_storage_secret: Optional[pulumi.Input[str]] = None,
+                 digital_twins_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 servicebus_primary_connection_string: Optional[pulumi.Input[str]] = None,
+                 servicebus_secondary_connection_string: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering EndpointServicebus resources.
+        :param pulumi.Input[str] dead_letter_storage_secret: The storage secret of the dead-lettering, whose format is `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
+        :param pulumi.Input[str] digital_twins_id: The ID of the Digital Twins Instance. Changing this forces a new Digital Twins Service Bus Endpoint to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Digital Twins Service Bus Endpoint. Changing this forces a new Digital Twins Service Bus Endpoint to be created.
+        :param pulumi.Input[str] servicebus_primary_connection_string: The primary connection string of the Service Bus Topic Authorization Rule with a minimum of `send` permission. .
+        :param pulumi.Input[str] servicebus_secondary_connection_string: The secondary connection string of the Service Bus Topic Authorization Rule with a minimum of `send` permission.
+        """
+        if dead_letter_storage_secret is not None:
+            pulumi.set(__self__, "dead_letter_storage_secret", dead_letter_storage_secret)
+        if digital_twins_id is not None:
+            pulumi.set(__self__, "digital_twins_id", digital_twins_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if servicebus_primary_connection_string is not None:
+            pulumi.set(__self__, "servicebus_primary_connection_string", servicebus_primary_connection_string)
+        if servicebus_secondary_connection_string is not None:
+            pulumi.set(__self__, "servicebus_secondary_connection_string", servicebus_secondary_connection_string)
+
+    @property
+    @pulumi.getter(name="deadLetterStorageSecret")
+    def dead_letter_storage_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The storage secret of the dead-lettering, whose format is `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
+        """
+        return pulumi.get(self, "dead_letter_storage_secret")
+
+    @dead_letter_storage_secret.setter
+    def dead_letter_storage_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dead_letter_storage_secret", value)
+
+    @property
+    @pulumi.getter(name="digitalTwinsId")
+    def digital_twins_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Digital Twins Instance. Changing this forces a new Digital Twins Service Bus Endpoint to be created.
+        """
+        return pulumi.get(self, "digital_twins_id")
+
+    @digital_twins_id.setter
+    def digital_twins_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "digital_twins_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Digital Twins Service Bus Endpoint. Changing this forces a new Digital Twins Service Bus Endpoint to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="servicebusPrimaryConnectionString")
+    def servicebus_primary_connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The primary connection string of the Service Bus Topic Authorization Rule with a minimum of `send` permission. .
+        """
+        return pulumi.get(self, "servicebus_primary_connection_string")
+
+    @servicebus_primary_connection_string.setter
+    def servicebus_primary_connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "servicebus_primary_connection_string", value)
+
+    @property
+    @pulumi.getter(name="servicebusSecondaryConnectionString")
+    def servicebus_secondary_connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The secondary connection string of the Service Bus Topic Authorization Rule with a minimum of `send` permission.
+        """
+        return pulumi.get(self, "servicebus_secondary_connection_string")
+
+    @servicebus_secondary_connection_string.setter
+    def servicebus_secondary_connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "servicebus_secondary_connection_string", value)
+
+
 class EndpointServicebus(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -105,9 +193,7 @@ class EndpointServicebus(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  servicebus_primary_connection_string: Optional[pulumi.Input[str]] = None,
                  servicebus_secondary_connection_string: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a Digital Twins Service Bus Endpoint.
 
@@ -224,15 +310,7 @@ class EndpointServicebus(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  servicebus_primary_connection_string: Optional[pulumi.Input[str]] = None,
                  servicebus_secondary_connection_string: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -242,19 +320,19 @@ class EndpointServicebus(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = EndpointServicebusArgs.__new__(EndpointServicebusArgs)
 
-            __props__['dead_letter_storage_secret'] = dead_letter_storage_secret
+            __props__.__dict__["dead_letter_storage_secret"] = dead_letter_storage_secret
             if digital_twins_id is None and not opts.urn:
                 raise TypeError("Missing required property 'digital_twins_id'")
-            __props__['digital_twins_id'] = digital_twins_id
-            __props__['name'] = name
+            __props__.__dict__["digital_twins_id"] = digital_twins_id
+            __props__.__dict__["name"] = name
             if servicebus_primary_connection_string is None and not opts.urn:
                 raise TypeError("Missing required property 'servicebus_primary_connection_string'")
-            __props__['servicebus_primary_connection_string'] = servicebus_primary_connection_string
+            __props__.__dict__["servicebus_primary_connection_string"] = servicebus_primary_connection_string
             if servicebus_secondary_connection_string is None and not opts.urn:
                 raise TypeError("Missing required property 'servicebus_secondary_connection_string'")
-            __props__['servicebus_secondary_connection_string'] = servicebus_secondary_connection_string
+            __props__.__dict__["servicebus_secondary_connection_string"] = servicebus_secondary_connection_string
         super(EndpointServicebus, __self__).__init__(
             'azure:digitaltwins/endpointServicebus:EndpointServicebus',
             resource_name,
@@ -285,13 +363,13 @@ class EndpointServicebus(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _EndpointServicebusState.__new__(_EndpointServicebusState)
 
-        __props__["dead_letter_storage_secret"] = dead_letter_storage_secret
-        __props__["digital_twins_id"] = digital_twins_id
-        __props__["name"] = name
-        __props__["servicebus_primary_connection_string"] = servicebus_primary_connection_string
-        __props__["servicebus_secondary_connection_string"] = servicebus_secondary_connection_string
+        __props__.__dict__["dead_letter_storage_secret"] = dead_letter_storage_secret
+        __props__.__dict__["digital_twins_id"] = digital_twins_id
+        __props__.__dict__["name"] = name
+        __props__.__dict__["servicebus_primary_connection_string"] = servicebus_primary_connection_string
+        __props__.__dict__["servicebus_secondary_connection_string"] = servicebus_secondary_connection_string
         return EndpointServicebus(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -333,10 +411,4 @@ class EndpointServicebus(pulumi.CustomResource):
         The secondary connection string of the Service Bus Topic Authorization Rule with a minimum of `send` permission.
         """
         return pulumi.get(self, "servicebus_secondary_connection_string")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

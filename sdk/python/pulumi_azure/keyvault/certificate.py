@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -98,6 +98,190 @@ class CertificateArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _CertificateState:
+    def __init__(__self__, *,
+                 certificate: Optional[pulumi.Input['CertificateCertificateArgs']] = None,
+                 certificate_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateCertificateAttributeArgs']]]] = None,
+                 certificate_data: Optional[pulumi.Input[str]] = None,
+                 certificate_data_base64: Optional[pulumi.Input[str]] = None,
+                 certificate_policy: Optional[pulumi.Input['CertificateCertificatePolicyArgs']] = None,
+                 key_vault_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 secret_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 thumbprint: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Certificate resources.
+        :param pulumi.Input['CertificateCertificateArgs'] certificate: A `certificate` block as defined below, used to Import an existing certificate.
+        :param pulumi.Input[Sequence[pulumi.Input['CertificateCertificateAttributeArgs']]] certificate_attributes: A `certificate_attribute` block as defined below.
+        :param pulumi.Input[str] certificate_data: The raw Key Vault Certificate data represented as a hexadecimal string.
+        :param pulumi.Input[str] certificate_data_base64: The Base64 encoded Key Vault Certificate data.
+        :param pulumi.Input['CertificateCertificatePolicyArgs'] certificate_policy: A `certificate_policy` block as defined below.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created.
+        :param pulumi.Input[str] name: Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] secret_id: The ID of the associated Key Vault Secret.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] thumbprint: The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
+        :param pulumi.Input[str] version: The current version of the Key Vault Certificate.
+        """
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
+        if certificate_attributes is not None:
+            pulumi.set(__self__, "certificate_attributes", certificate_attributes)
+        if certificate_data is not None:
+            pulumi.set(__self__, "certificate_data", certificate_data)
+        if certificate_data_base64 is not None:
+            pulumi.set(__self__, "certificate_data_base64", certificate_data_base64)
+        if certificate_policy is not None:
+            pulumi.set(__self__, "certificate_policy", certificate_policy)
+        if key_vault_id is not None:
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if secret_id is not None:
+            pulumi.set(__self__, "secret_id", secret_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional[pulumi.Input['CertificateCertificateArgs']]:
+        """
+        A `certificate` block as defined below, used to Import an existing certificate.
+        """
+        return pulumi.get(self, "certificate")
+
+    @certificate.setter
+    def certificate(self, value: Optional[pulumi.Input['CertificateCertificateArgs']]):
+        pulumi.set(self, "certificate", value)
+
+    @property
+    @pulumi.getter(name="certificateAttributes")
+    def certificate_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateCertificateAttributeArgs']]]]:
+        """
+        A `certificate_attribute` block as defined below.
+        """
+        return pulumi.get(self, "certificate_attributes")
+
+    @certificate_attributes.setter
+    def certificate_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateCertificateAttributeArgs']]]]):
+        pulumi.set(self, "certificate_attributes", value)
+
+    @property
+    @pulumi.getter(name="certificateData")
+    def certificate_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        The raw Key Vault Certificate data represented as a hexadecimal string.
+        """
+        return pulumi.get(self, "certificate_data")
+
+    @certificate_data.setter
+    def certificate_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_data", value)
+
+    @property
+    @pulumi.getter(name="certificateDataBase64")
+    def certificate_data_base64(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Base64 encoded Key Vault Certificate data.
+        """
+        return pulumi.get(self, "certificate_data_base64")
+
+    @certificate_data_base64.setter
+    def certificate_data_base64(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_data_base64", value)
+
+    @property
+    @pulumi.getter(name="certificatePolicy")
+    def certificate_policy(self) -> Optional[pulumi.Input['CertificateCertificatePolicyArgs']]:
+        """
+        A `certificate_policy` block as defined below.
+        """
+        return pulumi.get(self, "certificate_policy")
+
+    @certificate_policy.setter
+    def certificate_policy(self, value: Optional[pulumi.Input['CertificateCertificatePolicyArgs']]):
+        pulumi.set(self, "certificate_policy", value)
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Key Vault where the Certificate should be created.
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @key_vault_id.setter
+    def key_vault_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the associated Key Vault Secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_id", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
+        """
+        return pulumi.get(self, "thumbprint")
+
+    @thumbprint.setter
+    def thumbprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "thumbprint", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The current version of the Key Vault Certificate.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
 class Certificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -108,9 +292,7 @@ class Certificate(pulumi.CustomResource):
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a Key Vault Certificate.
 
@@ -381,15 +563,7 @@ class Certificate(pulumi.CustomResource):
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -399,23 +573,23 @@ class Certificate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = CertificateArgs.__new__(CertificateArgs)
 
-            __props__['certificate'] = certificate
+            __props__.__dict__["certificate"] = certificate
             if certificate_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_policy'")
-            __props__['certificate_policy'] = certificate_policy
+            __props__.__dict__["certificate_policy"] = certificate_policy
             if key_vault_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_id'")
-            __props__['key_vault_id'] = key_vault_id
-            __props__['name'] = name
-            __props__['tags'] = tags
-            __props__['certificate_attributes'] = None
-            __props__['certificate_data'] = None
-            __props__['certificate_data_base64'] = None
-            __props__['secret_id'] = None
-            __props__['thumbprint'] = None
-            __props__['version'] = None
+            __props__.__dict__["key_vault_id"] = key_vault_id
+            __props__.__dict__["name"] = name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["certificate_attributes"] = None
+            __props__.__dict__["certificate_data"] = None
+            __props__.__dict__["certificate_data_base64"] = None
+            __props__.__dict__["secret_id"] = None
+            __props__.__dict__["thumbprint"] = None
+            __props__.__dict__["version"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:keyvault/certifiate:Certifiate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Certificate, __self__).__init__(
@@ -460,19 +634,19 @@ class Certificate(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _CertificateState.__new__(_CertificateState)
 
-        __props__["certificate"] = certificate
-        __props__["certificate_attributes"] = certificate_attributes
-        __props__["certificate_data"] = certificate_data
-        __props__["certificate_data_base64"] = certificate_data_base64
-        __props__["certificate_policy"] = certificate_policy
-        __props__["key_vault_id"] = key_vault_id
-        __props__["name"] = name
-        __props__["secret_id"] = secret_id
-        __props__["tags"] = tags
-        __props__["thumbprint"] = thumbprint
-        __props__["version"] = version
+        __props__.__dict__["certificate"] = certificate
+        __props__.__dict__["certificate_attributes"] = certificate_attributes
+        __props__.__dict__["certificate_data"] = certificate_data
+        __props__.__dict__["certificate_data_base64"] = certificate_data_base64
+        __props__.__dict__["certificate_policy"] = certificate_policy
+        __props__.__dict__["key_vault_id"] = key_vault_id
+        __props__.__dict__["name"] = name
+        __props__.__dict__["secret_id"] = secret_id
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["thumbprint"] = thumbprint
+        __props__.__dict__["version"] = version
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -562,10 +736,4 @@ class Certificate(pulumi.CustomResource):
         The current version of the Key Vault Certificate.
         """
         return pulumi.get(self, "version")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

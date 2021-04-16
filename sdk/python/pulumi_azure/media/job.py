@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -143,6 +143,142 @@ class JobArgs:
         pulumi.set(self, "priority", value)
 
 
+@pulumi.input_type
+class _JobState:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 input_asset: Optional[pulumi.Input['JobInputAssetArgs']] = None,
+                 media_services_account_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 output_assets: Optional[pulumi.Input[Sequence[pulumi.Input['JobOutputAssetArgs']]]] = None,
+                 priority: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 transform_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Job resources.
+        :param pulumi.Input[str] description: Optional customer supplied description of the Job.
+        :param pulumi.Input['JobInputAssetArgs'] input_asset: A `input_asset` block as defined below. Changing this forces a new Media Job to be created.
+        :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Transform to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Media Job. Changing this forces a new Media Job to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['JobOutputAssetArgs']]] output_assets: One or more `output_asset` blocks as defined below. Changing this forces a new Media Job to be created.
+        :param pulumi.Input[str] priority: Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Media Job should exist. Changing this forces a new Media Job to be created.
+        :param pulumi.Input[str] transform_name: The Transform name. Changing this forces a new Media Job to be created.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if input_asset is not None:
+            pulumi.set(__self__, "input_asset", input_asset)
+        if media_services_account_name is not None:
+            pulumi.set(__self__, "media_services_account_name", media_services_account_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if output_assets is not None:
+            pulumi.set(__self__, "output_assets", output_assets)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if transform_name is not None:
+            pulumi.set(__self__, "transform_name", transform_name)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Optional customer supplied description of the Job.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="inputAsset")
+    def input_asset(self) -> Optional[pulumi.Input['JobInputAssetArgs']]:
+        """
+        A `input_asset` block as defined below. Changing this forces a new Media Job to be created.
+        """
+        return pulumi.get(self, "input_asset")
+
+    @input_asset.setter
+    def input_asset(self, value: Optional[pulumi.Input['JobInputAssetArgs']]):
+        pulumi.set(self, "input_asset", value)
+
+    @property
+    @pulumi.getter(name="mediaServicesAccountName")
+    def media_services_account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Media Services account name. Changing this forces a new Transform to be created.
+        """
+        return pulumi.get(self, "media_services_account_name")
+
+    @media_services_account_name.setter
+    def media_services_account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "media_services_account_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Media Job. Changing this forces a new Media Job to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="outputAssets")
+    def output_assets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobOutputAssetArgs']]]]:
+        """
+        One or more `output_asset` blocks as defined below. Changing this forces a new Media Job to be created.
+        """
+        return pulumi.get(self, "output_assets")
+
+    @output_assets.setter
+    def output_assets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobOutputAssetArgs']]]]):
+        pulumi.set(self, "output_assets", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[str]]:
+        """
+        Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Resource Group where the Media Job should exist. Changing this forces a new Media Job to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="transformName")
+    def transform_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Transform name. Changing this forces a new Media Job to be created.
+        """
+        return pulumi.get(self, "transform_name")
+
+    @transform_name.setter
+    def transform_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "transform_name", value)
+
+
 class Job(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -156,9 +292,7 @@ class Job(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  transform_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a Media Job.
 
@@ -325,15 +459,7 @@ class Job(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  transform_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -343,26 +469,26 @@ class Job(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = JobArgs.__new__(JobArgs)
 
-            __props__['description'] = description
+            __props__.__dict__["description"] = description
             if input_asset is None and not opts.urn:
                 raise TypeError("Missing required property 'input_asset'")
-            __props__['input_asset'] = input_asset
+            __props__.__dict__["input_asset"] = input_asset
             if media_services_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'media_services_account_name'")
-            __props__['media_services_account_name'] = media_services_account_name
-            __props__['name'] = name
+            __props__.__dict__["media_services_account_name"] = media_services_account_name
+            __props__.__dict__["name"] = name
             if output_assets is None and not opts.urn:
                 raise TypeError("Missing required property 'output_assets'")
-            __props__['output_assets'] = output_assets
-            __props__['priority'] = priority
+            __props__.__dict__["output_assets"] = output_assets
+            __props__.__dict__["priority"] = priority
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if transform_name is None and not opts.urn:
                 raise TypeError("Missing required property 'transform_name'")
-            __props__['transform_name'] = transform_name
+            __props__.__dict__["transform_name"] = transform_name
         super(Job, __self__).__init__(
             'azure:media/job:Job',
             resource_name,
@@ -399,16 +525,16 @@ class Job(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _JobState.__new__(_JobState)
 
-        __props__["description"] = description
-        __props__["input_asset"] = input_asset
-        __props__["media_services_account_name"] = media_services_account_name
-        __props__["name"] = name
-        __props__["output_assets"] = output_assets
-        __props__["priority"] = priority
-        __props__["resource_group_name"] = resource_group_name
-        __props__["transform_name"] = transform_name
+        __props__.__dict__["description"] = description
+        __props__.__dict__["input_asset"] = input_asset
+        __props__.__dict__["media_services_account_name"] = media_services_account_name
+        __props__.__dict__["name"] = name
+        __props__.__dict__["output_assets"] = output_assets
+        __props__.__dict__["priority"] = priority
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["transform_name"] = transform_name
         return Job(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -474,10 +600,4 @@ class Job(pulumi.CustomResource):
         The Transform name. Changing this forces a new Media Job to be created.
         """
         return pulumi.get(self, "transform_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['NetworkInterfaceSecurityGroupAssociationArgs', 'NetworkInterfaceSecurityGroupAssociation']
 
@@ -48,6 +48,46 @@ class NetworkInterfaceSecurityGroupAssociationArgs:
         pulumi.set(self, "network_security_group_id", value)
 
 
+@pulumi.input_type
+class _NetworkInterfaceSecurityGroupAssociationState:
+    def __init__(__self__, *,
+                 network_interface_id: Optional[pulumi.Input[str]] = None,
+                 network_security_group_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering NetworkInterfaceSecurityGroupAssociation resources.
+        :param pulumi.Input[str] network_interface_id: The ID of the Network Interface. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_security_group_id: The ID of the Network Security Group which should be attached to the Network Interface. Changing this forces a new resource to be created.
+        """
+        if network_interface_id is not None:
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if network_security_group_id is not None:
+            pulumi.set(__self__, "network_security_group_id", network_security_group_id)
+
+    @property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Network Interface. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "network_interface_id")
+
+    @network_interface_id.setter
+    def network_interface_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_interface_id", value)
+
+    @property
+    @pulumi.getter(name="networkSecurityGroupId")
+    def network_security_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Network Security Group which should be attached to the Network Interface. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "network_security_group_id")
+
+    @network_security_group_id.setter
+    def network_security_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_security_group_id", value)
+
+
 class NetworkInterfaceSecurityGroupAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -55,9 +95,7 @@ class NetworkInterfaceSecurityGroupAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  network_security_group_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages the association between a Network Interface and a Network Security Group.
 
@@ -170,15 +208,7 @@ class NetworkInterfaceSecurityGroupAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  network_security_group_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -188,14 +218,14 @@ class NetworkInterfaceSecurityGroupAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = NetworkInterfaceSecurityGroupAssociationArgs.__new__(NetworkInterfaceSecurityGroupAssociationArgs)
 
             if network_interface_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_interface_id'")
-            __props__['network_interface_id'] = network_interface_id
+            __props__.__dict__["network_interface_id"] = network_interface_id
             if network_security_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_security_group_id'")
-            __props__['network_security_group_id'] = network_security_group_id
+            __props__.__dict__["network_security_group_id"] = network_security_group_id
         super(NetworkInterfaceSecurityGroupAssociation, __self__).__init__(
             'azure:network/networkInterfaceSecurityGroupAssociation:NetworkInterfaceSecurityGroupAssociation',
             resource_name,
@@ -220,10 +250,10 @@ class NetworkInterfaceSecurityGroupAssociation(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _NetworkInterfaceSecurityGroupAssociationState.__new__(_NetworkInterfaceSecurityGroupAssociationState)
 
-        __props__["network_interface_id"] = network_interface_id
-        __props__["network_security_group_id"] = network_security_group_id
+        __props__.__dict__["network_interface_id"] = network_interface_id
+        __props__.__dict__["network_security_group_id"] = network_security_group_id
         return NetworkInterfaceSecurityGroupAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -241,10 +271,4 @@ class NetworkInterfaceSecurityGroupAssociation(pulumi.CustomResource):
         The ID of the Network Security Group which should be attached to the Network Interface. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network_security_group_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

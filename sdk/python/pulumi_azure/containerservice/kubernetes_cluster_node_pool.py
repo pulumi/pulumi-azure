@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -418,6 +418,414 @@ class KubernetesClusterNodePoolArgs:
         pulumi.set(self, "vnet_subnet_id", value)
 
 
+@pulumi.input_type
+class _KubernetesClusterNodePoolState:
+    def __init__(__self__, *,
+                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
+                 enable_host_encryption: Optional[pulumi.Input[bool]] = None,
+                 enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
+                 eviction_policy: Optional[pulumi.Input[str]] = None,
+                 kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
+                 max_count: Optional[pulumi.Input[int]] = None,
+                 max_pods: Optional[pulumi.Input[int]] = None,
+                 min_count: Optional[pulumi.Input[int]] = None,
+                 mode: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 node_count: Optional[pulumi.Input[int]] = None,
+                 node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 orchestrator_version: Optional[pulumi.Input[str]] = None,
+                 os_disk_size_gb: Optional[pulumi.Input[int]] = None,
+                 os_disk_type: Optional[pulumi.Input[str]] = None,
+                 os_type: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[str]] = None,
+                 proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+                 spot_max_price: Optional[pulumi.Input[float]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 upgrade_settings: Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs']] = None,
+                 vm_size: Optional[pulumi.Input[str]] = None,
+                 vnet_subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering KubernetesClusterNodePool resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enable_auto_scaling: Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
+        :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+        :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Defaults to `false`.
+        :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
+        :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] min_count: The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`.
+        :param pulumi.Input[str] mode: Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
+        :param pulumi.Input[str] name: The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] node_count: The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be a value in the range `min_count` - `max_count`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
+        :param pulumi.Input[str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+        :param pulumi.Input[int] os_disk_size_gb: The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] os_type: The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
+        :param pulumi.Input[str] priority: The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
+        :param pulumi.Input[float] spot_max_price: The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs'] upgrade_settings: A `upgrade_settings` block as documented below.
+        :param pulumi.Input[str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist.
+        """
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
+        if enable_auto_scaling is not None:
+            pulumi.set(__self__, "enable_auto_scaling", enable_auto_scaling)
+        if enable_host_encryption is not None:
+            pulumi.set(__self__, "enable_host_encryption", enable_host_encryption)
+        if enable_node_public_ip is not None:
+            pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
+        if eviction_policy is not None:
+            pulumi.set(__self__, "eviction_policy", eviction_policy)
+        if kubernetes_cluster_id is not None:
+            pulumi.set(__self__, "kubernetes_cluster_id", kubernetes_cluster_id)
+        if max_count is not None:
+            pulumi.set(__self__, "max_count", max_count)
+        if max_pods is not None:
+            pulumi.set(__self__, "max_pods", max_pods)
+        if min_count is not None:
+            pulumi.set(__self__, "min_count", min_count)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if node_count is not None:
+            pulumi.set(__self__, "node_count", node_count)
+        if node_labels is not None:
+            pulumi.set(__self__, "node_labels", node_labels)
+        if node_taints is not None:
+            pulumi.set(__self__, "node_taints", node_taints)
+        if orchestrator_version is not None:
+            pulumi.set(__self__, "orchestrator_version", orchestrator_version)
+        if os_disk_size_gb is not None:
+            pulumi.set(__self__, "os_disk_size_gb", os_disk_size_gb)
+        if os_disk_type is not None:
+            pulumi.set(__self__, "os_disk_type", os_disk_type)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if proximity_placement_group_id is not None:
+            pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
+        if spot_max_price is not None:
+            pulumi.set(__self__, "spot_max_price", spot_max_price)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if upgrade_settings is not None:
+            pulumi.set(__self__, "upgrade_settings", upgrade_settings)
+        if vm_size is not None:
+            pulumi.set(__self__, "vm_size", vm_size)
+        if vnet_subnet_id is not None:
+            pulumi.set(__self__, "vnet_subnet_id", vnet_subnet_id)
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "availability_zones")
+
+    @availability_zones.setter
+    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "availability_zones", value)
+
+    @property
+    @pulumi.getter(name="enableAutoScaling")
+    def enable_auto_scaling(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
+        """
+        return pulumi.get(self, "enable_auto_scaling")
+
+    @enable_auto_scaling.setter
+    def enable_auto_scaling(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_auto_scaling", value)
+
+    @property
+    @pulumi.getter(name="enableHostEncryption")
+    def enable_host_encryption(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "enable_host_encryption")
+
+    @enable_host_encryption.setter
+    def enable_host_encryption(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_host_encryption", value)
+
+    @property
+    @pulumi.getter(name="enableNodePublicIp")
+    def enable_node_public_ip(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should each node have a Public IP Address? Defaults to `false`.
+        """
+        return pulumi.get(self, "enable_node_public_ip")
+
+    @enable_node_public_ip.setter
+    def enable_node_public_ip(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_node_public_ip", value)
+
+    @property
+    @pulumi.getter(name="evictionPolicy")
+    def eviction_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "eviction_policy")
+
+    @eviction_policy.setter
+    def eviction_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "eviction_policy", value)
+
+    @property
+    @pulumi.getter(name="kubernetesClusterId")
+    def kubernetes_cluster_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "kubernetes_cluster_id")
+
+    @kubernetes_cluster_id.setter
+    def kubernetes_cluster_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kubernetes_cluster_id", value)
+
+    @property
+    @pulumi.getter(name="maxCount")
+    def max_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
+        """
+        return pulumi.get(self, "max_count")
+
+    @max_count.setter
+    def max_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_count", value)
+
+    @property
+    @pulumi.getter(name="maxPods")
+    def max_pods(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "max_pods")
+
+    @max_pods.setter
+    def max_pods(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_pods", value)
+
+    @property
+    @pulumi.getter(name="minCount")
+    def min_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`.
+        """
+        return pulumi.get(self, "min_count")
+
+    @min_count.setter
+    def min_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_count", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="nodeCount")
+    def node_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be a value in the range `min_count` - `max_count`.
+        """
+        return pulumi.get(self, "node_count")
+
+    @node_count.setter
+    def node_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "node_count", value)
+
+    @property
+    @pulumi.getter(name="nodeLabels")
+    def node_labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "node_labels")
+
+    @node_labels.setter
+    def node_labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "node_labels", value)
+
+    @property
+    @pulumi.getter(name="nodeTaints")
+    def node_taints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "node_taints")
+
+    @node_taints.setter
+    def node_taints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "node_taints", value)
+
+    @property
+    @pulumi.getter(name="orchestratorVersion")
+    def orchestrator_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
+        """
+        return pulumi.get(self, "orchestrator_version")
+
+    @orchestrator_version.setter
+    def orchestrator_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "orchestrator_version", value)
+
+    @property
+    @pulumi.getter(name="osDiskSizeGb")
+    def os_disk_size_gb(self) -> Optional[pulumi.Input[int]]:
+        """
+        The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "os_disk_size_gb")
+
+    @os_disk_size_gb.setter
+    def os_disk_size_gb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "os_disk_size_gb", value)
+
+    @property
+    @pulumi.getter(name="osDiskType")
+    def os_disk_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "os_disk_type")
+
+    @os_disk_type.setter
+    def os_disk_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "os_disk_type", value)
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
+        """
+        return pulumi.get(self, "os_type")
+
+    @os_type.setter
+    def os_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "os_type", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="proximityPlacementGroupId")
+    def proximity_placement_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "proximity_placement_group_id")
+
+    @proximity_placement_group_id.setter
+    def proximity_placement_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "proximity_placement_group_id", value)
+
+    @property
+    @pulumi.getter(name="spotMaxPrice")
+    def spot_max_price(self) -> Optional[pulumi.Input[float]]:
+        """
+        The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "spot_max_price")
+
+    @spot_max_price.setter
+    def spot_max_price(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "spot_max_price", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="upgradeSettings")
+    def upgrade_settings(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs']]:
+        """
+        A `upgrade_settings` block as documented below.
+        """
+        return pulumi.get(self, "upgrade_settings")
+
+    @upgrade_settings.setter
+    def upgrade_settings(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs']]):
+        pulumi.set(self, "upgrade_settings", value)
+
+    @property
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "vm_size")
+
+    @vm_size.setter
+    def vm_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vm_size", value)
+
+    @property
+    @pulumi.getter(name="vnetSubnetId")
+    def vnet_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Subnet where this Node Pool should exist.
+        """
+        return pulumi.get(self, "vnet_subnet_id")
+
+    @vnet_subnet_id.setter
+    def vnet_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vnet_subnet_id", value)
+
+
 class KubernetesClusterNodePool(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -448,9 +856,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  upgrade_settings: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArgs']]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         ## Import
 
@@ -543,15 +949,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  upgrade_settings: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArgs']]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -561,37 +959,37 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = KubernetesClusterNodePoolArgs.__new__(KubernetesClusterNodePoolArgs)
 
-            __props__['availability_zones'] = availability_zones
-            __props__['enable_auto_scaling'] = enable_auto_scaling
-            __props__['enable_host_encryption'] = enable_host_encryption
-            __props__['enable_node_public_ip'] = enable_node_public_ip
-            __props__['eviction_policy'] = eviction_policy
+            __props__.__dict__["availability_zones"] = availability_zones
+            __props__.__dict__["enable_auto_scaling"] = enable_auto_scaling
+            __props__.__dict__["enable_host_encryption"] = enable_host_encryption
+            __props__.__dict__["enable_node_public_ip"] = enable_node_public_ip
+            __props__.__dict__["eviction_policy"] = eviction_policy
             if kubernetes_cluster_id is None and not opts.urn:
                 raise TypeError("Missing required property 'kubernetes_cluster_id'")
-            __props__['kubernetes_cluster_id'] = kubernetes_cluster_id
-            __props__['max_count'] = max_count
-            __props__['max_pods'] = max_pods
-            __props__['min_count'] = min_count
-            __props__['mode'] = mode
-            __props__['name'] = name
-            __props__['node_count'] = node_count
-            __props__['node_labels'] = node_labels
-            __props__['node_taints'] = node_taints
-            __props__['orchestrator_version'] = orchestrator_version
-            __props__['os_disk_size_gb'] = os_disk_size_gb
-            __props__['os_disk_type'] = os_disk_type
-            __props__['os_type'] = os_type
-            __props__['priority'] = priority
-            __props__['proximity_placement_group_id'] = proximity_placement_group_id
-            __props__['spot_max_price'] = spot_max_price
-            __props__['tags'] = tags
-            __props__['upgrade_settings'] = upgrade_settings
+            __props__.__dict__["kubernetes_cluster_id"] = kubernetes_cluster_id
+            __props__.__dict__["max_count"] = max_count
+            __props__.__dict__["max_pods"] = max_pods
+            __props__.__dict__["min_count"] = min_count
+            __props__.__dict__["mode"] = mode
+            __props__.__dict__["name"] = name
+            __props__.__dict__["node_count"] = node_count
+            __props__.__dict__["node_labels"] = node_labels
+            __props__.__dict__["node_taints"] = node_taints
+            __props__.__dict__["orchestrator_version"] = orchestrator_version
+            __props__.__dict__["os_disk_size_gb"] = os_disk_size_gb
+            __props__.__dict__["os_disk_type"] = os_disk_type
+            __props__.__dict__["os_type"] = os_type
+            __props__.__dict__["priority"] = priority
+            __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
+            __props__.__dict__["spot_max_price"] = spot_max_price
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["upgrade_settings"] = upgrade_settings
             if vm_size is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_size'")
-            __props__['vm_size'] = vm_size
-            __props__['vnet_subnet_id'] = vnet_subnet_id
+            __props__.__dict__["vm_size"] = vm_size
+            __props__.__dict__["vnet_subnet_id"] = vnet_subnet_id
         super(KubernetesClusterNodePool, __self__).__init__(
             'azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool',
             resource_name,
@@ -662,33 +1060,33 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _KubernetesClusterNodePoolState.__new__(_KubernetesClusterNodePoolState)
 
-        __props__["availability_zones"] = availability_zones
-        __props__["enable_auto_scaling"] = enable_auto_scaling
-        __props__["enable_host_encryption"] = enable_host_encryption
-        __props__["enable_node_public_ip"] = enable_node_public_ip
-        __props__["eviction_policy"] = eviction_policy
-        __props__["kubernetes_cluster_id"] = kubernetes_cluster_id
-        __props__["max_count"] = max_count
-        __props__["max_pods"] = max_pods
-        __props__["min_count"] = min_count
-        __props__["mode"] = mode
-        __props__["name"] = name
-        __props__["node_count"] = node_count
-        __props__["node_labels"] = node_labels
-        __props__["node_taints"] = node_taints
-        __props__["orchestrator_version"] = orchestrator_version
-        __props__["os_disk_size_gb"] = os_disk_size_gb
-        __props__["os_disk_type"] = os_disk_type
-        __props__["os_type"] = os_type
-        __props__["priority"] = priority
-        __props__["proximity_placement_group_id"] = proximity_placement_group_id
-        __props__["spot_max_price"] = spot_max_price
-        __props__["tags"] = tags
-        __props__["upgrade_settings"] = upgrade_settings
-        __props__["vm_size"] = vm_size
-        __props__["vnet_subnet_id"] = vnet_subnet_id
+        __props__.__dict__["availability_zones"] = availability_zones
+        __props__.__dict__["enable_auto_scaling"] = enable_auto_scaling
+        __props__.__dict__["enable_host_encryption"] = enable_host_encryption
+        __props__.__dict__["enable_node_public_ip"] = enable_node_public_ip
+        __props__.__dict__["eviction_policy"] = eviction_policy
+        __props__.__dict__["kubernetes_cluster_id"] = kubernetes_cluster_id
+        __props__.__dict__["max_count"] = max_count
+        __props__.__dict__["max_pods"] = max_pods
+        __props__.__dict__["min_count"] = min_count
+        __props__.__dict__["mode"] = mode
+        __props__.__dict__["name"] = name
+        __props__.__dict__["node_count"] = node_count
+        __props__.__dict__["node_labels"] = node_labels
+        __props__.__dict__["node_taints"] = node_taints
+        __props__.__dict__["orchestrator_version"] = orchestrator_version
+        __props__.__dict__["os_disk_size_gb"] = os_disk_size_gb
+        __props__.__dict__["os_disk_type"] = os_disk_type
+        __props__.__dict__["os_type"] = os_type
+        __props__.__dict__["priority"] = priority
+        __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
+        __props__.__dict__["spot_max_price"] = spot_max_price
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["upgrade_settings"] = upgrade_settings
+        __props__.__dict__["vm_size"] = vm_size
+        __props__.__dict__["vnet_subnet_id"] = vnet_subnet_id
         return KubernetesClusterNodePool(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -890,10 +1288,4 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         The ID of the Subnet where this Node Pool should exist.
         """
         return pulumi.get(self, "vnet_subnet_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

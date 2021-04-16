@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -178,6 +178,190 @@ class VirtualNetworkArgs:
         pulumi.set(self, "vm_protection_enabled", value)
 
 
+@pulumi.input_type
+class _VirtualNetworkState:
+    def __init__(__self__, *,
+                 address_spaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 bgp_community: Optional[pulumi.Input[str]] = None,
+                 ddos_protection_plan: Optional[pulumi.Input['VirtualNetworkDdosProtectionPlanArgs']] = None,
+                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 guid: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vm_protection_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Input properties used for looking up and filtering VirtualNetwork resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] address_spaces: The address space that is used the virtual network. You can supply more than one address space.
+        :param pulumi.Input[str] bgp_community: The BGP community attribute in format `<as-number>:<community-value>`.
+        :param pulumi.Input['VirtualNetworkDdosProtectionPlanArgs'] ddos_protection_plan: A `ddos_protection_plan` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: List of IP addresses of DNS servers
+        :param pulumi.Input[str] guid: The GUID of the virtual network.
+        :param pulumi.Input[str] location: The location/region where the virtual network is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the virtual network. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual network.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetArgs']]] subnets: Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] vm_protection_enabled: Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
+        """
+        if address_spaces is not None:
+            pulumi.set(__self__, "address_spaces", address_spaces)
+        if bgp_community is not None:
+            pulumi.set(__self__, "bgp_community", bgp_community)
+        if ddos_protection_plan is not None:
+            pulumi.set(__self__, "ddos_protection_plan", ddos_protection_plan)
+        if dns_servers is not None:
+            pulumi.set(__self__, "dns_servers", dns_servers)
+        if guid is not None:
+            pulumi.set(__self__, "guid", guid)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if subnets is not None:
+            pulumi.set(__self__, "subnets", subnets)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if vm_protection_enabled is not None:
+            pulumi.set(__self__, "vm_protection_enabled", vm_protection_enabled)
+
+    @property
+    @pulumi.getter(name="addressSpaces")
+    def address_spaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The address space that is used the virtual network. You can supply more than one address space.
+        """
+        return pulumi.get(self, "address_spaces")
+
+    @address_spaces.setter
+    def address_spaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "address_spaces", value)
+
+    @property
+    @pulumi.getter(name="bgpCommunity")
+    def bgp_community(self) -> Optional[pulumi.Input[str]]:
+        """
+        The BGP community attribute in format `<as-number>:<community-value>`.
+        """
+        return pulumi.get(self, "bgp_community")
+
+    @bgp_community.setter
+    def bgp_community(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bgp_community", value)
+
+    @property
+    @pulumi.getter(name="ddosProtectionPlan")
+    def ddos_protection_plan(self) -> Optional[pulumi.Input['VirtualNetworkDdosProtectionPlanArgs']]:
+        """
+        A `ddos_protection_plan` block as documented below.
+        """
+        return pulumi.get(self, "ddos_protection_plan")
+
+    @ddos_protection_plan.setter
+    def ddos_protection_plan(self, value: Optional[pulumi.Input['VirtualNetworkDdosProtectionPlanArgs']]):
+        pulumi.set(self, "ddos_protection_plan", value)
+
+    @property
+    @pulumi.getter(name="dnsServers")
+    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of IP addresses of DNS servers
+        """
+        return pulumi.get(self, "dns_servers")
+
+    @dns_servers.setter
+    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "dns_servers", value)
+
+    @property
+    @pulumi.getter
+    def guid(self) -> Optional[pulumi.Input[str]]:
+        """
+        The GUID of the virtual network.
+        """
+        return pulumi.get(self, "guid")
+
+    @guid.setter
+    def guid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "guid", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location/region where the virtual network is created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the virtual network. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which to create the virtual network.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetArgs']]]]:
+        """
+        Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+        """
+        return pulumi.get(self, "subnets")
+
+    @subnets.setter
+    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetArgs']]]]):
+        pulumi.set(self, "subnets", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="vmProtectionEnabled")
+    def vm_protection_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
+        """
+        return pulumi.get(self, "vm_protection_enabled")
+
+    @vm_protection_enabled.setter
+    def vm_protection_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vm_protection_enabled", value)
+
+
 class VirtualNetwork(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -193,9 +377,7 @@ class VirtualNetwork(pulumi.CustomResource):
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkSubnetArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vm_protection_enabled: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a virtual network including any configured subnets. Each subnet can
         optionally be configured with a security group to be associated with the subnet.
@@ -362,15 +544,7 @@ class VirtualNetwork(pulumi.CustomResource):
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkSubnetArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vm_protection_enabled: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -380,23 +554,23 @@ class VirtualNetwork(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VirtualNetworkArgs.__new__(VirtualNetworkArgs)
 
             if address_spaces is None and not opts.urn:
                 raise TypeError("Missing required property 'address_spaces'")
-            __props__['address_spaces'] = address_spaces
-            __props__['bgp_community'] = bgp_community
-            __props__['ddos_protection_plan'] = ddos_protection_plan
-            __props__['dns_servers'] = dns_servers
-            __props__['location'] = location
-            __props__['name'] = name
+            __props__.__dict__["address_spaces"] = address_spaces
+            __props__.__dict__["bgp_community"] = bgp_community
+            __props__.__dict__["ddos_protection_plan"] = ddos_protection_plan
+            __props__.__dict__["dns_servers"] = dns_servers
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['subnets'] = subnets
-            __props__['tags'] = tags
-            __props__['vm_protection_enabled'] = vm_protection_enabled
-            __props__['guid'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["subnets"] = subnets
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["vm_protection_enabled"] = vm_protection_enabled
+            __props__.__dict__["guid"] = None
         super(VirtualNetwork, __self__).__init__(
             'azure:network/virtualNetwork:VirtualNetwork',
             resource_name,
@@ -439,19 +613,19 @@ class VirtualNetwork(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _VirtualNetworkState.__new__(_VirtualNetworkState)
 
-        __props__["address_spaces"] = address_spaces
-        __props__["bgp_community"] = bgp_community
-        __props__["ddos_protection_plan"] = ddos_protection_plan
-        __props__["dns_servers"] = dns_servers
-        __props__["guid"] = guid
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["resource_group_name"] = resource_group_name
-        __props__["subnets"] = subnets
-        __props__["tags"] = tags
-        __props__["vm_protection_enabled"] = vm_protection_enabled
+        __props__.__dict__["address_spaces"] = address_spaces
+        __props__.__dict__["bgp_community"] = bgp_community
+        __props__.__dict__["ddos_protection_plan"] = ddos_protection_plan
+        __props__.__dict__["dns_servers"] = dns_servers
+        __props__.__dict__["guid"] = guid
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["subnets"] = subnets
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["vm_protection_enabled"] = vm_protection_enabled
         return VirtualNetwork(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -541,10 +715,4 @@ class VirtualNetwork(pulumi.CustomResource):
         Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
         """
         return pulumi.get(self, "vm_protection_enabled")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

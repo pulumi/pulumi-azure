@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['InterationServiceEnvironmentArgs', 'InterationServiceEnvironment']
 
@@ -127,6 +127,190 @@ class InterationServiceEnvironmentArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _InterationServiceEnvironmentState:
+    def __init__(__self__, *,
+                 access_endpoint_type: Optional[pulumi.Input[str]] = None,
+                 connector_endpoint_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 connector_outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 workflow_endpoint_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 workflow_outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering InterationServiceEnvironment resources.
+        :param pulumi.Input[str] access_endpoint_type: The type of access endpoint to use for the Integration Service Environment. Possible Values are `Internal` and `External`. Changing this forces a new Integration Service Environment to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] connector_endpoint_ip_addresses: The list of access endpoint ip addresses of connector.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] connector_outbound_ip_addresses: The list of outgoing ip addresses of connector.
+        :param pulumi.Input[str] location: The Azure Region where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
+        :param pulumi.Input[str] name: The name of the Integration Service Environment. Changing this forces a new Integration Service Environment to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
+        :param pulumi.Input[str] sku_name: The sku name and capacity of the Integration Service Environment. Possible Values for `sku` element are `Developer` and `Premium` and possible values for the `capacity` element are from `0` to `10`.  Defaults to `sku` of `Developer` with a `Capacity` of `0` (e.g. `Developer_0`). Changing this forces a new Integration Service Environment to be created when `sku` element is not the same with existing one.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Integration Service Environment.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] workflow_endpoint_ip_addresses: The list of access endpoint ip addresses of workflow.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] workflow_outbound_ip_addresses: The list of outgoing ip addresses of workflow.
+        """
+        if access_endpoint_type is not None:
+            pulumi.set(__self__, "access_endpoint_type", access_endpoint_type)
+        if connector_endpoint_ip_addresses is not None:
+            pulumi.set(__self__, "connector_endpoint_ip_addresses", connector_endpoint_ip_addresses)
+        if connector_outbound_ip_addresses is not None:
+            pulumi.set(__self__, "connector_outbound_ip_addresses", connector_outbound_ip_addresses)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if sku_name is not None:
+            pulumi.set(__self__, "sku_name", sku_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if virtual_network_subnet_ids is not None:
+            pulumi.set(__self__, "virtual_network_subnet_ids", virtual_network_subnet_ids)
+        if workflow_endpoint_ip_addresses is not None:
+            pulumi.set(__self__, "workflow_endpoint_ip_addresses", workflow_endpoint_ip_addresses)
+        if workflow_outbound_ip_addresses is not None:
+            pulumi.set(__self__, "workflow_outbound_ip_addresses", workflow_outbound_ip_addresses)
+
+    @property
+    @pulumi.getter(name="accessEndpointType")
+    def access_endpoint_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of access endpoint to use for the Integration Service Environment. Possible Values are `Internal` and `External`. Changing this forces a new Integration Service Environment to be created.
+        """
+        return pulumi.get(self, "access_endpoint_type")
+
+    @access_endpoint_type.setter
+    def access_endpoint_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_endpoint_type", value)
+
+    @property
+    @pulumi.getter(name="connectorEndpointIpAddresses")
+    def connector_endpoint_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of access endpoint ip addresses of connector.
+        """
+        return pulumi.get(self, "connector_endpoint_ip_addresses")
+
+    @connector_endpoint_ip_addresses.setter
+    def connector_endpoint_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "connector_endpoint_ip_addresses", value)
+
+    @property
+    @pulumi.getter(name="connectorOutboundIpAddresses")
+    def connector_outbound_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of outgoing ip addresses of connector.
+        """
+        return pulumi.get(self, "connector_outbound_ip_addresses")
+
+    @connector_outbound_ip_addresses.setter
+    def connector_outbound_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "connector_outbound_ip_addresses", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Region where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Integration Service Environment. Changing this forces a new Integration Service Environment to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Resource Group where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="skuName")
+    def sku_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The sku name and capacity of the Integration Service Environment. Possible Values for `sku` element are `Developer` and `Premium` and possible values for the `capacity` element are from `0` to `10`.  Defaults to `sku` of `Developer` with a `Capacity` of `0` (e.g. `Developer_0`). Changing this forces a new Integration Service Environment to be created when `sku` element is not the same with existing one.
+        """
+        return pulumi.get(self, "sku_name")
+
+    @sku_name.setter
+    def sku_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags which should be assigned to the Integration Service Environment.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetIds")
+    def virtual_network_subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
+        """
+        return pulumi.get(self, "virtual_network_subnet_ids")
+
+    @virtual_network_subnet_ids.setter
+    def virtual_network_subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "virtual_network_subnet_ids", value)
+
+    @property
+    @pulumi.getter(name="workflowEndpointIpAddresses")
+    def workflow_endpoint_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of access endpoint ip addresses of workflow.
+        """
+        return pulumi.get(self, "workflow_endpoint_ip_addresses")
+
+    @workflow_endpoint_ip_addresses.setter
+    def workflow_endpoint_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "workflow_endpoint_ip_addresses", value)
+
+    @property
+    @pulumi.getter(name="workflowOutboundIpAddresses")
+    def workflow_outbound_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of outgoing ip addresses of workflow.
+        """
+        return pulumi.get(self, "workflow_outbound_ip_addresses")
+
+    @workflow_outbound_ip_addresses.setter
+    def workflow_outbound_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "workflow_outbound_ip_addresses", value)
+
+
 class InterationServiceEnvironment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -139,9 +323,7 @@ class InterationServiceEnvironment(pulumi.CustomResource):
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages private and isolated Logic App instances within an Azure virtual network.
 
@@ -300,15 +482,7 @@ class InterationServiceEnvironment(pulumi.CustomResource):
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -318,25 +492,25 @@ class InterationServiceEnvironment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = InterationServiceEnvironmentArgs.__new__(InterationServiceEnvironmentArgs)
 
             if access_endpoint_type is None and not opts.urn:
                 raise TypeError("Missing required property 'access_endpoint_type'")
-            __props__['access_endpoint_type'] = access_endpoint_type
-            __props__['location'] = location
-            __props__['name'] = name
+            __props__.__dict__["access_endpoint_type"] = access_endpoint_type
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['sku_name'] = sku_name
-            __props__['tags'] = tags
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sku_name"] = sku_name
+            __props__.__dict__["tags"] = tags
             if virtual_network_subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_subnet_ids'")
-            __props__['virtual_network_subnet_ids'] = virtual_network_subnet_ids
-            __props__['connector_endpoint_ip_addresses'] = None
-            __props__['connector_outbound_ip_addresses'] = None
-            __props__['workflow_endpoint_ip_addresses'] = None
-            __props__['workflow_outbound_ip_addresses'] = None
+            __props__.__dict__["virtual_network_subnet_ids"] = virtual_network_subnet_ids
+            __props__.__dict__["connector_endpoint_ip_addresses"] = None
+            __props__.__dict__["connector_outbound_ip_addresses"] = None
+            __props__.__dict__["workflow_endpoint_ip_addresses"] = None
+            __props__.__dict__["workflow_outbound_ip_addresses"] = None
         super(InterationServiceEnvironment, __self__).__init__(
             'azure:logicapps/interationServiceEnvironment:InterationServiceEnvironment',
             resource_name,
@@ -379,19 +553,19 @@ class InterationServiceEnvironment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _InterationServiceEnvironmentState.__new__(_InterationServiceEnvironmentState)
 
-        __props__["access_endpoint_type"] = access_endpoint_type
-        __props__["connector_endpoint_ip_addresses"] = connector_endpoint_ip_addresses
-        __props__["connector_outbound_ip_addresses"] = connector_outbound_ip_addresses
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["resource_group_name"] = resource_group_name
-        __props__["sku_name"] = sku_name
-        __props__["tags"] = tags
-        __props__["virtual_network_subnet_ids"] = virtual_network_subnet_ids
-        __props__["workflow_endpoint_ip_addresses"] = workflow_endpoint_ip_addresses
-        __props__["workflow_outbound_ip_addresses"] = workflow_outbound_ip_addresses
+        __props__.__dict__["access_endpoint_type"] = access_endpoint_type
+        __props__.__dict__["connector_endpoint_ip_addresses"] = connector_endpoint_ip_addresses
+        __props__.__dict__["connector_outbound_ip_addresses"] = connector_outbound_ip_addresses
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["sku_name"] = sku_name
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["virtual_network_subnet_ids"] = virtual_network_subnet_ids
+        __props__.__dict__["workflow_endpoint_ip_addresses"] = workflow_endpoint_ip_addresses
+        __props__.__dict__["workflow_outbound_ip_addresses"] = workflow_outbound_ip_addresses
         return InterationServiceEnvironment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -481,10 +655,4 @@ class InterationServiceEnvironment(pulumi.CustomResource):
         The list of outgoing ip addresses of workflow.
         """
         return pulumi.get(self, "workflow_outbound_ip_addresses")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

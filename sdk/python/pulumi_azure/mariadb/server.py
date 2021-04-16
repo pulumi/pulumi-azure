@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -319,6 +319,332 @@ class ServerArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _ServerState:
+    def __init__(__self__, *,
+                 administrator_login: Optional[pulumi.Input[str]] = None,
+                 administrator_login_password: Optional[pulumi.Input[str]] = None,
+                 auto_grow_enabled: Optional[pulumi.Input[bool]] = None,
+                 backup_retention_days: Optional[pulumi.Input[int]] = None,
+                 create_mode: Optional[pulumi.Input[str]] = None,
+                 creation_source_server_id: Optional[pulumi.Input[str]] = None,
+                 fqdn: Optional[pulumi.Input[str]] = None,
+                 geo_redundant_backup_enabled: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 restore_point_in_time: Optional[pulumi.Input[str]] = None,
+                 sku_name: Optional[pulumi.Input[str]] = None,
+                 ssl_enforcement: Optional[pulumi.Input[str]] = None,
+                 ssl_enforcement_enabled: Optional[pulumi.Input[bool]] = None,
+                 storage_mb: Optional[pulumi.Input[int]] = None,
+                 storage_profile: Optional[pulumi.Input['ServerStorageProfileArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Server resources.
+        :param pulumi.Input[str] administrator_login: The Administrator Login for the MariaDB Server. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] administrator_login_password: The Password associated with the `administrator_login` for the MariaDB Server.
+        :param pulumi.Input[bool] auto_grow_enabled: Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+        :param pulumi.Input[int] backup_retention_days: Backup retention days for the server, supported values are between `7` and `35` days.
+        :param pulumi.Input[str] create_mode: The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default`.
+        :param pulumi.Input[str] creation_source_server_id: For creation modes other than `Default`, the source server ID to use.
+        :param pulumi.Input[str] fqdn: The FQDN of the MariaDB Server.
+        :param pulumi.Input[bool] geo_redundant_backup_enabled: Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not supported for the Basic tier.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this server. Defaults to `true`.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the MariaDB Server. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] restore_point_in_time: When `create_mode` is `PointInTimeRestore`, specifies the point in time to restore from `creation_source_server_id`.
+        :param pulumi.Input[str] sku_name: Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#sku).
+        :param pulumi.Input[bool] ssl_enforcement_enabled: Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+        :param pulumi.Input[int] storage_mb: Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] version: Specifies the version of MariaDB to use. Possible values are `10.2` and `10.3`. Changing this forces a new resource to be created.
+        """
+        if administrator_login is not None:
+            pulumi.set(__self__, "administrator_login", administrator_login)
+        if administrator_login_password is not None:
+            pulumi.set(__self__, "administrator_login_password", administrator_login_password)
+        if auto_grow_enabled is not None:
+            pulumi.set(__self__, "auto_grow_enabled", auto_grow_enabled)
+        if backup_retention_days is not None:
+            pulumi.set(__self__, "backup_retention_days", backup_retention_days)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
+        if creation_source_server_id is not None:
+            pulumi.set(__self__, "creation_source_server_id", creation_source_server_id)
+        if fqdn is not None:
+            pulumi.set(__self__, "fqdn", fqdn)
+        if geo_redundant_backup_enabled is not None:
+            pulumi.set(__self__, "geo_redundant_backup_enabled", geo_redundant_backup_enabled)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if restore_point_in_time is not None:
+            pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
+        if sku_name is not None:
+            pulumi.set(__self__, "sku_name", sku_name)
+        if ssl_enforcement is not None:
+            warnings.warn("""this has been moved to the boolean attribute `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""ssl_enforcement is deprecated: this has been moved to the boolean attribute `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.""")
+        if ssl_enforcement is not None:
+            pulumi.set(__self__, "ssl_enforcement", ssl_enforcement)
+        if ssl_enforcement_enabled is not None:
+            pulumi.set(__self__, "ssl_enforcement_enabled", ssl_enforcement_enabled)
+        if storage_mb is not None:
+            pulumi.set(__self__, "storage_mb", storage_mb)
+        if storage_profile is not None:
+            warnings.warn("""all storage_profile properties have been moved to the top level. This block will be removed in version 3.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""storage_profile is deprecated: all storage_profile properties have been moved to the top level. This block will be removed in version 3.0 of the provider.""")
+        if storage_profile is not None:
+            pulumi.set(__self__, "storage_profile", storage_profile)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="administratorLogin")
+    def administrator_login(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Administrator Login for the MariaDB Server. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "administrator_login")
+
+    @administrator_login.setter
+    def administrator_login(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "administrator_login", value)
+
+    @property
+    @pulumi.getter(name="administratorLoginPassword")
+    def administrator_login_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Password associated with the `administrator_login` for the MariaDB Server.
+        """
+        return pulumi.get(self, "administrator_login_password")
+
+    @administrator_login_password.setter
+    def administrator_login_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "administrator_login_password", value)
+
+    @property
+    @pulumi.getter(name="autoGrowEnabled")
+    def auto_grow_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+        """
+        return pulumi.get(self, "auto_grow_enabled")
+
+    @auto_grow_enabled.setter
+    def auto_grow_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_grow_enabled", value)
+
+    @property
+    @pulumi.getter(name="backupRetentionDays")
+    def backup_retention_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Backup retention days for the server, supported values are between `7` and `35` days.
+        """
+        return pulumi.get(self, "backup_retention_days")
+
+    @backup_retention_days.setter
+    def backup_retention_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "backup_retention_days", value)
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default`.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @create_mode.setter
+    def create_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create_mode", value)
+
+    @property
+    @pulumi.getter(name="creationSourceServerId")
+    def creation_source_server_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        For creation modes other than `Default`, the source server ID to use.
+        """
+        return pulumi.get(self, "creation_source_server_id")
+
+    @creation_source_server_id.setter
+    def creation_source_server_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "creation_source_server_id", value)
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The FQDN of the MariaDB Server.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @fqdn.setter
+    def fqdn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fqdn", value)
+
+    @property
+    @pulumi.getter(name="geoRedundantBackupEnabled")
+    def geo_redundant_backup_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not supported for the Basic tier.
+        """
+        return pulumi.get(self, "geo_redundant_backup_enabled")
+
+    @geo_redundant_backup_enabled.setter
+    def geo_redundant_backup_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "geo_redundant_backup_enabled", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not public network access is allowed for this server. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which to create the MariaDB Server. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="restorePointInTime")
+    def restore_point_in_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        When `create_mode` is `PointInTimeRestore`, specifies the point in time to restore from `creation_source_server_id`.
+        """
+        return pulumi.get(self, "restore_point_in_time")
+
+    @restore_point_in_time.setter
+    def restore_point_in_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "restore_point_in_time", value)
+
+    @property
+    @pulumi.getter(name="skuName")
+    def sku_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#sku).
+        """
+        return pulumi.get(self, "sku_name")
+
+    @sku_name.setter
+    def sku_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku_name", value)
+
+    @property
+    @pulumi.getter(name="sslEnforcement")
+    def ssl_enforcement(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ssl_enforcement")
+
+    @ssl_enforcement.setter
+    def ssl_enforcement(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssl_enforcement", value)
+
+    @property
+    @pulumi.getter(name="sslEnforcementEnabled")
+    def ssl_enforcement_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
+        """
+        return pulumi.get(self, "ssl_enforcement_enabled")
+
+    @ssl_enforcement_enabled.setter
+    def ssl_enforcement_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ssl_enforcement_enabled", value)
+
+    @property
+    @pulumi.getter(name="storageMb")
+    def storage_mb(self) -> Optional[pulumi.Input[int]]:
+        """
+        Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mariadb/servers/create#storageprofile).
+        """
+        return pulumi.get(self, "storage_mb")
+
+    @storage_mb.setter
+    def storage_mb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "storage_mb", value)
+
+    @property
+    @pulumi.getter(name="storageProfile")
+    def storage_profile(self) -> Optional[pulumi.Input['ServerStorageProfileArgs']]:
+        return pulumi.get(self, "storage_profile")
+
+    @storage_profile.setter
+    def storage_profile(self, value: Optional[pulumi.Input['ServerStorageProfileArgs']]):
+        pulumi.set(self, "storage_profile", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the version of MariaDB to use. Possible values are `10.2` and `10.3`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
 class Server(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -343,9 +669,7 @@ class Server(pulumi.CustomResource):
                  storage_profile: Optional[pulumi.Input[pulumi.InputType['ServerStorageProfileArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a MariaDB Server.
 
@@ -472,15 +796,7 @@ class Server(pulumi.CustomResource):
                  storage_profile: Optional[pulumi.Input[pulumi.InputType['ServerStorageProfileArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -490,40 +806,40 @@ class Server(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ServerArgs.__new__(ServerArgs)
 
-            __props__['administrator_login'] = administrator_login
-            __props__['administrator_login_password'] = administrator_login_password
-            __props__['auto_grow_enabled'] = auto_grow_enabled
-            __props__['backup_retention_days'] = backup_retention_days
-            __props__['create_mode'] = create_mode
-            __props__['creation_source_server_id'] = creation_source_server_id
-            __props__['geo_redundant_backup_enabled'] = geo_redundant_backup_enabled
-            __props__['location'] = location
-            __props__['name'] = name
-            __props__['public_network_access_enabled'] = public_network_access_enabled
+            __props__.__dict__["administrator_login"] = administrator_login
+            __props__.__dict__["administrator_login_password"] = administrator_login_password
+            __props__.__dict__["auto_grow_enabled"] = auto_grow_enabled
+            __props__.__dict__["backup_retention_days"] = backup_retention_days
+            __props__.__dict__["create_mode"] = create_mode
+            __props__.__dict__["creation_source_server_id"] = creation_source_server_id
+            __props__.__dict__["geo_redundant_backup_enabled"] = geo_redundant_backup_enabled
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
+            __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['restore_point_in_time'] = restore_point_in_time
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["restore_point_in_time"] = restore_point_in_time
             if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")
-            __props__['sku_name'] = sku_name
+            __props__.__dict__["sku_name"] = sku_name
             if ssl_enforcement is not None and not opts.urn:
                 warnings.warn("""this has been moved to the boolean attribute `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.""", DeprecationWarning)
                 pulumi.log.warn("""ssl_enforcement is deprecated: this has been moved to the boolean attribute `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.""")
-            __props__['ssl_enforcement'] = ssl_enforcement
-            __props__['ssl_enforcement_enabled'] = ssl_enforcement_enabled
-            __props__['storage_mb'] = storage_mb
+            __props__.__dict__["ssl_enforcement"] = ssl_enforcement
+            __props__.__dict__["ssl_enforcement_enabled"] = ssl_enforcement_enabled
+            __props__.__dict__["storage_mb"] = storage_mb
             if storage_profile is not None and not opts.urn:
                 warnings.warn("""all storage_profile properties have been moved to the top level. This block will be removed in version 3.0 of the provider.""", DeprecationWarning)
                 pulumi.log.warn("""storage_profile is deprecated: all storage_profile properties have been moved to the top level. This block will be removed in version 3.0 of the provider.""")
-            __props__['storage_profile'] = storage_profile
-            __props__['tags'] = tags
+            __props__.__dict__["storage_profile"] = storage_profile
+            __props__.__dict__["tags"] = tags
             if version is None and not opts.urn:
                 raise TypeError("Missing required property 'version'")
-            __props__['version'] = version
-            __props__['fqdn'] = None
+            __props__.__dict__["version"] = version
+            __props__.__dict__["fqdn"] = None
         super(Server, __self__).__init__(
             'azure:mariadb/server:Server',
             resource_name,
@@ -582,28 +898,28 @@ class Server(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ServerState.__new__(_ServerState)
 
-        __props__["administrator_login"] = administrator_login
-        __props__["administrator_login_password"] = administrator_login_password
-        __props__["auto_grow_enabled"] = auto_grow_enabled
-        __props__["backup_retention_days"] = backup_retention_days
-        __props__["create_mode"] = create_mode
-        __props__["creation_source_server_id"] = creation_source_server_id
-        __props__["fqdn"] = fqdn
-        __props__["geo_redundant_backup_enabled"] = geo_redundant_backup_enabled
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["public_network_access_enabled"] = public_network_access_enabled
-        __props__["resource_group_name"] = resource_group_name
-        __props__["restore_point_in_time"] = restore_point_in_time
-        __props__["sku_name"] = sku_name
-        __props__["ssl_enforcement"] = ssl_enforcement
-        __props__["ssl_enforcement_enabled"] = ssl_enforcement_enabled
-        __props__["storage_mb"] = storage_mb
-        __props__["storage_profile"] = storage_profile
-        __props__["tags"] = tags
-        __props__["version"] = version
+        __props__.__dict__["administrator_login"] = administrator_login
+        __props__.__dict__["administrator_login_password"] = administrator_login_password
+        __props__.__dict__["auto_grow_enabled"] = auto_grow_enabled
+        __props__.__dict__["backup_retention_days"] = backup_retention_days
+        __props__.__dict__["create_mode"] = create_mode
+        __props__.__dict__["creation_source_server_id"] = creation_source_server_id
+        __props__.__dict__["fqdn"] = fqdn
+        __props__.__dict__["geo_redundant_backup_enabled"] = geo_redundant_backup_enabled
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["restore_point_in_time"] = restore_point_in_time
+        __props__.__dict__["sku_name"] = sku_name
+        __props__.__dict__["ssl_enforcement"] = ssl_enforcement
+        __props__.__dict__["ssl_enforcement_enabled"] = ssl_enforcement_enabled
+        __props__.__dict__["storage_mb"] = storage_mb
+        __props__.__dict__["storage_profile"] = storage_profile
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["version"] = version
         return Server(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -759,10 +1075,4 @@ class Server(pulumi.CustomResource):
         Specifies the version of MariaDB to use. Possible values are `10.2` and `10.3`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "version")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

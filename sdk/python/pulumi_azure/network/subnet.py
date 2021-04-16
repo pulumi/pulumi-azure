@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -181,6 +181,177 @@ class SubnetArgs:
         pulumi.set(self, "service_endpoints", value)
 
 
+@pulumi.input_type
+class _SubnetState:
+    def __init__(__self__, *,
+                 address_prefix: Optional[pulumi.Input[str]] = None,
+                 address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 delegations: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetDelegationArgs']]]] = None,
+                 enforce_private_link_endpoint_network_policies: Optional[pulumi.Input[bool]] = None,
+                 enforce_private_link_service_network_policies: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_endpoint_policy_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 virtual_network_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Subnet resources.
+        :param pulumi.Input[str] address_prefix: The address prefix to use for the subnet.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] address_prefixes: The address prefixes to use for the subnet.
+        :param pulumi.Input[Sequence[pulumi.Input['SubnetDelegationArgs']]] delegations: One or more `delegation` blocks as defined below.
+        :param pulumi.Input[bool] enforce_private_link_endpoint_network_policies: Enable or Disable network policies for the private link endpoint on the subnet. Default value is `false`. Conflicts with enforce_private_link_service_network_policies.
+        :param pulumi.Input[bool] enforce_private_link_service_network_policies: Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with `enforce_private_link_endpoint_network_policies`.
+        :param pulumi.Input[str] name: The name of the subnet. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] service_endpoint_policy_ids: The list of IDs of Service Endpoint Policies to associate with the subnet.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] service_endpoints: The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
+        :param pulumi.Input[str] virtual_network_name: The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
+        """
+        if address_prefix is not None:
+            warnings.warn("""Use the `address_prefixes` property instead.""", DeprecationWarning)
+            pulumi.log.warn("""address_prefix is deprecated: Use the `address_prefixes` property instead.""")
+        if address_prefix is not None:
+            pulumi.set(__self__, "address_prefix", address_prefix)
+        if address_prefixes is not None:
+            pulumi.set(__self__, "address_prefixes", address_prefixes)
+        if delegations is not None:
+            pulumi.set(__self__, "delegations", delegations)
+        if enforce_private_link_endpoint_network_policies is not None:
+            pulumi.set(__self__, "enforce_private_link_endpoint_network_policies", enforce_private_link_endpoint_network_policies)
+        if enforce_private_link_service_network_policies is not None:
+            pulumi.set(__self__, "enforce_private_link_service_network_policies", enforce_private_link_service_network_policies)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if service_endpoint_policy_ids is not None:
+            pulumi.set(__self__, "service_endpoint_policy_ids", service_endpoint_policy_ids)
+        if service_endpoints is not None:
+            pulumi.set(__self__, "service_endpoints", service_endpoints)
+        if virtual_network_name is not None:
+            pulumi.set(__self__, "virtual_network_name", virtual_network_name)
+
+    @property
+    @pulumi.getter(name="addressPrefix")
+    def address_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The address prefix to use for the subnet.
+        """
+        return pulumi.get(self, "address_prefix")
+
+    @address_prefix.setter
+    def address_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address_prefix", value)
+
+    @property
+    @pulumi.getter(name="addressPrefixes")
+    def address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The address prefixes to use for the subnet.
+        """
+        return pulumi.get(self, "address_prefixes")
+
+    @address_prefixes.setter
+    def address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "address_prefixes", value)
+
+    @property
+    @pulumi.getter
+    def delegations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubnetDelegationArgs']]]]:
+        """
+        One or more `delegation` blocks as defined below.
+        """
+        return pulumi.get(self, "delegations")
+
+    @delegations.setter
+    def delegations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetDelegationArgs']]]]):
+        pulumi.set(self, "delegations", value)
+
+    @property
+    @pulumi.getter(name="enforcePrivateLinkEndpointNetworkPolicies")
+    def enforce_private_link_endpoint_network_policies(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or Disable network policies for the private link endpoint on the subnet. Default value is `false`. Conflicts with enforce_private_link_service_network_policies.
+        """
+        return pulumi.get(self, "enforce_private_link_endpoint_network_policies")
+
+    @enforce_private_link_endpoint_network_policies.setter
+    def enforce_private_link_endpoint_network_policies(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enforce_private_link_endpoint_network_policies", value)
+
+    @property
+    @pulumi.getter(name="enforcePrivateLinkServiceNetworkPolicies")
+    def enforce_private_link_service_network_policies(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with `enforce_private_link_endpoint_network_policies`.
+        """
+        return pulumi.get(self, "enforce_private_link_service_network_policies")
+
+    @enforce_private_link_service_network_policies.setter
+    def enforce_private_link_service_network_policies(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enforce_private_link_service_network_policies", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the subnet. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="serviceEndpointPolicyIds")
+    def service_endpoint_policy_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of IDs of Service Endpoint Policies to associate with the subnet.
+        """
+        return pulumi.get(self, "service_endpoint_policy_ids")
+
+    @service_endpoint_policy_ids.setter
+    def service_endpoint_policy_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "service_endpoint_policy_ids", value)
+
+    @property
+    @pulumi.getter(name="serviceEndpoints")
+    def service_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
+        """
+        return pulumi.get(self, "service_endpoints")
+
+    @service_endpoints.setter
+    def service_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "service_endpoints", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkName")
+    def virtual_network_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "virtual_network_name")
+
+    @virtual_network_name.setter
+    def virtual_network_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_name", value)
+
+
 class Subnet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -196,9 +367,7 @@ class Subnet(pulumi.CustomResource):
                  service_endpoint_policy_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  virtual_network_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a subnet. Subnets represent network segments within the IP space defined by the virtual network.
 
@@ -327,15 +496,7 @@ class Subnet(pulumi.CustomResource):
                  service_endpoint_policy_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  virtual_network_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -345,25 +506,25 @@ class Subnet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SubnetArgs.__new__(SubnetArgs)
 
             if address_prefix is not None and not opts.urn:
                 warnings.warn("""Use the `address_prefixes` property instead.""", DeprecationWarning)
                 pulumi.log.warn("""address_prefix is deprecated: Use the `address_prefixes` property instead.""")
-            __props__['address_prefix'] = address_prefix
-            __props__['address_prefixes'] = address_prefixes
-            __props__['delegations'] = delegations
-            __props__['enforce_private_link_endpoint_network_policies'] = enforce_private_link_endpoint_network_policies
-            __props__['enforce_private_link_service_network_policies'] = enforce_private_link_service_network_policies
-            __props__['name'] = name
+            __props__.__dict__["address_prefix"] = address_prefix
+            __props__.__dict__["address_prefixes"] = address_prefixes
+            __props__.__dict__["delegations"] = delegations
+            __props__.__dict__["enforce_private_link_endpoint_network_policies"] = enforce_private_link_endpoint_network_policies
+            __props__.__dict__["enforce_private_link_service_network_policies"] = enforce_private_link_service_network_policies
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['service_endpoint_policy_ids'] = service_endpoint_policy_ids
-            __props__['service_endpoints'] = service_endpoints
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["service_endpoint_policy_ids"] = service_endpoint_policy_ids
+            __props__.__dict__["service_endpoints"] = service_endpoints
             if virtual_network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_name'")
-            __props__['virtual_network_name'] = virtual_network_name
+            __props__.__dict__["virtual_network_name"] = virtual_network_name
         super(Subnet, __self__).__init__(
             'azure:network/subnet:Subnet',
             resource_name,
@@ -404,18 +565,18 @@ class Subnet(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _SubnetState.__new__(_SubnetState)
 
-        __props__["address_prefix"] = address_prefix
-        __props__["address_prefixes"] = address_prefixes
-        __props__["delegations"] = delegations
-        __props__["enforce_private_link_endpoint_network_policies"] = enforce_private_link_endpoint_network_policies
-        __props__["enforce_private_link_service_network_policies"] = enforce_private_link_service_network_policies
-        __props__["name"] = name
-        __props__["resource_group_name"] = resource_group_name
-        __props__["service_endpoint_policy_ids"] = service_endpoint_policy_ids
-        __props__["service_endpoints"] = service_endpoints
-        __props__["virtual_network_name"] = virtual_network_name
+        __props__.__dict__["address_prefix"] = address_prefix
+        __props__.__dict__["address_prefixes"] = address_prefixes
+        __props__.__dict__["delegations"] = delegations
+        __props__.__dict__["enforce_private_link_endpoint_network_policies"] = enforce_private_link_endpoint_network_policies
+        __props__.__dict__["enforce_private_link_service_network_policies"] = enforce_private_link_service_network_policies
+        __props__.__dict__["name"] = name
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["service_endpoint_policy_ids"] = service_endpoint_policy_ids
+        __props__.__dict__["service_endpoints"] = service_endpoints
+        __props__.__dict__["virtual_network_name"] = virtual_network_name
         return Subnet(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -497,10 +658,4 @@ class Subnet(pulumi.CustomResource):
         The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

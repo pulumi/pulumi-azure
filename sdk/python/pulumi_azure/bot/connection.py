@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ConnectionArgs', 'Connection']
 
@@ -173,6 +173,174 @@ class ConnectionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _ConnectionState:
+    def __init__(__self__, *,
+                 bot_name: Optional[pulumi.Input[str]] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scopes: Optional[pulumi.Input[str]] = None,
+                 service_provider_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Connection resources.
+        :param pulumi.Input[str] bot_name: The name of the Bot Resource this connection will be associated with. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] client_id: The Client ID that will be used to authenticate with the service provider.
+        :param pulumi.Input[str] client_secret: The Client Secret that will be used to authenticate with the service provider.
+        :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Bot Connection. Changing this forces a new resource to be created. Must be globally unique.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of additional parameters to apply to the connection.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Connection. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] scopes: The Scopes at which the connection should be applied.
+        :param pulumi.Input[str] service_provider_name: The name of the service provider that will be associated with this connection. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        if bot_name is not None:
+            pulumi.set(__self__, "bot_name", bot_name)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
+        if service_provider_name is not None:
+            pulumi.set(__self__, "service_provider_name", service_provider_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="botName")
+    def bot_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Bot Resource this connection will be associated with. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "bot_name")
+
+    @bot_name.setter
+    def bot_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bot_name", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client ID that will be used to authenticate with the service provider.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client Secret that will be used to authenticate with the service provider.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Bot Connection. Changing this forces a new resource to be created. Must be globally unique.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of additional parameters to apply to the connection.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which to create the Bot Connection. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Scopes at which the connection should be applied.
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scopes", value)
+
+    @property
+    @pulumi.getter(name="serviceProviderName")
+    def service_provider_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the service provider that will be associated with this connection. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "service_provider_name")
+
+    @service_provider_name.setter
+    def service_provider_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_provider_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
 class Connection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -188,9 +356,7 @@ class Connection(pulumi.CustomResource):
                  scopes: Optional[pulumi.Input[str]] = None,
                  service_provider_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a Bot Connection.
 
@@ -301,15 +467,7 @@ class Connection(pulumi.CustomResource):
                  scopes: Optional[pulumi.Input[str]] = None,
                  service_provider_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -319,28 +477,28 @@ class Connection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ConnectionArgs.__new__(ConnectionArgs)
 
             if bot_name is None and not opts.urn:
                 raise TypeError("Missing required property 'bot_name'")
-            __props__['bot_name'] = bot_name
+            __props__.__dict__["bot_name"] = bot_name
             if client_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_id'")
-            __props__['client_id'] = client_id
+            __props__.__dict__["client_id"] = client_id
             if client_secret is None and not opts.urn:
                 raise TypeError("Missing required property 'client_secret'")
-            __props__['client_secret'] = client_secret
-            __props__['location'] = location
-            __props__['name'] = name
-            __props__['parameters'] = parameters
+            __props__.__dict__["client_secret"] = client_secret
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
+            __props__.__dict__["parameters"] = parameters
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['scopes'] = scopes
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["scopes"] = scopes
             if service_provider_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_provider_name'")
-            __props__['service_provider_name'] = service_provider_name
-            __props__['tags'] = tags
+            __props__.__dict__["service_provider_name"] = service_provider_name
+            __props__.__dict__["tags"] = tags
         super(Connection, __self__).__init__(
             'azure:bot/connection:Connection',
             resource_name,
@@ -381,18 +539,18 @@ class Connection(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ConnectionState.__new__(_ConnectionState)
 
-        __props__["bot_name"] = bot_name
-        __props__["client_id"] = client_id
-        __props__["client_secret"] = client_secret
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["parameters"] = parameters
-        __props__["resource_group_name"] = resource_group_name
-        __props__["scopes"] = scopes
-        __props__["service_provider_name"] = service_provider_name
-        __props__["tags"] = tags
+        __props__.__dict__["bot_name"] = bot_name
+        __props__.__dict__["client_id"] = client_id
+        __props__.__dict__["client_secret"] = client_secret
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["parameters"] = parameters
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["scopes"] = scopes
+        __props__.__dict__["service_provider_name"] = service_provider_name
+        __props__.__dict__["tags"] = tags
         return Connection(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -474,10 +632,4 @@ class Connection(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

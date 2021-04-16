@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['AutoProvisioningArgs', 'AutoProvisioning']
 
@@ -33,15 +33,37 @@ class AutoProvisioningArgs:
         pulumi.set(self, "auto_provision", value)
 
 
+@pulumi.input_type
+class _AutoProvisioningState:
+    def __init__(__self__, *,
+                 auto_provision: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering AutoProvisioning resources.
+        :param pulumi.Input[str] auto_provision: Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it's missing) or `Off` (to not install the security agent automatically).
+        """
+        if auto_provision is not None:
+            pulumi.set(__self__, "auto_provision", auto_provision)
+
+    @property
+    @pulumi.getter(name="autoProvision")
+    def auto_provision(self) -> Optional[pulumi.Input[str]]:
+        """
+        Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it's missing) or `Off` (to not install the security agent automatically).
+        """
+        return pulumi.get(self, "auto_provision")
+
+    @auto_provision.setter
+    def auto_provision(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auto_provision", value)
+
+
 class AutoProvisioning(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_provision: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Enables or disables the Security Center Auto Provisioning feature for the subscription
 
@@ -112,15 +134,7 @@ class AutoProvisioning(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_provision: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -130,11 +144,11 @@ class AutoProvisioning(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AutoProvisioningArgs.__new__(AutoProvisioningArgs)
 
             if auto_provision is None and not opts.urn:
                 raise TypeError("Missing required property 'auto_provision'")
-            __props__['auto_provision'] = auto_provision
+            __props__.__dict__["auto_provision"] = auto_provision
         super(AutoProvisioning, __self__).__init__(
             'azure:securitycenter/autoProvisioning:AutoProvisioning',
             resource_name,
@@ -157,9 +171,9 @@ class AutoProvisioning(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AutoProvisioningState.__new__(_AutoProvisioningState)
 
-        __props__["auto_provision"] = auto_provision
+        __props__.__dict__["auto_provision"] = auto_provision
         return AutoProvisioning(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -169,10 +183,4 @@ class AutoProvisioning(pulumi.CustomResource):
         Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it's missing) or `Off` (to not install the security agent automatically).
         """
         return pulumi.get(self, "auto_provision")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

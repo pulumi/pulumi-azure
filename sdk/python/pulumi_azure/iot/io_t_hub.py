@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -258,6 +258,366 @@ class IoTHubArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _IoTHubState:
+    def __init__(__self__, *,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubEndpointArgs']]]] = None,
+                 enrichments: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubEnrichmentArgs']]]] = None,
+                 event_hub_events_endpoint: Optional[pulumi.Input[str]] = None,
+                 event_hub_events_path: Optional[pulumi.Input[str]] = None,
+                 event_hub_operations_endpoint: Optional[pulumi.Input[str]] = None,
+                 event_hub_operations_path: Optional[pulumi.Input[str]] = None,
+                 event_hub_partition_count: Optional[pulumi.Input[int]] = None,
+                 event_hub_retention_in_days: Optional[pulumi.Input[int]] = None,
+                 fallback_route: Optional[pulumi.Input['IoTHubFallbackRouteArgs']] = None,
+                 file_upload: Optional[pulumi.Input['IoTHubFileUploadArgs']] = None,
+                 hostname: Optional[pulumi.Input[str]] = None,
+                 ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubIpFilterRuleArgs']]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 min_tls_version: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubRouteArgs']]]] = None,
+                 shared_access_policies: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubSharedAccessPolicyArgs']]]] = None,
+                 sku: Optional[pulumi.Input['IoTHubSkuArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering IoTHub resources.
+        :param pulumi.Input[Sequence[pulumi.Input['IoTHubEndpointArgs']]] endpoints: An `endpoint` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['IoTHubEnrichmentArgs']]] enrichments: A `enrichment` block as defined below.
+        :param pulumi.Input[str] event_hub_events_endpoint: The EventHub compatible endpoint for events data
+        :param pulumi.Input[str] event_hub_events_path: The EventHub compatible path for events data
+        :param pulumi.Input[str] event_hub_operations_endpoint: The EventHub compatible endpoint for operational data
+        :param pulumi.Input[str] event_hub_operations_path: The EventHub compatible path for operational data
+        :param pulumi.Input[int] event_hub_partition_count: The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
+        :param pulumi.Input[int] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`.
+        :param pulumi.Input['IoTHubFallbackRouteArgs'] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+        :param pulumi.Input['IoTHubFileUploadArgs'] file_upload: A `file_upload` block as defined below.
+        :param pulumi.Input[str] hostname: The hostname of the IotHub Resource.
+        :param pulumi.Input[Sequence[pulumi.Input['IoTHubIpFilterRuleArgs']]] ip_filter_rules: One or more `ip_filter_rule` blocks as defined below.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] min_tls_version: Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Is the IotHub resource accessible from a public network?
+        :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['IoTHubRouteArgs']]] routes: A `route` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['IoTHubSharedAccessPolicyArgs']]] shared_access_policies: One or more `shared_access_policy` blocks as defined below.
+        :param pulumi.Input['IoTHubSkuArgs'] sku: A `sku` block as defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] type: The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+        """
+        if endpoints is not None:
+            pulumi.set(__self__, "endpoints", endpoints)
+        if enrichments is not None:
+            pulumi.set(__self__, "enrichments", enrichments)
+        if event_hub_events_endpoint is not None:
+            pulumi.set(__self__, "event_hub_events_endpoint", event_hub_events_endpoint)
+        if event_hub_events_path is not None:
+            pulumi.set(__self__, "event_hub_events_path", event_hub_events_path)
+        if event_hub_operations_endpoint is not None:
+            pulumi.set(__self__, "event_hub_operations_endpoint", event_hub_operations_endpoint)
+        if event_hub_operations_path is not None:
+            pulumi.set(__self__, "event_hub_operations_path", event_hub_operations_path)
+        if event_hub_partition_count is not None:
+            pulumi.set(__self__, "event_hub_partition_count", event_hub_partition_count)
+        if event_hub_retention_in_days is not None:
+            pulumi.set(__self__, "event_hub_retention_in_days", event_hub_retention_in_days)
+        if fallback_route is not None:
+            pulumi.set(__self__, "fallback_route", fallback_route)
+        if file_upload is not None:
+            pulumi.set(__self__, "file_upload", file_upload)
+        if hostname is not None:
+            pulumi.set(__self__, "hostname", hostname)
+        if ip_filter_rules is not None:
+            pulumi.set(__self__, "ip_filter_rules", ip_filter_rules)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if min_tls_version is not None:
+            pulumi.set(__self__, "min_tls_version", min_tls_version)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if routes is not None:
+            pulumi.set(__self__, "routes", routes)
+        if shared_access_policies is not None:
+            pulumi.set(__self__, "shared_access_policies", shared_access_policies)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubEndpointArgs']]]]:
+        """
+        An `endpoint` block as defined below.
+        """
+        return pulumi.get(self, "endpoints")
+
+    @endpoints.setter
+    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubEndpointArgs']]]]):
+        pulumi.set(self, "endpoints", value)
+
+    @property
+    @pulumi.getter
+    def enrichments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubEnrichmentArgs']]]]:
+        """
+        A `enrichment` block as defined below.
+        """
+        return pulumi.get(self, "enrichments")
+
+    @enrichments.setter
+    def enrichments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubEnrichmentArgs']]]]):
+        pulumi.set(self, "enrichments", value)
+
+    @property
+    @pulumi.getter(name="eventHubEventsEndpoint")
+    def event_hub_events_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The EventHub compatible endpoint for events data
+        """
+        return pulumi.get(self, "event_hub_events_endpoint")
+
+    @event_hub_events_endpoint.setter
+    def event_hub_events_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_hub_events_endpoint", value)
+
+    @property
+    @pulumi.getter(name="eventHubEventsPath")
+    def event_hub_events_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The EventHub compatible path for events data
+        """
+        return pulumi.get(self, "event_hub_events_path")
+
+    @event_hub_events_path.setter
+    def event_hub_events_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_hub_events_path", value)
+
+    @property
+    @pulumi.getter(name="eventHubOperationsEndpoint")
+    def event_hub_operations_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The EventHub compatible endpoint for operational data
+        """
+        return pulumi.get(self, "event_hub_operations_endpoint")
+
+    @event_hub_operations_endpoint.setter
+    def event_hub_operations_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_hub_operations_endpoint", value)
+
+    @property
+    @pulumi.getter(name="eventHubOperationsPath")
+    def event_hub_operations_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The EventHub compatible path for operational data
+        """
+        return pulumi.get(self, "event_hub_operations_path")
+
+    @event_hub_operations_path.setter
+    def event_hub_operations_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_hub_operations_path", value)
+
+    @property
+    @pulumi.getter(name="eventHubPartitionCount")
+    def event_hub_partition_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
+        """
+        return pulumi.get(self, "event_hub_partition_count")
+
+    @event_hub_partition_count.setter
+    def event_hub_partition_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "event_hub_partition_count", value)
+
+    @property
+    @pulumi.getter(name="eventHubRetentionInDays")
+    def event_hub_retention_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The event hub retention to use in days. Must be between `1` and `7`.
+        """
+        return pulumi.get(self, "event_hub_retention_in_days")
+
+    @event_hub_retention_in_days.setter
+    def event_hub_retention_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "event_hub_retention_in_days", value)
+
+    @property
+    @pulumi.getter(name="fallbackRoute")
+    def fallback_route(self) -> Optional[pulumi.Input['IoTHubFallbackRouteArgs']]:
+        """
+        A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+        """
+        return pulumi.get(self, "fallback_route")
+
+    @fallback_route.setter
+    def fallback_route(self, value: Optional[pulumi.Input['IoTHubFallbackRouteArgs']]):
+        pulumi.set(self, "fallback_route", value)
+
+    @property
+    @pulumi.getter(name="fileUpload")
+    def file_upload(self) -> Optional[pulumi.Input['IoTHubFileUploadArgs']]:
+        """
+        A `file_upload` block as defined below.
+        """
+        return pulumi.get(self, "file_upload")
+
+    @file_upload.setter
+    def file_upload(self, value: Optional[pulumi.Input['IoTHubFileUploadArgs']]):
+        pulumi.set(self, "file_upload", value)
+
+    @property
+    @pulumi.getter
+    def hostname(self) -> Optional[pulumi.Input[str]]:
+        """
+        The hostname of the IotHub Resource.
+        """
+        return pulumi.get(self, "hostname")
+
+    @hostname.setter
+    def hostname(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hostname", value)
+
+    @property
+    @pulumi.getter(name="ipFilterRules")
+    def ip_filter_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubIpFilterRuleArgs']]]]:
+        """
+        One or more `ip_filter_rule` blocks as defined below.
+        """
+        return pulumi.get(self, "ip_filter_rules")
+
+    @ip_filter_rules.setter
+    def ip_filter_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubIpFilterRuleArgs']]]]):
+        pulumi.set(self, "ip_filter_rules", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="minTlsVersion")
+    def min_tls_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "min_tls_version")
+
+    @min_tls_version.setter
+    def min_tls_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "min_tls_version", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the IotHub resource accessible from a public network?
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubRouteArgs']]]]:
+        """
+        A `route` block as defined below.
+        """
+        return pulumi.get(self, "routes")
+
+    @routes.setter
+    def routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubRouteArgs']]]]):
+        pulumi.set(self, "routes", value)
+
+    @property
+    @pulumi.getter(name="sharedAccessPolicies")
+    def shared_access_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubSharedAccessPolicyArgs']]]]:
+        """
+        One or more `shared_access_policy` blocks as defined below.
+        """
+        return pulumi.get(self, "shared_access_policies")
+
+    @shared_access_policies.setter
+    def shared_access_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubSharedAccessPolicyArgs']]]]):
+        pulumi.set(self, "shared_access_policies", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['IoTHubSkuArgs']]:
+        """
+        A `sku` block as defined below.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['IoTHubSkuArgs']]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
 class IoTHub(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -278,9 +638,7 @@ class IoTHub(pulumi.CustomResource):
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubRouteArgs']]]]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['IoTHubSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages an IotHub
 
@@ -537,15 +895,7 @@ class IoTHub(pulumi.CustomResource):
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubRouteArgs']]]]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['IoTHubSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -555,34 +905,34 @@ class IoTHub(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = IoTHubArgs.__new__(IoTHubArgs)
 
-            __props__['endpoints'] = endpoints
-            __props__['enrichments'] = enrichments
-            __props__['event_hub_partition_count'] = event_hub_partition_count
-            __props__['event_hub_retention_in_days'] = event_hub_retention_in_days
-            __props__['fallback_route'] = fallback_route
-            __props__['file_upload'] = file_upload
-            __props__['ip_filter_rules'] = ip_filter_rules
-            __props__['location'] = location
-            __props__['min_tls_version'] = min_tls_version
-            __props__['name'] = name
-            __props__['public_network_access_enabled'] = public_network_access_enabled
+            __props__.__dict__["endpoints"] = endpoints
+            __props__.__dict__["enrichments"] = enrichments
+            __props__.__dict__["event_hub_partition_count"] = event_hub_partition_count
+            __props__.__dict__["event_hub_retention_in_days"] = event_hub_retention_in_days
+            __props__.__dict__["fallback_route"] = fallback_route
+            __props__.__dict__["file_upload"] = file_upload
+            __props__.__dict__["ip_filter_rules"] = ip_filter_rules
+            __props__.__dict__["location"] = location
+            __props__.__dict__["min_tls_version"] = min_tls_version
+            __props__.__dict__["name"] = name
+            __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['routes'] = routes
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["routes"] = routes
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
-            __props__['sku'] = sku
-            __props__['tags'] = tags
-            __props__['event_hub_events_endpoint'] = None
-            __props__['event_hub_events_path'] = None
-            __props__['event_hub_operations_endpoint'] = None
-            __props__['event_hub_operations_path'] = None
-            __props__['hostname'] = None
-            __props__['shared_access_policies'] = None
-            __props__['type'] = None
+            __props__.__dict__["sku"] = sku
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["event_hub_events_endpoint"] = None
+            __props__.__dict__["event_hub_events_path"] = None
+            __props__.__dict__["event_hub_operations_endpoint"] = None
+            __props__.__dict__["event_hub_operations_path"] = None
+            __props__.__dict__["hostname"] = None
+            __props__.__dict__["shared_access_policies"] = None
+            __props__.__dict__["type"] = None
         super(IoTHub, __self__).__init__(
             'azure:iot/ioTHub:IoTHub',
             resource_name,
@@ -647,30 +997,30 @@ class IoTHub(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _IoTHubState.__new__(_IoTHubState)
 
-        __props__["endpoints"] = endpoints
-        __props__["enrichments"] = enrichments
-        __props__["event_hub_events_endpoint"] = event_hub_events_endpoint
-        __props__["event_hub_events_path"] = event_hub_events_path
-        __props__["event_hub_operations_endpoint"] = event_hub_operations_endpoint
-        __props__["event_hub_operations_path"] = event_hub_operations_path
-        __props__["event_hub_partition_count"] = event_hub_partition_count
-        __props__["event_hub_retention_in_days"] = event_hub_retention_in_days
-        __props__["fallback_route"] = fallback_route
-        __props__["file_upload"] = file_upload
-        __props__["hostname"] = hostname
-        __props__["ip_filter_rules"] = ip_filter_rules
-        __props__["location"] = location
-        __props__["min_tls_version"] = min_tls_version
-        __props__["name"] = name
-        __props__["public_network_access_enabled"] = public_network_access_enabled
-        __props__["resource_group_name"] = resource_group_name
-        __props__["routes"] = routes
-        __props__["shared_access_policies"] = shared_access_policies
-        __props__["sku"] = sku
-        __props__["tags"] = tags
-        __props__["type"] = type
+        __props__.__dict__["endpoints"] = endpoints
+        __props__.__dict__["enrichments"] = enrichments
+        __props__.__dict__["event_hub_events_endpoint"] = event_hub_events_endpoint
+        __props__.__dict__["event_hub_events_path"] = event_hub_events_path
+        __props__.__dict__["event_hub_operations_endpoint"] = event_hub_operations_endpoint
+        __props__.__dict__["event_hub_operations_path"] = event_hub_operations_path
+        __props__.__dict__["event_hub_partition_count"] = event_hub_partition_count
+        __props__.__dict__["event_hub_retention_in_days"] = event_hub_retention_in_days
+        __props__.__dict__["fallback_route"] = fallback_route
+        __props__.__dict__["file_upload"] = file_upload
+        __props__.__dict__["hostname"] = hostname
+        __props__.__dict__["ip_filter_rules"] = ip_filter_rules
+        __props__.__dict__["location"] = location
+        __props__.__dict__["min_tls_version"] = min_tls_version
+        __props__.__dict__["name"] = name
+        __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["routes"] = routes
+        __props__.__dict__["shared_access_policies"] = shared_access_policies
+        __props__.__dict__["sku"] = sku
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["type"] = type
         return IoTHub(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -848,10 +1198,4 @@ class IoTHub(pulumi.CustomResource):
         The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
         """
         return pulumi.get(self, "type")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

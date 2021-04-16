@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['IdentityProviderTwitterArgs', 'IdentityProviderTwitter']
 
@@ -78,6 +78,78 @@ class IdentityProviderTwitterArgs:
         pulumi.set(self, "resource_group_name", value)
 
 
+@pulumi.input_type
+class _IdentityProviderTwitterState:
+    def __init__(__self__, *,
+                 api_key: Optional[pulumi.Input[str]] = None,
+                 api_management_name: Optional[pulumi.Input[str]] = None,
+                 api_secret_key: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering IdentityProviderTwitter resources.
+        :param pulumi.Input[str] api_key: App Consumer API key for Twitter.
+        :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this Twitter Identity Provider should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] api_secret_key: App Consumer API secret key for Twitter.
+        :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+        if api_management_name is not None:
+            pulumi.set(__self__, "api_management_name", api_management_name)
+        if api_secret_key is not None:
+            pulumi.set(__self__, "api_secret_key", api_secret_key)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+
+    @property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        App Consumer API key for Twitter.
+        """
+        return pulumi.get(self, "api_key")
+
+    @api_key.setter
+    def api_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_key", value)
+
+    @property
+    @pulumi.getter(name="apiManagementName")
+    def api_management_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Name of the API Management Service where this Twitter Identity Provider should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "api_management_name")
+
+    @api_management_name.setter
+    def api_management_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_management_name", value)
+
+    @property
+    @pulumi.getter(name="apiSecretKey")
+    def api_secret_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        App Consumer API secret key for Twitter.
+        """
+        return pulumi.get(self, "api_secret_key")
+
+    @api_secret_key.setter
+    def api_secret_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_secret_key", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+
 class IdentityProviderTwitter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -87,9 +159,7 @@ class IdentityProviderTwitter(pulumi.CustomResource):
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  api_secret_key: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages an API Management Twitter Identity Provider.
 
@@ -184,15 +254,7 @@ class IdentityProviderTwitter(pulumi.CustomResource):
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  api_secret_key: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -202,20 +264,20 @@ class IdentityProviderTwitter(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = IdentityProviderTwitterArgs.__new__(IdentityProviderTwitterArgs)
 
             if api_key is None and not opts.urn:
                 raise TypeError("Missing required property 'api_key'")
-            __props__['api_key'] = api_key
+            __props__.__dict__["api_key"] = api_key
             if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
-            __props__['api_management_name'] = api_management_name
+            __props__.__dict__["api_management_name"] = api_management_name
             if api_secret_key is None and not opts.urn:
                 raise TypeError("Missing required property 'api_secret_key'")
-            __props__['api_secret_key'] = api_secret_key
+            __props__.__dict__["api_secret_key"] = api_secret_key
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
         super(IdentityProviderTwitter, __self__).__init__(
             'azure:apimanagement/identityProviderTwitter:IdentityProviderTwitter',
             resource_name,
@@ -244,12 +306,12 @@ class IdentityProviderTwitter(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _IdentityProviderTwitterState.__new__(_IdentityProviderTwitterState)
 
-        __props__["api_key"] = api_key
-        __props__["api_management_name"] = api_management_name
-        __props__["api_secret_key"] = api_secret_key
-        __props__["resource_group_name"] = resource_group_name
+        __props__.__dict__["api_key"] = api_key
+        __props__.__dict__["api_management_name"] = api_management_name
+        __props__.__dict__["api_secret_key"] = api_secret_key
+        __props__.__dict__["resource_group_name"] = resource_group_name
         return IdentityProviderTwitter(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -283,10 +345,4 @@ class IdentityProviderTwitter(pulumi.CustomResource):
         The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

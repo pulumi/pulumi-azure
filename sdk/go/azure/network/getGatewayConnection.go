@@ -4,7 +4,7 @@
 package network
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to access information about an existing Virtual Network Gateway Connection.
@@ -15,8 +15,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v3/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
@@ -92,8 +92,8 @@ type GetGatewayConnectionResult struct {
 	// The shared IPSec key.
 	SharedKey string `pulumi:"sharedKey"`
 	// A mapping of tags to assign to the resource.
-	Tags                  map[string]string                         `pulumi:"tags"`
-	TrafficSelectorPolicy GetGatewayConnectionTrafficSelectorPolicy `pulumi:"trafficSelectorPolicy"`
+	Tags                    map[string]string                           `pulumi:"tags"`
+	TrafficSelectorPolicies []GetGatewayConnectionTrafficSelectorPolicy `pulumi:"trafficSelectorPolicies"`
 	// The type of connection. Valid options are `IPsec`
 	// (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
 	Type string `pulumi:"type"`

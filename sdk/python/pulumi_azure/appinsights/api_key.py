@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ApiKeyArgs', 'ApiKey']
 
@@ -83,6 +83,96 @@ class ApiKeyArgs:
         pulumi.set(self, "write_permissions", value)
 
 
+@pulumi.input_type
+class _ApiKeyState:
+    def __init__(__self__, *,
+                 api_key: Optional[pulumi.Input[str]] = None,
+                 application_insights_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 read_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 write_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering ApiKey resources.
+        :param pulumi.Input[str] api_key: The API Key secret (Sensitive).
+        :param pulumi.Input[str] application_insights_id: The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Application Insights API key. Changing this forces a
+               new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] read_permissions: Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] write_permissions: Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+        if application_insights_id is not None:
+            pulumi.set(__self__, "application_insights_id", application_insights_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if read_permissions is not None:
+            pulumi.set(__self__, "read_permissions", read_permissions)
+        if write_permissions is not None:
+            pulumi.set(__self__, "write_permissions", write_permissions)
+
+    @property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The API Key secret (Sensitive).
+        """
+        return pulumi.get(self, "api_key")
+
+    @api_key.setter
+    def api_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_key", value)
+
+    @property
+    @pulumi.getter(name="applicationInsightsId")
+    def application_insights_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "application_insights_id")
+
+    @application_insights_id.setter
+    def application_insights_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_insights_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Application Insights API key. Changing this forces a
+        new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="readPermissions")
+    def read_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "read_permissions")
+
+    @read_permissions.setter
+    def read_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "read_permissions", value)
+
+    @property
+    @pulumi.getter(name="writePermissions")
+    def write_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "write_permissions")
+
+    @write_permissions.setter
+    def write_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "write_permissions", value)
+
+
 class ApiKey(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -92,9 +182,7 @@ class ApiKey(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  read_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  write_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages an Application Insights API key.
 
@@ -236,15 +324,7 @@ class ApiKey(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  read_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  write_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -254,15 +334,15 @@ class ApiKey(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ApiKeyArgs.__new__(ApiKeyArgs)
 
             if application_insights_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_insights_id'")
-            __props__['application_insights_id'] = application_insights_id
-            __props__['name'] = name
-            __props__['read_permissions'] = read_permissions
-            __props__['write_permissions'] = write_permissions
-            __props__['api_key'] = None
+            __props__.__dict__["application_insights_id"] = application_insights_id
+            __props__.__dict__["name"] = name
+            __props__.__dict__["read_permissions"] = read_permissions
+            __props__.__dict__["write_permissions"] = write_permissions
+            __props__.__dict__["api_key"] = None
         super(ApiKey, __self__).__init__(
             'azure:appinsights/apiKey:ApiKey',
             resource_name,
@@ -294,13 +374,13 @@ class ApiKey(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ApiKeyState.__new__(_ApiKeyState)
 
-        __props__["api_key"] = api_key
-        __props__["application_insights_id"] = application_insights_id
-        __props__["name"] = name
-        __props__["read_permissions"] = read_permissions
-        __props__["write_permissions"] = write_permissions
+        __props__.__dict__["api_key"] = api_key
+        __props__.__dict__["application_insights_id"] = application_insights_id
+        __props__.__dict__["name"] = name
+        __props__.__dict__["read_permissions"] = read_permissions
+        __props__.__dict__["write_permissions"] = write_permissions
         return ApiKey(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -343,10 +423,4 @@ class ApiKey(pulumi.CustomResource):
         Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "write_permissions")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

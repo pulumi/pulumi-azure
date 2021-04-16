@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ChannelTeamsArgs', 'ChannelTeams']
 
@@ -96,6 +96,94 @@ class ChannelTeamsArgs:
         pulumi.set(self, "location", value)
 
 
+@pulumi.input_type
+class _ChannelTeamsState:
+    def __init__(__self__, *,
+                 bot_name: Optional[pulumi.Input[str]] = None,
+                 calling_web_hook: Optional[pulumi.Input[str]] = None,
+                 enable_calling: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ChannelTeams resources.
+        :param pulumi.Input[str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] calling_web_hook: Specifies the webhook for Microsoft Teams channel calls.
+        :param pulumi.Input[bool] enable_calling: Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
+        :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
+        """
+        if bot_name is not None:
+            pulumi.set(__self__, "bot_name", bot_name)
+        if calling_web_hook is not None:
+            pulumi.set(__self__, "calling_web_hook", calling_web_hook)
+        if enable_calling is not None:
+            pulumi.set(__self__, "enable_calling", enable_calling)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+
+    @property
+    @pulumi.getter(name="botName")
+    def bot_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "bot_name")
+
+    @bot_name.setter
+    def bot_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bot_name", value)
+
+    @property
+    @pulumi.getter(name="callingWebHook")
+    def calling_web_hook(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the webhook for Microsoft Teams channel calls.
+        """
+        return pulumi.get(self, "calling_web_hook")
+
+    @calling_web_hook.setter
+    def calling_web_hook(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "calling_web_hook", value)
+
+    @property
+    @pulumi.getter(name="enableCalling")
+    def enable_calling(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
+        """
+        return pulumi.get(self, "enable_calling")
+
+    @enable_calling.setter
+    def enable_calling(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_calling", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+
 class ChannelTeams(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -106,9 +194,7 @@ class ChannelTeams(pulumi.CustomResource):
                  enable_calling: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a MS Teams integration for a Bot Channel
 
@@ -207,15 +293,7 @@ class ChannelTeams(pulumi.CustomResource):
                  enable_calling: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -225,17 +303,17 @@ class ChannelTeams(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ChannelTeamsArgs.__new__(ChannelTeamsArgs)
 
             if bot_name is None and not opts.urn:
                 raise TypeError("Missing required property 'bot_name'")
-            __props__['bot_name'] = bot_name
-            __props__['calling_web_hook'] = calling_web_hook
-            __props__['enable_calling'] = enable_calling
-            __props__['location'] = location
+            __props__.__dict__["bot_name"] = bot_name
+            __props__.__dict__["calling_web_hook"] = calling_web_hook
+            __props__.__dict__["enable_calling"] = enable_calling
+            __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
         super(ChannelTeams, __self__).__init__(
             'azure:bot/channelTeams:ChannelTeams',
             resource_name,
@@ -266,13 +344,13 @@ class ChannelTeams(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ChannelTeamsState.__new__(_ChannelTeamsState)
 
-        __props__["bot_name"] = bot_name
-        __props__["calling_web_hook"] = calling_web_hook
-        __props__["enable_calling"] = enable_calling
-        __props__["location"] = location
-        __props__["resource_group_name"] = resource_group_name
+        __props__.__dict__["bot_name"] = bot_name
+        __props__.__dict__["calling_web_hook"] = calling_web_hook
+        __props__.__dict__["enable_calling"] = enable_calling
+        __props__.__dict__["location"] = location
+        __props__.__dict__["resource_group_name"] = resource_group_name
         return ChannelTeams(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -314,10 +392,4 @@ class ChannelTeams(pulumi.CustomResource):
         The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

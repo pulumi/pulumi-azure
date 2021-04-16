@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -179,6 +179,193 @@ class SqlServerArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _SqlServerState:
+    def __init__(__self__, *,
+                 administrator_login: Optional[pulumi.Input[str]] = None,
+                 administrator_login_password: Optional[pulumi.Input[str]] = None,
+                 connection_policy: Optional[pulumi.Input[str]] = None,
+                 extended_auditing_policy: Optional[pulumi.Input['SqlServerExtendedAuditingPolicyArgs']] = None,
+                 fully_qualified_domain_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['SqlServerIdentityArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering SqlServer resources.
+        :param pulumi.Input[str] administrator_login: The administrator login name for the new server. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+        :param pulumi.Input[str] connection_policy: The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
+        :param pulumi.Input['SqlServerExtendedAuditingPolicyArgs'] extended_auditing_policy: A `extended_auditing_policy` block as defined below.
+        :param pulumi.Input[str] fully_qualified_domain_name: The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
+        :param pulumi.Input['SqlServerIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Microsoft SQL Server.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+        """
+        if administrator_login is not None:
+            pulumi.set(__self__, "administrator_login", administrator_login)
+        if administrator_login_password is not None:
+            pulumi.set(__self__, "administrator_login_password", administrator_login_password)
+        if connection_policy is not None:
+            pulumi.set(__self__, "connection_policy", connection_policy)
+        if extended_auditing_policy is not None:
+            warnings.warn("""the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""extended_auditing_policy is deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""")
+        if extended_auditing_policy is not None:
+            pulumi.set(__self__, "extended_auditing_policy", extended_auditing_policy)
+        if fully_qualified_domain_name is not None:
+            pulumi.set(__self__, "fully_qualified_domain_name", fully_qualified_domain_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="administratorLogin")
+    def administrator_login(self) -> Optional[pulumi.Input[str]]:
+        """
+        The administrator login name for the new server. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "administrator_login")
+
+    @administrator_login.setter
+    def administrator_login(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "administrator_login", value)
+
+    @property
+    @pulumi.getter(name="administratorLoginPassword")
+    def administrator_login_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+        """
+        return pulumi.get(self, "administrator_login_password")
+
+    @administrator_login_password.setter
+    def administrator_login_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "administrator_login_password", value)
+
+    @property
+    @pulumi.getter(name="connectionPolicy")
+    def connection_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
+        """
+        return pulumi.get(self, "connection_policy")
+
+    @connection_policy.setter
+    def connection_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_policy", value)
+
+    @property
+    @pulumi.getter(name="extendedAuditingPolicy")
+    def extended_auditing_policy(self) -> Optional[pulumi.Input['SqlServerExtendedAuditingPolicyArgs']]:
+        """
+        A `extended_auditing_policy` block as defined below.
+        """
+        return pulumi.get(self, "extended_auditing_policy")
+
+    @extended_auditing_policy.setter
+    def extended_auditing_policy(self, value: Optional[pulumi.Input['SqlServerExtendedAuditingPolicyArgs']]):
+        pulumi.set(self, "extended_auditing_policy", value)
+
+    @property
+    @pulumi.getter(name="fullyQualifiedDomainName")
+    def fully_qualified_domain_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
+        """
+        return pulumi.get(self, "fully_qualified_domain_name")
+
+    @fully_qualified_domain_name.setter
+    def fully_qualified_domain_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_domain_name", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['SqlServerIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['SqlServerIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which to create the Microsoft SQL Server.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
 class SqlServer(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -194,9 +381,7 @@ class SqlServer(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a Microsoft SQL Azure Database Server.
 
@@ -321,15 +506,7 @@ class SqlServer(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -339,30 +516,30 @@ class SqlServer(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SqlServerArgs.__new__(SqlServerArgs)
 
             if administrator_login is None and not opts.urn:
                 raise TypeError("Missing required property 'administrator_login'")
-            __props__['administrator_login'] = administrator_login
+            __props__.__dict__["administrator_login"] = administrator_login
             if administrator_login_password is None and not opts.urn:
                 raise TypeError("Missing required property 'administrator_login_password'")
-            __props__['administrator_login_password'] = administrator_login_password
-            __props__['connection_policy'] = connection_policy
+            __props__.__dict__["administrator_login_password"] = administrator_login_password
+            __props__.__dict__["connection_policy"] = connection_policy
             if extended_auditing_policy is not None and not opts.urn:
                 warnings.warn("""the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""", DeprecationWarning)
                 pulumi.log.warn("""extended_auditing_policy is deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""")
-            __props__['extended_auditing_policy'] = extended_auditing_policy
-            __props__['identity'] = identity
-            __props__['location'] = location
-            __props__['name'] = name
+            __props__.__dict__["extended_auditing_policy"] = extended_auditing_policy
+            __props__.__dict__["identity"] = identity
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
             if version is None and not opts.urn:
                 raise TypeError("Missing required property 'version'")
-            __props__['version'] = version
-            __props__['fully_qualified_domain_name'] = None
+            __props__.__dict__["version"] = version
+            __props__.__dict__["fully_qualified_domain_name"] = None
         super(SqlServer, __self__).__init__(
             'azure:sql/sqlServer:SqlServer',
             resource_name,
@@ -405,19 +582,19 @@ class SqlServer(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _SqlServerState.__new__(_SqlServerState)
 
-        __props__["administrator_login"] = administrator_login
-        __props__["administrator_login_password"] = administrator_login_password
-        __props__["connection_policy"] = connection_policy
-        __props__["extended_auditing_policy"] = extended_auditing_policy
-        __props__["fully_qualified_domain_name"] = fully_qualified_domain_name
-        __props__["identity"] = identity
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["resource_group_name"] = resource_group_name
-        __props__["tags"] = tags
-        __props__["version"] = version
+        __props__.__dict__["administrator_login"] = administrator_login
+        __props__.__dict__["administrator_login_password"] = administrator_login_password
+        __props__.__dict__["connection_policy"] = connection_policy
+        __props__.__dict__["extended_auditing_policy"] = extended_auditing_policy
+        __props__.__dict__["fully_qualified_domain_name"] = fully_qualified_domain_name
+        __props__.__dict__["identity"] = identity
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["version"] = version
         return SqlServer(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -507,10 +684,4 @@ class SqlServer(pulumi.CustomResource):
         The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
         """
         return pulumi.get(self, "version")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

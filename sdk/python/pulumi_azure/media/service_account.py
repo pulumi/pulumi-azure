@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -134,6 +134,130 @@ class ServiceAccountArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _ServiceAccountState:
+    def __init__(__self__, *,
+                 identity: Optional[pulumi.Input['ServiceAccountIdentityArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAccountStorageAccountArgs']]]] = None,
+                 storage_authentication_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering ServiceAccount resources.
+        :param pulumi.Input['ServiceAccountIdentityArgs'] identity: An `identity` block is documented below.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceAccountStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
+        :param pulumi.Input[str] storage_authentication_type: Specifies the storage authentication type. 
+               Possible value is  `ManagedIdentity` or `System`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
+               ---
+        """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if storage_accounts is not None:
+            pulumi.set(__self__, "storage_accounts", storage_accounts)
+        if storage_authentication_type is not None:
+            pulumi.set(__self__, "storage_authentication_type", storage_authentication_type)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ServiceAccountIdentityArgs']]:
+        """
+        An `identity` block is documented below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ServiceAccountIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="storageAccounts")
+    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAccountStorageAccountArgs']]]]:
+        """
+        One or more `storage_account` blocks as defined below.
+        """
+        return pulumi.get(self, "storage_accounts")
+
+    @storage_accounts.setter
+    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAccountStorageAccountArgs']]]]):
+        pulumi.set(self, "storage_accounts", value)
+
+    @property
+    @pulumi.getter(name="storageAuthenticationType")
+    def storage_authentication_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the storage authentication type. 
+        Possible value is  `ManagedIdentity` or `System`.
+        """
+        return pulumi.get(self, "storage_authentication_type")
+
+    @storage_authentication_type.setter
+    def storage_authentication_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_authentication_type", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags assigned to the resource.
+        ---
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
 class ServiceAccount(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -146,9 +270,7 @@ class ServiceAccount(pulumi.CustomResource):
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceAccountStorageAccountArgs']]]]] = None,
                  storage_authentication_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a Media Services Account.
 
@@ -253,15 +375,7 @@ class ServiceAccount(pulumi.CustomResource):
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceAccountStorageAccountArgs']]]]] = None,
                  storage_authentication_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -271,19 +385,19 @@ class ServiceAccount(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ServiceAccountArgs.__new__(ServiceAccountArgs)
 
-            __props__['identity'] = identity
-            __props__['location'] = location
-            __props__['name'] = name
+            __props__.__dict__["identity"] = identity
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if storage_accounts is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_accounts'")
-            __props__['storage_accounts'] = storage_accounts
-            __props__['storage_authentication_type'] = storage_authentication_type
-            __props__['tags'] = tags
+            __props__.__dict__["storage_accounts"] = storage_accounts
+            __props__.__dict__["storage_authentication_type"] = storage_authentication_type
+            __props__.__dict__["tags"] = tags
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:mediaservices/account:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServiceAccount, __self__).__init__(
@@ -322,15 +436,15 @@ class ServiceAccount(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ServiceAccountState.__new__(_ServiceAccountState)
 
-        __props__["identity"] = identity
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["resource_group_name"] = resource_group_name
-        __props__["storage_accounts"] = storage_accounts
-        __props__["storage_authentication_type"] = storage_authentication_type
-        __props__["tags"] = tags
+        __props__.__dict__["identity"] = identity
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["storage_accounts"] = storage_accounts
+        __props__.__dict__["storage_authentication_type"] = storage_authentication_type
+        __props__.__dict__["tags"] = tags
         return ServiceAccount(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -390,10 +504,4 @@ class ServiceAccount(pulumi.CustomResource):
         ---
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

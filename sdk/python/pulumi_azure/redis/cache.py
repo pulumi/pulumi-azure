@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -30,7 +30,7 @@ class CacheArgs:
                  shard_count: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 zones: Optional[pulumi.Input[str]] = None):
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Cache resource.
         :param pulumi.Input[int] capacity: The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
@@ -50,7 +50,7 @@ class CacheArgs:
         :param pulumi.Input[int] shard_count: *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
         :param pulumi.Input[str] subnet_id: *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] zones: A list of a one or more Availability Zones, where the Redis Cache should be allocated.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of a one or more Availability Zones, where the Redis Cache should be allocated.
         """
         pulumi.set(__self__, "capacity", capacity)
         pulumi.set(__self__, "family", family)
@@ -265,14 +265,394 @@ class CacheArgs:
 
     @property
     @pulumi.getter
-    def zones(self) -> Optional[pulumi.Input[str]]:
+    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of a one or more Availability Zones, where the Redis Cache should be allocated.
         """
         return pulumi.get(self, "zones")
 
     @zones.setter
-    def zones(self, value: Optional[pulumi.Input[str]]):
+    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "zones", value)
+
+
+@pulumi.input_type
+class _CacheState:
+    def __init__(__self__, *,
+                 capacity: Optional[pulumi.Input[int]] = None,
+                 enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
+                 family: Optional[pulumi.Input[str]] = None,
+                 hostname: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 minimum_tls_version: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 patch_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArgs']]]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 primary_access_key: Optional[pulumi.Input[str]] = None,
+                 primary_connection_string: Optional[pulumi.Input[str]] = None,
+                 private_static_ip_address: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 redis_configuration: Optional[pulumi.Input['CacheRedisConfigurationArgs']] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 secondary_access_key: Optional[pulumi.Input[str]] = None,
+                 secondary_connection_string: Optional[pulumi.Input[str]] = None,
+                 shard_count: Optional[pulumi.Input[int]] = None,
+                 sku_name: Optional[pulumi.Input[str]] = None,
+                 ssl_port: Optional[pulumi.Input[int]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Cache resources.
+        :param pulumi.Input[int] capacity: The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
+        :param pulumi.Input[bool] enable_non_ssl_port: Enable the non-SSL port (6379) - disabled by default.
+        :param pulumi.Input[str] family: The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
+        :param pulumi.Input[str] hostname: The Hostname of the Redis Instance
+        :param pulumi.Input[str] location: The location of the resource group.
+        :param pulumi.Input[str] minimum_tls_version: The minimum TLS version.  Defaults to `1.0`.
+        :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a
+               new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArgs']]] patch_schedules: A list of `patch_schedule` blocks as defined below.
+        :param pulumi.Input[int] port: The non-SSL Port of the Redis Instance
+        :param pulumi.Input[str] primary_access_key: The Primary Access Key for the Redis Instance
+        :param pulumi.Input[str] primary_connection_string: The primary connection string of the Redis Instance.
+        :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
+        :param pulumi.Input['CacheRedisConfigurationArgs'] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
+               create the Redis instance.
+        :param pulumi.Input[str] secondary_access_key: The Secondary Access Key for the Redis Instance
+        :param pulumi.Input[str] secondary_connection_string: The secondary connection string of the Redis Instance.
+        :param pulumi.Input[int] shard_count: *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
+        :param pulumi.Input[str] sku_name: The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
+        :param pulumi.Input[int] ssl_port: The SSL Port of the Redis Instance
+        :param pulumi.Input[str] subnet_id: *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of a one or more Availability Zones, where the Redis Cache should be allocated.
+        """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if enable_non_ssl_port is not None:
+            pulumi.set(__self__, "enable_non_ssl_port", enable_non_ssl_port)
+        if family is not None:
+            pulumi.set(__self__, "family", family)
+        if hostname is not None:
+            pulumi.set(__self__, "hostname", hostname)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if minimum_tls_version is not None:
+            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if patch_schedules is not None:
+            pulumi.set(__self__, "patch_schedules", patch_schedules)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if primary_access_key is not None:
+            pulumi.set(__self__, "primary_access_key", primary_access_key)
+        if primary_connection_string is not None:
+            pulumi.set(__self__, "primary_connection_string", primary_connection_string)
+        if private_static_ip_address is not None:
+            pulumi.set(__self__, "private_static_ip_address", private_static_ip_address)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+        if redis_configuration is not None:
+            pulumi.set(__self__, "redis_configuration", redis_configuration)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if secondary_access_key is not None:
+            pulumi.set(__self__, "secondary_access_key", secondary_access_key)
+        if secondary_connection_string is not None:
+            pulumi.set(__self__, "secondary_connection_string", secondary_connection_string)
+        if shard_count is not None:
+            pulumi.set(__self__, "shard_count", shard_count)
+        if sku_name is not None:
+            pulumi.set(__self__, "sku_name", sku_name)
+        if ssl_port is not None:
+            pulumi.set(__self__, "ssl_port", ssl_port)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter(name="enableNonSslPort")
+    def enable_non_ssl_port(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable the non-SSL port (6379) - disabled by default.
+        """
+        return pulumi.get(self, "enable_non_ssl_port")
+
+    @enable_non_ssl_port.setter
+    def enable_non_ssl_port(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_non_ssl_port", value)
+
+    @property
+    @pulumi.getter
+    def family(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
+        """
+        return pulumi.get(self, "family")
+
+    @family.setter
+    def family(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "family", value)
+
+    @property
+    @pulumi.getter
+    def hostname(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Hostname of the Redis Instance
+        """
+        return pulumi.get(self, "hostname")
+
+    @hostname.setter
+    def hostname(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hostname", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location of the resource group.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The minimum TLS version.  Defaults to `1.0`.
+        """
+        return pulumi.get(self, "minimum_tls_version")
+
+    @minimum_tls_version.setter
+    def minimum_tls_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "minimum_tls_version", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Redis instance. Changing this forces a
+        new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="patchSchedules")
+    def patch_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArgs']]]]:
+        """
+        A list of `patch_schedule` blocks as defined below.
+        """
+        return pulumi.get(self, "patch_schedules")
+
+    @patch_schedules.setter
+    def patch_schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArgs']]]]):
+        pulumi.set(self, "patch_schedules", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The non-SSL Port of the Redis Instance
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="primaryAccessKey")
+    def primary_access_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Primary Access Key for the Redis Instance
+        """
+        return pulumi.get(self, "primary_access_key")
+
+    @primary_access_key.setter
+    def primary_access_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_access_key", value)
+
+    @property
+    @pulumi.getter(name="primaryConnectionString")
+    def primary_connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The primary connection string of the Redis Instance.
+        """
+        return pulumi.get(self, "primary_connection_string")
+
+    @primary_connection_string.setter
+    def primary_connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_connection_string", value)
+
+    @property
+    @pulumi.getter(name="privateStaticIpAddress")
+    def private_static_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "private_static_ip_address")
+
+    @private_static_ip_address.setter
+    def private_static_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_static_ip_address", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
+    @pulumi.getter(name="redisConfiguration")
+    def redis_configuration(self) -> Optional[pulumi.Input['CacheRedisConfigurationArgs']]:
+        """
+        A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+        """
+        return pulumi.get(self, "redis_configuration")
+
+    @redis_configuration.setter
+    def redis_configuration(self, value: Optional[pulumi.Input['CacheRedisConfigurationArgs']]):
+        pulumi.set(self, "redis_configuration", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which to
+        create the Redis instance.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="secondaryAccessKey")
+    def secondary_access_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Secondary Access Key for the Redis Instance
+        """
+        return pulumi.get(self, "secondary_access_key")
+
+    @secondary_access_key.setter
+    def secondary_access_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_access_key", value)
+
+    @property
+    @pulumi.getter(name="secondaryConnectionString")
+    def secondary_connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The secondary connection string of the Redis Instance.
+        """
+        return pulumi.get(self, "secondary_connection_string")
+
+    @secondary_connection_string.setter
+    def secondary_connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_connection_string", value)
+
+    @property
+    @pulumi.getter(name="shardCount")
+    def shard_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
+        """
+        return pulumi.get(self, "shard_count")
+
+    @shard_count.setter
+    def shard_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "shard_count", value)
+
+    @property
+    @pulumi.getter(name="skuName")
+    def sku_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
+        """
+        return pulumi.get(self, "sku_name")
+
+    @sku_name.setter
+    def sku_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku_name", value)
+
+    @property
+    @pulumi.getter(name="sslPort")
+    def ssl_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The SSL Port of the Redis Instance
+        """
+        return pulumi.get(self, "ssl_port")
+
+    @ssl_port.setter
+    def ssl_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ssl_port", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of a one or more Availability Zones, where the Redis Cache should be allocated.
+        """
+        return pulumi.get(self, "zones")
+
+    @zones.setter
+    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "zones", value)
 
 
@@ -296,10 +676,8 @@ class Cache(pulumi.CustomResource):
                  sku_name: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 zones: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 __props__=None):
         """
         Manages a Redis Cache.
 
@@ -377,7 +755,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] sku_name: The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[str] subnet_id: *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] zones: A list of a one or more Availability Zones, where the Redis Cache should be allocated.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of a one or more Availability Zones, where the Redis Cache should be allocated.
         """
         ...
     @overload
@@ -473,16 +851,8 @@ class Cache(pulumi.CustomResource):
                  sku_name: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 zones: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -492,39 +862,39 @@ class Cache(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = CacheArgs.__new__(CacheArgs)
 
             if capacity is None and not opts.urn:
                 raise TypeError("Missing required property 'capacity'")
-            __props__['capacity'] = capacity
-            __props__['enable_non_ssl_port'] = enable_non_ssl_port
+            __props__.__dict__["capacity"] = capacity
+            __props__.__dict__["enable_non_ssl_port"] = enable_non_ssl_port
             if family is None and not opts.urn:
                 raise TypeError("Missing required property 'family'")
-            __props__['family'] = family
-            __props__['location'] = location
-            __props__['minimum_tls_version'] = minimum_tls_version
-            __props__['name'] = name
-            __props__['patch_schedules'] = patch_schedules
-            __props__['private_static_ip_address'] = private_static_ip_address
-            __props__['public_network_access_enabled'] = public_network_access_enabled
-            __props__['redis_configuration'] = redis_configuration
+            __props__.__dict__["family"] = family
+            __props__.__dict__["location"] = location
+            __props__.__dict__["minimum_tls_version"] = minimum_tls_version
+            __props__.__dict__["name"] = name
+            __props__.__dict__["patch_schedules"] = patch_schedules
+            __props__.__dict__["private_static_ip_address"] = private_static_ip_address
+            __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
+            __props__.__dict__["redis_configuration"] = redis_configuration
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['shard_count'] = shard_count
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["shard_count"] = shard_count
             if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")
-            __props__['sku_name'] = sku_name
-            __props__['subnet_id'] = subnet_id
-            __props__['tags'] = tags
-            __props__['zones'] = zones
-            __props__['hostname'] = None
-            __props__['port'] = None
-            __props__['primary_access_key'] = None
-            __props__['primary_connection_string'] = None
-            __props__['secondary_access_key'] = None
-            __props__['secondary_connection_string'] = None
-            __props__['ssl_port'] = None
+            __props__.__dict__["sku_name"] = sku_name
+            __props__.__dict__["subnet_id"] = subnet_id
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["zones"] = zones
+            __props__.__dict__["hostname"] = None
+            __props__.__dict__["port"] = None
+            __props__.__dict__["primary_access_key"] = None
+            __props__.__dict__["primary_connection_string"] = None
+            __props__.__dict__["secondary_access_key"] = None
+            __props__.__dict__["secondary_connection_string"] = None
+            __props__.__dict__["ssl_port"] = None
         super(Cache, __self__).__init__(
             'azure:redis/cache:Cache',
             resource_name,
@@ -557,7 +927,7 @@ class Cache(pulumi.CustomResource):
             ssl_port: Optional[pulumi.Input[int]] = None,
             subnet_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            zones: Optional[pulumi.Input[str]] = None) -> 'Cache':
+            zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Cache':
         """
         Get an existing Cache resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -589,35 +959,35 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[int] ssl_port: The SSL Port of the Redis Instance
         :param pulumi.Input[str] subnet_id: *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] zones: A list of a one or more Availability Zones, where the Redis Cache should be allocated.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of a one or more Availability Zones, where the Redis Cache should be allocated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _CacheState.__new__(_CacheState)
 
-        __props__["capacity"] = capacity
-        __props__["enable_non_ssl_port"] = enable_non_ssl_port
-        __props__["family"] = family
-        __props__["hostname"] = hostname
-        __props__["location"] = location
-        __props__["minimum_tls_version"] = minimum_tls_version
-        __props__["name"] = name
-        __props__["patch_schedules"] = patch_schedules
-        __props__["port"] = port
-        __props__["primary_access_key"] = primary_access_key
-        __props__["primary_connection_string"] = primary_connection_string
-        __props__["private_static_ip_address"] = private_static_ip_address
-        __props__["public_network_access_enabled"] = public_network_access_enabled
-        __props__["redis_configuration"] = redis_configuration
-        __props__["resource_group_name"] = resource_group_name
-        __props__["secondary_access_key"] = secondary_access_key
-        __props__["secondary_connection_string"] = secondary_connection_string
-        __props__["shard_count"] = shard_count
-        __props__["sku_name"] = sku_name
-        __props__["ssl_port"] = ssl_port
-        __props__["subnet_id"] = subnet_id
-        __props__["tags"] = tags
-        __props__["zones"] = zones
+        __props__.__dict__["capacity"] = capacity
+        __props__.__dict__["enable_non_ssl_port"] = enable_non_ssl_port
+        __props__.__dict__["family"] = family
+        __props__.__dict__["hostname"] = hostname
+        __props__.__dict__["location"] = location
+        __props__.__dict__["minimum_tls_version"] = minimum_tls_version
+        __props__.__dict__["name"] = name
+        __props__.__dict__["patch_schedules"] = patch_schedules
+        __props__.__dict__["port"] = port
+        __props__.__dict__["primary_access_key"] = primary_access_key
+        __props__.__dict__["primary_connection_string"] = primary_connection_string
+        __props__.__dict__["private_static_ip_address"] = private_static_ip_address
+        __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
+        __props__.__dict__["redis_configuration"] = redis_configuration
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["secondary_access_key"] = secondary_access_key
+        __props__.__dict__["secondary_connection_string"] = secondary_connection_string
+        __props__.__dict__["shard_count"] = shard_count
+        __props__.__dict__["sku_name"] = sku_name
+        __props__.__dict__["ssl_port"] = ssl_port
+        __props__.__dict__["subnet_id"] = subnet_id
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["zones"] = zones
         return Cache(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -800,15 +1170,9 @@ class Cache(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> pulumi.Output[Optional[str]]:
+    def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of a one or more Availability Zones, where the Redis Cache should be allocated.
         """
         return pulumi.get(self, "zones")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

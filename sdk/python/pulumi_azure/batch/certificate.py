@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['CertificateArgs', 'Certificate']
 
@@ -120,6 +120,154 @@ class CertificateArgs:
         pulumi.set(self, "password", value)
 
 
+@pulumi.input_type
+class _CertificateState:
+    def __init__(__self__, *,
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 certificate: Optional[pulumi.Input[str]] = None,
+                 format: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 public_data: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 thumbprint: Optional[pulumi.Input[str]] = None,
+                 thumbprint_algorithm: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Certificate resources.
+        :param pulumi.Input[str] account_name: Specifies the name of the Batch account. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] certificate: The base64-encoded contents of the certificate.
+        :param pulumi.Input[str] format: The format of the certificate. Possible values are `Cer` or `Pfx`.
+        :param pulumi.Input[str] name: The generated name of the certificate.
+        :param pulumi.Input[str] password: The password to access the certificate's private key. This can only be specified when `format` is `Pfx`.
+        :param pulumi.Input[str] public_data: The public key of the certificate.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] thumbprint: The thumbprint of the certificate. At this time the only supported value is 'SHA1'.
+        """
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if public_data is not None:
+            pulumi.set(__self__, "public_data", public_data)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
+        if thumbprint_algorithm is not None:
+            pulumi.set(__self__, "thumbprint_algorithm", thumbprint_algorithm)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Batch account. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional[pulumi.Input[str]]:
+        """
+        The base64-encoded contents of the certificate.
+        """
+        return pulumi.get(self, "certificate")
+
+    @certificate.setter
+    def certificate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate", value)
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional[pulumi.Input[str]]:
+        """
+        The format of the certificate. Possible values are `Cer` or `Pfx`.
+        """
+        return pulumi.get(self, "format")
+
+    @format.setter
+    def format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "format", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The generated name of the certificate.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password to access the certificate's private key. This can only be specified when `format` is `Pfx`.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="publicData")
+    def public_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        The public key of the certificate.
+        """
+        return pulumi.get(self, "public_data")
+
+    @public_data.setter
+    def public_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_data", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The thumbprint of the certificate. At this time the only supported value is 'SHA1'.
+        """
+        return pulumi.get(self, "thumbprint")
+
+    @thumbprint.setter
+    def thumbprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "thumbprint", value)
+
+    @property
+    @pulumi.getter(name="thumbprintAlgorithm")
+    def thumbprint_algorithm(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "thumbprint_algorithm")
+
+    @thumbprint_algorithm.setter
+    def thumbprint_algorithm(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "thumbprint_algorithm", value)
+
+
 class Certificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -132,9 +280,7 @@ class Certificate(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  thumbprint: Optional[pulumi.Input[str]] = None,
                  thumbprint_algorithm: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a certificate in an Azure Batch account.
 
@@ -194,15 +340,7 @@ class Certificate(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  thumbprint: Optional[pulumi.Input[str]] = None,
                  thumbprint_algorithm: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -212,29 +350,29 @@ class Certificate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = CertificateArgs.__new__(CertificateArgs)
 
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
-            __props__['account_name'] = account_name
+            __props__.__dict__["account_name"] = account_name
             if certificate is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate'")
-            __props__['certificate'] = certificate
+            __props__.__dict__["certificate"] = certificate
             if format is None and not opts.urn:
                 raise TypeError("Missing required property 'format'")
-            __props__['format'] = format
-            __props__['password'] = password
+            __props__.__dict__["format"] = format
+            __props__.__dict__["password"] = password
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if thumbprint is None and not opts.urn:
                 raise TypeError("Missing required property 'thumbprint'")
-            __props__['thumbprint'] = thumbprint
+            __props__.__dict__["thumbprint"] = thumbprint
             if thumbprint_algorithm is None and not opts.urn:
                 raise TypeError("Missing required property 'thumbprint_algorithm'")
-            __props__['thumbprint_algorithm'] = thumbprint_algorithm
-            __props__['name'] = None
-            __props__['public_data'] = None
+            __props__.__dict__["thumbprint_algorithm"] = thumbprint_algorithm
+            __props__.__dict__["name"] = None
+            __props__.__dict__["public_data"] = None
         super(Certificate, __self__).__init__(
             'azure:batch/certificate:Certificate',
             resource_name,
@@ -272,17 +410,17 @@ class Certificate(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _CertificateState.__new__(_CertificateState)
 
-        __props__["account_name"] = account_name
-        __props__["certificate"] = certificate
-        __props__["format"] = format
-        __props__["name"] = name
-        __props__["password"] = password
-        __props__["public_data"] = public_data
-        __props__["resource_group_name"] = resource_group_name
-        __props__["thumbprint"] = thumbprint
-        __props__["thumbprint_algorithm"] = thumbprint_algorithm
+        __props__.__dict__["account_name"] = account_name
+        __props__.__dict__["certificate"] = certificate
+        __props__.__dict__["format"] = format
+        __props__.__dict__["name"] = name
+        __props__.__dict__["password"] = password
+        __props__.__dict__["public_data"] = public_data
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["thumbprint"] = thumbprint
+        __props__.__dict__["thumbprint_algorithm"] = thumbprint_algorithm
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -353,10 +491,4 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="thumbprintAlgorithm")
     def thumbprint_algorithm(self) -> pulumi.Output[str]:
         return pulumi.get(self, "thumbprint_algorithm")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

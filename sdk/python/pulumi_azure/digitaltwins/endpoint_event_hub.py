@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['EndpointEventHubArgs', 'EndpointEventHub']
 
@@ -95,6 +95,94 @@ class EndpointEventHubArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.input_type
+class _EndpointEventHubState:
+    def __init__(__self__, *,
+                 dead_letter_storage_secret: Optional[pulumi.Input[str]] = None,
+                 digital_twins_id: Optional[pulumi.Input[str]] = None,
+                 eventhub_primary_connection_string: Optional[pulumi.Input[str]] = None,
+                 eventhub_secondary_connection_string: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering EndpointEventHub resources.
+        :param pulumi.Input[str] dead_letter_storage_secret: The storage secret of the dead-lettering, whose format is `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
+        :param pulumi.Input[str] digital_twins_id: The resource ID of the Digital Twins Instance. Changing this forces a new Digital Twins Event Hub Endpoint to be created.
+        :param pulumi.Input[str] eventhub_primary_connection_string: The primary connection string of the Event Hub Authorization Rule with a minimum of `send` permission.
+        :param pulumi.Input[str] eventhub_secondary_connection_string: The secondary connection string of the Event Hub Authorization Rule with a minimum of `send` permission.
+        :param pulumi.Input[str] name: The name which should be used for this Digital Twins Event Hub Endpoint. Changing this forces a new Digital Twins Event Hub Endpoint to be created.
+        """
+        if dead_letter_storage_secret is not None:
+            pulumi.set(__self__, "dead_letter_storage_secret", dead_letter_storage_secret)
+        if digital_twins_id is not None:
+            pulumi.set(__self__, "digital_twins_id", digital_twins_id)
+        if eventhub_primary_connection_string is not None:
+            pulumi.set(__self__, "eventhub_primary_connection_string", eventhub_primary_connection_string)
+        if eventhub_secondary_connection_string is not None:
+            pulumi.set(__self__, "eventhub_secondary_connection_string", eventhub_secondary_connection_string)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="deadLetterStorageSecret")
+    def dead_letter_storage_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The storage secret of the dead-lettering, whose format is `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
+        """
+        return pulumi.get(self, "dead_letter_storage_secret")
+
+    @dead_letter_storage_secret.setter
+    def dead_letter_storage_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dead_letter_storage_secret", value)
+
+    @property
+    @pulumi.getter(name="digitalTwinsId")
+    def digital_twins_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the Digital Twins Instance. Changing this forces a new Digital Twins Event Hub Endpoint to be created.
+        """
+        return pulumi.get(self, "digital_twins_id")
+
+    @digital_twins_id.setter
+    def digital_twins_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "digital_twins_id", value)
+
+    @property
+    @pulumi.getter(name="eventhubPrimaryConnectionString")
+    def eventhub_primary_connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The primary connection string of the Event Hub Authorization Rule with a minimum of `send` permission.
+        """
+        return pulumi.get(self, "eventhub_primary_connection_string")
+
+    @eventhub_primary_connection_string.setter
+    def eventhub_primary_connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "eventhub_primary_connection_string", value)
+
+    @property
+    @pulumi.getter(name="eventhubSecondaryConnectionString")
+    def eventhub_secondary_connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The secondary connection string of the Event Hub Authorization Rule with a minimum of `send` permission.
+        """
+        return pulumi.get(self, "eventhub_secondary_connection_string")
+
+    @eventhub_secondary_connection_string.setter
+    def eventhub_secondary_connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "eventhub_secondary_connection_string", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Digital Twins Event Hub Endpoint. Changing this forces a new Digital Twins Event Hub Endpoint to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
 class EndpointEventHub(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -105,9 +193,7 @@ class EndpointEventHub(pulumi.CustomResource):
                  eventhub_primary_connection_string: Optional[pulumi.Input[str]] = None,
                  eventhub_secondary_connection_string: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a Digital Twins Event Hub Endpoint.
 
@@ -228,15 +314,7 @@ class EndpointEventHub(pulumi.CustomResource):
                  eventhub_primary_connection_string: Optional[pulumi.Input[str]] = None,
                  eventhub_secondary_connection_string: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -246,19 +324,19 @@ class EndpointEventHub(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = EndpointEventHubArgs.__new__(EndpointEventHubArgs)
 
-            __props__['dead_letter_storage_secret'] = dead_letter_storage_secret
+            __props__.__dict__["dead_letter_storage_secret"] = dead_letter_storage_secret
             if digital_twins_id is None and not opts.urn:
                 raise TypeError("Missing required property 'digital_twins_id'")
-            __props__['digital_twins_id'] = digital_twins_id
+            __props__.__dict__["digital_twins_id"] = digital_twins_id
             if eventhub_primary_connection_string is None and not opts.urn:
                 raise TypeError("Missing required property 'eventhub_primary_connection_string'")
-            __props__['eventhub_primary_connection_string'] = eventhub_primary_connection_string
+            __props__.__dict__["eventhub_primary_connection_string"] = eventhub_primary_connection_string
             if eventhub_secondary_connection_string is None and not opts.urn:
                 raise TypeError("Missing required property 'eventhub_secondary_connection_string'")
-            __props__['eventhub_secondary_connection_string'] = eventhub_secondary_connection_string
-            __props__['name'] = name
+            __props__.__dict__["eventhub_secondary_connection_string"] = eventhub_secondary_connection_string
+            __props__.__dict__["name"] = name
         super(EndpointEventHub, __self__).__init__(
             'azure:digitaltwins/endpointEventHub:EndpointEventHub',
             resource_name,
@@ -289,13 +367,13 @@ class EndpointEventHub(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _EndpointEventHubState.__new__(_EndpointEventHubState)
 
-        __props__["dead_letter_storage_secret"] = dead_letter_storage_secret
-        __props__["digital_twins_id"] = digital_twins_id
-        __props__["eventhub_primary_connection_string"] = eventhub_primary_connection_string
-        __props__["eventhub_secondary_connection_string"] = eventhub_secondary_connection_string
-        __props__["name"] = name
+        __props__.__dict__["dead_letter_storage_secret"] = dead_letter_storage_secret
+        __props__.__dict__["digital_twins_id"] = digital_twins_id
+        __props__.__dict__["eventhub_primary_connection_string"] = eventhub_primary_connection_string
+        __props__.__dict__["eventhub_secondary_connection_string"] = eventhub_secondary_connection_string
+        __props__.__dict__["name"] = name
         return EndpointEventHub(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -337,10 +415,4 @@ class EndpointEventHub(pulumi.CustomResource):
         The name which should be used for this Digital Twins Event Hub Endpoint. Changing this forces a new Digital Twins Event Hub Endpoint to be created.
         """
         return pulumi.get(self, "name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

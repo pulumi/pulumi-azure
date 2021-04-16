@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['GroupSubscriptionAssociationArgs', 'GroupSubscriptionAssociation']
 
@@ -48,6 +48,46 @@ class GroupSubscriptionAssociationArgs:
         pulumi.set(self, "subscription_id", value)
 
 
+@pulumi.input_type
+class _GroupSubscriptionAssociationState:
+    def __init__(__self__, *,
+                 management_group_id: Optional[pulumi.Input[str]] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering GroupSubscriptionAssociation resources.
+        :param pulumi.Input[str] management_group_id: The ID of the Management Group to associate the Subscription with. Changing this forces a new Management to be created.
+        :param pulumi.Input[str] subscription_id: The ID of the Subscription to be associated with the Management Group. Changing this forces a new Management to be created.
+        """
+        if management_group_id is not None:
+            pulumi.set(__self__, "management_group_id", management_group_id)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="managementGroupId")
+    def management_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Management Group to associate the Subscription with. Changing this forces a new Management to be created.
+        """
+        return pulumi.get(self, "management_group_id")
+
+    @management_group_id.setter
+    def management_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "management_group_id", value)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Subscription to be associated with the Management Group. Changing this forces a new Management to be created.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subscription_id", value)
+
+
 class GroupSubscriptionAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -55,9 +95,7 @@ class GroupSubscriptionAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  management_group_id: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a Management Group Subscription Association.
 
@@ -138,15 +176,7 @@ class GroupSubscriptionAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  management_group_id: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -156,14 +186,14 @@ class GroupSubscriptionAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = GroupSubscriptionAssociationArgs.__new__(GroupSubscriptionAssociationArgs)
 
             if management_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'management_group_id'")
-            __props__['management_group_id'] = management_group_id
+            __props__.__dict__["management_group_id"] = management_group_id
             if subscription_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subscription_id'")
-            __props__['subscription_id'] = subscription_id
+            __props__.__dict__["subscription_id"] = subscription_id
         super(GroupSubscriptionAssociation, __self__).__init__(
             'azure:management/groupSubscriptionAssociation:GroupSubscriptionAssociation',
             resource_name,
@@ -188,10 +218,10 @@ class GroupSubscriptionAssociation(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _GroupSubscriptionAssociationState.__new__(_GroupSubscriptionAssociationState)
 
-        __props__["management_group_id"] = management_group_id
-        __props__["subscription_id"] = subscription_id
+        __props__.__dict__["management_group_id"] = management_group_id
+        __props__.__dict__["subscription_id"] = subscription_id
         return GroupSubscriptionAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -209,10 +239,4 @@ class GroupSubscriptionAssociation(pulumi.CustomResource):
         The ID of the Subscription to be associated with the Management Group. Changing this forces a new Management to be created.
         """
         return pulumi.get(self, "subscription_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -145,6 +145,142 @@ class AutoscaleSettingArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _AutoscaleSettingState:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 notification: Optional[pulumi.Input['AutoscaleSettingNotificationArgs']] = None,
+                 profiles: Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleSettingProfileArgs']]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering AutoscaleSetting resources.
+        :param pulumi.Input[bool] enabled: Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the AutoScale Setting. Changing this forces a new resource to be created.
+        :param pulumi.Input['AutoscaleSettingNotificationArgs'] notification: Specifies a `notification` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AutoscaleSettingProfileArgs']]] profiles: Specifies one or more (up to 20) `profile` blocks as defined below.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] target_resource_id: Specifies the resource ID of the resource that the autoscale setting should be added to.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if notification is not None:
+            pulumi.set(__self__, "notification", notification)
+        if profiles is not None:
+            pulumi.set(__self__, "profiles", profiles)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if target_resource_id is not None:
+            pulumi.set(__self__, "target_resource_id", target_resource_id)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the AutoScale Setting. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def notification(self) -> Optional[pulumi.Input['AutoscaleSettingNotificationArgs']]:
+        """
+        Specifies a `notification` block as defined below.
+        """
+        return pulumi.get(self, "notification")
+
+    @notification.setter
+    def notification(self, value: Optional[pulumi.Input['AutoscaleSettingNotificationArgs']]):
+        pulumi.set(self, "notification", value)
+
+    @property
+    @pulumi.getter
+    def profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleSettingProfileArgs']]]]:
+        """
+        Specifies one or more (up to 20) `profile` blocks as defined below.
+        """
+        return pulumi.get(self, "profiles")
+
+    @profiles.setter
+    def profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleSettingProfileArgs']]]]):
+        pulumi.set(self, "profiles", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="targetResourceId")
+    def target_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the resource ID of the resource that the autoscale setting should be added to.
+        """
+        return pulumi.get(self, "target_resource_id")
+
+    @target_resource_id.setter
+    def target_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_id", value)
+
+
 class AutoscaleSetting(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -158,9 +294,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a AutoScale Setting which can be applied to Virtual Machine Scale Sets, App Services and other scalable resources.
 
@@ -671,15 +805,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -689,22 +815,22 @@ class AutoscaleSetting(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AutoscaleSettingArgs.__new__(AutoscaleSettingArgs)
 
-            __props__['enabled'] = enabled
-            __props__['location'] = location
-            __props__['name'] = name
-            __props__['notification'] = notification
+            __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
+            __props__.__dict__["notification"] = notification
             if profiles is None and not opts.urn:
                 raise TypeError("Missing required property 'profiles'")
-            __props__['profiles'] = profiles
+            __props__.__dict__["profiles"] = profiles
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
             if target_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_resource_id'")
-            __props__['target_resource_id'] = target_resource_id
+            __props__.__dict__["target_resource_id"] = target_resource_id
         super(AutoscaleSetting, __self__).__init__(
             'azure:monitoring/autoscaleSetting:AutoscaleSetting',
             resource_name,
@@ -741,16 +867,16 @@ class AutoscaleSetting(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AutoscaleSettingState.__new__(_AutoscaleSettingState)
 
-        __props__["enabled"] = enabled
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["notification"] = notification
-        __props__["profiles"] = profiles
-        __props__["resource_group_name"] = resource_group_name
-        __props__["tags"] = tags
-        __props__["target_resource_id"] = target_resource_id
+        __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["notification"] = notification
+        __props__.__dict__["profiles"] = profiles
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["target_resource_id"] = target_resource_id
         return AutoscaleSetting(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -816,10 +942,4 @@ class AutoscaleSetting(pulumi.CustomResource):
         Specifies the resource ID of the resource that the autoscale setting should be added to.
         """
         return pulumi.get(self, "target_resource_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

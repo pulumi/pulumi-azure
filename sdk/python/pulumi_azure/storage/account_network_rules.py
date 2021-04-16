@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['AccountNetworkRulesArgs', 'AccountNetworkRules']
 
@@ -111,6 +111,110 @@ class AccountNetworkRulesArgs:
         pulumi.set(self, "virtual_network_subnet_ids", value)
 
 
+@pulumi.input_type
+class _AccountNetworkRulesState:
+    def __init__(__self__, *,
+                 bypasses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 default_action: Optional[pulumi.Input[str]] = None,
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 storage_account_name: Optional[pulumi.Input[str]] = None,
+                 virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering AccountNetworkRules resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] bypasses: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+        :param pulumi.Input[str] default_action: Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_rules: List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_name: Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: A list of virtual network subnet ids to to secure the storage account.
+        """
+        if bypasses is not None:
+            pulumi.set(__self__, "bypasses", bypasses)
+        if default_action is not None:
+            pulumi.set(__self__, "default_action", default_action)
+        if ip_rules is not None:
+            pulumi.set(__self__, "ip_rules", ip_rules)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if storage_account_name is not None:
+            pulumi.set(__self__, "storage_account_name", storage_account_name)
+        if virtual_network_subnet_ids is not None:
+            pulumi.set(__self__, "virtual_network_subnet_ids", virtual_network_subnet_ids)
+
+    @property
+    @pulumi.getter
+    def bypasses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+        """
+        return pulumi.get(self, "bypasses")
+
+    @bypasses.setter
+    def bypasses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "bypasses", value)
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
+        """
+        return pulumi.get(self, "default_action")
+
+    @default_action.setter
+    def default_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_action", value)
+
+    @property
+    @pulumi.getter(name="ipRules")
+    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+        """
+        return pulumi.get(self, "ip_rules")
+
+    @ip_rules.setter
+    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ip_rules", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @storage_account_name.setter
+    def storage_account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_name", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetIds")
+    def virtual_network_subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of virtual network subnet ids to to secure the storage account.
+        """
+        return pulumi.get(self, "virtual_network_subnet_ids")
+
+    @virtual_network_subnet_ids.setter
+    def virtual_network_subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "virtual_network_subnet_ids", value)
+
+
 class AccountNetworkRules(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -122,9 +226,7 @@ class AccountNetworkRules(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages network rules inside of a Azure Storage Account.
 
@@ -261,15 +363,7 @@ class AccountNetworkRules(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -279,20 +373,20 @@ class AccountNetworkRules(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AccountNetworkRulesArgs.__new__(AccountNetworkRulesArgs)
 
-            __props__['bypasses'] = bypasses
+            __props__.__dict__["bypasses"] = bypasses
             if default_action is None and not opts.urn:
                 raise TypeError("Missing required property 'default_action'")
-            __props__['default_action'] = default_action
-            __props__['ip_rules'] = ip_rules
+            __props__.__dict__["default_action"] = default_action
+            __props__.__dict__["ip_rules"] = ip_rules
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if storage_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_name'")
-            __props__['storage_account_name'] = storage_account_name
-            __props__['virtual_network_subnet_ids'] = virtual_network_subnet_ids
+            __props__.__dict__["storage_account_name"] = storage_account_name
+            __props__.__dict__["virtual_network_subnet_ids"] = virtual_network_subnet_ids
         super(AccountNetworkRules, __self__).__init__(
             'azure:storage/accountNetworkRules:AccountNetworkRules',
             resource_name,
@@ -325,14 +419,14 @@ class AccountNetworkRules(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AccountNetworkRulesState.__new__(_AccountNetworkRulesState)
 
-        __props__["bypasses"] = bypasses
-        __props__["default_action"] = default_action
-        __props__["ip_rules"] = ip_rules
-        __props__["resource_group_name"] = resource_group_name
-        __props__["storage_account_name"] = storage_account_name
-        __props__["virtual_network_subnet_ids"] = virtual_network_subnet_ids
+        __props__.__dict__["bypasses"] = bypasses
+        __props__.__dict__["default_action"] = default_action
+        __props__.__dict__["ip_rules"] = ip_rules
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["storage_account_name"] = storage_account_name
+        __props__.__dict__["virtual_network_subnet_ids"] = virtual_network_subnet_ids
         return AccountNetworkRules(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -382,10 +476,4 @@ class AccountNetworkRules(pulumi.CustomResource):
         A list of virtual network subnet ids to to secure the storage account.
         """
         return pulumi.get(self, "virtual_network_subnet_ids")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

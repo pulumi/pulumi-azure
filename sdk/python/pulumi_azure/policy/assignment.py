@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -194,6 +194,190 @@ class AssignmentArgs:
         pulumi.set(self, "parameters", value)
 
 
+@pulumi.input_type
+class _AssignmentState:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 enforcement_mode: Optional[pulumi.Input[bool]] = None,
+                 identity: Optional[pulumi.Input['AssignmentIdentityArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 not_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 parameters: Optional[pulumi.Input[str]] = None,
+                 policy_definition_id: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Assignment resources.
+        :param pulumi.Input[str] description: A description to use for this Policy Assignment. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] display_name: A friendly display name to use for this Policy Assignment. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enforcement_mode: Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
+        :param pulumi.Input['AssignmentIdentityArgs'] identity: An `identity` block.
+        :param pulumi.Input[str] location: The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] metadata: The metadata for the policy assignment. This is a JSON string representing additional metadata that should be stored with the policy assignment.
+        :param pulumi.Input[str] name: The name of the Policy Assignment. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] not_scopes: A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`).
+        :param pulumi.Input[str] parameters: Parameters for the policy definition. This field is a JSON string that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] policy_definition_id: The ID of the Policy Definition to be applied at the specified Scope.
+        :param pulumi.Input[str] scope: The Scope at which the Policy Assignment should be applied, which must be a Resource ID (such as Subscription e.g. `/subscriptions/00000000-0000-0000-000000000000` or a Resource Group e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). Changing this forces a new resource to be created.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if enforcement_mode is not None:
+            pulumi.set(__self__, "enforcement_mode", enforcement_mode)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if not_scopes is not None:
+            pulumi.set(__self__, "not_scopes", not_scopes)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if policy_definition_id is not None:
+            pulumi.set(__self__, "policy_definition_id", policy_definition_id)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description to use for this Policy Assignment. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A friendly display name to use for this Policy Assignment. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="enforcementMode")
+    def enforcement_mode(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Can be set to 'true' or 'false' to control whether the assignment is enforced (true) or not (false). Default is 'true'.
+        """
+        return pulumi.get(self, "enforcement_mode")
+
+    @enforcement_mode.setter
+    def enforcement_mode(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enforcement_mode", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['AssignmentIdentityArgs']]:
+        """
+        An `identity` block.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['AssignmentIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[str]]:
+        """
+        The metadata for the policy assignment. This is a JSON string representing additional metadata that should be stored with the policy assignment.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Policy Assignment. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="notScopes")
+    def not_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`).
+        """
+        return pulumi.get(self, "not_scopes")
+
+    @not_scopes.setter
+    def not_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "not_scopes", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[str]]:
+        """
+        Parameters for the policy definition. This field is a JSON string that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="policyDefinitionId")
+    def policy_definition_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Policy Definition to be applied at the specified Scope.
+        """
+        return pulumi.get(self, "policy_definition_id")
+
+    @policy_definition_id.setter
+    def policy_definition_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_definition_id", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Scope at which the Policy Assignment should be applied, which must be a Resource ID (such as Subscription e.g. `/subscriptions/00000000-0000-0000-000000000000` or a Resource Group e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scope", value)
+
+
 class Assignment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -210,9 +394,7 @@ class Assignment(pulumi.CustomResource):
                  parameters: Optional[pulumi.Input[str]] = None,
                  policy_definition_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Configures the specified Policy Definition at the specified Scope. Also, Policy Set Definitions are supported.
 
@@ -383,15 +565,7 @@ class Assignment(pulumi.CustomResource):
                  parameters: Optional[pulumi.Input[str]] = None,
                  policy_definition_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -401,23 +575,23 @@ class Assignment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AssignmentArgs.__new__(AssignmentArgs)
 
-            __props__['description'] = description
-            __props__['display_name'] = display_name
-            __props__['enforcement_mode'] = enforcement_mode
-            __props__['identity'] = identity
-            __props__['location'] = location
-            __props__['metadata'] = metadata
-            __props__['name'] = name
-            __props__['not_scopes'] = not_scopes
-            __props__['parameters'] = parameters
+            __props__.__dict__["description"] = description
+            __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["enforcement_mode"] = enforcement_mode
+            __props__.__dict__["identity"] = identity
+            __props__.__dict__["location"] = location
+            __props__.__dict__["metadata"] = metadata
+            __props__.__dict__["name"] = name
+            __props__.__dict__["not_scopes"] = not_scopes
+            __props__.__dict__["parameters"] = parameters
             if policy_definition_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_definition_id'")
-            __props__['policy_definition_id'] = policy_definition_id
+            __props__.__dict__["policy_definition_id"] = policy_definition_id
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
-            __props__['scope'] = scope
+            __props__.__dict__["scope"] = scope
         super(Assignment, __self__).__init__(
             'azure:policy/assignment:Assignment',
             resource_name,
@@ -460,19 +634,19 @@ class Assignment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AssignmentState.__new__(_AssignmentState)
 
-        __props__["description"] = description
-        __props__["display_name"] = display_name
-        __props__["enforcement_mode"] = enforcement_mode
-        __props__["identity"] = identity
-        __props__["location"] = location
-        __props__["metadata"] = metadata
-        __props__["name"] = name
-        __props__["not_scopes"] = not_scopes
-        __props__["parameters"] = parameters
-        __props__["policy_definition_id"] = policy_definition_id
-        __props__["scope"] = scope
+        __props__.__dict__["description"] = description
+        __props__.__dict__["display_name"] = display_name
+        __props__.__dict__["enforcement_mode"] = enforcement_mode
+        __props__.__dict__["identity"] = identity
+        __props__.__dict__["location"] = location
+        __props__.__dict__["metadata"] = metadata
+        __props__.__dict__["name"] = name
+        __props__.__dict__["not_scopes"] = not_scopes
+        __props__.__dict__["parameters"] = parameters
+        __props__.__dict__["policy_definition_id"] = policy_definition_id
+        __props__.__dict__["scope"] = scope
         return Assignment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -562,10 +736,4 @@ class Assignment(pulumi.CustomResource):
         The Scope at which the Policy Assignment should be applied, which must be a Resource ID (such as Subscription e.g. `/subscriptions/00000000-0000-0000-000000000000` or a Resource Group e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "scope")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

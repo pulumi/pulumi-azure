@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -287,6 +287,296 @@ class EndpointArgs:
         pulumi.set(self, "weight", value)
 
 
+@pulumi.input_type
+class _EndpointState:
+    def __init__(__self__, *,
+                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointCustomHeaderArgs']]]] = None,
+                 endpoint_location: Optional[pulumi.Input[str]] = None,
+                 endpoint_monitor_status: Optional[pulumi.Input[str]] = None,
+                 endpoint_status: Optional[pulumi.Input[str]] = None,
+                 geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 min_child_endpoints: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[int]] = None,
+                 profile_name: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointSubnetArgs']]]] = None,
+                 target: Optional[pulumi.Input[str]] = None,
+                 target_resource_id: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 weight: Optional[pulumi.Input[int]] = None):
+        """
+        Input properties used for looking up and filtering Endpoint resources.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointCustomHeaderArgs']]] custom_headers: One or more `custom_header` blocks as defined below
+        :param pulumi.Input[str] endpoint_location: Specifies the Azure location of the Endpoint,
+               this must be specified for Profiles using the `Performance` routing method
+               if the Endpoint is of either type `nestedEndpoints` or `externalEndpoints`.
+               For Endpoints of type `azureEndpoints` the value will be taken from the
+               location of the Azure target resource.
+        :param pulumi.Input[str] endpoint_status: The status of the Endpoint, can be set to
+               either `Enabled` or `Disabled`. Defaults to `Enabled`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+        :param pulumi.Input[int] min_child_endpoints: This argument specifies the minimum number
+               of endpoints that must be ‘online’ in the child profile in order for the
+               parent profile to direct traffic to any of the endpoints in that child
+               profile. This argument only applies to Endpoints of type `nestedEndpoints`
+               and defaults to `1`.
+        :param pulumi.Input[str] name: The name of the Traffic Manager endpoint. Changing this forces a
+               new resource to be created.
+        :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be
+               specified for Profiles using the `Priority` traffic routing method. Supports
+               values between 1 and 1000, with no Endpoints sharing the same value. If
+               omitted the value will be computed in order of creation.
+        :param pulumi.Input[str] profile_name: The name of the Traffic Manager Profile to attach
+               create the Traffic Manager endpoint.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group where the Traffic Manager Profile exists.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointSubnetArgs']]] subnets: One or more `subnet` blocks as defined below
+        :param pulumi.Input[str] target: The FQDN DNS name of the target. This argument must be
+               provided for an endpoint of type `externalEndpoints`, for other types it
+               will be computed.
+        :param pulumi.Input[str] target_resource_id: The resource id of an Azure resource to
+               target. This argument must be provided for an endpoint of type
+               `azureEndpoints` or `nestedEndpoints`.
+        :param pulumi.Input[str] type: The Endpoint type, must be one of:
+               - `azureEndpoints`
+               - `externalEndpoints`
+               - `nestedEndpoints`
+        :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this
+               endpoint, this must be specified for Profiles using the  `Weighted` traffic
+               routing method. Supports values between 1 and 1000.
+        """
+        if custom_headers is not None:
+            pulumi.set(__self__, "custom_headers", custom_headers)
+        if endpoint_location is not None:
+            pulumi.set(__self__, "endpoint_location", endpoint_location)
+        if endpoint_monitor_status is not None:
+            pulumi.set(__self__, "endpoint_monitor_status", endpoint_monitor_status)
+        if endpoint_status is not None:
+            pulumi.set(__self__, "endpoint_status", endpoint_status)
+        if geo_mappings is not None:
+            pulumi.set(__self__, "geo_mappings", geo_mappings)
+        if min_child_endpoints is not None:
+            pulumi.set(__self__, "min_child_endpoints", min_child_endpoints)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if profile_name is not None:
+            pulumi.set(__self__, "profile_name", profile_name)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if subnets is not None:
+            pulumi.set(__self__, "subnets", subnets)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if target_resource_id is not None:
+            pulumi.set(__self__, "target_resource_id", target_resource_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="customHeaders")
+    def custom_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointCustomHeaderArgs']]]]:
+        """
+        One or more `custom_header` blocks as defined below
+        """
+        return pulumi.get(self, "custom_headers")
+
+    @custom_headers.setter
+    def custom_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointCustomHeaderArgs']]]]):
+        pulumi.set(self, "custom_headers", value)
+
+    @property
+    @pulumi.getter(name="endpointLocation")
+    def endpoint_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Azure location of the Endpoint,
+        this must be specified for Profiles using the `Performance` routing method
+        if the Endpoint is of either type `nestedEndpoints` or `externalEndpoints`.
+        For Endpoints of type `azureEndpoints` the value will be taken from the
+        location of the Azure target resource.
+        """
+        return pulumi.get(self, "endpoint_location")
+
+    @endpoint_location.setter
+    def endpoint_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_location", value)
+
+    @property
+    @pulumi.getter(name="endpointMonitorStatus")
+    def endpoint_monitor_status(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "endpoint_monitor_status")
+
+    @endpoint_monitor_status.setter
+    def endpoint_monitor_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_monitor_status", value)
+
+    @property
+    @pulumi.getter(name="endpointStatus")
+    def endpoint_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of the Endpoint, can be set to
+        either `Enabled` or `Disabled`. Defaults to `Enabled`.
+        """
+        return pulumi.get(self, "endpoint_status")
+
+    @endpoint_status.setter
+    def endpoint_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_status", value)
+
+    @property
+    @pulumi.getter(name="geoMappings")
+    def geo_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
+        """
+        return pulumi.get(self, "geo_mappings")
+
+    @geo_mappings.setter
+    def geo_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "geo_mappings", value)
+
+    @property
+    @pulumi.getter(name="minChildEndpoints")
+    def min_child_endpoints(self) -> Optional[pulumi.Input[int]]:
+        """
+        This argument specifies the minimum number
+        of endpoints that must be ‘online’ in the child profile in order for the
+        parent profile to direct traffic to any of the endpoints in that child
+        profile. This argument only applies to Endpoints of type `nestedEndpoints`
+        and defaults to `1`.
+        """
+        return pulumi.get(self, "min_child_endpoints")
+
+    @min_child_endpoints.setter
+    def min_child_endpoints(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_child_endpoints", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Traffic Manager endpoint. Changing this forces a
+        new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the priority of this Endpoint, this must be
+        specified for Profiles using the `Priority` traffic routing method. Supports
+        values between 1 and 1000, with no Endpoints sharing the same value. If
+        omitted the value will be computed in order of creation.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="profileName")
+    def profile_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Traffic Manager Profile to attach
+        create the Traffic Manager endpoint.
+        """
+        return pulumi.get(self, "profile_name")
+
+    @profile_name.setter
+    def profile_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "profile_name", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group where the Traffic Manager Profile exists.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointSubnetArgs']]]]:
+        """
+        One or more `subnet` blocks as defined below
+        """
+        return pulumi.get(self, "subnets")
+
+    @subnets.setter
+    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointSubnetArgs']]]]):
+        pulumi.set(self, "subnets", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[str]]:
+        """
+        The FQDN DNS name of the target. This argument must be
+        provided for an endpoint of type `externalEndpoints`, for other types it
+        will be computed.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter(name="targetResourceId")
+    def target_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource id of an Azure resource to
+        target. This argument must be provided for an endpoint of type
+        `azureEndpoints` or `nestedEndpoints`.
+        """
+        return pulumi.get(self, "target_resource_id")
+
+    @target_resource_id.setter
+    def target_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Endpoint type, must be one of:
+        - `azureEndpoints`
+        - `externalEndpoints`
+        - `nestedEndpoints`
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def weight(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies how much traffic should be distributed to this
+        endpoint, this must be specified for Profiles using the  `Weighted` traffic
+        routing method. Supports values between 1 and 1000.
+        """
+        return pulumi.get(self, "weight")
+
+    @weight.setter
+    def weight(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "weight", value)
+
+
 warnings.warn("""azure.trafficmanager.Endpoint has been deprecated in favor of azure.network.TrafficManagerEndpoint""", DeprecationWarning)
 
 
@@ -311,9 +601,7 @@ class Endpoint(pulumi.CustomResource):
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  weight: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a Traffic Manager Endpoint.
 
@@ -487,16 +775,8 @@ class Endpoint(pulumi.CustomResource):
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  weight: Optional[pulumi.Input[int]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         pulumi.log.warn("""Endpoint is deprecated: azure.trafficmanager.Endpoint has been deprecated in favor of azure.network.TrafficManagerEndpoint""")
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -506,29 +786,29 @@ class Endpoint(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = EndpointArgs.__new__(EndpointArgs)
 
-            __props__['custom_headers'] = custom_headers
-            __props__['endpoint_location'] = endpoint_location
-            __props__['endpoint_status'] = endpoint_status
-            __props__['geo_mappings'] = geo_mappings
-            __props__['min_child_endpoints'] = min_child_endpoints
-            __props__['name'] = name
-            __props__['priority'] = priority
+            __props__.__dict__["custom_headers"] = custom_headers
+            __props__.__dict__["endpoint_location"] = endpoint_location
+            __props__.__dict__["endpoint_status"] = endpoint_status
+            __props__.__dict__["geo_mappings"] = geo_mappings
+            __props__.__dict__["min_child_endpoints"] = min_child_endpoints
+            __props__.__dict__["name"] = name
+            __props__.__dict__["priority"] = priority
             if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")
-            __props__['profile_name'] = profile_name
+            __props__.__dict__["profile_name"] = profile_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['subnets'] = subnets
-            __props__['target'] = target
-            __props__['target_resource_id'] = target_resource_id
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["subnets"] = subnets
+            __props__.__dict__["target"] = target
+            __props__.__dict__["target_resource_id"] = target_resource_id
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
-            __props__['type'] = type
-            __props__['weight'] = weight
-            __props__['endpoint_monitor_status'] = None
+            __props__.__dict__["type"] = type
+            __props__.__dict__["weight"] = weight
+            __props__.__dict__["endpoint_monitor_status"] = None
         super(Endpoint, __self__).__init__(
             'azure:trafficmanager/endpoint:Endpoint',
             resource_name,
@@ -601,23 +881,23 @@ class Endpoint(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _EndpointState.__new__(_EndpointState)
 
-        __props__["custom_headers"] = custom_headers
-        __props__["endpoint_location"] = endpoint_location
-        __props__["endpoint_monitor_status"] = endpoint_monitor_status
-        __props__["endpoint_status"] = endpoint_status
-        __props__["geo_mappings"] = geo_mappings
-        __props__["min_child_endpoints"] = min_child_endpoints
-        __props__["name"] = name
-        __props__["priority"] = priority
-        __props__["profile_name"] = profile_name
-        __props__["resource_group_name"] = resource_group_name
-        __props__["subnets"] = subnets
-        __props__["target"] = target
-        __props__["target_resource_id"] = target_resource_id
-        __props__["type"] = type
-        __props__["weight"] = weight
+        __props__.__dict__["custom_headers"] = custom_headers
+        __props__.__dict__["endpoint_location"] = endpoint_location
+        __props__.__dict__["endpoint_monitor_status"] = endpoint_monitor_status
+        __props__.__dict__["endpoint_status"] = endpoint_status
+        __props__.__dict__["geo_mappings"] = geo_mappings
+        __props__.__dict__["min_child_endpoints"] = min_child_endpoints
+        __props__.__dict__["name"] = name
+        __props__.__dict__["priority"] = priority
+        __props__.__dict__["profile_name"] = profile_name
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["subnets"] = subnets
+        __props__.__dict__["target"] = target
+        __props__.__dict__["target_resource_id"] = target_resource_id
+        __props__.__dict__["type"] = type
+        __props__.__dict__["weight"] = weight
         return Endpoint(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -759,10 +1039,4 @@ class Endpoint(pulumi.CustomResource):
         routing method. Supports values between 1 and 1000.
         """
         return pulumi.get(self, "weight")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ExtensionArgs', 'Extension']
 
@@ -172,6 +172,172 @@ class ExtensionArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _ExtensionState:
+    def __init__(__self__, *,
+                 auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 protected_settings: Optional[pulumi.Input[str]] = None,
+                 publisher: Optional[pulumi.Input[str]] = None,
+                 settings: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 type_handler_version: Optional[pulumi.Input[str]] = None,
+                 virtual_machine_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Extension resources.
+        :param pulumi.Input[bool] auto_upgrade_minor_version: Specifies if the platform deploys
+               the latest minor version update to the `type_handler_version` specified.
+        :param pulumi.Input[str] name: The name of the virtual machine extension peering. Changing
+               this forces a new resource to be created.
+        :param pulumi.Input[str] protected_settings: The protected_settings passed to the
+               extension, like settings, these are specified as a JSON object in a string.
+        :param pulumi.Input[str] publisher: The publisher of the extension, available publishers
+               can be found by using the Azure CLI.
+        :param pulumi.Input[str] settings: The settings passed to the extension, these are
+               specified as a JSON object in a string.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] type: The type of extension, available types for a publisher can
+               be found using the Azure CLI.
+        :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to
+               use, available versions can be found using the Azure CLI.
+        :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created
+        """
+        if auto_upgrade_minor_version is not None:
+            pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if protected_settings is not None:
+            pulumi.set(__self__, "protected_settings", protected_settings)
+        if publisher is not None:
+            pulumi.set(__self__, "publisher", publisher)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if type_handler_version is not None:
+            pulumi.set(__self__, "type_handler_version", type_handler_version)
+        if virtual_machine_id is not None:
+            pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+
+    @property
+    @pulumi.getter(name="autoUpgradeMinorVersion")
+    def auto_upgrade_minor_version(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the platform deploys
+        the latest minor version update to the `type_handler_version` specified.
+        """
+        return pulumi.get(self, "auto_upgrade_minor_version")
+
+    @auto_upgrade_minor_version.setter
+    def auto_upgrade_minor_version(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_upgrade_minor_version", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the virtual machine extension peering. Changing
+        this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="protectedSettings")
+    def protected_settings(self) -> Optional[pulumi.Input[str]]:
+        """
+        The protected_settings passed to the
+        extension, like settings, these are specified as a JSON object in a string.
+        """
+        return pulumi.get(self, "protected_settings")
+
+    @protected_settings.setter
+    def protected_settings(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protected_settings", value)
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> Optional[pulumi.Input[str]]:
+        """
+        The publisher of the extension, available publishers
+        can be found by using the Azure CLI.
+        """
+        return pulumi.get(self, "publisher")
+
+    @publisher.setter
+    def publisher(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "publisher", value)
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional[pulumi.Input[str]]:
+        """
+        The settings passed to the extension, these are
+        specified as a JSON object in a string.
+        """
+        return pulumi.get(self, "settings")
+
+    @settings.setter
+    def settings(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "settings", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of extension, available types for a publisher can
+        be found using the Azure CLI.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="typeHandlerVersion")
+    def type_handler_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the version of the extension to
+        use, available versions can be found using the Azure CLI.
+        """
+        return pulumi.get(self, "type_handler_version")
+
+    @type_handler_version.setter
+    def type_handler_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type_handler_version", value)
+
+    @property
+    @pulumi.getter(name="virtualMachineId")
+    def virtual_machine_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Virtual Machine. Changing this forces a new resource to be created
+        """
+        return pulumi.get(self, "virtual_machine_id")
+
+    @virtual_machine_id.setter
+    def virtual_machine_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_machine_id", value)
+
+
 class Extension(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -186,9 +352,7 @@ class Extension(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  type_handler_version: Optional[pulumi.Input[str]] = None,
                  virtual_machine_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a Virtual Machine Extension to provide post deployment configuration
         and run automated tasks.
@@ -422,15 +586,7 @@ class Extension(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  type_handler_version: Optional[pulumi.Input[str]] = None,
                  virtual_machine_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -440,25 +596,25 @@ class Extension(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ExtensionArgs.__new__(ExtensionArgs)
 
-            __props__['auto_upgrade_minor_version'] = auto_upgrade_minor_version
-            __props__['name'] = name
-            __props__['protected_settings'] = protected_settings
+            __props__.__dict__["auto_upgrade_minor_version"] = auto_upgrade_minor_version
+            __props__.__dict__["name"] = name
+            __props__.__dict__["protected_settings"] = protected_settings
             if publisher is None and not opts.urn:
                 raise TypeError("Missing required property 'publisher'")
-            __props__['publisher'] = publisher
-            __props__['settings'] = settings
-            __props__['tags'] = tags
+            __props__.__dict__["publisher"] = publisher
+            __props__.__dict__["settings"] = settings
+            __props__.__dict__["tags"] = tags
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
-            __props__['type'] = type
+            __props__.__dict__["type"] = type
             if type_handler_version is None and not opts.urn:
                 raise TypeError("Missing required property 'type_handler_version'")
-            __props__['type_handler_version'] = type_handler_version
+            __props__.__dict__["type_handler_version"] = type_handler_version
             if virtual_machine_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_machine_id'")
-            __props__['virtual_machine_id'] = virtual_machine_id
+            __props__.__dict__["virtual_machine_id"] = virtual_machine_id
         super(Extension, __self__).__init__(
             'azure:compute/extension:Extension',
             resource_name,
@@ -504,17 +660,17 @@ class Extension(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ExtensionState.__new__(_ExtensionState)
 
-        __props__["auto_upgrade_minor_version"] = auto_upgrade_minor_version
-        __props__["name"] = name
-        __props__["protected_settings"] = protected_settings
-        __props__["publisher"] = publisher
-        __props__["settings"] = settings
-        __props__["tags"] = tags
-        __props__["type"] = type
-        __props__["type_handler_version"] = type_handler_version
-        __props__["virtual_machine_id"] = virtual_machine_id
+        __props__.__dict__["auto_upgrade_minor_version"] = auto_upgrade_minor_version
+        __props__.__dict__["name"] = name
+        __props__.__dict__["protected_settings"] = protected_settings
+        __props__.__dict__["publisher"] = publisher
+        __props__.__dict__["settings"] = settings
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["type"] = type
+        __props__.__dict__["type_handler_version"] = type_handler_version
+        __props__.__dict__["virtual_machine_id"] = virtual_machine_id
         return Extension(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -595,10 +751,4 @@ class Extension(pulumi.CustomResource):
         The ID of the Virtual Machine. Changing this forces a new resource to be created
         """
         return pulumi.get(self, "virtual_machine_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

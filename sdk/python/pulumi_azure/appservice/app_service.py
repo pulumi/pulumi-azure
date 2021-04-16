@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -306,6 +306,414 @@ class AppServiceArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _AppServiceState:
+    def __init__(__self__, *,
+                 app_service_plan_id: Optional[pulumi.Input[str]] = None,
+                 app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 auth_settings: Optional[pulumi.Input['AppServiceAuthSettingsArgs']] = None,
+                 backup: Optional[pulumi.Input['AppServiceBackupArgs']] = None,
+                 client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
+                 client_cert_enabled: Optional[pulumi.Input[bool]] = None,
+                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceConnectionStringArgs']]]] = None,
+                 custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
+                 default_site_hostname: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 https_only: Optional[pulumi.Input[bool]] = None,
+                 identity: Optional[pulumi.Input['AppServiceIdentityArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 logs: Optional[pulumi.Input['AppServiceLogsArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 outbound_ip_address_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
+                 possible_outbound_ip_address_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 possible_outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 site_config: Optional[pulumi.Input['AppServiceSiteConfigArgs']] = None,
+                 site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceSiteCredentialArgs']]]] = None,
+                 source_control: Optional[pulumi.Input['AppServiceSourceControlArgs']] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceStorageAccountArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering AppService resources.
+        :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this App Service.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A key-value pair of App Settings.
+        :param pulumi.Input['AppServiceAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
+        :param pulumi.Input['AppServiceBackupArgs'] backup: A `backup` block as defined below.
+        :param pulumi.Input[bool] client_affinity_enabled: Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
+        :param pulumi.Input[bool] client_cert_enabled: Does the App Service require client certificates for incoming requests? Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input['AppServiceConnectionStringArgs']]] connection_strings: One or more `connection_string` blocks as defined below.
+        :param pulumi.Input[str] custom_domain_verification_id: An identifier used by App Service to perform domain ownership verification via DNS TXT record.
+        :param pulumi.Input[str] default_site_hostname: The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
+        :param pulumi.Input[bool] enabled: Is the App Service Enabled?
+        :param pulumi.Input[bool] https_only: Can the App Service only be accessed via HTTPS? Defaults to `false`.
+        :param pulumi.Input['AppServiceIdentityArgs'] identity: A Managed Service Identity block as defined below.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input['AppServiceLogsArgs'] logs: A `logs` block as defined below.
+        :param pulumi.Input[str] name: Specifies the name of the App Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_address_lists: A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
+        :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] possible_outbound_ip_address_lists: A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12", "52.143.43.17"]` - not all of which are necessarily in use. Superset of `outbound_ip_address_list`.
+        :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service.
+        :param pulumi.Input['AppServiceSiteConfigArgs'] site_config: A `site_config` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AppServiceSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+        :param pulumi.Input['AppServiceSourceControlArgs'] source_control: A Source Control block as defined below
+        :param pulumi.Input[Sequence[pulumi.Input['AppServiceStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        if app_service_plan_id is not None:
+            pulumi.set(__self__, "app_service_plan_id", app_service_plan_id)
+        if app_settings is not None:
+            pulumi.set(__self__, "app_settings", app_settings)
+        if auth_settings is not None:
+            pulumi.set(__self__, "auth_settings", auth_settings)
+        if backup is not None:
+            pulumi.set(__self__, "backup", backup)
+        if client_affinity_enabled is not None:
+            pulumi.set(__self__, "client_affinity_enabled", client_affinity_enabled)
+        if client_cert_enabled is not None:
+            pulumi.set(__self__, "client_cert_enabled", client_cert_enabled)
+        if connection_strings is not None:
+            pulumi.set(__self__, "connection_strings", connection_strings)
+        if custom_domain_verification_id is not None:
+            pulumi.set(__self__, "custom_domain_verification_id", custom_domain_verification_id)
+        if default_site_hostname is not None:
+            pulumi.set(__self__, "default_site_hostname", default_site_hostname)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if https_only is not None:
+            pulumi.set(__self__, "https_only", https_only)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if logs is not None:
+            pulumi.set(__self__, "logs", logs)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if outbound_ip_address_lists is not None:
+            pulumi.set(__self__, "outbound_ip_address_lists", outbound_ip_address_lists)
+        if outbound_ip_addresses is not None:
+            pulumi.set(__self__, "outbound_ip_addresses", outbound_ip_addresses)
+        if possible_outbound_ip_address_lists is not None:
+            pulumi.set(__self__, "possible_outbound_ip_address_lists", possible_outbound_ip_address_lists)
+        if possible_outbound_ip_addresses is not None:
+            pulumi.set(__self__, "possible_outbound_ip_addresses", possible_outbound_ip_addresses)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if site_config is not None:
+            pulumi.set(__self__, "site_config", site_config)
+        if site_credentials is not None:
+            pulumi.set(__self__, "site_credentials", site_credentials)
+        if source_control is not None:
+            pulumi.set(__self__, "source_control", source_control)
+        if storage_accounts is not None:
+            pulumi.set(__self__, "storage_accounts", storage_accounts)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="appServicePlanId")
+    def app_service_plan_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the App Service Plan within which to create this App Service.
+        """
+        return pulumi.get(self, "app_service_plan_id")
+
+    @app_service_plan_id.setter
+    def app_service_plan_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_service_plan_id", value)
+
+    @property
+    @pulumi.getter(name="appSettings")
+    def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A key-value pair of App Settings.
+        """
+        return pulumi.get(self, "app_settings")
+
+    @app_settings.setter
+    def app_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "app_settings", value)
+
+    @property
+    @pulumi.getter(name="authSettings")
+    def auth_settings(self) -> Optional[pulumi.Input['AppServiceAuthSettingsArgs']]:
+        """
+        A `auth_settings` block as defined below.
+        """
+        return pulumi.get(self, "auth_settings")
+
+    @auth_settings.setter
+    def auth_settings(self, value: Optional[pulumi.Input['AppServiceAuthSettingsArgs']]):
+        pulumi.set(self, "auth_settings", value)
+
+    @property
+    @pulumi.getter
+    def backup(self) -> Optional[pulumi.Input['AppServiceBackupArgs']]:
+        """
+        A `backup` block as defined below.
+        """
+        return pulumi.get(self, "backup")
+
+    @backup.setter
+    def backup(self, value: Optional[pulumi.Input['AppServiceBackupArgs']]):
+        pulumi.set(self, "backup", value)
+
+    @property
+    @pulumi.getter(name="clientAffinityEnabled")
+    def client_affinity_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
+        """
+        return pulumi.get(self, "client_affinity_enabled")
+
+    @client_affinity_enabled.setter
+    def client_affinity_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "client_affinity_enabled", value)
+
+    @property
+    @pulumi.getter(name="clientCertEnabled")
+    def client_cert_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Does the App Service require client certificates for incoming requests? Defaults to `false`.
+        """
+        return pulumi.get(self, "client_cert_enabled")
+
+    @client_cert_enabled.setter
+    def client_cert_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "client_cert_enabled", value)
+
+    @property
+    @pulumi.getter(name="connectionStrings")
+    def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceConnectionStringArgs']]]]:
+        """
+        One or more `connection_string` blocks as defined below.
+        """
+        return pulumi.get(self, "connection_strings")
+
+    @connection_strings.setter
+    def connection_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceConnectionStringArgs']]]]):
+        pulumi.set(self, "connection_strings", value)
+
+    @property
+    @pulumi.getter(name="customDomainVerificationId")
+    def custom_domain_verification_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        An identifier used by App Service to perform domain ownership verification via DNS TXT record.
+        """
+        return pulumi.get(self, "custom_domain_verification_id")
+
+    @custom_domain_verification_id.setter
+    def custom_domain_verification_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_domain_verification_id", value)
+
+    @property
+    @pulumi.getter(name="defaultSiteHostname")
+    def default_site_hostname(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
+        """
+        return pulumi.get(self, "default_site_hostname")
+
+    @default_site_hostname.setter
+    def default_site_hostname(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_site_hostname", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the App Service Enabled?
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="httpsOnly")
+    def https_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Can the App Service only be accessed via HTTPS? Defaults to `false`.
+        """
+        return pulumi.get(self, "https_only")
+
+    @https_only.setter
+    def https_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "https_only", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['AppServiceIdentityArgs']]:
+        """
+        A Managed Service Identity block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['AppServiceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def logs(self) -> Optional[pulumi.Input['AppServiceLogsArgs']]:
+        """
+        A `logs` block as defined below.
+        """
+        return pulumi.get(self, "logs")
+
+    @logs.setter
+    def logs(self, value: Optional[pulumi.Input['AppServiceLogsArgs']]):
+        pulumi.set(self, "logs", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the App Service. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="outboundIpAddressLists")
+    def outbound_ip_address_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
+        """
+        return pulumi.get(self, "outbound_ip_address_lists")
+
+    @outbound_ip_address_lists.setter
+    def outbound_ip_address_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "outbound_ip_address_lists", value)
+
+    @property
+    @pulumi.getter(name="outboundIpAddresses")
+    def outbound_ip_addresses(self) -> Optional[pulumi.Input[str]]:
+        """
+        A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
+        """
+        return pulumi.get(self, "outbound_ip_addresses")
+
+    @outbound_ip_addresses.setter
+    def outbound_ip_addresses(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "outbound_ip_addresses", value)
+
+    @property
+    @pulumi.getter(name="possibleOutboundIpAddressLists")
+    def possible_outbound_ip_address_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12", "52.143.43.17"]` - not all of which are necessarily in use. Superset of `outbound_ip_address_list`.
+        """
+        return pulumi.get(self, "possible_outbound_ip_address_lists")
+
+    @possible_outbound_ip_address_lists.setter
+    def possible_outbound_ip_address_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "possible_outbound_ip_address_lists", value)
+
+    @property
+    @pulumi.getter(name="possibleOutboundIpAddresses")
+    def possible_outbound_ip_addresses(self) -> Optional[pulumi.Input[str]]:
+        """
+        A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+        """
+        return pulumi.get(self, "possible_outbound_ip_addresses")
+
+    @possible_outbound_ip_addresses.setter
+    def possible_outbound_ip_addresses(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "possible_outbound_ip_addresses", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which to create the App Service.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="siteConfig")
+    def site_config(self) -> Optional[pulumi.Input['AppServiceSiteConfigArgs']]:
+        """
+        A `site_config` block as defined below.
+        """
+        return pulumi.get(self, "site_config")
+
+    @site_config.setter
+    def site_config(self, value: Optional[pulumi.Input['AppServiceSiteConfigArgs']]):
+        pulumi.set(self, "site_config", value)
+
+    @property
+    @pulumi.getter(name="siteCredentials")
+    def site_credentials(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceSiteCredentialArgs']]]]:
+        """
+        A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+        """
+        return pulumi.get(self, "site_credentials")
+
+    @site_credentials.setter
+    def site_credentials(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceSiteCredentialArgs']]]]):
+        pulumi.set(self, "site_credentials", value)
+
+    @property
+    @pulumi.getter(name="sourceControl")
+    def source_control(self) -> Optional[pulumi.Input['AppServiceSourceControlArgs']]:
+        """
+        A Source Control block as defined below
+        """
+        return pulumi.get(self, "source_control")
+
+    @source_control.setter
+    def source_control(self, value: Optional[pulumi.Input['AppServiceSourceControlArgs']]):
+        pulumi.set(self, "source_control", value)
+
+    @property
+    @pulumi.getter(name="storageAccounts")
+    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceStorageAccountArgs']]]]:
+        """
+        One or more `storage_account` blocks as defined below.
+        """
+        return pulumi.get(self, "storage_accounts")
+
+    @storage_accounts.setter
+    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppServiceStorageAccountArgs']]]]):
+        pulumi.set(self, "storage_accounts", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
 class AppService(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -329,9 +737,7 @@ class AppService(pulumi.CustomResource):
                  source_control: Optional[pulumi.Input[pulumi.InputType['AppServiceSourceControlArgs']]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppServiceStorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages an App Service (within an App Service Plan).
 
@@ -486,15 +892,7 @@ class AppService(pulumi.CustomResource):
                  source_control: Optional[pulumi.Input[pulumi.InputType['AppServiceSourceControlArgs']]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppServiceStorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -504,37 +902,37 @@ class AppService(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AppServiceArgs.__new__(AppServiceArgs)
 
             if app_service_plan_id is None and not opts.urn:
                 raise TypeError("Missing required property 'app_service_plan_id'")
-            __props__['app_service_plan_id'] = app_service_plan_id
-            __props__['app_settings'] = app_settings
-            __props__['auth_settings'] = auth_settings
-            __props__['backup'] = backup
-            __props__['client_affinity_enabled'] = client_affinity_enabled
-            __props__['client_cert_enabled'] = client_cert_enabled
-            __props__['connection_strings'] = connection_strings
-            __props__['enabled'] = enabled
-            __props__['https_only'] = https_only
-            __props__['identity'] = identity
-            __props__['location'] = location
-            __props__['logs'] = logs
-            __props__['name'] = name
+            __props__.__dict__["app_service_plan_id"] = app_service_plan_id
+            __props__.__dict__["app_settings"] = app_settings
+            __props__.__dict__["auth_settings"] = auth_settings
+            __props__.__dict__["backup"] = backup
+            __props__.__dict__["client_affinity_enabled"] = client_affinity_enabled
+            __props__.__dict__["client_cert_enabled"] = client_cert_enabled
+            __props__.__dict__["connection_strings"] = connection_strings
+            __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["https_only"] = https_only
+            __props__.__dict__["identity"] = identity
+            __props__.__dict__["location"] = location
+            __props__.__dict__["logs"] = logs
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['site_config'] = site_config
-            __props__['source_control'] = source_control
-            __props__['storage_accounts'] = storage_accounts
-            __props__['tags'] = tags
-            __props__['custom_domain_verification_id'] = None
-            __props__['default_site_hostname'] = None
-            __props__['outbound_ip_address_lists'] = None
-            __props__['outbound_ip_addresses'] = None
-            __props__['possible_outbound_ip_address_lists'] = None
-            __props__['possible_outbound_ip_addresses'] = None
-            __props__['site_credentials'] = None
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["site_config"] = site_config
+            __props__.__dict__["source_control"] = source_control
+            __props__.__dict__["storage_accounts"] = storage_accounts
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["custom_domain_verification_id"] = None
+            __props__.__dict__["default_site_hostname"] = None
+            __props__.__dict__["outbound_ip_address_lists"] = None
+            __props__.__dict__["outbound_ip_addresses"] = None
+            __props__.__dict__["possible_outbound_ip_address_lists"] = None
+            __props__.__dict__["possible_outbound_ip_addresses"] = None
+            __props__.__dict__["site_credentials"] = None
         super(AppService, __self__).__init__(
             'azure:appservice/appService:AppService',
             resource_name,
@@ -605,33 +1003,33 @@ class AppService(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AppServiceState.__new__(_AppServiceState)
 
-        __props__["app_service_plan_id"] = app_service_plan_id
-        __props__["app_settings"] = app_settings
-        __props__["auth_settings"] = auth_settings
-        __props__["backup"] = backup
-        __props__["client_affinity_enabled"] = client_affinity_enabled
-        __props__["client_cert_enabled"] = client_cert_enabled
-        __props__["connection_strings"] = connection_strings
-        __props__["custom_domain_verification_id"] = custom_domain_verification_id
-        __props__["default_site_hostname"] = default_site_hostname
-        __props__["enabled"] = enabled
-        __props__["https_only"] = https_only
-        __props__["identity"] = identity
-        __props__["location"] = location
-        __props__["logs"] = logs
-        __props__["name"] = name
-        __props__["outbound_ip_address_lists"] = outbound_ip_address_lists
-        __props__["outbound_ip_addresses"] = outbound_ip_addresses
-        __props__["possible_outbound_ip_address_lists"] = possible_outbound_ip_address_lists
-        __props__["possible_outbound_ip_addresses"] = possible_outbound_ip_addresses
-        __props__["resource_group_name"] = resource_group_name
-        __props__["site_config"] = site_config
-        __props__["site_credentials"] = site_credentials
-        __props__["source_control"] = source_control
-        __props__["storage_accounts"] = storage_accounts
-        __props__["tags"] = tags
+        __props__.__dict__["app_service_plan_id"] = app_service_plan_id
+        __props__.__dict__["app_settings"] = app_settings
+        __props__.__dict__["auth_settings"] = auth_settings
+        __props__.__dict__["backup"] = backup
+        __props__.__dict__["client_affinity_enabled"] = client_affinity_enabled
+        __props__.__dict__["client_cert_enabled"] = client_cert_enabled
+        __props__.__dict__["connection_strings"] = connection_strings
+        __props__.__dict__["custom_domain_verification_id"] = custom_domain_verification_id
+        __props__.__dict__["default_site_hostname"] = default_site_hostname
+        __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["https_only"] = https_only
+        __props__.__dict__["identity"] = identity
+        __props__.__dict__["location"] = location
+        __props__.__dict__["logs"] = logs
+        __props__.__dict__["name"] = name
+        __props__.__dict__["outbound_ip_address_lists"] = outbound_ip_address_lists
+        __props__.__dict__["outbound_ip_addresses"] = outbound_ip_addresses
+        __props__.__dict__["possible_outbound_ip_address_lists"] = possible_outbound_ip_address_lists
+        __props__.__dict__["possible_outbound_ip_addresses"] = possible_outbound_ip_addresses
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["site_config"] = site_config
+        __props__.__dict__["site_credentials"] = site_credentials
+        __props__.__dict__["source_control"] = source_control
+        __props__.__dict__["storage_accounts"] = storage_accounts
+        __props__.__dict__["tags"] = tags
         return AppService(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -833,10 +1231,4 @@ class AppService(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

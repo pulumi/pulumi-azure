@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['DatabaseExtendedAuditingPolicyArgs', 'DatabaseExtendedAuditingPolicy']
 
@@ -109,6 +109,106 @@ class DatabaseExtendedAuditingPolicyArgs:
         pulumi.set(self, "storage_endpoint", value)
 
 
+@pulumi.input_type
+class _DatabaseExtendedAuditingPolicyState:
+    def __init__(__self__, *,
+                 database_id: Optional[pulumi.Input[str]] = None,
+                 log_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
+                 retention_in_days: Optional[pulumi.Input[int]] = None,
+                 storage_account_access_key: Optional[pulumi.Input[str]] = None,
+                 storage_account_access_key_is_secondary: Optional[pulumi.Input[bool]] = None,
+                 storage_endpoint: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering DatabaseExtendedAuditingPolicy resources.
+        :param pulumi.Input[str] database_id: The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] retention_in_days: The number of days to retain logs for in the storage account.
+        :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
+        :param pulumi.Input[bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
+        :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+        """
+        if database_id is not None:
+            pulumi.set(__self__, "database_id", database_id)
+        if log_monitoring_enabled is not None:
+            pulumi.set(__self__, "log_monitoring_enabled", log_monitoring_enabled)
+        if retention_in_days is not None:
+            pulumi.set(__self__, "retention_in_days", retention_in_days)
+        if storage_account_access_key is not None:
+            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
+        if storage_account_access_key_is_secondary is not None:
+            pulumi.set(__self__, "storage_account_access_key_is_secondary", storage_account_access_key_is_secondary)
+        if storage_endpoint is not None:
+            pulumi.set(__self__, "storage_endpoint", storage_endpoint)
+
+    @property
+    @pulumi.getter(name="databaseId")
+    def database_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "database_id")
+
+    @database_id.setter
+    def database_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_id", value)
+
+    @property
+    @pulumi.getter(name="logMonitoringEnabled")
+    def log_monitoring_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "log_monitoring_enabled")
+
+    @log_monitoring_enabled.setter
+    def log_monitoring_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "log_monitoring_enabled", value)
+
+    @property
+    @pulumi.getter(name="retentionInDays")
+    def retention_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of days to retain logs for in the storage account.
+        """
+        return pulumi.get(self, "retention_in_days")
+
+    @retention_in_days.setter
+    def retention_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_in_days", value)
+
+    @property
+    @pulumi.getter(name="storageAccountAccessKey")
+    def storage_account_access_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The access key to use for the auditing storage account.
+        """
+        return pulumi.get(self, "storage_account_access_key")
+
+    @storage_account_access_key.setter
+    def storage_account_access_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_access_key", value)
+
+    @property
+    @pulumi.getter(name="storageAccountAccessKeyIsSecondary")
+    def storage_account_access_key_is_secondary(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is `storage_account_access_key` value the storage's secondary key?
+        """
+        return pulumi.get(self, "storage_account_access_key_is_secondary")
+
+    @storage_account_access_key_is_secondary.setter
+    def storage_account_access_key_is_secondary(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "storage_account_access_key_is_secondary", value)
+
+    @property
+    @pulumi.getter(name="storageEndpoint")
+    def storage_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
+        """
+        return pulumi.get(self, "storage_endpoint")
+
+    @storage_endpoint.setter
+    def storage_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_endpoint", value)
+
+
 class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -120,9 +220,7 @@ class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_access_key_is_secondary: Optional[pulumi.Input[bool]] = None,
                  storage_endpoint: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a Ms Sql Database Extended Auditing Policy.
 
@@ -238,15 +336,7 @@ class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_access_key_is_secondary: Optional[pulumi.Input[bool]] = None,
                  storage_endpoint: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -256,16 +346,16 @@ class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DatabaseExtendedAuditingPolicyArgs.__new__(DatabaseExtendedAuditingPolicyArgs)
 
             if database_id is None and not opts.urn:
                 raise TypeError("Missing required property 'database_id'")
-            __props__['database_id'] = database_id
-            __props__['log_monitoring_enabled'] = log_monitoring_enabled
-            __props__['retention_in_days'] = retention_in_days
-            __props__['storage_account_access_key'] = storage_account_access_key
-            __props__['storage_account_access_key_is_secondary'] = storage_account_access_key_is_secondary
-            __props__['storage_endpoint'] = storage_endpoint
+            __props__.__dict__["database_id"] = database_id
+            __props__.__dict__["log_monitoring_enabled"] = log_monitoring_enabled
+            __props__.__dict__["retention_in_days"] = retention_in_days
+            __props__.__dict__["storage_account_access_key"] = storage_account_access_key
+            __props__.__dict__["storage_account_access_key_is_secondary"] = storage_account_access_key_is_secondary
+            __props__.__dict__["storage_endpoint"] = storage_endpoint
         super(DatabaseExtendedAuditingPolicy, __self__).__init__(
             'azure:mssql/databaseExtendedAuditingPolicy:DatabaseExtendedAuditingPolicy',
             resource_name,
@@ -297,14 +387,14 @@ class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DatabaseExtendedAuditingPolicyState.__new__(_DatabaseExtendedAuditingPolicyState)
 
-        __props__["database_id"] = database_id
-        __props__["log_monitoring_enabled"] = log_monitoring_enabled
-        __props__["retention_in_days"] = retention_in_days
-        __props__["storage_account_access_key"] = storage_account_access_key
-        __props__["storage_account_access_key_is_secondary"] = storage_account_access_key_is_secondary
-        __props__["storage_endpoint"] = storage_endpoint
+        __props__.__dict__["database_id"] = database_id
+        __props__.__dict__["log_monitoring_enabled"] = log_monitoring_enabled
+        __props__.__dict__["retention_in_days"] = retention_in_days
+        __props__.__dict__["storage_account_access_key"] = storage_account_access_key
+        __props__.__dict__["storage_account_access_key_is_secondary"] = storage_account_access_key_is_secondary
+        __props__.__dict__["storage_endpoint"] = storage_endpoint
         return DatabaseExtendedAuditingPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -351,10 +441,4 @@ class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
         The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
         """
         return pulumi.get(self, "storage_endpoint")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

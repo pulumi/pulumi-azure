@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ARecordArgs', 'ARecord']
 
@@ -123,6 +123,138 @@ class ARecordArgs:
         pulumi.set(self, "target_resource_id", value)
 
 
+@pulumi.input_type
+class _ARecordState:
+    def __init__(__self__, *,
+                 fqdn: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 records: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_resource_id: Optional[pulumi.Input[str]] = None,
+                 ttl: Optional[pulumi.Input[int]] = None,
+                 zone_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ARecord resources.
+        :param pulumi.Input[str] fqdn: The FQDN of the DNS A Record.
+        :param pulumi.Input[str] name: The name of the DNS A Record.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] records: List of IPv4 Addresses. Conflicts with `target_resource_id`.
+        :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] target_resource_id: The Azure resource id of the target object. Conflicts with `records`
+        :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+        """
+        if fqdn is not None:
+            pulumi.set(__self__, "fqdn", fqdn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if records is not None:
+            pulumi.set(__self__, "records", records)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if target_resource_id is not None:
+            pulumi.set(__self__, "target_resource_id", target_resource_id)
+        if ttl is not None:
+            pulumi.set(__self__, "ttl", ttl)
+        if zone_name is not None:
+            pulumi.set(__self__, "zone_name", zone_name)
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The FQDN of the DNS A Record.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @fqdn.setter
+    def fqdn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fqdn", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the DNS A Record.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of IPv4 Addresses. Conflicts with `target_resource_id`.
+        """
+        return pulumi.get(self, "records")
+
+    @records.setter
+    def records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "records", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="targetResourceId")
+    def target_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure resource id of the target object. Conflicts with `records`
+        """
+        return pulumi.get(self, "target_resource_id")
+
+    @target_resource_id.setter
+    def target_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_id", value)
+
+    @property
+    @pulumi.getter
+    def ttl(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "ttl")
+
+    @ttl.setter
+    def ttl(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ttl", value)
+
+    @property
+    @pulumi.getter(name="zoneName")
+    def zone_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "zone_name")
+
+    @zone_name.setter
+    def zone_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "zone_name", value)
+
+
 class ARecord(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -135,9 +267,7 @@ class ARecord(pulumi.CustomResource):
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  ttl: Optional[pulumi.Input[int]] = None,
                  zone_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Enables you to manage DNS A Records within Azure DNS.
 
@@ -265,15 +395,7 @@ class ARecord(pulumi.CustomResource):
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  ttl: Optional[pulumi.Input[int]] = None,
                  zone_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -283,22 +405,22 @@ class ARecord(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ARecordArgs.__new__(ARecordArgs)
 
-            __props__['name'] = name
-            __props__['records'] = records
+            __props__.__dict__["name"] = name
+            __props__.__dict__["records"] = records
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['target_resource_id'] = target_resource_id
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["target_resource_id"] = target_resource_id
             if ttl is None and not opts.urn:
                 raise TypeError("Missing required property 'ttl'")
-            __props__['ttl'] = ttl
+            __props__.__dict__["ttl"] = ttl
             if zone_name is None and not opts.urn:
                 raise TypeError("Missing required property 'zone_name'")
-            __props__['zone_name'] = zone_name
-            __props__['fqdn'] = None
+            __props__.__dict__["zone_name"] = zone_name
+            __props__.__dict__["fqdn"] = None
         super(ARecord, __self__).__init__(
             'azure:dns/aRecord:ARecord',
             resource_name,
@@ -334,16 +456,16 @@ class ARecord(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ARecordState.__new__(_ARecordState)
 
-        __props__["fqdn"] = fqdn
-        __props__["name"] = name
-        __props__["records"] = records
-        __props__["resource_group_name"] = resource_group_name
-        __props__["tags"] = tags
-        __props__["target_resource_id"] = target_resource_id
-        __props__["ttl"] = ttl
-        __props__["zone_name"] = zone_name
+        __props__.__dict__["fqdn"] = fqdn
+        __props__.__dict__["name"] = name
+        __props__.__dict__["records"] = records
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["target_resource_id"] = target_resource_id
+        __props__.__dict__["ttl"] = ttl
+        __props__.__dict__["zone_name"] = zone_name
         return ARecord(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -406,10 +528,4 @@ class ARecord(pulumi.CustomResource):
         Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "zone_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

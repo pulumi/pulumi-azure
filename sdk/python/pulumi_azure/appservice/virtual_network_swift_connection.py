@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['VirtualNetworkSwiftConnectionArgs', 'VirtualNetworkSwiftConnection']
 
@@ -48,6 +48,46 @@ class VirtualNetworkSwiftConnectionArgs:
         pulumi.set(self, "subnet_id", value)
 
 
+@pulumi.input_type
+class _VirtualNetworkSwiftConnectionState:
+    def __init__(__self__, *,
+                 app_service_id: Optional[pulumi.Input[str]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering VirtualNetworkSwiftConnection resources.
+        :param pulumi.Input[str] app_service_id: The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet the app service will be associated to (the subnet must have a `service_delegation` configured for `Microsoft.Web/serverFarms`).
+        """
+        if app_service_id is not None:
+            pulumi.set(__self__, "app_service_id", app_service_id)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="appServiceId")
+    def app_service_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "app_service_id")
+
+    @app_service_id.setter
+    def app_service_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_service_id", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the subnet the app service will be associated to (the subnet must have a `service_delegation` configured for `Microsoft.Web/serverFarms`).
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
+
+
 class VirtualNetworkSwiftConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -55,9 +95,7 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_service_id: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages an App Service Virtual Network Association (this is for the [Regional VNet Integration](https://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration)).
 
@@ -280,15 +318,7 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_service_id: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -298,14 +328,14 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VirtualNetworkSwiftConnectionArgs.__new__(VirtualNetworkSwiftConnectionArgs)
 
             if app_service_id is None and not opts.urn:
                 raise TypeError("Missing required property 'app_service_id'")
-            __props__['app_service_id'] = app_service_id
+            __props__.__dict__["app_service_id"] = app_service_id
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
-            __props__['subnet_id'] = subnet_id
+            __props__.__dict__["subnet_id"] = subnet_id
         super(VirtualNetworkSwiftConnection, __self__).__init__(
             'azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection',
             resource_name,
@@ -330,10 +360,10 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _VirtualNetworkSwiftConnectionState.__new__(_VirtualNetworkSwiftConnectionState)
 
-        __props__["app_service_id"] = app_service_id
-        __props__["subnet_id"] = subnet_id
+        __props__.__dict__["app_service_id"] = app_service_id
+        __props__.__dict__["subnet_id"] = subnet_id
         return VirtualNetworkSwiftConnection(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -351,10 +381,4 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
         The ID of the subnet the app service will be associated to (the subnet must have a `service_delegation` configured for `Microsoft.Web/serverFarms`).
         """
         return pulumi.get(self, "subnet_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

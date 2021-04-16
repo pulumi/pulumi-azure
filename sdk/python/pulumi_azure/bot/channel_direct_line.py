@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -81,6 +81,78 @@ class ChannelDirectLineArgs:
         pulumi.set(self, "location", value)
 
 
+@pulumi.input_type
+class _ChannelDirectLineState:
+    def __init__(__self__, *,
+                 bot_name: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sites: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelDirectLineSiteArgs']]]] = None):
+        """
+        Input properties used for looking up and filtering ChannelDirectLine resources.
+        :param pulumi.Input[str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelDirectLineSiteArgs']]] sites: A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+        """
+        if bot_name is not None:
+            pulumi.set(__self__, "bot_name", bot_name)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if sites is not None:
+            pulumi.set(__self__, "sites", sites)
+
+    @property
+    @pulumi.getter(name="botName")
+    def bot_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "bot_name")
+
+    @bot_name.setter
+    def bot_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bot_name", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def sites(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelDirectLineSiteArgs']]]]:
+        """
+        A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+        """
+        return pulumi.get(self, "sites")
+
+    @sites.setter
+    def sites(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelDirectLineSiteArgs']]]]):
+        pulumi.set(self, "sites", value)
+
+
 class ChannelDirectLine(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -90,9 +162,7 @@ class ChannelDirectLine(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sites: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelDirectLineSiteArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a Directline integration for a Bot Channel
 
@@ -147,15 +217,7 @@ class ChannelDirectLine(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sites: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelDirectLineSiteArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -165,18 +227,18 @@ class ChannelDirectLine(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ChannelDirectLineArgs.__new__(ChannelDirectLineArgs)
 
             if bot_name is None and not opts.urn:
                 raise TypeError("Missing required property 'bot_name'")
-            __props__['bot_name'] = bot_name
-            __props__['location'] = location
+            __props__.__dict__["bot_name"] = bot_name
+            __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if sites is None and not opts.urn:
                 raise TypeError("Missing required property 'sites'")
-            __props__['sites'] = sites
+            __props__.__dict__["sites"] = sites
         super(ChannelDirectLine, __self__).__init__(
             'azure:bot/channelDirectLine:ChannelDirectLine',
             resource_name,
@@ -205,12 +267,12 @@ class ChannelDirectLine(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ChannelDirectLineState.__new__(_ChannelDirectLineState)
 
-        __props__["bot_name"] = bot_name
-        __props__["location"] = location
-        __props__["resource_group_name"] = resource_group_name
-        __props__["sites"] = sites
+        __props__.__dict__["bot_name"] = bot_name
+        __props__.__dict__["location"] = location
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["sites"] = sites
         return ChannelDirectLine(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -244,10 +306,4 @@ class ChannelDirectLine(pulumi.CustomResource):
         A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
         """
         return pulumi.get(self, "sites")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

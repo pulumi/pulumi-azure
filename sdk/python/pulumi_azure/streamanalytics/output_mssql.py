@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['OutputMssqlArgs', 'OutputMssql']
 
@@ -135,6 +135,138 @@ class OutputMssqlArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.input_type
+class _OutputMssqlState:
+    def __init__(__self__, *,
+                 database: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 server: Optional[pulumi.Input[str]] = None,
+                 stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+                 table: Optional[pulumi.Input[str]] = None,
+                 user: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering OutputMssql resources.
+        :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] password: Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] server: The SQL server url. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] table: Table in the database that the output points to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] user: Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+        """
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
+        if stream_analytics_job_name is not None:
+            pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
+        if table is not None:
+            pulumi.set(__self__, "table", table)
+        if user is not None:
+            pulumi.set(__self__, "user", user)
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Stream Output. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def server(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SQL server url. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "server")
+
+    @server.setter
+    def server(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server", value)
+
+    @property
+    @pulumi.getter(name="streamAnalyticsJobName")
+    def stream_analytics_job_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Stream Analytics Job. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "stream_analytics_job_name")
+
+    @stream_analytics_job_name.setter
+    def stream_analytics_job_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stream_analytics_job_name", value)
+
+    @property
+    @pulumi.getter
+    def table(self) -> Optional[pulumi.Input[str]]:
+        """
+        Table in the database that the output points to. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "table")
+
+    @table.setter
+    def table(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "table", value)
+
+    @property
+    @pulumi.getter
+    def user(self) -> Optional[pulumi.Input[str]]:
+        """
+        Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "user")
+
+    @user.setter
+    def user(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user", value)
+
+
 class OutputMssql(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -148,9 +280,7 @@ class OutputMssql(pulumi.CustomResource):
                  stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
                  table: Optional[pulumi.Input[str]] = None,
                  user: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a Stream Analytics Output to Microsoft SQL Server Database.
 
@@ -278,15 +408,7 @@ class OutputMssql(pulumi.CustomResource):
                  stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
                  table: Optional[pulumi.Input[str]] = None,
                  user: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -296,30 +418,30 @@ class OutputMssql(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = OutputMssqlArgs.__new__(OutputMssqlArgs)
 
             if database is None and not opts.urn:
                 raise TypeError("Missing required property 'database'")
-            __props__['database'] = database
-            __props__['name'] = name
+            __props__.__dict__["database"] = database
+            __props__.__dict__["name"] = name
             if password is None and not opts.urn:
                 raise TypeError("Missing required property 'password'")
-            __props__['password'] = password
+            __props__.__dict__["password"] = password
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if server is None and not opts.urn:
                 raise TypeError("Missing required property 'server'")
-            __props__['server'] = server
+            __props__.__dict__["server"] = server
             if stream_analytics_job_name is None and not opts.urn:
                 raise TypeError("Missing required property 'stream_analytics_job_name'")
-            __props__['stream_analytics_job_name'] = stream_analytics_job_name
+            __props__.__dict__["stream_analytics_job_name"] = stream_analytics_job_name
             if table is None and not opts.urn:
                 raise TypeError("Missing required property 'table'")
-            __props__['table'] = table
+            __props__.__dict__["table"] = table
             if user is None and not opts.urn:
                 raise TypeError("Missing required property 'user'")
-            __props__['user'] = user
+            __props__.__dict__["user"] = user
         super(OutputMssql, __self__).__init__(
             'azure:streamanalytics/outputMssql:OutputMssql',
             resource_name,
@@ -355,16 +477,16 @@ class OutputMssql(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _OutputMssqlState.__new__(_OutputMssqlState)
 
-        __props__["database"] = database
-        __props__["name"] = name
-        __props__["password"] = password
-        __props__["resource_group_name"] = resource_group_name
-        __props__["server"] = server
-        __props__["stream_analytics_job_name"] = stream_analytics_job_name
-        __props__["table"] = table
-        __props__["user"] = user
+        __props__.__dict__["database"] = database
+        __props__.__dict__["name"] = name
+        __props__.__dict__["password"] = password
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["server"] = server
+        __props__.__dict__["stream_analytics_job_name"] = stream_analytics_job_name
+        __props__.__dict__["table"] = table
+        __props__.__dict__["user"] = user
         return OutputMssql(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -427,10 +549,4 @@ class OutputMssql(pulumi.CustomResource):
         Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "user")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

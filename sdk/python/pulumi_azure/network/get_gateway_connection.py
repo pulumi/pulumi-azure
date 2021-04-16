@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -20,7 +20,7 @@ class GetGatewayConnectionResult:
     """
     A collection of values returned by getGatewayConnection.
     """
-    def __init__(__self__, authorization_key=None, connection_protocol=None, dpd_timeout_seconds=None, egress_bytes_transferred=None, enable_bgp=None, express_route_circuit_id=None, express_route_gateway_bypass=None, id=None, ingress_bytes_transferred=None, ipsec_policies=None, local_azure_ip_address_enabled=None, local_network_gateway_id=None, location=None, name=None, peer_virtual_network_gateway_id=None, resource_group_name=None, resource_guid=None, routing_weight=None, shared_key=None, tags=None, traffic_selector_policy=None, type=None, use_policy_based_traffic_selectors=None, virtual_network_gateway_id=None):
+    def __init__(__self__, authorization_key=None, connection_protocol=None, dpd_timeout_seconds=None, egress_bytes_transferred=None, enable_bgp=None, express_route_circuit_id=None, express_route_gateway_bypass=None, id=None, ingress_bytes_transferred=None, ipsec_policies=None, local_azure_ip_address_enabled=None, local_network_gateway_id=None, location=None, name=None, peer_virtual_network_gateway_id=None, resource_group_name=None, resource_guid=None, routing_weight=None, shared_key=None, tags=None, traffic_selector_policies=None, type=None, use_policy_based_traffic_selectors=None, virtual_network_gateway_id=None):
         if authorization_key and not isinstance(authorization_key, str):
             raise TypeError("Expected argument 'authorization_key' to be a str")
         pulumi.set(__self__, "authorization_key", authorization_key)
@@ -81,9 +81,9 @@ class GetGatewayConnectionResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
-        if traffic_selector_policy and not isinstance(traffic_selector_policy, dict):
-            raise TypeError("Expected argument 'traffic_selector_policy' to be a dict")
-        pulumi.set(__self__, "traffic_selector_policy", traffic_selector_policy)
+        if traffic_selector_policies and not isinstance(traffic_selector_policies, list):
+            raise TypeError("Expected argument 'traffic_selector_policies' to be a list")
+        pulumi.set(__self__, "traffic_selector_policies", traffic_selector_policies)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -242,9 +242,9 @@ class GetGatewayConnectionResult:
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="trafficSelectorPolicy")
-    def traffic_selector_policy(self) -> 'outputs.GetGatewayConnectionTrafficSelectorPolicyResult':
-        return pulumi.get(self, "traffic_selector_policy")
+    @pulumi.getter(name="trafficSelectorPolicies")
+    def traffic_selector_policies(self) -> Sequence['outputs.GetGatewayConnectionTrafficSelectorPolicyResult']:
+        return pulumi.get(self, "traffic_selector_policies")
 
     @property
     @pulumi.getter
@@ -301,7 +301,7 @@ class AwaitableGetGatewayConnectionResult(GetGatewayConnectionResult):
             routing_weight=self.routing_weight,
             shared_key=self.shared_key,
             tags=self.tags,
-            traffic_selector_policy=self.traffic_selector_policy,
+            traffic_selector_policies=self.traffic_selector_policies,
             type=self.type,
             use_policy_based_traffic_selectors=self.use_policy_based_traffic_selectors,
             virtual_network_gateway_id=self.virtual_network_gateway_id)
@@ -358,7 +358,7 @@ def get_gateway_connection(name: Optional[str] = None,
         routing_weight=__ret__.routing_weight,
         shared_key=__ret__.shared_key,
         tags=__ret__.tags,
-        traffic_selector_policy=__ret__.traffic_selector_policy,
+        traffic_selector_policies=__ret__.traffic_selector_policies,
         type=__ret__.type,
         use_policy_based_traffic_selectors=__ret__.use_policy_based_traffic_selectors,
         virtual_network_gateway_id=__ret__.virtual_network_gateway_id)

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -203,6 +203,202 @@ class RunBookArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _RunBookState:
+    def __init__(__self__, *,
+                 automation_account_name: Optional[pulumi.Input[str]] = None,
+                 content: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 job_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['RunBookJobScheduleArgs']]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 log_progress: Optional[pulumi.Input[bool]] = None,
+                 log_verbose: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 publish_content_link: Optional[pulumi.Input['RunBookPublishContentLinkArgs']] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 runbook_type: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering RunBook resources.
+        :param pulumi.Input[str] automation_account_name: The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] content: The desired content of the runbook.
+        :param pulumi.Input[str] description: A description for this credential.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] log_progress: Progress log option.
+        :param pulumi.Input[bool] log_verbose: Verbose log option.
+        :param pulumi.Input[str] name: Specifies the name of the Runbook. Changing this forces a new resource to be created.
+        :param pulumi.Input['RunBookPublishContentLinkArgs'] publish_content_link: The published runbook content link.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] runbook_type: The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell` or `Script`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        """
+        if automation_account_name is not None:
+            pulumi.set(__self__, "automation_account_name", automation_account_name)
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if job_schedules is not None:
+            pulumi.set(__self__, "job_schedules", job_schedules)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if log_progress is not None:
+            pulumi.set(__self__, "log_progress", log_progress)
+        if log_verbose is not None:
+            pulumi.set(__self__, "log_verbose", log_verbose)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if publish_content_link is not None:
+            pulumi.set(__self__, "publish_content_link", publish_content_link)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if runbook_type is not None:
+            pulumi.set(__self__, "runbook_type", runbook_type)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="automationAccountName")
+    def automation_account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "automation_account_name")
+
+    @automation_account_name.setter
+    def automation_account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "automation_account_name", value)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[pulumi.Input[str]]:
+        """
+        The desired content of the runbook.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for this credential.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="jobSchedules")
+    def job_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RunBookJobScheduleArgs']]]]:
+        return pulumi.get(self, "job_schedules")
+
+    @job_schedules.setter
+    def job_schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RunBookJobScheduleArgs']]]]):
+        pulumi.set(self, "job_schedules", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="logProgress")
+    def log_progress(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Progress log option.
+        """
+        return pulumi.get(self, "log_progress")
+
+    @log_progress.setter
+    def log_progress(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "log_progress", value)
+
+    @property
+    @pulumi.getter(name="logVerbose")
+    def log_verbose(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Verbose log option.
+        """
+        return pulumi.get(self, "log_verbose")
+
+    @log_verbose.setter
+    def log_verbose(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "log_verbose", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Runbook. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="publishContentLink")
+    def publish_content_link(self) -> Optional[pulumi.Input['RunBookPublishContentLinkArgs']]:
+        """
+        The published runbook content link.
+        """
+        return pulumi.get(self, "publish_content_link")
+
+    @publish_content_link.setter
+    def publish_content_link(self, value: Optional[pulumi.Input['RunBookPublishContentLinkArgs']]):
+        pulumi.set(self, "publish_content_link", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="runbookType")
+    def runbook_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell` or `Script`.
+        """
+        return pulumi.get(self, "runbook_type")
+
+    @runbook_type.setter
+    def runbook_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runbook_type", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
 class RunBook(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -220,9 +416,7 @@ class RunBook(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  runbook_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a Automation Runbook.
 
@@ -340,15 +534,7 @@ class RunBook(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  runbook_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -358,30 +544,30 @@ class RunBook(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RunBookArgs.__new__(RunBookArgs)
 
             if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
-            __props__['automation_account_name'] = automation_account_name
-            __props__['content'] = content
-            __props__['description'] = description
-            __props__['job_schedules'] = job_schedules
-            __props__['location'] = location
+            __props__.__dict__["automation_account_name"] = automation_account_name
+            __props__.__dict__["content"] = content
+            __props__.__dict__["description"] = description
+            __props__.__dict__["job_schedules"] = job_schedules
+            __props__.__dict__["location"] = location
             if log_progress is None and not opts.urn:
                 raise TypeError("Missing required property 'log_progress'")
-            __props__['log_progress'] = log_progress
+            __props__.__dict__["log_progress"] = log_progress
             if log_verbose is None and not opts.urn:
                 raise TypeError("Missing required property 'log_verbose'")
-            __props__['log_verbose'] = log_verbose
-            __props__['name'] = name
-            __props__['publish_content_link'] = publish_content_link
+            __props__.__dict__["log_verbose"] = log_verbose
+            __props__.__dict__["name"] = name
+            __props__.__dict__["publish_content_link"] = publish_content_link
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
             if runbook_type is None and not opts.urn:
                 raise TypeError("Missing required property 'runbook_type'")
-            __props__['runbook_type'] = runbook_type
-            __props__['tags'] = tags
+            __props__.__dict__["runbook_type"] = runbook_type
+            __props__.__dict__["tags"] = tags
         super(RunBook, __self__).__init__(
             'azure:automation/runBook:RunBook',
             resource_name,
@@ -425,20 +611,20 @@ class RunBook(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _RunBookState.__new__(_RunBookState)
 
-        __props__["automation_account_name"] = automation_account_name
-        __props__["content"] = content
-        __props__["description"] = description
-        __props__["job_schedules"] = job_schedules
-        __props__["location"] = location
-        __props__["log_progress"] = log_progress
-        __props__["log_verbose"] = log_verbose
-        __props__["name"] = name
-        __props__["publish_content_link"] = publish_content_link
-        __props__["resource_group_name"] = resource_group_name
-        __props__["runbook_type"] = runbook_type
-        __props__["tags"] = tags
+        __props__.__dict__["automation_account_name"] = automation_account_name
+        __props__.__dict__["content"] = content
+        __props__.__dict__["description"] = description
+        __props__.__dict__["job_schedules"] = job_schedules
+        __props__.__dict__["location"] = location
+        __props__.__dict__["log_progress"] = log_progress
+        __props__.__dict__["log_verbose"] = log_verbose
+        __props__.__dict__["name"] = name
+        __props__.__dict__["publish_content_link"] = publish_content_link
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["runbook_type"] = runbook_type
+        __props__.__dict__["tags"] = tags
         return RunBook(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -533,10 +719,4 @@ class RunBook(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

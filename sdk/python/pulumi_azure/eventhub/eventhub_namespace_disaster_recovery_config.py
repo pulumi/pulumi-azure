@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['EventhubNamespaceDisasterRecoveryConfigArgs', 'EventhubNamespaceDisasterRecoveryConfig']
 
@@ -94,6 +94,93 @@ class EventhubNamespaceDisasterRecoveryConfigArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.input_type
+class _EventhubNamespaceDisasterRecoveryConfigState:
+    def __init__(__self__, *,
+                 alternate_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 namespace_name: Optional[pulumi.Input[str]] = None,
+                 partner_namespace_id: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering EventhubNamespaceDisasterRecoveryConfig resources.
+        :param pulumi.Input[str] name: Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] namespace_name: Specifies the name of the primary EventHub Namespace to replicate. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] partner_namespace_id: The ID of the EventHub Namespace to replicate to.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Disaster Recovery Config exists. Changing this forces a new resource to be created.
+        """
+        if alternate_name is not None:
+            warnings.warn("""This property has been deprecated and will be removed in v3.0 of the provider as any DRC created with an alternate name cannot be deleted and the service is not going to change this. Please see: https://github.com/Azure/azure-sdk-for-go/issues/5893""", DeprecationWarning)
+            pulumi.log.warn("""alternate_name is deprecated: This property has been deprecated and will be removed in v3.0 of the provider as any DRC created with an alternate name cannot be deleted and the service is not going to change this. Please see: https://github.com/Azure/azure-sdk-for-go/issues/5893""")
+        if alternate_name is not None:
+            pulumi.set(__self__, "alternate_name", alternate_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace_name is not None:
+            pulumi.set(__self__, "namespace_name", namespace_name)
+        if partner_namespace_id is not None:
+            pulumi.set(__self__, "partner_namespace_id", partner_namespace_id)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+
+    @property
+    @pulumi.getter(name="alternateName")
+    def alternate_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "alternate_name")
+
+    @alternate_name.setter
+    def alternate_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alternate_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="namespaceName")
+    def namespace_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the primary EventHub Namespace to replicate. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "namespace_name")
+
+    @namespace_name.setter
+    def namespace_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "namespace_name", value)
+
+    @property
+    @pulumi.getter(name="partnerNamespaceId")
+    def partner_namespace_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the EventHub Namespace to replicate to.
+        """
+        return pulumi.get(self, "partner_namespace_id")
+
+    @partner_namespace_id.setter
+    def partner_namespace_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "partner_namespace_id", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which the Disaster Recovery Config exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+
 class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -104,9 +191,7 @@ class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  partner_namespace_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages an Disaster Recovery Config for an Event Hub Namespace.
 
@@ -204,15 +289,7 @@ class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  partner_namespace_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -222,22 +299,22 @@ class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = EventhubNamespaceDisasterRecoveryConfigArgs.__new__(EventhubNamespaceDisasterRecoveryConfigArgs)
 
             if alternate_name is not None and not opts.urn:
                 warnings.warn("""This property has been deprecated and will be removed in v3.0 of the provider as any DRC created with an alternate name cannot be deleted and the service is not going to change this. Please see: https://github.com/Azure/azure-sdk-for-go/issues/5893""", DeprecationWarning)
                 pulumi.log.warn("""alternate_name is deprecated: This property has been deprecated and will be removed in v3.0 of the provider as any DRC created with an alternate name cannot be deleted and the service is not going to change this. Please see: https://github.com/Azure/azure-sdk-for-go/issues/5893""")
-            __props__['alternate_name'] = alternate_name
-            __props__['name'] = name
+            __props__.__dict__["alternate_name"] = alternate_name
+            __props__.__dict__["name"] = name
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
-            __props__['namespace_name'] = namespace_name
+            __props__.__dict__["namespace_name"] = namespace_name
             if partner_namespace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'partner_namespace_id'")
-            __props__['partner_namespace_id'] = partner_namespace_id
+            __props__.__dict__["partner_namespace_id"] = partner_namespace_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
         super(EventhubNamespaceDisasterRecoveryConfig, __self__).__init__(
             'azure:eventhub/eventhubNamespaceDisasterRecoveryConfig:EventhubNamespaceDisasterRecoveryConfig',
             resource_name,
@@ -267,13 +344,13 @@ class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _EventhubNamespaceDisasterRecoveryConfigState.__new__(_EventhubNamespaceDisasterRecoveryConfigState)
 
-        __props__["alternate_name"] = alternate_name
-        __props__["name"] = name
-        __props__["namespace_name"] = namespace_name
-        __props__["partner_namespace_id"] = partner_namespace_id
-        __props__["resource_group_name"] = resource_group_name
+        __props__.__dict__["alternate_name"] = alternate_name
+        __props__.__dict__["name"] = name
+        __props__.__dict__["namespace_name"] = namespace_name
+        __props__.__dict__["partner_namespace_id"] = partner_namespace_id
+        __props__.__dict__["resource_group_name"] = resource_group_name
         return EventhubNamespaceDisasterRecoveryConfig(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -312,10 +389,4 @@ class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
         The name of the resource group in which the Disaster Recovery Config exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

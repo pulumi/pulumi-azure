@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -243,6 +243,238 @@ class FirewallArgs:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.input_type
+class _FirewallState:
+    def __init__(__self__, *,
+                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 firewall_policy_id: Optional[pulumi.Input[str]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallIpConfigurationArgs']]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 management_ip_configuration: Optional[pulumi.Input['FirewallManagementIpConfigurationArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 private_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku_name: Optional[pulumi.Input[str]] = None,
+                 sku_tier: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 threat_intel_mode: Optional[pulumi.Input[str]] = None,
+                 virtual_hub: Optional[pulumi.Input['FirewallVirtualHubArgs']] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Firewall resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
+        :param pulumi.Input[str] firewall_policy_id: The ID of the Firewall Policy applied to this Firewall.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallIpConfigurationArgs']]] ip_configurations: An `ip_configuration` block as documented below.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input['FirewallManagementIpConfigurationArgs'] management_ip_configuration: A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Firewall. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_ranges: A list of SNAT private CIDR IP ranges, or the special string `IANAPrivateRanges`, which indicates Azure Firewall does not SNAT when the destination IP address is a private range per IANA RFC 1918.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku_name: Sku name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku_tier: Sku tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] threat_intel_mode: The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
+        :param pulumi.Input['FirewallVirtualHubArgs'] virtual_hub: A `virtual_hub` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
+        """
+        if dns_servers is not None:
+            pulumi.set(__self__, "dns_servers", dns_servers)
+        if firewall_policy_id is not None:
+            pulumi.set(__self__, "firewall_policy_id", firewall_policy_id)
+        if ip_configurations is not None:
+            pulumi.set(__self__, "ip_configurations", ip_configurations)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if management_ip_configuration is not None:
+            pulumi.set(__self__, "management_ip_configuration", management_ip_configuration)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if private_ip_ranges is not None:
+            pulumi.set(__self__, "private_ip_ranges", private_ip_ranges)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if sku_name is not None:
+            pulumi.set(__self__, "sku_name", sku_name)
+        if sku_tier is not None:
+            pulumi.set(__self__, "sku_tier", sku_tier)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if threat_intel_mode is not None:
+            pulumi.set(__self__, "threat_intel_mode", threat_intel_mode)
+        if virtual_hub is not None:
+            pulumi.set(__self__, "virtual_hub", virtual_hub)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="dnsServers")
+    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
+        """
+        return pulumi.get(self, "dns_servers")
+
+    @dns_servers.setter
+    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "dns_servers", value)
+
+    @property
+    @pulumi.getter(name="firewallPolicyId")
+    def firewall_policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Firewall Policy applied to this Firewall.
+        """
+        return pulumi.get(self, "firewall_policy_id")
+
+    @firewall_policy_id.setter
+    def firewall_policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "firewall_policy_id", value)
+
+    @property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallIpConfigurationArgs']]]]:
+        """
+        An `ip_configuration` block as documented below.
+        """
+        return pulumi.get(self, "ip_configurations")
+
+    @ip_configurations.setter
+    def ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallIpConfigurationArgs']]]]):
+        pulumi.set(self, "ip_configurations", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="managementIpConfiguration")
+    def management_ip_configuration(self) -> Optional[pulumi.Input['FirewallManagementIpConfigurationArgs']]:
+        """
+        A `management_ip_configuration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created.
+        """
+        return pulumi.get(self, "management_ip_configuration")
+
+    @management_ip_configuration.setter
+    def management_ip_configuration(self, value: Optional[pulumi.Input['FirewallManagementIpConfigurationArgs']]):
+        pulumi.set(self, "management_ip_configuration", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Firewall. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="privateIpRanges")
+    def private_ip_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of SNAT private CIDR IP ranges, or the special string `IANAPrivateRanges`, which indicates Azure Firewall does not SNAT when the destination IP address is a private range per IANA RFC 1918.
+        """
+        return pulumi.get(self, "private_ip_ranges")
+
+    @private_ip_ranges.setter
+    def private_ip_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "private_ip_ranges", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="skuName")
+    def sku_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sku name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "sku_name")
+
+    @sku_name.setter
+    def sku_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku_name", value)
+
+    @property
+    @pulumi.getter(name="skuTier")
+    def sku_tier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sku tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "sku_tier")
+
+    @sku_tier.setter
+    def sku_tier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku_tier", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="threatIntelMode")
+    def threat_intel_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
+        """
+        return pulumi.get(self, "threat_intel_mode")
+
+    @threat_intel_mode.setter
+    def threat_intel_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "threat_intel_mode", value)
+
+    @property
+    @pulumi.getter(name="virtualHub")
+    def virtual_hub(self) -> Optional[pulumi.Input['FirewallVirtualHubArgs']]:
+        """
+        A `virtual_hub` block as documented below.
+        """
+        return pulumi.get(self, "virtual_hub")
+
+    @virtual_hub.setter
+    def virtual_hub(self, value: Optional[pulumi.Input['FirewallVirtualHubArgs']]):
+        pulumi.set(self, "virtual_hub", value)
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "zones")
+
+    @zones.setter
+    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "zones", value)
+
+
 class Firewall(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -262,9 +494,7 @@ class Firewall(pulumi.CustomResource):
                  threat_intel_mode: Optional[pulumi.Input[str]] = None,
                  virtual_hub: Optional[pulumi.Input[pulumi.InputType['FirewallVirtualHubArgs']]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages an Azure Firewall.
 
@@ -399,15 +629,7 @@ class Firewall(pulumi.CustomResource):
                  threat_intel_mode: Optional[pulumi.Input[str]] = None,
                  virtual_hub: Optional[pulumi.Input[pulumi.InputType['FirewallVirtualHubArgs']]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -417,24 +639,24 @@ class Firewall(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = FirewallArgs.__new__(FirewallArgs)
 
-            __props__['dns_servers'] = dns_servers
-            __props__['firewall_policy_id'] = firewall_policy_id
-            __props__['ip_configurations'] = ip_configurations
-            __props__['location'] = location
-            __props__['management_ip_configuration'] = management_ip_configuration
-            __props__['name'] = name
-            __props__['private_ip_ranges'] = private_ip_ranges
+            __props__.__dict__["dns_servers"] = dns_servers
+            __props__.__dict__["firewall_policy_id"] = firewall_policy_id
+            __props__.__dict__["ip_configurations"] = ip_configurations
+            __props__.__dict__["location"] = location
+            __props__.__dict__["management_ip_configuration"] = management_ip_configuration
+            __props__.__dict__["name"] = name
+            __props__.__dict__["private_ip_ranges"] = private_ip_ranges
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['sku_name'] = sku_name
-            __props__['sku_tier'] = sku_tier
-            __props__['tags'] = tags
-            __props__['threat_intel_mode'] = threat_intel_mode
-            __props__['virtual_hub'] = virtual_hub
-            __props__['zones'] = zones
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sku_name"] = sku_name
+            __props__.__dict__["sku_tier"] = sku_tier
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["threat_intel_mode"] = threat_intel_mode
+            __props__.__dict__["virtual_hub"] = virtual_hub
+            __props__.__dict__["zones"] = zones
         super(Firewall, __self__).__init__(
             'azure:network/firewall:Firewall',
             resource_name,
@@ -483,22 +705,22 @@ class Firewall(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _FirewallState.__new__(_FirewallState)
 
-        __props__["dns_servers"] = dns_servers
-        __props__["firewall_policy_id"] = firewall_policy_id
-        __props__["ip_configurations"] = ip_configurations
-        __props__["location"] = location
-        __props__["management_ip_configuration"] = management_ip_configuration
-        __props__["name"] = name
-        __props__["private_ip_ranges"] = private_ip_ranges
-        __props__["resource_group_name"] = resource_group_name
-        __props__["sku_name"] = sku_name
-        __props__["sku_tier"] = sku_tier
-        __props__["tags"] = tags
-        __props__["threat_intel_mode"] = threat_intel_mode
-        __props__["virtual_hub"] = virtual_hub
-        __props__["zones"] = zones
+        __props__.__dict__["dns_servers"] = dns_servers
+        __props__.__dict__["firewall_policy_id"] = firewall_policy_id
+        __props__.__dict__["ip_configurations"] = ip_configurations
+        __props__.__dict__["location"] = location
+        __props__.__dict__["management_ip_configuration"] = management_ip_configuration
+        __props__.__dict__["name"] = name
+        __props__.__dict__["private_ip_ranges"] = private_ip_ranges
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["sku_name"] = sku_name
+        __props__.__dict__["sku_tier"] = sku_tier
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["threat_intel_mode"] = threat_intel_mode
+        __props__.__dict__["virtual_hub"] = virtual_hub
+        __props__.__dict__["zones"] = zones
         return Firewall(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -612,10 +834,4 @@ class Firewall(pulumi.CustomResource):
         Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "zones")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

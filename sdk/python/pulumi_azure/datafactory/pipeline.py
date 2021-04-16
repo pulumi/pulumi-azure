@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['PipelineArgs', 'Pipeline']
 
@@ -144,6 +144,142 @@ class PipelineArgs:
         pulumi.set(self, "variables", value)
 
 
+@pulumi.input_type
+class _PipelineState:
+    def __init__(__self__, *,
+                 activities_json: Optional[pulumi.Input[str]] = None,
+                 annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 data_factory_name: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering Pipeline resources.
+        :param pulumi.Input[str] activities_json: A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Pipeline.
+        :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
+        :param pulumi.Input[str] description: The description for the Data Factory Pipeline.
+        :param pulumi.Input[str] name: Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Pipeline.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Pipeline. Changing this forces a new resource
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: A map of variables to associate with the Data Factory Pipeline.
+        """
+        if activities_json is not None:
+            pulumi.set(__self__, "activities_json", activities_json)
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if data_factory_name is not None:
+            pulumi.set(__self__, "data_factory_name", data_factory_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if variables is not None:
+            pulumi.set(__self__, "variables", variables)
+
+    @property
+    @pulumi.getter(name="activitiesJson")
+    def activities_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
+        """
+        return pulumi.get(self, "activities_json")
+
+    @activities_json.setter
+    def activities_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "activities_json", value)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of tags that can be used for describing the Data Factory Pipeline.
+        """
+        return pulumi.get(self, "annotations")
+
+    @annotations.setter
+    def annotations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "annotations", value)
+
+    @property
+    @pulumi.getter(name="dataFactoryName")
+    def data_factory_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
+        """
+        return pulumi.get(self, "data_factory_name")
+
+    @data_factory_name.setter
+    def data_factory_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_factory_name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description for the Data Factory Pipeline.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of parameters to associate with the Data Factory Pipeline.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource group in which to create the Data Factory Pipeline. Changing this forces a new resource
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of variables to associate with the Data Factory Pipeline.
+        """
+        return pulumi.get(self, "variables")
+
+    @variables.setter
+    def variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "variables", value)
+
+
 class Pipeline(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -157,9 +293,7 @@ class Pipeline(pulumi.CustomResource):
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a Pipeline inside a Azure Data Factory.
 
@@ -304,15 +438,7 @@ class Pipeline(pulumi.CustomResource):
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -322,20 +448,20 @@ class Pipeline(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PipelineArgs.__new__(PipelineArgs)
 
-            __props__['activities_json'] = activities_json
-            __props__['annotations'] = annotations
+            __props__.__dict__["activities_json"] = activities_json
+            __props__.__dict__["annotations"] = annotations
             if data_factory_name is None and not opts.urn:
                 raise TypeError("Missing required property 'data_factory_name'")
-            __props__['data_factory_name'] = data_factory_name
-            __props__['description'] = description
-            __props__['name'] = name
-            __props__['parameters'] = parameters
+            __props__.__dict__["data_factory_name"] = data_factory_name
+            __props__.__dict__["description"] = description
+            __props__.__dict__["name"] = name
+            __props__.__dict__["parameters"] = parameters
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['variables'] = variables
+            __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["variables"] = variables
         super(Pipeline, __self__).__init__(
             'azure:datafactory/pipeline:Pipeline',
             resource_name,
@@ -372,16 +498,16 @@ class Pipeline(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _PipelineState.__new__(_PipelineState)
 
-        __props__["activities_json"] = activities_json
-        __props__["annotations"] = annotations
-        __props__["data_factory_name"] = data_factory_name
-        __props__["description"] = description
-        __props__["name"] = name
-        __props__["parameters"] = parameters
-        __props__["resource_group_name"] = resource_group_name
-        __props__["variables"] = variables
+        __props__.__dict__["activities_json"] = activities_json
+        __props__.__dict__["annotations"] = annotations
+        __props__.__dict__["data_factory_name"] = data_factory_name
+        __props__.__dict__["description"] = description
+        __props__.__dict__["name"] = name
+        __props__.__dict__["parameters"] = parameters
+        __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["variables"] = variables
         return Pipeline(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -447,10 +573,4 @@ class Pipeline(pulumi.CustomResource):
         A map of variables to associate with the Data Factory Pipeline.
         """
         return pulumi.get(self, "variables")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

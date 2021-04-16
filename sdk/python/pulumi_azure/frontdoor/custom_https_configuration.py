@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -81,6 +81,77 @@ class CustomHttpsConfigurationArgs:
         pulumi.set(self, "resource_group_name", value)
 
 
+@pulumi.input_type
+class _CustomHttpsConfigurationState:
+    def __init__(__self__, *,
+                 custom_https_configuration: Optional[pulumi.Input['CustomHttpsConfigurationCustomHttpsConfigurationArgs']] = None,
+                 custom_https_provisioning_enabled: Optional[pulumi.Input[bool]] = None,
+                 frontend_endpoint_id: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering CustomHttpsConfiguration resources.
+        :param pulumi.Input['CustomHttpsConfigurationCustomHttpsConfigurationArgs'] custom_https_configuration: A `custom_https_configuration` block as defined below.
+        :param pulumi.Input[bool] custom_https_provisioning_enabled: Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
+        :param pulumi.Input[str] frontend_endpoint_id: The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
+        """
+        if custom_https_configuration is not None:
+            pulumi.set(__self__, "custom_https_configuration", custom_https_configuration)
+        if custom_https_provisioning_enabled is not None:
+            pulumi.set(__self__, "custom_https_provisioning_enabled", custom_https_provisioning_enabled)
+        if frontend_endpoint_id is not None:
+            pulumi.set(__self__, "frontend_endpoint_id", frontend_endpoint_id)
+        if resource_group_name is not None:
+            warnings.warn("""This field is no longer used and will be removed in the next major version of the Azure Provider""", DeprecationWarning)
+            pulumi.log.warn("""resource_group_name is deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider""")
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+
+    @property
+    @pulumi.getter(name="customHttpsConfiguration")
+    def custom_https_configuration(self) -> Optional[pulumi.Input['CustomHttpsConfigurationCustomHttpsConfigurationArgs']]:
+        """
+        A `custom_https_configuration` block as defined below.
+        """
+        return pulumi.get(self, "custom_https_configuration")
+
+    @custom_https_configuration.setter
+    def custom_https_configuration(self, value: Optional[pulumi.Input['CustomHttpsConfigurationCustomHttpsConfigurationArgs']]):
+        pulumi.set(self, "custom_https_configuration", value)
+
+    @property
+    @pulumi.getter(name="customHttpsProvisioningEnabled")
+    def custom_https_provisioning_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
+        """
+        return pulumi.get(self, "custom_https_provisioning_enabled")
+
+    @custom_https_provisioning_enabled.setter
+    def custom_https_provisioning_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "custom_https_provisioning_enabled", value)
+
+    @property
+    @pulumi.getter(name="frontendEndpointId")
+    def frontend_endpoint_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
+        """
+        return pulumi.get(self, "frontend_endpoint_id")
+
+    @frontend_endpoint_id.setter
+    def frontend_endpoint_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "frontend_endpoint_id", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+
 class CustomHttpsConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -90,9 +161,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
                  custom_https_provisioning_enabled: Optional[pulumi.Input[bool]] = None,
                  frontend_endpoint_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         ## Import
 
@@ -142,15 +211,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
                  custom_https_provisioning_enabled: Optional[pulumi.Input[bool]] = None,
                  frontend_endpoint_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -160,19 +221,19 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = CustomHttpsConfigurationArgs.__new__(CustomHttpsConfigurationArgs)
 
-            __props__['custom_https_configuration'] = custom_https_configuration
+            __props__.__dict__["custom_https_configuration"] = custom_https_configuration
             if custom_https_provisioning_enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'custom_https_provisioning_enabled'")
-            __props__['custom_https_provisioning_enabled'] = custom_https_provisioning_enabled
+            __props__.__dict__["custom_https_provisioning_enabled"] = custom_https_provisioning_enabled
             if frontend_endpoint_id is None and not opts.urn:
                 raise TypeError("Missing required property 'frontend_endpoint_id'")
-            __props__['frontend_endpoint_id'] = frontend_endpoint_id
+            __props__.__dict__["frontend_endpoint_id"] = frontend_endpoint_id
             if resource_group_name is not None and not opts.urn:
                 warnings.warn("""This field is no longer used and will be removed in the next major version of the Azure Provider""", DeprecationWarning)
                 pulumi.log.warn("""resource_group_name is deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider""")
-            __props__['resource_group_name'] = resource_group_name
+            __props__.__dict__["resource_group_name"] = resource_group_name
         super(CustomHttpsConfiguration, __self__).__init__(
             'azure:frontdoor/customHttpsConfiguration:CustomHttpsConfiguration',
             resource_name,
@@ -200,12 +261,12 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _CustomHttpsConfigurationState.__new__(_CustomHttpsConfigurationState)
 
-        __props__["custom_https_configuration"] = custom_https_configuration
-        __props__["custom_https_provisioning_enabled"] = custom_https_provisioning_enabled
-        __props__["frontend_endpoint_id"] = frontend_endpoint_id
-        __props__["resource_group_name"] = resource_group_name
+        __props__.__dict__["custom_https_configuration"] = custom_https_configuration
+        __props__.__dict__["custom_https_provisioning_enabled"] = custom_https_provisioning_enabled
+        __props__.__dict__["frontend_endpoint_id"] = frontend_endpoint_id
+        __props__.__dict__["resource_group_name"] = resource_group_name
         return CustomHttpsConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -236,10 +297,4 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "resource_group_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

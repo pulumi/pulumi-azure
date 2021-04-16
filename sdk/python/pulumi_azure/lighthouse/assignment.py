@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['AssignmentArgs', 'Assignment']
 
@@ -64,6 +64,62 @@ class AssignmentArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.input_type
+class _AssignmentState:
+    def __init__(__self__, *,
+                 lighthouse_definition_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Assignment resources.
+        :param pulumi.Input[str] lighthouse_definition_id: A Fully qualified path of the lighthouse definition, such as `/subscriptions/0afefe50-734e-4610-8c82-a144aff49dea/providers/Microsoft.ManagedServices/registrationDefinitions/26c128c2-fefa-4340-9bb1-8e081c90ada2`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: A unique UUID/GUID which identifies this lighthouse assignment- one will be generated if not specified. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] scope: The scope at which the Lighthouse Assignment applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333` or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`. Changing this forces a new resource to be created.
+        """
+        if lighthouse_definition_id is not None:
+            pulumi.set(__self__, "lighthouse_definition_id", lighthouse_definition_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+
+    @property
+    @pulumi.getter(name="lighthouseDefinitionId")
+    def lighthouse_definition_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A Fully qualified path of the lighthouse definition, such as `/subscriptions/0afefe50-734e-4610-8c82-a144aff49dea/providers/Microsoft.ManagedServices/registrationDefinitions/26c128c2-fefa-4340-9bb1-8e081c90ada2`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "lighthouse_definition_id")
+
+    @lighthouse_definition_id.setter
+    def lighthouse_definition_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lighthouse_definition_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique UUID/GUID which identifies this lighthouse assignment- one will be generated if not specified. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        The scope at which the Lighthouse Assignment applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333` or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scope", value)
+
+
 class Assignment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -72,9 +128,7 @@ class Assignment(pulumi.CustomResource):
                  lighthouse_definition_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a [Lighthouse](https://docs.microsoft.com/en-us/azure/lighthouse) Assignment to a subscription, or to a resource group.
 
@@ -149,15 +203,7 @@ class Assignment(pulumi.CustomResource):
                  lighthouse_definition_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -167,15 +213,15 @@ class Assignment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AssignmentArgs.__new__(AssignmentArgs)
 
             if lighthouse_definition_id is None and not opts.urn:
                 raise TypeError("Missing required property 'lighthouse_definition_id'")
-            __props__['lighthouse_definition_id'] = lighthouse_definition_id
-            __props__['name'] = name
+            __props__.__dict__["lighthouse_definition_id"] = lighthouse_definition_id
+            __props__.__dict__["name"] = name
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
-            __props__['scope'] = scope
+            __props__.__dict__["scope"] = scope
         super(Assignment, __self__).__init__(
             'azure:lighthouse/assignment:Assignment',
             resource_name,
@@ -202,11 +248,11 @@ class Assignment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AssignmentState.__new__(_AssignmentState)
 
-        __props__["lighthouse_definition_id"] = lighthouse_definition_id
-        __props__["name"] = name
-        __props__["scope"] = scope
+        __props__.__dict__["lighthouse_definition_id"] = lighthouse_definition_id
+        __props__.__dict__["name"] = name
+        __props__.__dict__["scope"] = scope
         return Assignment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -232,10 +278,4 @@ class Assignment(pulumi.CustomResource):
         The scope at which the Lighthouse Assignment applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333` or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "scope")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

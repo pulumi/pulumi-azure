@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['AdvancedThreatProtectionArgs', 'AdvancedThreatProtection']
 
@@ -48,6 +48,46 @@ class AdvancedThreatProtectionArgs:
         pulumi.set(self, "target_resource_id", value)
 
 
+@pulumi.input_type
+class _AdvancedThreatProtectionState:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 target_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering AdvancedThreatProtection resources.
+        :param pulumi.Input[bool] enabled: Should Advanced Threat Protection be enabled on this resource?
+        :param pulumi.Input[str] target_resource_id: The ID of the Azure Resource which to enable Advanced Threat Protection on. Changing this forces a new resource to be created.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if target_resource_id is not None:
+            pulumi.set(__self__, "target_resource_id", target_resource_id)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Advanced Threat Protection be enabled on this resource?
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="targetResourceId")
+    def target_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Azure Resource which to enable Advanced Threat Protection on. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "target_resource_id")
+
+    @target_resource_id.setter
+    def target_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_id", value)
+
+
 class AdvancedThreatProtection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -55,9 +95,7 @@ class AdvancedThreatProtection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a resources Advanced Threat Protection setting.
 
@@ -148,15 +186,7 @@ class AdvancedThreatProtection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -166,14 +196,14 @@ class AdvancedThreatProtection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AdvancedThreatProtectionArgs.__new__(AdvancedThreatProtectionArgs)
 
             if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
-            __props__['enabled'] = enabled
+            __props__.__dict__["enabled"] = enabled
             if target_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_resource_id'")
-            __props__['target_resource_id'] = target_resource_id
+            __props__.__dict__["target_resource_id"] = target_resource_id
         super(AdvancedThreatProtection, __self__).__init__(
             'azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection',
             resource_name,
@@ -198,10 +228,10 @@ class AdvancedThreatProtection(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AdvancedThreatProtectionState.__new__(_AdvancedThreatProtectionState)
 
-        __props__["enabled"] = enabled
-        __props__["target_resource_id"] = target_resource_id
+        __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["target_resource_id"] = target_resource_id
         return AdvancedThreatProtection(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -219,10 +249,4 @@ class AdvancedThreatProtection(pulumi.CustomResource):
         The ID of the Azure Resource which to enable Advanced Threat Protection on. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_resource_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

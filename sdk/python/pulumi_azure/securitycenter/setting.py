@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['SettingArgs', 'Setting']
 
@@ -48,6 +48,46 @@ class SettingArgs:
         pulumi.set(self, "setting_name", value)
 
 
+@pulumi.input_type
+class _SettingState:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 setting_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Setting resources.
+        :param pulumi.Input[bool] enabled: Boolean flag to enable/disable data access.
+        :param pulumi.Input[str] setting_name: The setting to manage. Possible values are `MCAS` and `WDATP`.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if setting_name is not None:
+            pulumi.set(__self__, "setting_name", setting_name)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean flag to enable/disable data access.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="settingName")
+    def setting_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The setting to manage. Possible values are `MCAS` and `WDATP`.
+        """
+        return pulumi.get(self, "setting_name")
+
+    @setting_name.setter
+    def setting_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "setting_name", value)
+
+
 class Setting(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -55,9 +95,7 @@ class Setting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  setting_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages the Data Access Settings for Azure Security Center.
 
@@ -138,15 +176,7 @@ class Setting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  setting_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -156,14 +186,14 @@ class Setting(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SettingArgs.__new__(SettingArgs)
 
             if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
-            __props__['enabled'] = enabled
+            __props__.__dict__["enabled"] = enabled
             if setting_name is None and not opts.urn:
                 raise TypeError("Missing required property 'setting_name'")
-            __props__['setting_name'] = setting_name
+            __props__.__dict__["setting_name"] = setting_name
         super(Setting, __self__).__init__(
             'azure:securitycenter/setting:Setting',
             resource_name,
@@ -188,10 +218,10 @@ class Setting(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _SettingState.__new__(_SettingState)
 
-        __props__["enabled"] = enabled
-        __props__["setting_name"] = setting_name
+        __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["setting_name"] = setting_name
         return Setting(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -209,10 +239,4 @@ class Setting(pulumi.CustomResource):
         The setting to manage. Possible values are `MCAS` and `WDATP`.
         """
         return pulumi.get(self, "setting_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

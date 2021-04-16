@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['AgreementArgs', 'Agreement']
 
@@ -63,6 +63,86 @@ class AgreementArgs:
         pulumi.set(self, "publisher", value)
 
 
+@pulumi.input_type
+class _AgreementState:
+    def __init__(__self__, *,
+                 license_text_link: Optional[pulumi.Input[str]] = None,
+                 offer: Optional[pulumi.Input[str]] = None,
+                 plan: Optional[pulumi.Input[str]] = None,
+                 privacy_policy_link: Optional[pulumi.Input[str]] = None,
+                 publisher: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Agreement resources.
+        :param pulumi.Input[str] offer: The Offer of the Marketplace Image. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] plan: The Plan of the Marketplace Image. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] publisher: The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
+        """
+        if license_text_link is not None:
+            pulumi.set(__self__, "license_text_link", license_text_link)
+        if offer is not None:
+            pulumi.set(__self__, "offer", offer)
+        if plan is not None:
+            pulumi.set(__self__, "plan", plan)
+        if privacy_policy_link is not None:
+            pulumi.set(__self__, "privacy_policy_link", privacy_policy_link)
+        if publisher is not None:
+            pulumi.set(__self__, "publisher", publisher)
+
+    @property
+    @pulumi.getter(name="licenseTextLink")
+    def license_text_link(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "license_text_link")
+
+    @license_text_link.setter
+    def license_text_link(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "license_text_link", value)
+
+    @property
+    @pulumi.getter
+    def offer(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Offer of the Marketplace Image. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "offer")
+
+    @offer.setter
+    def offer(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "offer", value)
+
+    @property
+    @pulumi.getter
+    def plan(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Plan of the Marketplace Image. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "plan")
+
+    @plan.setter
+    def plan(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "plan", value)
+
+    @property
+    @pulumi.getter(name="privacyPolicyLink")
+    def privacy_policy_link(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "privacy_policy_link")
+
+    @privacy_policy_link.setter
+    def privacy_policy_link(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "privacy_policy_link", value)
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "publisher")
+
+    @publisher.setter
+    def publisher(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "publisher", value)
+
+
 class Agreement(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -71,9 +151,7 @@ class Agreement(pulumi.CustomResource):
                  offer: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input[str]] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Allows accepting the Legal Terms for a Marketplace Image.
 
@@ -150,15 +228,7 @@ class Agreement(pulumi.CustomResource):
                  offer: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input[str]] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -168,19 +238,19 @@ class Agreement(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = AgreementArgs.__new__(AgreementArgs)
 
             if offer is None and not opts.urn:
                 raise TypeError("Missing required property 'offer'")
-            __props__['offer'] = offer
+            __props__.__dict__["offer"] = offer
             if plan is None and not opts.urn:
                 raise TypeError("Missing required property 'plan'")
-            __props__['plan'] = plan
+            __props__.__dict__["plan"] = plan
             if publisher is None and not opts.urn:
                 raise TypeError("Missing required property 'publisher'")
-            __props__['publisher'] = publisher
-            __props__['license_text_link'] = None
-            __props__['privacy_policy_link'] = None
+            __props__.__dict__["publisher"] = publisher
+            __props__.__dict__["license_text_link"] = None
+            __props__.__dict__["privacy_policy_link"] = None
         super(Agreement, __self__).__init__(
             'azure:marketplace/agreement:Agreement',
             resource_name,
@@ -209,13 +279,13 @@ class Agreement(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _AgreementState.__new__(_AgreementState)
 
-        __props__["license_text_link"] = license_text_link
-        __props__["offer"] = offer
-        __props__["plan"] = plan
-        __props__["privacy_policy_link"] = privacy_policy_link
-        __props__["publisher"] = publisher
+        __props__.__dict__["license_text_link"] = license_text_link
+        __props__.__dict__["offer"] = offer
+        __props__.__dict__["plan"] = plan
+        __props__.__dict__["privacy_policy_link"] = privacy_policy_link
+        __props__.__dict__["publisher"] = publisher
         return Agreement(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -251,10 +321,4 @@ class Agreement(pulumi.CustomResource):
         The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "publisher")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

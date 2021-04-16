@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -209,6 +209,206 @@ class SparkPoolArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _SparkPoolState:
+    def __init__(__self__, *,
+                 auto_pause: Optional[pulumi.Input['SparkPoolAutoPauseArgs']] = None,
+                 auto_scale: Optional[pulumi.Input['SparkPoolAutoScaleArgs']] = None,
+                 library_requirement: Optional[pulumi.Input['SparkPoolLibraryRequirementArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 node_count: Optional[pulumi.Input[int]] = None,
+                 node_size: Optional[pulumi.Input[str]] = None,
+                 node_size_family: Optional[pulumi.Input[str]] = None,
+                 spark_events_folder: Optional[pulumi.Input[str]] = None,
+                 spark_log_folder: Optional[pulumi.Input[str]] = None,
+                 spark_version: Optional[pulumi.Input[str]] = None,
+                 synapse_workspace_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering SparkPool resources.
+        :param pulumi.Input['SparkPoolAutoPauseArgs'] auto_pause: An `auto_pause` block as defined below.
+        :param pulumi.Input['SparkPoolAutoScaleArgs'] auto_scale: An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
+        :param pulumi.Input['SparkPoolLibraryRequirementArgs'] library_requirement: A `library_requirement` block as defined below.
+        :param pulumi.Input[str] name: The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
+        :param pulumi.Input[int] node_count: The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
+        :param pulumi.Input[str] node_size: The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
+        :param pulumi.Input[str] node_size_family: The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
+        :param pulumi.Input[str] spark_events_folder: The Spark events folder. Defaults to `/events`.
+        :param pulumi.Input[str] spark_log_folder: The default folder where Spark logs will be written. Defaults to `/logs`.
+        :param pulumi.Input[str] spark_version: The Apache Spark version. Possible value is `2.4`. Defaults to `2.4`.
+        :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse Spark Pool.
+        """
+        if auto_pause is not None:
+            pulumi.set(__self__, "auto_pause", auto_pause)
+        if auto_scale is not None:
+            pulumi.set(__self__, "auto_scale", auto_scale)
+        if library_requirement is not None:
+            pulumi.set(__self__, "library_requirement", library_requirement)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if node_count is not None:
+            pulumi.set(__self__, "node_count", node_count)
+        if node_size is not None:
+            pulumi.set(__self__, "node_size", node_size)
+        if node_size_family is not None:
+            pulumi.set(__self__, "node_size_family", node_size_family)
+        if spark_events_folder is not None:
+            pulumi.set(__self__, "spark_events_folder", spark_events_folder)
+        if spark_log_folder is not None:
+            pulumi.set(__self__, "spark_log_folder", spark_log_folder)
+        if spark_version is not None:
+            pulumi.set(__self__, "spark_version", spark_version)
+        if synapse_workspace_id is not None:
+            pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="autoPause")
+    def auto_pause(self) -> Optional[pulumi.Input['SparkPoolAutoPauseArgs']]:
+        """
+        An `auto_pause` block as defined below.
+        """
+        return pulumi.get(self, "auto_pause")
+
+    @auto_pause.setter
+    def auto_pause(self, value: Optional[pulumi.Input['SparkPoolAutoPauseArgs']]):
+        pulumi.set(self, "auto_pause", value)
+
+    @property
+    @pulumi.getter(name="autoScale")
+    def auto_scale(self) -> Optional[pulumi.Input['SparkPoolAutoScaleArgs']]:
+        """
+        An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
+        """
+        return pulumi.get(self, "auto_scale")
+
+    @auto_scale.setter
+    def auto_scale(self, value: Optional[pulumi.Input['SparkPoolAutoScaleArgs']]):
+        pulumi.set(self, "auto_scale", value)
+
+    @property
+    @pulumi.getter(name="libraryRequirement")
+    def library_requirement(self) -> Optional[pulumi.Input['SparkPoolLibraryRequirementArgs']]:
+        """
+        A `library_requirement` block as defined below.
+        """
+        return pulumi.get(self, "library_requirement")
+
+    @library_requirement.setter
+    def library_requirement(self, value: Optional[pulumi.Input['SparkPoolLibraryRequirementArgs']]):
+        pulumi.set(self, "library_requirement", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="nodeCount")
+    def node_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified.
+        """
+        return pulumi.get(self, "node_count")
+
+    @node_count.setter
+    def node_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "node_count", value)
+
+    @property
+    @pulumi.getter(name="nodeSize")
+    def node_size(self) -> Optional[pulumi.Input[str]]:
+        """
+        The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
+        """
+        return pulumi.get(self, "node_size")
+
+    @node_size.setter
+    def node_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "node_size", value)
+
+    @property
+    @pulumi.getter(name="nodeSizeFamily")
+    def node_size_family(self) -> Optional[pulumi.Input[str]]:
+        """
+        The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
+        """
+        return pulumi.get(self, "node_size_family")
+
+    @node_size_family.setter
+    def node_size_family(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "node_size_family", value)
+
+    @property
+    @pulumi.getter(name="sparkEventsFolder")
+    def spark_events_folder(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Spark events folder. Defaults to `/events`.
+        """
+        return pulumi.get(self, "spark_events_folder")
+
+    @spark_events_folder.setter
+    def spark_events_folder(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "spark_events_folder", value)
+
+    @property
+    @pulumi.getter(name="sparkLogFolder")
+    def spark_log_folder(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default folder where Spark logs will be written. Defaults to `/logs`.
+        """
+        return pulumi.get(self, "spark_log_folder")
+
+    @spark_log_folder.setter
+    def spark_log_folder(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "spark_log_folder", value)
+
+    @property
+    @pulumi.getter(name="sparkVersion")
+    def spark_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Apache Spark version. Possible value is `2.4`. Defaults to `2.4`.
+        """
+        return pulumi.get(self, "spark_version")
+
+    @spark_version.setter
+    def spark_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "spark_version", value)
+
+    @property
+    @pulumi.getter(name="synapseWorkspaceId")
+    def synapse_workspace_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
+        """
+        return pulumi.get(self, "synapse_workspace_id")
+
+    @synapse_workspace_id.setter
+    def synapse_workspace_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "synapse_workspace_id", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags which should be assigned to the Synapse Spark Pool.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
 class SparkPool(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -226,9 +426,7 @@ class SparkPool(pulumi.CustomResource):
                  spark_version: Optional[pulumi.Input[str]] = None,
                  synapse_workspace_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a Synapse Spark Pool.
 
@@ -373,15 +571,7 @@ class SparkPool(pulumi.CustomResource):
                  spark_version: Optional[pulumi.Input[str]] = None,
                  synapse_workspace_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -391,26 +581,26 @@ class SparkPool(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SparkPoolArgs.__new__(SparkPoolArgs)
 
-            __props__['auto_pause'] = auto_pause
-            __props__['auto_scale'] = auto_scale
-            __props__['library_requirement'] = library_requirement
-            __props__['name'] = name
-            __props__['node_count'] = node_count
+            __props__.__dict__["auto_pause"] = auto_pause
+            __props__.__dict__["auto_scale"] = auto_scale
+            __props__.__dict__["library_requirement"] = library_requirement
+            __props__.__dict__["name"] = name
+            __props__.__dict__["node_count"] = node_count
             if node_size is None and not opts.urn:
                 raise TypeError("Missing required property 'node_size'")
-            __props__['node_size'] = node_size
+            __props__.__dict__["node_size"] = node_size
             if node_size_family is None and not opts.urn:
                 raise TypeError("Missing required property 'node_size_family'")
-            __props__['node_size_family'] = node_size_family
-            __props__['spark_events_folder'] = spark_events_folder
-            __props__['spark_log_folder'] = spark_log_folder
-            __props__['spark_version'] = spark_version
+            __props__.__dict__["node_size_family"] = node_size_family
+            __props__.__dict__["spark_events_folder"] = spark_events_folder
+            __props__.__dict__["spark_log_folder"] = spark_log_folder
+            __props__.__dict__["spark_version"] = spark_version
             if synapse_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'synapse_workspace_id'")
-            __props__['synapse_workspace_id'] = synapse_workspace_id
-            __props__['tags'] = tags
+            __props__.__dict__["synapse_workspace_id"] = synapse_workspace_id
+            __props__.__dict__["tags"] = tags
         super(SparkPool, __self__).__init__(
             'azure:synapse/sparkPool:SparkPool',
             resource_name,
@@ -455,20 +645,20 @@ class SparkPool(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _SparkPoolState.__new__(_SparkPoolState)
 
-        __props__["auto_pause"] = auto_pause
-        __props__["auto_scale"] = auto_scale
-        __props__["library_requirement"] = library_requirement
-        __props__["name"] = name
-        __props__["node_count"] = node_count
-        __props__["node_size"] = node_size
-        __props__["node_size_family"] = node_size_family
-        __props__["spark_events_folder"] = spark_events_folder
-        __props__["spark_log_folder"] = spark_log_folder
-        __props__["spark_version"] = spark_version
-        __props__["synapse_workspace_id"] = synapse_workspace_id
-        __props__["tags"] = tags
+        __props__.__dict__["auto_pause"] = auto_pause
+        __props__.__dict__["auto_scale"] = auto_scale
+        __props__.__dict__["library_requirement"] = library_requirement
+        __props__.__dict__["name"] = name
+        __props__.__dict__["node_count"] = node_count
+        __props__.__dict__["node_size"] = node_size
+        __props__.__dict__["node_size_family"] = node_size_family
+        __props__.__dict__["spark_events_folder"] = spark_events_folder
+        __props__.__dict__["spark_log_folder"] = spark_log_folder
+        __props__.__dict__["spark_version"] = spark_version
+        __props__.__dict__["synapse_workspace_id"] = synapse_workspace_id
+        __props__.__dict__["tags"] = tags
         return SparkPool(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -566,10 +756,4 @@ class SparkPool(pulumi.CustomResource):
         A mapping of tags which should be assigned to the Synapse Spark Pool.
         """
         return pulumi.get(self, "tags")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

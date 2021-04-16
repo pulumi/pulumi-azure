@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['DataConnectorAwsCloudTrailArgs', 'DataConnectorAwsCloudTrail']
 
@@ -64,6 +64,62 @@ class DataConnectorAwsCloudTrailArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.input_type
+class _DataConnectorAwsCloudTrailState:
+    def __init__(__self__, *,
+                 aws_role_arn: Optional[pulumi.Input[str]] = None,
+                 log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering DataConnectorAwsCloudTrail resources.
+        :param pulumi.Input[str] aws_role_arn: The ARN of the AWS CloudTrail role, which is connected to this AWS CloudTrail Data Connector.
+        :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace that this AWS CloudTrail Data Connector resides in. Changing this forces a new AWS CloudTrail Data Connector to be created.
+        :param pulumi.Input[str] name: The name which should be used for this AWS CloudTrail Data Connector. Changing this forces a new AWS CloudTrail Data Connector to be created.
+        """
+        if aws_role_arn is not None:
+            pulumi.set(__self__, "aws_role_arn", aws_role_arn)
+        if log_analytics_workspace_id is not None:
+            pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="awsRoleArn")
+    def aws_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the AWS CloudTrail role, which is connected to this AWS CloudTrail Data Connector.
+        """
+        return pulumi.get(self, "aws_role_arn")
+
+    @aws_role_arn.setter
+    def aws_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aws_role_arn", value)
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspaceId")
+    def log_analytics_workspace_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Log Analytics Workspace that this AWS CloudTrail Data Connector resides in. Changing this forces a new AWS CloudTrail Data Connector to be created.
+        """
+        return pulumi.get(self, "log_analytics_workspace_id")
+
+    @log_analytics_workspace_id.setter
+    def log_analytics_workspace_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_analytics_workspace_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this AWS CloudTrail Data Connector. Changing this forces a new AWS CloudTrail Data Connector to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
 class DataConnectorAwsCloudTrail(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -72,9 +128,7 @@ class DataConnectorAwsCloudTrail(pulumi.CustomResource):
                  aws_role_arn: Optional[pulumi.Input[str]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a AWS CloudTrail Data Connector.
 
@@ -159,15 +213,7 @@ class DataConnectorAwsCloudTrail(pulumi.CustomResource):
                  aws_role_arn: Optional[pulumi.Input[str]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -177,15 +223,15 @@ class DataConnectorAwsCloudTrail(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DataConnectorAwsCloudTrailArgs.__new__(DataConnectorAwsCloudTrailArgs)
 
             if aws_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'aws_role_arn'")
-            __props__['aws_role_arn'] = aws_role_arn
+            __props__.__dict__["aws_role_arn"] = aws_role_arn
             if log_analytics_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'log_analytics_workspace_id'")
-            __props__['log_analytics_workspace_id'] = log_analytics_workspace_id
-            __props__['name'] = name
+            __props__.__dict__["log_analytics_workspace_id"] = log_analytics_workspace_id
+            __props__.__dict__["name"] = name
         super(DataConnectorAwsCloudTrail, __self__).__init__(
             'azure:sentinel/dataConnectorAwsCloudTrail:DataConnectorAwsCloudTrail',
             resource_name,
@@ -212,11 +258,11 @@ class DataConnectorAwsCloudTrail(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DataConnectorAwsCloudTrailState.__new__(_DataConnectorAwsCloudTrailState)
 
-        __props__["aws_role_arn"] = aws_role_arn
-        __props__["log_analytics_workspace_id"] = log_analytics_workspace_id
-        __props__["name"] = name
+        __props__.__dict__["aws_role_arn"] = aws_role_arn
+        __props__.__dict__["log_analytics_workspace_id"] = log_analytics_workspace_id
+        __props__.__dict__["name"] = name
         return DataConnectorAwsCloudTrail(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -242,10 +288,4 @@ class DataConnectorAwsCloudTrail(pulumi.CustomResource):
         The name which should be used for this AWS CloudTrail Data Connector. Changing this forces a new AWS CloudTrail Data Connector to be created.
         """
         return pulumi.get(self, "name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

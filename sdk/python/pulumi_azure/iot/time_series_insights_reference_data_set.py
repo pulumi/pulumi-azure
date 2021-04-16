@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -114,6 +114,110 @@ class TimeSeriesInsightsReferenceDataSetArgs:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.input_type
+class _TimeSeriesInsightsReferenceDataSetState:
+    def __init__(__self__, *,
+                 data_string_comparison_behavior: Optional[pulumi.Input[str]] = None,
+                 key_properties: Optional[pulumi.Input[Sequence[pulumi.Input['TimeSeriesInsightsReferenceDataSetKeyPropertyArgs']]]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 time_series_insights_environment_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering TimeSeriesInsightsReferenceDataSet resources.
+        :param pulumi.Input[str] data_string_comparison_behavior: The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['TimeSeriesInsightsReferenceDataSetKeyPropertyArgs']]] key_properties: A `key_property` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created. Must be globally unique.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] time_series_insights_environment_id: The resource ID of the Azure IoT Time Series Insights Environment in which to create the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created.
+        """
+        if data_string_comparison_behavior is not None:
+            pulumi.set(__self__, "data_string_comparison_behavior", data_string_comparison_behavior)
+        if key_properties is not None:
+            pulumi.set(__self__, "key_properties", key_properties)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if time_series_insights_environment_id is not None:
+            pulumi.set(__self__, "time_series_insights_environment_id", time_series_insights_environment_id)
+
+    @property
+    @pulumi.getter(name="dataStringComparisonBehavior")
+    def data_string_comparison_behavior(self) -> Optional[pulumi.Input[str]]:
+        """
+        The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "data_string_comparison_behavior")
+
+    @data_string_comparison_behavior.setter
+    def data_string_comparison_behavior(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_string_comparison_behavior", value)
+
+    @property
+    @pulumi.getter(name="keyProperties")
+    def key_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TimeSeriesInsightsReferenceDataSetKeyPropertyArgs']]]]:
+        """
+        A `key_property` block as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "key_properties")
+
+    @key_properties.setter
+    def key_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TimeSeriesInsightsReferenceDataSetKeyPropertyArgs']]]]):
+        pulumi.set(self, "key_properties", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created. Must be globally unique.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="timeSeriesInsightsEnvironmentId")
+    def time_series_insights_environment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the Azure IoT Time Series Insights Environment in which to create the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "time_series_insights_environment_id")
+
+    @time_series_insights_environment_id.setter
+    def time_series_insights_environment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_series_insights_environment_id", value)
+
+
 class TimeSeriesInsightsReferenceDataSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -125,9 +229,7 @@ class TimeSeriesInsightsReferenceDataSet(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  time_series_insights_environment_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages an Azure IoT Time Series Insights Reference Data Set.
 
@@ -228,15 +330,7 @@ class TimeSeriesInsightsReferenceDataSet(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  time_series_insights_environment_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -246,18 +340,18 @@ class TimeSeriesInsightsReferenceDataSet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = TimeSeriesInsightsReferenceDataSetArgs.__new__(TimeSeriesInsightsReferenceDataSetArgs)
 
-            __props__['data_string_comparison_behavior'] = data_string_comparison_behavior
+            __props__.__dict__["data_string_comparison_behavior"] = data_string_comparison_behavior
             if key_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'key_properties'")
-            __props__['key_properties'] = key_properties
-            __props__['location'] = location
-            __props__['name'] = name
-            __props__['tags'] = tags
+            __props__.__dict__["key_properties"] = key_properties
+            __props__.__dict__["location"] = location
+            __props__.__dict__["name"] = name
+            __props__.__dict__["tags"] = tags
             if time_series_insights_environment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'time_series_insights_environment_id'")
-            __props__['time_series_insights_environment_id'] = time_series_insights_environment_id
+            __props__.__dict__["time_series_insights_environment_id"] = time_series_insights_environment_id
         super(TimeSeriesInsightsReferenceDataSet, __self__).__init__(
             'azure:iot/timeSeriesInsightsReferenceDataSet:TimeSeriesInsightsReferenceDataSet',
             resource_name,
@@ -290,14 +384,14 @@ class TimeSeriesInsightsReferenceDataSet(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _TimeSeriesInsightsReferenceDataSetState.__new__(_TimeSeriesInsightsReferenceDataSetState)
 
-        __props__["data_string_comparison_behavior"] = data_string_comparison_behavior
-        __props__["key_properties"] = key_properties
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["tags"] = tags
-        __props__["time_series_insights_environment_id"] = time_series_insights_environment_id
+        __props__.__dict__["data_string_comparison_behavior"] = data_string_comparison_behavior
+        __props__.__dict__["key_properties"] = key_properties
+        __props__.__dict__["location"] = location
+        __props__.__dict__["name"] = name
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["time_series_insights_environment_id"] = time_series_insights_environment_id
         return TimeSeriesInsightsReferenceDataSet(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -347,10 +441,4 @@ class TimeSeriesInsightsReferenceDataSet(pulumi.CustomResource):
         The resource ID of the Azure IoT Time Series Insights Environment in which to create the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "time_series_insights_environment_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

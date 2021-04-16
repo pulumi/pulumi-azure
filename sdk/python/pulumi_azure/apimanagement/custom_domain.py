@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -115,6 +115,110 @@ class CustomDomainArgs:
         pulumi.set(self, "scms", value)
 
 
+@pulumi.input_type
+class _CustomDomainState:
+    def __init__(__self__, *,
+                 api_management_id: Optional[pulumi.Input[str]] = None,
+                 developer_portals: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainDeveloperPortalArgs']]]] = None,
+                 managements: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainManagementArgs']]]] = None,
+                 portals: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainPortalArgs']]]] = None,
+                 proxies: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainProxyArgs']]]] = None,
+                 scms: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainScmArgs']]]] = None):
+        """
+        Input properties used for looking up and filtering CustomDomain resources.
+        :param pulumi.Input[str] api_management_id: The ID of the API Management service for which to configure Custom Domains. Changing this forces a new API Management Custom Domain resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['CustomDomainDeveloperPortalArgs']]] developer_portals: One or more `developer_portal` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['CustomDomainManagementArgs']]] managements: One or more `management` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['CustomDomainPortalArgs']]] portals: One or more `portal` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['CustomDomainProxyArgs']]] proxies: One or more `proxy` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['CustomDomainScmArgs']]] scms: One or more `scm` blocks as defined below.
+        """
+        if api_management_id is not None:
+            pulumi.set(__self__, "api_management_id", api_management_id)
+        if developer_portals is not None:
+            pulumi.set(__self__, "developer_portals", developer_portals)
+        if managements is not None:
+            pulumi.set(__self__, "managements", managements)
+        if portals is not None:
+            pulumi.set(__self__, "portals", portals)
+        if proxies is not None:
+            pulumi.set(__self__, "proxies", proxies)
+        if scms is not None:
+            pulumi.set(__self__, "scms", scms)
+
+    @property
+    @pulumi.getter(name="apiManagementId")
+    def api_management_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the API Management service for which to configure Custom Domains. Changing this forces a new API Management Custom Domain resource to be created.
+        """
+        return pulumi.get(self, "api_management_id")
+
+    @api_management_id.setter
+    def api_management_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_management_id", value)
+
+    @property
+    @pulumi.getter(name="developerPortals")
+    def developer_portals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainDeveloperPortalArgs']]]]:
+        """
+        One or more `developer_portal` blocks as defined below.
+        """
+        return pulumi.get(self, "developer_portals")
+
+    @developer_portals.setter
+    def developer_portals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainDeveloperPortalArgs']]]]):
+        pulumi.set(self, "developer_portals", value)
+
+    @property
+    @pulumi.getter
+    def managements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainManagementArgs']]]]:
+        """
+        One or more `management` blocks as defined below.
+        """
+        return pulumi.get(self, "managements")
+
+    @managements.setter
+    def managements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainManagementArgs']]]]):
+        pulumi.set(self, "managements", value)
+
+    @property
+    @pulumi.getter
+    def portals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainPortalArgs']]]]:
+        """
+        One or more `portal` blocks as defined below.
+        """
+        return pulumi.get(self, "portals")
+
+    @portals.setter
+    def portals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainPortalArgs']]]]):
+        pulumi.set(self, "portals", value)
+
+    @property
+    @pulumi.getter
+    def proxies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainProxyArgs']]]]:
+        """
+        One or more `proxy` blocks as defined below.
+        """
+        return pulumi.get(self, "proxies")
+
+    @proxies.setter
+    def proxies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainProxyArgs']]]]):
+        pulumi.set(self, "proxies", value)
+
+    @property
+    @pulumi.getter
+    def scms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainScmArgs']]]]:
+        """
+        One or more `scm` blocks as defined below.
+        """
+        return pulumi.get(self, "scms")
+
+    @scms.setter
+    def scms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainScmArgs']]]]):
+        pulumi.set(self, "scms", value)
+
+
 class CustomDomain(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -126,9 +230,7 @@ class CustomDomain(pulumi.CustomResource):
                  portals: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainPortalArgs']]]]] = None,
                  proxies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainProxyArgs']]]]] = None,
                  scms: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainScmArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a API Management Custom Domain.
 
@@ -329,15 +431,7 @@ class CustomDomain(pulumi.CustomResource):
                  portals: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainPortalArgs']]]]] = None,
                  proxies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainProxyArgs']]]]] = None,
                  scms: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainScmArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -347,16 +441,16 @@ class CustomDomain(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = CustomDomainArgs.__new__(CustomDomainArgs)
 
             if api_management_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_id'")
-            __props__['api_management_id'] = api_management_id
-            __props__['developer_portals'] = developer_portals
-            __props__['managements'] = managements
-            __props__['portals'] = portals
-            __props__['proxies'] = proxies
-            __props__['scms'] = scms
+            __props__.__dict__["api_management_id"] = api_management_id
+            __props__.__dict__["developer_portals"] = developer_portals
+            __props__.__dict__["managements"] = managements
+            __props__.__dict__["portals"] = portals
+            __props__.__dict__["proxies"] = proxies
+            __props__.__dict__["scms"] = scms
         super(CustomDomain, __self__).__init__(
             'azure:apimanagement/customDomain:CustomDomain',
             resource_name,
@@ -389,14 +483,14 @@ class CustomDomain(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _CustomDomainState.__new__(_CustomDomainState)
 
-        __props__["api_management_id"] = api_management_id
-        __props__["developer_portals"] = developer_portals
-        __props__["managements"] = managements
-        __props__["portals"] = portals
-        __props__["proxies"] = proxies
-        __props__["scms"] = scms
+        __props__.__dict__["api_management_id"] = api_management_id
+        __props__.__dict__["developer_portals"] = developer_portals
+        __props__.__dict__["managements"] = managements
+        __props__.__dict__["portals"] = portals
+        __props__.__dict__["proxies"] = proxies
+        __props__.__dict__["scms"] = scms
         return CustomDomain(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -446,10 +540,4 @@ class CustomDomain(pulumi.CustomResource):
         One or more `scm` blocks as defined below.
         """
         return pulumi.get(self, "scms")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

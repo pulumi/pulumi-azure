@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['EncryptionScopeArgs', 'EncryptionScope']
 
@@ -80,6 +80,78 @@ class EncryptionScopeArgs:
         pulumi.set(self, "name", value)
 
 
+@pulumi.input_type
+class _EncryptionScopeState:
+    def __init__(__self__, *,
+                 key_vault_key_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[str]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering EncryptionScope resources.
+        :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
+        :param pulumi.Input[str] name: The name which should be used for this Storage Encryption Scope. Changing this forces a new Storage Encryption Scope to be created.
+        :param pulumi.Input[str] source: The source of the Storage Encryption Scope. Possible values are `Microsoft.KeyVault` and `Microsoft.Storage`.
+        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where this Storage Encryption Scope is created. Changing this forces a new Storage Encryption Scope to be created.
+        """
+        if key_vault_key_id is not None:
+            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @key_vault_key_id.setter
+    def key_vault_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_key_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for this Storage Encryption Scope. Changing this forces a new Storage Encryption Scope to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[str]]:
+        """
+        The source of the Storage Encryption Scope. Possible values are `Microsoft.KeyVault` and `Microsoft.Storage`.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Storage Account where this Storage Encryption Scope is created. Changing this forces a new Storage Encryption Scope to be created.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @storage_account_id.setter
+    def storage_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_id", value)
+
+
 class EncryptionScope(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -89,9 +161,7 @@ class EncryptionScope(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a Storage Encryption Scope.
 
@@ -190,15 +260,7 @@ class EncryptionScope(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -208,16 +270,16 @@ class EncryptionScope(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = EncryptionScopeArgs.__new__(EncryptionScopeArgs)
 
-            __props__['key_vault_key_id'] = key_vault_key_id
-            __props__['name'] = name
+            __props__.__dict__["key_vault_key_id"] = key_vault_key_id
+            __props__.__dict__["name"] = name
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
-            __props__['source'] = source
+            __props__.__dict__["source"] = source
             if storage_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_id'")
-            __props__['storage_account_id'] = storage_account_id
+            __props__.__dict__["storage_account_id"] = storage_account_id
         super(EncryptionScope, __self__).__init__(
             'azure:storage/encryptionScope:EncryptionScope',
             resource_name,
@@ -246,12 +308,12 @@ class EncryptionScope(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _EncryptionScopeState.__new__(_EncryptionScopeState)
 
-        __props__["key_vault_key_id"] = key_vault_key_id
-        __props__["name"] = name
-        __props__["source"] = source
-        __props__["storage_account_id"] = storage_account_id
+        __props__.__dict__["key_vault_key_id"] = key_vault_key_id
+        __props__.__dict__["name"] = name
+        __props__.__dict__["source"] = source
+        __props__.__dict__["storage_account_id"] = storage_account_id
         return EncryptionScope(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -285,10 +347,4 @@ class EncryptionScope(pulumi.CustomResource):
         The ID of the Storage Account where this Storage Encryption Scope is created. Changing this forces a new Storage Encryption Scope to be created.
         """
         return pulumi.get(self, "storage_account_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

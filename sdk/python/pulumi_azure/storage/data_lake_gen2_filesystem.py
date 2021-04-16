@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -83,6 +83,78 @@ class DataLakeGen2FilesystemArgs:
         pulumi.set(self, "properties", value)
 
 
+@pulumi.input_type
+class _DataLakeGen2FilesystemState:
+    def __init__(__self__, *,
+                 aces: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 storage_account_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering DataLakeGen2Filesystem resources.
+        :param pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]] aces: One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+        :param pulumi.Input[str] name: The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
+        :param pulumi.Input[str] storage_account_id: Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
+        """
+        if aces is not None:
+            pulumi.set(__self__, "aces", aces)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
+
+    @property
+    @pulumi.getter
+    def aces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]]]:
+        """
+        One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+        """
+        return pulumi.get(self, "aces")
+
+    @aces.setter
+    def aces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2FilesystemAceArgs']]]]):
+        pulumi.set(self, "aces", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @storage_account_id.setter
+    def storage_account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_id", value)
+
+
 class DataLakeGen2Filesystem(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -92,9 +164,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a Data Lake Gen2 File System within an Azure Storage Account.
 
@@ -195,15 +265,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -213,14 +275,14 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DataLakeGen2FilesystemArgs.__new__(DataLakeGen2FilesystemArgs)
 
-            __props__['aces'] = aces
-            __props__['name'] = name
-            __props__['properties'] = properties
+            __props__.__dict__["aces"] = aces
+            __props__.__dict__["name"] = name
+            __props__.__dict__["properties"] = properties
             if storage_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_id'")
-            __props__['storage_account_id'] = storage_account_id
+            __props__.__dict__["storage_account_id"] = storage_account_id
         super(DataLakeGen2Filesystem, __self__).__init__(
             'azure:storage/dataLakeGen2Filesystem:DataLakeGen2Filesystem',
             resource_name,
@@ -249,12 +311,12 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DataLakeGen2FilesystemState.__new__(_DataLakeGen2FilesystemState)
 
-        __props__["aces"] = aces
-        __props__["name"] = name
-        __props__["properties"] = properties
-        __props__["storage_account_id"] = storage_account_id
+        __props__.__dict__["aces"] = aces
+        __props__.__dict__["name"] = name
+        __props__.__dict__["properties"] = properties
+        __props__.__dict__["storage_account_id"] = storage_account_id
         return DataLakeGen2Filesystem(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -288,10 +350,4 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
         Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 
