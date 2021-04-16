@@ -6,56 +6,6 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-<<<<<<< HEAD
-from .. import _utilities, _tables
-
-__all__ = ['NatRuleArgs', 'NatRule']
-
-@pulumi.input_type
-class NatRuleArgs:
-    def __init__(__self__, *,
-                 backend_port: pulumi.Input[int],
-                 frontend_ip_configuration_name: pulumi.Input[str],
-                 frontend_port: pulumi.Input[int],
-                 loadbalancer_id: pulumi.Input[str],
-                 protocol: pulumi.Input[str],
-                 resource_group_name: pulumi.Input[str],
-                 enable_floating_ip: Optional[pulumi.Input[bool]] = None,
-                 enable_tcp_reset: Optional[pulumi.Input[bool]] = None,
-                 idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
-        """
-        The set of arguments for constructing a NatRule resource.
-        :param pulumi.Input[int] backend_port: The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
-        :param pulumi.Input[str] frontend_ip_configuration_name: The name of the frontend IP configuration exposing this rule.
-        :param pulumi.Input[int] frontend_port: The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
-        :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the NAT Rule.
-        :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
-        :param pulumi.Input[bool] enable_floating_ip: Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
-        :param pulumi.Input[bool] enable_tcp_reset: Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
-        :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
-        :param pulumi.Input[str] name: Specifies the name of the NAT Rule.
-        """
-        pulumi.set(__self__, "backend_port", backend_port)
-        pulumi.set(__self__, "frontend_ip_configuration_name", frontend_ip_configuration_name)
-        pulumi.set(__self__, "frontend_port", frontend_port)
-        pulumi.set(__self__, "loadbalancer_id", loadbalancer_id)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if enable_floating_ip is not None:
-            pulumi.set(__self__, "enable_floating_ip", enable_floating_ip)
-        if enable_tcp_reset is not None:
-            pulumi.set(__self__, "enable_tcp_reset", enable_tcp_reset)
-        if idle_timeout_in_minutes is not None:
-            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter(name="backendPort")
-    def backend_port(self) -> pulumi.Input[int]:
-=======
 from .. import _utilities
 
 __all__ = ['NatRuleArgs', 'NatRule']
@@ -287,21 +237,12 @@ class _NatRuleState:
     @property
     @pulumi.getter(name="backendPort")
     def backend_port(self) -> Optional[pulumi.Input[int]]:
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
         """
         The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
         """
         return pulumi.get(self, "backend_port")
 
     @backend_port.setter
-<<<<<<< HEAD
-    def backend_port(self, value: pulumi.Input[int]):
-        pulumi.set(self, "backend_port", value)
-
-    @property
-    @pulumi.getter(name="frontendIpConfigurationName")
-    def frontend_ip_configuration_name(self) -> pulumi.Input[str]:
-=======
     def backend_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "backend_port", value)
 
@@ -341,41 +282,24 @@ class _NatRuleState:
     @property
     @pulumi.getter(name="frontendIpConfigurationName")
     def frontend_ip_configuration_name(self) -> Optional[pulumi.Input[str]]:
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
         """
         The name of the frontend IP configuration exposing this rule.
         """
         return pulumi.get(self, "frontend_ip_configuration_name")
 
     @frontend_ip_configuration_name.setter
-<<<<<<< HEAD
-    def frontend_ip_configuration_name(self, value: pulumi.Input[str]):
-=======
     def frontend_ip_configuration_name(self, value: Optional[pulumi.Input[str]]):
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
         pulumi.set(self, "frontend_ip_configuration_name", value)
 
     @property
     @pulumi.getter(name="frontendPort")
-<<<<<<< HEAD
-    def frontend_port(self) -> pulumi.Input[int]:
-=======
     def frontend_port(self) -> Optional[pulumi.Input[int]]:
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
         """
         The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
         """
         return pulumi.get(self, "frontend_port")
 
     @frontend_port.setter
-<<<<<<< HEAD
-    def frontend_port(self, value: pulumi.Input[int]):
-        pulumi.set(self, "frontend_port", value)
-
-    @property
-    @pulumi.getter(name="loadbalancerId")
-    def loadbalancer_id(self) -> pulumi.Input[str]:
-=======
     def frontend_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "frontend_port", value)
 
@@ -394,25 +318,17 @@ class _NatRuleState:
     @property
     @pulumi.getter(name="loadbalancerId")
     def loadbalancer_id(self) -> Optional[pulumi.Input[str]]:
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
         """
         The ID of the Load Balancer in which to create the NAT Rule.
         """
         return pulumi.get(self, "loadbalancer_id")
 
     @loadbalancer_id.setter
-<<<<<<< HEAD
-    def loadbalancer_id(self, value: pulumi.Input[str]):
-=======
     def loadbalancer_id(self, value: Optional[pulumi.Input[str]]):
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
         pulumi.set(self, "loadbalancer_id", value)
 
     @property
     @pulumi.getter
-<<<<<<< HEAD
-    def protocol(self) -> pulumi.Input[str]:
-=======
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the name of the NAT Rule.
@@ -426,88 +342,26 @@ class _NatRuleState:
     @property
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
         """
         The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-<<<<<<< HEAD
-    def protocol(self, value: pulumi.Input[str]):
-=======
     def protocol(self, value: Optional[pulumi.Input[str]]):
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
         pulumi.set(self, "protocol", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
-<<<<<<< HEAD
-    def resource_group_name(self) -> pulumi.Input[str]:
-=======
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
         """
         The name of the resource group in which to create the resource.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
-<<<<<<< HEAD
-    def resource_group_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="enableFloatingIp")
-    def enable_floating_ip(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
-        """
-        return pulumi.get(self, "enable_floating_ip")
-
-    @enable_floating_ip.setter
-    def enable_floating_ip(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_floating_ip", value)
-
-    @property
-    @pulumi.getter(name="enableTcpReset")
-    def enable_tcp_reset(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
-        """
-        return pulumi.get(self, "enable_tcp_reset")
-
-    @enable_tcp_reset.setter
-    def enable_tcp_reset(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_tcp_reset", value)
-
-    @property
-    @pulumi.getter(name="idleTimeoutInMinutes")
-    def idle_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
-        """
-        Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
-        """
-        return pulumi.get(self, "idle_timeout_in_minutes")
-
-    @idle_timeout_in_minutes.setter
-    def idle_timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "idle_timeout_in_minutes", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the name of the NAT Rule.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-=======
     def resource_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_group_name", value)
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class NatRule(pulumi.CustomResource):
@@ -525,9 +379,7 @@ class NatRule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a Load Balancer NAT Rule.
 
@@ -656,15 +508,7 @@ class NatRule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

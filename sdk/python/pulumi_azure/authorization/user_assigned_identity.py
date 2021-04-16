@@ -6,11 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-<<<<<<< HEAD
-from .. import _utilities, _tables
-=======
 from .. import _utilities
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['UserAssignedIdentityArgs', 'UserAssignedIdentity']
 
@@ -89,8 +85,6 @@ class UserAssignedIdentityArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-<<<<<<< HEAD
-=======
 
 
 @pulumi.input_type
@@ -101,7 +95,8 @@ class _UserAssignedIdentityState:
                  name: Optional[pulumi.Input[str]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering UserAssignedIdentity resources.
         :param pulumi.Input[str] client_id: Client ID associated with the user assigned identity.
@@ -113,6 +108,7 @@ class _UserAssignedIdentityState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the user assigned identity.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] tenant_id: Tenant ID associated with the user assigned identity.
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -126,6 +122,8 @@ class _UserAssignedIdentityState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -201,7 +199,18 @@ class _UserAssignedIdentityState:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Tenant ID associated with the user assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
 
 
 class UserAssignedIdentity(pulumi.CustomResource):
@@ -213,9 +222,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a user assigned identity.
 
@@ -297,15 +304,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -321,18 +320,11 @@ class UserAssignedIdentity(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
-<<<<<<< HEAD
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['client_id'] = None
-            __props__['principal_id'] = None
-            __props__['tenant_id'] = None
-=======
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["client_id"] = None
             __props__.__dict__["principal_id"] = None
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
+            __props__.__dict__["tenant_id"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:msi/userAssignedIdentity:UserAssignedIdentity")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(UserAssignedIdentity, __self__).__init__(
@@ -374,22 +366,13 @@ class UserAssignedIdentity(pulumi.CustomResource):
 
         __props__ = _UserAssignedIdentityState.__new__(_UserAssignedIdentityState)
 
-<<<<<<< HEAD
-        __props__["client_id"] = client_id
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["principal_id"] = principal_id
-        __props__["resource_group_name"] = resource_group_name
-        __props__["tags"] = tags
-        __props__["tenant_id"] = tenant_id
-=======
         __props__.__dict__["client_id"] = client_id
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["principal_id"] = principal_id
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["tags"] = tags
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
+        __props__.__dict__["tenant_id"] = tenant_id
         return UserAssignedIdentity(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -443,7 +426,6 @@ class UserAssignedIdentity(pulumi.CustomResource):
         """
         return pulumi.get(self, "tags")
 
-<<<<<<< HEAD
     @property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> pulumi.Output[str]:
@@ -452,11 +434,3 @@ class UserAssignedIdentity(pulumi.CustomResource):
         """
         return pulumi.get(self, "tenant_id")
 
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
-
-=======
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)

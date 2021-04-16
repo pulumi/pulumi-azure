@@ -6,11 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-<<<<<<< HEAD
-from .. import _utilities, _tables
-=======
 from .. import _utilities
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -173,8 +169,6 @@ class ReferenceInputBlobArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-<<<<<<< HEAD
-=======
 
 
 @pulumi.input_type
@@ -343,7 +337,6 @@ class _ReferenceInputBlobState:
     @time_format.setter
     def time_format(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_format", value)
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class ReferenceInputBlob(pulumi.CustomResource):
@@ -361,9 +354,7 @@ class ReferenceInputBlob(pulumi.CustomResource):
                  storage_container_name: Optional[pulumi.Input[str]] = None,
                  stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
                  time_format: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a Stream Analytics Reference Input Blob. Reference data (also known as a lookup table) is a finite data set that is static or slowly changing in nature, used to perform a lookup or to correlate with your data stream. Learn more [here](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-use-reference-data#azure-blob-storage).
 
@@ -494,15 +485,7 @@ class ReferenceInputBlob(pulumi.CustomResource):
                  storage_container_name: Optional[pulumi.Input[str]] = None,
                  stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
                  time_format: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

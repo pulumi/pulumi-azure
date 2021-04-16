@@ -6,11 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-<<<<<<< HEAD
-from .. import _utilities, _tables
-=======
 from .. import _utilities
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = [
     'AccountActiveDirectory',
@@ -206,6 +202,8 @@ class VolumeExportPolicyRule(dict):
             suggest = "nfsv4_enabled"
         elif key == "protocolsEnabled":
             suggest = "protocols_enabled"
+        elif key == "rootAccessEnabled":
+            suggest = "root_access_enabled"
         elif key == "unixReadOnly":
             suggest = "unix_read_only"
         elif key == "unixReadWrite":

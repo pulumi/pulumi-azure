@@ -25,11 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SpringCloudActiveDeployment{}
 	case "azure:appplatform/springCloudApp:SpringCloudApp":
 		r = &SpringCloudApp{}
-<<<<<<< HEAD
 	case "azure:appplatform/springCloudAppRedisAssociation:SpringCloudAppRedisAssociation":
 		r = &SpringCloudAppRedisAssociation{}
-=======
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 	case "azure:appplatform/springCloudCertificate:SpringCloudCertificate":
 		r = &SpringCloudCertificate{}
 	case "azure:appplatform/springCloudCustomDomain:SpringCloudCustomDomain":

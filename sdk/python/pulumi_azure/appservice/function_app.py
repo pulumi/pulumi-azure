@@ -6,11 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-<<<<<<< HEAD
-from .. import _utilities, _tables
-=======
 from .. import _utilities
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -24,10 +20,7 @@ class FunctionAppArgs:
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  auth_settings: Optional[pulumi.Input['FunctionAppAuthSettingsArgs']] = None,
                  client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
-<<<<<<< HEAD
                  client_cert_mode: Optional[pulumi.Input[str]] = None,
-=======
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArgs']]]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
                  enable_builtin_logging: Optional[pulumi.Input[bool]] = None,
@@ -51,10 +44,7 @@ class FunctionAppArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input['FunctionAppAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-<<<<<<< HEAD
         :param pulumi.Input[str] client_cert_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
-=======
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
         :param pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArgs']]] connection_strings: An `connection_string` block as defined below.
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
         :param pulumi.Input[bool] enable_builtin_logging: Should the built-in logging of this Function App be enabled? Defaults to `true`.
@@ -79,11 +69,8 @@ class FunctionAppArgs:
             pulumi.set(__self__, "auth_settings", auth_settings)
         if client_affinity_enabled is not None:
             pulumi.set(__self__, "client_affinity_enabled", client_affinity_enabled)
-<<<<<<< HEAD
         if client_cert_mode is not None:
             pulumi.set(__self__, "client_cert_mode", client_cert_mode)
-=======
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
         if connection_strings is not None:
             pulumi.set(__self__, "connection_strings", connection_strings)
         if daily_memory_time_quota is not None:
@@ -181,7 +168,6 @@ class FunctionAppArgs:
         pulumi.set(self, "client_affinity_enabled", value)
 
     @property
-<<<<<<< HEAD
     @pulumi.getter(name="clientCertMode")
     def client_cert_mode(self) -> Optional[pulumi.Input[str]]:
         """
@@ -192,7 +178,8 @@ class FunctionAppArgs:
     @client_cert_mode.setter
     def client_cert_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "client_cert_mode", value)
-=======
+
+    @property
     @pulumi.getter(name="connectionStrings")
     def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArgs']]]]:
         """
@@ -389,6 +376,7 @@ class _FunctionAppState:
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  auth_settings: Optional[pulumi.Input['FunctionAppAuthSettingsArgs']] = None,
                  client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
+                 client_cert_mode: Optional[pulumi.Input[str]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArgs']]]] = None,
                  custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
@@ -418,6 +406,7 @@ class _FunctionAppState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input['FunctionAppAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
+        :param pulumi.Input[str] client_cert_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionAppConnectionStringArgs']]] connection_strings: An `connection_string` block as defined below.
         :param pulumi.Input[str] custom_domain_verification_id: An identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
@@ -449,6 +438,8 @@ class _FunctionAppState:
             pulumi.set(__self__, "auth_settings", auth_settings)
         if client_affinity_enabled is not None:
             pulumi.set(__self__, "client_affinity_enabled", client_affinity_enabled)
+        if client_cert_mode is not None:
+            pulumi.set(__self__, "client_cert_mode", client_cert_mode)
         if connection_strings is not None:
             pulumi.set(__self__, "connection_strings", connection_strings)
         if custom_domain_verification_id is not None:
@@ -546,7 +537,18 @@ class _FunctionAppState:
     @client_affinity_enabled.setter
     def client_affinity_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "client_affinity_enabled", value)
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
+
+    @property
+    @pulumi.getter(name="clientCertMode")
+    def client_cert_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
+        """
+        return pulumi.get(self, "client_cert_mode")
+
+    @client_cert_mode.setter
+    def client_cert_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_cert_mode", value)
 
     @property
     @pulumi.getter(name="connectionStrings")
@@ -561,8 +563,6 @@ class _FunctionAppState:
         pulumi.set(self, "connection_strings", value)
 
     @property
-<<<<<<< HEAD
-=======
     @pulumi.getter(name="customDomainVerificationId")
     def custom_domain_verification_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -575,7 +575,6 @@ class _FunctionAppState:
         pulumi.set(self, "custom_domain_verification_id", value)
 
     @property
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
     @pulumi.getter(name="dailyMemoryTimeQuota")
     def daily_memory_time_quota(self) -> Optional[pulumi.Input[int]]:
         """
@@ -588,8 +587,6 @@ class _FunctionAppState:
         pulumi.set(self, "daily_memory_time_quota", value)
 
     @property
-<<<<<<< HEAD
-=======
     @pulumi.getter(name="defaultHostname")
     def default_hostname(self) -> Optional[pulumi.Input[str]]:
         """
@@ -602,7 +599,6 @@ class _FunctionAppState:
         pulumi.set(self, "default_hostname", value)
 
     @property
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
     @pulumi.getter(name="enableBuiltinLogging")
     def enable_builtin_logging(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -652,8 +648,6 @@ class _FunctionAppState:
 
     @property
     @pulumi.getter
-<<<<<<< HEAD
-=======
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
         The Function App kind - such as `functionapp,linux,container`
@@ -666,7 +660,6 @@ class _FunctionAppState:
 
     @property
     @pulumi.getter
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -702,8 +695,6 @@ class _FunctionAppState:
         pulumi.set(self, "os_type", value)
 
     @property
-<<<<<<< HEAD
-=======
     @pulumi.getter(name="outboundIpAddresses")
     def outbound_ip_addresses(self) -> Optional[pulumi.Input[str]]:
         """
@@ -740,7 +731,6 @@ class _FunctionAppState:
         pulumi.set(self, "resource_group_name", value)
 
     @property
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
     @pulumi.getter(name="siteConfig")
     def site_config(self) -> Optional[pulumi.Input['FunctionAppSiteConfigArgs']]:
         """
@@ -753,8 +743,6 @@ class _FunctionAppState:
         pulumi.set(self, "site_config", value)
 
     @property
-<<<<<<< HEAD
-=======
     @pulumi.getter(name="siteCredentials")
     def site_credentials(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteCredentialArgs']]]]:
         """
@@ -767,7 +755,6 @@ class _FunctionAppState:
         pulumi.set(self, "site_credentials", value)
 
     @property
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
     @pulumi.getter(name="sourceControl")
     def source_control(self) -> Optional[pulumi.Input['FunctionAppSourceControlArgs']]:
         """
@@ -864,9 +851,7 @@ class FunctionApp(pulumi.CustomResource):
                  storage_connection_string: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a Function App.
 
@@ -1112,10 +1097,7 @@ class FunctionApp(pulumi.CustomResource):
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  auth_settings: Optional[pulumi.Input[pulumi.InputType['FunctionAppAuthSettingsArgs']]] = None,
                  client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
-<<<<<<< HEAD
                  client_cert_mode: Optional[pulumi.Input[str]] = None,
-=======
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppConnectionStringArgs']]]]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
                  enable_builtin_logging: Optional[pulumi.Input[bool]] = None,
@@ -1133,15 +1115,7 @@ class FunctionApp(pulumi.CustomResource):
                  storage_connection_string: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1155,26 +1129,11 @@ class FunctionApp(pulumi.CustomResource):
 
             if app_service_plan_id is None and not opts.urn:
                 raise TypeError("Missing required property 'app_service_plan_id'")
-<<<<<<< HEAD
-            __props__['app_service_plan_id'] = app_service_plan_id
-            __props__['app_settings'] = app_settings
-            __props__['auth_settings'] = auth_settings
-            __props__['client_affinity_enabled'] = client_affinity_enabled
-            __props__['client_cert_mode'] = client_cert_mode
-            __props__['connection_strings'] = connection_strings
-            __props__['daily_memory_time_quota'] = daily_memory_time_quota
-            __props__['enable_builtin_logging'] = enable_builtin_logging
-            __props__['enabled'] = enabled
-            __props__['https_only'] = https_only
-            __props__['identity'] = identity
-            __props__['location'] = location
-            __props__['name'] = name
-            __props__['os_type'] = os_type
-=======
             __props__.__dict__["app_service_plan_id"] = app_service_plan_id
             __props__.__dict__["app_settings"] = app_settings
             __props__.__dict__["auth_settings"] = auth_settings
             __props__.__dict__["client_affinity_enabled"] = client_affinity_enabled
+            __props__.__dict__["client_cert_mode"] = client_cert_mode
             __props__.__dict__["connection_strings"] = connection_strings
             __props__.__dict__["daily_memory_time_quota"] = daily_memory_time_quota
             __props__.__dict__["enable_builtin_logging"] = enable_builtin_logging
@@ -1184,7 +1143,6 @@ class FunctionApp(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["os_type"] = os_type
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -1279,44 +1237,13 @@ class FunctionApp(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-<<<<<<< HEAD
-        __props__ = dict()
-
-        __props__["app_service_plan_id"] = app_service_plan_id
-        __props__["app_settings"] = app_settings
-        __props__["auth_settings"] = auth_settings
-        __props__["client_affinity_enabled"] = client_affinity_enabled
-        __props__["client_cert_mode"] = client_cert_mode
-        __props__["connection_strings"] = connection_strings
-        __props__["custom_domain_verification_id"] = custom_domain_verification_id
-        __props__["daily_memory_time_quota"] = daily_memory_time_quota
-        __props__["default_hostname"] = default_hostname
-        __props__["enable_builtin_logging"] = enable_builtin_logging
-        __props__["enabled"] = enabled
-        __props__["https_only"] = https_only
-        __props__["identity"] = identity
-        __props__["kind"] = kind
-        __props__["location"] = location
-        __props__["name"] = name
-        __props__["os_type"] = os_type
-        __props__["outbound_ip_addresses"] = outbound_ip_addresses
-        __props__["possible_outbound_ip_addresses"] = possible_outbound_ip_addresses
-        __props__["resource_group_name"] = resource_group_name
-        __props__["site_config"] = site_config
-        __props__["site_credentials"] = site_credentials
-        __props__["source_control"] = source_control
-        __props__["storage_account_access_key"] = storage_account_access_key
-        __props__["storage_account_name"] = storage_account_name
-        __props__["storage_connection_string"] = storage_connection_string
-        __props__["tags"] = tags
-        __props__["version"] = version
-=======
         __props__ = _FunctionAppState.__new__(_FunctionAppState)
 
         __props__.__dict__["app_service_plan_id"] = app_service_plan_id
         __props__.__dict__["app_settings"] = app_settings
         __props__.__dict__["auth_settings"] = auth_settings
         __props__.__dict__["client_affinity_enabled"] = client_affinity_enabled
+        __props__.__dict__["client_cert_mode"] = client_cert_mode
         __props__.__dict__["connection_strings"] = connection_strings
         __props__.__dict__["custom_domain_verification_id"] = custom_domain_verification_id
         __props__.__dict__["daily_memory_time_quota"] = daily_memory_time_quota
@@ -1340,7 +1267,6 @@ class FunctionApp(pulumi.CustomResource):
         __props__.__dict__["storage_connection_string"] = storage_connection_string
         __props__.__dict__["tags"] = tags
         __props__.__dict__["version"] = version
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
         return FunctionApp(resource_name, opts=opts, __props__=__props__)
 
     @property

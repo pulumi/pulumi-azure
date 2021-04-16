@@ -6,11 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-<<<<<<< HEAD
-from .. import _utilities, _tables
-=======
 from .. import _utilities
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -351,8 +347,6 @@ class EventSubscriptionArgs:
     def webhook_endpoint(self, value: Optional[pulumi.Input['EventSubscriptionWebhookEndpointArgs']]):
         pulumi.set(self, "webhook_endpoint", value)
 
-<<<<<<< HEAD
-=======
 
 @pulumi.input_type
 class _EventSubscriptionState:
@@ -690,7 +684,6 @@ class _EventSubscriptionState:
     def webhook_endpoint(self, value: Optional[pulumi.Input['EventSubscriptionWebhookEndpointArgs']]):
         pulumi.set(self, "webhook_endpoint", value)
 
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 warnings.warn("""azure.eventhub.EventSubscription has been deprecated in favor of azure.eventgrid.EventSubscription""", DeprecationWarning)
 
@@ -722,9 +715,7 @@ class EventSubscription(pulumi.CustomResource):
                  subject_filter: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionSubjectFilterArgs']]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
                  webhook_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionWebhookEndpointArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages an EventGrid Event Subscription
 
@@ -863,16 +854,8 @@ class EventSubscription(pulumi.CustomResource):
                  subject_filter: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionSubjectFilterArgs']]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
                  webhook_endpoint: Optional[pulumi.Input[pulumi.InputType['EventSubscriptionWebhookEndpointArgs']]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         pulumi.log.warn("""EventSubscription is deprecated: azure.eventhub.EventSubscription has been deprecated in favor of azure.eventgrid.EventSubscription""")
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

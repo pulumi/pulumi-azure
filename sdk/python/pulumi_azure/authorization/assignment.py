@@ -6,11 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-<<<<<<< HEAD
-from .. import _utilities, _tables
-=======
 from .. import _utilities
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['AssignmentArgs', 'Assignment']
 
@@ -162,8 +158,6 @@ class AssignmentArgs:
     @skip_service_principal_aad_check.setter
     def skip_service_principal_aad_check(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "skip_service_principal_aad_check", value)
-<<<<<<< HEAD
-=======
 
 
 @pulumi.input_type
@@ -332,7 +326,6 @@ class _AssignmentState:
     @skip_service_principal_aad_check.setter
     def skip_service_principal_aad_check(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "skip_service_principal_aad_check", value)
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class Assignment(pulumi.CustomResource):
@@ -349,9 +342,7 @@ class Assignment(pulumi.CustomResource):
                  role_definition_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  skip_service_principal_aad_check: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Assigns a given Principal (User or Group) to a given Role.
 
@@ -584,15 +575,7 @@ class Assignment(pulumi.CustomResource):
                  role_definition_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  skip_service_principal_aad_check: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

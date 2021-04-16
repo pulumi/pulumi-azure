@@ -6,11 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-<<<<<<< HEAD
-from .. import _utilities, _tables
-=======
 from .. import _utilities
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -233,8 +229,6 @@ class ReplicatedVMArgs:
     @target_network_id.setter
     def target_network_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_network_id", value)
-<<<<<<< HEAD
-=======
 
 
 @pulumi.input_type
@@ -463,7 +457,6 @@ class _ReplicatedVMState:
     @target_resource_group_id.setter
     def target_resource_group_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_resource_group_id", value)
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class ReplicatedVM(pulumi.CustomResource):
@@ -485,9 +478,7 @@ class ReplicatedVM(pulumi.CustomResource):
                  target_recovery_fabric_id: Optional[pulumi.Input[str]] = None,
                  target_recovery_protection_container_id: Optional[pulumi.Input[str]] = None,
                  target_resource_group_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a VM replicated using Azure Site Recovery (Azure to Azure only). A replicated VM keeps a copiously updated image of the VM in another region in order to be able to start the VM in that region in case of a disaster.
 
@@ -561,15 +552,7 @@ class ReplicatedVM(pulumi.CustomResource):
                  target_recovery_fabric_id: Optional[pulumi.Input[str]] = None,
                  target_recovery_protection_container_id: Optional[pulumi.Input[str]] = None,
                  target_resource_group_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

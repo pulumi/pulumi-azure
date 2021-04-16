@@ -6,11 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-<<<<<<< HEAD
-from .. import _utilities, _tables
-=======
 from .. import _utilities
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -226,8 +222,6 @@ class FrontdoorArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-<<<<<<< HEAD
-=======
 
 
 @pulumi.input_type
@@ -559,7 +553,6 @@ class _FrontdoorState:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class Frontdoor(pulumi.CustomResource):
@@ -580,9 +573,7 @@ class Frontdoor(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorRoutingRuleArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         ## Import
 
@@ -615,66 +606,6 @@ class Frontdoor(pulumi.CustomResource):
                  args: FrontdoorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-<<<<<<< HEAD
-=======
-        Manages an Azure Front Door instance.
-
-        Azure Front Door Service is Microsoft's highly available and scalable web application acceleration platform and global HTTP(s) load balancer. It provides built-in DDoS protection and application layer security and caching. Front Door enables you to build applications that maximize and automate high-availability and performance for your end-users. Use Front Door with Azure services including Web/Mobile Apps, Cloud Services and Virtual Machines – or combine it with on-premises services for hybrid deployments and smooth cloud migration.
-
-        Below are some of the key scenarios that Azure Front Door Service addresses:
-        * Use Front Door to improve application scale and availability with instant multi-region failover
-        * Use Front Door to improve application performance with SSL offload and routing requests to the fastest available application backend.
-        * Use Front Door for application layer security and DDoS protection for your application.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_frontdoor = azure.frontdoor.Frontdoor("exampleFrontdoor",
-            location="EastUS2",
-            resource_group_name=example_resource_group.name,
-            enforce_backend_pools_certificate_name_check=False,
-            routing_rules=[azure.frontdoor.FrontdoorRoutingRuleArgs(
-                name="exampleRoutingRule1",
-                accepted_protocols=[
-                    "Http",
-                    "Https",
-                ],
-                patterns_to_matches=["/*"],
-                frontend_endpoints=["exampleFrontendEndpoint1"],
-                forwarding_configuration=azure.frontdoor.FrontdoorRoutingRuleForwardingConfigurationArgs(
-                    forwarding_protocol="MatchRequest",
-                    backend_pool_name="exampleBackendBing",
-                ),
-            )],
-            backend_pool_load_balancings=[azure.frontdoor.FrontdoorBackendPoolLoadBalancingArgs(
-                name="exampleLoadBalancingSettings1",
-            )],
-            backend_pool_health_probes=[azure.frontdoor.FrontdoorBackendPoolHealthProbeArgs(
-                name="exampleHealthProbeSetting1",
-            )],
-            backend_pools=[azure.frontdoor.FrontdoorBackendPoolArgs(
-                name="exampleBackendBing",
-                backends=[azure.frontdoor.FrontdoorBackendPoolBackendArgs(
-                    host_header="www.bing.com",
-                    address="www.bing.com",
-                    http_port=80,
-                    https_port=443,
-                )],
-                load_balancing_name="exampleLoadBalancingSettings1",
-                health_probe_name="exampleHealthProbeSetting1",
-            )],
-            frontend_endpoints=[azure.frontdoor.FrontdoorFrontendEndpointArgs(
-                name="exampleFrontendEndpoint1",
-                host_name="example-FrontDoor.azurefd.net",
-                custom_https_provisioning_enabled=False,
-            )])
-        ```
-
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
         ## Import
 
         Front Doors can be imported using the `resource id`, e.g.
@@ -711,15 +642,7 @@ class Frontdoor(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorRoutingRuleArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

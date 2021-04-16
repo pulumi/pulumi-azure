@@ -1365,14 +1365,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_express_route_port":                     {Tok: azureResource(azureNetwork, "ExpressRoutePort")},
 
 			// Redis
-			"azurerm_redis_cache": {
-				Tok: azureResource(azureRedis, "Cache"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"zones": {
-						MaxItemsOne: boolRef(true),
-					},
-				},
-			},
+			"azurerm_redis_cache":               {Tok: azureResource(azureRedis, "Cache")},
 			"azurerm_redis_firewall_rule":       {Tok: azureResource(azureRedis, "FirewallRule")},
 			"azurerm_redis_linked_server":       {Tok: azureResource(azureRedis, "LinkedServer")},
 			"azurerm_redis_enterprise_cluster":  {Tok: azureResource(azureRedis, "EnterpriseCluster")},
@@ -1919,27 +1912,20 @@ func Provider() tfbridge.ProviderInfo {
 					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
 				},
 			},
-			"azurerm_sql_server":   {Tok: azureDataSource(azureSQL, "getServer")},
-			"azurerm_sql_database": {Tok: azureDataSource(azureSQL, "getDatabase")},
-			"azurerm_virtual_network_gateway_connection": {
-				Tok: azureDataSource(azureNetwork, "getGatewayConnection"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"traffic_selector_policy": {
-						MaxItemsOne: boolRef(true),
-					},
-				},
-			},
-			"azurerm_firewall":              {Tok: azureDataSource(azureNetwork, "getFirewall")},
-			"azurerm_subscription":          {Tok: azureDataSource(azureCore, "getSubscription")},
-			"azurerm_template_spec_version": {Tok: azureDataSource(azureCore, "getTemplateSpecVersion")},
-			"azurerm_policy_definition":     {Tok: azureDataSource(azurePolicy, "getPolicyDefintion")},
-			"azurerm_policy_set_definition": {Tok: azureDataSource(azurePolicy, "getPolicySetDefinition")},
-			"azurerm_platform_image":        {Tok: azureDataSource(azureCompute, "getPlatformImage")},
-			"azurerm_managed_disk":          {Tok: azureDataSource(azureCompute, "getManagedDisk")},
-			"azurerm_shared_image_versions": {Tok: azureDataSource(azureCompute, "getSharedImageVersions")},
-			"azurerm_backup_policy_vm":      {Tok: azureDataSource(azureBackup, "getPolicyVM")},
-			"azurerm_storage_account":       {Tok: azureDataSource(azureStorage, "getAccount")},
-			"azurerm_storage_account_sas":   {Tok: azureDataSource(azureStorage, "getAccountSAS")},
+			"azurerm_sql_server":                         {Tok: azureDataSource(azureSQL, "getServer")},
+			"azurerm_sql_database":                       {Tok: azureDataSource(azureSQL, "getDatabase")},
+			"azurerm_virtual_network_gateway_connection": {Tok: azureDataSource(azureNetwork, "getGatewayConnection")},
+			"azurerm_firewall":                           {Tok: azureDataSource(azureNetwork, "getFirewall")},
+			"azurerm_subscription":                       {Tok: azureDataSource(azureCore, "getSubscription")},
+			"azurerm_template_spec_version":              {Tok: azureDataSource(azureCore, "getTemplateSpecVersion")},
+			"azurerm_policy_definition":                  {Tok: azureDataSource(azurePolicy, "getPolicyDefintion")},
+			"azurerm_policy_set_definition":              {Tok: azureDataSource(azurePolicy, "getPolicySetDefinition")},
+			"azurerm_platform_image":                     {Tok: azureDataSource(azureCompute, "getPlatformImage")},
+			"azurerm_managed_disk":                       {Tok: azureDataSource(azureCompute, "getManagedDisk")},
+			"azurerm_shared_image_versions":              {Tok: azureDataSource(azureCompute, "getSharedImageVersions")},
+			"azurerm_backup_policy_vm":                   {Tok: azureDataSource(azureBackup, "getPolicyVM")},
+			"azurerm_storage_account":                    {Tok: azureDataSource(azureStorage, "getAccount")},
+			"azurerm_storage_account_sas":                {Tok: azureDataSource(azureStorage, "getAccountSAS")},
 			"azurerm_storage_account_blob_container_sas": {
 				Tok: azureDataSource(azureStorage, "getAccountBlobContainerSAS"),
 			},
@@ -2048,7 +2034,7 @@ func Provider() tfbridge.ProviderInfo {
 				"@types/node-fetch": "^2.5.8",
 			},
 			Dependencies: map[string]string{
-				"@pulumi/pulumi":                "^3.0.0-alpha.0",
+				"@pulumi/pulumi":                "^3.0.0-rc.1",
 				"azure-eventgrid":               "^1.6.0",
 				"@azure/functions":              "=1.2.2",
 				"@azure/ms-rest-azure-js":       "^2.0.1",
@@ -2111,7 +2097,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Python: &tfbridge.PythonInfo{
 			Requires: map[string]string{
-				"pulumi": ">=3.0.0a1,<4.0.0", // https://www.python.org/dev/peps/pep-0440/#handling-of-pre-releases
+				"pulumi": ">=3.0.0rc1,<4.0.0", // https://www.python.org/dev/peps/pep-0440/#handling-of-pre-releases
 			},
 		},
 		Golang: &tfbridge.GolangInfo{

@@ -45,11 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CustomDomain{}
 	case "azure:apimanagement/diagnostic:Diagnostic":
 		r = &Diagnostic{}
-<<<<<<< HEAD
 	case "azure:apimanagement/emailTemplate:EmailTemplate":
 		r = &EmailTemplate{}
-=======
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 	case "azure:apimanagement/group:Group":
 		r = &Group{}
 	case "azure:apimanagement/groupUser:GroupUser":

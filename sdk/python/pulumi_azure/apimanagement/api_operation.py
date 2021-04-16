@@ -6,11 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-<<<<<<< HEAD
-from .. import _utilities, _tables
-=======
 from .. import _utilities
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -191,8 +187,6 @@ class ApiOperationArgs:
     @template_parameters.setter
     def template_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationTemplateParameterArgs']]]]):
         pulumi.set(self, "template_parameters", value)
-<<<<<<< HEAD
-=======
 
 
 @pulumi.input_type
@@ -377,7 +371,6 @@ class _ApiOperationState:
     @url_template.setter
     def url_template(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "url_template", value)
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class ApiOperation(pulumi.CustomResource):
@@ -396,9 +389,7 @@ class ApiOperation(pulumi.CustomResource):
                  responses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApiOperationResponseArgs']]]]] = None,
                  template_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApiOperationTemplateParameterArgs']]]]] = None,
                  url_template: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages an API Operation within an API Management Service.
 
@@ -515,15 +506,7 @@ class ApiOperation(pulumi.CustomResource):
                  responses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApiOperationResponseArgs']]]]] = None,
                  template_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApiOperationTemplateParameterArgs']]]]] = None,
                  url_template: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

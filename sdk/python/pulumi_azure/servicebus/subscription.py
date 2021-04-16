@@ -6,19 +6,6 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-<<<<<<< HEAD
-from .. import _utilities, _tables
-
-__all__ = ['SubscriptionArgs', 'Subscription']
-
-@pulumi.input_type
-class SubscriptionArgs:
-    def __init__(__self__, *,
-                 max_delivery_count: pulumi.Input[int],
-                 namespace_name: pulumi.Input[str],
-                 resource_group_name: pulumi.Input[str],
-                 topic_name: pulumi.Input[str],
-=======
 from .. import _utilities
 
 __all__ = ['SubscriptionArgs', 'Subscription']
@@ -270,7 +257,6 @@ class SubscriptionArgs:
 @pulumi.input_type
 class _SubscriptionState:
     def __init__(__self__, *,
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
                  dead_lettering_on_filter_evaluation_error: Optional[pulumi.Input[bool]] = None,
                  dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
@@ -279,17 +265,6 @@ class _SubscriptionState:
                  forward_dead_lettered_messages_to: Optional[pulumi.Input[str]] = None,
                  forward_to: Optional[pulumi.Input[str]] = None,
                  lock_duration: Optional[pulumi.Input[str]] = None,
-<<<<<<< HEAD
-                 name: Optional[pulumi.Input[str]] = None,
-                 requires_session: Optional[pulumi.Input[bool]] = None,
-                 status: Optional[pulumi.Input[str]] = None):
-        """
-        The set of arguments for constructing a Subscription resource.
-        :param pulumi.Input[int] max_delivery_count: The maximum number of deliveries.
-        :param pulumi.Input[str] namespace_name: The name of the ServiceBus Namespace to create this Subscription in. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] topic_name: The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
-=======
                  max_delivery_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
@@ -299,7 +274,6 @@ class _SubscriptionState:
                  topic_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Subscription resources.
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
         :param pulumi.Input[str] auto_delete_on_idle: The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `P5M`.
         :param pulumi.Input[bool] dead_lettering_on_filter_evaluation_error: Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
         :param pulumi.Input[bool] dead_lettering_on_message_expiration: Boolean flag which controls whether the Subscription has dead letter support when a message expires. Defaults to `false`.
@@ -308,16 +282,6 @@ class _SubscriptionState:
         :param pulumi.Input[str] forward_dead_lettered_messages_to: The name of a Queue or Topic to automatically forward Dead Letter messages to.
         :param pulumi.Input[str] forward_to: The name of a Queue or Topic to automatically forward messages to.
         :param pulumi.Input[str] lock_duration: The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P1M`.
-<<<<<<< HEAD
-        :param pulumi.Input[str] name: Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] requires_session: Boolean flag which controls whether this Subscription supports the concept of a session. Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] status: The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
-        """
-        pulumi.set(__self__, "max_delivery_count", max_delivery_count)
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "topic_name", topic_name)
-=======
         :param pulumi.Input[int] max_delivery_count: The maximum number of deliveries.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_name: The name of the ServiceBus Namespace to create this Subscription in. Changing this forces a new resource to be created.
@@ -326,7 +290,6 @@ class _SubscriptionState:
         :param pulumi.Input[str] status: The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
         :param pulumi.Input[str] topic_name: The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
         """
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
         if auto_delete_on_idle is not None:
             pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
         if dead_lettering_on_filter_evaluation_error is not None:
@@ -343,62 +306,6 @@ class _SubscriptionState:
             pulumi.set(__self__, "forward_to", forward_to)
         if lock_duration is not None:
             pulumi.set(__self__, "lock_duration", lock_duration)
-<<<<<<< HEAD
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if requires_session is not None:
-            pulumi.set(__self__, "requires_session", requires_session)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter(name="maxDeliveryCount")
-    def max_delivery_count(self) -> pulumi.Input[int]:
-        """
-        The maximum number of deliveries.
-        """
-        return pulumi.get(self, "max_delivery_count")
-
-    @max_delivery_count.setter
-    def max_delivery_count(self, value: pulumi.Input[int]):
-        pulumi.set(self, "max_delivery_count", value)
-
-    @property
-    @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> pulumi.Input[str]:
-        """
-        The name of the ServiceBus Namespace to create this Subscription in. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "namespace_name")
-
-    @namespace_name.setter
-    def namespace_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "namespace_name", value)
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Input[str]:
-        """
-        The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="topicName")
-    def topic_name(self) -> pulumi.Input[str]:
-        """
-        The name of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "topic_name")
-
-    @topic_name.setter
-    def topic_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "topic_name", value)
-=======
         if max_delivery_count is not None:
             pulumi.set(__self__, "max_delivery_count", max_delivery_count)
         if name is not None:
@@ -413,7 +320,6 @@ class _SubscriptionState:
             pulumi.set(__self__, "status", status)
         if topic_name is not None:
             pulumi.set(__self__, "topic_name", topic_name)
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
     @property
     @pulumi.getter(name="autoDeleteOnIdle")
@@ -512,8 +418,6 @@ class _SubscriptionState:
         pulumi.set(self, "lock_duration", value)
 
     @property
-<<<<<<< HEAD
-=======
     @pulumi.getter(name="maxDeliveryCount")
     def max_delivery_count(self) -> Optional[pulumi.Input[int]]:
         """
@@ -526,7 +430,6 @@ class _SubscriptionState:
         pulumi.set(self, "max_delivery_count", value)
 
     @property
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -539,8 +442,6 @@ class _SubscriptionState:
         pulumi.set(self, "name", value)
 
     @property
-<<<<<<< HEAD
-=======
     @pulumi.getter(name="namespaceName")
     def namespace_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -553,7 +454,6 @@ class _SubscriptionState:
         pulumi.set(self, "namespace_name", value)
 
     @property
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
     @pulumi.getter(name="requiresSession")
     def requires_session(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -566,8 +466,6 @@ class _SubscriptionState:
         pulumi.set(self, "requires_session", value)
 
     @property
-<<<<<<< HEAD
-=======
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -580,7 +478,6 @@ class _SubscriptionState:
         pulumi.set(self, "resource_group_name", value)
 
     @property
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
@@ -591,8 +488,6 @@ class _SubscriptionState:
     @status.setter
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
-<<<<<<< HEAD
-=======
 
     @property
     @pulumi.getter(name="topicName")
@@ -605,7 +500,6 @@ class _SubscriptionState:
     @topic_name.setter
     def topic_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "topic_name", value)
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class Subscription(pulumi.CustomResource):
@@ -628,9 +522,7 @@ class Subscription(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a ServiceBus Subscription.
 
@@ -757,15 +649,7 @@ class Subscription(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

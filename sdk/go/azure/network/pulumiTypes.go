@@ -20831,6 +20831,31 @@ func (i GetGatewayConnectionTrafficSelectorPolicyArgs) ToGetGatewayConnectionTra
 	return pulumi.ToOutputWithContext(ctx, i).(GetGatewayConnectionTrafficSelectorPolicyOutput)
 }
 
+// GetGatewayConnectionTrafficSelectorPolicyArrayInput is an input type that accepts GetGatewayConnectionTrafficSelectorPolicyArray and GetGatewayConnectionTrafficSelectorPolicyArrayOutput values.
+// You can construct a concrete instance of `GetGatewayConnectionTrafficSelectorPolicyArrayInput` via:
+//
+//          GetGatewayConnectionTrafficSelectorPolicyArray{ GetGatewayConnectionTrafficSelectorPolicyArgs{...} }
+type GetGatewayConnectionTrafficSelectorPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetGatewayConnectionTrafficSelectorPolicyArrayOutput() GetGatewayConnectionTrafficSelectorPolicyArrayOutput
+	ToGetGatewayConnectionTrafficSelectorPolicyArrayOutputWithContext(context.Context) GetGatewayConnectionTrafficSelectorPolicyArrayOutput
+}
+
+type GetGatewayConnectionTrafficSelectorPolicyArray []GetGatewayConnectionTrafficSelectorPolicyInput
+
+func (GetGatewayConnectionTrafficSelectorPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewayConnectionTrafficSelectorPolicy)(nil)).Elem()
+}
+
+func (i GetGatewayConnectionTrafficSelectorPolicyArray) ToGetGatewayConnectionTrafficSelectorPolicyArrayOutput() GetGatewayConnectionTrafficSelectorPolicyArrayOutput {
+	return i.ToGetGatewayConnectionTrafficSelectorPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetGatewayConnectionTrafficSelectorPolicyArray) ToGetGatewayConnectionTrafficSelectorPolicyArrayOutputWithContext(ctx context.Context) GetGatewayConnectionTrafficSelectorPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewayConnectionTrafficSelectorPolicyArrayOutput)
+}
+
 type GetGatewayConnectionTrafficSelectorPolicyOutput struct{ *pulumi.OutputState }
 
 func (GetGatewayConnectionTrafficSelectorPolicyOutput) ElementType() reflect.Type {
@@ -20853,6 +20878,26 @@ func (o GetGatewayConnectionTrafficSelectorPolicyOutput) LocalAddressCidrs() pul
 // List of remote CIDRs.
 func (o GetGatewayConnectionTrafficSelectorPolicyOutput) RemoteAddressCidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetGatewayConnectionTrafficSelectorPolicy) []string { return v.RemoteAddressCidrs }).(pulumi.StringArrayOutput)
+}
+
+type GetGatewayConnectionTrafficSelectorPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetGatewayConnectionTrafficSelectorPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewayConnectionTrafficSelectorPolicy)(nil)).Elem()
+}
+
+func (o GetGatewayConnectionTrafficSelectorPolicyArrayOutput) ToGetGatewayConnectionTrafficSelectorPolicyArrayOutput() GetGatewayConnectionTrafficSelectorPolicyArrayOutput {
+	return o
+}
+
+func (o GetGatewayConnectionTrafficSelectorPolicyArrayOutput) ToGetGatewayConnectionTrafficSelectorPolicyArrayOutputWithContext(ctx context.Context) GetGatewayConnectionTrafficSelectorPolicyArrayOutput {
+	return o
+}
+
+func (o GetGatewayConnectionTrafficSelectorPolicyArrayOutput) Index(i pulumi.IntInput) GetGatewayConnectionTrafficSelectorPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGatewayConnectionTrafficSelectorPolicy {
+		return vs[0].([]GetGatewayConnectionTrafficSelectorPolicy)[vs[1].(int)]
+	}).(GetGatewayConnectionTrafficSelectorPolicyOutput)
 }
 
 type GetNetworkInterfaceIpConfiguration struct {
@@ -23095,6 +23140,7 @@ func init() {
 	pulumi.RegisterOutputType(GetGatewayConnectionIpsecPolicyOutput{})
 	pulumi.RegisterOutputType(GetGatewayConnectionIpsecPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetGatewayConnectionTrafficSelectorPolicyOutput{})
+	pulumi.RegisterOutputType(GetGatewayConnectionTrafficSelectorPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkInterfaceIpConfigurationOutput{})
 	pulumi.RegisterOutputType(GetNetworkInterfaceIpConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkSecurityGroupSecurityRuleOutput{})

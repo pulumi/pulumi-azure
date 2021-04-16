@@ -6,11 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-<<<<<<< HEAD
-from .. import _utilities, _tables
-=======
 from .. import _utilities
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -38,11 +34,7 @@ class ManagedDiskArgs:
                  zones: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ManagedDisk resource.
-<<<<<<< HEAD
         :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `source_uri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `source_resource_id`), `FromImage` (Copy a Platform Image, specified with `image_reference_id`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `source_resource_id`).
-=======
-        :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Disk should exist.
         :param pulumi.Input[str] storage_account_type: The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
@@ -96,11 +88,7 @@ class ManagedDiskArgs:
     @pulumi.getter(name="createOption")
     def create_option(self) -> pulumi.Input[str]:
         """
-<<<<<<< HEAD
         The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `source_uri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `source_resource_id`), `FromImage` (Copy a Platform Image, specified with `image_reference_id`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `source_resource_id`).
-=======
-        The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
         """
         return pulumi.get(self, "create_option")
 
@@ -299,8 +287,6 @@ class ManagedDiskArgs:
     @zones.setter
     def zones(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "zones", value)
-<<<<<<< HEAD
-=======
 
 
 @pulumi.input_type
@@ -325,7 +311,7 @@ class _ManagedDiskState:
                  zones: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ManagedDisk resources.
-        :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
+        :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `source_uri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `source_resource_id`), `FromImage` (Copy a Platform Image, specified with `image_reference_id`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `source_resource_id`).
         :param pulumi.Input[str] disk_encryption_set_id: The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
         :param pulumi.Input[int] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[int] disk_mbps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
@@ -382,7 +368,7 @@ class _ManagedDiskState:
     @pulumi.getter(name="createOption")
     def create_option(self) -> Optional[pulumi.Input[str]]:
         """
-        The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
+        The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `source_uri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `source_resource_id`), `FromImage` (Copy a Platform Image, specified with `image_reference_id`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `source_resource_id`).
         """
         return pulumi.get(self, "create_option")
 
@@ -581,7 +567,6 @@ class _ManagedDiskState:
     @zones.setter
     def zones(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "zones", value)
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class ManagedDisk(pulumi.CustomResource):
@@ -606,9 +591,7 @@ class ManagedDisk(pulumi.CustomResource):
                  storage_account_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a managed disk.
 
@@ -781,15 +764,7 @@ class ManagedDisk(pulumi.CustomResource):
                  storage_account_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

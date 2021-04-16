@@ -6,11 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-<<<<<<< HEAD
-from .. import _utilities, _tables
-=======
 from .. import _utilities
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -269,8 +265,6 @@ class PoolArgs:
     @stop_pending_resize_operation.setter
     def stop_pending_resize_operation(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "stop_pending_resize_operation", value)
-<<<<<<< HEAD
-=======
 
 
 @pulumi.input_type
@@ -531,7 +525,6 @@ class _PoolState:
     @vm_size.setter
     def vm_size(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vm_size", value)
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class Pool(pulumi.CustomResource):
@@ -555,9 +548,7 @@ class Pool(pulumi.CustomResource):
                  stop_pending_resize_operation: Optional[pulumi.Input[bool]] = None,
                  storage_image_reference: Optional[pulumi.Input[pulumi.InputType['PoolStorageImageReferenceArgs']]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages an Azure Batch pool.
 
@@ -635,15 +626,7 @@ class Pool(pulumi.CustomResource):
                  stop_pending_resize_operation: Optional[pulumi.Input[bool]] = None,
                  storage_image_reference: Optional[pulumi.Input[pulumi.InputType['PoolStorageImageReferenceArgs']]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

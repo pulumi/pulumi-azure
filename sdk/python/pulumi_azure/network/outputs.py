@@ -6,11 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-<<<<<<< HEAD
-from .. import _utilities, _tables
-=======
 from .. import _utilities
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 
 __all__ = [
@@ -3234,6 +3230,23 @@ class ExpressRouteCircuitSku(dict):
 
 @pulumi.output_type
 class ExpressRoutePortIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressRoutePortIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressRoutePortIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressRoutePortIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: str,
                  identity_ids: Optional[Sequence[str]] = None):
@@ -3261,12 +3274,42 @@ class ExpressRoutePortIdentity(dict):
         """
         return pulumi.get(self, "identity_ids")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ExpressRoutePortLink1(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adminEnabled":
+            suggest = "admin_enabled"
+        elif key == "connectorType":
+            suggest = "connector_type"
+        elif key == "interfaceName":
+            suggest = "interface_name"
+        elif key == "macsecCakKeyvaultSecretId":
+            suggest = "macsec_cak_keyvault_secret_id"
+        elif key == "macsecCipher":
+            suggest = "macsec_cipher"
+        elif key == "macsecCknKeyvaultSecretId":
+            suggest = "macsec_ckn_keyvault_secret_id"
+        elif key == "patchPanelId":
+            suggest = "patch_panel_id"
+        elif key == "rackId":
+            suggest = "rack_id"
+        elif key == "routerName":
+            suggest = "router_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressRoutePortLink1. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressRoutePortLink1.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressRoutePortLink1.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  admin_enabled: Optional[bool] = None,
                  connector_type: Optional[str] = None,
@@ -3390,13 +3433,43 @@ class ExpressRoutePortLink1(dict):
         The name of the Azure router associated with the Express Route Port Link.
         """
         return pulumi.get(self, "router_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
 class ExpressRoutePortLink2(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adminEnabled":
+            suggest = "admin_enabled"
+        elif key == "connectorType":
+            suggest = "connector_type"
+        elif key == "interfaceName":
+            suggest = "interface_name"
+        elif key == "macsecCakKeyvaultSecretId":
+            suggest = "macsec_cak_keyvault_secret_id"
+        elif key == "macsecCipher":
+            suggest = "macsec_cipher"
+        elif key == "macsecCknKeyvaultSecretId":
+            suggest = "macsec_ckn_keyvault_secret_id"
+        elif key == "patchPanelId":
+            suggest = "patch_panel_id"
+        elif key == "rackId":
+            suggest = "rack_id"
+        elif key == "routerName":
+            suggest = "router_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressRoutePortLink2. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressRoutePortLink2.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressRoutePortLink2.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  admin_enabled: Optional[bool] = None,
                  connector_type: Optional[str] = None,
@@ -3520,9 +3593,6 @@ class ExpressRoutePortLink2(dict):
         The name of the Azure router associated with the Express Route Port Link.
         """
         return pulumi.get(self, "router_name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

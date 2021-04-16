@@ -6,11 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-<<<<<<< HEAD
-from .. import _utilities, _tables
-=======
 from .. import _utilities
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -115,8 +111,6 @@ class VpnGatewayConnectionArgs:
     @routings.setter
     def routings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionRoutingArgs']]]]):
         pulumi.set(self, "routings", value)
-<<<<<<< HEAD
-=======
 
 
 @pulumi.input_type
@@ -221,7 +215,6 @@ class _VpnGatewayConnectionState:
     @vpn_links.setter
     def vpn_links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkArgs']]]]):
         pulumi.set(self, "vpn_links", value)
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class VpnGatewayConnection(pulumi.CustomResource):
@@ -235,9 +228,7 @@ class VpnGatewayConnection(pulumi.CustomResource):
                  routings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayConnectionRoutingArgs']]]]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None,
                  vpn_links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayConnectionVpnLinkArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a VPN Gateway Connection.
 
@@ -296,15 +287,7 @@ class VpnGatewayConnection(pulumi.CustomResource):
                  routings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayConnectionRoutingArgs']]]]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None,
                  vpn_links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayConnectionVpnLinkArgs']]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

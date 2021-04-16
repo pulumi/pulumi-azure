@@ -6,11 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-<<<<<<< HEAD
-from .. import _utilities, _tables
-=======
 from .. import _utilities
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -180,8 +176,6 @@ class VirtualNetworkArgs:
     @vm_protection_enabled.setter
     def vm_protection_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "vm_protection_enabled", value)
-<<<<<<< HEAD
-=======
 
 
 @pulumi.input_type
@@ -366,7 +360,6 @@ class _VirtualNetworkState:
     @vm_protection_enabled.setter
     def vm_protection_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "vm_protection_enabled", value)
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class VirtualNetwork(pulumi.CustomResource):
@@ -384,9 +377,7 @@ class VirtualNetwork(pulumi.CustomResource):
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkSubnetArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vm_protection_enabled: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a virtual network including any configured subnets. Each subnet can
         optionally be configured with a security group to be associated with the subnet.
@@ -553,15 +544,7 @@ class VirtualNetwork(pulumi.CustomResource):
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkSubnetArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vm_protection_enabled: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

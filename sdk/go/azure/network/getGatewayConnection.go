@@ -92,8 +92,8 @@ type GetGatewayConnectionResult struct {
 	// The shared IPSec key.
 	SharedKey string `pulumi:"sharedKey"`
 	// A mapping of tags to assign to the resource.
-	Tags                  map[string]string                         `pulumi:"tags"`
-	TrafficSelectorPolicy GetGatewayConnectionTrafficSelectorPolicy `pulumi:"trafficSelectorPolicy"`
+	Tags                    map[string]string                           `pulumi:"tags"`
+	TrafficSelectorPolicies []GetGatewayConnectionTrafficSelectorPolicy `pulumi:"trafficSelectorPolicies"`
 	// The type of connection. Valid options are `IPsec`
 	// (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
 	Type string `pulumi:"type"`

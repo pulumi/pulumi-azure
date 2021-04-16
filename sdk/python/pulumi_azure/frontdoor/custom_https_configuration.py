@@ -6,11 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-<<<<<<< HEAD
-from .. import _utilities, _tables
-=======
 from .. import _utilities
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -83,8 +79,6 @@ class CustomHttpsConfigurationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_group_name", value)
-<<<<<<< HEAD
-=======
 
 
 @pulumi.input_type
@@ -156,7 +150,6 @@ class _CustomHttpsConfigurationState:
     @resource_group_name.setter
     def resource_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_group_name", value)
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class CustomHttpsConfiguration(pulumi.CustomResource):
@@ -168,9 +161,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
                  custom_https_provisioning_enabled: Optional[pulumi.Input[bool]] = None,
                  frontend_endpoint_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         ## Import
 
@@ -193,81 +184,6 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
                  args: CustomHttpsConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-<<<<<<< HEAD
-=======
-        Manages the Custom Https Configuration for an Azure Front Door Frontend Endpoint..
-
-        > **NOTE:** Custom https configurations for a Front Door Frontend Endpoint can be defined both within the `frontdoor.Frontdoor` resource via the `custom_https_configuration` block and by using a separate resource, as described in the following sections.
-
-        > **NOTE:** Defining custom https configurations using a separate `frontdoor.CustomHttpsConfiguration` resource allows for parallel creation/update.
-
-        > **NOTE:** UPCOMING BREAKING CHANGE: In order to address the ordering issue we have changed the design on how to retrieve existing sub resources such as frontend endpoints. Existing design will be deprecated and will result in an incorrect configuration. Please refer to the updated documentation below for more information.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        vault = azure.keyvault.get_key_vault(name="example-vault",
-            resource_group_name="example-vault-rg")
-        example_frontdoor = azure.frontdoor.Frontdoor("exampleFrontdoor",
-            resource_group_name=example_resource_group.name,
-            enforce_backend_pools_certificate_name_check=False,
-            routing_rules=[azure.frontdoor.FrontdoorRoutingRuleArgs(
-                name="exampleRoutingRule1",
-                accepted_protocols=[
-                    "Http",
-                    "Https",
-                ],
-                patterns_to_matches=["/*"],
-                frontend_endpoints=["exampleFrontendEndpoint1"],
-                forwarding_configuration=azure.frontdoor.FrontdoorRoutingRuleForwardingConfigurationArgs(
-                    forwarding_protocol="MatchRequest",
-                    backend_pool_name="exampleBackendBing",
-                ),
-            )],
-            backend_pool_load_balancings=[azure.frontdoor.FrontdoorBackendPoolLoadBalancingArgs(
-                name="exampleLoadBalancingSettings1",
-            )],
-            backend_pool_health_probes=[azure.frontdoor.FrontdoorBackendPoolHealthProbeArgs(
-                name="exampleHealthProbeSetting1",
-            )],
-            backend_pools=[azure.frontdoor.FrontdoorBackendPoolArgs(
-                name="exampleBackendBing",
-                backends=[azure.frontdoor.FrontdoorBackendPoolBackendArgs(
-                    host_header="www.bing.com",
-                    address="www.bing.com",
-                    http_port=80,
-                    https_port=443,
-                )],
-                load_balancing_name="exampleLoadBalancingSettings1",
-                health_probe_name="exampleHealthProbeSetting1",
-            )],
-            frontend_endpoints=[
-                azure.frontdoor.FrontdoorFrontendEndpointArgs(
-                    name="exampleFrontendEndpoint1",
-                    host_name="example-FrontDoor.azurefd.net",
-                ),
-                azure.frontdoor.FrontdoorFrontendEndpointArgs(
-                    name="exampleFrontendEndpoint2",
-                    host_name="examplefd1.examplefd.net",
-                ),
-            ])
-        example_custom_https0 = azure.frontdoor.CustomHttpsConfiguration("exampleCustomHttps0",
-            frontend_endpoint_id=example_frontdoor.frontend_endpoints_map["exampleFrontendEndpoint1"],
-            custom_https_provisioning_enabled=False)
-        example_custom_https1 = azure.frontdoor.CustomHttpsConfiguration("exampleCustomHttps1",
-            frontend_endpoint_id=example_frontdoor.frontend_endpoints_map["exampleFrontendEndpoint2"],
-            custom_https_provisioning_enabled=True,
-            custom_https_configuration=azure.frontdoor.CustomHttpsConfigurationCustomHttpsConfigurationArgs(
-                certificate_source="AzureKeyVault",
-                azure_key_vault_certificate_secret_name="examplefd1",
-                azure_key_vault_certificate_secret_version="ec8d0737e0df4f4gb52ecea858e97a73",
-                azure_key_vault_certificate_vault_id=vault.id,
-            ))
-        ```
-
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
         ## Import
 
         Front Door Custom Https Configurations can be imported using the `resource id` of the Frontend Endpoint, e.g.
@@ -295,15 +211,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
                  custom_https_provisioning_enabled: Optional[pulumi.Input[bool]] = None,
                  frontend_endpoint_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

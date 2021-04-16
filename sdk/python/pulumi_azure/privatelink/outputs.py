@@ -6,11 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-<<<<<<< HEAD
-from .. import _utilities, _tables
-=======
 from .. import _utilities
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 
 __all__ = [
@@ -295,6 +291,8 @@ class EndpointPrivateServiceConnection(dict):
         suggest = None
         if key == "isManualConnection":
             suggest = "is_manual_connection"
+        elif key == "privateConnectionResourceAlias":
+            suggest = "private_connection_resource_alias"
         elif key == "privateConnectionResourceId":
             suggest = "private_connection_resource_id"
         elif key == "privateIpAddress":

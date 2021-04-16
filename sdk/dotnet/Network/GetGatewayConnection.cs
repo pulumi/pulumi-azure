@@ -136,7 +136,7 @@ namespace Pulumi.Azure.Network
         /// A mapping of tags to assign to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
-        public readonly Outputs.GetGatewayConnectionTrafficSelectorPolicyResult TrafficSelectorPolicy;
+        public readonly ImmutableArray<Outputs.GetGatewayConnectionTrafficSelectorPolicyResult> TrafficSelectorPolicies;
         /// <summary>
         /// The type of connection. Valid options are `IPsec`
         /// (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
@@ -196,7 +196,7 @@ namespace Pulumi.Azure.Network
 
             ImmutableDictionary<string, string> tags,
 
-            Outputs.GetGatewayConnectionTrafficSelectorPolicyResult trafficSelectorPolicy,
+            ImmutableArray<Outputs.GetGatewayConnectionTrafficSelectorPolicyResult> trafficSelectorPolicies,
 
             string type,
 
@@ -224,7 +224,7 @@ namespace Pulumi.Azure.Network
             RoutingWeight = routingWeight;
             SharedKey = sharedKey;
             Tags = tags;
-            TrafficSelectorPolicy = trafficSelectorPolicy;
+            TrafficSelectorPolicies = trafficSelectorPolicies;
             Type = type;
             UsePolicyBasedTrafficSelectors = usePolicyBasedTrafficSelectors;
             VirtualNetworkGatewayId = virtualNetworkGatewayId;

@@ -6,11 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-<<<<<<< HEAD
-from .. import _utilities, _tables
-=======
 from .. import _utilities
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -22,15 +18,8 @@ class PolicyArgs:
                  managed_rules: pulumi.Input['PolicyManagedRulesArgs'],
                  resource_group_name: pulumi.Input[str],
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleArgs']]]] = None,
-<<<<<<< HEAD
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-=======
-                 http_listener_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 path_based_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
                  policy_settings: Optional[pulumi.Input['PolicyPolicySettingsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -38,15 +27,8 @@ class PolicyArgs:
         :param pulumi.Input['PolicyManagedRulesArgs'] managed_rules: A `managed_rules` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleArgs']]] custom_rules: One or more `custom_rules` blocks as defined below.
-<<<<<<< HEAD
         :param pulumi.Input[str] location: Resource location. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.
-=======
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] http_listener_ids: A list of HTTP Listener IDs from an `network.ApplicationGateway`.
-        :param pulumi.Input[str] location: Resource location. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] path_based_rule_ids: A list of URL Path Map Path Rule IDs from an `network.ApplicationGateway`.
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
         :param pulumi.Input['PolicyPolicySettingsArgs'] policy_settings: A `policy_settings` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Web Application Firewall Policy.
         """
@@ -54,20 +36,10 @@ class PolicyArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if custom_rules is not None:
             pulumi.set(__self__, "custom_rules", custom_rules)
-<<<<<<< HEAD
-=======
-        if http_listener_ids is not None:
-            pulumi.set(__self__, "http_listener_ids", http_listener_ids)
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
-<<<<<<< HEAD
-=======
-        if path_based_rule_ids is not None:
-            pulumi.set(__self__, "path_based_rule_ids", path_based_rule_ids)
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
         if policy_settings is not None:
             pulumi.set(__self__, "policy_settings", policy_settings)
         if tags is not None:
@@ -110,20 +82,6 @@ class PolicyArgs:
         pulumi.set(self, "custom_rules", value)
 
     @property
-<<<<<<< HEAD
-=======
-    @pulumi.getter(name="httpListenerIds")
-    def http_listener_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of HTTP Listener IDs from an `network.ApplicationGateway`.
-        """
-        return pulumi.get(self, "http_listener_ids")
-
-    @http_listener_ids.setter
-    def http_listener_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "http_listener_ids", value)
-
-    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -146,18 +104,6 @@ class PolicyArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="pathBasedRuleIds")
-    def path_based_rule_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of URL Path Map Path Rule IDs from an `network.ApplicationGateway`.
-        """
-        return pulumi.get(self, "path_based_rule_ids")
-
-    @path_based_rule_ids.setter
-    def path_based_rule_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "path_based_rule_ids", value)
 
     @property
     @pulumi.getter(name="policySettings")
@@ -252,7 +198,6 @@ class _PolicyState:
         pulumi.set(self, "http_listener_ids", value)
 
     @property
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -265,8 +210,6 @@ class _PolicyState:
         pulumi.set(self, "location", value)
 
     @property
-<<<<<<< HEAD
-=======
     @pulumi.getter(name="managedRules")
     def managed_rules(self) -> Optional[pulumi.Input['PolicyManagedRulesArgs']]:
         """
@@ -279,7 +222,6 @@ class _PolicyState:
         pulumi.set(self, "managed_rules", value)
 
     @property
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -292,8 +234,6 @@ class _PolicyState:
         pulumi.set(self, "name", value)
 
     @property
-<<<<<<< HEAD
-=======
     @pulumi.getter(name="pathBasedRuleIds")
     def path_based_rule_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -306,7 +246,6 @@ class _PolicyState:
         pulumi.set(self, "path_based_rule_ids", value)
 
     @property
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
     @pulumi.getter(name="policySettings")
     def policy_settings(self) -> Optional[pulumi.Input['PolicyPolicySettingsArgs']]:
         """
@@ -319,8 +258,6 @@ class _PolicyState:
         pulumi.set(self, "policy_settings", value)
 
     @property
-<<<<<<< HEAD
-=======
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -333,7 +270,6 @@ class _PolicyState:
         pulumi.set(self, "resource_group_name", value)
 
     @property
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -358,9 +294,7 @@ class Policy(pulumi.CustomResource):
                  policy_settings: Optional[pulumi.Input[pulumi.InputType['PolicyPolicySettingsArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a Azure Web Application Firewall Policy instance.
 
@@ -591,29 +525,13 @@ class Policy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyCustomRuleArgs']]]]] = None,
-<<<<<<< HEAD
                  location: Optional[pulumi.Input[str]] = None,
                  managed_rules: Optional[pulumi.Input[pulumi.InputType['PolicyManagedRulesArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-=======
-                 http_listener_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 location: Optional[pulumi.Input[str]] = None,
-                 managed_rules: Optional[pulumi.Input[pulumi.InputType['PolicyManagedRulesArgs']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 path_based_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
                  policy_settings: Optional[pulumi.Input[pulumi.InputType['PolicyPolicySettingsArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -625,35 +543,19 @@ class Policy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PolicyArgs.__new__(PolicyArgs)
 
-<<<<<<< HEAD
-            __props__['custom_rules'] = custom_rules
-            __props__['location'] = location
-            if managed_rules is None and not opts.urn:
-                raise TypeError("Missing required property 'managed_rules'")
-            __props__['managed_rules'] = managed_rules
-            __props__['name'] = name
-            __props__['policy_settings'] = policy_settings
-            if resource_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_group_name'")
-            __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
-            __props__['http_listener_ids'] = None
-            __props__['path_based_rule_ids'] = None
-=======
             __props__.__dict__["custom_rules"] = custom_rules
-            __props__.__dict__["http_listener_ids"] = http_listener_ids
             __props__.__dict__["location"] = location
             if managed_rules is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_rules'")
             __props__.__dict__["managed_rules"] = managed_rules
             __props__.__dict__["name"] = name
-            __props__.__dict__["path_based_rule_ids"] = path_based_rule_ids
             __props__.__dict__["policy_settings"] = policy_settings
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
+            __props__.__dict__["http_listener_ids"] = None
+            __props__.__dict__["path_based_rule_ids"] = None
         super(Policy, __self__).__init__(
             'azure:waf/policy:Policy',
             resource_name,

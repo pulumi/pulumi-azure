@@ -6,113 +6,6 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-<<<<<<< HEAD
-from .. import _utilities, _tables
-
-__all__ = ['NamespaceAuthorizationRuleArgs', 'NamespaceAuthorizationRule']
-
-@pulumi.input_type
-class NamespaceAuthorizationRuleArgs:
-    def __init__(__self__, *,
-                 namespace_name: pulumi.Input[str],
-                 resource_group_name: pulumi.Input[str],
-                 listen: Optional[pulumi.Input[bool]] = None,
-                 manage: Optional[pulumi.Input[bool]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 send: Optional[pulumi.Input[bool]] = None):
-        """
-        The set of arguments for constructing a NamespaceAuthorizationRule resource.
-        :param pulumi.Input[str] namespace_name: Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] listen: Grants listen access to this this Authorization Rule. Defaults to `false`.
-        :param pulumi.Input[bool] manage: Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
-        :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] send: Grants send access to this this Authorization Rule. Defaults to `false`.
-        """
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if listen is not None:
-            pulumi.set(__self__, "listen", listen)
-        if manage is not None:
-            pulumi.set(__self__, "manage", manage)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if send is not None:
-            pulumi.set(__self__, "send", send)
-
-    @property
-    @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> pulumi.Input[str]:
-        """
-        Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "namespace_name")
-
-    @namespace_name.setter
-    def namespace_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "namespace_name", value)
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Input[str]:
-        """
-        The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter
-    def listen(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Grants listen access to this this Authorization Rule. Defaults to `false`.
-        """
-        return pulumi.get(self, "listen")
-
-    @listen.setter
-    def listen(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "listen", value)
-
-    @property
-    @pulumi.getter
-    def manage(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
-        """
-        return pulumi.get(self, "manage")
-
-    @manage.setter
-    def manage(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "manage", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def send(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Grants send access to this this Authorization Rule. Defaults to `false`.
-        """
-        return pulumi.get(self, "send")
-
-    @send.setter
-    def send(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "send", value)
-
-=======
 from .. import _utilities
 
 __all__ = ['NamespaceAuthorizationRuleArgs', 'NamespaceAuthorizationRule']
@@ -386,7 +279,6 @@ class _NamespaceAuthorizationRuleState:
     def send(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "send", value)
 
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 warnings.warn("""azure.eventhub.NamespaceAuthorizationRule has been deprecated in favor of azure.servicebus.NamespaceAuthorizationRule""", DeprecationWarning)
 
@@ -404,9 +296,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  send: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a ServiceBus Namespace authorization Rule within a ServiceBus.
 
@@ -509,16 +399,8 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  send: Optional[pulumi.Input[bool]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         pulumi.log.warn("""NamespaceAuthorizationRule is deprecated: azure.eventhub.NamespaceAuthorizationRule has been deprecated in favor of azure.servicebus.NamespaceAuthorizationRule""")
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

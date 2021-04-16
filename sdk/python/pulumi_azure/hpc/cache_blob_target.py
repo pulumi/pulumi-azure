@@ -6,11 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-<<<<<<< HEAD
-from .. import _utilities, _tables
-=======
 from .. import _utilities
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['CacheBlobTargetArgs', 'CacheBlobTarget']
 
@@ -29,11 +25,7 @@ class CacheBlobTargetArgs:
         :param pulumi.Input[str] namespace_path: The client-facing file path of the HPC Cache Blob Target.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the HPC Cache Blob Target. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_container_id: The Resource Manager ID of the Storage Container used as the HPC Cache Blob Target. Changing this forces a new resource to be created.
-<<<<<<< HEAD
         :param pulumi.Input[str] access_policy_name: The name of the access policy applied to this target. Defaults to `default`.
-=======
-        :param pulumi.Input[str] access_policy_name: The name of the access policy applied to this target.
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
         :param pulumi.Input[str] name: The name of the HPC Cache Blob Target. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "cache_name", cache_name)
@@ -97,11 +89,7 @@ class CacheBlobTargetArgs:
     @pulumi.getter(name="accessPolicyName")
     def access_policy_name(self) -> Optional[pulumi.Input[str]]:
         """
-<<<<<<< HEAD
         The name of the access policy applied to this target. Defaults to `default`.
-=======
-        The name of the access policy applied to this target.
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
         """
         return pulumi.get(self, "access_policy_name")
 
@@ -120,8 +108,6 @@ class CacheBlobTargetArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-<<<<<<< HEAD
-=======
 
 
 @pulumi.input_type
@@ -135,7 +121,7 @@ class _CacheBlobTargetState:
                  storage_container_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering CacheBlobTarget resources.
-        :param pulumi.Input[str] access_policy_name: The name of the access policy applied to this target.
+        :param pulumi.Input[str] access_policy_name: The name of the access policy applied to this target. Defaults to `default`.
         :param pulumi.Input[str] cache_name: The name HPC Cache, which the HPC Cache Blob Target will be added to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the HPC Cache Blob Target. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_path: The client-facing file path of the HPC Cache Blob Target.
@@ -159,7 +145,7 @@ class _CacheBlobTargetState:
     @pulumi.getter(name="accessPolicyName")
     def access_policy_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the access policy applied to this target.
+        The name of the access policy applied to this target. Defaults to `default`.
         """
         return pulumi.get(self, "access_policy_name")
 
@@ -226,7 +212,6 @@ class _CacheBlobTargetState:
     @storage_container_id.setter
     def storage_container_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_container_id", value)
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class CacheBlobTarget(pulumi.CustomResource):
@@ -240,9 +225,7 @@ class CacheBlobTarget(pulumi.CustomResource):
                  namespace_path: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_container_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a Blob Target within a HPC Cache.
 
@@ -393,15 +376,7 @@ class CacheBlobTarget(pulumi.CustomResource):
                  namespace_path: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_container_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

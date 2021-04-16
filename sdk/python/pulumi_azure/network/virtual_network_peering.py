@@ -6,11 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-<<<<<<< HEAD
-from .. import _utilities, _tables
-=======
 from .. import _utilities
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 __all__ = ['VirtualNetworkPeeringArgs', 'VirtualNetworkPeering']
 
@@ -173,8 +169,6 @@ class VirtualNetworkPeeringArgs:
     @use_remote_gateways.setter
     def use_remote_gateways(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_remote_gateways", value)
-<<<<<<< HEAD
-=======
 
 
 @pulumi.input_type
@@ -339,7 +333,6 @@ class _VirtualNetworkPeeringState:
     @virtual_network_name.setter
     def virtual_network_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_network_name", value)
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 
 class VirtualNetworkPeering(pulumi.CustomResource):
@@ -355,9 +348,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  use_remote_gateways: Optional[pulumi.Input[bool]] = None,
                  virtual_network_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a virtual network peering which allows resources to access other
         resources in the linked virtual network.
@@ -492,15 +483,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  use_remote_gateways: Optional[pulumi.Input[bool]] = None,
                  virtual_network_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
+                 __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

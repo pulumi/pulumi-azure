@@ -6,11 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-<<<<<<< HEAD
-from .. import _utilities, _tables
-=======
 from .. import _utilities
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 from . import outputs
 from ._inputs import *
 
@@ -162,8 +158,6 @@ class SubscriptionRuleArgs:
     def sql_filter(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sql_filter", value)
 
-<<<<<<< HEAD
-=======
 
 @pulumi.input_type
 class _SubscriptionRuleState:
@@ -316,7 +310,6 @@ class _SubscriptionRuleState:
     def topic_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "topic_name", value)
 
->>>>>>> ed9ee682f (Upgrade to Pulumi v3.0.0-beta.2)
 
 warnings.warn("""azure.eventhub.SubscriptionRule has been deprecated in favor of azure.servicebus.SubscriptionRule""", DeprecationWarning)
 
@@ -337,9 +330,7 @@ class SubscriptionRule(pulumi.CustomResource):
                  sql_filter: Optional[pulumi.Input[str]] = None,
                  subscription_name: Optional[pulumi.Input[str]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a ServiceBus Subscription Rule.
 
@@ -544,16 +535,8 @@ class SubscriptionRule(pulumi.CustomResource):
                  sql_filter: Optional[pulumi.Input[str]] = None,
                  subscription_name: Optional[pulumi.Input[str]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         pulumi.log.warn("""SubscriptionRule is deprecated: azure.eventhub.SubscriptionRule has been deprecated in favor of azure.servicebus.SubscriptionRule""")
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
