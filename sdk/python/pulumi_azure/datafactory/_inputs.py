@@ -34,6 +34,10 @@ __all__ = [
     'IntegrationRuntimeSsisCatalogInfoArgs',
     'IntegrationRuntimeSsisCustomSetupScriptArgs',
     'IntegrationRuntimeSsisVnetIntegrationArgs',
+    'LinkedServiceAzureDatabricksInstancePoolArgs',
+    'LinkedServiceAzureDatabricksKeyVaultPasswordArgs',
+    'LinkedServiceAzureDatabricksNewClusterConfigArgs',
+    'LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs',
     'LinkedServiceSnowflakeKeyVaultPasswordArgs',
     'LinkedServiceSqlServerKeyVaultPasswordArgs',
     'LinkedServiceSynapseKeyVaultPasswordArgs',
@@ -1378,6 +1382,314 @@ class IntegrationRuntimeSsisVnetIntegrationArgs:
     @vnet_id.setter
     def vnet_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "vnet_id", value)
+
+
+@pulumi.input_type
+class LinkedServiceAzureDatabricksInstancePoolArgs:
+    def __init__(__self__, *,
+                 cluster_version: pulumi.Input[str],
+                 instance_pool_id: pulumi.Input[str],
+                 max_number_of_workers: Optional[pulumi.Input[int]] = None,
+                 min_number_of_workers: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] cluster_version: Spark version of a the cluster.
+        :param pulumi.Input[str] instance_pool_id: Identifier of the instance pool within the linked ADB instance.
+        :param pulumi.Input[int] max_number_of_workers: The max number of worker nodes. Set this value if you want to enable autoscaling between the `min_number_of_workers` and this value. Omit this value to use a fixed number of workers defined in the `min_number_of_workers` property.
+        :param pulumi.Input[int] min_number_of_workers: The minimum number of worker nodes. Defaults to 1.
+        """
+        pulumi.set(__self__, "cluster_version", cluster_version)
+        pulumi.set(__self__, "instance_pool_id", instance_pool_id)
+        if max_number_of_workers is not None:
+            pulumi.set(__self__, "max_number_of_workers", max_number_of_workers)
+        if min_number_of_workers is not None:
+            pulumi.set(__self__, "min_number_of_workers", min_number_of_workers)
+
+    @property
+    @pulumi.getter(name="clusterVersion")
+    def cluster_version(self) -> pulumi.Input[str]:
+        """
+        Spark version of a the cluster.
+        """
+        return pulumi.get(self, "cluster_version")
+
+    @cluster_version.setter
+    def cluster_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_version", value)
+
+    @property
+    @pulumi.getter(name="instancePoolId")
+    def instance_pool_id(self) -> pulumi.Input[str]:
+        """
+        Identifier of the instance pool within the linked ADB instance.
+        """
+        return pulumi.get(self, "instance_pool_id")
+
+    @instance_pool_id.setter
+    def instance_pool_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "instance_pool_id", value)
+
+    @property
+    @pulumi.getter(name="maxNumberOfWorkers")
+    def max_number_of_workers(self) -> Optional[pulumi.Input[int]]:
+        """
+        The max number of worker nodes. Set this value if you want to enable autoscaling between the `min_number_of_workers` and this value. Omit this value to use a fixed number of workers defined in the `min_number_of_workers` property.
+        """
+        return pulumi.get(self, "max_number_of_workers")
+
+    @max_number_of_workers.setter
+    def max_number_of_workers(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_number_of_workers", value)
+
+    @property
+    @pulumi.getter(name="minNumberOfWorkers")
+    def min_number_of_workers(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum number of worker nodes. Defaults to 1.
+        """
+        return pulumi.get(self, "min_number_of_workers")
+
+    @min_number_of_workers.setter
+    def min_number_of_workers(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_number_of_workers", value)
+
+
+@pulumi.input_type
+class LinkedServiceAzureDatabricksKeyVaultPasswordArgs:
+    def __init__(__self__, *,
+                 linked_service_name: pulumi.Input[str],
+                 secret_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
+        :param pulumi.Input[str] secret_name: Specifies the secret name in Azure Key Vault that stores ADB access token.
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "linked_service_name", value)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the secret name in Azure Key Vault that stores ADB access token.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @secret_name.setter
+    def secret_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret_name", value)
+
+
+@pulumi.input_type
+class LinkedServiceAzureDatabricksNewClusterConfigArgs:
+    def __init__(__self__, *,
+                 cluster_version: pulumi.Input[str],
+                 node_type: pulumi.Input[str],
+                 custom_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 driver_node_type: Optional[pulumi.Input[str]] = None,
+                 init_scripts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 log_destination: Optional[pulumi.Input[str]] = None,
+                 max_number_of_workers: Optional[pulumi.Input[int]] = None,
+                 min_number_of_workers: Optional[pulumi.Input[int]] = None,
+                 spark_config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 spark_environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] cluster_version: Spark version of a the cluster.
+        :param pulumi.Input[str] node_type: Node type for the new cluster.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_tags: Tags for the cluster resource.
+        :param pulumi.Input[str] driver_node_type: Driver node type for the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] init_scripts: User defined initialization scripts for the cluster.
+        :param pulumi.Input[str] log_destination: Location to deliver Spark driver, worker, and event logs.
+        :param pulumi.Input[int] max_number_of_workers: The max number of worker nodes. Set this value if you want to enable autoscaling between the `min_number_of_workers` and this value. Omit this value to use a fixed number of workers defined in the `min_number_of_workers` property.
+        :param pulumi.Input[int] min_number_of_workers: The minimum number of worker nodes. Defaults to 1.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] spark_config: User-specified Spark configuration variables key-value pairs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] spark_environment_variables: User-specified Spark environment variables key-value pairs.
+        """
+        pulumi.set(__self__, "cluster_version", cluster_version)
+        pulumi.set(__self__, "node_type", node_type)
+        if custom_tags is not None:
+            pulumi.set(__self__, "custom_tags", custom_tags)
+        if driver_node_type is not None:
+            pulumi.set(__self__, "driver_node_type", driver_node_type)
+        if init_scripts is not None:
+            pulumi.set(__self__, "init_scripts", init_scripts)
+        if log_destination is not None:
+            pulumi.set(__self__, "log_destination", log_destination)
+        if max_number_of_workers is not None:
+            pulumi.set(__self__, "max_number_of_workers", max_number_of_workers)
+        if min_number_of_workers is not None:
+            pulumi.set(__self__, "min_number_of_workers", min_number_of_workers)
+        if spark_config is not None:
+            pulumi.set(__self__, "spark_config", spark_config)
+        if spark_environment_variables is not None:
+            pulumi.set(__self__, "spark_environment_variables", spark_environment_variables)
+
+    @property
+    @pulumi.getter(name="clusterVersion")
+    def cluster_version(self) -> pulumi.Input[str]:
+        """
+        Spark version of a the cluster.
+        """
+        return pulumi.get(self, "cluster_version")
+
+    @cluster_version.setter
+    def cluster_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_version", value)
+
+    @property
+    @pulumi.getter(name="nodeType")
+    def node_type(self) -> pulumi.Input[str]:
+        """
+        Node type for the new cluster.
+        """
+        return pulumi.get(self, "node_type")
+
+    @node_type.setter
+    def node_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "node_type", value)
+
+    @property
+    @pulumi.getter(name="customTags")
+    def custom_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tags for the cluster resource.
+        """
+        return pulumi.get(self, "custom_tags")
+
+    @custom_tags.setter
+    def custom_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "custom_tags", value)
+
+    @property
+    @pulumi.getter(name="driverNodeType")
+    def driver_node_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Driver node type for the cluster.
+        """
+        return pulumi.get(self, "driver_node_type")
+
+    @driver_node_type.setter
+    def driver_node_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "driver_node_type", value)
+
+    @property
+    @pulumi.getter(name="initScripts")
+    def init_scripts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        User defined initialization scripts for the cluster.
+        """
+        return pulumi.get(self, "init_scripts")
+
+    @init_scripts.setter
+    def init_scripts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "init_scripts", value)
+
+    @property
+    @pulumi.getter(name="logDestination")
+    def log_destination(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location to deliver Spark driver, worker, and event logs.
+        """
+        return pulumi.get(self, "log_destination")
+
+    @log_destination.setter
+    def log_destination(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_destination", value)
+
+    @property
+    @pulumi.getter(name="maxNumberOfWorkers")
+    def max_number_of_workers(self) -> Optional[pulumi.Input[int]]:
+        """
+        The max number of worker nodes. Set this value if you want to enable autoscaling between the `min_number_of_workers` and this value. Omit this value to use a fixed number of workers defined in the `min_number_of_workers` property.
+        """
+        return pulumi.get(self, "max_number_of_workers")
+
+    @max_number_of_workers.setter
+    def max_number_of_workers(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_number_of_workers", value)
+
+    @property
+    @pulumi.getter(name="minNumberOfWorkers")
+    def min_number_of_workers(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum number of worker nodes. Defaults to 1.
+        """
+        return pulumi.get(self, "min_number_of_workers")
+
+    @min_number_of_workers.setter
+    def min_number_of_workers(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_number_of_workers", value)
+
+    @property
+    @pulumi.getter(name="sparkConfig")
+    def spark_config(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        User-specified Spark configuration variables key-value pairs.
+        """
+        return pulumi.get(self, "spark_config")
+
+    @spark_config.setter
+    def spark_config(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "spark_config", value)
+
+    @property
+    @pulumi.getter(name="sparkEnvironmentVariables")
+    def spark_environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        User-specified Spark environment variables key-value pairs.
+        """
+        return pulumi.get(self, "spark_environment_variables")
+
+    @spark_environment_variables.setter
+    def spark_environment_variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "spark_environment_variables", value)
+
+
+@pulumi.input_type
+class LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs:
+    def __init__(__self__, *,
+                 linked_service_name: pulumi.Input[str],
+                 secret_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
+        :param pulumi.Input[str] secret_name: Specifies the secret name in Azure Key Vault that stores SQL Server password.
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "linked_service_name", value)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the secret name in Azure Key Vault that stores SQL Server password.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @secret_name.setter
+    def secret_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret_name", value)
 
 
 @pulumi.input_type

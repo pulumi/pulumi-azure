@@ -78,6 +78,18 @@ namespace Pulumi.Azure.Monitoring.Inputs
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }
 
+        [Input("serviceHealths")]
+        private InputList<Inputs.ActivityLogAlertCriteriaServiceHealthGetArgs>? _serviceHealths;
+
+        /// <summary>
+        /// A block to define fine grain service health settings.
+        /// </summary>
+        public InputList<Inputs.ActivityLogAlertCriteriaServiceHealthGetArgs> ServiceHealths
+        {
+            get => _serviceHealths ?? (_serviceHealths = new InputList<Inputs.ActivityLogAlertCriteriaServiceHealthGetArgs>());
+            set => _serviceHealths = value;
+        }
+
         /// <summary>
         /// The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
         /// </summary>

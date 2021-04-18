@@ -30,6 +30,10 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? BackendHttpSettingsName;
         /// <summary>
+        /// The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+        /// </summary>
+        public readonly string? FirewallPolicyId;
+        /// <summary>
         /// The ID of the Rewrite Rule Set
         /// </summary>
         public readonly string? Id;
@@ -68,6 +72,8 @@ namespace Pulumi.Azure.Network.Outputs
 
             string? backendHttpSettingsName,
 
+            string? firewallPolicyId,
+
             string? id,
 
             string name,
@@ -86,6 +92,7 @@ namespace Pulumi.Azure.Network.Outputs
             BackendAddressPoolName = backendAddressPoolName;
             BackendHttpSettingsId = backendHttpSettingsId;
             BackendHttpSettingsName = backendHttpSettingsName;
+            FirewallPolicyId = firewallPolicyId;
             Id = id;
             Name = name;
             Paths = paths;

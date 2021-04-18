@@ -4807,6 +4807,8 @@ type ActivityLogAlertCriteria struct {
 	ResourceProvider *string `pulumi:"resourceProvider"`
 	// The resource type monitored by the activity log alert.
 	ResourceType *string `pulumi:"resourceType"`
+	// A block to define fine grain service health settings.
+	ServiceHealths []ActivityLogAlertCriteriaServiceHealth `pulumi:"serviceHealths"`
 	// The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
 	Status *string `pulumi:"status"`
 	// The sub status of the event.
@@ -4847,6 +4849,8 @@ type ActivityLogAlertCriteriaArgs struct {
 	ResourceProvider pulumi.StringPtrInput `pulumi:"resourceProvider"`
 	// The resource type monitored by the activity log alert.
 	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
+	// A block to define fine grain service health settings.
+	ServiceHealths ActivityLogAlertCriteriaServiceHealthArrayInput `pulumi:"serviceHealths"`
 	// The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
 	// The sub status of the event.
@@ -4983,6 +4987,11 @@ func (o ActivityLogAlertCriteriaOutput) ResourceProvider() pulumi.StringPtrOutpu
 // The resource type monitored by the activity log alert.
 func (o ActivityLogAlertCriteriaOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteria) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+// A block to define fine grain service health settings.
+func (o ActivityLogAlertCriteriaOutput) ServiceHealths() ActivityLogAlertCriteriaServiceHealthArrayOutput {
+	return o.ApplyT(func(v ActivityLogAlertCriteria) []ActivityLogAlertCriteriaServiceHealth { return v.ServiceHealths }).(ActivityLogAlertCriteriaServiceHealthArrayOutput)
 }
 
 // The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
@@ -5123,6 +5132,16 @@ func (o ActivityLogAlertCriteriaPtrOutput) ResourceType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// A block to define fine grain service health settings.
+func (o ActivityLogAlertCriteriaPtrOutput) ServiceHealths() ActivityLogAlertCriteriaServiceHealthArrayOutput {
+	return o.ApplyT(func(v *ActivityLogAlertCriteria) []ActivityLogAlertCriteriaServiceHealth {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceHealths
+	}).(ActivityLogAlertCriteriaServiceHealthArrayOutput)
+}
+
 // The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
 func (o ActivityLogAlertCriteriaPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActivityLogAlertCriteria) *string {
@@ -5141,6 +5160,121 @@ func (o ActivityLogAlertCriteriaPtrOutput) SubStatus() pulumi.StringPtrOutput {
 		}
 		return v.SubStatus
 	}).(pulumi.StringPtrOutput)
+}
+
+type ActivityLogAlertCriteriaServiceHealth struct {
+	// Events this alert will monitor Possible values are `Incident`, `Maintenance`, `Informational`, and `ActionRequired`.
+	Events []string `pulumi:"events"`
+	// Locations this alert will monitor. For example, `West Europe`. Defaults to `Global`.
+	Locations []string `pulumi:"locations"`
+	// Services this alert will monitor. For example, `Activity Logs & Alerts`, `Action Groups`. Defaults to all Services.
+	Services []string `pulumi:"services"`
+}
+
+// ActivityLogAlertCriteriaServiceHealthInput is an input type that accepts ActivityLogAlertCriteriaServiceHealthArgs and ActivityLogAlertCriteriaServiceHealthOutput values.
+// You can construct a concrete instance of `ActivityLogAlertCriteriaServiceHealthInput` via:
+//
+//          ActivityLogAlertCriteriaServiceHealthArgs{...}
+type ActivityLogAlertCriteriaServiceHealthInput interface {
+	pulumi.Input
+
+	ToActivityLogAlertCriteriaServiceHealthOutput() ActivityLogAlertCriteriaServiceHealthOutput
+	ToActivityLogAlertCriteriaServiceHealthOutputWithContext(context.Context) ActivityLogAlertCriteriaServiceHealthOutput
+}
+
+type ActivityLogAlertCriteriaServiceHealthArgs struct {
+	// Events this alert will monitor Possible values are `Incident`, `Maintenance`, `Informational`, and `ActionRequired`.
+	Events pulumi.StringArrayInput `pulumi:"events"`
+	// Locations this alert will monitor. For example, `West Europe`. Defaults to `Global`.
+	Locations pulumi.StringArrayInput `pulumi:"locations"`
+	// Services this alert will monitor. For example, `Activity Logs & Alerts`, `Action Groups`. Defaults to all Services.
+	Services pulumi.StringArrayInput `pulumi:"services"`
+}
+
+func (ActivityLogAlertCriteriaServiceHealthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActivityLogAlertCriteriaServiceHealth)(nil)).Elem()
+}
+
+func (i ActivityLogAlertCriteriaServiceHealthArgs) ToActivityLogAlertCriteriaServiceHealthOutput() ActivityLogAlertCriteriaServiceHealthOutput {
+	return i.ToActivityLogAlertCriteriaServiceHealthOutputWithContext(context.Background())
+}
+
+func (i ActivityLogAlertCriteriaServiceHealthArgs) ToActivityLogAlertCriteriaServiceHealthOutputWithContext(ctx context.Context) ActivityLogAlertCriteriaServiceHealthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertCriteriaServiceHealthOutput)
+}
+
+// ActivityLogAlertCriteriaServiceHealthArrayInput is an input type that accepts ActivityLogAlertCriteriaServiceHealthArray and ActivityLogAlertCriteriaServiceHealthArrayOutput values.
+// You can construct a concrete instance of `ActivityLogAlertCriteriaServiceHealthArrayInput` via:
+//
+//          ActivityLogAlertCriteriaServiceHealthArray{ ActivityLogAlertCriteriaServiceHealthArgs{...} }
+type ActivityLogAlertCriteriaServiceHealthArrayInput interface {
+	pulumi.Input
+
+	ToActivityLogAlertCriteriaServiceHealthArrayOutput() ActivityLogAlertCriteriaServiceHealthArrayOutput
+	ToActivityLogAlertCriteriaServiceHealthArrayOutputWithContext(context.Context) ActivityLogAlertCriteriaServiceHealthArrayOutput
+}
+
+type ActivityLogAlertCriteriaServiceHealthArray []ActivityLogAlertCriteriaServiceHealthInput
+
+func (ActivityLogAlertCriteriaServiceHealthArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActivityLogAlertCriteriaServiceHealth)(nil)).Elem()
+}
+
+func (i ActivityLogAlertCriteriaServiceHealthArray) ToActivityLogAlertCriteriaServiceHealthArrayOutput() ActivityLogAlertCriteriaServiceHealthArrayOutput {
+	return i.ToActivityLogAlertCriteriaServiceHealthArrayOutputWithContext(context.Background())
+}
+
+func (i ActivityLogAlertCriteriaServiceHealthArray) ToActivityLogAlertCriteriaServiceHealthArrayOutputWithContext(ctx context.Context) ActivityLogAlertCriteriaServiceHealthArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertCriteriaServiceHealthArrayOutput)
+}
+
+type ActivityLogAlertCriteriaServiceHealthOutput struct{ *pulumi.OutputState }
+
+func (ActivityLogAlertCriteriaServiceHealthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActivityLogAlertCriteriaServiceHealth)(nil)).Elem()
+}
+
+func (o ActivityLogAlertCriteriaServiceHealthOutput) ToActivityLogAlertCriteriaServiceHealthOutput() ActivityLogAlertCriteriaServiceHealthOutput {
+	return o
+}
+
+func (o ActivityLogAlertCriteriaServiceHealthOutput) ToActivityLogAlertCriteriaServiceHealthOutputWithContext(ctx context.Context) ActivityLogAlertCriteriaServiceHealthOutput {
+	return o
+}
+
+// Events this alert will monitor Possible values are `Incident`, `Maintenance`, `Informational`, and `ActionRequired`.
+func (o ActivityLogAlertCriteriaServiceHealthOutput) Events() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActivityLogAlertCriteriaServiceHealth) []string { return v.Events }).(pulumi.StringArrayOutput)
+}
+
+// Locations this alert will monitor. For example, `West Europe`. Defaults to `Global`.
+func (o ActivityLogAlertCriteriaServiceHealthOutput) Locations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActivityLogAlertCriteriaServiceHealth) []string { return v.Locations }).(pulumi.StringArrayOutput)
+}
+
+// Services this alert will monitor. For example, `Activity Logs & Alerts`, `Action Groups`. Defaults to all Services.
+func (o ActivityLogAlertCriteriaServiceHealthOutput) Services() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActivityLogAlertCriteriaServiceHealth) []string { return v.Services }).(pulumi.StringArrayOutput)
+}
+
+type ActivityLogAlertCriteriaServiceHealthArrayOutput struct{ *pulumi.OutputState }
+
+func (ActivityLogAlertCriteriaServiceHealthArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActivityLogAlertCriteriaServiceHealth)(nil)).Elem()
+}
+
+func (o ActivityLogAlertCriteriaServiceHealthArrayOutput) ToActivityLogAlertCriteriaServiceHealthArrayOutput() ActivityLogAlertCriteriaServiceHealthArrayOutput {
+	return o
+}
+
+func (o ActivityLogAlertCriteriaServiceHealthArrayOutput) ToActivityLogAlertCriteriaServiceHealthArrayOutputWithContext(ctx context.Context) ActivityLogAlertCriteriaServiceHealthArrayOutput {
+	return o
+}
+
+func (o ActivityLogAlertCriteriaServiceHealthArrayOutput) Index(i pulumi.IntInput) ActivityLogAlertCriteriaServiceHealthOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActivityLogAlertCriteriaServiceHealth {
+		return vs[0].([]ActivityLogAlertCriteriaServiceHealth)[vs[1].(int)]
+	}).(ActivityLogAlertCriteriaServiceHealthOutput)
 }
 
 type AutoscaleSettingNotification struct {
@@ -11246,6 +11380,8 @@ func init() {
 	pulumi.RegisterOutputType(ActivityLogAlertActionArrayOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertCriteriaOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(ActivityLogAlertCriteriaServiceHealthOutput{})
+	pulumi.RegisterOutputType(ActivityLogAlertCriteriaServiceHealthArrayOutput{})
 	pulumi.RegisterOutputType(AutoscaleSettingNotificationOutput{})
 	pulumi.RegisterOutputType(AutoscaleSettingNotificationPtrOutput{})
 	pulumi.RegisterOutputType(AutoscaleSettingNotificationEmailOutput{})

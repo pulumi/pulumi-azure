@@ -7,6 +7,7 @@ from .get_spring_cloud_app import *
 from .get_spring_cloud_service import *
 from .spring_cloud_active_deployment import *
 from .spring_cloud_app import *
+from .spring_cloud_app_mysql_association import *
 from .spring_cloud_app_redis_association import *
 from .spring_cloud_certificate import *
 from .spring_cloud_custom_domain import *
@@ -31,6 +32,8 @@ def _register_module():
                 return SpringCloudActiveDeployment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:appplatform/springCloudApp:SpringCloudApp":
                 return SpringCloudApp(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:appplatform/springCloudAppMysqlAssociation:SpringCloudAppMysqlAssociation":
+                return SpringCloudAppMysqlAssociation(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:appplatform/springCloudAppRedisAssociation:SpringCloudAppRedisAssociation":
                 return SpringCloudAppRedisAssociation(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:appplatform/springCloudCertificate:SpringCloudCertificate":
@@ -48,6 +51,7 @@ def _register_module():
     _module_instance = Module()
     pulumi.runtime.register_resource_module("azure", "appplatform/springCloudActiveDeployment", _module_instance)
     pulumi.runtime.register_resource_module("azure", "appplatform/springCloudApp", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "appplatform/springCloudAppMysqlAssociation", _module_instance)
     pulumi.runtime.register_resource_module("azure", "appplatform/springCloudAppRedisAssociation", _module_instance)
     pulumi.runtime.register_resource_module("azure", "appplatform/springCloudCertificate", _module_instance)
     pulumi.runtime.register_resource_module("azure", "appplatform/springCloudCustomDomain", _module_instance)

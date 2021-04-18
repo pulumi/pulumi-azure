@@ -1596,7 +1596,6 @@ class AppServiceSiteConfigIpRestrictionArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  service_tag: Optional[pulumi.Input[str]] = None,
-                 subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
@@ -1616,11 +1615,6 @@ class AppServiceSiteConfigIpRestrictionArgs:
             pulumi.set(__self__, "priority", priority)
         if service_tag is not None:
             pulumi.set(__self__, "service_tag", service_tag)
-        if subnet_id is not None:
-            warnings.warn("""This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider""", DeprecationWarning)
-            pulumi.log.warn("""subnet_id is deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider""")
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
@@ -1685,15 +1679,6 @@ class AppServiceSiteConfigIpRestrictionArgs:
         pulumi.set(self, "service_tag", value)
 
     @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "subnet_id")
-
-    @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "subnet_id", value)
-
-    @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1714,7 +1699,6 @@ class AppServiceSiteConfigScmIpRestrictionArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  service_tag: Optional[pulumi.Input[str]] = None,
-                 subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Allow or Deny access for this IP range. Defaults to Allow.
@@ -1734,11 +1718,6 @@ class AppServiceSiteConfigScmIpRestrictionArgs:
             pulumi.set(__self__, "priority", priority)
         if service_tag is not None:
             pulumi.set(__self__, "service_tag", service_tag)
-        if subnet_id is not None:
-            warnings.warn("""This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider""", DeprecationWarning)
-            pulumi.log.warn("""subnet_id is deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider""")
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
@@ -1801,15 +1780,6 @@ class AppServiceSiteConfigScmIpRestrictionArgs:
     @service_tag.setter
     def service_tag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service_tag", value)
-
-    @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "subnet_id")
-
-    @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "subnet_id", value)
 
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")
@@ -3037,7 +3007,6 @@ class FunctionAppSiteConfigIpRestrictionArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  service_tag: Optional[pulumi.Input[str]] = None,
-                 subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
@@ -3057,11 +3026,6 @@ class FunctionAppSiteConfigIpRestrictionArgs:
             pulumi.set(__self__, "priority", priority)
         if service_tag is not None:
             pulumi.set(__self__, "service_tag", service_tag)
-        if subnet_id is not None:
-            warnings.warn("""This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider""", DeprecationWarning)
-            pulumi.log.warn("""subnet_id is deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider""")
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
@@ -3126,15 +3090,6 @@ class FunctionAppSiteConfigIpRestrictionArgs:
         pulumi.set(self, "service_tag", value)
 
     @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "subnet_id")
-
-    @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "subnet_id", value)
-
-    @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -3155,7 +3110,6 @@ class FunctionAppSiteConfigScmIpRestrictionArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  service_tag: Optional[pulumi.Input[str]] = None,
-                 subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Allow or Deny access for this IP range. Defaults to Allow.
@@ -3175,11 +3129,6 @@ class FunctionAppSiteConfigScmIpRestrictionArgs:
             pulumi.set(__self__, "priority", priority)
         if service_tag is not None:
             pulumi.set(__self__, "service_tag", service_tag)
-        if subnet_id is not None:
-            warnings.warn("""This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider""", DeprecationWarning)
-            pulumi.log.warn("""subnet_id is deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider""")
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
@@ -3242,15 +3191,6 @@ class FunctionAppSiteConfigScmIpRestrictionArgs:
     @service_tag.setter
     def service_tag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service_tag", value)
-
-    @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "subnet_id")
-
-    @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "subnet_id", value)
 
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")
@@ -4173,7 +4113,6 @@ class FunctionAppSlotSiteConfigIpRestrictionArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  service_tag: Optional[pulumi.Input[str]] = None,
-                 subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
@@ -4193,11 +4132,6 @@ class FunctionAppSlotSiteConfigIpRestrictionArgs:
             pulumi.set(__self__, "priority", priority)
         if service_tag is not None:
             pulumi.set(__self__, "service_tag", service_tag)
-        if subnet_id is not None:
-            warnings.warn("""This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider""", DeprecationWarning)
-            pulumi.log.warn("""subnet_id is deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider""")
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
@@ -4262,15 +4196,6 @@ class FunctionAppSlotSiteConfigIpRestrictionArgs:
         pulumi.set(self, "service_tag", value)
 
     @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "subnet_id")
-
-    @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "subnet_id", value)
-
-    @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -4291,7 +4216,6 @@ class FunctionAppSlotSiteConfigScmIpRestrictionArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  service_tag: Optional[pulumi.Input[str]] = None,
-                 subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
@@ -4311,11 +4235,6 @@ class FunctionAppSlotSiteConfigScmIpRestrictionArgs:
             pulumi.set(__self__, "priority", priority)
         if service_tag is not None:
             pulumi.set(__self__, "service_tag", service_tag)
-        if subnet_id is not None:
-            warnings.warn("""This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider""", DeprecationWarning)
-            pulumi.log.warn("""subnet_id is deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider""")
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
@@ -4378,15 +4297,6 @@ class FunctionAppSlotSiteConfigScmIpRestrictionArgs:
     @service_tag.setter
     def service_tag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service_tag", value)
-
-    @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "subnet_id")
-
-    @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "subnet_id", value)
 
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")
@@ -5912,7 +5822,6 @@ class SlotSiteConfigIpRestrictionArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  service_tag: Optional[pulumi.Input[str]] = None,
-                 subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
@@ -5932,11 +5841,6 @@ class SlotSiteConfigIpRestrictionArgs:
             pulumi.set(__self__, "priority", priority)
         if service_tag is not None:
             pulumi.set(__self__, "service_tag", service_tag)
-        if subnet_id is not None:
-            warnings.warn("""This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider""", DeprecationWarning)
-            pulumi.log.warn("""subnet_id is deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider""")
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
@@ -6001,15 +5905,6 @@ class SlotSiteConfigIpRestrictionArgs:
         pulumi.set(self, "service_tag", value)
 
     @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "subnet_id")
-
-    @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "subnet_id", value)
-
-    @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -6030,7 +5925,6 @@ class SlotSiteConfigScmIpRestrictionArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  service_tag: Optional[pulumi.Input[str]] = None,
-                 subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
@@ -6050,11 +5944,6 @@ class SlotSiteConfigScmIpRestrictionArgs:
             pulumi.set(__self__, "priority", priority)
         if service_tag is not None:
             pulumi.set(__self__, "service_tag", service_tag)
-        if subnet_id is not None:
-            warnings.warn("""This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider""", DeprecationWarning)
-            pulumi.log.warn("""subnet_id is deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider""")
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
@@ -6117,15 +6006,6 @@ class SlotSiteConfigScmIpRestrictionArgs:
     @service_tag.setter
     def service_tag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service_tag", value)
-
-    @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "subnet_id")
-
-    @subnet_id.setter
-    def subnet_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "subnet_id", value)
 
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")

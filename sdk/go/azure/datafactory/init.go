@@ -51,6 +51,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IntegrationRuntimeSsis{}
 	case "azure:datafactory/linkedServiceAzureBlobStorage:LinkedServiceAzureBlobStorage":
 		r = &LinkedServiceAzureBlobStorage{}
+	case "azure:datafactory/linkedServiceAzureDatabricks:LinkedServiceAzureDatabricks":
+		r = &LinkedServiceAzureDatabricks{}
 	case "azure:datafactory/linkedServiceAzureFileStorage:LinkedServiceAzureFileStorage":
 		r = &LinkedServiceAzureFileStorage{}
 	case "azure:datafactory/linkedServiceAzureFunction:LinkedServiceAzureFunction":
@@ -169,6 +171,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"datafactory/linkedServiceAzureBlobStorage",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"datafactory/linkedServiceAzureDatabricks",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

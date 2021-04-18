@@ -2638,6 +2638,7 @@ class ApplicationGatewayUrlPathMapPathRuleArgs:
                  backend_address_pool_name: Optional[pulumi.Input[str]] = None,
                  backend_http_settings_id: Optional[pulumi.Input[str]] = None,
                  backend_http_settings_name: Optional[pulumi.Input[str]] = None,
+                 firewall_policy_id: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  redirect_configuration_id: Optional[pulumi.Input[str]] = None,
                  redirect_configuration_name: Optional[pulumi.Input[str]] = None,
@@ -2650,6 +2651,7 @@ class ApplicationGatewayUrlPathMapPathRuleArgs:
         :param pulumi.Input[str] backend_address_pool_name: The Name of the Backend Address Pool to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
         :param pulumi.Input[str] backend_http_settings_id: The ID of the associated Backend HTTP Settings Configuration.
         :param pulumi.Input[str] backend_http_settings_name: The Name of the Backend HTTP Settings Collection to use for this Path Rule. Cannot be set if `redirect_configuration_name` is set.
+        :param pulumi.Input[str] firewall_policy_id: The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
         :param pulumi.Input[str] id: The ID of the Rewrite Rule Set
         :param pulumi.Input[str] redirect_configuration_id: The ID of the associated Redirect Configuration.
         :param pulumi.Input[str] redirect_configuration_name: The Name of a Redirect Configuration to use for this Path Rule. Cannot be set if `backend_address_pool_name` or `backend_http_settings_name` is set.
@@ -2666,6 +2668,8 @@ class ApplicationGatewayUrlPathMapPathRuleArgs:
             pulumi.set(__self__, "backend_http_settings_id", backend_http_settings_id)
         if backend_http_settings_name is not None:
             pulumi.set(__self__, "backend_http_settings_name", backend_http_settings_name)
+        if firewall_policy_id is not None:
+            pulumi.set(__self__, "firewall_policy_id", firewall_policy_id)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if redirect_configuration_id is not None:
@@ -2748,6 +2752,18 @@ class ApplicationGatewayUrlPathMapPathRuleArgs:
     @backend_http_settings_name.setter
     def backend_http_settings_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "backend_http_settings_name", value)
+
+    @property
+    @pulumi.getter(name="firewallPolicyId")
+    def firewall_policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+        """
+        return pulumi.get(self, "firewall_policy_id")
+
+    @firewall_policy_id.setter
+    def firewall_policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "firewall_policy_id", value)
 
     @property
     @pulumi.getter

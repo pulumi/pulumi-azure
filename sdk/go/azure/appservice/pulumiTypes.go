@@ -3661,8 +3661,6 @@ type AppServiceSiteConfigIpRestriction struct {
 	Priority *int `pulumi:"priority"`
 	// The Service Tag used for this IP Restriction.
 	ServiceTag *string `pulumi:"serviceTag"`
-	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-	SubnetId *string `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -3689,8 +3687,6 @@ type AppServiceSiteConfigIpRestrictionArgs struct {
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// The Service Tag used for this IP Restriction.
 	ServiceTag pulumi.StringPtrInput `pulumi:"serviceTag"`
-	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
 }
@@ -3771,11 +3767,6 @@ func (o AppServiceSiteConfigIpRestrictionOutput) ServiceTag() pulumi.StringPtrOu
 	return o.ApplyT(func(v AppServiceSiteConfigIpRestriction) *string { return v.ServiceTag }).(pulumi.StringPtrOutput)
 }
 
-// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-func (o AppServiceSiteConfigIpRestrictionOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceSiteConfigIpRestriction) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
-}
-
 // The Virtual Network Subnet ID used for this IP Restriction.
 func (o AppServiceSiteConfigIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfigIpRestriction) *string { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
@@ -3812,8 +3803,6 @@ type AppServiceSiteConfigScmIpRestriction struct {
 	Priority *int `pulumi:"priority"`
 	// The Service Tag used for this IP Restriction.
 	ServiceTag *string `pulumi:"serviceTag"`
-	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-	SubnetId *string `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -3840,8 +3829,6 @@ type AppServiceSiteConfigScmIpRestrictionArgs struct {
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// The Service Tag used for this IP Restriction.
 	ServiceTag pulumi.StringPtrInput `pulumi:"serviceTag"`
-	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
 }
@@ -3920,11 +3907,6 @@ func (o AppServiceSiteConfigScmIpRestrictionOutput) Priority() pulumi.IntPtrOutp
 // The Service Tag used for this IP Restriction.
 func (o AppServiceSiteConfigScmIpRestrictionOutput) ServiceTag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfigScmIpRestriction) *string { return v.ServiceTag }).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-func (o AppServiceSiteConfigScmIpRestrictionOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceSiteConfigScmIpRestriction) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 // The Virtual Network Subnet ID used for this IP Restriction.
@@ -6689,8 +6671,6 @@ type FunctionAppSiteConfigIpRestriction struct {
 	Priority *int `pulumi:"priority"`
 	// The Service Tag used for this IP Restriction.
 	ServiceTag *string `pulumi:"serviceTag"`
-	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-	SubnetId *string `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -6717,8 +6697,6 @@ type FunctionAppSiteConfigIpRestrictionArgs struct {
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// The Service Tag used for this IP Restriction.
 	ServiceTag pulumi.StringPtrInput `pulumi:"serviceTag"`
-	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
 }
@@ -6799,11 +6777,6 @@ func (o FunctionAppSiteConfigIpRestrictionOutput) ServiceTag() pulumi.StringPtrO
 	return o.ApplyT(func(v FunctionAppSiteConfigIpRestriction) *string { return v.ServiceTag }).(pulumi.StringPtrOutput)
 }
 
-// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-func (o FunctionAppSiteConfigIpRestrictionOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FunctionAppSiteConfigIpRestriction) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
-}
-
 // The Virtual Network Subnet ID used for this IP Restriction.
 func (o FunctionAppSiteConfigIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfigIpRestriction) *string { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
@@ -6840,8 +6813,6 @@ type FunctionAppSiteConfigScmIpRestriction struct {
 	Priority *int `pulumi:"priority"`
 	// The Service Tag used for this IP Restriction.
 	ServiceTag *string `pulumi:"serviceTag"`
-	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-	SubnetId *string `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -6868,8 +6839,6 @@ type FunctionAppSiteConfigScmIpRestrictionArgs struct {
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// The Service Tag used for this IP Restriction.
 	ServiceTag pulumi.StringPtrInput `pulumi:"serviceTag"`
-	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
 }
@@ -6948,11 +6917,6 @@ func (o FunctionAppSiteConfigScmIpRestrictionOutput) Priority() pulumi.IntPtrOut
 // The Service Tag used for this IP Restriction.
 func (o FunctionAppSiteConfigScmIpRestrictionOutput) ServiceTag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfigScmIpRestriction) *string { return v.ServiceTag }).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-func (o FunctionAppSiteConfigScmIpRestrictionOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FunctionAppSiteConfigScmIpRestriction) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 // The Virtual Network Subnet ID used for this IP Restriction.
@@ -9132,8 +9096,6 @@ type FunctionAppSlotSiteConfigIpRestriction struct {
 	Priority *int `pulumi:"priority"`
 	// The Service Tag used for this IP Restriction.
 	ServiceTag *string `pulumi:"serviceTag"`
-	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-	SubnetId *string `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -9160,8 +9122,6 @@ type FunctionAppSlotSiteConfigIpRestrictionArgs struct {
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// The Service Tag used for this IP Restriction.
 	ServiceTag pulumi.StringPtrInput `pulumi:"serviceTag"`
-	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
 }
@@ -9242,11 +9202,6 @@ func (o FunctionAppSlotSiteConfigIpRestrictionOutput) ServiceTag() pulumi.String
 	return o.ApplyT(func(v FunctionAppSlotSiteConfigIpRestriction) *string { return v.ServiceTag }).(pulumi.StringPtrOutput)
 }
 
-// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-func (o FunctionAppSlotSiteConfigIpRestrictionOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FunctionAppSlotSiteConfigIpRestriction) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
-}
-
 // The Virtual Network Subnet ID used for this IP Restriction.
 func (o FunctionAppSlotSiteConfigIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppSlotSiteConfigIpRestriction) *string { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
@@ -9283,8 +9238,6 @@ type FunctionAppSlotSiteConfigScmIpRestriction struct {
 	Priority *int `pulumi:"priority"`
 	// The Service Tag used for this IP Restriction.
 	ServiceTag *string `pulumi:"serviceTag"`
-	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-	SubnetId *string `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -9311,8 +9264,6 @@ type FunctionAppSlotSiteConfigScmIpRestrictionArgs struct {
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// The Service Tag used for this IP Restriction.
 	ServiceTag pulumi.StringPtrInput `pulumi:"serviceTag"`
-	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
 }
@@ -9391,11 +9342,6 @@ func (o FunctionAppSlotSiteConfigScmIpRestrictionOutput) Priority() pulumi.IntPt
 // The Service Tag used for this IP Restriction.
 func (o FunctionAppSlotSiteConfigScmIpRestrictionOutput) ServiceTag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppSlotSiteConfigScmIpRestriction) *string { return v.ServiceTag }).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-func (o FunctionAppSlotSiteConfigScmIpRestrictionOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FunctionAppSlotSiteConfigScmIpRestriction) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 // The Virtual Network Subnet ID used for this IP Restriction.
@@ -13129,8 +13075,6 @@ type SlotSiteConfigIpRestriction struct {
 	Priority *int `pulumi:"priority"`
 	// The Service Tag used for this IP Restriction.
 	ServiceTag *string `pulumi:"serviceTag"`
-	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-	SubnetId *string `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -13157,8 +13101,6 @@ type SlotSiteConfigIpRestrictionArgs struct {
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// The Service Tag used for this IP Restriction.
 	ServiceTag pulumi.StringPtrInput `pulumi:"serviceTag"`
-	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
 }
@@ -13239,11 +13181,6 @@ func (o SlotSiteConfigIpRestrictionOutput) ServiceTag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfigIpRestriction) *string { return v.ServiceTag }).(pulumi.StringPtrOutput)
 }
 
-// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-func (o SlotSiteConfigIpRestrictionOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SlotSiteConfigIpRestriction) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
-}
-
 // The Virtual Network Subnet ID used for this IP Restriction.
 func (o SlotSiteConfigIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfigIpRestriction) *string { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
@@ -13280,8 +13217,6 @@ type SlotSiteConfigScmIpRestriction struct {
 	Priority *int `pulumi:"priority"`
 	// The Service Tag used for this IP Restriction.
 	ServiceTag *string `pulumi:"serviceTag"`
-	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-	SubnetId *string `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -13308,8 +13243,6 @@ type SlotSiteConfigScmIpRestrictionArgs struct {
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// The Service Tag used for this IP Restriction.
 	ServiceTag pulumi.StringPtrInput `pulumi:"serviceTag"`
-	// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
 }
@@ -13388,11 +13321,6 @@ func (o SlotSiteConfigScmIpRestrictionOutput) Priority() pulumi.IntPtrOutput {
 // The Service Tag used for this IP Restriction.
 func (o SlotSiteConfigScmIpRestrictionOutput) ServiceTag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfigScmIpRestriction) *string { return v.ServiceTag }).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-func (o SlotSiteConfigScmIpRestrictionOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SlotSiteConfigScmIpRestriction) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
 // The Virtual Network Subnet ID used for this IP Restriction.
@@ -14265,7 +14193,6 @@ type GetAppServiceSiteConfigIpRestriction struct {
 	Priority int `pulumi:"priority"`
 	// The Service Tag used for this IP Restriction.
 	ServiceTag string `pulumi:"serviceTag"`
-	SubnetId   string `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -14292,7 +14219,6 @@ type GetAppServiceSiteConfigIpRestrictionArgs struct {
 	Priority pulumi.IntInput `pulumi:"priority"`
 	// The Service Tag used for this IP Restriction.
 	ServiceTag pulumi.StringInput `pulumi:"serviceTag"`
-	SubnetId   pulumi.StringInput `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId pulumi.StringInput `pulumi:"virtualNetworkSubnetId"`
 }
@@ -14373,10 +14299,6 @@ func (o GetAppServiceSiteConfigIpRestrictionOutput) ServiceTag() pulumi.StringOu
 	return o.ApplyT(func(v GetAppServiceSiteConfigIpRestriction) string { return v.ServiceTag }).(pulumi.StringOutput)
 }
 
-func (o GetAppServiceSiteConfigIpRestrictionOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAppServiceSiteConfigIpRestriction) string { return v.SubnetId }).(pulumi.StringOutput)
-}
-
 // The Virtual Network Subnet ID used for this IP Restriction.
 func (o GetAppServiceSiteConfigIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppServiceSiteConfigIpRestriction) string { return v.VirtualNetworkSubnetId }).(pulumi.StringOutput)
@@ -14413,7 +14335,6 @@ type GetAppServiceSiteConfigScmIpRestriction struct {
 	Priority int `pulumi:"priority"`
 	// The Service Tag used for this IP Restriction.
 	ServiceTag string `pulumi:"serviceTag"`
-	SubnetId   string `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -14440,7 +14361,6 @@ type GetAppServiceSiteConfigScmIpRestrictionArgs struct {
 	Priority pulumi.IntInput `pulumi:"priority"`
 	// The Service Tag used for this IP Restriction.
 	ServiceTag pulumi.StringInput `pulumi:"serviceTag"`
-	SubnetId   pulumi.StringInput `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId pulumi.StringInput `pulumi:"virtualNetworkSubnetId"`
 }
@@ -14519,10 +14439,6 @@ func (o GetAppServiceSiteConfigScmIpRestrictionOutput) Priority() pulumi.IntOutp
 // The Service Tag used for this IP Restriction.
 func (o GetAppServiceSiteConfigScmIpRestrictionOutput) ServiceTag() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAppServiceSiteConfigScmIpRestriction) string { return v.ServiceTag }).(pulumi.StringOutput)
-}
-
-func (o GetAppServiceSiteConfigScmIpRestrictionOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAppServiceSiteConfigScmIpRestriction) string { return v.SubnetId }).(pulumi.StringOutput)
 }
 
 // The Virtual Network Subnet ID used for this IP Restriction.
@@ -15422,7 +15338,6 @@ type GetFunctionAppSiteConfigIpRestriction struct {
 	Priority int `pulumi:"priority"`
 	// The Service Tag used for this IP Restriction.
 	ServiceTag string `pulumi:"serviceTag"`
-	SubnetId   string `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -15449,7 +15364,6 @@ type GetFunctionAppSiteConfigIpRestrictionArgs struct {
 	Priority pulumi.IntInput `pulumi:"priority"`
 	// The Service Tag used for this IP Restriction.
 	ServiceTag pulumi.StringInput `pulumi:"serviceTag"`
-	SubnetId   pulumi.StringInput `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId pulumi.StringInput `pulumi:"virtualNetworkSubnetId"`
 }
@@ -15530,10 +15444,6 @@ func (o GetFunctionAppSiteConfigIpRestrictionOutput) ServiceTag() pulumi.StringO
 	return o.ApplyT(func(v GetFunctionAppSiteConfigIpRestriction) string { return v.ServiceTag }).(pulumi.StringOutput)
 }
 
-func (o GetFunctionAppSiteConfigIpRestrictionOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFunctionAppSiteConfigIpRestriction) string { return v.SubnetId }).(pulumi.StringOutput)
-}
-
 // The Virtual Network Subnet ID used for this IP Restriction.
 func (o GetFunctionAppSiteConfigIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionAppSiteConfigIpRestriction) string { return v.VirtualNetworkSubnetId }).(pulumi.StringOutput)
@@ -15570,7 +15480,6 @@ type GetFunctionAppSiteConfigScmIpRestriction struct {
 	Priority int `pulumi:"priority"`
 	// The Service Tag used for this IP Restriction.
 	ServiceTag string `pulumi:"serviceTag"`
-	SubnetId   string `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -15597,7 +15506,6 @@ type GetFunctionAppSiteConfigScmIpRestrictionArgs struct {
 	Priority pulumi.IntInput `pulumi:"priority"`
 	// The Service Tag used for this IP Restriction.
 	ServiceTag pulumi.StringInput `pulumi:"serviceTag"`
-	SubnetId   pulumi.StringInput `pulumi:"subnetId"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId pulumi.StringInput `pulumi:"virtualNetworkSubnetId"`
 }
@@ -15676,10 +15584,6 @@ func (o GetFunctionAppSiteConfigScmIpRestrictionOutput) Priority() pulumi.IntOut
 // The Service Tag used for this IP Restriction.
 func (o GetFunctionAppSiteConfigScmIpRestrictionOutput) ServiceTag() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionAppSiteConfigScmIpRestriction) string { return v.ServiceTag }).(pulumi.StringOutput)
-}
-
-func (o GetFunctionAppSiteConfigScmIpRestrictionOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFunctionAppSiteConfigScmIpRestriction) string { return v.SubnetId }).(pulumi.StringOutput)
 }
 
 // The Virtual Network Subnet ID used for this IP Restriction.

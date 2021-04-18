@@ -72,6 +72,9 @@ import * as utilities from "../utilities";
  *     storageAccountId: exampleAccount.id,
  *     eventhubId: azurerm_eventhub.example.id,
  *     eventhubConsumerGroupName: exampleConsumerGroup.name,
+ *     tableName: "my-table",
+ *     mappingRuleName: "my-table-mapping",
+ *     dataFormat: "JSON",
  * }, {
  *     dependsOn: [exampleEventSubscription],
  * });

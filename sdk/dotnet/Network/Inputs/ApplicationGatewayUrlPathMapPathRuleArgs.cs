@@ -37,6 +37,12 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? BackendHttpSettingsName { get; set; }
 
         /// <summary>
+        /// The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+        /// </summary>
+        [Input("firewallPolicyId")]
+        public Input<string>? FirewallPolicyId { get; set; }
+
+        /// <summary>
         /// The ID of the Rewrite Rule Set
         /// </summary>
         [Input("id")]

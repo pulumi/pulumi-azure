@@ -114,6 +114,9 @@ import (
 // 			StorageAccountId:          exampleAccount.ID(),
 // 			EventhubId:                pulumi.Any(azurerm_eventhub.Example.Id),
 // 			EventhubConsumerGroupName: exampleConsumerGroup.Name,
+// 			TableName:                 pulumi.String("my-table"),
+// 			MappingRuleName:           pulumi.String("my-table-mapping"),
+// 			DataFormat:                pulumi.String("JSON"),
 // 		}, pulumi.DependsOn([]pulumi.Resource{
 // 			exampleEventSubscription,
 // 		}))

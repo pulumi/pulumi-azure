@@ -19,6 +19,7 @@ from .integration_runtime_rule import *
 from .integration_runtime_self_hosted import *
 from .integration_runtime_ssis import *
 from .linked_service_azure_blob_storage import *
+from .linked_service_azure_databricks import *
 from .linked_service_azure_file_storage import *
 from .linked_service_azure_function import *
 from .linked_service_azure_sql_database import *
@@ -80,6 +81,8 @@ def _register_module():
                 return IntegrationRuntimeSsis(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:datafactory/linkedServiceAzureBlobStorage:LinkedServiceAzureBlobStorage":
                 return LinkedServiceAzureBlobStorage(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:datafactory/linkedServiceAzureDatabricks:LinkedServiceAzureDatabricks":
+                return LinkedServiceAzureDatabricks(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:datafactory/linkedServiceAzureFileStorage:LinkedServiceAzureFileStorage":
                 return LinkedServiceAzureFileStorage(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:datafactory/linkedServiceAzureFunction:LinkedServiceAzureFunction":
@@ -132,6 +135,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "datafactory/integrationRuntimeSelfHosted", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datafactory/integrationRuntimeSsis", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datafactory/linkedServiceAzureBlobStorage", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "datafactory/linkedServiceAzureDatabricks", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datafactory/linkedServiceAzureFileStorage", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datafactory/linkedServiceAzureFunction", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datafactory/linkedServiceAzureSqlDatabase", _module_instance)

@@ -1663,8 +1663,6 @@ class AppServiceSiteConfigIpRestriction(dict):
             suggest = "ip_address"
         elif key == "serviceTag":
             suggest = "service_tag"
-        elif key == "subnetId":
-            suggest = "subnet_id"
         elif key == "virtualNetworkSubnetId":
             suggest = "virtual_network_subnet_id"
 
@@ -1685,7 +1683,6 @@ class AppServiceSiteConfigIpRestriction(dict):
                  name: Optional[str] = None,
                  priority: Optional[int] = None,
                  service_tag: Optional[str] = None,
-                 subnet_id: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
@@ -1705,8 +1702,6 @@ class AppServiceSiteConfigIpRestriction(dict):
             pulumi.set(__self__, "priority", priority)
         if service_tag is not None:
             pulumi.set(__self__, "service_tag", service_tag)
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
@@ -1751,11 +1746,6 @@ class AppServiceSiteConfigIpRestriction(dict):
         return pulumi.get(self, "service_tag")
 
     @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[str]:
-        return pulumi.get(self, "subnet_id")
-
-    @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[str]:
         """
@@ -1773,8 +1763,6 @@ class AppServiceSiteConfigScmIpRestriction(dict):
             suggest = "ip_address"
         elif key == "serviceTag":
             suggest = "service_tag"
-        elif key == "subnetId":
-            suggest = "subnet_id"
         elif key == "virtualNetworkSubnetId":
             suggest = "virtual_network_subnet_id"
 
@@ -1795,7 +1783,6 @@ class AppServiceSiteConfigScmIpRestriction(dict):
                  name: Optional[str] = None,
                  priority: Optional[int] = None,
                  service_tag: Optional[str] = None,
-                 subnet_id: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: Allow or Deny access for this IP range. Defaults to Allow.
@@ -1815,8 +1802,6 @@ class AppServiceSiteConfigScmIpRestriction(dict):
             pulumi.set(__self__, "priority", priority)
         if service_tag is not None:
             pulumi.set(__self__, "service_tag", service_tag)
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
@@ -1859,11 +1844,6 @@ class AppServiceSiteConfigScmIpRestriction(dict):
         The Service Tag used for this IP Restriction.
         """
         return pulumi.get(self, "service_tag")
-
-    @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[str]:
-        return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")
@@ -3090,8 +3070,6 @@ class FunctionAppSiteConfigIpRestriction(dict):
             suggest = "ip_address"
         elif key == "serviceTag":
             suggest = "service_tag"
-        elif key == "subnetId":
-            suggest = "subnet_id"
         elif key == "virtualNetworkSubnetId":
             suggest = "virtual_network_subnet_id"
 
@@ -3112,7 +3090,6 @@ class FunctionAppSiteConfigIpRestriction(dict):
                  name: Optional[str] = None,
                  priority: Optional[int] = None,
                  service_tag: Optional[str] = None,
-                 subnet_id: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
@@ -3132,8 +3109,6 @@ class FunctionAppSiteConfigIpRestriction(dict):
             pulumi.set(__self__, "priority", priority)
         if service_tag is not None:
             pulumi.set(__self__, "service_tag", service_tag)
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
@@ -3178,11 +3153,6 @@ class FunctionAppSiteConfigIpRestriction(dict):
         return pulumi.get(self, "service_tag")
 
     @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[str]:
-        return pulumi.get(self, "subnet_id")
-
-    @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[str]:
         """
@@ -3200,8 +3170,6 @@ class FunctionAppSiteConfigScmIpRestriction(dict):
             suggest = "ip_address"
         elif key == "serviceTag":
             suggest = "service_tag"
-        elif key == "subnetId":
-            suggest = "subnet_id"
         elif key == "virtualNetworkSubnetId":
             suggest = "virtual_network_subnet_id"
 
@@ -3222,7 +3190,6 @@ class FunctionAppSiteConfigScmIpRestriction(dict):
                  name: Optional[str] = None,
                  priority: Optional[int] = None,
                  service_tag: Optional[str] = None,
-                 subnet_id: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: Allow or Deny access for this IP range. Defaults to Allow.
@@ -3242,8 +3209,6 @@ class FunctionAppSiteConfigScmIpRestriction(dict):
             pulumi.set(__self__, "priority", priority)
         if service_tag is not None:
             pulumi.set(__self__, "service_tag", service_tag)
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
@@ -3286,11 +3251,6 @@ class FunctionAppSiteConfigScmIpRestriction(dict):
         The Service Tag used for this IP Restriction.
         """
         return pulumi.get(self, "service_tag")
-
-    @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[str]:
-        return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")
@@ -4211,8 +4171,6 @@ class FunctionAppSlotSiteConfigIpRestriction(dict):
             suggest = "ip_address"
         elif key == "serviceTag":
             suggest = "service_tag"
-        elif key == "subnetId":
-            suggest = "subnet_id"
         elif key == "virtualNetworkSubnetId":
             suggest = "virtual_network_subnet_id"
 
@@ -4233,7 +4191,6 @@ class FunctionAppSlotSiteConfigIpRestriction(dict):
                  name: Optional[str] = None,
                  priority: Optional[int] = None,
                  service_tag: Optional[str] = None,
-                 subnet_id: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
@@ -4253,8 +4210,6 @@ class FunctionAppSlotSiteConfigIpRestriction(dict):
             pulumi.set(__self__, "priority", priority)
         if service_tag is not None:
             pulumi.set(__self__, "service_tag", service_tag)
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
@@ -4299,11 +4254,6 @@ class FunctionAppSlotSiteConfigIpRestriction(dict):
         return pulumi.get(self, "service_tag")
 
     @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[str]:
-        return pulumi.get(self, "subnet_id")
-
-    @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[str]:
         """
@@ -4321,8 +4271,6 @@ class FunctionAppSlotSiteConfigScmIpRestriction(dict):
             suggest = "ip_address"
         elif key == "serviceTag":
             suggest = "service_tag"
-        elif key == "subnetId":
-            suggest = "subnet_id"
         elif key == "virtualNetworkSubnetId":
             suggest = "virtual_network_subnet_id"
 
@@ -4343,7 +4291,6 @@ class FunctionAppSlotSiteConfigScmIpRestriction(dict):
                  name: Optional[str] = None,
                  priority: Optional[int] = None,
                  service_tag: Optional[str] = None,
-                 subnet_id: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
@@ -4363,8 +4310,6 @@ class FunctionAppSlotSiteConfigScmIpRestriction(dict):
             pulumi.set(__self__, "priority", priority)
         if service_tag is not None:
             pulumi.set(__self__, "service_tag", service_tag)
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
@@ -4407,11 +4352,6 @@ class FunctionAppSlotSiteConfigScmIpRestriction(dict):
         The Service Tag used for this IP Restriction.
         """
         return pulumi.get(self, "service_tag")
-
-    @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[str]:
-        return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")
@@ -5958,8 +5898,6 @@ class SlotSiteConfigIpRestriction(dict):
             suggest = "ip_address"
         elif key == "serviceTag":
             suggest = "service_tag"
-        elif key == "subnetId":
-            suggest = "subnet_id"
         elif key == "virtualNetworkSubnetId":
             suggest = "virtual_network_subnet_id"
 
@@ -5980,7 +5918,6 @@ class SlotSiteConfigIpRestriction(dict):
                  name: Optional[str] = None,
                  priority: Optional[int] = None,
                  service_tag: Optional[str] = None,
-                 subnet_id: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
@@ -6000,8 +5937,6 @@ class SlotSiteConfigIpRestriction(dict):
             pulumi.set(__self__, "priority", priority)
         if service_tag is not None:
             pulumi.set(__self__, "service_tag", service_tag)
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
@@ -6046,11 +5981,6 @@ class SlotSiteConfigIpRestriction(dict):
         return pulumi.get(self, "service_tag")
 
     @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[str]:
-        return pulumi.get(self, "subnet_id")
-
-    @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[str]:
         """
@@ -6068,8 +5998,6 @@ class SlotSiteConfigScmIpRestriction(dict):
             suggest = "ip_address"
         elif key == "serviceTag":
             suggest = "service_tag"
-        elif key == "subnetId":
-            suggest = "subnet_id"
         elif key == "virtualNetworkSubnetId":
             suggest = "virtual_network_subnet_id"
 
@@ -6090,7 +6018,6 @@ class SlotSiteConfigScmIpRestriction(dict):
                  name: Optional[str] = None,
                  priority: Optional[int] = None,
                  service_tag: Optional[str] = None,
-                 subnet_id: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
@@ -6110,8 +6037,6 @@ class SlotSiteConfigScmIpRestriction(dict):
             pulumi.set(__self__, "priority", priority)
         if service_tag is not None:
             pulumi.set(__self__, "service_tag", service_tag)
-        if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
@@ -6154,11 +6079,6 @@ class SlotSiteConfigScmIpRestriction(dict):
         The Service Tag used for this IP Restriction.
         """
         return pulumi.get(self, "service_tag")
-
-    @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> Optional[str]:
-        return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")
@@ -6650,7 +6570,6 @@ class GetAppServiceSiteConfigIpRestrictionResult(dict):
                  name: str,
                  priority: int,
                  service_tag: str,
-                 subnet_id: str,
                  virtual_network_subnet_id: str):
         """
         :param str action: Allow or Deny access for this IP range. Defaults to Allow.
@@ -6665,7 +6584,6 @@ class GetAppServiceSiteConfigIpRestrictionResult(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "service_tag", service_tag)
-        pulumi.set(__self__, "subnet_id", subnet_id)
         pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
     @property
@@ -6707,11 +6625,6 @@ class GetAppServiceSiteConfigIpRestrictionResult(dict):
         The Service Tag used for this IP Restriction.
         """
         return pulumi.get(self, "service_tag")
-
-    @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> str:
-        return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")
@@ -6730,7 +6643,6 @@ class GetAppServiceSiteConfigScmIpRestrictionResult(dict):
                  name: str,
                  priority: int,
                  service_tag: str,
-                 subnet_id: str,
                  virtual_network_subnet_id: str):
         """
         :param str action: Allow or Deny access for this IP range. Defaults to Allow.
@@ -6745,7 +6657,6 @@ class GetAppServiceSiteConfigScmIpRestrictionResult(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "service_tag", service_tag)
-        pulumi.set(__self__, "subnet_id", subnet_id)
         pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
     @property
@@ -6787,11 +6698,6 @@ class GetAppServiceSiteConfigScmIpRestrictionResult(dict):
         The Service Tag used for this IP Restriction.
         """
         return pulumi.get(self, "service_tag")
-
-    @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> str:
-        return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")
@@ -7206,7 +7112,6 @@ class GetFunctionAppSiteConfigIpRestrictionResult(dict):
                  name: str,
                  priority: int,
                  service_tag: str,
-                 subnet_id: str,
                  virtual_network_subnet_id: str):
         """
         :param str action: Allow or Deny access for this IP range. Defaults to Allow.
@@ -7221,7 +7126,6 @@ class GetFunctionAppSiteConfigIpRestrictionResult(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "service_tag", service_tag)
-        pulumi.set(__self__, "subnet_id", subnet_id)
         pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
     @property
@@ -7263,11 +7167,6 @@ class GetFunctionAppSiteConfigIpRestrictionResult(dict):
         The Service Tag used for this IP Restriction.
         """
         return pulumi.get(self, "service_tag")
-
-    @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> str:
-        return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")
@@ -7286,7 +7185,6 @@ class GetFunctionAppSiteConfigScmIpRestrictionResult(dict):
                  name: str,
                  priority: int,
                  service_tag: str,
-                 subnet_id: str,
                  virtual_network_subnet_id: str):
         """
         :param str action: Allow or Deny access for this IP range. Defaults to Allow.
@@ -7301,7 +7199,6 @@ class GetFunctionAppSiteConfigScmIpRestrictionResult(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "service_tag", service_tag)
-        pulumi.set(__self__, "subnet_id", subnet_id)
         pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
     @property
@@ -7343,11 +7240,6 @@ class GetFunctionAppSiteConfigScmIpRestrictionResult(dict):
         The Service Tag used for this IP Restriction.
         """
         return pulumi.get(self, "service_tag")
-
-    @property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> str:
-        return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")

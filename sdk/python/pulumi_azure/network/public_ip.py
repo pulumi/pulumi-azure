@@ -17,6 +17,7 @@ class PublicIpArgs:
                  resource_group_name: pulumi.Input[str],
                  domain_name_label: Optional[pulumi.Input[str]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+                 ip_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ip_version: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -32,6 +33,7 @@ class PublicIpArgs:
                create the public ip.
         :param pulumi.Input[str] domain_name_label: Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
         :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] ip_tags: A mapping of IP tags to assign to the public IP.
         :param pulumi.Input[str] ip_version: The IP Version to use, IPv6 or IPv4.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Public IP resource . Changing this forces a
@@ -48,6 +50,8 @@ class PublicIpArgs:
             pulumi.set(__self__, "domain_name_label", domain_name_label)
         if idle_timeout_in_minutes is not None:
             pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+        if ip_tags is not None:
+            pulumi.set(__self__, "ip_tags", ip_tags)
         if ip_version is not None:
             pulumi.set(__self__, "ip_version", ip_version)
         if location is not None:
@@ -113,6 +117,18 @@ class PublicIpArgs:
     @idle_timeout_in_minutes.setter
     def idle_timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "idle_timeout_in_minutes", value)
+
+    @property
+    @pulumi.getter(name="ipTags")
+    def ip_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of IP tags to assign to the public IP.
+        """
+        return pulumi.get(self, "ip_tags")
+
+    @ip_tags.setter
+    def ip_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "ip_tags", value)
 
     @property
     @pulumi.getter(name="ipVersion")
@@ -220,6 +236,7 @@ class _PublicIpState:
                  fqdn: Optional[pulumi.Input[str]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
+                 ip_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ip_version: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -236,6 +253,7 @@ class _PublicIpState:
         :param pulumi.Input[str] fqdn: Fully qualified domain name of the A DNS record associated with the public IP. `domain_name_label` must be specified to get the `fqdn`. This is the concatenation of the `domain_name_label` and the regionalized DNS zone
         :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
         :param pulumi.Input[str] ip_address: The IP address value that was allocated.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] ip_tags: A mapping of IP tags to assign to the public IP.
         :param pulumi.Input[str] ip_version: The IP Version to use, IPv6 or IPv4.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Public IP resource . Changing this forces a
@@ -258,6 +276,8 @@ class _PublicIpState:
             pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
         if ip_address is not None:
             pulumi.set(__self__, "ip_address", ip_address)
+        if ip_tags is not None:
+            pulumi.set(__self__, "ip_tags", ip_tags)
         if ip_version is not None:
             pulumi.set(__self__, "ip_version", ip_version)
         if location is not None:
@@ -336,6 +356,18 @@ class _PublicIpState:
     @ip_address.setter
     def ip_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter(name="ipTags")
+    def ip_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of IP tags to assign to the public IP.
+        """
+        return pulumi.get(self, "ip_tags")
+
+    @ip_tags.setter
+    def ip_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "ip_tags", value)
 
     @property
     @pulumi.getter(name="ipVersion")
@@ -456,6 +488,7 @@ class PublicIp(pulumi.CustomResource):
                  allocation_method: Optional[pulumi.Input[str]] = None,
                  domain_name_label: Optional[pulumi.Input[str]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+                 ip_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ip_version: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -498,6 +531,7 @@ class PublicIp(pulumi.CustomResource):
         :param pulumi.Input[str] allocation_method: Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
         :param pulumi.Input[str] domain_name_label: Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
         :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] ip_tags: A mapping of IP tags to assign to the public IP.
         :param pulumi.Input[str] ip_version: The IP Version to use, IPv6 or IPv4.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Public IP resource . Changing this forces a
@@ -561,6 +595,7 @@ class PublicIp(pulumi.CustomResource):
                  allocation_method: Optional[pulumi.Input[str]] = None,
                  domain_name_label: Optional[pulumi.Input[str]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+                 ip_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ip_version: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -587,6 +622,7 @@ class PublicIp(pulumi.CustomResource):
             __props__.__dict__["allocation_method"] = allocation_method
             __props__.__dict__["domain_name_label"] = domain_name_label
             __props__.__dict__["idle_timeout_in_minutes"] = idle_timeout_in_minutes
+            __props__.__dict__["ip_tags"] = ip_tags
             __props__.__dict__["ip_version"] = ip_version
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -615,6 +651,7 @@ class PublicIp(pulumi.CustomResource):
             fqdn: Optional[pulumi.Input[str]] = None,
             idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
             ip_address: Optional[pulumi.Input[str]] = None,
+            ip_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             ip_version: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -636,6 +673,7 @@ class PublicIp(pulumi.CustomResource):
         :param pulumi.Input[str] fqdn: Fully qualified domain name of the A DNS record associated with the public IP. `domain_name_label` must be specified to get the `fqdn`. This is the concatenation of the `domain_name_label` and the regionalized DNS zone
         :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
         :param pulumi.Input[str] ip_address: The IP address value that was allocated.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] ip_tags: A mapping of IP tags to assign to the public IP.
         :param pulumi.Input[str] ip_version: The IP Version to use, IPv6 or IPv4.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Public IP resource . Changing this forces a
@@ -657,6 +695,7 @@ class PublicIp(pulumi.CustomResource):
         __props__.__dict__["fqdn"] = fqdn
         __props__.__dict__["idle_timeout_in_minutes"] = idle_timeout_in_minutes
         __props__.__dict__["ip_address"] = ip_address
+        __props__.__dict__["ip_tags"] = ip_tags
         __props__.__dict__["ip_version"] = ip_version
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
@@ -707,6 +746,14 @@ class PublicIp(pulumi.CustomResource):
         The IP address value that was allocated.
         """
         return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter(name="ipTags")
+    def ip_tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A mapping of IP tags to assign to the public IP.
+        """
+        return pulumi.get(self, "ip_tags")
 
     @property
     @pulumi.getter(name="ipVersion")

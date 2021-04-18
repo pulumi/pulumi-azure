@@ -108,6 +108,8 @@ type Cache struct {
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
+	// A mapping of tags to assign to the HPC Cache.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewCache registers a new resource with the given unique name, arguments, and options.
@@ -177,6 +179,8 @@ type cacheState struct {
 	SkuName *string `pulumi:"skuName"`
 	// The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
+	// A mapping of tags to assign to the HPC Cache.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type CacheState struct {
@@ -206,6 +210,8 @@ type CacheState struct {
 	SkuName pulumi.StringPtrInput
 	// The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput
+	// A mapping of tags to assign to the HPC Cache.
+	Tags pulumi.StringMapInput
 }
 
 func (CacheState) ElementType() reflect.Type {
@@ -237,6 +243,8 @@ type cacheArgs struct {
 	SkuName string `pulumi:"skuName"`
 	// The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
 	SubnetId string `pulumi:"subnetId"`
+	// A mapping of tags to assign to the HPC Cache.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Cache resource.
@@ -265,6 +273,8 @@ type CacheArgs struct {
 	SkuName pulumi.StringInput
 	// The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringInput
+	// A mapping of tags to assign to the HPC Cache.
+	Tags pulumi.StringMapInput
 }
 
 func (CacheArgs) ElementType() reflect.Type {

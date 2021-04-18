@@ -22,6 +22,7 @@ class DatabaseArgs:
                  creation_source_database_id: Optional[pulumi.Input[str]] = None,
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
                  extended_auditing_policy: Optional[pulumi.Input['DatabaseExtendedAuditingPolicyArgs']] = None,
+                 geo_backup_enabled: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  long_term_retention_policy: Optional[pulumi.Input['DatabaseLongTermRetentionPolicyArgs']] = None,
                  max_size_gb: Optional[pulumi.Input[int]] = None,
@@ -48,6 +49,7 @@ class DatabaseArgs:
         :param pulumi.Input[str] creation_source_database_id: The id of the source database to be referred to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
         :param pulumi.Input[str] elastic_pool_id: Specifies the ID of the elastic pool containing this database.
         :param pulumi.Input['DatabaseExtendedAuditingPolicyArgs'] extended_auditing_policy: A `extended_auditing_policy` block as defined below.
+        :param pulumi.Input[bool] geo_backup_enabled: A boolean that specifies if the Geo Backup Policy is enabled.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input['DatabaseLongTermRetentionPolicyArgs'] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
         :param pulumi.Input[int] max_size_gb: The max size of the database in gigabytes.
@@ -82,6 +84,8 @@ class DatabaseArgs:
             pulumi.log.warn("""extended_auditing_policy is deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""")
         if extended_auditing_policy is not None:
             pulumi.set(__self__, "extended_auditing_policy", extended_auditing_policy)
+        if geo_backup_enabled is not None:
+            pulumi.set(__self__, "geo_backup_enabled", geo_backup_enabled)
         if license_type is not None:
             pulumi.set(__self__, "license_type", license_type)
         if long_term_retention_policy is not None:
@@ -200,6 +204,18 @@ class DatabaseArgs:
     @extended_auditing_policy.setter
     def extended_auditing_policy(self, value: Optional[pulumi.Input['DatabaseExtendedAuditingPolicyArgs']]):
         pulumi.set(self, "extended_auditing_policy", value)
+
+    @property
+    @pulumi.getter(name="geoBackupEnabled")
+    def geo_backup_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean that specifies if the Geo Backup Policy is enabled.
+        """
+        return pulumi.get(self, "geo_backup_enabled")
+
+    @geo_backup_enabled.setter
+    def geo_backup_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "geo_backup_enabled", value)
 
     @property
     @pulumi.getter(name="licenseType")
@@ -415,6 +431,7 @@ class _DatabaseState:
                  creation_source_database_id: Optional[pulumi.Input[str]] = None,
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
                  extended_auditing_policy: Optional[pulumi.Input['DatabaseExtendedAuditingPolicyArgs']] = None,
+                 geo_backup_enabled: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  long_term_retention_policy: Optional[pulumi.Input['DatabaseLongTermRetentionPolicyArgs']] = None,
                  max_size_gb: Optional[pulumi.Input[int]] = None,
@@ -441,6 +458,7 @@ class _DatabaseState:
         :param pulumi.Input[str] creation_source_database_id: The id of the source database to be referred to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
         :param pulumi.Input[str] elastic_pool_id: Specifies the ID of the elastic pool containing this database.
         :param pulumi.Input['DatabaseExtendedAuditingPolicyArgs'] extended_auditing_policy: A `extended_auditing_policy` block as defined below.
+        :param pulumi.Input[bool] geo_backup_enabled: A boolean that specifies if the Geo Backup Policy is enabled.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input['DatabaseLongTermRetentionPolicyArgs'] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
         :param pulumi.Input[int] max_size_gb: The max size of the database in gigabytes.
@@ -475,6 +493,8 @@ class _DatabaseState:
             pulumi.log.warn("""extended_auditing_policy is deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""")
         if extended_auditing_policy is not None:
             pulumi.set(__self__, "extended_auditing_policy", extended_auditing_policy)
+        if geo_backup_enabled is not None:
+            pulumi.set(__self__, "geo_backup_enabled", geo_backup_enabled)
         if license_type is not None:
             pulumi.set(__self__, "license_type", license_type)
         if long_term_retention_policy is not None:
@@ -583,6 +603,18 @@ class _DatabaseState:
     @extended_auditing_policy.setter
     def extended_auditing_policy(self, value: Optional[pulumi.Input['DatabaseExtendedAuditingPolicyArgs']]):
         pulumi.set(self, "extended_auditing_policy", value)
+
+    @property
+    @pulumi.getter(name="geoBackupEnabled")
+    def geo_backup_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean that specifies if the Geo Backup Policy is enabled.
+        """
+        return pulumi.get(self, "geo_backup_enabled")
+
+    @geo_backup_enabled.setter
+    def geo_backup_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "geo_backup_enabled", value)
 
     @property
     @pulumi.getter(name="licenseType")
@@ -812,6 +844,7 @@ class Database(pulumi.CustomResource):
                  creation_source_database_id: Optional[pulumi.Input[str]] = None,
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
                  extended_auditing_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseExtendedAuditingPolicyArgs']]] = None,
+                 geo_backup_enabled: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  long_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']]] = None,
                  max_size_gb: Optional[pulumi.Input[int]] = None,
@@ -889,6 +922,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] creation_source_database_id: The id of the source database to be referred to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
         :param pulumi.Input[str] elastic_pool_id: Specifies the ID of the elastic pool containing this database.
         :param pulumi.Input[pulumi.InputType['DatabaseExtendedAuditingPolicyArgs']] extended_auditing_policy: A `extended_auditing_policy` block as defined below.
+        :param pulumi.Input[bool] geo_backup_enabled: A boolean that specifies if the Geo Backup Policy is enabled.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
         :param pulumi.Input[int] max_size_gb: The max size of the database in gigabytes.
@@ -985,6 +1019,7 @@ class Database(pulumi.CustomResource):
                  creation_source_database_id: Optional[pulumi.Input[str]] = None,
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
                  extended_auditing_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseExtendedAuditingPolicyArgs']]] = None,
+                 geo_backup_enabled: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  long_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']]] = None,
                  max_size_gb: Optional[pulumi.Input[int]] = None,
@@ -1024,6 +1059,7 @@ class Database(pulumi.CustomResource):
                 warnings.warn("""the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""", DeprecationWarning)
                 pulumi.log.warn("""extended_auditing_policy is deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.""")
             __props__.__dict__["extended_auditing_policy"] = extended_auditing_policy
+            __props__.__dict__["geo_backup_enabled"] = geo_backup_enabled
             __props__.__dict__["license_type"] = license_type
             __props__.__dict__["long_term_retention_policy"] = long_term_retention_policy
             __props__.__dict__["max_size_gb"] = max_size_gb
@@ -1060,6 +1096,7 @@ class Database(pulumi.CustomResource):
             creation_source_database_id: Optional[pulumi.Input[str]] = None,
             elastic_pool_id: Optional[pulumi.Input[str]] = None,
             extended_auditing_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseExtendedAuditingPolicyArgs']]] = None,
+            geo_backup_enabled: Optional[pulumi.Input[bool]] = None,
             license_type: Optional[pulumi.Input[str]] = None,
             long_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']]] = None,
             max_size_gb: Optional[pulumi.Input[int]] = None,
@@ -1091,6 +1128,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] creation_source_database_id: The id of the source database to be referred to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
         :param pulumi.Input[str] elastic_pool_id: Specifies the ID of the elastic pool containing this database.
         :param pulumi.Input[pulumi.InputType['DatabaseExtendedAuditingPolicyArgs']] extended_auditing_policy: A `extended_auditing_policy` block as defined below.
+        :param pulumi.Input[bool] geo_backup_enabled: A boolean that specifies if the Geo Backup Policy is enabled.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
         :param pulumi.Input[int] max_size_gb: The max size of the database in gigabytes.
@@ -1120,6 +1158,7 @@ class Database(pulumi.CustomResource):
         __props__.__dict__["creation_source_database_id"] = creation_source_database_id
         __props__.__dict__["elastic_pool_id"] = elastic_pool_id
         __props__.__dict__["extended_auditing_policy"] = extended_auditing_policy
+        __props__.__dict__["geo_backup_enabled"] = geo_backup_enabled
         __props__.__dict__["license_type"] = license_type
         __props__.__dict__["long_term_retention_policy"] = long_term_retention_policy
         __props__.__dict__["max_size_gb"] = max_size_gb
@@ -1187,6 +1226,14 @@ class Database(pulumi.CustomResource):
         A `extended_auditing_policy` block as defined below.
         """
         return pulumi.get(self, "extended_auditing_policy")
+
+    @property
+    @pulumi.getter(name="geoBackupEnabled")
+    def geo_backup_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A boolean that specifies if the Geo Backup Policy is enabled.
+        """
+        return pulumi.get(self, "geo_backup_enabled")
 
     @property
     @pulumi.getter(name="licenseType")
