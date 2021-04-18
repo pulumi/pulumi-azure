@@ -2112,13 +2112,9 @@ export namespace appservice {
          */
         serviceTag?: string;
         /**
-         * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-         */
-        subnetId: string;
-        /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
-        virtualNetworkSubnetId: string;
+        virtualNetworkSubnetId?: string;
     }
 
     export interface AppServiceSiteConfigScmIpRestriction {
@@ -2143,13 +2139,9 @@ export namespace appservice {
          */
         serviceTag?: string;
         /**
-         * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-         */
-        subnetId: string;
-        /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
-        virtualNetworkSubnetId: string;
+        virtualNetworkSubnetId?: string;
     }
 
     export interface AppServiceSiteCredential {
@@ -2494,13 +2486,9 @@ export namespace appservice {
          */
         serviceTag?: string;
         /**
-         * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-         */
-        subnetId: string;
-        /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
-        virtualNetworkSubnetId: string;
+        virtualNetworkSubnetId?: string;
     }
 
     export interface FunctionAppSiteConfigScmIpRestriction {
@@ -2525,13 +2513,9 @@ export namespace appservice {
          */
         serviceTag?: string;
         /**
-         * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-         */
-        subnetId: string;
-        /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
-        virtualNetworkSubnetId: string;
+        virtualNetworkSubnetId?: string;
     }
 
     export interface FunctionAppSiteCredential {
@@ -2787,13 +2771,9 @@ export namespace appservice {
          */
         serviceTag?: string;
         /**
-         * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-         */
-        subnetId: string;
-        /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
-        virtualNetworkSubnetId: string;
+        virtualNetworkSubnetId?: string;
     }
 
     export interface FunctionAppSlotSiteConfigScmIpRestriction {
@@ -2818,13 +2798,9 @@ export namespace appservice {
          */
         serviceTag?: string;
         /**
-         * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-         */
-        subnetId: string;
-        /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
-        virtualNetworkSubnetId: string;
+        virtualNetworkSubnetId?: string;
     }
 
     export interface FunctionAppSlotSiteCredential {
@@ -3045,7 +3021,6 @@ export namespace appservice {
          * The Service Tag used for this IP Restriction.
          */
         serviceTag: string;
-        subnetId: string;
         /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
@@ -3073,7 +3048,6 @@ export namespace appservice {
          * The Service Tag used for this IP Restriction.
          */
         serviceTag: string;
-        subnetId: string;
         /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
@@ -3240,7 +3214,6 @@ export namespace appservice {
          * The Service Tag used for this IP Restriction.
          */
         serviceTag: string;
-        subnetId: string;
         /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
@@ -3268,7 +3241,6 @@ export namespace appservice {
          * The Service Tag used for this IP Restriction.
          */
         serviceTag: string;
-        subnetId: string;
         /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
@@ -3681,13 +3653,9 @@ export namespace appservice {
          */
         serviceTag?: string;
         /**
-         * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-         */
-        subnetId: string;
-        /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
-        virtualNetworkSubnetId: string;
+        virtualNetworkSubnetId?: string;
     }
 
     export interface SlotSiteConfigScmIpRestriction {
@@ -3712,13 +3680,9 @@ export namespace appservice {
          */
         serviceTag?: string;
         /**
-         * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-         */
-        subnetId: string;
-        /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
-        virtualNetworkSubnetId: string;
+        virtualNetworkSubnetId?: string;
     }
 
     export interface SlotSiteCredential {
@@ -9460,6 +9424,90 @@ export namespace datafactory {
          * ID of the virtual network to which the nodes of the Azure-SSIS Integration Runtime will be added.
          */
         vnetId: string;
+    }
+
+    export interface LinkedServiceAzureDatabricksInstancePool {
+        /**
+         * Spark version of a the cluster.
+         */
+        clusterVersion: string;
+        /**
+         * Identifier of the instance pool within the linked ADB instance.
+         */
+        instancePoolId: string;
+        /**
+         * The max number of worker nodes. Set this value if you want to enable autoscaling between the `minNumberOfWorkers` and this value. Omit this value to use a fixed number of workers defined in the `minNumberOfWorkers` property.
+         */
+        maxNumberOfWorkers?: number;
+        /**
+         * The minimum number of worker nodes. Defaults to 1.
+         */
+        minNumberOfWorkers?: number;
+    }
+
+    export interface LinkedServiceAzureDatabricksKeyVaultPassword {
+        /**
+         * Specifies the name of an existing Key Vault Data Factory Linked Service.
+         */
+        linkedServiceName: string;
+        /**
+         * Specifies the secret name in Azure Key Vault that stores ADB access token.
+         */
+        secretName: string;
+    }
+
+    export interface LinkedServiceAzureDatabricksNewClusterConfig {
+        /**
+         * Spark version of a the cluster.
+         */
+        clusterVersion: string;
+        /**
+         * Tags for the cluster resource.
+         */
+        customTags?: {[key: string]: string};
+        /**
+         * Driver node type for the cluster.
+         */
+        driverNodeType?: string;
+        /**
+         * User defined initialization scripts for the cluster.
+         */
+        initScripts?: string[];
+        /**
+         * Location to deliver Spark driver, worker, and event logs.
+         */
+        logDestination?: string;
+        /**
+         * The max number of worker nodes. Set this value if you want to enable autoscaling between the `minNumberOfWorkers` and this value. Omit this value to use a fixed number of workers defined in the `minNumberOfWorkers` property.
+         */
+        maxNumberOfWorkers?: number;
+        /**
+         * The minimum number of worker nodes. Defaults to 1.
+         */
+        minNumberOfWorkers?: number;
+        /**
+         * Node type for the new cluster.
+         */
+        nodeType: string;
+        /**
+         * User-specified Spark configuration variables key-value pairs.
+         */
+        sparkConfig?: {[key: string]: string};
+        /**
+         * User-specified Spark environment variables key-value pairs.
+         */
+        sparkEnvironmentVariables?: {[key: string]: string};
+    }
+
+    export interface LinkedServiceAzureSqlDatabaseKeyVaultPassword {
+        /**
+         * Specifies the name of an existing Key Vault Data Factory Linked Service.
+         */
+        linkedServiceName: string;
+        /**
+         * Specifies the secret name in Azure Key Vault that stores SQL Server password.
+         */
+        secretName: string;
     }
 
     export interface LinkedServiceSnowflakeKeyVaultPassword {
@@ -16091,6 +16139,10 @@ export namespace monitoring {
          */
         resourceType?: string;
         /**
+         * A block to define fine grain service health settings.
+         */
+        serviceHealths?: outputs.monitoring.ActivityLogAlertCriteriaServiceHealth[];
+        /**
          * The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
          */
         status?: string;
@@ -16098,6 +16150,21 @@ export namespace monitoring {
          * The sub status of the event.
          */
         subStatus?: string;
+    }
+
+    export interface ActivityLogAlertCriteriaServiceHealth {
+        /**
+         * Events this alert will monitor Possible values are `Incident`, `Maintenance`, `Informational`, and `ActionRequired`.
+         */
+        events?: string[];
+        /**
+         * Locations this alert will monitor. For example, `West Europe`. Defaults to `Global`.
+         */
+        locations?: string[];
+        /**
+         * Services this alert will monitor. For example, `Activity Logs & Alerts`, `Action Groups`. Defaults to all Services.
+         */
+        services?: string[];
     }
 
     export interface AutoscaleSettingNotification {
@@ -18091,6 +18158,10 @@ export namespace network {
          * The Name of the Backend HTTP Settings Collection to use for this Path Rule. Cannot be set if `redirectConfigurationName` is set.
          */
         backendHttpSettingsName?: string;
+        /**
+         * The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+         */
+        firewallPolicyId?: string;
         /**
          * The ID of the Rewrite Rule Set
          */

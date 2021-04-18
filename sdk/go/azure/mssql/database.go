@@ -105,6 +105,8 @@ type Database struct {
 	//
 	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
 	ExtendedAuditingPolicy DatabaseExtendedAuditingPolicyTypeOutput `pulumi:"extendedAuditingPolicy"`
+	// A boolean that specifies if the Geo Backup Policy is enabled.
+	GeoBackupEnabled pulumi.BoolPtrOutput `pulumi:"geoBackupEnabled"`
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
 	LicenseType pulumi.StringOutput `pulumi:"licenseType"`
 	// A `longTermRetentionPolicy` block as defined below.
@@ -189,6 +191,8 @@ type databaseState struct {
 	//
 	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
 	ExtendedAuditingPolicy *DatabaseExtendedAuditingPolicyType `pulumi:"extendedAuditingPolicy"`
+	// A boolean that specifies if the Geo Backup Policy is enabled.
+	GeoBackupEnabled *bool `pulumi:"geoBackupEnabled"`
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
 	LicenseType *string `pulumi:"licenseType"`
 	// A `longTermRetentionPolicy` block as defined below.
@@ -242,6 +246,8 @@ type DatabaseState struct {
 	//
 	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
 	ExtendedAuditingPolicy DatabaseExtendedAuditingPolicyTypePtrInput
+	// A boolean that specifies if the Geo Backup Policy is enabled.
+	GeoBackupEnabled pulumi.BoolPtrInput
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
 	LicenseType pulumi.StringPtrInput
 	// A `longTermRetentionPolicy` block as defined below.
@@ -299,6 +305,8 @@ type databaseArgs struct {
 	//
 	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
 	ExtendedAuditingPolicy *DatabaseExtendedAuditingPolicyType `pulumi:"extendedAuditingPolicy"`
+	// A boolean that specifies if the Geo Backup Policy is enabled.
+	GeoBackupEnabled *bool `pulumi:"geoBackupEnabled"`
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
 	LicenseType *string `pulumi:"licenseType"`
 	// A `longTermRetentionPolicy` block as defined below.
@@ -353,6 +361,8 @@ type DatabaseArgs struct {
 	//
 	// Deprecated: the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
 	ExtendedAuditingPolicy DatabaseExtendedAuditingPolicyTypePtrInput
+	// A boolean that specifies if the Geo Backup Policy is enabled.
+	GeoBackupEnabled pulumi.BoolPtrInput
 	// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
 	LicenseType pulumi.StringPtrInput
 	// A `longTermRetentionPolicy` block as defined below.

@@ -95,6 +95,9 @@ namespace Pulumi.Azure.Kusto
     ///             StorageAccountId = exampleAccount.Id,
     ///             EventhubId = azurerm_eventhub.Example.Id,
     ///             EventhubConsumerGroupName = exampleConsumerGroup.Name,
+    ///             TableName = "my-table",
+    ///             MappingRuleName = "my-table-mapping",
+    ///             DataFormat = "JSON",
     ///         }, new CustomResourceOptions
     ///         {
     ///             DependsOn = 

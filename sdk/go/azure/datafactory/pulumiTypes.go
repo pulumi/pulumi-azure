@@ -3738,6 +3738,804 @@ func (o IntegrationRuntimeSsisVnetIntegrationPtrOutput) VnetId() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+type LinkedServiceAzureDatabricksInstancePool struct {
+	// Spark version of a the cluster.
+	ClusterVersion string `pulumi:"clusterVersion"`
+	// Identifier of the instance pool within the linked ADB instance.
+	InstancePoolId string `pulumi:"instancePoolId"`
+	// The max number of worker nodes. Set this value if you want to enable autoscaling between the `minNumberOfWorkers` and this value. Omit this value to use a fixed number of workers defined in the `minNumberOfWorkers` property.
+	MaxNumberOfWorkers *int `pulumi:"maxNumberOfWorkers"`
+	// The minimum number of worker nodes. Defaults to 1.
+	MinNumberOfWorkers *int `pulumi:"minNumberOfWorkers"`
+}
+
+// LinkedServiceAzureDatabricksInstancePoolInput is an input type that accepts LinkedServiceAzureDatabricksInstancePoolArgs and LinkedServiceAzureDatabricksInstancePoolOutput values.
+// You can construct a concrete instance of `LinkedServiceAzureDatabricksInstancePoolInput` via:
+//
+//          LinkedServiceAzureDatabricksInstancePoolArgs{...}
+type LinkedServiceAzureDatabricksInstancePoolInput interface {
+	pulumi.Input
+
+	ToLinkedServiceAzureDatabricksInstancePoolOutput() LinkedServiceAzureDatabricksInstancePoolOutput
+	ToLinkedServiceAzureDatabricksInstancePoolOutputWithContext(context.Context) LinkedServiceAzureDatabricksInstancePoolOutput
+}
+
+type LinkedServiceAzureDatabricksInstancePoolArgs struct {
+	// Spark version of a the cluster.
+	ClusterVersion pulumi.StringInput `pulumi:"clusterVersion"`
+	// Identifier of the instance pool within the linked ADB instance.
+	InstancePoolId pulumi.StringInput `pulumi:"instancePoolId"`
+	// The max number of worker nodes. Set this value if you want to enable autoscaling between the `minNumberOfWorkers` and this value. Omit this value to use a fixed number of workers defined in the `minNumberOfWorkers` property.
+	MaxNumberOfWorkers pulumi.IntPtrInput `pulumi:"maxNumberOfWorkers"`
+	// The minimum number of worker nodes. Defaults to 1.
+	MinNumberOfWorkers pulumi.IntPtrInput `pulumi:"minNumberOfWorkers"`
+}
+
+func (LinkedServiceAzureDatabricksInstancePoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceAzureDatabricksInstancePool)(nil)).Elem()
+}
+
+func (i LinkedServiceAzureDatabricksInstancePoolArgs) ToLinkedServiceAzureDatabricksInstancePoolOutput() LinkedServiceAzureDatabricksInstancePoolOutput {
+	return i.ToLinkedServiceAzureDatabricksInstancePoolOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceAzureDatabricksInstancePoolArgs) ToLinkedServiceAzureDatabricksInstancePoolOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksInstancePoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureDatabricksInstancePoolOutput)
+}
+
+func (i LinkedServiceAzureDatabricksInstancePoolArgs) ToLinkedServiceAzureDatabricksInstancePoolPtrOutput() LinkedServiceAzureDatabricksInstancePoolPtrOutput {
+	return i.ToLinkedServiceAzureDatabricksInstancePoolPtrOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceAzureDatabricksInstancePoolArgs) ToLinkedServiceAzureDatabricksInstancePoolPtrOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksInstancePoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureDatabricksInstancePoolOutput).ToLinkedServiceAzureDatabricksInstancePoolPtrOutputWithContext(ctx)
+}
+
+// LinkedServiceAzureDatabricksInstancePoolPtrInput is an input type that accepts LinkedServiceAzureDatabricksInstancePoolArgs, LinkedServiceAzureDatabricksInstancePoolPtr and LinkedServiceAzureDatabricksInstancePoolPtrOutput values.
+// You can construct a concrete instance of `LinkedServiceAzureDatabricksInstancePoolPtrInput` via:
+//
+//          LinkedServiceAzureDatabricksInstancePoolArgs{...}
+//
+//  or:
+//
+//          nil
+type LinkedServiceAzureDatabricksInstancePoolPtrInput interface {
+	pulumi.Input
+
+	ToLinkedServiceAzureDatabricksInstancePoolPtrOutput() LinkedServiceAzureDatabricksInstancePoolPtrOutput
+	ToLinkedServiceAzureDatabricksInstancePoolPtrOutputWithContext(context.Context) LinkedServiceAzureDatabricksInstancePoolPtrOutput
+}
+
+type linkedServiceAzureDatabricksInstancePoolPtrType LinkedServiceAzureDatabricksInstancePoolArgs
+
+func LinkedServiceAzureDatabricksInstancePoolPtr(v *LinkedServiceAzureDatabricksInstancePoolArgs) LinkedServiceAzureDatabricksInstancePoolPtrInput {
+	return (*linkedServiceAzureDatabricksInstancePoolPtrType)(v)
+}
+
+func (*linkedServiceAzureDatabricksInstancePoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceAzureDatabricksInstancePool)(nil)).Elem()
+}
+
+func (i *linkedServiceAzureDatabricksInstancePoolPtrType) ToLinkedServiceAzureDatabricksInstancePoolPtrOutput() LinkedServiceAzureDatabricksInstancePoolPtrOutput {
+	return i.ToLinkedServiceAzureDatabricksInstancePoolPtrOutputWithContext(context.Background())
+}
+
+func (i *linkedServiceAzureDatabricksInstancePoolPtrType) ToLinkedServiceAzureDatabricksInstancePoolPtrOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksInstancePoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureDatabricksInstancePoolPtrOutput)
+}
+
+type LinkedServiceAzureDatabricksInstancePoolOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceAzureDatabricksInstancePoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceAzureDatabricksInstancePool)(nil)).Elem()
+}
+
+func (o LinkedServiceAzureDatabricksInstancePoolOutput) ToLinkedServiceAzureDatabricksInstancePoolOutput() LinkedServiceAzureDatabricksInstancePoolOutput {
+	return o
+}
+
+func (o LinkedServiceAzureDatabricksInstancePoolOutput) ToLinkedServiceAzureDatabricksInstancePoolOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksInstancePoolOutput {
+	return o
+}
+
+func (o LinkedServiceAzureDatabricksInstancePoolOutput) ToLinkedServiceAzureDatabricksInstancePoolPtrOutput() LinkedServiceAzureDatabricksInstancePoolPtrOutput {
+	return o.ToLinkedServiceAzureDatabricksInstancePoolPtrOutputWithContext(context.Background())
+}
+
+func (o LinkedServiceAzureDatabricksInstancePoolOutput) ToLinkedServiceAzureDatabricksInstancePoolPtrOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksInstancePoolPtrOutput {
+	return o.ApplyT(func(v LinkedServiceAzureDatabricksInstancePool) *LinkedServiceAzureDatabricksInstancePool {
+		return &v
+	}).(LinkedServiceAzureDatabricksInstancePoolPtrOutput)
+}
+
+// Spark version of a the cluster.
+func (o LinkedServiceAzureDatabricksInstancePoolOutput) ClusterVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceAzureDatabricksInstancePool) string { return v.ClusterVersion }).(pulumi.StringOutput)
+}
+
+// Identifier of the instance pool within the linked ADB instance.
+func (o LinkedServiceAzureDatabricksInstancePoolOutput) InstancePoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceAzureDatabricksInstancePool) string { return v.InstancePoolId }).(pulumi.StringOutput)
+}
+
+// The max number of worker nodes. Set this value if you want to enable autoscaling between the `minNumberOfWorkers` and this value. Omit this value to use a fixed number of workers defined in the `minNumberOfWorkers` property.
+func (o LinkedServiceAzureDatabricksInstancePoolOutput) MaxNumberOfWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LinkedServiceAzureDatabricksInstancePool) *int { return v.MaxNumberOfWorkers }).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of worker nodes. Defaults to 1.
+func (o LinkedServiceAzureDatabricksInstancePoolOutput) MinNumberOfWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LinkedServiceAzureDatabricksInstancePool) *int { return v.MinNumberOfWorkers }).(pulumi.IntPtrOutput)
+}
+
+type LinkedServiceAzureDatabricksInstancePoolPtrOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceAzureDatabricksInstancePoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceAzureDatabricksInstancePool)(nil)).Elem()
+}
+
+func (o LinkedServiceAzureDatabricksInstancePoolPtrOutput) ToLinkedServiceAzureDatabricksInstancePoolPtrOutput() LinkedServiceAzureDatabricksInstancePoolPtrOutput {
+	return o
+}
+
+func (o LinkedServiceAzureDatabricksInstancePoolPtrOutput) ToLinkedServiceAzureDatabricksInstancePoolPtrOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksInstancePoolPtrOutput {
+	return o
+}
+
+func (o LinkedServiceAzureDatabricksInstancePoolPtrOutput) Elem() LinkedServiceAzureDatabricksInstancePoolOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureDatabricksInstancePool) LinkedServiceAzureDatabricksInstancePool { return *v }).(LinkedServiceAzureDatabricksInstancePoolOutput)
+}
+
+// Spark version of a the cluster.
+func (o LinkedServiceAzureDatabricksInstancePoolPtrOutput) ClusterVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureDatabricksInstancePool) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClusterVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the instance pool within the linked ADB instance.
+func (o LinkedServiceAzureDatabricksInstancePoolPtrOutput) InstancePoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureDatabricksInstancePool) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InstancePoolId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The max number of worker nodes. Set this value if you want to enable autoscaling between the `minNumberOfWorkers` and this value. Omit this value to use a fixed number of workers defined in the `minNumberOfWorkers` property.
+func (o LinkedServiceAzureDatabricksInstancePoolPtrOutput) MaxNumberOfWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureDatabricksInstancePool) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxNumberOfWorkers
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of worker nodes. Defaults to 1.
+func (o LinkedServiceAzureDatabricksInstancePoolPtrOutput) MinNumberOfWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureDatabricksInstancePool) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinNumberOfWorkers
+	}).(pulumi.IntPtrOutput)
+}
+
+type LinkedServiceAzureDatabricksKeyVaultPassword struct {
+	// Specifies the name of an existing Key Vault Data Factory Linked Service.
+	LinkedServiceName string `pulumi:"linkedServiceName"`
+	// Specifies the secret name in Azure Key Vault that stores ADB access token.
+	SecretName string `pulumi:"secretName"`
+}
+
+// LinkedServiceAzureDatabricksKeyVaultPasswordInput is an input type that accepts LinkedServiceAzureDatabricksKeyVaultPasswordArgs and LinkedServiceAzureDatabricksKeyVaultPasswordOutput values.
+// You can construct a concrete instance of `LinkedServiceAzureDatabricksKeyVaultPasswordInput` via:
+//
+//          LinkedServiceAzureDatabricksKeyVaultPasswordArgs{...}
+type LinkedServiceAzureDatabricksKeyVaultPasswordInput interface {
+	pulumi.Input
+
+	ToLinkedServiceAzureDatabricksKeyVaultPasswordOutput() LinkedServiceAzureDatabricksKeyVaultPasswordOutput
+	ToLinkedServiceAzureDatabricksKeyVaultPasswordOutputWithContext(context.Context) LinkedServiceAzureDatabricksKeyVaultPasswordOutput
+}
+
+type LinkedServiceAzureDatabricksKeyVaultPasswordArgs struct {
+	// Specifies the name of an existing Key Vault Data Factory Linked Service.
+	LinkedServiceName pulumi.StringInput `pulumi:"linkedServiceName"`
+	// Specifies the secret name in Azure Key Vault that stores ADB access token.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+}
+
+func (LinkedServiceAzureDatabricksKeyVaultPasswordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceAzureDatabricksKeyVaultPassword)(nil)).Elem()
+}
+
+func (i LinkedServiceAzureDatabricksKeyVaultPasswordArgs) ToLinkedServiceAzureDatabricksKeyVaultPasswordOutput() LinkedServiceAzureDatabricksKeyVaultPasswordOutput {
+	return i.ToLinkedServiceAzureDatabricksKeyVaultPasswordOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceAzureDatabricksKeyVaultPasswordArgs) ToLinkedServiceAzureDatabricksKeyVaultPasswordOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksKeyVaultPasswordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureDatabricksKeyVaultPasswordOutput)
+}
+
+func (i LinkedServiceAzureDatabricksKeyVaultPasswordArgs) ToLinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput() LinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput {
+	return i.ToLinkedServiceAzureDatabricksKeyVaultPasswordPtrOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceAzureDatabricksKeyVaultPasswordArgs) ToLinkedServiceAzureDatabricksKeyVaultPasswordPtrOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureDatabricksKeyVaultPasswordOutput).ToLinkedServiceAzureDatabricksKeyVaultPasswordPtrOutputWithContext(ctx)
+}
+
+// LinkedServiceAzureDatabricksKeyVaultPasswordPtrInput is an input type that accepts LinkedServiceAzureDatabricksKeyVaultPasswordArgs, LinkedServiceAzureDatabricksKeyVaultPasswordPtr and LinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput values.
+// You can construct a concrete instance of `LinkedServiceAzureDatabricksKeyVaultPasswordPtrInput` via:
+//
+//          LinkedServiceAzureDatabricksKeyVaultPasswordArgs{...}
+//
+//  or:
+//
+//          nil
+type LinkedServiceAzureDatabricksKeyVaultPasswordPtrInput interface {
+	pulumi.Input
+
+	ToLinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput() LinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput
+	ToLinkedServiceAzureDatabricksKeyVaultPasswordPtrOutputWithContext(context.Context) LinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput
+}
+
+type linkedServiceAzureDatabricksKeyVaultPasswordPtrType LinkedServiceAzureDatabricksKeyVaultPasswordArgs
+
+func LinkedServiceAzureDatabricksKeyVaultPasswordPtr(v *LinkedServiceAzureDatabricksKeyVaultPasswordArgs) LinkedServiceAzureDatabricksKeyVaultPasswordPtrInput {
+	return (*linkedServiceAzureDatabricksKeyVaultPasswordPtrType)(v)
+}
+
+func (*linkedServiceAzureDatabricksKeyVaultPasswordPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceAzureDatabricksKeyVaultPassword)(nil)).Elem()
+}
+
+func (i *linkedServiceAzureDatabricksKeyVaultPasswordPtrType) ToLinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput() LinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput {
+	return i.ToLinkedServiceAzureDatabricksKeyVaultPasswordPtrOutputWithContext(context.Background())
+}
+
+func (i *linkedServiceAzureDatabricksKeyVaultPasswordPtrType) ToLinkedServiceAzureDatabricksKeyVaultPasswordPtrOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput)
+}
+
+type LinkedServiceAzureDatabricksKeyVaultPasswordOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceAzureDatabricksKeyVaultPasswordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceAzureDatabricksKeyVaultPassword)(nil)).Elem()
+}
+
+func (o LinkedServiceAzureDatabricksKeyVaultPasswordOutput) ToLinkedServiceAzureDatabricksKeyVaultPasswordOutput() LinkedServiceAzureDatabricksKeyVaultPasswordOutput {
+	return o
+}
+
+func (o LinkedServiceAzureDatabricksKeyVaultPasswordOutput) ToLinkedServiceAzureDatabricksKeyVaultPasswordOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksKeyVaultPasswordOutput {
+	return o
+}
+
+func (o LinkedServiceAzureDatabricksKeyVaultPasswordOutput) ToLinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput() LinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput {
+	return o.ToLinkedServiceAzureDatabricksKeyVaultPasswordPtrOutputWithContext(context.Background())
+}
+
+func (o LinkedServiceAzureDatabricksKeyVaultPasswordOutput) ToLinkedServiceAzureDatabricksKeyVaultPasswordPtrOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput {
+	return o.ApplyT(func(v LinkedServiceAzureDatabricksKeyVaultPassword) *LinkedServiceAzureDatabricksKeyVaultPassword {
+		return &v
+	}).(LinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput)
+}
+
+// Specifies the name of an existing Key Vault Data Factory Linked Service.
+func (o LinkedServiceAzureDatabricksKeyVaultPasswordOutput) LinkedServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceAzureDatabricksKeyVaultPassword) string { return v.LinkedServiceName }).(pulumi.StringOutput)
+}
+
+// Specifies the secret name in Azure Key Vault that stores ADB access token.
+func (o LinkedServiceAzureDatabricksKeyVaultPasswordOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceAzureDatabricksKeyVaultPassword) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+type LinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceAzureDatabricksKeyVaultPassword)(nil)).Elem()
+}
+
+func (o LinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput) ToLinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput() LinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput {
+	return o
+}
+
+func (o LinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput) ToLinkedServiceAzureDatabricksKeyVaultPasswordPtrOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput {
+	return o
+}
+
+func (o LinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput) Elem() LinkedServiceAzureDatabricksKeyVaultPasswordOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureDatabricksKeyVaultPassword) LinkedServiceAzureDatabricksKeyVaultPassword {
+		return *v
+	}).(LinkedServiceAzureDatabricksKeyVaultPasswordOutput)
+}
+
+// Specifies the name of an existing Key Vault Data Factory Linked Service.
+func (o LinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput) LinkedServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureDatabricksKeyVaultPassword) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LinkedServiceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the secret name in Azure Key Vault that stores ADB access token.
+func (o LinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureDatabricksKeyVaultPassword) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretName
+	}).(pulumi.StringPtrOutput)
+}
+
+type LinkedServiceAzureDatabricksNewClusterConfig struct {
+	// Spark version of a the cluster.
+	ClusterVersion string `pulumi:"clusterVersion"`
+	// Tags for the cluster resource.
+	CustomTags map[string]string `pulumi:"customTags"`
+	// Driver node type for the cluster.
+	DriverNodeType *string `pulumi:"driverNodeType"`
+	// User defined initialization scripts for the cluster.
+	InitScripts []string `pulumi:"initScripts"`
+	// Location to deliver Spark driver, worker, and event logs.
+	LogDestination *string `pulumi:"logDestination"`
+	// The max number of worker nodes. Set this value if you want to enable autoscaling between the `minNumberOfWorkers` and this value. Omit this value to use a fixed number of workers defined in the `minNumberOfWorkers` property.
+	MaxNumberOfWorkers *int `pulumi:"maxNumberOfWorkers"`
+	// The minimum number of worker nodes. Defaults to 1.
+	MinNumberOfWorkers *int `pulumi:"minNumberOfWorkers"`
+	// Node type for the new cluster.
+	NodeType string `pulumi:"nodeType"`
+	// User-specified Spark configuration variables key-value pairs.
+	SparkConfig map[string]string `pulumi:"sparkConfig"`
+	// User-specified Spark environment variables key-value pairs.
+	SparkEnvironmentVariables map[string]string `pulumi:"sparkEnvironmentVariables"`
+}
+
+// LinkedServiceAzureDatabricksNewClusterConfigInput is an input type that accepts LinkedServiceAzureDatabricksNewClusterConfigArgs and LinkedServiceAzureDatabricksNewClusterConfigOutput values.
+// You can construct a concrete instance of `LinkedServiceAzureDatabricksNewClusterConfigInput` via:
+//
+//          LinkedServiceAzureDatabricksNewClusterConfigArgs{...}
+type LinkedServiceAzureDatabricksNewClusterConfigInput interface {
+	pulumi.Input
+
+	ToLinkedServiceAzureDatabricksNewClusterConfigOutput() LinkedServiceAzureDatabricksNewClusterConfigOutput
+	ToLinkedServiceAzureDatabricksNewClusterConfigOutputWithContext(context.Context) LinkedServiceAzureDatabricksNewClusterConfigOutput
+}
+
+type LinkedServiceAzureDatabricksNewClusterConfigArgs struct {
+	// Spark version of a the cluster.
+	ClusterVersion pulumi.StringInput `pulumi:"clusterVersion"`
+	// Tags for the cluster resource.
+	CustomTags pulumi.StringMapInput `pulumi:"customTags"`
+	// Driver node type for the cluster.
+	DriverNodeType pulumi.StringPtrInput `pulumi:"driverNodeType"`
+	// User defined initialization scripts for the cluster.
+	InitScripts pulumi.StringArrayInput `pulumi:"initScripts"`
+	// Location to deliver Spark driver, worker, and event logs.
+	LogDestination pulumi.StringPtrInput `pulumi:"logDestination"`
+	// The max number of worker nodes. Set this value if you want to enable autoscaling between the `minNumberOfWorkers` and this value. Omit this value to use a fixed number of workers defined in the `minNumberOfWorkers` property.
+	MaxNumberOfWorkers pulumi.IntPtrInput `pulumi:"maxNumberOfWorkers"`
+	// The minimum number of worker nodes. Defaults to 1.
+	MinNumberOfWorkers pulumi.IntPtrInput `pulumi:"minNumberOfWorkers"`
+	// Node type for the new cluster.
+	NodeType pulumi.StringInput `pulumi:"nodeType"`
+	// User-specified Spark configuration variables key-value pairs.
+	SparkConfig pulumi.StringMapInput `pulumi:"sparkConfig"`
+	// User-specified Spark environment variables key-value pairs.
+	SparkEnvironmentVariables pulumi.StringMapInput `pulumi:"sparkEnvironmentVariables"`
+}
+
+func (LinkedServiceAzureDatabricksNewClusterConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceAzureDatabricksNewClusterConfig)(nil)).Elem()
+}
+
+func (i LinkedServiceAzureDatabricksNewClusterConfigArgs) ToLinkedServiceAzureDatabricksNewClusterConfigOutput() LinkedServiceAzureDatabricksNewClusterConfigOutput {
+	return i.ToLinkedServiceAzureDatabricksNewClusterConfigOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceAzureDatabricksNewClusterConfigArgs) ToLinkedServiceAzureDatabricksNewClusterConfigOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksNewClusterConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureDatabricksNewClusterConfigOutput)
+}
+
+func (i LinkedServiceAzureDatabricksNewClusterConfigArgs) ToLinkedServiceAzureDatabricksNewClusterConfigPtrOutput() LinkedServiceAzureDatabricksNewClusterConfigPtrOutput {
+	return i.ToLinkedServiceAzureDatabricksNewClusterConfigPtrOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceAzureDatabricksNewClusterConfigArgs) ToLinkedServiceAzureDatabricksNewClusterConfigPtrOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksNewClusterConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureDatabricksNewClusterConfigOutput).ToLinkedServiceAzureDatabricksNewClusterConfigPtrOutputWithContext(ctx)
+}
+
+// LinkedServiceAzureDatabricksNewClusterConfigPtrInput is an input type that accepts LinkedServiceAzureDatabricksNewClusterConfigArgs, LinkedServiceAzureDatabricksNewClusterConfigPtr and LinkedServiceAzureDatabricksNewClusterConfigPtrOutput values.
+// You can construct a concrete instance of `LinkedServiceAzureDatabricksNewClusterConfigPtrInput` via:
+//
+//          LinkedServiceAzureDatabricksNewClusterConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type LinkedServiceAzureDatabricksNewClusterConfigPtrInput interface {
+	pulumi.Input
+
+	ToLinkedServiceAzureDatabricksNewClusterConfigPtrOutput() LinkedServiceAzureDatabricksNewClusterConfigPtrOutput
+	ToLinkedServiceAzureDatabricksNewClusterConfigPtrOutputWithContext(context.Context) LinkedServiceAzureDatabricksNewClusterConfigPtrOutput
+}
+
+type linkedServiceAzureDatabricksNewClusterConfigPtrType LinkedServiceAzureDatabricksNewClusterConfigArgs
+
+func LinkedServiceAzureDatabricksNewClusterConfigPtr(v *LinkedServiceAzureDatabricksNewClusterConfigArgs) LinkedServiceAzureDatabricksNewClusterConfigPtrInput {
+	return (*linkedServiceAzureDatabricksNewClusterConfigPtrType)(v)
+}
+
+func (*linkedServiceAzureDatabricksNewClusterConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceAzureDatabricksNewClusterConfig)(nil)).Elem()
+}
+
+func (i *linkedServiceAzureDatabricksNewClusterConfigPtrType) ToLinkedServiceAzureDatabricksNewClusterConfigPtrOutput() LinkedServiceAzureDatabricksNewClusterConfigPtrOutput {
+	return i.ToLinkedServiceAzureDatabricksNewClusterConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *linkedServiceAzureDatabricksNewClusterConfigPtrType) ToLinkedServiceAzureDatabricksNewClusterConfigPtrOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksNewClusterConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureDatabricksNewClusterConfigPtrOutput)
+}
+
+type LinkedServiceAzureDatabricksNewClusterConfigOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceAzureDatabricksNewClusterConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceAzureDatabricksNewClusterConfig)(nil)).Elem()
+}
+
+func (o LinkedServiceAzureDatabricksNewClusterConfigOutput) ToLinkedServiceAzureDatabricksNewClusterConfigOutput() LinkedServiceAzureDatabricksNewClusterConfigOutput {
+	return o
+}
+
+func (o LinkedServiceAzureDatabricksNewClusterConfigOutput) ToLinkedServiceAzureDatabricksNewClusterConfigOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksNewClusterConfigOutput {
+	return o
+}
+
+func (o LinkedServiceAzureDatabricksNewClusterConfigOutput) ToLinkedServiceAzureDatabricksNewClusterConfigPtrOutput() LinkedServiceAzureDatabricksNewClusterConfigPtrOutput {
+	return o.ToLinkedServiceAzureDatabricksNewClusterConfigPtrOutputWithContext(context.Background())
+}
+
+func (o LinkedServiceAzureDatabricksNewClusterConfigOutput) ToLinkedServiceAzureDatabricksNewClusterConfigPtrOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksNewClusterConfigPtrOutput {
+	return o.ApplyT(func(v LinkedServiceAzureDatabricksNewClusterConfig) *LinkedServiceAzureDatabricksNewClusterConfig {
+		return &v
+	}).(LinkedServiceAzureDatabricksNewClusterConfigPtrOutput)
+}
+
+// Spark version of a the cluster.
+func (o LinkedServiceAzureDatabricksNewClusterConfigOutput) ClusterVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceAzureDatabricksNewClusterConfig) string { return v.ClusterVersion }).(pulumi.StringOutput)
+}
+
+// Tags for the cluster resource.
+func (o LinkedServiceAzureDatabricksNewClusterConfigOutput) CustomTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LinkedServiceAzureDatabricksNewClusterConfig) map[string]string { return v.CustomTags }).(pulumi.StringMapOutput)
+}
+
+// Driver node type for the cluster.
+func (o LinkedServiceAzureDatabricksNewClusterConfigOutput) DriverNodeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinkedServiceAzureDatabricksNewClusterConfig) *string { return v.DriverNodeType }).(pulumi.StringPtrOutput)
+}
+
+// User defined initialization scripts for the cluster.
+func (o LinkedServiceAzureDatabricksNewClusterConfigOutput) InitScripts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LinkedServiceAzureDatabricksNewClusterConfig) []string { return v.InitScripts }).(pulumi.StringArrayOutput)
+}
+
+// Location to deliver Spark driver, worker, and event logs.
+func (o LinkedServiceAzureDatabricksNewClusterConfigOutput) LogDestination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinkedServiceAzureDatabricksNewClusterConfig) *string { return v.LogDestination }).(pulumi.StringPtrOutput)
+}
+
+// The max number of worker nodes. Set this value if you want to enable autoscaling between the `minNumberOfWorkers` and this value. Omit this value to use a fixed number of workers defined in the `minNumberOfWorkers` property.
+func (o LinkedServiceAzureDatabricksNewClusterConfigOutput) MaxNumberOfWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LinkedServiceAzureDatabricksNewClusterConfig) *int { return v.MaxNumberOfWorkers }).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of worker nodes. Defaults to 1.
+func (o LinkedServiceAzureDatabricksNewClusterConfigOutput) MinNumberOfWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LinkedServiceAzureDatabricksNewClusterConfig) *int { return v.MinNumberOfWorkers }).(pulumi.IntPtrOutput)
+}
+
+// Node type for the new cluster.
+func (o LinkedServiceAzureDatabricksNewClusterConfigOutput) NodeType() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceAzureDatabricksNewClusterConfig) string { return v.NodeType }).(pulumi.StringOutput)
+}
+
+// User-specified Spark configuration variables key-value pairs.
+func (o LinkedServiceAzureDatabricksNewClusterConfigOutput) SparkConfig() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LinkedServiceAzureDatabricksNewClusterConfig) map[string]string { return v.SparkConfig }).(pulumi.StringMapOutput)
+}
+
+// User-specified Spark environment variables key-value pairs.
+func (o LinkedServiceAzureDatabricksNewClusterConfigOutput) SparkEnvironmentVariables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LinkedServiceAzureDatabricksNewClusterConfig) map[string]string {
+		return v.SparkEnvironmentVariables
+	}).(pulumi.StringMapOutput)
+}
+
+type LinkedServiceAzureDatabricksNewClusterConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceAzureDatabricksNewClusterConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceAzureDatabricksNewClusterConfig)(nil)).Elem()
+}
+
+func (o LinkedServiceAzureDatabricksNewClusterConfigPtrOutput) ToLinkedServiceAzureDatabricksNewClusterConfigPtrOutput() LinkedServiceAzureDatabricksNewClusterConfigPtrOutput {
+	return o
+}
+
+func (o LinkedServiceAzureDatabricksNewClusterConfigPtrOutput) ToLinkedServiceAzureDatabricksNewClusterConfigPtrOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksNewClusterConfigPtrOutput {
+	return o
+}
+
+func (o LinkedServiceAzureDatabricksNewClusterConfigPtrOutput) Elem() LinkedServiceAzureDatabricksNewClusterConfigOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureDatabricksNewClusterConfig) LinkedServiceAzureDatabricksNewClusterConfig {
+		return *v
+	}).(LinkedServiceAzureDatabricksNewClusterConfigOutput)
+}
+
+// Spark version of a the cluster.
+func (o LinkedServiceAzureDatabricksNewClusterConfigPtrOutput) ClusterVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureDatabricksNewClusterConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClusterVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Tags for the cluster resource.
+func (o LinkedServiceAzureDatabricksNewClusterConfigPtrOutput) CustomTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureDatabricksNewClusterConfig) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomTags
+	}).(pulumi.StringMapOutput)
+}
+
+// Driver node type for the cluster.
+func (o LinkedServiceAzureDatabricksNewClusterConfigPtrOutput) DriverNodeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureDatabricksNewClusterConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DriverNodeType
+	}).(pulumi.StringPtrOutput)
+}
+
+// User defined initialization scripts for the cluster.
+func (o LinkedServiceAzureDatabricksNewClusterConfigPtrOutput) InitScripts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureDatabricksNewClusterConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.InitScripts
+	}).(pulumi.StringArrayOutput)
+}
+
+// Location to deliver Spark driver, worker, and event logs.
+func (o LinkedServiceAzureDatabricksNewClusterConfigPtrOutput) LogDestination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureDatabricksNewClusterConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogDestination
+	}).(pulumi.StringPtrOutput)
+}
+
+// The max number of worker nodes. Set this value if you want to enable autoscaling between the `minNumberOfWorkers` and this value. Omit this value to use a fixed number of workers defined in the `minNumberOfWorkers` property.
+func (o LinkedServiceAzureDatabricksNewClusterConfigPtrOutput) MaxNumberOfWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureDatabricksNewClusterConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxNumberOfWorkers
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of worker nodes. Defaults to 1.
+func (o LinkedServiceAzureDatabricksNewClusterConfigPtrOutput) MinNumberOfWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureDatabricksNewClusterConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinNumberOfWorkers
+	}).(pulumi.IntPtrOutput)
+}
+
+// Node type for the new cluster.
+func (o LinkedServiceAzureDatabricksNewClusterConfigPtrOutput) NodeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureDatabricksNewClusterConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NodeType
+	}).(pulumi.StringPtrOutput)
+}
+
+// User-specified Spark configuration variables key-value pairs.
+func (o LinkedServiceAzureDatabricksNewClusterConfigPtrOutput) SparkConfig() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureDatabricksNewClusterConfig) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.SparkConfig
+	}).(pulumi.StringMapOutput)
+}
+
+// User-specified Spark environment variables key-value pairs.
+func (o LinkedServiceAzureDatabricksNewClusterConfigPtrOutput) SparkEnvironmentVariables() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureDatabricksNewClusterConfig) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.SparkEnvironmentVariables
+	}).(pulumi.StringMapOutput)
+}
+
+type LinkedServiceAzureSqlDatabaseKeyVaultPassword struct {
+	// Specifies the name of an existing Key Vault Data Factory Linked Service.
+	LinkedServiceName string `pulumi:"linkedServiceName"`
+	// Specifies the secret name in Azure Key Vault that stores SQL Server password.
+	SecretName string `pulumi:"secretName"`
+}
+
+// LinkedServiceAzureSqlDatabaseKeyVaultPasswordInput is an input type that accepts LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs and LinkedServiceAzureSqlDatabaseKeyVaultPasswordOutput values.
+// You can construct a concrete instance of `LinkedServiceAzureSqlDatabaseKeyVaultPasswordInput` via:
+//
+//          LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs{...}
+type LinkedServiceAzureSqlDatabaseKeyVaultPasswordInput interface {
+	pulumi.Input
+
+	ToLinkedServiceAzureSqlDatabaseKeyVaultPasswordOutput() LinkedServiceAzureSqlDatabaseKeyVaultPasswordOutput
+	ToLinkedServiceAzureSqlDatabaseKeyVaultPasswordOutputWithContext(context.Context) LinkedServiceAzureSqlDatabaseKeyVaultPasswordOutput
+}
+
+type LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs struct {
+	// Specifies the name of an existing Key Vault Data Factory Linked Service.
+	LinkedServiceName pulumi.StringInput `pulumi:"linkedServiceName"`
+	// Specifies the secret name in Azure Key Vault that stores SQL Server password.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+}
+
+func (LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceAzureSqlDatabaseKeyVaultPassword)(nil)).Elem()
+}
+
+func (i LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs) ToLinkedServiceAzureSqlDatabaseKeyVaultPasswordOutput() LinkedServiceAzureSqlDatabaseKeyVaultPasswordOutput {
+	return i.ToLinkedServiceAzureSqlDatabaseKeyVaultPasswordOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs) ToLinkedServiceAzureSqlDatabaseKeyVaultPasswordOutputWithContext(ctx context.Context) LinkedServiceAzureSqlDatabaseKeyVaultPasswordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureSqlDatabaseKeyVaultPasswordOutput)
+}
+
+func (i LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs) ToLinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput() LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput {
+	return i.ToLinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs) ToLinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutputWithContext(ctx context.Context) LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureSqlDatabaseKeyVaultPasswordOutput).ToLinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutputWithContext(ctx)
+}
+
+// LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrInput is an input type that accepts LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs, LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtr and LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput values.
+// You can construct a concrete instance of `LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrInput` via:
+//
+//          LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs{...}
+//
+//  or:
+//
+//          nil
+type LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrInput interface {
+	pulumi.Input
+
+	ToLinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput() LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput
+	ToLinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutputWithContext(context.Context) LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput
+}
+
+type linkedServiceAzureSqlDatabaseKeyVaultPasswordPtrType LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs
+
+func LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtr(v *LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs) LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrInput {
+	return (*linkedServiceAzureSqlDatabaseKeyVaultPasswordPtrType)(v)
+}
+
+func (*linkedServiceAzureSqlDatabaseKeyVaultPasswordPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceAzureSqlDatabaseKeyVaultPassword)(nil)).Elem()
+}
+
+func (i *linkedServiceAzureSqlDatabaseKeyVaultPasswordPtrType) ToLinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput() LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput {
+	return i.ToLinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutputWithContext(context.Background())
+}
+
+func (i *linkedServiceAzureSqlDatabaseKeyVaultPasswordPtrType) ToLinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutputWithContext(ctx context.Context) LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput)
+}
+
+type LinkedServiceAzureSqlDatabaseKeyVaultPasswordOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceAzureSqlDatabaseKeyVaultPasswordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceAzureSqlDatabaseKeyVaultPassword)(nil)).Elem()
+}
+
+func (o LinkedServiceAzureSqlDatabaseKeyVaultPasswordOutput) ToLinkedServiceAzureSqlDatabaseKeyVaultPasswordOutput() LinkedServiceAzureSqlDatabaseKeyVaultPasswordOutput {
+	return o
+}
+
+func (o LinkedServiceAzureSqlDatabaseKeyVaultPasswordOutput) ToLinkedServiceAzureSqlDatabaseKeyVaultPasswordOutputWithContext(ctx context.Context) LinkedServiceAzureSqlDatabaseKeyVaultPasswordOutput {
+	return o
+}
+
+func (o LinkedServiceAzureSqlDatabaseKeyVaultPasswordOutput) ToLinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput() LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput {
+	return o.ToLinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutputWithContext(context.Background())
+}
+
+func (o LinkedServiceAzureSqlDatabaseKeyVaultPasswordOutput) ToLinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutputWithContext(ctx context.Context) LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput {
+	return o.ApplyT(func(v LinkedServiceAzureSqlDatabaseKeyVaultPassword) *LinkedServiceAzureSqlDatabaseKeyVaultPassword {
+		return &v
+	}).(LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput)
+}
+
+// Specifies the name of an existing Key Vault Data Factory Linked Service.
+func (o LinkedServiceAzureSqlDatabaseKeyVaultPasswordOutput) LinkedServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceAzureSqlDatabaseKeyVaultPassword) string { return v.LinkedServiceName }).(pulumi.StringOutput)
+}
+
+// Specifies the secret name in Azure Key Vault that stores SQL Server password.
+func (o LinkedServiceAzureSqlDatabaseKeyVaultPasswordOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceAzureSqlDatabaseKeyVaultPassword) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+type LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceAzureSqlDatabaseKeyVaultPassword)(nil)).Elem()
+}
+
+func (o LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput) ToLinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput() LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput {
+	return o
+}
+
+func (o LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput) ToLinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutputWithContext(ctx context.Context) LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput {
+	return o
+}
+
+func (o LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput) Elem() LinkedServiceAzureSqlDatabaseKeyVaultPasswordOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureSqlDatabaseKeyVaultPassword) LinkedServiceAzureSqlDatabaseKeyVaultPassword {
+		return *v
+	}).(LinkedServiceAzureSqlDatabaseKeyVaultPasswordOutput)
+}
+
+// Specifies the name of an existing Key Vault Data Factory Linked Service.
+func (o LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput) LinkedServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureSqlDatabaseKeyVaultPassword) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LinkedServiceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the secret name in Azure Key Vault that stores SQL Server password.
+func (o LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureSqlDatabaseKeyVaultPassword) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretName
+	}).(pulumi.StringPtrOutput)
+}
+
 type LinkedServiceSnowflakeKeyVaultPassword struct {
 	// Specifies the name of an existing Key Vault Data Factory Linked Service.
 	LinkedServiceName string `pulumi:"linkedServiceName"`
@@ -4629,6 +5427,14 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisCustomSetupScriptPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisVnetIntegrationOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisVnetIntegrationPtrOutput{})
+	pulumi.RegisterOutputType(LinkedServiceAzureDatabricksInstancePoolOutput{})
+	pulumi.RegisterOutputType(LinkedServiceAzureDatabricksInstancePoolPtrOutput{})
+	pulumi.RegisterOutputType(LinkedServiceAzureDatabricksKeyVaultPasswordOutput{})
+	pulumi.RegisterOutputType(LinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput{})
+	pulumi.RegisterOutputType(LinkedServiceAzureDatabricksNewClusterConfigOutput{})
+	pulumi.RegisterOutputType(LinkedServiceAzureDatabricksNewClusterConfigPtrOutput{})
+	pulumi.RegisterOutputType(LinkedServiceAzureSqlDatabaseKeyVaultPasswordOutput{})
+	pulumi.RegisterOutputType(LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSnowflakeKeyVaultPasswordOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSnowflakeKeyVaultPasswordPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSqlServerKeyVaultPasswordOutput{})

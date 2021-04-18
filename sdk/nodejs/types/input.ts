@@ -1720,10 +1720,6 @@ export namespace appservice {
          */
         serviceTag?: pulumi.Input<string>;
         /**
-         * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-         */
-        subnetId?: pulumi.Input<string>;
-        /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
         virtualNetworkSubnetId?: pulumi.Input<string>;
@@ -1750,10 +1746,6 @@ export namespace appservice {
          * The Service Tag used for this IP Restriction.
          */
         serviceTag?: pulumi.Input<string>;
-        /**
-         * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-         */
-        subnetId?: pulumi.Input<string>;
         /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
@@ -2102,10 +2094,6 @@ export namespace appservice {
          */
         serviceTag?: pulumi.Input<string>;
         /**
-         * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-         */
-        subnetId?: pulumi.Input<string>;
-        /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
         virtualNetworkSubnetId?: pulumi.Input<string>;
@@ -2132,10 +2120,6 @@ export namespace appservice {
          * The Service Tag used for this IP Restriction.
          */
         serviceTag?: pulumi.Input<string>;
-        /**
-         * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-         */
-        subnetId?: pulumi.Input<string>;
         /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
@@ -2395,10 +2379,6 @@ export namespace appservice {
          */
         serviceTag?: pulumi.Input<string>;
         /**
-         * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-         */
-        subnetId?: pulumi.Input<string>;
-        /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
         virtualNetworkSubnetId?: pulumi.Input<string>;
@@ -2425,10 +2405,6 @@ export namespace appservice {
          * The Service Tag used for this IP Restriction.
          */
         serviceTag?: pulumi.Input<string>;
-        /**
-         * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-         */
-        subnetId?: pulumi.Input<string>;
         /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
@@ -2841,10 +2817,6 @@ export namespace appservice {
          */
         serviceTag?: pulumi.Input<string>;
         /**
-         * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-         */
-        subnetId?: pulumi.Input<string>;
-        /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
         virtualNetworkSubnetId?: pulumi.Input<string>;
@@ -2871,10 +2843,6 @@ export namespace appservice {
          * The Service Tag used for this IP Restriction.
          */
         serviceTag?: pulumi.Input<string>;
-        /**
-         * @deprecated This field has been deprecated in favour of `virtual_network_subnet_id` and will be removed in a future version of the provider
-         */
-        subnetId?: pulumi.Input<string>;
         /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
@@ -7709,6 +7677,90 @@ export namespace datafactory {
          * ID of the virtual network to which the nodes of the Azure-SSIS Integration Runtime will be added.
          */
         vnetId: pulumi.Input<string>;
+    }
+
+    export interface LinkedServiceAzureDatabricksInstancePool {
+        /**
+         * Spark version of a the cluster.
+         */
+        clusterVersion: pulumi.Input<string>;
+        /**
+         * Identifier of the instance pool within the linked ADB instance.
+         */
+        instancePoolId: pulumi.Input<string>;
+        /**
+         * The max number of worker nodes. Set this value if you want to enable autoscaling between the `minNumberOfWorkers` and this value. Omit this value to use a fixed number of workers defined in the `minNumberOfWorkers` property.
+         */
+        maxNumberOfWorkers?: pulumi.Input<number>;
+        /**
+         * The minimum number of worker nodes. Defaults to 1.
+         */
+        minNumberOfWorkers?: pulumi.Input<number>;
+    }
+
+    export interface LinkedServiceAzureDatabricksKeyVaultPassword {
+        /**
+         * Specifies the name of an existing Key Vault Data Factory Linked Service.
+         */
+        linkedServiceName: pulumi.Input<string>;
+        /**
+         * Specifies the secret name in Azure Key Vault that stores ADB access token.
+         */
+        secretName: pulumi.Input<string>;
+    }
+
+    export interface LinkedServiceAzureDatabricksNewClusterConfig {
+        /**
+         * Spark version of a the cluster.
+         */
+        clusterVersion: pulumi.Input<string>;
+        /**
+         * Tags for the cluster resource.
+         */
+        customTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Driver node type for the cluster.
+         */
+        driverNodeType?: pulumi.Input<string>;
+        /**
+         * User defined initialization scripts for the cluster.
+         */
+        initScripts?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Location to deliver Spark driver, worker, and event logs.
+         */
+        logDestination?: pulumi.Input<string>;
+        /**
+         * The max number of worker nodes. Set this value if you want to enable autoscaling between the `minNumberOfWorkers` and this value. Omit this value to use a fixed number of workers defined in the `minNumberOfWorkers` property.
+         */
+        maxNumberOfWorkers?: pulumi.Input<number>;
+        /**
+         * The minimum number of worker nodes. Defaults to 1.
+         */
+        minNumberOfWorkers?: pulumi.Input<number>;
+        /**
+         * Node type for the new cluster.
+         */
+        nodeType: pulumi.Input<string>;
+        /**
+         * User-specified Spark configuration variables key-value pairs.
+         */
+        sparkConfig?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * User-specified Spark environment variables key-value pairs.
+         */
+        sparkEnvironmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface LinkedServiceAzureSqlDatabaseKeyVaultPassword {
+        /**
+         * Specifies the name of an existing Key Vault Data Factory Linked Service.
+         */
+        linkedServiceName: pulumi.Input<string>;
+        /**
+         * Specifies the secret name in Azure Key Vault that stores SQL Server password.
+         */
+        secretName: pulumi.Input<string>;
     }
 
     export interface LinkedServiceSnowflakeKeyVaultPassword {
@@ -13945,6 +13997,10 @@ export namespace monitoring {
          */
         resourceType?: pulumi.Input<string>;
         /**
+         * A block to define fine grain service health settings.
+         */
+        serviceHealths?: pulumi.Input<pulumi.Input<inputs.monitoring.ActivityLogAlertCriteriaServiceHealth>[]>;
+        /**
          * The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
          */
         status?: pulumi.Input<string>;
@@ -13952,6 +14008,21 @@ export namespace monitoring {
          * The sub status of the event.
          */
         subStatus?: pulumi.Input<string>;
+    }
+
+    export interface ActivityLogAlertCriteriaServiceHealth {
+        /**
+         * Events this alert will monitor Possible values are `Incident`, `Maintenance`, `Informational`, and `ActionRequired`.
+         */
+        events?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Locations this alert will monitor. For example, `West Europe`. Defaults to `Global`.
+         */
+        locations?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Services this alert will monitor. For example, `Activity Logs & Alerts`, `Action Groups`. Defaults to all Services.
+         */
+        services?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface AutoscaleSettingNotification {
@@ -15610,6 +15681,10 @@ export namespace network {
          * The Name of the Backend HTTP Settings Collection to use for this Path Rule. Cannot be set if `redirectConfigurationName` is set.
          */
         backendHttpSettingsName?: pulumi.Input<string>;
+        /**
+         * The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+         */
+        firewallPolicyId?: pulumi.Input<string>;
         /**
          * The ID of the Rewrite Rule Set
          */

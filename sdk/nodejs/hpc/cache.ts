@@ -124,6 +124,10 @@ export class Cache extends pulumi.CustomResource {
      * The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
      */
     public readonly subnetId!: pulumi.Output<string>;
+    /**
+     * A mapping of tags to assign to the HPC Cache.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Cache resource with the given unique name, arguments, and options.
@@ -150,6 +154,7 @@ export class Cache extends pulumi.CustomResource {
             inputs["rootSquashEnabled"] = state ? state.rootSquashEnabled : undefined;
             inputs["skuName"] = state ? state.skuName : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as CacheArgs | undefined;
             if ((!args || args.cacheSizeInGb === undefined) && !opts.urn) {
@@ -175,6 +180,7 @@ export class Cache extends pulumi.CustomResource {
             inputs["rootSquashEnabled"] = args ? args.rootSquashEnabled : undefined;
             inputs["skuName"] = args ? args.skuName : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["mountAddresses"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -238,6 +244,10 @@ export interface CacheState {
      * The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
      */
     readonly subnetId?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the HPC Cache.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -290,4 +300,8 @@ export interface CacheArgs {
      * The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
      */
     readonly subnetId: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the HPC Cache.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

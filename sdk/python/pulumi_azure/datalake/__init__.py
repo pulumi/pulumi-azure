@@ -9,6 +9,7 @@ from .get_store import *
 from .store import *
 from .store_file import *
 from .store_firewall_rule import *
+from .store_virtual_network_rule import *
 
 def _register_module():
     import pulumi
@@ -32,6 +33,8 @@ def _register_module():
                 return StoreFile(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:datalake/storeFirewallRule:StoreFirewallRule":
                 return StoreFirewallRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:datalake/storeVirtualNetworkRule:StoreVirtualNetworkRule":
+                return StoreVirtualNetworkRule(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 
@@ -42,5 +45,6 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "datalake/store", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datalake/storeFile", _module_instance)
     pulumi.runtime.register_resource_module("azure", "datalake/storeFirewallRule", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "datalake/storeVirtualNetworkRule", _module_instance)
 
 _register_module()

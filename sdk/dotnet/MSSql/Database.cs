@@ -117,6 +117,12 @@ namespace Pulumi.Azure.MSSql
         public Output<Outputs.DatabaseExtendedAuditingPolicy> ExtendedAuditingPolicy { get; private set; } = null!;
 
         /// <summary>
+        /// A boolean that specifies if the Geo Backup Policy is enabled.
+        /// </summary>
+        [Output("geoBackupEnabled")]
+        public Output<bool?> GeoBackupEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         /// </summary>
         [Output("licenseType")]
@@ -307,6 +313,12 @@ namespace Pulumi.Azure.MSSql
         public Input<Inputs.DatabaseExtendedAuditingPolicyArgs>? ExtendedAuditingPolicy { get; set; }
 
         /// <summary>
+        /// A boolean that specifies if the Geo Backup Policy is enabled.
+        /// </summary>
+        [Input("geoBackupEnabled")]
+        public Input<bool>? GeoBackupEnabled { get; set; }
+
+        /// <summary>
         /// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         /// </summary>
         [Input("licenseType")]
@@ -462,6 +474,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("extendedAuditingPolicy")]
         public Input<Inputs.DatabaseExtendedAuditingPolicyGetArgs>? ExtendedAuditingPolicy { get; set; }
+
+        /// <summary>
+        /// A boolean that specifies if the Geo Backup Policy is enabled.
+        /// </summary>
+        [Input("geoBackupEnabled")]
+        public Input<bool>? GeoBackupEnabled { get; set; }
 
         /// <summary>
         /// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.

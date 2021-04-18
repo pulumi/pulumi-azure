@@ -68,6 +68,8 @@ type PublicIp struct {
 	IdleTimeoutInMinutes pulumi.IntPtrOutput `pulumi:"idleTimeoutInMinutes"`
 	// The IP address value that was allocated.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
+	// A mapping of IP tags to assign to the public IP.
+	IpTags pulumi.StringMapOutput `pulumi:"ipTags"`
 	// The IP Version to use, IPv6 or IPv4.
 	IpVersion pulumi.StringPtrOutput `pulumi:"ipVersion"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -135,6 +137,8 @@ type publicIpState struct {
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
 	// The IP address value that was allocated.
 	IpAddress *string `pulumi:"ipAddress"`
+	// A mapping of IP tags to assign to the public IP.
+	IpTags map[string]string `pulumi:"ipTags"`
 	// The IP Version to use, IPv6 or IPv4.
 	IpVersion *string `pulumi:"ipVersion"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -168,6 +172,8 @@ type PublicIpState struct {
 	IdleTimeoutInMinutes pulumi.IntPtrInput
 	// The IP address value that was allocated.
 	IpAddress pulumi.StringPtrInput
+	// A mapping of IP tags to assign to the public IP.
+	IpTags pulumi.StringMapInput
 	// The IP Version to use, IPv6 or IPv4.
 	IpVersion pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -201,6 +207,8 @@ type publicIpArgs struct {
 	DomainNameLabel *string `pulumi:"domainNameLabel"`
 	// Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
+	// A mapping of IP tags to assign to the public IP.
+	IpTags map[string]string `pulumi:"ipTags"`
 	// The IP Version to use, IPv6 or IPv4.
 	IpVersion *string `pulumi:"ipVersion"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -231,6 +239,8 @@ type PublicIpArgs struct {
 	DomainNameLabel pulumi.StringPtrInput
 	// Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
 	IdleTimeoutInMinutes pulumi.IntPtrInput
+	// A mapping of IP tags to assign to the public IP.
+	IpTags pulumi.StringMapInput
 	// The IP Version to use, IPv6 or IPv4.
 	IpVersion pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

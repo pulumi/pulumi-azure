@@ -83,6 +83,12 @@ namespace Pulumi.Azure.Network
         public Output<string> IpAddress { get; private set; } = null!;
 
         /// <summary>
+        /// A mapping of IP tags to assign to the public IP.
+        /// </summary>
+        [Output("ipTags")]
+        public Output<ImmutableDictionary<string, string>?> IpTags { get; private set; } = null!;
+
+        /// <summary>
         /// The IP Version to use, IPv6 or IPv4.
         /// </summary>
         [Output("ipVersion")]
@@ -202,6 +208,18 @@ namespace Pulumi.Azure.Network
         [Input("idleTimeoutInMinutes")]
         public Input<int>? IdleTimeoutInMinutes { get; set; }
 
+        [Input("ipTags")]
+        private InputMap<string>? _ipTags;
+
+        /// <summary>
+        /// A mapping of IP tags to assign to the public IP.
+        /// </summary>
+        public InputMap<string> IpTags
+        {
+            get => _ipTags ?? (_ipTags = new InputMap<string>());
+            set => _ipTags = value;
+        }
+
         /// <summary>
         /// The IP Version to use, IPv6 or IPv4.
         /// </summary>
@@ -300,6 +318,18 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }
+
+        [Input("ipTags")]
+        private InputMap<string>? _ipTags;
+
+        /// <summary>
+        /// A mapping of IP tags to assign to the public IP.
+        /// </summary>
+        public InputMap<string> IpTags
+        {
+            get => _ipTags ?? (_ipTags = new InputMap<string>());
+            set => _ipTags = value;
+        }
 
         /// <summary>
         /// The IP Version to use, IPv6 or IPv4.

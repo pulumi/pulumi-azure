@@ -4118,6 +4118,8 @@ type ApplicationGatewayUrlPathMapPathRule struct {
 	BackendHttpSettingsId *string `pulumi:"backendHttpSettingsId"`
 	// The Name of the Backend HTTP Settings Collection to use for this Path Rule. Cannot be set if `redirectConfigurationName` is set.
 	BackendHttpSettingsName *string `pulumi:"backendHttpSettingsName"`
+	// The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+	FirewallPolicyId *string `pulumi:"firewallPolicyId"`
 	// The ID of the Rewrite Rule Set
 	Id *string `pulumi:"id"`
 	// The Name of the Path Rule.
@@ -4154,6 +4156,8 @@ type ApplicationGatewayUrlPathMapPathRuleArgs struct {
 	BackendHttpSettingsId pulumi.StringPtrInput `pulumi:"backendHttpSettingsId"`
 	// The Name of the Backend HTTP Settings Collection to use for this Path Rule. Cannot be set if `redirectConfigurationName` is set.
 	BackendHttpSettingsName pulumi.StringPtrInput `pulumi:"backendHttpSettingsName"`
+	// The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+	FirewallPolicyId pulumi.StringPtrInput `pulumi:"firewallPolicyId"`
 	// The ID of the Rewrite Rule Set
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The Name of the Path Rule.
@@ -4239,6 +4243,11 @@ func (o ApplicationGatewayUrlPathMapPathRuleOutput) BackendHttpSettingsId() pulu
 // The Name of the Backend HTTP Settings Collection to use for this Path Rule. Cannot be set if `redirectConfigurationName` is set.
 func (o ApplicationGatewayUrlPathMapPathRuleOutput) BackendHttpSettingsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayUrlPathMapPathRule) *string { return v.BackendHttpSettingsName }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+func (o ApplicationGatewayUrlPathMapPathRuleOutput) FirewallPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayUrlPathMapPathRule) *string { return v.FirewallPolicyId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Rewrite Rule Set

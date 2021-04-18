@@ -33,7 +33,6 @@ namespace Pulumi.Azure.AppService.Outputs
         /// The Service Tag used for this IP Restriction.
         /// </summary>
         public readonly string? ServiceTag;
-        public readonly string? SubnetId;
         /// <summary>
         /// The Virtual Network Subnet ID used for this IP Restriction.
         /// </summary>
@@ -51,8 +50,6 @@ namespace Pulumi.Azure.AppService.Outputs
 
             string? serviceTag,
 
-            string? subnetId,
-
             string? virtualNetworkSubnetId)
         {
             Action = action;
@@ -60,7 +57,6 @@ namespace Pulumi.Azure.AppService.Outputs
             Name = name;
             Priority = priority;
             ServiceTag = serviceTag;
-            SubnetId = subnetId;
             VirtualNetworkSubnetId = virtualNetworkSubnetId;
         }
     }

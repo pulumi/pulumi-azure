@@ -484,6 +484,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_spring_cloud_java_deployment":       {Tok: azureResource(azureAppPlatform, "SpringCloudJavaDeployment")},
 			"azurerm_spring_cloud_custom_domain":         {Tok: azureResource(azureAppPlatform, "SpringCloudCustomDomain")},
 			"azurerm_spring_cloud_app_redis_association": {Tok: azureResource(azureAppPlatform, "SpringCloudAppRedisAssociation")},
+			"azurerm_spring_cloud_app_mysql_association": {Tok: azureResource(azureAppPlatform, "SpringCloudAppMysqlAssociation")},
 
 			// Automation
 			"azurerm_automation_account":                {Tok: azureResource(azureAutomation, "Account")},
@@ -767,16 +768,18 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_factory_linked_service_azure_sql_database": {
 				Tok: azureResource(azureDataFactory, "LinkedServiceAzureSqlDatabase"),
 			},
-			"azurerm_data_factory_integration_runtime_azure":      {Tok: azureResource(azureDataFactory, "IntegrationRuntimeRule")},
-			"azurerm_data_factory_integration_runtime_azure_ssis": {Tok: azureResource(azureDataFactory, "IntegrationRuntimeSsis")},
-			"azurerm_data_factory_dataset_parquet":                {Tok: azureResource(azureDataFactory, "DatasetParquet")},
+			"azurerm_data_factory_integration_runtime_azure":       {Tok: azureResource(azureDataFactory, "IntegrationRuntimeRule")},
+			"azurerm_data_factory_integration_runtime_azure_ssis":  {Tok: azureResource(azureDataFactory, "IntegrationRuntimeSsis")},
+			"azurerm_data_factory_dataset_parquet":                 {Tok: azureResource(azureDataFactory, "DatasetParquet")},
+			"azurerm_data_factory_linked_service_azure_databricks": {Tok: azureResource(azureDataFactory, "LinkedServiceAzureDatabricks")},
 
 			// Data Lake
-			"azurerm_data_lake_analytics_account":       {Tok: azureResource(azureDatalake, "AnalyticsAccount")},
-			"azurerm_data_lake_analytics_firewall_rule": {Tok: azureResource(azureDatalake, "AnalyticsFirewallRule")},
-			"azurerm_data_lake_store":                   {Tok: azureResource(azureDatalake, "Store")},
-			"azurerm_data_lake_store_file":              {Tok: azureResource(azureDatalake, "StoreFile")},
-			"azurerm_data_lake_store_firewall_rule":     {Tok: azureResource(azureDatalake, "StoreFirewallRule")},
+			"azurerm_data_lake_analytics_account":          {Tok: azureResource(azureDatalake, "AnalyticsAccount")},
+			"azurerm_data_lake_analytics_firewall_rule":    {Tok: azureResource(azureDatalake, "AnalyticsFirewallRule")},
+			"azurerm_data_lake_store":                      {Tok: azureResource(azureDatalake, "Store")},
+			"azurerm_data_lake_store_file":                 {Tok: azureResource(azureDatalake, "StoreFile")},
+			"azurerm_data_lake_store_firewall_rule":        {Tok: azureResource(azureDatalake, "StoreFirewallRule")},
+			"azurerm_data_lake_store_virtual_network_rule": {Tok: azureResource(azureDatalake, "StoreVirtualNetworkRule")},
 
 			// DataShare
 			"azurerm_data_share_account": {Tok: azureResource(azureDataShare, "Account")},
@@ -1037,6 +1040,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_media_content_key_policy": {Tok: azureResource(azureMedia, "ContentKeyPolicy")},
 			"azurerm_media_streaming_policy":   {Tok: azureResource(azureMedia, "StreamingPolicy")},
 			"azurerm_media_live_event":         {Tok: azureResource(azureMedia, "LiveEvent")},
+			"azurerm_media_live_event_output":  {Tok: azureResource(azureMedia, "LiveEventOutput")},
 
 			// Monitoring resources
 			"azurerm_monitor_action_group": {

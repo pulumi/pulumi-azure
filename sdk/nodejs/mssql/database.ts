@@ -113,6 +113,10 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly extendedAuditingPolicy!: pulumi.Output<outputs.mssql.DatabaseExtendedAuditingPolicy>;
     /**
+     * A boolean that specifies if the Geo Backup Policy is enabled.
+     */
+    public readonly geoBackupEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
      */
     public readonly licenseType!: pulumi.Output<string>;
@@ -204,6 +208,7 @@ export class Database extends pulumi.CustomResource {
             inputs["creationSourceDatabaseId"] = state ? state.creationSourceDatabaseId : undefined;
             inputs["elasticPoolId"] = state ? state.elasticPoolId : undefined;
             inputs["extendedAuditingPolicy"] = state ? state.extendedAuditingPolicy : undefined;
+            inputs["geoBackupEnabled"] = state ? state.geoBackupEnabled : undefined;
             inputs["licenseType"] = state ? state.licenseType : undefined;
             inputs["longTermRetentionPolicy"] = state ? state.longTermRetentionPolicy : undefined;
             inputs["maxSizeGb"] = state ? state.maxSizeGb : undefined;
@@ -233,6 +238,7 @@ export class Database extends pulumi.CustomResource {
             inputs["creationSourceDatabaseId"] = args ? args.creationSourceDatabaseId : undefined;
             inputs["elasticPoolId"] = args ? args.elasticPoolId : undefined;
             inputs["extendedAuditingPolicy"] = args ? args.extendedAuditingPolicy : undefined;
+            inputs["geoBackupEnabled"] = args ? args.geoBackupEnabled : undefined;
             inputs["licenseType"] = args ? args.licenseType : undefined;
             inputs["longTermRetentionPolicy"] = args ? args.longTermRetentionPolicy : undefined;
             inputs["maxSizeGb"] = args ? args.maxSizeGb : undefined;
@@ -289,6 +295,10 @@ export interface DatabaseState {
      * @deprecated the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
      */
     readonly extendedAuditingPolicy?: pulumi.Input<inputs.mssql.DatabaseExtendedAuditingPolicy>;
+    /**
+     * A boolean that specifies if the Geo Backup Policy is enabled.
+     */
+    readonly geoBackupEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
      */
@@ -393,6 +403,10 @@ export interface DatabaseArgs {
      * @deprecated the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
      */
     readonly extendedAuditingPolicy?: pulumi.Input<inputs.mssql.DatabaseExtendedAuditingPolicy>;
+    /**
+     * A boolean that specifies if the Geo Backup Policy is enabled.
+     */
+    readonly geoBackupEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
      */

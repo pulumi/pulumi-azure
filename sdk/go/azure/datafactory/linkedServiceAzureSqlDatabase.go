@@ -74,6 +74,8 @@ type LinkedServiceAzureSqlDatabase struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
 	IntegrationRuntimeName pulumi.StringPtrOutput `pulumi:"integrationRuntimeName"`
+	// A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+	KeyVaultPassword LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput `pulumi:"keyVaultPassword"`
 	// Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data
 	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -81,6 +83,14 @@ type LinkedServiceAzureSqlDatabase struct {
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// The name of the resource group in which to create the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// The service principal id in which to authenticate against the Azure SQL Database. Required if `servicePrincipalKey` is set.
+	ServicePrincipalId pulumi.StringPtrOutput `pulumi:"servicePrincipalId"`
+	// The service principal key in which to authenticate against the Azure SQL Database. Required if `servicePrincipalId` is set.
+	ServicePrincipalKey pulumi.StringPtrOutput `pulumi:"servicePrincipalKey"`
+	// The tenant id or name in which to authenticate against the Azure SQL Database.
+	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
+	// Whether to use the Data Factory's managed identity to authenticate against the Azure SQL Database. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
+	UseManagedIdentity pulumi.BoolPtrOutput `pulumi:"useManagedIdentity"`
 }
 
 // NewLinkedServiceAzureSqlDatabase registers a new resource with the given unique name, arguments, and options.
@@ -133,6 +143,8 @@ type linkedServiceAzureSqlDatabaseState struct {
 	Description *string `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
+	// A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+	KeyVaultPassword *LinkedServiceAzureSqlDatabaseKeyVaultPassword `pulumi:"keyVaultPassword"`
 	// Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data
 	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
@@ -140,6 +152,14 @@ type linkedServiceAzureSqlDatabaseState struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// The name of the resource group in which to create the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The service principal id in which to authenticate against the Azure SQL Database. Required if `servicePrincipalKey` is set.
+	ServicePrincipalId *string `pulumi:"servicePrincipalId"`
+	// The service principal key in which to authenticate against the Azure SQL Database. Required if `servicePrincipalId` is set.
+	ServicePrincipalKey *string `pulumi:"servicePrincipalKey"`
+	// The tenant id or name in which to authenticate against the Azure SQL Database.
+	TenantId *string `pulumi:"tenantId"`
+	// Whether to use the Data Factory's managed identity to authenticate against the Azure SQL Database. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
+	UseManagedIdentity *bool `pulumi:"useManagedIdentity"`
 }
 
 type LinkedServiceAzureSqlDatabaseState struct {
@@ -155,6 +175,8 @@ type LinkedServiceAzureSqlDatabaseState struct {
 	Description pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
 	IntegrationRuntimeName pulumi.StringPtrInput
+	// A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+	KeyVaultPassword LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrInput
 	// Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data
 	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
@@ -162,6 +184,14 @@ type LinkedServiceAzureSqlDatabaseState struct {
 	Parameters pulumi.StringMapInput
 	// The name of the resource group in which to create the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// The service principal id in which to authenticate against the Azure SQL Database. Required if `servicePrincipalKey` is set.
+	ServicePrincipalId pulumi.StringPtrInput
+	// The service principal key in which to authenticate against the Azure SQL Database. Required if `servicePrincipalId` is set.
+	ServicePrincipalKey pulumi.StringPtrInput
+	// The tenant id or name in which to authenticate against the Azure SQL Database.
+	TenantId pulumi.StringPtrInput
+	// Whether to use the Data Factory's managed identity to authenticate against the Azure SQL Database. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
+	UseManagedIdentity pulumi.BoolPtrInput
 }
 
 func (LinkedServiceAzureSqlDatabaseState) ElementType() reflect.Type {
@@ -181,6 +211,8 @@ type linkedServiceAzureSqlDatabaseArgs struct {
 	Description *string `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
+	// A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+	KeyVaultPassword *LinkedServiceAzureSqlDatabaseKeyVaultPassword `pulumi:"keyVaultPassword"`
 	// Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data
 	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
@@ -188,6 +220,14 @@ type linkedServiceAzureSqlDatabaseArgs struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// The name of the resource group in which to create the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The service principal id in which to authenticate against the Azure SQL Database. Required if `servicePrincipalKey` is set.
+	ServicePrincipalId *string `pulumi:"servicePrincipalId"`
+	// The service principal key in which to authenticate against the Azure SQL Database. Required if `servicePrincipalId` is set.
+	ServicePrincipalKey *string `pulumi:"servicePrincipalKey"`
+	// The tenant id or name in which to authenticate against the Azure SQL Database.
+	TenantId *string `pulumi:"tenantId"`
+	// Whether to use the Data Factory's managed identity to authenticate against the Azure SQL Database. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
+	UseManagedIdentity *bool `pulumi:"useManagedIdentity"`
 }
 
 // The set of arguments for constructing a LinkedServiceAzureSqlDatabase resource.
@@ -204,6 +244,8 @@ type LinkedServiceAzureSqlDatabaseArgs struct {
 	Description pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
 	IntegrationRuntimeName pulumi.StringPtrInput
+	// A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+	KeyVaultPassword LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrInput
 	// Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data
 	// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
@@ -211,6 +253,14 @@ type LinkedServiceAzureSqlDatabaseArgs struct {
 	Parameters pulumi.StringMapInput
 	// The name of the resource group in which to create the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// The service principal id in which to authenticate against the Azure SQL Database. Required if `servicePrincipalKey` is set.
+	ServicePrincipalId pulumi.StringPtrInput
+	// The service principal key in which to authenticate against the Azure SQL Database. Required if `servicePrincipalId` is set.
+	ServicePrincipalKey pulumi.StringPtrInput
+	// The tenant id or name in which to authenticate against the Azure SQL Database.
+	TenantId pulumi.StringPtrInput
+	// Whether to use the Data Factory's managed identity to authenticate against the Azure SQL Database. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
+	UseManagedIdentity pulumi.BoolPtrInput
 }
 
 func (LinkedServiceAzureSqlDatabaseArgs) ElementType() reflect.Type {

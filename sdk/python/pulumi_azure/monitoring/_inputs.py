@@ -42,6 +42,7 @@ __all__ = [
     'ActionRuleSuppressionSuppressionScheduleArgs',
     'ActivityLogAlertActionArgs',
     'ActivityLogAlertCriteriaArgs',
+    'ActivityLogAlertCriteriaServiceHealthArgs',
     'AutoscaleSettingNotificationArgs',
     'AutoscaleSettingNotificationEmailArgs',
     'AutoscaleSettingNotificationWebhookArgs',
@@ -1777,6 +1778,7 @@ class ActivityLogAlertCriteriaArgs:
                  resource_id: Optional[pulumi.Input[str]] = None,
                  resource_provider: Optional[pulumi.Input[str]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
+                 service_healths: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertCriteriaServiceHealthArgs']]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  sub_status: Optional[pulumi.Input[str]] = None):
         """
@@ -1791,6 +1793,7 @@ class ActivityLogAlertCriteriaArgs:
         :param pulumi.Input[str] resource_id: The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
         :param pulumi.Input[str] resource_provider: The name of the resource provider monitored by the activity log alert.
         :param pulumi.Input[str] resource_type: The resource type monitored by the activity log alert.
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertCriteriaServiceHealthArgs']]] service_healths: A block to define fine grain service health settings.
         :param pulumi.Input[str] status: The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
         :param pulumi.Input[str] sub_status: The sub status of the event.
         """
@@ -1815,6 +1818,8 @@ class ActivityLogAlertCriteriaArgs:
             pulumi.set(__self__, "resource_provider", resource_provider)
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
+        if service_healths is not None:
+            pulumi.set(__self__, "service_healths", service_healths)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if sub_status is not None:
@@ -1953,6 +1958,18 @@ class ActivityLogAlertCriteriaArgs:
         pulumi.set(self, "resource_type", value)
 
     @property
+    @pulumi.getter(name="serviceHealths")
+    def service_healths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertCriteriaServiceHealthArgs']]]]:
+        """
+        A block to define fine grain service health settings.
+        """
+        return pulumi.get(self, "service_healths")
+
+    @service_healths.setter
+    def service_healths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertCriteriaServiceHealthArgs']]]]):
+        pulumi.set(self, "service_healths", value)
+
+    @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1975,6 +1992,61 @@ class ActivityLogAlertCriteriaArgs:
     @sub_status.setter
     def sub_status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sub_status", value)
+
+
+@pulumi.input_type
+class ActivityLogAlertCriteriaServiceHealthArgs:
+    def __init__(__self__, *,
+                 events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] events: Events this alert will monitor Possible values are `Incident`, `Maintenance`, `Informational`, and `ActionRequired`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Locations this alert will monitor. For example, `West Europe`. Defaults to `Global`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] services: Services this alert will monitor. For example, `Activity Logs & Alerts`, `Action Groups`. Defaults to all Services.
+        """
+        if events is not None:
+            pulumi.set(__self__, "events", events)
+        if locations is not None:
+            pulumi.set(__self__, "locations", locations)
+        if services is not None:
+            pulumi.set(__self__, "services", services)
+
+    @property
+    @pulumi.getter
+    def events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Events this alert will monitor Possible values are `Incident`, `Maintenance`, `Informational`, and `ActionRequired`.
+        """
+        return pulumi.get(self, "events")
+
+    @events.setter
+    def events(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "events", value)
+
+    @property
+    @pulumi.getter
+    def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Locations this alert will monitor. For example, `West Europe`. Defaults to `Global`.
+        """
+        return pulumi.get(self, "locations")
+
+    @locations.setter
+    def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "locations", value)
+
+    @property
+    @pulumi.getter
+    def services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Services this alert will monitor. For example, `Activity Logs & Alerts`, `Action Groups`. Defaults to all Services.
+        """
+        return pulumi.get(self, "services")
+
+    @services.setter
+    def services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "services", value)
 
 
 @pulumi.input_type

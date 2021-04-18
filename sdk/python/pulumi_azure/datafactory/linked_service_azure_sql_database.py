@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['LinkedServiceAzureSqlDatabaseArgs', 'LinkedServiceAzureSqlDatabase']
 
@@ -20,8 +22,13 @@ class LinkedServiceAzureSqlDatabaseArgs:
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
+                 key_vault_password: Optional[pulumi.Input['LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 service_principal_id: Optional[pulumi.Input[str]] = None,
+                 service_principal_key: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None,
+                 use_managed_identity: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a LinkedServiceAzureSqlDatabase resource.
         :param pulumi.Input[str] connection_string: The connection string in which to authenticate with Azure SQL Database.
@@ -31,9 +38,14 @@ class LinkedServiceAzureSqlDatabaseArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service Azure SQL Database.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service Azure SQL Database.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
+        :param pulumi.Input['LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs'] key_vault_password: A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data
                factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service Azure SQL Database.
+        :param pulumi.Input[str] service_principal_id: The service principal id in which to authenticate against the Azure SQL Database. Required if `service_principal_key` is set.
+        :param pulumi.Input[str] service_principal_key: The service principal key in which to authenticate against the Azure SQL Database. Required if `service_principal_id` is set.
+        :param pulumi.Input[str] tenant_id: The tenant id or name in which to authenticate against the Azure SQL Database.
+        :param pulumi.Input[bool] use_managed_identity: Whether to use the Data Factory's managed identity to authenticate against the Azure SQL Database. Incompatible with `service_principal_id` and `service_principal_key`
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "data_factory_name", data_factory_name)
@@ -46,10 +58,20 @@ class LinkedServiceAzureSqlDatabaseArgs:
             pulumi.set(__self__, "description", description)
         if integration_runtime_name is not None:
             pulumi.set(__self__, "integration_runtime_name", integration_runtime_name)
+        if key_vault_password is not None:
+            pulumi.set(__self__, "key_vault_password", key_vault_password)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if service_principal_id is not None:
+            pulumi.set(__self__, "service_principal_id", service_principal_id)
+        if service_principal_key is not None:
+            pulumi.set(__self__, "service_principal_key", service_principal_key)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if use_managed_identity is not None:
+            pulumi.set(__self__, "use_managed_identity", use_managed_identity)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -136,6 +158,18 @@ class LinkedServiceAzureSqlDatabaseArgs:
         pulumi.set(self, "integration_runtime_name", value)
 
     @property
+    @pulumi.getter(name="keyVaultPassword")
+    def key_vault_password(self) -> Optional[pulumi.Input['LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs']]:
+        """
+        A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+        """
+        return pulumi.get(self, "key_vault_password")
+
+    @key_vault_password.setter
+    def key_vault_password(self, value: Optional[pulumi.Input['LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs']]):
+        pulumi.set(self, "key_vault_password", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -160,6 +194,54 @@ class LinkedServiceAzureSqlDatabaseArgs:
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "parameters", value)
 
+    @property
+    @pulumi.getter(name="servicePrincipalId")
+    def service_principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The service principal id in which to authenticate against the Azure SQL Database. Required if `service_principal_key` is set.
+        """
+        return pulumi.get(self, "service_principal_id")
+
+    @service_principal_id.setter
+    def service_principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_principal_id", value)
+
+    @property
+    @pulumi.getter(name="servicePrincipalKey")
+    def service_principal_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The service principal key in which to authenticate against the Azure SQL Database. Required if `service_principal_id` is set.
+        """
+        return pulumi.get(self, "service_principal_key")
+
+    @service_principal_key.setter
+    def service_principal_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_principal_key", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tenant id or name in which to authenticate against the Azure SQL Database.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+    @property
+    @pulumi.getter(name="useManagedIdentity")
+    def use_managed_identity(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to use the Data Factory's managed identity to authenticate against the Azure SQL Database. Incompatible with `service_principal_id` and `service_principal_key`
+        """
+        return pulumi.get(self, "use_managed_identity")
+
+    @use_managed_identity.setter
+    def use_managed_identity(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_managed_identity", value)
+
 
 @pulumi.input_type
 class _LinkedServiceAzureSqlDatabaseState:
@@ -170,9 +252,14 @@ class _LinkedServiceAzureSqlDatabaseState:
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
+                 key_vault_password: Optional[pulumi.Input['LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None):
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_principal_id: Optional[pulumi.Input[str]] = None,
+                 service_principal_key: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None,
+                 use_managed_identity: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering LinkedServiceAzureSqlDatabase resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service Azure SQL Database.
@@ -181,10 +268,15 @@ class _LinkedServiceAzureSqlDatabaseState:
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service Azure SQL Database.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
+        :param pulumi.Input['LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs'] key_vault_password: A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data
                factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service Azure SQL Database.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] service_principal_id: The service principal id in which to authenticate against the Azure SQL Database. Required if `service_principal_key` is set.
+        :param pulumi.Input[str] service_principal_key: The service principal key in which to authenticate against the Azure SQL Database. Required if `service_principal_id` is set.
+        :param pulumi.Input[str] tenant_id: The tenant id or name in which to authenticate against the Azure SQL Database.
+        :param pulumi.Input[bool] use_managed_identity: Whether to use the Data Factory's managed identity to authenticate against the Azure SQL Database. Incompatible with `service_principal_id` and `service_principal_key`
         """
         if additional_properties is not None:
             pulumi.set(__self__, "additional_properties", additional_properties)
@@ -198,12 +290,22 @@ class _LinkedServiceAzureSqlDatabaseState:
             pulumi.set(__self__, "description", description)
         if integration_runtime_name is not None:
             pulumi.set(__self__, "integration_runtime_name", integration_runtime_name)
+        if key_vault_password is not None:
+            pulumi.set(__self__, "key_vault_password", key_vault_password)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if service_principal_id is not None:
+            pulumi.set(__self__, "service_principal_id", service_principal_id)
+        if service_principal_key is not None:
+            pulumi.set(__self__, "service_principal_key", service_principal_key)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if use_managed_identity is not None:
+            pulumi.set(__self__, "use_managed_identity", use_managed_identity)
 
     @property
     @pulumi.getter(name="additionalProperties")
@@ -278,6 +380,18 @@ class _LinkedServiceAzureSqlDatabaseState:
         pulumi.set(self, "integration_runtime_name", value)
 
     @property
+    @pulumi.getter(name="keyVaultPassword")
+    def key_vault_password(self) -> Optional[pulumi.Input['LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs']]:
+        """
+        A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+        """
+        return pulumi.get(self, "key_vault_password")
+
+    @key_vault_password.setter
+    def key_vault_password(self, value: Optional[pulumi.Input['LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs']]):
+        pulumi.set(self, "key_vault_password", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -314,6 +428,54 @@ class _LinkedServiceAzureSqlDatabaseState:
     def resource_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_group_name", value)
 
+    @property
+    @pulumi.getter(name="servicePrincipalId")
+    def service_principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The service principal id in which to authenticate against the Azure SQL Database. Required if `service_principal_key` is set.
+        """
+        return pulumi.get(self, "service_principal_id")
+
+    @service_principal_id.setter
+    def service_principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_principal_id", value)
+
+    @property
+    @pulumi.getter(name="servicePrincipalKey")
+    def service_principal_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The service principal key in which to authenticate against the Azure SQL Database. Required if `service_principal_id` is set.
+        """
+        return pulumi.get(self, "service_principal_key")
+
+    @service_principal_key.setter
+    def service_principal_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_principal_key", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tenant id or name in which to authenticate against the Azure SQL Database.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+    @property
+    @pulumi.getter(name="useManagedIdentity")
+    def use_managed_identity(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to use the Data Factory's managed identity to authenticate against the Azure SQL Database. Incompatible with `service_principal_id` and `service_principal_key`
+        """
+        return pulumi.get(self, "use_managed_identity")
+
+    @use_managed_identity.setter
+    def use_managed_identity(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_managed_identity", value)
+
 
 class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
     @overload
@@ -326,9 +488,14 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
+                 key_vault_password: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_principal_id: Optional[pulumi.Input[str]] = None,
+                 service_principal_key: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None,
+                 use_managed_identity: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Manages a Linked Service (connection) between Azure SQL Database and Azure Data Factory.
@@ -365,10 +532,15 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service Azure SQL Database.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
+        :param pulumi.Input[pulumi.InputType['LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs']] key_vault_password: A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data
                factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service Azure SQL Database.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] service_principal_id: The service principal id in which to authenticate against the Azure SQL Database. Required if `service_principal_key` is set.
+        :param pulumi.Input[str] service_principal_key: The service principal key in which to authenticate against the Azure SQL Database. Required if `service_principal_id` is set.
+        :param pulumi.Input[str] tenant_id: The tenant id or name in which to authenticate against the Azure SQL Database.
+        :param pulumi.Input[bool] use_managed_identity: Whether to use the Data Factory's managed identity to authenticate against the Azure SQL Database. Incompatible with `service_principal_id` and `service_principal_key`
         """
         ...
     @overload
@@ -424,9 +596,14 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
+                 key_vault_password: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_principal_id: Optional[pulumi.Input[str]] = None,
+                 service_principal_key: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None,
+                 use_managed_identity: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -449,11 +626,16 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
             __props__.__dict__["data_factory_name"] = data_factory_name
             __props__.__dict__["description"] = description
             __props__.__dict__["integration_runtime_name"] = integration_runtime_name
+            __props__.__dict__["key_vault_password"] = key_vault_password
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["service_principal_id"] = service_principal_id
+            __props__.__dict__["service_principal_key"] = service_principal_key
+            __props__.__dict__["tenant_id"] = tenant_id
+            __props__.__dict__["use_managed_identity"] = use_managed_identity
         super(LinkedServiceAzureSqlDatabase, __self__).__init__(
             'azure:datafactory/linkedServiceAzureSqlDatabase:LinkedServiceAzureSqlDatabase',
             resource_name,
@@ -470,9 +652,14 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
             data_factory_name: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             integration_runtime_name: Optional[pulumi.Input[str]] = None,
+            key_vault_password: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            resource_group_name: Optional[pulumi.Input[str]] = None) -> 'LinkedServiceAzureSqlDatabase':
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            service_principal_id: Optional[pulumi.Input[str]] = None,
+            service_principal_key: Optional[pulumi.Input[str]] = None,
+            tenant_id: Optional[pulumi.Input[str]] = None,
+            use_managed_identity: Optional[pulumi.Input[bool]] = None) -> 'LinkedServiceAzureSqlDatabase':
         """
         Get an existing LinkedServiceAzureSqlDatabase resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -486,10 +673,15 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service Azure SQL Database.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
+        :param pulumi.Input[pulumi.InputType['LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs']] key_vault_password: A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data
                factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service Azure SQL Database.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] service_principal_id: The service principal id in which to authenticate against the Azure SQL Database. Required if `service_principal_key` is set.
+        :param pulumi.Input[str] service_principal_key: The service principal key in which to authenticate against the Azure SQL Database. Required if `service_principal_id` is set.
+        :param pulumi.Input[str] tenant_id: The tenant id or name in which to authenticate against the Azure SQL Database.
+        :param pulumi.Input[bool] use_managed_identity: Whether to use the Data Factory's managed identity to authenticate against the Azure SQL Database. Incompatible with `service_principal_id` and `service_principal_key`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -501,9 +693,14 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
         __props__.__dict__["data_factory_name"] = data_factory_name
         __props__.__dict__["description"] = description
         __props__.__dict__["integration_runtime_name"] = integration_runtime_name
+        __props__.__dict__["key_vault_password"] = key_vault_password
         __props__.__dict__["name"] = name
         __props__.__dict__["parameters"] = parameters
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["service_principal_id"] = service_principal_id
+        __props__.__dict__["service_principal_key"] = service_principal_key
+        __props__.__dict__["tenant_id"] = tenant_id
+        __props__.__dict__["use_managed_identity"] = use_managed_identity
         return LinkedServiceAzureSqlDatabase(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -555,6 +752,14 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
         return pulumi.get(self, "integration_runtime_name")
 
     @property
+    @pulumi.getter(name="keyVaultPassword")
+    def key_vault_password(self) -> pulumi.Output[Optional['outputs.LinkedServiceAzureSqlDatabaseKeyVaultPassword']]:
+        """
+        A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+        """
+        return pulumi.get(self, "key_vault_password")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -578,4 +783,36 @@ class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
         The name of the resource group in which to create the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="servicePrincipalId")
+    def service_principal_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The service principal id in which to authenticate against the Azure SQL Database. Required if `service_principal_key` is set.
+        """
+        return pulumi.get(self, "service_principal_id")
+
+    @property
+    @pulumi.getter(name="servicePrincipalKey")
+    def service_principal_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        The service principal key in which to authenticate against the Azure SQL Database. Required if `service_principal_id` is set.
+        """
+        return pulumi.get(self, "service_principal_key")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The tenant id or name in which to authenticate against the Azure SQL Database.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter(name="useManagedIdentity")
+    def use_managed_identity(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to use the Data Factory's managed identity to authenticate against the Azure SQL Database. Incompatible with `service_principal_id` and `service_principal_key`
+        """
+        return pulumi.get(self, "use_managed_identity")
 

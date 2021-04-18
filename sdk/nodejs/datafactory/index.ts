@@ -21,6 +21,7 @@ export * from "./integrationRuntimeRule";
 export * from "./integrationRuntimeSelfHosted";
 export * from "./integrationRuntimeSsis";
 export * from "./linkedServiceAzureBlobStorage";
+export * from "./linkedServiceAzureDatabricks";
 export * from "./linkedServiceAzureFileStorage";
 export * from "./linkedServiceAzureFunction";
 export * from "./linkedServiceAzureSqlDatabase";
@@ -54,6 +55,7 @@ import { IntegrationRuntimeRule } from "./integrationRuntimeRule";
 import { IntegrationRuntimeSelfHosted } from "./integrationRuntimeSelfHosted";
 import { IntegrationRuntimeSsis } from "./integrationRuntimeSsis";
 import { LinkedServiceAzureBlobStorage } from "./linkedServiceAzureBlobStorage";
+import { LinkedServiceAzureDatabricks } from "./linkedServiceAzureDatabricks";
 import { LinkedServiceAzureFileStorage } from "./linkedServiceAzureFileStorage";
 import { LinkedServiceAzureFunction } from "./linkedServiceAzureFunction";
 import { LinkedServiceAzureSqlDatabase } from "./linkedServiceAzureSqlDatabase";
@@ -105,6 +107,8 @@ const _module = {
                 return new IntegrationRuntimeSsis(name, <any>undefined, { urn })
             case "azure:datafactory/linkedServiceAzureBlobStorage:LinkedServiceAzureBlobStorage":
                 return new LinkedServiceAzureBlobStorage(name, <any>undefined, { urn })
+            case "azure:datafactory/linkedServiceAzureDatabricks:LinkedServiceAzureDatabricks":
+                return new LinkedServiceAzureDatabricks(name, <any>undefined, { urn })
             case "azure:datafactory/linkedServiceAzureFileStorage:LinkedServiceAzureFileStorage":
                 return new LinkedServiceAzureFileStorage(name, <any>undefined, { urn })
             case "azure:datafactory/linkedServiceAzureFunction:LinkedServiceAzureFunction":
@@ -157,6 +161,7 @@ pulumi.runtime.registerResourceModule("azure", "datafactory/integrationRuntimeRu
 pulumi.runtime.registerResourceModule("azure", "datafactory/integrationRuntimeSelfHosted", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/integrationRuntimeSsis", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceAzureBlobStorage", _module)
+pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceAzureDatabricks", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceAzureFileStorage", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceAzureFunction", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceAzureSqlDatabase", _module)

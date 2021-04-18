@@ -11,6 +11,7 @@ export * from "./getStore";
 export * from "./store";
 export * from "./storeFile";
 export * from "./storeFirewallRule";
+export * from "./storeVirtualNetworkRule";
 
 // Import resources to register:
 import { AnalyticsAccount } from "./analyticsAccount";
@@ -18,6 +19,7 @@ import { AnalyticsFirewallRule } from "./analyticsFirewallRule";
 import { Store } from "./store";
 import { StoreFile } from "./storeFile";
 import { StoreFirewallRule } from "./storeFirewallRule";
+import { StoreVirtualNetworkRule } from "./storeVirtualNetworkRule";
 
 const _module = {
     version: utilities.getVersion(),
@@ -33,6 +35,8 @@ const _module = {
                 return new StoreFile(name, <any>undefined, { urn })
             case "azure:datalake/storeFirewallRule:StoreFirewallRule":
                 return new StoreFirewallRule(name, <any>undefined, { urn })
+            case "azure:datalake/storeVirtualNetworkRule:StoreVirtualNetworkRule":
+                return new StoreVirtualNetworkRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -43,3 +47,4 @@ pulumi.runtime.registerResourceModule("azure", "datalake/analyticsFirewallRule",
 pulumi.runtime.registerResourceModule("azure", "datalake/store", _module)
 pulumi.runtime.registerResourceModule("azure", "datalake/storeFile", _module)
 pulumi.runtime.registerResourceModule("azure", "datalake/storeFirewallRule", _module)
+pulumi.runtime.registerResourceModule("azure", "datalake/storeVirtualNetworkRule", _module)

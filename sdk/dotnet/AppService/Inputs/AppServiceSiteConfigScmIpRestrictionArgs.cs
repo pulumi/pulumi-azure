@@ -42,9 +42,6 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("serviceTag")]
         public Input<string>? ServiceTag { get; set; }
 
-        [Input("subnetId")]
-        public Input<string>? SubnetId { get; set; }
-
         /// <summary>
         /// The Virtual Network Subnet ID used for this IP Restriction.
         /// </summary>

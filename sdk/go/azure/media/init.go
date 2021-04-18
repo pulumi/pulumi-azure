@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Job{}
 	case "azure:media/liveEvent:LiveEvent":
 		r = &LiveEvent{}
+	case "azure:media/liveEventOutput:LiveEventOutput":
+		r = &LiveEventOutput{}
 	case "azure:media/serviceAccount:ServiceAccount":
 		r = &ServiceAccount{}
 	case "azure:media/streamingEndpoint:StreamingEndpoint":
@@ -70,6 +72,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"media/liveEvent",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"media/liveEventOutput",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

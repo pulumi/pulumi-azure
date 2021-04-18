@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &StoreFile{}
 	case "azure:datalake/storeFirewallRule:StoreFirewallRule":
 		r = &StoreFirewallRule{}
+	case "azure:datalake/storeVirtualNetworkRule:StoreVirtualNetworkRule":
+		r = &StoreVirtualNetworkRule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -67,6 +69,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"datalake/storeFirewallRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"datalake/storeVirtualNetworkRule",
 		&module{version},
 	)
 }

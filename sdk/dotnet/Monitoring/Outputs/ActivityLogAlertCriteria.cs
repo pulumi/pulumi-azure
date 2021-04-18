@@ -58,6 +58,10 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string? ResourceType;
         /// <summary>
+        /// A block to define fine grain service health settings.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ActivityLogAlertCriteriaServiceHealth> ServiceHealths;
+        /// <summary>
         /// The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
         /// </summary>
         public readonly string? Status;
@@ -90,6 +94,8 @@ namespace Pulumi.Azure.Monitoring.Outputs
 
             string? resourceType,
 
+            ImmutableArray<Outputs.ActivityLogAlertCriteriaServiceHealth> serviceHealths,
+
             string? status,
 
             string? subStatus)
@@ -105,6 +111,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
             ResourceId = resourceId;
             ResourceProvider = resourceProvider;
             ResourceType = resourceType;
+            ServiceHealths = serviceHealths;
             Status = status;
             SubStatus = subStatus;
         }

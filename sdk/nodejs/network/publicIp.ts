@@ -81,6 +81,10 @@ export class PublicIp extends pulumi.CustomResource {
      */
     public /*out*/ readonly ipAddress!: pulumi.Output<string>;
     /**
+     * A mapping of IP tags to assign to the public IP.
+     */
+    public readonly ipTags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * The IP Version to use, IPv6 or IPv4.
      */
     public readonly ipVersion!: pulumi.Output<string | undefined>;
@@ -137,6 +141,7 @@ export class PublicIp extends pulumi.CustomResource {
             inputs["fqdn"] = state ? state.fqdn : undefined;
             inputs["idleTimeoutInMinutes"] = state ? state.idleTimeoutInMinutes : undefined;
             inputs["ipAddress"] = state ? state.ipAddress : undefined;
+            inputs["ipTags"] = state ? state.ipTags : undefined;
             inputs["ipVersion"] = state ? state.ipVersion : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -157,6 +162,7 @@ export class PublicIp extends pulumi.CustomResource {
             inputs["allocationMethod"] = args ? args.allocationMethod : undefined;
             inputs["domainNameLabel"] = args ? args.domainNameLabel : undefined;
             inputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
+            inputs["ipTags"] = args ? args.ipTags : undefined;
             inputs["ipVersion"] = args ? args.ipVersion : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -200,6 +206,10 @@ export interface PublicIpState {
      * The IP address value that was allocated.
      */
     readonly ipAddress?: pulumi.Input<string>;
+    /**
+     * A mapping of IP tags to assign to the public IP.
+     */
+    readonly ipTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The IP Version to use, IPv6 or IPv4.
      */
@@ -256,6 +266,10 @@ export interface PublicIpArgs {
      * Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
      */
     readonly idleTimeoutInMinutes?: pulumi.Input<number>;
+    /**
+     * A mapping of IP tags to assign to the public IP.
+     */
+    readonly ipTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The IP Version to use, IPv6 or IPv4.
      */
