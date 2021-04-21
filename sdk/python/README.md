@@ -15,7 +15,7 @@ this package, please [install the Pulumi CLI first](https://pulumi.io/). For a s
 
 <div>
     <a href="https://www.pulumi.com/docs/get-started/azure" title="Get Started">
-       <img src="https://www.pulumi.com/images/get-started.svg" width="120">
+       <img src="https://www.pulumi.com/images/get-started.svg?" width="120">
     </a>
 </div>
 
