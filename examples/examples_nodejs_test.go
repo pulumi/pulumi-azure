@@ -301,3 +301,13 @@ func TestAccSecretCapture(t *testing.T) {
 
 	integration.ProgramTest(t, &test)
 }
+
+func TestAccLinuxVirtualMachines(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir:           filepath.Join(getCwd(t), "linux-virtual-machine"),
+			RunUpdateTest: false,
+		})
+
+	integration.ProgramTest(t, &test)
+}
