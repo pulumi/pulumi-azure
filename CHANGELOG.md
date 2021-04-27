@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Ensure `azure.compute.LinuxVirtualMachine` and `azure.compute.WindowsVirtualMachine` resources don't error with validation
+  errors regarding `platformFaultDomain` and `virtualMachineScaleSet`
 
 ---
 

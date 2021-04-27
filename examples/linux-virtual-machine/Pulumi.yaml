@@ -1,0 +1,3 @@
+name: azure-linux-virtual-machine
+runtime: nodejs
+description: Create a linux virtual machine resource
