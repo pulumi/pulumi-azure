@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Ensure `azure.compute.LinuxVirtualMachine` and `azure.compute.WindowsVirtualMachine` resources don't error with validation
-  errors regarding `platformFaultDomain` and `virtualMachineScaleSet`
+_(none)_
 
 ---
+
+## 4.0.1 (2021-04-28)
+* Ensure `azure.compute.LinuxVirtualMachine` and `azure.compute.WindowsVirtualMachine` resources don't error with validation
+  errors regarding `platformFaultDomain` and `virtualMachineScaleSet`
 
 ## 4.0.0 (2021-04-19)
 * Upgrade to v2.56.0 of the AzureRM Terraform Provider
