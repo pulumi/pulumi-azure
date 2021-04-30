@@ -239,9 +239,9 @@ func (o AccountActiveDirectoryPtrOutput) Username() pulumi.StringPtrOutput {
 type VolumeDataProtectionReplication struct {
 	// The endpoint type, default value is `dst` for destination.
 	EndpointType *string `pulumi:"endpointType"`
-	// Primary volume's location.
+	// Location of the primary volume.
 	RemoteVolumeLocation string `pulumi:"remoteVolumeLocation"`
-	// Primary volume's resource id.
+	// Resource ID of the primary volume.
 	RemoteVolumeResourceId string `pulumi:"remoteVolumeResourceId"`
 	// Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
 	ReplicationFrequency string `pulumi:"replicationFrequency"`
@@ -261,9 +261,9 @@ type VolumeDataProtectionReplicationInput interface {
 type VolumeDataProtectionReplicationArgs struct {
 	// The endpoint type, default value is `dst` for destination.
 	EndpointType pulumi.StringPtrInput `pulumi:"endpointType"`
-	// Primary volume's location.
+	// Location of the primary volume.
 	RemoteVolumeLocation pulumi.StringInput `pulumi:"remoteVolumeLocation"`
-	// Primary volume's resource id.
+	// Resource ID of the primary volume.
 	RemoteVolumeResourceId pulumi.StringInput `pulumi:"remoteVolumeResourceId"`
 	// Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
 	ReplicationFrequency pulumi.StringInput `pulumi:"replicationFrequency"`
@@ -351,12 +351,12 @@ func (o VolumeDataProtectionReplicationOutput) EndpointType() pulumi.StringPtrOu
 	return o.ApplyT(func(v VolumeDataProtectionReplication) *string { return v.EndpointType }).(pulumi.StringPtrOutput)
 }
 
-// Primary volume's location.
+// Location of the primary volume.
 func (o VolumeDataProtectionReplicationOutput) RemoteVolumeLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeDataProtectionReplication) string { return v.RemoteVolumeLocation }).(pulumi.StringOutput)
 }
 
-// Primary volume's resource id.
+// Resource ID of the primary volume.
 func (o VolumeDataProtectionReplicationOutput) RemoteVolumeResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeDataProtectionReplication) string { return v.RemoteVolumeResourceId }).(pulumi.StringOutput)
 }
@@ -394,7 +394,7 @@ func (o VolumeDataProtectionReplicationPtrOutput) EndpointType() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Primary volume's location.
+// Location of the primary volume.
 func (o VolumeDataProtectionReplicationPtrOutput) RemoteVolumeLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeDataProtectionReplication) *string {
 		if v == nil {
@@ -404,7 +404,7 @@ func (o VolumeDataProtectionReplicationPtrOutput) RemoteVolumeLocation() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Primary volume's resource id.
+// Resource ID of the primary volume.
 func (o VolumeDataProtectionReplicationPtrOutput) RemoteVolumeResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeDataProtectionReplication) *string {
 		if v == nil {
@@ -440,8 +440,9 @@ type VolumeExportPolicyRule struct {
 	// Deprecated: Deprecated in favour of `protocols_enabled`
 	Nfsv4Enabled *bool `pulumi:"nfsv4Enabled"`
 	// A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
-	ProtocolsEnabled  *string `pulumi:"protocolsEnabled"`
-	RootAccessEnabled *bool   `pulumi:"rootAccessEnabled"`
+	ProtocolsEnabled *string `pulumi:"protocolsEnabled"`
+	// Is root access permitted to this volume?
+	RootAccessEnabled *bool `pulumi:"rootAccessEnabled"`
 	// The index number of the rule.
 	RuleIndex int `pulumi:"ruleIndex"`
 	// Is the file system on unix read only?
@@ -477,8 +478,9 @@ type VolumeExportPolicyRuleArgs struct {
 	// Deprecated: Deprecated in favour of `protocols_enabled`
 	Nfsv4Enabled pulumi.BoolPtrInput `pulumi:"nfsv4Enabled"`
 	// A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
-	ProtocolsEnabled  pulumi.StringPtrInput `pulumi:"protocolsEnabled"`
-	RootAccessEnabled pulumi.BoolPtrInput   `pulumi:"rootAccessEnabled"`
+	ProtocolsEnabled pulumi.StringPtrInput `pulumi:"protocolsEnabled"`
+	// Is root access permitted to this volume?
+	RootAccessEnabled pulumi.BoolPtrInput `pulumi:"rootAccessEnabled"`
 	// The index number of the rule.
 	RuleIndex pulumi.IntInput `pulumi:"ruleIndex"`
 	// Is the file system on unix read only?
@@ -569,6 +571,7 @@ func (o VolumeExportPolicyRuleOutput) ProtocolsEnabled() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v VolumeExportPolicyRule) *string { return v.ProtocolsEnabled }).(pulumi.StringPtrOutput)
 }
 
+// Is root access permitted to this volume?
 func (o VolumeExportPolicyRuleOutput) RootAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VolumeExportPolicyRule) *bool { return v.RootAccessEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -609,10 +612,16 @@ func (o VolumeExportPolicyRuleArrayOutput) Index(i pulumi.IntInput) VolumeExport
 }
 
 type GetVolumeDataProtectionReplication struct {
-	EndpointType           string `pulumi:"endpointType"`
-	RemoteVolumeLocation   string `pulumi:"remoteVolumeLocation"`
+	// The endpoint type.
+	EndpointType string `pulumi:"endpointType"`
+	// Location of the primary volume.
+	RemoteVolumeLocation string `pulumi:"remoteVolumeLocation"`
+	// Resource ID of the primary volume.
 	RemoteVolumeResourceId string `pulumi:"remoteVolumeResourceId"`
-	ReplicationSchedule    string `pulumi:"replicationSchedule"`
+	// Frequency of replication.
+	ReplicationFrequency string `pulumi:"replicationFrequency"`
+	// Deprecated: This property is not in use and will be removed in version 3.0 of the provider. Please use `replication_frequency` instead
+	ReplicationSchedule string `pulumi:"replicationSchedule"`
 }
 
 // GetVolumeDataProtectionReplicationInput is an input type that accepts GetVolumeDataProtectionReplicationArgs and GetVolumeDataProtectionReplicationOutput values.
@@ -627,10 +636,16 @@ type GetVolumeDataProtectionReplicationInput interface {
 }
 
 type GetVolumeDataProtectionReplicationArgs struct {
-	EndpointType           pulumi.StringInput `pulumi:"endpointType"`
-	RemoteVolumeLocation   pulumi.StringInput `pulumi:"remoteVolumeLocation"`
+	// The endpoint type.
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// Location of the primary volume.
+	RemoteVolumeLocation pulumi.StringInput `pulumi:"remoteVolumeLocation"`
+	// Resource ID of the primary volume.
 	RemoteVolumeResourceId pulumi.StringInput `pulumi:"remoteVolumeResourceId"`
-	ReplicationSchedule    pulumi.StringInput `pulumi:"replicationSchedule"`
+	// Frequency of replication.
+	ReplicationFrequency pulumi.StringInput `pulumi:"replicationFrequency"`
+	// Deprecated: This property is not in use and will be removed in version 3.0 of the provider. Please use `replication_frequency` instead
+	ReplicationSchedule pulumi.StringInput `pulumi:"replicationSchedule"`
 }
 
 func (GetVolumeDataProtectionReplicationArgs) ElementType() reflect.Type {
@@ -684,18 +699,27 @@ func (o GetVolumeDataProtectionReplicationOutput) ToGetVolumeDataProtectionRepli
 	return o
 }
 
+// The endpoint type.
 func (o GetVolumeDataProtectionReplicationOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVolumeDataProtectionReplication) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
+// Location of the primary volume.
 func (o GetVolumeDataProtectionReplicationOutput) RemoteVolumeLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVolumeDataProtectionReplication) string { return v.RemoteVolumeLocation }).(pulumi.StringOutput)
 }
 
+// Resource ID of the primary volume.
 func (o GetVolumeDataProtectionReplicationOutput) RemoteVolumeResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVolumeDataProtectionReplication) string { return v.RemoteVolumeResourceId }).(pulumi.StringOutput)
 }
 
+// Frequency of replication.
+func (o GetVolumeDataProtectionReplicationOutput) ReplicationFrequency() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeDataProtectionReplication) string { return v.ReplicationFrequency }).(pulumi.StringOutput)
+}
+
+// Deprecated: This property is not in use and will be removed in version 3.0 of the provider. Please use `replication_frequency` instead
 func (o GetVolumeDataProtectionReplicationOutput) ReplicationSchedule() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVolumeDataProtectionReplication) string { return v.ReplicationSchedule }).(pulumi.StringOutput)
 }

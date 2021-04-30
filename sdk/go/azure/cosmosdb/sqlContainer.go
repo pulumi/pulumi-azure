@@ -79,6 +79,8 @@ type SqlContainer struct {
 	AccountName pulumi.StringOutput `pulumi:"accountName"`
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
 	AutoscaleSettings SqlContainerAutoscaleSettingsPtrOutput `pulumi:"autoscaleSettings"`
+	// A `conflictResolutionPolicy` blocks as defined below.
+	ConflictResolutionPolicy SqlContainerConflictResolutionPolicyOutput `pulumi:"conflictResolutionPolicy"`
 	// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
@@ -88,7 +90,7 @@ type SqlContainer struct {
 	// Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Define a partition key. Changing this forces a new resource to be created.
-	PartitionKeyPath pulumi.StringPtrOutput `pulumi:"partitionKeyPath"`
+	PartitionKeyPath pulumi.StringOutput `pulumi:"partitionKeyPath"`
 	// Define a partition key version. Changing this forces a new resource to be created. Possible values are ` 1  `and `2`. This should be set to `2` in order to use large partition keys.
 	PartitionKeyVersion pulumi.IntPtrOutput `pulumi:"partitionKeyVersion"`
 	// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
@@ -111,6 +113,9 @@ func NewSqlContainer(ctx *pulumi.Context,
 	}
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
+	}
+	if args.PartitionKeyPath == nil {
+		return nil, errors.New("invalid value for required argument 'PartitionKeyPath'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
@@ -141,6 +146,8 @@ type sqlContainerState struct {
 	AccountName *string `pulumi:"accountName"`
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
 	AutoscaleSettings *SqlContainerAutoscaleSettings `pulumi:"autoscaleSettings"`
+	// A `conflictResolutionPolicy` blocks as defined below.
+	ConflictResolutionPolicy *SqlContainerConflictResolutionPolicy `pulumi:"conflictResolutionPolicy"`
 	// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
 	DatabaseName *string `pulumi:"databaseName"`
 	// The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
@@ -166,6 +173,8 @@ type SqlContainerState struct {
 	AccountName pulumi.StringPtrInput
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
 	AutoscaleSettings SqlContainerAutoscaleSettingsPtrInput
+	// A `conflictResolutionPolicy` blocks as defined below.
+	ConflictResolutionPolicy SqlContainerConflictResolutionPolicyPtrInput
 	// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringPtrInput
 	// The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
@@ -195,6 +204,8 @@ type sqlContainerArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
 	AutoscaleSettings *SqlContainerAutoscaleSettings `pulumi:"autoscaleSettings"`
+	// A `conflictResolutionPolicy` blocks as defined below.
+	ConflictResolutionPolicy *SqlContainerConflictResolutionPolicy `pulumi:"conflictResolutionPolicy"`
 	// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
 	// The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
@@ -204,7 +215,7 @@ type sqlContainerArgs struct {
 	// Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Define a partition key. Changing this forces a new resource to be created.
-	PartitionKeyPath *string `pulumi:"partitionKeyPath"`
+	PartitionKeyPath string `pulumi:"partitionKeyPath"`
 	// Define a partition key version. Changing this forces a new resource to be created. Possible values are ` 1  `and `2`. This should be set to `2` in order to use large partition keys.
 	PartitionKeyVersion *int `pulumi:"partitionKeyVersion"`
 	// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
@@ -221,6 +232,8 @@ type SqlContainerArgs struct {
 	AccountName pulumi.StringInput
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
 	AutoscaleSettings SqlContainerAutoscaleSettingsPtrInput
+	// A `conflictResolutionPolicy` blocks as defined below.
+	ConflictResolutionPolicy SqlContainerConflictResolutionPolicyPtrInput
 	// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput
 	// The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
@@ -230,7 +243,7 @@ type SqlContainerArgs struct {
 	// Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Define a partition key. Changing this forces a new resource to be created.
-	PartitionKeyPath pulumi.StringPtrInput
+	PartitionKeyPath pulumi.StringInput
 	// Define a partition key version. Changing this forces a new resource to be created. Possible values are ` 1  `and `2`. This should be set to `2` in order to use large partition keys.
 	PartitionKeyVersion pulumi.IntPtrInput
 	// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.

@@ -41,7 +41,7 @@ class CustomHttpsConfigurationCustomHttpsConfigurationArgs:
                  provisioning_substate: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] azure_key_vault_certificate_secret_name: The name of the Key Vault secret representing the full certificate PFX.
-        :param pulumi.Input[str] azure_key_vault_certificate_secret_version: The version of the Key Vault secret representing the full certificate PFX.
+        :param pulumi.Input[str] azure_key_vault_certificate_secret_version: The version of the Key Vault secret representing the full certificate PFX. Defaults to `Latest`.
         :param pulumi.Input[str] azure_key_vault_certificate_vault_id: The ID of the Key Vault containing the SSL certificate.
         :param pulumi.Input[str] certificate_source: Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
         :param pulumi.Input[str] minimum_tls_version: Minimum client TLS version supported.
@@ -77,7 +77,7 @@ class CustomHttpsConfigurationCustomHttpsConfigurationArgs:
     @pulumi.getter(name="azureKeyVaultCertificateSecretVersion")
     def azure_key_vault_certificate_secret_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of the Key Vault secret representing the full certificate PFX.
+        The version of the Key Vault secret representing the full certificate PFX. Defaults to `Latest`.
         """
         return pulumi.get(self, "azure_key_vault_certificate_secret_version")
 

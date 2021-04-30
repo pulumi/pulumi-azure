@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SpringCloudActiveDeployment{}
 	case "azure:appplatform/springCloudApp:SpringCloudApp":
 		r = &SpringCloudApp{}
+	case "azure:appplatform/springCloudAppCosmosDBAssociation:SpringCloudAppCosmosDBAssociation":
+		r = &SpringCloudAppCosmosDBAssociation{}
 	case "azure:appplatform/springCloudAppMysqlAssociation:SpringCloudAppMysqlAssociation":
 		r = &SpringCloudAppMysqlAssociation{}
 	case "azure:appplatform/springCloudAppRedisAssociation:SpringCloudAppRedisAssociation":
@@ -58,6 +60,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"appplatform/springCloudApp",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appplatform/springCloudAppCosmosDBAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

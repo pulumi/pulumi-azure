@@ -55,8 +55,11 @@ type GetVirtualMachineScaleSetResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A `identity` block as defined below.
-	Identities        []GetVirtualMachineScaleSetIdentity `pulumi:"identities"`
-	Location          string                              `pulumi:"location"`
-	Name              string                              `pulumi:"name"`
-	ResourceGroupName string                              `pulumi:"resourceGroupName"`
+	Identities []GetVirtualMachineScaleSetIdentity `pulumi:"identities"`
+	Location   string                              `pulumi:"location"`
+	// The name of the public ip address configuration
+	Name string `pulumi:"name"`
+	// A list of `networkInterface` blocks as defined below.
+	NetworkInterfaces []GetVirtualMachineScaleSetNetworkInterface `pulumi:"networkInterfaces"`
+	ResourceGroupName string                                      `pulumi:"resourceGroupName"`
 }

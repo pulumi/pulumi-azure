@@ -7,6 +7,8 @@ from .active_directory_administrator import *
 from .configuration import *
 from .database import *
 from .firewall_rule import *
+from .flexible_server import *
+from .get_flexible_server import *
 from .get_server import *
 from .server import *
 from .server_key import *
@@ -34,6 +36,8 @@ def _register_module():
                 return Database(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:postgresql/firewallRule:FirewallRule":
                 return FirewallRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:postgresql/flexibleServer:FlexibleServer":
+                return FlexibleServer(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:postgresql/server:Server":
                 return Server(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:postgresql/serverKey:ServerKey":
@@ -49,6 +53,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "postgresql/configuration", _module_instance)
     pulumi.runtime.register_resource_module("azure", "postgresql/database", _module_instance)
     pulumi.runtime.register_resource_module("azure", "postgresql/firewallRule", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "postgresql/flexibleServer", _module_instance)
     pulumi.runtime.register_resource_module("azure", "postgresql/server", _module_instance)
     pulumi.runtime.register_resource_module("azure", "postgresql/serverKey", _module_instance)
     pulumi.runtime.register_resource_module("azure", "postgresql/virtualNetworkRule", _module_instance)

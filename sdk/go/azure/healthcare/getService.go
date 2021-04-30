@@ -60,7 +60,10 @@ type LookupServiceResult struct {
 	AuthenticationConfigurations []GetServiceAuthenticationConfiguration `pulumi:"authenticationConfigurations"`
 	// A `corsConfiguration` block as defined below.
 	CorsConfigurations []GetServiceCorsConfiguration `pulumi:"corsConfigurations"`
-	CosmosdbThroughput int                           `pulumi:"cosmosdbThroughput"`
+	// The versionless Key Vault Key ID for CMK encryption of the backing database.
+	CosmosdbKeyVaultKeyVersionlessId string `pulumi:"cosmosdbKeyVaultKeyVersionlessId"`
+	// The provisioned throughput for the backing database.
+	CosmosdbThroughput int `pulumi:"cosmosdbThroughput"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The type of the service.

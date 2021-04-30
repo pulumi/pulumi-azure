@@ -160,6 +160,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly networkRules!: pulumi.Output<outputs.storage.AccountNetworkRules>;
     /**
+     * Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
+     */
+    public readonly nfsv3Enabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The primary access key for the storage account.
      */
     public /*out*/ readonly primaryAccessKey!: pulumi.Output<string>;
@@ -332,6 +336,7 @@ export class Account extends pulumi.CustomResource {
             inputs["minTlsVersion"] = state ? state.minTlsVersion : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["networkRules"] = state ? state.networkRules : undefined;
+            inputs["nfsv3Enabled"] = state ? state.nfsv3Enabled : undefined;
             inputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
             inputs["primaryBlobConnectionString"] = state ? state.primaryBlobConnectionString : undefined;
             inputs["primaryBlobEndpoint"] = state ? state.primaryBlobEndpoint : undefined;
@@ -394,6 +399,7 @@ export class Account extends pulumi.CustomResource {
             inputs["minTlsVersion"] = args ? args.minTlsVersion : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["networkRules"] = args ? args.networkRules : undefined;
+            inputs["nfsv3Enabled"] = args ? args.nfsv3Enabled : undefined;
             inputs["queueProperties"] = args ? args.queueProperties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["staticWebsite"] = args ? args.staticWebsite : undefined;
@@ -503,6 +509,10 @@ export interface AccountState {
      * A `networkRules` block as documented below.
      */
     readonly networkRules?: pulumi.Input<inputs.storage.AccountNetworkRules>;
+    /**
+     * Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
+     */
+    readonly nfsv3Enabled?: pulumi.Input<boolean>;
     /**
      * The primary access key for the storage account.
      */
@@ -714,6 +724,10 @@ export interface AccountArgs {
      * A `networkRules` block as documented below.
      */
     readonly networkRules?: pulumi.Input<inputs.storage.AccountNetworkRules>;
+    /**
+     * Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
+     */
+    readonly nfsv3Enabled?: pulumi.Input<boolean>;
     /**
      * A `queueProperties` block as defined below.
      */

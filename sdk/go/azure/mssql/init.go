@@ -31,12 +31,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ElasticPool{}
 	case "azure:mssql/firewallRule:FirewallRule":
 		r = &FirewallRule{}
+	case "azure:mssql/jobAgent:JobAgent":
+		r = &JobAgent{}
+	case "azure:mssql/jobCredential:JobCredential":
+		r = &JobCredential{}
 	case "azure:mssql/server:Server":
 		r = &Server{}
 	case "azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy":
 		r = &ServerExtendedAuditingPolicy{}
 	case "azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy":
 		r = &ServerSecurityAlertPolicy{}
+	case "azure:mssql/serverTransparentDataEncryption:ServerTransparentDataEncryption":
+		r = &ServerTransparentDataEncryption{}
 	case "azure:mssql/serverVulnerabilityAssessment:ServerVulnerabilityAssessment":
 		r = &ServerVulnerabilityAssessment{}
 	case "azure:mssql/virtualMachine:VirtualMachine":
@@ -83,6 +89,16 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"mssql/jobAgent",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"mssql/jobCredential",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"mssql/server",
 		&module{version},
 	)
@@ -94,6 +110,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"mssql/serverSecurityAlertPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"mssql/serverTransparentDataEncryption",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

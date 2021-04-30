@@ -77,8 +77,14 @@ export class Registry extends pulumi.CustomResource {
     public /*out*/ readonly adminUsername!: pulumi.Output<string>;
     /**
      * A list of Azure locations where the container registry should be geo-replicated.
+     *
+     * @deprecated Deprecated in favour of `georeplications`
      */
-    public readonly georeplicationLocations!: pulumi.Output<string[] | undefined>;
+    public readonly georeplicationLocations!: pulumi.Output<string[]>;
+    /**
+     * A `georeplications` block as documented below.
+     */
+    public readonly georeplications!: pulumi.Output<outputs.containerservice.RegistryGeoreplication[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -145,6 +151,7 @@ export class Registry extends pulumi.CustomResource {
             inputs["adminPassword"] = state ? state.adminPassword : undefined;
             inputs["adminUsername"] = state ? state.adminUsername : undefined;
             inputs["georeplicationLocations"] = state ? state.georeplicationLocations : undefined;
+            inputs["georeplications"] = state ? state.georeplications : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["loginServer"] = state ? state.loginServer : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -164,6 +171,7 @@ export class Registry extends pulumi.CustomResource {
             }
             inputs["adminEnabled"] = args ? args.adminEnabled : undefined;
             inputs["georeplicationLocations"] = args ? args.georeplicationLocations : undefined;
+            inputs["georeplications"] = args ? args.georeplications : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["networkRuleSet"] = args ? args.networkRuleSet : undefined;
@@ -204,8 +212,14 @@ export interface RegistryState {
     readonly adminUsername?: pulumi.Input<string>;
     /**
      * A list of Azure locations where the container registry should be geo-replicated.
+     *
+     * @deprecated Deprecated in favour of `georeplications`
      */
     readonly georeplicationLocations?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A `georeplications` block as documented below.
+     */
+    readonly georeplications?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryGeoreplication>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -266,8 +280,14 @@ export interface RegistryArgs {
     readonly adminEnabled?: pulumi.Input<boolean>;
     /**
      * A list of Azure locations where the container registry should be geo-replicated.
+     *
+     * @deprecated Deprecated in favour of `georeplications`
      */
     readonly georeplicationLocations?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A `georeplications` block as documented below.
+     */
+    readonly georeplications?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryGeoreplication>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

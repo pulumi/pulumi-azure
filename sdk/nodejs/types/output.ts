@@ -2096,6 +2096,10 @@ export namespace appservice {
          */
         action?: string;
         /**
+         * The headers for this specific `ipRestriction` as defined below.
+         */
+        headers: outputs.appservice.AppServiceSiteConfigIpRestrictionHeaders;
+        /**
          * The IP Address used for this IP Restriction in CIDR notation.
          */
         ipAddress?: string;
@@ -2117,11 +2121,34 @@ export namespace appservice {
         virtualNetworkSubnetId?: string;
     }
 
+    export interface AppServiceSiteConfigIpRestrictionHeaders {
+        /**
+         * A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+         */
+        xAzureFdids?: string[];
+        /**
+         * A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+         */
+        xFdHealthProbe?: string;
+        /**
+         * A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+         */
+        xForwardedFors?: string[];
+        /**
+         * A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+         */
+        xForwardedHosts?: string[];
+    }
+
     export interface AppServiceSiteConfigScmIpRestriction {
         /**
          * Allow or Deny access for this IP range. Defaults to Allow.
          */
         action?: string;
+        /**
+         * The headers for this specific `scmIpRestriction` as defined below.
+         */
+        headers: outputs.appservice.AppServiceSiteConfigScmIpRestrictionHeaders;
         /**
          * The IP Address used for this IP Restriction in CIDR notation.
          */
@@ -2142,6 +2169,25 @@ export namespace appservice {
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
         virtualNetworkSubnetId?: string;
+    }
+
+    export interface AppServiceSiteConfigScmIpRestrictionHeaders {
+        /**
+         * A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+         */
+        xAzureFdids?: string[];
+        /**
+         * A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+         */
+        xFdHealthProbe?: string;
+        /**
+         * A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+         */
+        xForwardedFors?: string[];
+        /**
+         * A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+         */
+        xForwardedHosts?: string[];
     }
 
     export interface AppServiceSiteCredential {
@@ -2420,6 +2466,10 @@ export namespace appservice {
          */
         ipRestrictions: outputs.appservice.FunctionAppSiteConfigIpRestriction[];
         /**
+         * Java version hosted by the function app in Azure. Possible values are `1.8`, `11`.
+         */
+        javaVersion?: string;
+        /**
          * Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
          */
         linuxFxVersion: string;
@@ -2470,6 +2520,10 @@ export namespace appservice {
          */
         action?: string;
         /**
+         * The headers for this specific `ipRestriction` as defined below.
+         */
+        headers: outputs.appservice.FunctionAppSiteConfigIpRestrictionHeaders;
+        /**
          * The IP Address used for this IP Restriction in CIDR notation.
          */
         ipAddress?: string;
@@ -2491,11 +2545,34 @@ export namespace appservice {
         virtualNetworkSubnetId?: string;
     }
 
+    export interface FunctionAppSiteConfigIpRestrictionHeaders {
+        /**
+         * A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+         */
+        xAzureFdids?: string[];
+        /**
+         * A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+         */
+        xFdHealthProbe?: string;
+        /**
+         * A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+         */
+        xForwardedFors?: string[];
+        /**
+         * A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+         */
+        xForwardedHosts?: string[];
+    }
+
     export interface FunctionAppSiteConfigScmIpRestriction {
         /**
          * Allow or Deny access for this IP range. Defaults to Allow.
          */
         action?: string;
+        /**
+         * The headers for this specific `scmIpRestriction` as defined below.
+         */
+        headers: outputs.appservice.FunctionAppSiteConfigScmIpRestrictionHeaders;
         /**
          * The IP Address used for this IP Restriction in CIDR notation.
          */
@@ -2516,6 +2593,25 @@ export namespace appservice {
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
         virtualNetworkSubnetId?: string;
+    }
+
+    export interface FunctionAppSiteConfigScmIpRestrictionHeaders {
+        /**
+         * A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+         */
+        xAzureFdids?: string[];
+        /**
+         * A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+         */
+        xFdHealthProbe?: string;
+        /**
+         * A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+         */
+        xForwardedFors?: string[];
+        /**
+         * A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+         */
+        xForwardedHosts?: string[];
     }
 
     export interface FunctionAppSiteCredential {
@@ -2713,6 +2809,7 @@ export namespace appservice {
          * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
          */
         ipRestrictions: outputs.appservice.FunctionAppSlotSiteConfigIpRestriction[];
+        javaVersion?: string;
         /**
          * Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
          */
@@ -2755,6 +2852,10 @@ export namespace appservice {
          */
         action?: string;
         /**
+         * The headers for this specific `ipRestriction` as defined below.
+         */
+        headers: outputs.appservice.FunctionAppSlotSiteConfigIpRestrictionHeaders;
+        /**
          * The IP Address used for this IP Restriction in CIDR notation.
          */
         ipAddress?: string;
@@ -2776,11 +2877,34 @@ export namespace appservice {
         virtualNetworkSubnetId?: string;
     }
 
+    export interface FunctionAppSlotSiteConfigIpRestrictionHeaders {
+        /**
+         * A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+         */
+        xAzureFdids?: string[];
+        /**
+         * A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+         */
+        xFdHealthProbe?: string;
+        /**
+         * A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+         */
+        xForwardedFors?: string[];
+        /**
+         * A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+         */
+        xForwardedHosts?: string[];
+    }
+
     export interface FunctionAppSlotSiteConfigScmIpRestriction {
         /**
          * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
          */
         action?: string;
+        /**
+         * The headers for this specific `ipRestriction` as defined below.
+         */
+        headers: outputs.appservice.FunctionAppSlotSiteConfigScmIpRestrictionHeaders;
         /**
          * The IP Address used for this IP Restriction in CIDR notation.
          */
@@ -2801,6 +2925,25 @@ export namespace appservice {
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
         virtualNetworkSubnetId?: string;
+    }
+
+    export interface FunctionAppSlotSiteConfigScmIpRestrictionHeaders {
+        /**
+         * A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+         */
+        xAzureFdids?: string[];
+        /**
+         * A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+         */
+        xFdHealthProbe?: string;
+        /**
+         * A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+         */
+        xForwardedFors?: string[];
+        /**
+         * A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+         */
+        xForwardedHosts?: string[];
     }
 
     export interface FunctionAppSlotSiteCredential {
@@ -3154,6 +3297,10 @@ export namespace appservice {
          * One or more `ipRestriction` blocks as defined above.
          */
         ipRestrictions: outputs.appservice.GetFunctionAppSiteConfigIpRestriction[];
+        /**
+         * Java version hosted by the function app in Azure.
+         */
+        javaVersion: string;
         /**
          * Linux App Framework and version for the AppService.
          */
@@ -3637,6 +3784,10 @@ export namespace appservice {
          */
         action?: string;
         /**
+         * The headers for this specific `ipRestriction` as defined below. The http header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+         */
+        headers: outputs.appservice.SlotSiteConfigIpRestrictionHeaders;
+        /**
          * The IP Address used for this IP Restriction in CIDR notation.
          */
         ipAddress?: string;
@@ -3658,11 +3809,34 @@ export namespace appservice {
         virtualNetworkSubnetId?: string;
     }
 
+    export interface SlotSiteConfigIpRestrictionHeaders {
+        /**
+         * A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+         */
+        xAzureFdids?: string[];
+        /**
+         * A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+         */
+        xFdHealthProbe?: string;
+        /**
+         * A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+         */
+        xForwardedFors?: string[];
+        /**
+         * A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+         */
+        xForwardedHosts?: string[];
+    }
+
     export interface SlotSiteConfigScmIpRestriction {
         /**
          * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
          */
         action?: string;
+        /**
+         * The headers for this specific `ipRestriction` as defined below. The http header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+         */
+        headers: outputs.appservice.SlotSiteConfigScmIpRestrictionHeaders;
         /**
          * The IP Address used for this IP Restriction in CIDR notation.
          */
@@ -3683,6 +3857,25 @@ export namespace appservice {
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
         virtualNetworkSubnetId?: string;
+    }
+
+    export interface SlotSiteConfigScmIpRestrictionHeaders {
+        /**
+         * A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+         */
+        xAzureFdids?: string[];
+        /**
+         * A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+         */
+        xFdHealthProbe?: string;
+        /**
+         * A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+         */
+        xForwardedFors?: string[];
+        /**
+         * A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+         */
+        xForwardedHosts?: string[];
     }
 
     export interface SlotSiteCredential {
@@ -3854,14 +4047,62 @@ export namespace backup {
          * Sets the backup frequency. Currently, only `Daily` is supported
          */
         frequency: string;
+        /**
+         * The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+         */
         time: string;
     }
 
     export interface PolicyFileShareRetentionDaily {
         /**
-         * The number of daily backups to keep. Must be between `1` and `180` (inclusive)
+         * The number of yearly backups to keep. Must be between `1` and `10`
          */
         count: number;
+    }
+
+    export interface PolicyFileShareRetentionMonthly {
+        /**
+         * The number of yearly backups to keep. Must be between `1` and `10`
+         */
+        count: number;
+        /**
+         * The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+         */
+        weekdays: string[];
+        /**
+         * The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
+         */
+        weeks: string[];
+    }
+
+    export interface PolicyFileShareRetentionWeekly {
+        /**
+         * The number of yearly backups to keep. Must be between `1` and `10`
+         */
+        count: number;
+        /**
+         * The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+         */
+        weekdays: string[];
+    }
+
+    export interface PolicyFileShareRetentionYearly {
+        /**
+         * The number of yearly backups to keep. Must be between `1` and `10`
+         */
+        count: number;
+        /**
+         * The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
+         */
+        months: string[];
+        /**
+         * The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+         */
+        weekdays: string[];
+        /**
+         * The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
+         */
+        weeks: string[];
     }
 
     export interface PolicyVMBackup {
@@ -5085,6 +5326,32 @@ export namespace compute {
         subnetId: string;
     }
 
+    export interface ConfigurationPolicyAssignmentConfiguration {
+        /**
+         * The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
+         */
+        name: string;
+        /**
+         * One or more `parameter` blocks which define what configuration parameters and values against.
+         */
+        parameters?: outputs.compute.ConfigurationPolicyAssignmentConfigurationParameter[];
+        /**
+         * The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
+         */
+        version?: string;
+    }
+
+    export interface ConfigurationPolicyAssignmentConfigurationParameter {
+        /**
+         * The name of the configuration parameter to check.
+         */
+        name: string;
+        /**
+         * The value to check the configuration parameter with.
+         */
+        value: string;
+    }
+
     export interface DiskEncryptionSetIdentity {
         /**
          * The (Client) ID of the Service Principal.
@@ -5343,6 +5610,86 @@ export namespace compute {
          * The ID of the System Managed Service Principal assigned to the Virtual Machine Scale Set.
          */
         principalId: string;
+        /**
+         * The identity type of the Managed Identity assigned to the Virtual Machine Scale Set.
+         */
+        type: string;
+    }
+
+    export interface GetVirtualMachineScaleSetNetworkInterface {
+        /**
+         * The dns servers in use.
+         */
+        dnsServers: string[];
+        enableAcceleratedNetworking: boolean;
+        enableIpForwarding: boolean;
+        /**
+         * An ipConfiguration block as documented below.
+         */
+        ipConfigurations: outputs.compute.GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration[];
+        /**
+         * The name of this Virtual Machine Scale Set.
+         */
+        name: string;
+        /**
+         * The identifier for the network security group.
+         */
+        networkSecurityGroupId: string;
+        /**
+         * If this ipConfiguration is the primary one.
+         */
+        primary: boolean;
+    }
+
+    export interface GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
+        /**
+         * An array of references to backend address pools of application gateways.
+         */
+        applicationGatewayBackendAddressPoolIds: string[];
+        /**
+         * The application security group IDs to use.
+         */
+        applicationSecurityGroupIds: string[];
+        /**
+         * An array of references to backend address pools of load balancers.
+         */
+        loadBalancerBackendAddressPoolIds: string[];
+        /**
+         * An array of references to inbound NAT pools for load balancers.
+         */
+        loadBalancerInboundNatRulesIds: string[];
+        /**
+         * The name of this Virtual Machine Scale Set.
+         */
+        name: string;
+        /**
+         * If this ipConfiguration is the primary one.
+         */
+        primary: boolean;
+        publicIpAddresses?: outputs.compute.GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress[];
+        /**
+         * The the identifier of the subnet.
+         */
+        subnetId: string;
+        version: string;
+    }
+
+    export interface GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
+        /**
+         * The domain name label for the dns settings.
+         */
+        domainNameLabel: string;
+        idleTimeoutInMinutes: number;
+        ipTags: outputs.compute.GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag[];
+        /**
+         * The name of this Virtual Machine Scale Set.
+         */
+        name: string;
+        publicIpPrefixId: string;
+    }
+
+    export interface GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
+        tag: string;
         /**
          * The identity type of the Managed Identity assigned to the Virtual Machine Scale Set.
          */
@@ -7206,6 +7553,10 @@ export namespace containerservice {
          */
         httpApplicationRoutings: outputs.containerservice.GetKubernetesClusterAddonProfileHttpApplicationRouting[];
         /**
+         * An `ingressApplicationGateway` block.
+         */
+        ingressApplicationGateways: outputs.containerservice.GetKubernetesClusterAddonProfileIngressApplicationGateway[];
+        /**
          * A `kubeDashboard` block.
          */
         kubeDashboards: outputs.containerservice.GetKubernetesClusterAddonProfileKubeDashboard[];
@@ -7231,6 +7582,29 @@ export namespace containerservice {
          * The Zone Name of the HTTP Application Routing.
          */
         httpApplicationRoutingZoneName: string;
+    }
+
+    export interface GetKubernetesClusterAddonProfileIngressApplicationGateway {
+        /**
+         * The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
+         */
+        effectiveGatewayId: string;
+        /**
+         * Is Role Based Access Control enabled?
+         */
+        enabled: boolean;
+        /**
+         * The ID of the Application Gateway integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when gatewayId is specified when configuring the `ingressApplicationGateway` addon.
+         */
+        gatewayId: string;
+        /**
+         * The subnet CIDR used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnetCidr` is specified when configuring the `ingressApplicationGateway` addon.
+         */
+        subnetCidr: string;
+        /**
+         * The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnetId` is specified when configuring the `ingressApplicationGateway` addon.
+         */
+        subnetId: string;
     }
 
     export interface GetKubernetesClusterAddonProfileKubeDashboard {
@@ -7597,7 +7971,7 @@ export namespace containerservice {
          */
         failureThreshold?: number;
         /**
-         * The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
+         * The definition of the httpGet for this container as documented in the `httpGet` block below. Changing this forces a new resource to be created.
          */
         httpGets?: outputs.containerservice.GroupContainerLivenessProbeHttpGet[];
         /**
@@ -7654,7 +8028,7 @@ export namespace containerservice {
          */
         failureThreshold?: number;
         /**
-         * The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
+         * The definition of the httpGet for this container as documented in the `httpGet` block below. Changing this forces a new resource to be created.
          */
         httpGets?: outputs.containerservice.GroupContainerReadinessProbeHttpGet[];
         /**
@@ -7785,6 +8159,17 @@ export namespace containerservice {
         searchDomains: string[];
     }
 
+    export interface GroupExposedPort {
+        /**
+         * The port number the container will expose. Changing this forces a new resource to be created.
+         */
+        port?: number;
+        /**
+         * The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
+         */
+        protocol?: string;
+    }
+
     export interface GroupIdentity {
         /**
          * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`. Changing this forces a new resource to be created.
@@ -7826,6 +8211,10 @@ export namespace containerservice {
          */
         httpApplicationRouting?: outputs.containerservice.KubernetesClusterAddonProfileHttpApplicationRouting;
         /**
+         * An `ingressApplicationGateway` block as defined below.
+         */
+        ingressApplicationGateway?: outputs.containerservice.KubernetesClusterAddonProfileIngressApplicationGateway;
+        /**
          * A `kubeDashboard` block as defined below.
          */
         kubeDashboard?: outputs.containerservice.KubernetesClusterAddonProfileKubeDashboard;
@@ -7862,6 +8251,26 @@ export namespace containerservice {
          * The Zone Name of the HTTP Application Routing.
          */
         httpApplicationRoutingZoneName: string;
+    }
+
+    export interface KubernetesClusterAddonProfileIngressApplicationGateway {
+        effectiveGatewayId: string;
+        /**
+         * Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster?
+         */
+        enabled: boolean;
+        /**
+         * The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
+         */
+        gatewayId?: string;
+        /**
+         * The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+         */
+        subnetCidr?: string;
+        /**
+         * The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+         */
+        subnetId?: string;
     }
 
     export interface KubernetesClusterAddonProfileKubeDashboard {
@@ -7907,6 +8316,10 @@ export namespace containerservice {
          */
         balanceSimilarNodeGroups?: boolean;
         /**
+         * Maximum number of empty nodes that can be deleted at the same time. Defaults to `10`.
+         */
+        emptyBulkDeleteMax: string;
+        /**
          * Expander to use. Possible values are `least-waste`, `priority`, `most-pods` and `random`. Defaults to `random`.
          */
         expander: string;
@@ -7914,6 +8327,18 @@ export namespace containerservice {
          * Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
          */
         maxGracefulTerminationSec: string;
+        /**
+         * Maximum time the autoscaler waits for a node to be provisioned. Defaults to `15m`.
+         */
+        maxNodeProvisioningTime?: string;
+        /**
+         * Maximum Number of allowed unready nodes. Defaults to `3`.
+         */
+        maxUnreadyNodes?: number;
+        /**
+         * Maximum percentage of unready nodes the cluster autoscaler will stop if the percentage is exceeded. Defaults to `45`.
+         */
+        maxUnreadyPercentage?: number;
         /**
          * For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. Defaults to `10s`.
          */
@@ -8244,6 +8669,10 @@ export namespace containerservice {
          */
         adminGroupObjectIds?: string[];
         /**
+         * Is Role Based Access Control based on Azure AD enabled? Changing this forces a new resource to be created.
+         */
+        azureRbacEnabled?: boolean;
+        /**
          * The Client ID of an Azure Active Directory Application.
          */
         clientAppId?: string;
@@ -8285,6 +8714,17 @@ export namespace containerservice {
          * The Admin Username for Windows VMs.
          */
         adminUsername: string;
+    }
+
+    export interface RegistryGeoreplication {
+        /**
+         * A location where the container registry should be geo-replicated.
+         */
+        location: string;
+        /**
+         * A mapping of tags to assign to this replication location.
+         */
+        tags?: {[key: string]: string};
     }
 
     export interface RegistryNetworkRuleSet {
@@ -8694,6 +9134,21 @@ export namespace cosmosdb {
          * The maximum throughput of the SQL container (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
          */
         maxThroughput: number;
+    }
+
+    export interface SqlContainerConflictResolutionPolicy {
+        /**
+         * The conflict resolution path in the case of `LastWriterWins` mode.
+         */
+        conflictResolutionPath?: string;
+        /**
+         * The procedure to resolve conflicts in the case of `Custom` mode.
+         */
+        conflictResolutionProcedure?: string;
+        /**
+         * Indicates the conflict resolution mode. Possible values include: `LastWriterWins`, `Custom`.
+         */
+        mode: string;
     }
 
     export interface SqlContainerIndexingPolicy {
@@ -9192,6 +9647,21 @@ export namespace datafactory {
         type?: string;
     }
 
+    export interface DatasetSnowflakeSchemaColumn {
+        /**
+         * The description of the column.
+         */
+        description?: string;
+        /**
+         * The name of the column.
+         */
+        name: string;
+        /**
+         * Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+         */
+        type?: string;
+    }
+
     export interface DatasetSqlServerTableSchemaColumn {
         /**
          * The description of the column.
@@ -9497,6 +9967,17 @@ export namespace datafactory {
          * User-specified Spark environment variables key-value pairs.
          */
         sparkEnvironmentVariables?: {[key: string]: string};
+    }
+
+    export interface LinkedServiceAzureFileStorageKeyVaultPassword {
+        /**
+         * Specifies the name of an existing Key Vault Data Factory Linked Service.
+         */
+        linkedServiceName: string;
+        /**
+         * Specifies the secret name in Azure Key Vault that stores Azure File Storage password.
+         */
+        secretName: string;
     }
 
     export interface LinkedServiceAzureSqlDatabaseKeyVaultPassword {
@@ -11127,7 +11608,7 @@ export namespace frontdoor {
          */
         azureKeyVaultCertificateSecretName?: string;
         /**
-         * The version of the Key Vault secret representing the full certificate PFX.
+         * The version of the Key Vault secret representing the full certificate PFX. Defaults to `Latest`.
          */
         azureKeyVaultCertificateSecretVersion?: string;
         /**
@@ -11944,6 +12425,17 @@ export namespace hdinsight {
         primaryKey: string;
     }
 
+    export interface HadoopClusterNetwork {
+        /**
+         * The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+         */
+        connectionDirection?: string;
+        /**
+         * Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+         */
+        privateLinkEnabled?: boolean;
+    }
+
     export interface HadoopClusterRoles {
         /**
          * A `edgeNode` block as defined below.
@@ -12216,6 +12708,17 @@ export namespace hdinsight {
          * The Operations Management Suite (OMS) workspace key.
          */
         primaryKey: string;
+    }
+
+    export interface InteractiveQueryClusterNetwork {
+        /**
+         * The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+         */
+        connectionDirection?: string;
+        /**
+         * Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+         */
+        privateLinkEnabled?: boolean;
     }
 
     export interface InteractiveQueryClusterRoles {
@@ -13092,6 +13595,17 @@ export namespace hdinsight {
         primaryKey: string;
     }
 
+    export interface SparkClusterNetwork {
+        /**
+         * The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+         */
+        connectionDirection?: string;
+        /**
+         * Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+         */
+        privateLinkEnabled?: boolean;
+    }
+
     export interface SparkClusterRoles {
         /**
          * A `headNode` block as defined above.
@@ -13618,6 +14132,86 @@ export namespace hpc {
         suidEnabled?: boolean;
     }
 
+    export interface CacheDirectoryActiveDirectory {
+        /**
+         * The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server.
+         */
+        cacheNetbiosName: string;
+        /**
+         * The primary DNS IP address used to resolve the Active Directory domain controller's FQDN.
+         */
+        dnsPrimaryIp: string;
+        /**
+         * The secondary DNS IP address used to resolve the Active Directory domain controller's FQDN.
+         */
+        dnsSecondaryIp?: string;
+        /**
+         * The fully qualified domain name of the Active Directory domain controller.
+         */
+        domainName: string;
+        /**
+         * The Active Directory domain's NetBIOS name.
+         */
+        domainNetbiosName: string;
+        /**
+         * The password of the Active Directory domain administrator.
+         */
+        password: string;
+        /**
+         * The username of the Active Directory domain administrator.
+         */
+        username: string;
+    }
+
+    export interface CacheDirectoryFlatFile {
+        /**
+         * The URI of the file containing group information (`/etc/group` file format in Unix-like OS).
+         */
+        groupFileUri: string;
+        /**
+         * The URI of the file containing user information (`/etc/passwd` file format in Unix-like OS).
+         */
+        passwordFileUri: string;
+    }
+
+    export interface CacheDirectoryLdap {
+        /**
+         * The base distinguished name (DN) for the LDAP domain.
+         */
+        baseDn: string;
+        /**
+         * A `bind` block as defined above.
+         */
+        bind: outputs.hpc.CacheDirectoryLdapBind;
+        /**
+         * The URI of the CA certificate to validate the LDAP secure connection.
+         */
+        certificateValidationUri?: string;
+        /**
+         * Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificateValidationUri` is provided. Defaults to `false`.
+         */
+        downloadCertificateAutomatically?: boolean;
+        /**
+         * Whether the LDAP connection should be encrypted? Defaults to `false`.
+         */
+        encrypted?: boolean;
+        /**
+         * The FQDN or IP address of the LDAP server.
+         */
+        server: string;
+    }
+
+    export interface CacheDirectoryLdapBind {
+        /**
+         * The Bind Distinguished Name (DN) identity to be used in the secure LDAP connection.
+         */
+        dn: string;
+        /**
+         * The Bind password to be used in the secure LDAP connection.
+         */
+        password: string;
+    }
+
     export interface CacheDns {
         /**
          * The DNS search domain for the HPC Cache.
@@ -14064,15 +14658,19 @@ export namespace keyvault {
 
     export interface CertifiateCertificatePolicyKeyProperties {
         /**
-         * Is this Certificate Exportable? Changing this forces a new resource to be created.
+         * Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
+         */
+        curve: string;
+        /**
+         * Is this certificate exportable? Changing this forces a new resource to be created.
          */
         exportable: boolean;
         /**
-         * The size of the Key used in the Certificate. Possible values include `2048`, `3072`, and `4096`. Changing this forces a new resource to be created.
+         * The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
          */
         keySize: number;
         /**
-         * Specifies the Type of Key, such as `RSA`. Changing this forces a new resource to be created.
+         * Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
          */
         keyType: string;
         /**
@@ -14225,15 +14823,19 @@ export namespace keyvault {
 
     export interface CertificateCertificatePolicyKeyProperties {
         /**
-         * Is this Certificate Exportable? Changing this forces a new resource to be created.
+         * Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
+         */
+        curve: string;
+        /**
+         * Is this certificate exportable? Changing this forces a new resource to be created.
          */
         exportable: boolean;
         /**
-         * The size of the Key used in the Certificate. Possible values include `2048`, `3072`, and `4096`. Changing this forces a new resource to be created.
+         * The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
          */
         keySize: number;
         /**
-         * Specifies the Type of Key, such as `RSA`. Changing this forces a new resource to be created.
+         * Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
          */
         keyType: string;
         /**
@@ -14347,7 +14949,7 @@ export namespace keyvault {
         /**
          * A `lifetimeAction` block as defined below.
          */
-        lifetimeActions?: outputs.keyvault.GetCertificateCertificatePolicyLifetimeAction[];
+        lifetimeActions: outputs.keyvault.GetCertificateCertificatePolicyLifetimeAction[];
         /**
          * A `secretProperties` block as defined below.
          */
@@ -14366,6 +14968,7 @@ export namespace keyvault {
     }
 
     export interface GetCertificateCertificatePolicyKeyProperty {
+        curve: string;
         /**
          * Is this Certificate Exportable?
          */
@@ -14772,6 +15375,10 @@ export namespace lb {
 export namespace lighthouse {
     export interface DefinitionAuthorization {
         /**
+         * The set of role definition ids which define all the permissions that the principal id can assign.
+         */
+        delegatedRoleDefinitionIds?: string[];
+        /**
          * The display name of the security group/service principal/user that would be assigned permissions to the projected subscription.
          */
         principalDisplayName?: string;
@@ -14935,6 +15542,57 @@ export namespace mariadb {
 }
 
 export namespace media {
+    export interface AssetFilterPresentationTimeRange {
+        /**
+         * The absolute end time boundary. Applies to Video on Demand (VoD).
+         * For the Live Streaming presentation, it is silently ignored and applied when the presentation ends and the stream becomes VoD. This is a long value that represents an absolute end point of the presentation, rounded to the closest next GOP start. The unit is defined by `unitTimescaleInMiliseconds`, so an `endInUnits` of 180 would be for 3 minutes. Use `startInUnits` and `endInUnits` to trim the fragments that will be in the playlist (manifest). For example, `startInUnits` set to 20 and `endInUnits` set to 60 using `unitTimescaleInMiliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
+         */
+        endInUnits?: number;
+        /**
+         * Indicates whether the `endInUnits` property must be present. If true, `endInUnits` must be specified or a bad request code is returned. Applies to Live Streaming only. Allowed values: false, true.
+         */
+        forceEnd?: boolean;
+        /**
+         * The relative to end right edge. Applies to Live Streaming only.
+         * This value defines the latest live position that a client can seek to. Using this property, you can delay live playback position and create a server-side buffer for players. The unit is defined by `unitTimescaleInMiliseconds`. The maximum live back off duration is 300 seconds. For example, a value of 20 means that the latest available content is 20 seconds delayed from the real live edge.
+         */
+        liveBackoffInUnits?: number;
+        /**
+         * The relative to end sliding window. Applies to Live Streaming only. Use `presentationWindowInUnits` to apply a sliding window of fragments to include in a playlist. The unit is defined by `unitTimescaleInMiliseconds`. For example, set  `presentationWindowInUnits` to 120 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 60 seconds.
+         */
+        presentationWindowInUnits?: number;
+        /**
+         * The absolute start time boundary. Applies to Video on Demand (VoD) or Live Streaming. This is a long value that represents an absolute start point of the stream. The value gets rounded to the closest next GOP start. The unit is defined by `unitTimescaleInMiliseconds`, so a `startInUnits` of 15 would be for 15 seconds. Use `startInUnits` and `endInUnits` to trim the fragments that will be in the playlist (manifest). For example, `startInUnits` set to 20 and `endInUnits` set to 60 using `unitTimescaleInMiliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
+         */
+        startInUnits?: number;
+        /**
+         * Specified as the number of miliseconds in one unit timescale. For example, if you want to set a `startInUnits` at 30 seconds, you would use a value of 30 when using the `unitTimescaleInMiliseconds` in 1000. Or if you want to set `startInUnits` in 30 miliseconds, you would use a value of 30 when using the `unitTimescaleInMiliseconds` in 1.  Applies timescale to `startInUnits`, `startTimescale` and `presentationWindowInTimescale` and `liveBackoffInTimescale`.
+         */
+        unitTimescaleInMiliseconds?: number;
+    }
+
+    export interface AssetFilterTrackSelection {
+        /**
+         * One or more `condition` blocks as defined above.
+         */
+        conditions?: outputs.media.AssetFilterTrackSelectionCondition[];
+    }
+
+    export interface AssetFilterTrackSelectionCondition {
+        /**
+         * The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
+         */
+        operation?: string;
+        /**
+         * The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/en-us/azure/media-services/latest/filters-concept) for more details.
+         */
+        property?: string;
+        /**
+         * The track property value to match or not match.
+         */
+        value?: string;
+    }
+
     export interface ContentKeyPolicyPolicyOption {
         /**
          * Enable a configuration for non-DRM keys.
@@ -16141,7 +16799,7 @@ export namespace monitoring {
         /**
          * A block to define fine grain service health settings.
          */
-        serviceHealths?: outputs.monitoring.ActivityLogAlertCriteriaServiceHealth[];
+        serviceHealths: outputs.monitoring.ActivityLogAlertCriteriaServiceHealth[];
         /**
          * The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
          */
@@ -17404,9 +18062,25 @@ export namespace netapp {
     }
 
     export interface GetVolumeDataProtectionReplication {
+        /**
+         * The endpoint type.
+         */
         endpointType: string;
+        /**
+         * Location of the primary volume.
+         */
         remoteVolumeLocation: string;
+        /**
+         * Resource ID of the primary volume.
+         */
         remoteVolumeResourceId: string;
+        /**
+         * Frequency of replication.
+         */
+        replicationFrequency: string;
+        /**
+         * @deprecated This property is not in use and will be removed in version 3.0 of the provider. Please use `replication_frequency` instead
+         */
         replicationSchedule: string;
     }
 
@@ -17416,11 +18090,11 @@ export namespace netapp {
          */
         endpointType?: string;
         /**
-         * Primary volume's location.
+         * Location of the primary volume.
          */
         remoteVolumeLocation: string;
         /**
-         * Primary volume's resource id.
+         * Resource ID of the primary volume.
          */
         remoteVolumeResourceId: string;
         /**
@@ -17456,6 +18130,9 @@ export namespace netapp {
          * A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
          */
         protocolsEnabled: string;
+        /**
+         * Is root access permitted to this volume?
+         */
         rootAccessEnabled?: boolean;
         /**
          * The index number of the rule.
@@ -20101,12 +20778,12 @@ export namespace network {
         dhGroup: string;
         /**
          * The IKE encryption algorithm. Valid
-         * options are `AES128`, `AES192`, `AES256`, `DES`, or `DES3`.
+         * options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, or `GCMAES256`.
          */
         ikeEncryption: string;
         /**
          * The IKE integrity algorithm. Valid
-         * options are `MD5`, `SHA1`, `SHA256`, or `SHA384`.
+         * options are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256`, or `SHA384`.
          */
         ikeIntegrity: string;
         /**
@@ -20121,7 +20798,7 @@ export namespace network {
         ipsecIntegrity: string;
         /**
          * The DH group used in IKE phase 2 for new child SA.
-         * Valid options are `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS2048`, `PFS24`,
+         * Valid options are `ECP256`, `ECP384`, `PFS1`, `PFS14`, `PFS2`, `PFS2048`, `PFS24`, `PFSMM`,
          * or `None`.
          */
         pfsGroup: string;
@@ -20144,7 +20821,7 @@ export namespace network {
 
     export interface VirtualNetworkGatewayCustomRoute {
         /**
-         * A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+         * A list of address blocks reserved for this virtual network in CIDR notation.
          */
         addressPrefixes?: string[];
     }
@@ -20821,6 +21498,21 @@ export namespace policy {
 }
 
 export namespace postgresql {
+    export interface FlexibleServerMaintenanceWindow {
+        /**
+         * The day of week for maintenance window. Defaults to `0`.
+         */
+        dayOfWeek?: number;
+        /**
+         * The day of week for maintenance window. Defaults to `0`.
+         */
+        startHour?: number;
+        /**
+         * The start minute for maintenance window. Defaults to `0`.
+         */
+        startMinute?: number;
+    }
+
     export interface GetServerIdentity {
         /**
          * The ID of the System Managed Service Principal assigned to the PostgreSQL Server.
@@ -22244,9 +22936,21 @@ export namespace storage {
          */
         corsRules?: outputs.storage.AccountBlobPropertiesCorsRule[];
         /**
+         * The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version. Defaults to `2020-06-12`.
+         */
+        defaultServiceVersion: string;
+        /**
          * A `deleteRetentionPolicy` block as defined below.
          */
         deleteRetentionPolicy?: outputs.storage.AccountBlobPropertiesDeleteRetentionPolicy;
+        /**
+         * Is the last access time based tracking enabled? Default to `false`.
+         */
+        lastAccessTimeEnabled?: boolean;
+        /**
+         * Is versioning enabled? Default to `false`.
+         */
+        versioningEnabled?: boolean;
     }
 
     export interface AccountBlobPropertiesContainerDeleteRetentionPolicy {
@@ -22603,7 +23307,7 @@ export namespace storage {
          */
         filters: outputs.storage.GetPolicyRuleFilter[];
         /**
-         * A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+         * The filter tag name used for tag based filtering for blob objects.
          */
         name: string;
     }
@@ -22617,6 +23321,10 @@ export namespace storage {
          * A `snapshot` block as documented below.
          */
         snapshots: outputs.storage.GetPolicyRuleActionSnapshot[];
+        /**
+         * A `version` block as documented below.
+         */
+        versions: outputs.storage.GetPolicyRuleActionVersion[];
     }
 
     export interface GetPolicyRuleActionBaseBlob {
@@ -22636,9 +23344,32 @@ export namespace storage {
 
     export interface GetPolicyRuleActionSnapshot {
         /**
-         * The age in days after create to delete the snapshot.
+         * The age in days after creation to tier blob version to archive storage.
+         */
+        changeTierToArchiveAfterDaysSinceCreation: number;
+        /**
+         * The age in days after creation to tier blob version to cool storage.
+         */
+        changeTierToCoolAfterDaysSinceCreation: number;
+        /**
+         * The age in days after creation to delete the blob snapshot.
          */
         deleteAfterDaysSinceCreationGreaterThan: number;
+    }
+
+    export interface GetPolicyRuleActionVersion {
+        /**
+         * The age in days after creation to tier blob version to archive storage.
+         */
+        changeTierToArchiveAfterDaysSinceCreation: number;
+        /**
+         * The age in days after creation to tier blob version to cool storage.
+         */
+        changeTierToCoolAfterDaysSinceCreation: number;
+        /**
+         * The age in days after creation to delete the blob version.
+         */
+        deleteAfterDaysSinceCreation: number;
     }
 
     export interface GetPolicyRuleFilter {
@@ -22647,9 +23378,29 @@ export namespace storage {
          */
         blobTypes: string[];
         /**
+         * A `matchBlobIndexTag` block as defined below. The block defines the blob index tag based filtering for blob objects.
+         * ---
+         */
+        matchBlobIndexTags: outputs.storage.GetPolicyRuleFilterMatchBlobIndexTag[];
+        /**
          * An array of strings for prefixes to be matched.
          */
         prefixMatches: string[];
+    }
+
+    export interface GetPolicyRuleFilterMatchBlobIndexTag {
+        /**
+         * The filter tag name used for tag based filtering for blob objects.
+         */
+        name: string;
+        /**
+         * The comparison operator which is used for object comparison and filtering. Possible value is `==`. Defaults to `==`.
+         */
+        operation: string;
+        /**
+         * The filter tag value used for tag based filtering for blob objects.
+         */
+        value: string;
     }
 
     export interface ManagementPolicyRule {
@@ -22680,28 +23431,55 @@ export namespace storage {
          * A `snapshot` block as documented below.
          */
         snapshot?: outputs.storage.ManagementPolicyRuleActionsSnapshot;
+        /**
+         * A `version` block as documented below.
+         */
+        version?: outputs.storage.ManagementPolicyRuleActionsVersion;
     }
 
     export interface ManagementPolicyRuleActionsBaseBlob {
         /**
-         * The age in days after last modification to delete the blob. Must be at least 0.
+         * The age in days after last modification to delete the blob. Must be between 0 and 99999.
          */
         deleteAfterDaysSinceModificationGreaterThan?: number;
         /**
-         * The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be at least 0.
+         * The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
          */
         tierToArchiveAfterDaysSinceModificationGreaterThan?: number;
         /**
-         * The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be at least 0.
+         * The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999.
          */
         tierToCoolAfterDaysSinceModificationGreaterThan?: number;
     }
 
     export interface ManagementPolicyRuleActionsSnapshot {
         /**
-         * The age in days after create to delete the snaphot. Must be at least 0.
+         * The age in days after creation to tier blob snapshot to archive storage. Must be between 0 and 99999.
+         */
+        changeTierToArchiveAfterDaysSinceCreation?: number;
+        /**
+         * The age in days after creation to tier blob snapshot to cool storage. Must be between 0 and 99999.
+         */
+        changeTierToCoolAfterDaysSinceCreation?: number;
+        /**
+         * The age in days after creation to delete the blob snapshot. Must be between 0 and 99999.
          */
         deleteAfterDaysSinceCreationGreaterThan?: number;
+    }
+
+    export interface ManagementPolicyRuleActionsVersion {
+        /**
+         * The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999.
+         */
+        changeTierToArchiveAfterDaysSinceCreation?: number;
+        /**
+         * The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999.
+         */
+        changeTierToCoolAfterDaysSinceCreation?: number;
+        /**
+         * The age in days after creation to delete the blob version. Must be between 0 and 99999.
+         */
+        deleteAfterDaysSinceCreation?: number;
     }
 
     export interface ManagementPolicyRuleFilters {
@@ -22710,9 +23488,28 @@ export namespace storage {
          */
         blobTypes?: string[];
         /**
+         * A `matchBlobIndexTag` block as defined below. The block defines the blob index tag based filtering for blob objects.
+         */
+        matchBlobIndexTags?: outputs.storage.ManagementPolicyRuleFiltersMatchBlobIndexTag[];
+        /**
          * An array of strings for prefixes to be matched.
          */
         prefixMatches?: string[];
+    }
+
+    export interface ManagementPolicyRuleFiltersMatchBlobIndexTag {
+        /**
+         * The filter tag name used for tag based filtering for blob objects.
+         */
+        name: string;
+        /**
+         * The comparison operator which is used for object comparison and filtering. Possible value is `==`. Defaults to `==`.
+         */
+        operation?: string;
+        /**
+         * The filter tag value used for tag based filtering for blob objects.
+         */
+        value: string;
     }
 
     export interface ShareAcl {

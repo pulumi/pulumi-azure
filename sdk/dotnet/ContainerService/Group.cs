@@ -106,6 +106,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> DnsNameLabel { get; private set; } = null!;
 
         /// <summary>
+        /// Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("exposedPorts")]
+        public Output<ImmutableArray<Outputs.GroupExposedPort>> ExposedPorts { get; private set; } = null!;
+
+        /// <summary>
         /// The FQDN of the container group derived from `dns_name_label`.
         /// </summary>
         [Output("fqdn")]
@@ -253,6 +259,18 @@ namespace Pulumi.Azure.ContainerService
         [Input("dnsNameLabel")]
         public Input<string>? DnsNameLabel { get; set; }
 
+        [Input("exposedPorts")]
+        private InputList<Inputs.GroupExposedPortArgs>? _exposedPorts;
+
+        /// <summary>
+        /// Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        public InputList<Inputs.GroupExposedPortArgs> ExposedPorts
+        {
+            get => _exposedPorts ?? (_exposedPorts = new InputList<Inputs.GroupExposedPortArgs>());
+            set => _exposedPorts = value;
+        }
+
         /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
@@ -361,6 +379,18 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("dnsNameLabel")]
         public Input<string>? DnsNameLabel { get; set; }
+
+        [Input("exposedPorts")]
+        private InputList<Inputs.GroupExposedPortGetArgs>? _exposedPorts;
+
+        /// <summary>
+        /// Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        public InputList<Inputs.GroupExposedPortGetArgs> ExposedPorts
+        {
+            get => _exposedPorts ?? (_exposedPorts = new InputList<Inputs.GroupExposedPortGetArgs>());
+            set => _exposedPorts = value;
+        }
 
         /// <summary>
         /// The FQDN of the container group derived from `dns_name_label`.

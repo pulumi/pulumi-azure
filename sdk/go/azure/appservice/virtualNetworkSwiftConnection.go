@@ -106,6 +106,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/appservice"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
 // 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/network"
 // 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/storage"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -113,18 +114,24 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
 // 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
 // 			AddressSpaces: pulumi.StringArray{
 // 				pulumi.String("10.0.0.0/16"),
 // 			},
-// 			Location:          pulumi.Any(azurerm_resource_group.Example.Location),
-// 			ResourceGroupName: pulumi.Any(azurerm_resource_group.Example.Name),
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-// 			ResourceGroupName:  pulumi.Any(azurerm_resource_group.Example.Name),
+// 			ResourceGroupName:  exampleResourceGroup.Name,
 // 			VirtualNetworkName: exampleVirtualNetwork.Name,
 // 			AddressPrefixes: pulumi.StringArray{
 // 				pulumi.String("10.0.1.0/24"),
@@ -145,8 +152,8 @@ import (
 // 			return err
 // 		}
 // 		examplePlan, err := appservice.NewPlan(ctx, "examplePlan", &appservice.PlanArgs{
-// 			Location:          pulumi.Any(azurerm_resource_group.Example.Location),
-// 			ResourceGroupName: pulumi.Any(azurerm_resource_group.Example.Name),
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Sku: &appservice.PlanSkuArgs{
 // 				Tier: pulumi.String("Standard"),
 // 				Size: pulumi.String("S1"),
@@ -156,8 +163,8 @@ import (
 // 			return err
 // 		}
 // 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      pulumi.Any(azurerm_resource_group.Example.Name),
-// 			Location:               pulumi.Any(azurerm_resource_group.Example.Location),
+// 			ResourceGroupName:      exampleResourceGroup.Name,
+// 			Location:               exampleResourceGroup.Location,
 // 			AccountTier:            pulumi.String("Standard"),
 // 			AccountReplicationType: pulumi.String("LRS"),
 // 		})
@@ -165,8 +172,8 @@ import (
 // 			return err
 // 		}
 // 		exampleFunctionApp, err := appservice.NewFunctionApp(ctx, "exampleFunctionApp", &appservice.FunctionAppArgs{
-// 			Location:                pulumi.Any(azurerm_resource_group.Example.Location),
-// 			ResourceGroupName:       pulumi.Any(azurerm_resource_group.Example.Name),
+// 			Location:                exampleResourceGroup.Location,
+// 			ResourceGroupName:       exampleResourceGroup.Name,
 // 			AppServicePlanId:        examplePlan.ID(),
 // 			StorageAccountName:      exampleAccount.Name,
 // 			StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,

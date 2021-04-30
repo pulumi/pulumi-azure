@@ -11,9 +11,12 @@ from .firewall_rule import *
 from .get_database import *
 from .get_elastic_pool import *
 from .get_server import *
+from .job_agent import *
+from .job_credential import *
 from .server import *
 from .server_extended_auditing_policy import *
 from .server_security_alert_policy import *
+from .server_transparent_data_encryption import *
 from .server_vulnerability_assessment import *
 from .virtual_machine import *
 from .virtual_network_rule import *
@@ -42,12 +45,18 @@ def _register_module():
                 return ElasticPool(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:mssql/firewallRule:FirewallRule":
                 return FirewallRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:mssql/jobAgent:JobAgent":
+                return JobAgent(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:mssql/jobCredential:JobCredential":
+                return JobCredential(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:mssql/server:Server":
                 return Server(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy":
                 return ServerExtendedAuditingPolicy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy":
                 return ServerSecurityAlertPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:mssql/serverTransparentDataEncryption:ServerTransparentDataEncryption":
+                return ServerTransparentDataEncryption(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:mssql/serverVulnerabilityAssessment:ServerVulnerabilityAssessment":
                 return ServerVulnerabilityAssessment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:mssql/virtualMachine:VirtualMachine":
@@ -64,9 +73,12 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "mssql/databaseVulnerabilityAssessmentRuleBaseline", _module_instance)
     pulumi.runtime.register_resource_module("azure", "mssql/elasticPool", _module_instance)
     pulumi.runtime.register_resource_module("azure", "mssql/firewallRule", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "mssql/jobAgent", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "mssql/jobCredential", _module_instance)
     pulumi.runtime.register_resource_module("azure", "mssql/server", _module_instance)
     pulumi.runtime.register_resource_module("azure", "mssql/serverExtendedAuditingPolicy", _module_instance)
     pulumi.runtime.register_resource_module("azure", "mssql/serverSecurityAlertPolicy", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "mssql/serverTransparentDataEncryption", _module_instance)
     pulumi.runtime.register_resource_module("azure", "mssql/serverVulnerabilityAssessment", _module_instance)
     pulumi.runtime.register_resource_module("azure", "mssql/virtualMachine", _module_instance)
     pulumi.runtime.register_resource_module("azure", "mssql/virtualNetworkRule", _module_instance)

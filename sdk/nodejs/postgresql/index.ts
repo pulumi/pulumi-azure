@@ -9,6 +9,8 @@ export * from "./activeDirectoryAdministrator";
 export * from "./configuration";
 export * from "./database";
 export * from "./firewallRule";
+export * from "./flexibleServer";
+export * from "./getFlexibleServer";
 export * from "./getServer";
 export * from "./server";
 export * from "./serverKey";
@@ -19,6 +21,7 @@ import { ActiveDirectoryAdministrator } from "./activeDirectoryAdministrator";
 import { Configuration } from "./configuration";
 import { Database } from "./database";
 import { FirewallRule } from "./firewallRule";
+import { FlexibleServer } from "./flexibleServer";
 import { Server } from "./server";
 import { ServerKey } from "./serverKey";
 import { VirtualNetworkRule } from "./virtualNetworkRule";
@@ -35,6 +38,8 @@ const _module = {
                 return new Database(name, <any>undefined, { urn })
             case "azure:postgresql/firewallRule:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
+            case "azure:postgresql/flexibleServer:FlexibleServer":
+                return new FlexibleServer(name, <any>undefined, { urn })
             case "azure:postgresql/server:Server":
                 return new Server(name, <any>undefined, { urn })
             case "azure:postgresql/serverKey:ServerKey":
@@ -50,6 +55,7 @@ pulumi.runtime.registerResourceModule("azure", "postgresql/activeDirectoryAdmini
 pulumi.runtime.registerResourceModule("azure", "postgresql/configuration", _module)
 pulumi.runtime.registerResourceModule("azure", "postgresql/database", _module)
 pulumi.runtime.registerResourceModule("azure", "postgresql/firewallRule", _module)
+pulumi.runtime.registerResourceModule("azure", "postgresql/flexibleServer", _module)
 pulumi.runtime.registerResourceModule("azure", "postgresql/server", _module)
 pulumi.runtime.registerResourceModule("azure", "postgresql/serverKey", _module)
 pulumi.runtime.registerResourceModule("azure", "postgresql/virtualNetworkRule", _module)

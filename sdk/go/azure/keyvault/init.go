@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Key{}
 	case "azure:keyvault/keyVault:KeyVault":
 		r = &KeyVault{}
+	case "azure:keyvault/managedHardwareSecurityModule:ManagedHardwareSecurityModule":
+		r = &ManagedHardwareSecurityModule{}
 	case "azure:keyvault/secret:Secret":
 		r = &Secret{}
 	default:
@@ -76,6 +78,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"keyvault/keyVault",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"keyvault/managedHardwareSecurityModule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

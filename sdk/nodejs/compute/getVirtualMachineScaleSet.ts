@@ -62,6 +62,13 @@ export interface GetVirtualMachineScaleSetResult {
      */
     readonly identities: outputs.compute.GetVirtualMachineScaleSetIdentity[];
     readonly location: string;
+    /**
+     * The name of the public ip address configuration
+     */
     readonly name: string;
+    /**
+     * A list of `networkInterface` blocks as defined below.
+     */
+    readonly networkInterfaces: outputs.compute.GetVirtualMachineScaleSetNetworkInterface[];
     readonly resourceGroupName: string;
 }

@@ -9,11 +9,76 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'FlexibleServerMaintenanceWindow',
     'ServerIdentity',
     'ServerStorageProfile',
     'ServerThreatDetectionPolicy',
     'GetServerIdentityResult',
 ]
+
+@pulumi.output_type
+class FlexibleServerMaintenanceWindow(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dayOfWeek":
+            suggest = "day_of_week"
+        elif key == "startHour":
+            suggest = "start_hour"
+        elif key == "startMinute":
+            suggest = "start_minute"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlexibleServerMaintenanceWindow. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlexibleServerMaintenanceWindow.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlexibleServerMaintenanceWindow.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 day_of_week: Optional[int] = None,
+                 start_hour: Optional[int] = None,
+                 start_minute: Optional[int] = None):
+        """
+        :param int day_of_week: The day of week for maintenance window. Defaults to `0`.
+        :param int start_hour: The day of week for maintenance window. Defaults to `0`.
+        :param int start_minute: The start minute for maintenance window. Defaults to `0`.
+        """
+        if day_of_week is not None:
+            pulumi.set(__self__, "day_of_week", day_of_week)
+        if start_hour is not None:
+            pulumi.set(__self__, "start_hour", start_hour)
+        if start_minute is not None:
+            pulumi.set(__self__, "start_minute", start_minute)
+
+    @property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> Optional[int]:
+        """
+        The day of week for maintenance window. Defaults to `0`.
+        """
+        return pulumi.get(self, "day_of_week")
+
+    @property
+    @pulumi.getter(name="startHour")
+    def start_hour(self) -> Optional[int]:
+        """
+        The day of week for maintenance window. Defaults to `0`.
+        """
+        return pulumi.get(self, "start_hour")
+
+    @property
+    @pulumi.getter(name="startMinute")
+    def start_minute(self) -> Optional[int]:
+        """
+        The start minute for maintenance window. Defaults to `0`.
+        """
+        return pulumi.get(self, "start_minute")
+
 
 @pulumi.output_type
 class ServerIdentity(dict):

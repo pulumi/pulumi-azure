@@ -7,10 +7,14 @@ from .get_cluster_node_pool import *
 from .get_kubernetes_cluster import *
 from .get_kubernetes_service_versions import *
 from .get_registry import *
+from .get_registry_scope_map import *
+from .get_registry_token import *
 from .group import *
 from .kubernetes_cluster import *
 from .kubernetes_cluster_node_pool import *
 from .registry import *
+from .registry_scope_map import *
+from .registry_token import *
 from .registry_webhook import *
 from .registry_webook import *
 from ._inputs import *
@@ -36,6 +40,10 @@ def _register_module():
                 return KubernetesClusterNodePool(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:containerservice/registry:Registry":
                 return Registry(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:containerservice/registryScopeMap:RegistryScopeMap":
+                return RegistryScopeMap(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:containerservice/registryToken:RegistryToken":
+                return RegistryToken(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:containerservice/registryWebhook:RegistryWebhook":
                 return RegistryWebhook(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:containerservice/registryWebook:RegistryWebook":
@@ -49,6 +57,8 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "containerservice/kubernetesCluster", _module_instance)
     pulumi.runtime.register_resource_module("azure", "containerservice/kubernetesClusterNodePool", _module_instance)
     pulumi.runtime.register_resource_module("azure", "containerservice/registry", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "containerservice/registryScopeMap", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "containerservice/registryToken", _module_instance)
     pulumi.runtime.register_resource_module("azure", "containerservice/registryWebhook", _module_instance)
     pulumi.runtime.register_resource_module("azure", "containerservice/registryWebook", _module_instance)
 

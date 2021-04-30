@@ -15,8 +15,14 @@ type AccountBlobProperties struct {
 	ContainerDeleteRetentionPolicy *AccountBlobPropertiesContainerDeleteRetentionPolicy `pulumi:"containerDeleteRetentionPolicy"`
 	// A `corsRule` block as defined below.
 	CorsRules []AccountBlobPropertiesCorsRule `pulumi:"corsRules"`
+	// The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version. Defaults to `2020-06-12`.
+	DefaultServiceVersion *string `pulumi:"defaultServiceVersion"`
 	// A `deleteRetentionPolicy` block as defined below.
 	DeleteRetentionPolicy *AccountBlobPropertiesDeleteRetentionPolicy `pulumi:"deleteRetentionPolicy"`
+	// Is the last access time based tracking enabled? Default to `false`.
+	LastAccessTimeEnabled *bool `pulumi:"lastAccessTimeEnabled"`
+	// Is versioning enabled? Default to `false`.
+	VersioningEnabled *bool `pulumi:"versioningEnabled"`
 }
 
 // AccountBlobPropertiesInput is an input type that accepts AccountBlobPropertiesArgs and AccountBlobPropertiesOutput values.
@@ -35,8 +41,14 @@ type AccountBlobPropertiesArgs struct {
 	ContainerDeleteRetentionPolicy AccountBlobPropertiesContainerDeleteRetentionPolicyPtrInput `pulumi:"containerDeleteRetentionPolicy"`
 	// A `corsRule` block as defined below.
 	CorsRules AccountBlobPropertiesCorsRuleArrayInput `pulumi:"corsRules"`
+	// The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version. Defaults to `2020-06-12`.
+	DefaultServiceVersion pulumi.StringPtrInput `pulumi:"defaultServiceVersion"`
 	// A `deleteRetentionPolicy` block as defined below.
 	DeleteRetentionPolicy AccountBlobPropertiesDeleteRetentionPolicyPtrInput `pulumi:"deleteRetentionPolicy"`
+	// Is the last access time based tracking enabled? Default to `false`.
+	LastAccessTimeEnabled pulumi.BoolPtrInput `pulumi:"lastAccessTimeEnabled"`
+	// Is versioning enabled? Default to `false`.
+	VersioningEnabled pulumi.BoolPtrInput `pulumi:"versioningEnabled"`
 }
 
 func (AccountBlobPropertiesArgs) ElementType() reflect.Type {
@@ -128,11 +140,26 @@ func (o AccountBlobPropertiesOutput) CorsRules() AccountBlobPropertiesCorsRuleAr
 	return o.ApplyT(func(v AccountBlobProperties) []AccountBlobPropertiesCorsRule { return v.CorsRules }).(AccountBlobPropertiesCorsRuleArrayOutput)
 }
 
+// The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version. Defaults to `2020-06-12`.
+func (o AccountBlobPropertiesOutput) DefaultServiceVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountBlobProperties) *string { return v.DefaultServiceVersion }).(pulumi.StringPtrOutput)
+}
+
 // A `deleteRetentionPolicy` block as defined below.
 func (o AccountBlobPropertiesOutput) DeleteRetentionPolicy() AccountBlobPropertiesDeleteRetentionPolicyPtrOutput {
 	return o.ApplyT(func(v AccountBlobProperties) *AccountBlobPropertiesDeleteRetentionPolicy {
 		return v.DeleteRetentionPolicy
 	}).(AccountBlobPropertiesDeleteRetentionPolicyPtrOutput)
+}
+
+// Is the last access time based tracking enabled? Default to `false`.
+func (o AccountBlobPropertiesOutput) LastAccessTimeEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccountBlobProperties) *bool { return v.LastAccessTimeEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Is versioning enabled? Default to `false`.
+func (o AccountBlobPropertiesOutput) VersioningEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccountBlobProperties) *bool { return v.VersioningEnabled }).(pulumi.BoolPtrOutput)
 }
 
 type AccountBlobPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -173,6 +200,16 @@ func (o AccountBlobPropertiesPtrOutput) CorsRules() AccountBlobPropertiesCorsRul
 	}).(AccountBlobPropertiesCorsRuleArrayOutput)
 }
 
+// The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version. Defaults to `2020-06-12`.
+func (o AccountBlobPropertiesPtrOutput) DefaultServiceVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountBlobProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultServiceVersion
+	}).(pulumi.StringPtrOutput)
+}
+
 // A `deleteRetentionPolicy` block as defined below.
 func (o AccountBlobPropertiesPtrOutput) DeleteRetentionPolicy() AccountBlobPropertiesDeleteRetentionPolicyPtrOutput {
 	return o.ApplyT(func(v *AccountBlobProperties) *AccountBlobPropertiesDeleteRetentionPolicy {
@@ -181,6 +218,26 @@ func (o AccountBlobPropertiesPtrOutput) DeleteRetentionPolicy() AccountBlobPrope
 		}
 		return v.DeleteRetentionPolicy
 	}).(AccountBlobPropertiesDeleteRetentionPolicyPtrOutput)
+}
+
+// Is the last access time based tracking enabled? Default to `false`.
+func (o AccountBlobPropertiesPtrOutput) LastAccessTimeEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccountBlobProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.LastAccessTimeEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Is versioning enabled? Default to `false`.
+func (o AccountBlobPropertiesPtrOutput) VersioningEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccountBlobProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.VersioningEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type AccountBlobPropertiesContainerDeleteRetentionPolicy struct {
@@ -2530,6 +2587,8 @@ type ManagementPolicyRuleActions struct {
 	BaseBlob *ManagementPolicyRuleActionsBaseBlob `pulumi:"baseBlob"`
 	// A `snapshot` block as documented below.
 	Snapshot *ManagementPolicyRuleActionsSnapshot `pulumi:"snapshot"`
+	// A `version` block as documented below.
+	Version *ManagementPolicyRuleActionsVersion `pulumi:"version"`
 }
 
 // ManagementPolicyRuleActionsInput is an input type that accepts ManagementPolicyRuleActionsArgs and ManagementPolicyRuleActionsOutput values.
@@ -2548,6 +2607,8 @@ type ManagementPolicyRuleActionsArgs struct {
 	BaseBlob ManagementPolicyRuleActionsBaseBlobPtrInput `pulumi:"baseBlob"`
 	// A `snapshot` block as documented below.
 	Snapshot ManagementPolicyRuleActionsSnapshotPtrInput `pulumi:"snapshot"`
+	// A `version` block as documented below.
+	Version ManagementPolicyRuleActionsVersionPtrInput `pulumi:"version"`
 }
 
 func (ManagementPolicyRuleActionsArgs) ElementType() reflect.Type {
@@ -2586,12 +2647,17 @@ func (o ManagementPolicyRuleActionsOutput) Snapshot() ManagementPolicyRuleAction
 	return o.ApplyT(func(v ManagementPolicyRuleActions) *ManagementPolicyRuleActionsSnapshot { return v.Snapshot }).(ManagementPolicyRuleActionsSnapshotPtrOutput)
 }
 
+// A `version` block as documented below.
+func (o ManagementPolicyRuleActionsOutput) Version() ManagementPolicyRuleActionsVersionPtrOutput {
+	return o.ApplyT(func(v ManagementPolicyRuleActions) *ManagementPolicyRuleActionsVersion { return v.Version }).(ManagementPolicyRuleActionsVersionPtrOutput)
+}
+
 type ManagementPolicyRuleActionsBaseBlob struct {
-	// The age in days after last modification to delete the blob. Must be at least 0.
+	// The age in days after last modification to delete the blob. Must be between 0 and 99999.
 	DeleteAfterDaysSinceModificationGreaterThan *int `pulumi:"deleteAfterDaysSinceModificationGreaterThan"`
-	// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be at least 0.
+	// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
 	TierToArchiveAfterDaysSinceModificationGreaterThan *int `pulumi:"tierToArchiveAfterDaysSinceModificationGreaterThan"`
-	// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be at least 0.
+	// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999.
 	TierToCoolAfterDaysSinceModificationGreaterThan *int `pulumi:"tierToCoolAfterDaysSinceModificationGreaterThan"`
 }
 
@@ -2607,11 +2673,11 @@ type ManagementPolicyRuleActionsBaseBlobInput interface {
 }
 
 type ManagementPolicyRuleActionsBaseBlobArgs struct {
-	// The age in days after last modification to delete the blob. Must be at least 0.
+	// The age in days after last modification to delete the blob. Must be between 0 and 99999.
 	DeleteAfterDaysSinceModificationGreaterThan pulumi.IntPtrInput `pulumi:"deleteAfterDaysSinceModificationGreaterThan"`
-	// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be at least 0.
+	// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
 	TierToArchiveAfterDaysSinceModificationGreaterThan pulumi.IntPtrInput `pulumi:"tierToArchiveAfterDaysSinceModificationGreaterThan"`
-	// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be at least 0.
+	// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999.
 	TierToCoolAfterDaysSinceModificationGreaterThan pulumi.IntPtrInput `pulumi:"tierToCoolAfterDaysSinceModificationGreaterThan"`
 }
 
@@ -2692,19 +2758,19 @@ func (o ManagementPolicyRuleActionsBaseBlobOutput) ToManagementPolicyRuleActions
 	}).(ManagementPolicyRuleActionsBaseBlobPtrOutput)
 }
 
-// The age in days after last modification to delete the blob. Must be at least 0.
+// The age in days after last modification to delete the blob. Must be between 0 and 99999.
 func (o ManagementPolicyRuleActionsBaseBlobOutput) DeleteAfterDaysSinceModificationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int { return v.DeleteAfterDaysSinceModificationGreaterThan }).(pulumi.IntPtrOutput)
 }
 
-// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be at least 0.
+// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
 func (o ManagementPolicyRuleActionsBaseBlobOutput) TierToArchiveAfterDaysSinceModificationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int {
 		return v.TierToArchiveAfterDaysSinceModificationGreaterThan
 	}).(pulumi.IntPtrOutput)
 }
 
-// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be at least 0.
+// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999.
 func (o ManagementPolicyRuleActionsBaseBlobOutput) TierToCoolAfterDaysSinceModificationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActionsBaseBlob) *int {
 		return v.TierToCoolAfterDaysSinceModificationGreaterThan
@@ -2729,7 +2795,7 @@ func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) Elem() ManagementPolicyRul
 	return o.ApplyT(func(v *ManagementPolicyRuleActionsBaseBlob) ManagementPolicyRuleActionsBaseBlob { return *v }).(ManagementPolicyRuleActionsBaseBlobOutput)
 }
 
-// The age in days after last modification to delete the blob. Must be at least 0.
+// The age in days after last modification to delete the blob. Must be between 0 and 99999.
 func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) DeleteAfterDaysSinceModificationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyRuleActionsBaseBlob) *int {
 		if v == nil {
@@ -2739,7 +2805,7 @@ func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) DeleteAfterDaysSinceModifi
 	}).(pulumi.IntPtrOutput)
 }
 
-// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be at least 0.
+// The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
 func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) TierToArchiveAfterDaysSinceModificationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyRuleActionsBaseBlob) *int {
 		if v == nil {
@@ -2749,7 +2815,7 @@ func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) TierToArchiveAfterDaysSinc
 	}).(pulumi.IntPtrOutput)
 }
 
-// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be at least 0.
+// The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999.
 func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) TierToCoolAfterDaysSinceModificationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyRuleActionsBaseBlob) *int {
 		if v == nil {
@@ -2760,7 +2826,11 @@ func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) TierToCoolAfterDaysSinceMo
 }
 
 type ManagementPolicyRuleActionsSnapshot struct {
-	// The age in days after create to delete the snaphot. Must be at least 0.
+	// The age in days after creation to tier blob snapshot to archive storage. Must be between 0 and 99999.
+	ChangeTierToArchiveAfterDaysSinceCreation *int `pulumi:"changeTierToArchiveAfterDaysSinceCreation"`
+	// The age in days after creation to tier blob snapshot to cool storage. Must be between 0 and 99999.
+	ChangeTierToCoolAfterDaysSinceCreation *int `pulumi:"changeTierToCoolAfterDaysSinceCreation"`
+	// The age in days after creation to delete the blob snapshot. Must be between 0 and 99999.
 	DeleteAfterDaysSinceCreationGreaterThan *int `pulumi:"deleteAfterDaysSinceCreationGreaterThan"`
 }
 
@@ -2776,7 +2846,11 @@ type ManagementPolicyRuleActionsSnapshotInput interface {
 }
 
 type ManagementPolicyRuleActionsSnapshotArgs struct {
-	// The age in days after create to delete the snaphot. Must be at least 0.
+	// The age in days after creation to tier blob snapshot to archive storage. Must be between 0 and 99999.
+	ChangeTierToArchiveAfterDaysSinceCreation pulumi.IntPtrInput `pulumi:"changeTierToArchiveAfterDaysSinceCreation"`
+	// The age in days after creation to tier blob snapshot to cool storage. Must be between 0 and 99999.
+	ChangeTierToCoolAfterDaysSinceCreation pulumi.IntPtrInput `pulumi:"changeTierToCoolAfterDaysSinceCreation"`
+	// The age in days after creation to delete the blob snapshot. Must be between 0 and 99999.
 	DeleteAfterDaysSinceCreationGreaterThan pulumi.IntPtrInput `pulumi:"deleteAfterDaysSinceCreationGreaterThan"`
 }
 
@@ -2857,7 +2931,17 @@ func (o ManagementPolicyRuleActionsSnapshotOutput) ToManagementPolicyRuleActions
 	}).(ManagementPolicyRuleActionsSnapshotPtrOutput)
 }
 
-// The age in days after create to delete the snaphot. Must be at least 0.
+// The age in days after creation to tier blob snapshot to archive storage. Must be between 0 and 99999.
+func (o ManagementPolicyRuleActionsSnapshotOutput) ChangeTierToArchiveAfterDaysSinceCreation() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagementPolicyRuleActionsSnapshot) *int { return v.ChangeTierToArchiveAfterDaysSinceCreation }).(pulumi.IntPtrOutput)
+}
+
+// The age in days after creation to tier blob snapshot to cool storage. Must be between 0 and 99999.
+func (o ManagementPolicyRuleActionsSnapshotOutput) ChangeTierToCoolAfterDaysSinceCreation() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagementPolicyRuleActionsSnapshot) *int { return v.ChangeTierToCoolAfterDaysSinceCreation }).(pulumi.IntPtrOutput)
+}
+
+// The age in days after creation to delete the blob snapshot. Must be between 0 and 99999.
 func (o ManagementPolicyRuleActionsSnapshotOutput) DeleteAfterDaysSinceCreationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleActionsSnapshot) *int { return v.DeleteAfterDaysSinceCreationGreaterThan }).(pulumi.IntPtrOutput)
 }
@@ -2880,7 +2964,27 @@ func (o ManagementPolicyRuleActionsSnapshotPtrOutput) Elem() ManagementPolicyRul
 	return o.ApplyT(func(v *ManagementPolicyRuleActionsSnapshot) ManagementPolicyRuleActionsSnapshot { return *v }).(ManagementPolicyRuleActionsSnapshotOutput)
 }
 
-// The age in days after create to delete the snaphot. Must be at least 0.
+// The age in days after creation to tier blob snapshot to archive storage. Must be between 0 and 99999.
+func (o ManagementPolicyRuleActionsSnapshotPtrOutput) ChangeTierToArchiveAfterDaysSinceCreation() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagementPolicyRuleActionsSnapshot) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ChangeTierToArchiveAfterDaysSinceCreation
+	}).(pulumi.IntPtrOutput)
+}
+
+// The age in days after creation to tier blob snapshot to cool storage. Must be between 0 and 99999.
+func (o ManagementPolicyRuleActionsSnapshotPtrOutput) ChangeTierToCoolAfterDaysSinceCreation() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagementPolicyRuleActionsSnapshot) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ChangeTierToCoolAfterDaysSinceCreation
+	}).(pulumi.IntPtrOutput)
+}
+
+// The age in days after creation to delete the blob snapshot. Must be between 0 and 99999.
 func (o ManagementPolicyRuleActionsSnapshotPtrOutput) DeleteAfterDaysSinceCreationGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ManagementPolicyRuleActionsSnapshot) *int {
 		if v == nil {
@@ -2890,9 +2994,180 @@ func (o ManagementPolicyRuleActionsSnapshotPtrOutput) DeleteAfterDaysSinceCreati
 	}).(pulumi.IntPtrOutput)
 }
 
+type ManagementPolicyRuleActionsVersion struct {
+	// The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999.
+	ChangeTierToArchiveAfterDaysSinceCreation *int `pulumi:"changeTierToArchiveAfterDaysSinceCreation"`
+	// The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999.
+	ChangeTierToCoolAfterDaysSinceCreation *int `pulumi:"changeTierToCoolAfterDaysSinceCreation"`
+	// The age in days after creation to delete the blob version. Must be between 0 and 99999.
+	DeleteAfterDaysSinceCreation *int `pulumi:"deleteAfterDaysSinceCreation"`
+}
+
+// ManagementPolicyRuleActionsVersionInput is an input type that accepts ManagementPolicyRuleActionsVersionArgs and ManagementPolicyRuleActionsVersionOutput values.
+// You can construct a concrete instance of `ManagementPolicyRuleActionsVersionInput` via:
+//
+//          ManagementPolicyRuleActionsVersionArgs{...}
+type ManagementPolicyRuleActionsVersionInput interface {
+	pulumi.Input
+
+	ToManagementPolicyRuleActionsVersionOutput() ManagementPolicyRuleActionsVersionOutput
+	ToManagementPolicyRuleActionsVersionOutputWithContext(context.Context) ManagementPolicyRuleActionsVersionOutput
+}
+
+type ManagementPolicyRuleActionsVersionArgs struct {
+	// The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999.
+	ChangeTierToArchiveAfterDaysSinceCreation pulumi.IntPtrInput `pulumi:"changeTierToArchiveAfterDaysSinceCreation"`
+	// The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999.
+	ChangeTierToCoolAfterDaysSinceCreation pulumi.IntPtrInput `pulumi:"changeTierToCoolAfterDaysSinceCreation"`
+	// The age in days after creation to delete the blob version. Must be between 0 and 99999.
+	DeleteAfterDaysSinceCreation pulumi.IntPtrInput `pulumi:"deleteAfterDaysSinceCreation"`
+}
+
+func (ManagementPolicyRuleActionsVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementPolicyRuleActionsVersion)(nil)).Elem()
+}
+
+func (i ManagementPolicyRuleActionsVersionArgs) ToManagementPolicyRuleActionsVersionOutput() ManagementPolicyRuleActionsVersionOutput {
+	return i.ToManagementPolicyRuleActionsVersionOutputWithContext(context.Background())
+}
+
+func (i ManagementPolicyRuleActionsVersionArgs) ToManagementPolicyRuleActionsVersionOutputWithContext(ctx context.Context) ManagementPolicyRuleActionsVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyRuleActionsVersionOutput)
+}
+
+func (i ManagementPolicyRuleActionsVersionArgs) ToManagementPolicyRuleActionsVersionPtrOutput() ManagementPolicyRuleActionsVersionPtrOutput {
+	return i.ToManagementPolicyRuleActionsVersionPtrOutputWithContext(context.Background())
+}
+
+func (i ManagementPolicyRuleActionsVersionArgs) ToManagementPolicyRuleActionsVersionPtrOutputWithContext(ctx context.Context) ManagementPolicyRuleActionsVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyRuleActionsVersionOutput).ToManagementPolicyRuleActionsVersionPtrOutputWithContext(ctx)
+}
+
+// ManagementPolicyRuleActionsVersionPtrInput is an input type that accepts ManagementPolicyRuleActionsVersionArgs, ManagementPolicyRuleActionsVersionPtr and ManagementPolicyRuleActionsVersionPtrOutput values.
+// You can construct a concrete instance of `ManagementPolicyRuleActionsVersionPtrInput` via:
+//
+//          ManagementPolicyRuleActionsVersionArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagementPolicyRuleActionsVersionPtrInput interface {
+	pulumi.Input
+
+	ToManagementPolicyRuleActionsVersionPtrOutput() ManagementPolicyRuleActionsVersionPtrOutput
+	ToManagementPolicyRuleActionsVersionPtrOutputWithContext(context.Context) ManagementPolicyRuleActionsVersionPtrOutput
+}
+
+type managementPolicyRuleActionsVersionPtrType ManagementPolicyRuleActionsVersionArgs
+
+func ManagementPolicyRuleActionsVersionPtr(v *ManagementPolicyRuleActionsVersionArgs) ManagementPolicyRuleActionsVersionPtrInput {
+	return (*managementPolicyRuleActionsVersionPtrType)(v)
+}
+
+func (*managementPolicyRuleActionsVersionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagementPolicyRuleActionsVersion)(nil)).Elem()
+}
+
+func (i *managementPolicyRuleActionsVersionPtrType) ToManagementPolicyRuleActionsVersionPtrOutput() ManagementPolicyRuleActionsVersionPtrOutput {
+	return i.ToManagementPolicyRuleActionsVersionPtrOutputWithContext(context.Background())
+}
+
+func (i *managementPolicyRuleActionsVersionPtrType) ToManagementPolicyRuleActionsVersionPtrOutputWithContext(ctx context.Context) ManagementPolicyRuleActionsVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyRuleActionsVersionPtrOutput)
+}
+
+type ManagementPolicyRuleActionsVersionOutput struct{ *pulumi.OutputState }
+
+func (ManagementPolicyRuleActionsVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementPolicyRuleActionsVersion)(nil)).Elem()
+}
+
+func (o ManagementPolicyRuleActionsVersionOutput) ToManagementPolicyRuleActionsVersionOutput() ManagementPolicyRuleActionsVersionOutput {
+	return o
+}
+
+func (o ManagementPolicyRuleActionsVersionOutput) ToManagementPolicyRuleActionsVersionOutputWithContext(ctx context.Context) ManagementPolicyRuleActionsVersionOutput {
+	return o
+}
+
+func (o ManagementPolicyRuleActionsVersionOutput) ToManagementPolicyRuleActionsVersionPtrOutput() ManagementPolicyRuleActionsVersionPtrOutput {
+	return o.ToManagementPolicyRuleActionsVersionPtrOutputWithContext(context.Background())
+}
+
+func (o ManagementPolicyRuleActionsVersionOutput) ToManagementPolicyRuleActionsVersionPtrOutputWithContext(ctx context.Context) ManagementPolicyRuleActionsVersionPtrOutput {
+	return o.ApplyT(func(v ManagementPolicyRuleActionsVersion) *ManagementPolicyRuleActionsVersion {
+		return &v
+	}).(ManagementPolicyRuleActionsVersionPtrOutput)
+}
+
+// The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999.
+func (o ManagementPolicyRuleActionsVersionOutput) ChangeTierToArchiveAfterDaysSinceCreation() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagementPolicyRuleActionsVersion) *int { return v.ChangeTierToArchiveAfterDaysSinceCreation }).(pulumi.IntPtrOutput)
+}
+
+// The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999.
+func (o ManagementPolicyRuleActionsVersionOutput) ChangeTierToCoolAfterDaysSinceCreation() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagementPolicyRuleActionsVersion) *int { return v.ChangeTierToCoolAfterDaysSinceCreation }).(pulumi.IntPtrOutput)
+}
+
+// The age in days after creation to delete the blob version. Must be between 0 and 99999.
+func (o ManagementPolicyRuleActionsVersionOutput) DeleteAfterDaysSinceCreation() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagementPolicyRuleActionsVersion) *int { return v.DeleteAfterDaysSinceCreation }).(pulumi.IntPtrOutput)
+}
+
+type ManagementPolicyRuleActionsVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagementPolicyRuleActionsVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagementPolicyRuleActionsVersion)(nil)).Elem()
+}
+
+func (o ManagementPolicyRuleActionsVersionPtrOutput) ToManagementPolicyRuleActionsVersionPtrOutput() ManagementPolicyRuleActionsVersionPtrOutput {
+	return o
+}
+
+func (o ManagementPolicyRuleActionsVersionPtrOutput) ToManagementPolicyRuleActionsVersionPtrOutputWithContext(ctx context.Context) ManagementPolicyRuleActionsVersionPtrOutput {
+	return o
+}
+
+func (o ManagementPolicyRuleActionsVersionPtrOutput) Elem() ManagementPolicyRuleActionsVersionOutput {
+	return o.ApplyT(func(v *ManagementPolicyRuleActionsVersion) ManagementPolicyRuleActionsVersion { return *v }).(ManagementPolicyRuleActionsVersionOutput)
+}
+
+// The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999.
+func (o ManagementPolicyRuleActionsVersionPtrOutput) ChangeTierToArchiveAfterDaysSinceCreation() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagementPolicyRuleActionsVersion) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ChangeTierToArchiveAfterDaysSinceCreation
+	}).(pulumi.IntPtrOutput)
+}
+
+// The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999.
+func (o ManagementPolicyRuleActionsVersionPtrOutput) ChangeTierToCoolAfterDaysSinceCreation() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagementPolicyRuleActionsVersion) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ChangeTierToCoolAfterDaysSinceCreation
+	}).(pulumi.IntPtrOutput)
+}
+
+// The age in days after creation to delete the blob version. Must be between 0 and 99999.
+func (o ManagementPolicyRuleActionsVersionPtrOutput) DeleteAfterDaysSinceCreation() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagementPolicyRuleActionsVersion) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteAfterDaysSinceCreation
+	}).(pulumi.IntPtrOutput)
+}
+
 type ManagementPolicyRuleFilters struct {
 	// An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
 	BlobTypes []string `pulumi:"blobTypes"`
+	// A `matchBlobIndexTag` block as defined below. The block defines the blob index tag based filtering for blob objects.
+	MatchBlobIndexTags []ManagementPolicyRuleFiltersMatchBlobIndexTag `pulumi:"matchBlobIndexTags"`
 	// An array of strings for prefixes to be matched.
 	PrefixMatches []string `pulumi:"prefixMatches"`
 }
@@ -2911,6 +3186,8 @@ type ManagementPolicyRuleFiltersInput interface {
 type ManagementPolicyRuleFiltersArgs struct {
 	// An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
 	BlobTypes pulumi.StringArrayInput `pulumi:"blobTypes"`
+	// A `matchBlobIndexTag` block as defined below. The block defines the blob index tag based filtering for blob objects.
+	MatchBlobIndexTags ManagementPolicyRuleFiltersMatchBlobIndexTagArrayInput `pulumi:"matchBlobIndexTags"`
 	// An array of strings for prefixes to be matched.
 	PrefixMatches pulumi.StringArrayInput `pulumi:"prefixMatches"`
 }
@@ -2997,6 +3274,13 @@ func (o ManagementPolicyRuleFiltersOutput) BlobTypes() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v ManagementPolicyRuleFilters) []string { return v.BlobTypes }).(pulumi.StringArrayOutput)
 }
 
+// A `matchBlobIndexTag` block as defined below. The block defines the blob index tag based filtering for blob objects.
+func (o ManagementPolicyRuleFiltersOutput) MatchBlobIndexTags() ManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput {
+	return o.ApplyT(func(v ManagementPolicyRuleFilters) []ManagementPolicyRuleFiltersMatchBlobIndexTag {
+		return v.MatchBlobIndexTags
+	}).(ManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput)
+}
+
 // An array of strings for prefixes to be matched.
 func (o ManagementPolicyRuleFiltersOutput) PrefixMatches() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ManagementPolicyRuleFilters) []string { return v.PrefixMatches }).(pulumi.StringArrayOutput)
@@ -3030,6 +3314,16 @@ func (o ManagementPolicyRuleFiltersPtrOutput) BlobTypes() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
+// A `matchBlobIndexTag` block as defined below. The block defines the blob index tag based filtering for blob objects.
+func (o ManagementPolicyRuleFiltersPtrOutput) MatchBlobIndexTags() ManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput {
+	return o.ApplyT(func(v *ManagementPolicyRuleFilters) []ManagementPolicyRuleFiltersMatchBlobIndexTag {
+		if v == nil {
+			return nil
+		}
+		return v.MatchBlobIndexTags
+	}).(ManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput)
+}
+
 // An array of strings for prefixes to be matched.
 func (o ManagementPolicyRuleFiltersPtrOutput) PrefixMatches() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ManagementPolicyRuleFilters) []string {
@@ -3038,6 +3332,121 @@ func (o ManagementPolicyRuleFiltersPtrOutput) PrefixMatches() pulumi.StringArray
 		}
 		return v.PrefixMatches
 	}).(pulumi.StringArrayOutput)
+}
+
+type ManagementPolicyRuleFiltersMatchBlobIndexTag struct {
+	// The filter tag name used for tag based filtering for blob objects.
+	Name string `pulumi:"name"`
+	// The comparison operator which is used for object comparison and filtering. Possible value is `==`. Defaults to `==`.
+	Operation *string `pulumi:"operation"`
+	// The filter tag value used for tag based filtering for blob objects.
+	Value string `pulumi:"value"`
+}
+
+// ManagementPolicyRuleFiltersMatchBlobIndexTagInput is an input type that accepts ManagementPolicyRuleFiltersMatchBlobIndexTagArgs and ManagementPolicyRuleFiltersMatchBlobIndexTagOutput values.
+// You can construct a concrete instance of `ManagementPolicyRuleFiltersMatchBlobIndexTagInput` via:
+//
+//          ManagementPolicyRuleFiltersMatchBlobIndexTagArgs{...}
+type ManagementPolicyRuleFiltersMatchBlobIndexTagInput interface {
+	pulumi.Input
+
+	ToManagementPolicyRuleFiltersMatchBlobIndexTagOutput() ManagementPolicyRuleFiltersMatchBlobIndexTagOutput
+	ToManagementPolicyRuleFiltersMatchBlobIndexTagOutputWithContext(context.Context) ManagementPolicyRuleFiltersMatchBlobIndexTagOutput
+}
+
+type ManagementPolicyRuleFiltersMatchBlobIndexTagArgs struct {
+	// The filter tag name used for tag based filtering for blob objects.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The comparison operator which is used for object comparison and filtering. Possible value is `==`. Defaults to `==`.
+	Operation pulumi.StringPtrInput `pulumi:"operation"`
+	// The filter tag value used for tag based filtering for blob objects.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ManagementPolicyRuleFiltersMatchBlobIndexTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementPolicyRuleFiltersMatchBlobIndexTag)(nil)).Elem()
+}
+
+func (i ManagementPolicyRuleFiltersMatchBlobIndexTagArgs) ToManagementPolicyRuleFiltersMatchBlobIndexTagOutput() ManagementPolicyRuleFiltersMatchBlobIndexTagOutput {
+	return i.ToManagementPolicyRuleFiltersMatchBlobIndexTagOutputWithContext(context.Background())
+}
+
+func (i ManagementPolicyRuleFiltersMatchBlobIndexTagArgs) ToManagementPolicyRuleFiltersMatchBlobIndexTagOutputWithContext(ctx context.Context) ManagementPolicyRuleFiltersMatchBlobIndexTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyRuleFiltersMatchBlobIndexTagOutput)
+}
+
+// ManagementPolicyRuleFiltersMatchBlobIndexTagArrayInput is an input type that accepts ManagementPolicyRuleFiltersMatchBlobIndexTagArray and ManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput values.
+// You can construct a concrete instance of `ManagementPolicyRuleFiltersMatchBlobIndexTagArrayInput` via:
+//
+//          ManagementPolicyRuleFiltersMatchBlobIndexTagArray{ ManagementPolicyRuleFiltersMatchBlobIndexTagArgs{...} }
+type ManagementPolicyRuleFiltersMatchBlobIndexTagArrayInput interface {
+	pulumi.Input
+
+	ToManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput() ManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput
+	ToManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutputWithContext(context.Context) ManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput
+}
+
+type ManagementPolicyRuleFiltersMatchBlobIndexTagArray []ManagementPolicyRuleFiltersMatchBlobIndexTagInput
+
+func (ManagementPolicyRuleFiltersMatchBlobIndexTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagementPolicyRuleFiltersMatchBlobIndexTag)(nil)).Elem()
+}
+
+func (i ManagementPolicyRuleFiltersMatchBlobIndexTagArray) ToManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput() ManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput {
+	return i.ToManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutputWithContext(context.Background())
+}
+
+func (i ManagementPolicyRuleFiltersMatchBlobIndexTagArray) ToManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutputWithContext(ctx context.Context) ManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput)
+}
+
+type ManagementPolicyRuleFiltersMatchBlobIndexTagOutput struct{ *pulumi.OutputState }
+
+func (ManagementPolicyRuleFiltersMatchBlobIndexTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagementPolicyRuleFiltersMatchBlobIndexTag)(nil)).Elem()
+}
+
+func (o ManagementPolicyRuleFiltersMatchBlobIndexTagOutput) ToManagementPolicyRuleFiltersMatchBlobIndexTagOutput() ManagementPolicyRuleFiltersMatchBlobIndexTagOutput {
+	return o
+}
+
+func (o ManagementPolicyRuleFiltersMatchBlobIndexTagOutput) ToManagementPolicyRuleFiltersMatchBlobIndexTagOutputWithContext(ctx context.Context) ManagementPolicyRuleFiltersMatchBlobIndexTagOutput {
+	return o
+}
+
+// The filter tag name used for tag based filtering for blob objects.
+func (o ManagementPolicyRuleFiltersMatchBlobIndexTagOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagementPolicyRuleFiltersMatchBlobIndexTag) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The comparison operator which is used for object comparison and filtering. Possible value is `==`. Defaults to `==`.
+func (o ManagementPolicyRuleFiltersMatchBlobIndexTagOutput) Operation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagementPolicyRuleFiltersMatchBlobIndexTag) *string { return v.Operation }).(pulumi.StringPtrOutput)
+}
+
+// The filter tag value used for tag based filtering for blob objects.
+func (o ManagementPolicyRuleFiltersMatchBlobIndexTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagementPolicyRuleFiltersMatchBlobIndexTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagementPolicyRuleFiltersMatchBlobIndexTag)(nil)).Elem()
+}
+
+func (o ManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput) ToManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput() ManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput {
+	return o
+}
+
+func (o ManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput) ToManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutputWithContext(ctx context.Context) ManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput {
+	return o
+}
+
+func (o ManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput) Index(i pulumi.IntInput) ManagementPolicyRuleFiltersMatchBlobIndexTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagementPolicyRuleFiltersMatchBlobIndexTag {
+		return vs[0].([]ManagementPolicyRuleFiltersMatchBlobIndexTag)[vs[1].(int)]
+	}).(ManagementPolicyRuleFiltersMatchBlobIndexTagOutput)
 }
 
 type ShareAcl struct {
@@ -3947,7 +4356,7 @@ type GetPolicyRule struct {
 	Enabled bool `pulumi:"enabled"`
 	// A `filter` block as documented below.
 	Filters []GetPolicyRuleFilter `pulumi:"filters"`
-	// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+	// The filter tag name used for tag based filtering for blob objects.
 	Name string `pulumi:"name"`
 }
 
@@ -3969,7 +4378,7 @@ type GetPolicyRuleArgs struct {
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// A `filter` block as documented below.
 	Filters GetPolicyRuleFilterArrayInput `pulumi:"filters"`
-	// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+	// The filter tag name used for tag based filtering for blob objects.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -4039,7 +4448,7 @@ func (o GetPolicyRuleOutput) Filters() GetPolicyRuleFilterArrayOutput {
 	return o.ApplyT(func(v GetPolicyRule) []GetPolicyRuleFilter { return v.Filters }).(GetPolicyRuleFilterArrayOutput)
 }
 
-// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+// The filter tag name used for tag based filtering for blob objects.
 func (o GetPolicyRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPolicyRule) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -4069,6 +4478,8 @@ type GetPolicyRuleAction struct {
 	BaseBlobs []GetPolicyRuleActionBaseBlob `pulumi:"baseBlobs"`
 	// A `snapshot` block as documented below.
 	Snapshots []GetPolicyRuleActionSnapshot `pulumi:"snapshots"`
+	// A `version` block as documented below.
+	Versions []GetPolicyRuleActionVersion `pulumi:"versions"`
 }
 
 // GetPolicyRuleActionInput is an input type that accepts GetPolicyRuleActionArgs and GetPolicyRuleActionOutput values.
@@ -4087,6 +4498,8 @@ type GetPolicyRuleActionArgs struct {
 	BaseBlobs GetPolicyRuleActionBaseBlobArrayInput `pulumi:"baseBlobs"`
 	// A `snapshot` block as documented below.
 	Snapshots GetPolicyRuleActionSnapshotArrayInput `pulumi:"snapshots"`
+	// A `version` block as documented below.
+	Versions GetPolicyRuleActionVersionArrayInput `pulumi:"versions"`
 }
 
 func (GetPolicyRuleActionArgs) ElementType() reflect.Type {
@@ -4148,6 +4561,11 @@ func (o GetPolicyRuleActionOutput) BaseBlobs() GetPolicyRuleActionBaseBlobArrayO
 // A `snapshot` block as documented below.
 func (o GetPolicyRuleActionOutput) Snapshots() GetPolicyRuleActionSnapshotArrayOutput {
 	return o.ApplyT(func(v GetPolicyRuleAction) []GetPolicyRuleActionSnapshot { return v.Snapshots }).(GetPolicyRuleActionSnapshotArrayOutput)
+}
+
+// A `version` block as documented below.
+func (o GetPolicyRuleActionOutput) Versions() GetPolicyRuleActionVersionArrayOutput {
+	return o.ApplyT(func(v GetPolicyRuleAction) []GetPolicyRuleActionVersion { return v.Versions }).(GetPolicyRuleActionVersionArrayOutput)
 }
 
 type GetPolicyRuleActionArrayOutput struct{ *pulumi.OutputState }
@@ -4286,7 +4704,11 @@ func (o GetPolicyRuleActionBaseBlobArrayOutput) Index(i pulumi.IntInput) GetPoli
 }
 
 type GetPolicyRuleActionSnapshot struct {
-	// The age in days after create to delete the snapshot.
+	// The age in days after creation to tier blob version to archive storage.
+	ChangeTierToArchiveAfterDaysSinceCreation int `pulumi:"changeTierToArchiveAfterDaysSinceCreation"`
+	// The age in days after creation to tier blob version to cool storage.
+	ChangeTierToCoolAfterDaysSinceCreation int `pulumi:"changeTierToCoolAfterDaysSinceCreation"`
+	// The age in days after creation to delete the blob snapshot.
 	DeleteAfterDaysSinceCreationGreaterThan int `pulumi:"deleteAfterDaysSinceCreationGreaterThan"`
 }
 
@@ -4302,7 +4724,11 @@ type GetPolicyRuleActionSnapshotInput interface {
 }
 
 type GetPolicyRuleActionSnapshotArgs struct {
-	// The age in days after create to delete the snapshot.
+	// The age in days after creation to tier blob version to archive storage.
+	ChangeTierToArchiveAfterDaysSinceCreation pulumi.IntInput `pulumi:"changeTierToArchiveAfterDaysSinceCreation"`
+	// The age in days after creation to tier blob version to cool storage.
+	ChangeTierToCoolAfterDaysSinceCreation pulumi.IntInput `pulumi:"changeTierToCoolAfterDaysSinceCreation"`
+	// The age in days after creation to delete the blob snapshot.
 	DeleteAfterDaysSinceCreationGreaterThan pulumi.IntInput `pulumi:"deleteAfterDaysSinceCreationGreaterThan"`
 }
 
@@ -4357,7 +4783,17 @@ func (o GetPolicyRuleActionSnapshotOutput) ToGetPolicyRuleActionSnapshotOutputWi
 	return o
 }
 
-// The age in days after create to delete the snapshot.
+// The age in days after creation to tier blob version to archive storage.
+func (o GetPolicyRuleActionSnapshotOutput) ChangeTierToArchiveAfterDaysSinceCreation() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPolicyRuleActionSnapshot) int { return v.ChangeTierToArchiveAfterDaysSinceCreation }).(pulumi.IntOutput)
+}
+
+// The age in days after creation to tier blob version to cool storage.
+func (o GetPolicyRuleActionSnapshotOutput) ChangeTierToCoolAfterDaysSinceCreation() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPolicyRuleActionSnapshot) int { return v.ChangeTierToCoolAfterDaysSinceCreation }).(pulumi.IntOutput)
+}
+
+// The age in days after creation to delete the blob snapshot.
 func (o GetPolicyRuleActionSnapshotOutput) DeleteAfterDaysSinceCreationGreaterThan() pulumi.IntOutput {
 	return o.ApplyT(func(v GetPolicyRuleActionSnapshot) int { return v.DeleteAfterDaysSinceCreationGreaterThan }).(pulumi.IntOutput)
 }
@@ -4382,9 +4818,127 @@ func (o GetPolicyRuleActionSnapshotArrayOutput) Index(i pulumi.IntInput) GetPoli
 	}).(GetPolicyRuleActionSnapshotOutput)
 }
 
+type GetPolicyRuleActionVersion struct {
+	// The age in days after creation to tier blob version to archive storage.
+	ChangeTierToArchiveAfterDaysSinceCreation int `pulumi:"changeTierToArchiveAfterDaysSinceCreation"`
+	// The age in days after creation to tier blob version to cool storage.
+	ChangeTierToCoolAfterDaysSinceCreation int `pulumi:"changeTierToCoolAfterDaysSinceCreation"`
+	// The age in days after creation to delete the blob version.
+	DeleteAfterDaysSinceCreation int `pulumi:"deleteAfterDaysSinceCreation"`
+}
+
+// GetPolicyRuleActionVersionInput is an input type that accepts GetPolicyRuleActionVersionArgs and GetPolicyRuleActionVersionOutput values.
+// You can construct a concrete instance of `GetPolicyRuleActionVersionInput` via:
+//
+//          GetPolicyRuleActionVersionArgs{...}
+type GetPolicyRuleActionVersionInput interface {
+	pulumi.Input
+
+	ToGetPolicyRuleActionVersionOutput() GetPolicyRuleActionVersionOutput
+	ToGetPolicyRuleActionVersionOutputWithContext(context.Context) GetPolicyRuleActionVersionOutput
+}
+
+type GetPolicyRuleActionVersionArgs struct {
+	// The age in days after creation to tier blob version to archive storage.
+	ChangeTierToArchiveAfterDaysSinceCreation pulumi.IntInput `pulumi:"changeTierToArchiveAfterDaysSinceCreation"`
+	// The age in days after creation to tier blob version to cool storage.
+	ChangeTierToCoolAfterDaysSinceCreation pulumi.IntInput `pulumi:"changeTierToCoolAfterDaysSinceCreation"`
+	// The age in days after creation to delete the blob version.
+	DeleteAfterDaysSinceCreation pulumi.IntInput `pulumi:"deleteAfterDaysSinceCreation"`
+}
+
+func (GetPolicyRuleActionVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyRuleActionVersion)(nil)).Elem()
+}
+
+func (i GetPolicyRuleActionVersionArgs) ToGetPolicyRuleActionVersionOutput() GetPolicyRuleActionVersionOutput {
+	return i.ToGetPolicyRuleActionVersionOutputWithContext(context.Background())
+}
+
+func (i GetPolicyRuleActionVersionArgs) ToGetPolicyRuleActionVersionOutputWithContext(ctx context.Context) GetPolicyRuleActionVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleActionVersionOutput)
+}
+
+// GetPolicyRuleActionVersionArrayInput is an input type that accepts GetPolicyRuleActionVersionArray and GetPolicyRuleActionVersionArrayOutput values.
+// You can construct a concrete instance of `GetPolicyRuleActionVersionArrayInput` via:
+//
+//          GetPolicyRuleActionVersionArray{ GetPolicyRuleActionVersionArgs{...} }
+type GetPolicyRuleActionVersionArrayInput interface {
+	pulumi.Input
+
+	ToGetPolicyRuleActionVersionArrayOutput() GetPolicyRuleActionVersionArrayOutput
+	ToGetPolicyRuleActionVersionArrayOutputWithContext(context.Context) GetPolicyRuleActionVersionArrayOutput
+}
+
+type GetPolicyRuleActionVersionArray []GetPolicyRuleActionVersionInput
+
+func (GetPolicyRuleActionVersionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyRuleActionVersion)(nil)).Elem()
+}
+
+func (i GetPolicyRuleActionVersionArray) ToGetPolicyRuleActionVersionArrayOutput() GetPolicyRuleActionVersionArrayOutput {
+	return i.ToGetPolicyRuleActionVersionArrayOutputWithContext(context.Background())
+}
+
+func (i GetPolicyRuleActionVersionArray) ToGetPolicyRuleActionVersionArrayOutputWithContext(ctx context.Context) GetPolicyRuleActionVersionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleActionVersionArrayOutput)
+}
+
+type GetPolicyRuleActionVersionOutput struct{ *pulumi.OutputState }
+
+func (GetPolicyRuleActionVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyRuleActionVersion)(nil)).Elem()
+}
+
+func (o GetPolicyRuleActionVersionOutput) ToGetPolicyRuleActionVersionOutput() GetPolicyRuleActionVersionOutput {
+	return o
+}
+
+func (o GetPolicyRuleActionVersionOutput) ToGetPolicyRuleActionVersionOutputWithContext(ctx context.Context) GetPolicyRuleActionVersionOutput {
+	return o
+}
+
+// The age in days after creation to tier blob version to archive storage.
+func (o GetPolicyRuleActionVersionOutput) ChangeTierToArchiveAfterDaysSinceCreation() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPolicyRuleActionVersion) int { return v.ChangeTierToArchiveAfterDaysSinceCreation }).(pulumi.IntOutput)
+}
+
+// The age in days after creation to tier blob version to cool storage.
+func (o GetPolicyRuleActionVersionOutput) ChangeTierToCoolAfterDaysSinceCreation() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPolicyRuleActionVersion) int { return v.ChangeTierToCoolAfterDaysSinceCreation }).(pulumi.IntOutput)
+}
+
+// The age in days after creation to delete the blob version.
+func (o GetPolicyRuleActionVersionOutput) DeleteAfterDaysSinceCreation() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPolicyRuleActionVersion) int { return v.DeleteAfterDaysSinceCreation }).(pulumi.IntOutput)
+}
+
+type GetPolicyRuleActionVersionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPolicyRuleActionVersionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyRuleActionVersion)(nil)).Elem()
+}
+
+func (o GetPolicyRuleActionVersionArrayOutput) ToGetPolicyRuleActionVersionArrayOutput() GetPolicyRuleActionVersionArrayOutput {
+	return o
+}
+
+func (o GetPolicyRuleActionVersionArrayOutput) ToGetPolicyRuleActionVersionArrayOutputWithContext(ctx context.Context) GetPolicyRuleActionVersionArrayOutput {
+	return o
+}
+
+func (o GetPolicyRuleActionVersionArrayOutput) Index(i pulumi.IntInput) GetPolicyRuleActionVersionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPolicyRuleActionVersion {
+		return vs[0].([]GetPolicyRuleActionVersion)[vs[1].(int)]
+	}).(GetPolicyRuleActionVersionOutput)
+}
+
 type GetPolicyRuleFilter struct {
 	// An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
 	BlobTypes []string `pulumi:"blobTypes"`
+	// A `matchBlobIndexTag` block as defined below. The block defines the blob index tag based filtering for blob objects.
+	// ---
+	MatchBlobIndexTags []GetPolicyRuleFilterMatchBlobIndexTag `pulumi:"matchBlobIndexTags"`
 	// An array of strings for prefixes to be matched.
 	PrefixMatches []string `pulumi:"prefixMatches"`
 }
@@ -4403,6 +4957,9 @@ type GetPolicyRuleFilterInput interface {
 type GetPolicyRuleFilterArgs struct {
 	// An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
 	BlobTypes pulumi.StringArrayInput `pulumi:"blobTypes"`
+	// A `matchBlobIndexTag` block as defined below. The block defines the blob index tag based filtering for blob objects.
+	// ---
+	MatchBlobIndexTags GetPolicyRuleFilterMatchBlobIndexTagArrayInput `pulumi:"matchBlobIndexTags"`
 	// An array of strings for prefixes to be matched.
 	PrefixMatches pulumi.StringArrayInput `pulumi:"prefixMatches"`
 }
@@ -4463,6 +5020,12 @@ func (o GetPolicyRuleFilterOutput) BlobTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPolicyRuleFilter) []string { return v.BlobTypes }).(pulumi.StringArrayOutput)
 }
 
+// A `matchBlobIndexTag` block as defined below. The block defines the blob index tag based filtering for blob objects.
+// ---
+func (o GetPolicyRuleFilterOutput) MatchBlobIndexTags() GetPolicyRuleFilterMatchBlobIndexTagArrayOutput {
+	return o.ApplyT(func(v GetPolicyRuleFilter) []GetPolicyRuleFilterMatchBlobIndexTag { return v.MatchBlobIndexTags }).(GetPolicyRuleFilterMatchBlobIndexTagArrayOutput)
+}
+
 // An array of strings for prefixes to be matched.
 func (o GetPolicyRuleFilterOutput) PrefixMatches() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPolicyRuleFilter) []string { return v.PrefixMatches }).(pulumi.StringArrayOutput)
@@ -4486,6 +5049,121 @@ func (o GetPolicyRuleFilterArrayOutput) Index(i pulumi.IntInput) GetPolicyRuleFi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPolicyRuleFilter {
 		return vs[0].([]GetPolicyRuleFilter)[vs[1].(int)]
 	}).(GetPolicyRuleFilterOutput)
+}
+
+type GetPolicyRuleFilterMatchBlobIndexTag struct {
+	// The filter tag name used for tag based filtering for blob objects.
+	Name string `pulumi:"name"`
+	// The comparison operator which is used for object comparison and filtering. Possible value is `==`. Defaults to `==`.
+	Operation string `pulumi:"operation"`
+	// The filter tag value used for tag based filtering for blob objects.
+	Value string `pulumi:"value"`
+}
+
+// GetPolicyRuleFilterMatchBlobIndexTagInput is an input type that accepts GetPolicyRuleFilterMatchBlobIndexTagArgs and GetPolicyRuleFilterMatchBlobIndexTagOutput values.
+// You can construct a concrete instance of `GetPolicyRuleFilterMatchBlobIndexTagInput` via:
+//
+//          GetPolicyRuleFilterMatchBlobIndexTagArgs{...}
+type GetPolicyRuleFilterMatchBlobIndexTagInput interface {
+	pulumi.Input
+
+	ToGetPolicyRuleFilterMatchBlobIndexTagOutput() GetPolicyRuleFilterMatchBlobIndexTagOutput
+	ToGetPolicyRuleFilterMatchBlobIndexTagOutputWithContext(context.Context) GetPolicyRuleFilterMatchBlobIndexTagOutput
+}
+
+type GetPolicyRuleFilterMatchBlobIndexTagArgs struct {
+	// The filter tag name used for tag based filtering for blob objects.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The comparison operator which is used for object comparison and filtering. Possible value is `==`. Defaults to `==`.
+	Operation pulumi.StringInput `pulumi:"operation"`
+	// The filter tag value used for tag based filtering for blob objects.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetPolicyRuleFilterMatchBlobIndexTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyRuleFilterMatchBlobIndexTag)(nil)).Elem()
+}
+
+func (i GetPolicyRuleFilterMatchBlobIndexTagArgs) ToGetPolicyRuleFilterMatchBlobIndexTagOutput() GetPolicyRuleFilterMatchBlobIndexTagOutput {
+	return i.ToGetPolicyRuleFilterMatchBlobIndexTagOutputWithContext(context.Background())
+}
+
+func (i GetPolicyRuleFilterMatchBlobIndexTagArgs) ToGetPolicyRuleFilterMatchBlobIndexTagOutputWithContext(ctx context.Context) GetPolicyRuleFilterMatchBlobIndexTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleFilterMatchBlobIndexTagOutput)
+}
+
+// GetPolicyRuleFilterMatchBlobIndexTagArrayInput is an input type that accepts GetPolicyRuleFilterMatchBlobIndexTagArray and GetPolicyRuleFilterMatchBlobIndexTagArrayOutput values.
+// You can construct a concrete instance of `GetPolicyRuleFilterMatchBlobIndexTagArrayInput` via:
+//
+//          GetPolicyRuleFilterMatchBlobIndexTagArray{ GetPolicyRuleFilterMatchBlobIndexTagArgs{...} }
+type GetPolicyRuleFilterMatchBlobIndexTagArrayInput interface {
+	pulumi.Input
+
+	ToGetPolicyRuleFilterMatchBlobIndexTagArrayOutput() GetPolicyRuleFilterMatchBlobIndexTagArrayOutput
+	ToGetPolicyRuleFilterMatchBlobIndexTagArrayOutputWithContext(context.Context) GetPolicyRuleFilterMatchBlobIndexTagArrayOutput
+}
+
+type GetPolicyRuleFilterMatchBlobIndexTagArray []GetPolicyRuleFilterMatchBlobIndexTagInput
+
+func (GetPolicyRuleFilterMatchBlobIndexTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyRuleFilterMatchBlobIndexTag)(nil)).Elem()
+}
+
+func (i GetPolicyRuleFilterMatchBlobIndexTagArray) ToGetPolicyRuleFilterMatchBlobIndexTagArrayOutput() GetPolicyRuleFilterMatchBlobIndexTagArrayOutput {
+	return i.ToGetPolicyRuleFilterMatchBlobIndexTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetPolicyRuleFilterMatchBlobIndexTagArray) ToGetPolicyRuleFilterMatchBlobIndexTagArrayOutputWithContext(ctx context.Context) GetPolicyRuleFilterMatchBlobIndexTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleFilterMatchBlobIndexTagArrayOutput)
+}
+
+type GetPolicyRuleFilterMatchBlobIndexTagOutput struct{ *pulumi.OutputState }
+
+func (GetPolicyRuleFilterMatchBlobIndexTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPolicyRuleFilterMatchBlobIndexTag)(nil)).Elem()
+}
+
+func (o GetPolicyRuleFilterMatchBlobIndexTagOutput) ToGetPolicyRuleFilterMatchBlobIndexTagOutput() GetPolicyRuleFilterMatchBlobIndexTagOutput {
+	return o
+}
+
+func (o GetPolicyRuleFilterMatchBlobIndexTagOutput) ToGetPolicyRuleFilterMatchBlobIndexTagOutputWithContext(ctx context.Context) GetPolicyRuleFilterMatchBlobIndexTagOutput {
+	return o
+}
+
+// The filter tag name used for tag based filtering for blob objects.
+func (o GetPolicyRuleFilterMatchBlobIndexTagOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyRuleFilterMatchBlobIndexTag) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The comparison operator which is used for object comparison and filtering. Possible value is `==`. Defaults to `==`.
+func (o GetPolicyRuleFilterMatchBlobIndexTagOutput) Operation() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyRuleFilterMatchBlobIndexTag) string { return v.Operation }).(pulumi.StringOutput)
+}
+
+// The filter tag value used for tag based filtering for blob objects.
+func (o GetPolicyRuleFilterMatchBlobIndexTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyRuleFilterMatchBlobIndexTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetPolicyRuleFilterMatchBlobIndexTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPolicyRuleFilterMatchBlobIndexTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPolicyRuleFilterMatchBlobIndexTag)(nil)).Elem()
+}
+
+func (o GetPolicyRuleFilterMatchBlobIndexTagArrayOutput) ToGetPolicyRuleFilterMatchBlobIndexTagArrayOutput() GetPolicyRuleFilterMatchBlobIndexTagArrayOutput {
+	return o
+}
+
+func (o GetPolicyRuleFilterMatchBlobIndexTagArrayOutput) ToGetPolicyRuleFilterMatchBlobIndexTagArrayOutputWithContext(ctx context.Context) GetPolicyRuleFilterMatchBlobIndexTagArrayOutput {
+	return o
+}
+
+func (o GetPolicyRuleFilterMatchBlobIndexTagArrayOutput) Index(i pulumi.IntInput) GetPolicyRuleFilterMatchBlobIndexTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPolicyRuleFilterMatchBlobIndexTag {
+		return vs[0].([]GetPolicyRuleFilterMatchBlobIndexTag)[vs[1].(int)]
+	}).(GetPolicyRuleFilterMatchBlobIndexTagOutput)
 }
 
 func init() {
@@ -4526,8 +5204,12 @@ func init() {
 	pulumi.RegisterOutputType(ManagementPolicyRuleActionsBaseBlobPtrOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyRuleActionsSnapshotOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyRuleActionsSnapshotPtrOutput{})
+	pulumi.RegisterOutputType(ManagementPolicyRuleActionsVersionOutput{})
+	pulumi.RegisterOutputType(ManagementPolicyRuleActionsVersionPtrOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyRuleFiltersOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyRuleFiltersPtrOutput{})
+	pulumi.RegisterOutputType(ManagementPolicyRuleFiltersMatchBlobIndexTagOutput{})
+	pulumi.RegisterOutputType(ManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput{})
 	pulumi.RegisterOutputType(ShareAclOutput{})
 	pulumi.RegisterOutputType(ShareAclArrayOutput{})
 	pulumi.RegisterOutputType(ShareAclAccessPolicyOutput{})
@@ -4550,6 +5232,10 @@ func init() {
 	pulumi.RegisterOutputType(GetPolicyRuleActionBaseBlobArrayOutput{})
 	pulumi.RegisterOutputType(GetPolicyRuleActionSnapshotOutput{})
 	pulumi.RegisterOutputType(GetPolicyRuleActionSnapshotArrayOutput{})
+	pulumi.RegisterOutputType(GetPolicyRuleActionVersionOutput{})
+	pulumi.RegisterOutputType(GetPolicyRuleActionVersionArrayOutput{})
 	pulumi.RegisterOutputType(GetPolicyRuleFilterOutput{})
 	pulumi.RegisterOutputType(GetPolicyRuleFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetPolicyRuleFilterMatchBlobIndexTagOutput{})
+	pulumi.RegisterOutputType(GetPolicyRuleFilterMatchBlobIndexTagArrayOutput{})
 }

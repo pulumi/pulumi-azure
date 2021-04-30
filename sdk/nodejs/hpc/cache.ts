@@ -8,9 +8,9 @@ import * as utilities from "../utilities";
 /**
  * Manages a HPC Cache.
  *
- * > **Note**: During the first several months of the GA release, a request must be made to the Azure HPC Cache team to add your subscription to the access list before it can be used to create a cache instance. Fill out [this form](https://aka.ms/onboard-hpc-cache) to request access.
+ * > **Note:** During the first several months of the GA release, a request must be made to the Azure HPC Cache team to add your subscription to the access list before it can be used to create a cache instance. Fill out [this form](https://aka.ms/onboard-hpc-cache) to request access.
  *
- * > **NOTE:**: By request of the service team the provider no longer automatically registering the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace 'Microsoft.StorageCache'`.
+ * > **Note:** By request of the service team the provider no longer automatically registering the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace 'Microsoft.StorageCache'`.
  *
  * ## Example Usage
  *
@@ -83,6 +83,18 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly defaultAccessPolicy!: pulumi.Output<outputs.hpc.CacheDefaultAccessPolicy>;
     /**
+     * A `directoryActiveDirectory` block as defined below.
+     */
+    public readonly directoryActiveDirectory!: pulumi.Output<outputs.hpc.CacheDirectoryActiveDirectory | undefined>;
+    /**
+     * A `directoryFlatFile` block as defined below.
+     */
+    public readonly directoryFlatFile!: pulumi.Output<outputs.hpc.CacheDirectoryFlatFile | undefined>;
+    /**
+     * A `directoryLdap` block as defined below.
+     */
+    public readonly directoryLdap!: pulumi.Output<outputs.hpc.CacheDirectoryLdap | undefined>;
+    /**
      * A `dns` block as defined below.
      */
     public readonly dns!: pulumi.Output<outputs.hpc.CacheDns | undefined>;
@@ -144,6 +156,9 @@ export class Cache extends pulumi.CustomResource {
             const state = argsOrState as CacheState | undefined;
             inputs["cacheSizeInGb"] = state ? state.cacheSizeInGb : undefined;
             inputs["defaultAccessPolicy"] = state ? state.defaultAccessPolicy : undefined;
+            inputs["directoryActiveDirectory"] = state ? state.directoryActiveDirectory : undefined;
+            inputs["directoryFlatFile"] = state ? state.directoryFlatFile : undefined;
+            inputs["directoryLdap"] = state ? state.directoryLdap : undefined;
             inputs["dns"] = state ? state.dns : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["mountAddresses"] = state ? state.mountAddresses : undefined;
@@ -171,6 +186,9 @@ export class Cache extends pulumi.CustomResource {
             }
             inputs["cacheSizeInGb"] = args ? args.cacheSizeInGb : undefined;
             inputs["defaultAccessPolicy"] = args ? args.defaultAccessPolicy : undefined;
+            inputs["directoryActiveDirectory"] = args ? args.directoryActiveDirectory : undefined;
+            inputs["directoryFlatFile"] = args ? args.directoryFlatFile : undefined;
+            inputs["directoryLdap"] = args ? args.directoryLdap : undefined;
             inputs["dns"] = args ? args.dns : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["mtu"] = args ? args.mtu : undefined;
@@ -202,6 +220,18 @@ export interface CacheState {
      * A `defaultAccessPolicy` block as defined below.
      */
     readonly defaultAccessPolicy?: pulumi.Input<inputs.hpc.CacheDefaultAccessPolicy>;
+    /**
+     * A `directoryActiveDirectory` block as defined below.
+     */
+    readonly directoryActiveDirectory?: pulumi.Input<inputs.hpc.CacheDirectoryActiveDirectory>;
+    /**
+     * A `directoryFlatFile` block as defined below.
+     */
+    readonly directoryFlatFile?: pulumi.Input<inputs.hpc.CacheDirectoryFlatFile>;
+    /**
+     * A `directoryLdap` block as defined below.
+     */
+    readonly directoryLdap?: pulumi.Input<inputs.hpc.CacheDirectoryLdap>;
     /**
      * A `dns` block as defined below.
      */
@@ -262,6 +292,18 @@ export interface CacheArgs {
      * A `defaultAccessPolicy` block as defined below.
      */
     readonly defaultAccessPolicy?: pulumi.Input<inputs.hpc.CacheDefaultAccessPolicy>;
+    /**
+     * A `directoryActiveDirectory` block as defined below.
+     */
+    readonly directoryActiveDirectory?: pulumi.Input<inputs.hpc.CacheDirectoryActiveDirectory>;
+    /**
+     * A `directoryFlatFile` block as defined below.
+     */
+    readonly directoryFlatFile?: pulumi.Input<inputs.hpc.CacheDirectoryFlatFile>;
+    /**
+     * A `directoryLdap` block as defined below.
+     */
+    readonly directoryLdap?: pulumi.Input<inputs.hpc.CacheDirectoryLdap>;
     /**
      * A `dns` block as defined below.
      */

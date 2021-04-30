@@ -79,6 +79,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<ImmutableArray<string>> GeoreplicationLocations { get; private set; } = null!;
 
         /// <summary>
+        /// A `georeplications` block as documented below.
+        /// </summary>
+        [Output("georeplications")]
+        public Output<ImmutableArray<Outputs.RegistryGeoreplication>> Georeplications { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -208,10 +214,23 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// A list of Azure locations where the container registry should be geo-replicated.
         /// </summary>
+        [Obsolete(@"Deprecated in favour of `georeplications`")]
         public InputList<string> GeoreplicationLocations
         {
             get => _georeplicationLocations ?? (_georeplicationLocations = new InputList<string>());
             set => _georeplicationLocations = value;
+        }
+
+        [Input("georeplications")]
+        private InputList<Inputs.RegistryGeoreplicationArgs>? _georeplications;
+
+        /// <summary>
+        /// A `georeplications` block as documented below.
+        /// </summary>
+        public InputList<Inputs.RegistryGeoreplicationArgs> Georeplications
+        {
+            get => _georeplications ?? (_georeplications = new InputList<Inputs.RegistryGeoreplicationArgs>());
+            set => _georeplications = value;
         }
 
         /// <summary>
@@ -317,10 +336,23 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// A list of Azure locations where the container registry should be geo-replicated.
         /// </summary>
+        [Obsolete(@"Deprecated in favour of `georeplications`")]
         public InputList<string> GeoreplicationLocations
         {
             get => _georeplicationLocations ?? (_georeplicationLocations = new InputList<string>());
             set => _georeplicationLocations = value;
+        }
+
+        [Input("georeplications")]
+        private InputList<Inputs.RegistryGeoreplicationGetArgs>? _georeplications;
+
+        /// <summary>
+        /// A `georeplications` block as documented below.
+        /// </summary>
+        public InputList<Inputs.RegistryGeoreplicationGetArgs> Georeplications
+        {
+            get => _georeplications ?? (_georeplications = new InputList<Inputs.RegistryGeoreplicationGetArgs>());
+            set => _georeplications = value;
         }
 
         /// <summary>

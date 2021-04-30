@@ -20,6 +20,9 @@ class CacheArgs:
                  sku_name: pulumi.Input[str],
                  subnet_id: pulumi.Input[str],
                  default_access_policy: Optional[pulumi.Input['CacheDefaultAccessPolicyArgs']] = None,
+                 directory_active_directory: Optional[pulumi.Input['CacheDirectoryActiveDirectoryArgs']] = None,
+                 directory_flat_file: Optional[pulumi.Input['CacheDirectoryFlatFileArgs']] = None,
+                 directory_ldap: Optional[pulumi.Input['CacheDirectoryLdapArgs']] = None,
                  dns: Optional[pulumi.Input['CacheDnsArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mtu: Optional[pulumi.Input[int]] = None,
@@ -34,6 +37,9 @@ class CacheArgs:
         :param pulumi.Input[str] sku_name: The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input['CacheDefaultAccessPolicyArgs'] default_access_policy: A `default_access_policy` block as defined below.
+        :param pulumi.Input['CacheDirectoryActiveDirectoryArgs'] directory_active_directory: A `directory_active_directory` block as defined below.
+        :param pulumi.Input['CacheDirectoryFlatFileArgs'] directory_flat_file: A `directory_flat_file` block as defined below.
+        :param pulumi.Input['CacheDirectoryLdapArgs'] directory_ldap: A `directory_ldap` block as defined below.
         :param pulumi.Input['CacheDnsArgs'] dns: A `dns` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] mtu: The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
@@ -48,6 +54,12 @@ class CacheArgs:
         pulumi.set(__self__, "subnet_id", subnet_id)
         if default_access_policy is not None:
             pulumi.set(__self__, "default_access_policy", default_access_policy)
+        if directory_active_directory is not None:
+            pulumi.set(__self__, "directory_active_directory", directory_active_directory)
+        if directory_flat_file is not None:
+            pulumi.set(__self__, "directory_flat_file", directory_flat_file)
+        if directory_ldap is not None:
+            pulumi.set(__self__, "directory_ldap", directory_ldap)
         if dns is not None:
             pulumi.set(__self__, "dns", dns)
         if location is not None:
@@ -125,6 +137,42 @@ class CacheArgs:
     @default_access_policy.setter
     def default_access_policy(self, value: Optional[pulumi.Input['CacheDefaultAccessPolicyArgs']]):
         pulumi.set(self, "default_access_policy", value)
+
+    @property
+    @pulumi.getter(name="directoryActiveDirectory")
+    def directory_active_directory(self) -> Optional[pulumi.Input['CacheDirectoryActiveDirectoryArgs']]:
+        """
+        A `directory_active_directory` block as defined below.
+        """
+        return pulumi.get(self, "directory_active_directory")
+
+    @directory_active_directory.setter
+    def directory_active_directory(self, value: Optional[pulumi.Input['CacheDirectoryActiveDirectoryArgs']]):
+        pulumi.set(self, "directory_active_directory", value)
+
+    @property
+    @pulumi.getter(name="directoryFlatFile")
+    def directory_flat_file(self) -> Optional[pulumi.Input['CacheDirectoryFlatFileArgs']]:
+        """
+        A `directory_flat_file` block as defined below.
+        """
+        return pulumi.get(self, "directory_flat_file")
+
+    @directory_flat_file.setter
+    def directory_flat_file(self, value: Optional[pulumi.Input['CacheDirectoryFlatFileArgs']]):
+        pulumi.set(self, "directory_flat_file", value)
+
+    @property
+    @pulumi.getter(name="directoryLdap")
+    def directory_ldap(self) -> Optional[pulumi.Input['CacheDirectoryLdapArgs']]:
+        """
+        A `directory_ldap` block as defined below.
+        """
+        return pulumi.get(self, "directory_ldap")
+
+    @directory_ldap.setter
+    def directory_ldap(self, value: Optional[pulumi.Input['CacheDirectoryLdapArgs']]):
+        pulumi.set(self, "directory_ldap", value)
 
     @property
     @pulumi.getter
@@ -216,6 +264,9 @@ class _CacheState:
     def __init__(__self__, *,
                  cache_size_in_gb: Optional[pulumi.Input[int]] = None,
                  default_access_policy: Optional[pulumi.Input['CacheDefaultAccessPolicyArgs']] = None,
+                 directory_active_directory: Optional[pulumi.Input['CacheDirectoryActiveDirectoryArgs']] = None,
+                 directory_flat_file: Optional[pulumi.Input['CacheDirectoryFlatFileArgs']] = None,
+                 directory_ldap: Optional[pulumi.Input['CacheDirectoryLdapArgs']] = None,
                  dns: Optional[pulumi.Input['CacheDnsArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mount_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -231,6 +282,9 @@ class _CacheState:
         Input properties used for looking up and filtering Cache resources.
         :param pulumi.Input[int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
         :param pulumi.Input['CacheDefaultAccessPolicyArgs'] default_access_policy: A `default_access_policy` block as defined below.
+        :param pulumi.Input['CacheDirectoryActiveDirectoryArgs'] directory_active_directory: A `directory_active_directory` block as defined below.
+        :param pulumi.Input['CacheDirectoryFlatFileArgs'] directory_flat_file: A `directory_flat_file` block as defined below.
+        :param pulumi.Input['CacheDirectoryLdapArgs'] directory_ldap: A `directory_ldap` block as defined below.
         :param pulumi.Input['CacheDnsArgs'] dns: A `dns` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] mount_addresses: A list of IP Addresses where the HPC Cache can be mounted.
@@ -247,6 +301,12 @@ class _CacheState:
             pulumi.set(__self__, "cache_size_in_gb", cache_size_in_gb)
         if default_access_policy is not None:
             pulumi.set(__self__, "default_access_policy", default_access_policy)
+        if directory_active_directory is not None:
+            pulumi.set(__self__, "directory_active_directory", directory_active_directory)
+        if directory_flat_file is not None:
+            pulumi.set(__self__, "directory_flat_file", directory_flat_file)
+        if directory_ldap is not None:
+            pulumi.set(__self__, "directory_ldap", directory_ldap)
         if dns is not None:
             pulumi.set(__self__, "dns", dns)
         if location is not None:
@@ -296,6 +356,42 @@ class _CacheState:
     @default_access_policy.setter
     def default_access_policy(self, value: Optional[pulumi.Input['CacheDefaultAccessPolicyArgs']]):
         pulumi.set(self, "default_access_policy", value)
+
+    @property
+    @pulumi.getter(name="directoryActiveDirectory")
+    def directory_active_directory(self) -> Optional[pulumi.Input['CacheDirectoryActiveDirectoryArgs']]:
+        """
+        A `directory_active_directory` block as defined below.
+        """
+        return pulumi.get(self, "directory_active_directory")
+
+    @directory_active_directory.setter
+    def directory_active_directory(self, value: Optional[pulumi.Input['CacheDirectoryActiveDirectoryArgs']]):
+        pulumi.set(self, "directory_active_directory", value)
+
+    @property
+    @pulumi.getter(name="directoryFlatFile")
+    def directory_flat_file(self) -> Optional[pulumi.Input['CacheDirectoryFlatFileArgs']]:
+        """
+        A `directory_flat_file` block as defined below.
+        """
+        return pulumi.get(self, "directory_flat_file")
+
+    @directory_flat_file.setter
+    def directory_flat_file(self, value: Optional[pulumi.Input['CacheDirectoryFlatFileArgs']]):
+        pulumi.set(self, "directory_flat_file", value)
+
+    @property
+    @pulumi.getter(name="directoryLdap")
+    def directory_ldap(self) -> Optional[pulumi.Input['CacheDirectoryLdapArgs']]:
+        """
+        A `directory_ldap` block as defined below.
+        """
+        return pulumi.get(self, "directory_ldap")
+
+    @directory_ldap.setter
+    def directory_ldap(self, value: Optional[pulumi.Input['CacheDirectoryLdapArgs']]):
+        pulumi.set(self, "directory_ldap", value)
 
     @property
     @pulumi.getter
@@ -437,6 +533,9 @@ class Cache(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_size_in_gb: Optional[pulumi.Input[int]] = None,
                  default_access_policy: Optional[pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArgs']]] = None,
+                 directory_active_directory: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryActiveDirectoryArgs']]] = None,
+                 directory_flat_file: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryFlatFileArgs']]] = None,
+                 directory_ldap: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryLdapArgs']]] = None,
                  dns: Optional[pulumi.Input[pulumi.InputType['CacheDnsArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mtu: Optional[pulumi.Input[int]] = None,
@@ -451,9 +550,9 @@ class Cache(pulumi.CustomResource):
         """
         Manages a HPC Cache.
 
-        > **Note**: During the first several months of the GA release, a request must be made to the Azure HPC Cache team to add your subscription to the access list before it can be used to create a cache instance. Fill out [this form](https://aka.ms/onboard-hpc-cache) to request access.
+        > **Note:** During the first several months of the GA release, a request must be made to the Azure HPC Cache team to add your subscription to the access list before it can be used to create a cache instance. Fill out [this form](https://aka.ms/onboard-hpc-cache) to request access.
 
-        > **NOTE:**: By request of the service team the provider no longer automatically registering the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace 'Microsoft.StorageCache'`.
+        > **Note:** By request of the service team the provider no longer automatically registering the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace 'Microsoft.StorageCache'`.
 
         ## Example Usage
 
@@ -490,6 +589,9 @@ class Cache(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArgs']] default_access_policy: A `default_access_policy` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CacheDirectoryActiveDirectoryArgs']] directory_active_directory: A `directory_active_directory` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CacheDirectoryFlatFileArgs']] directory_flat_file: A `directory_flat_file` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CacheDirectoryLdapArgs']] directory_ldap: A `directory_ldap` block as defined below.
         :param pulumi.Input[pulumi.InputType['CacheDnsArgs']] dns: A `dns` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] mtu: The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
@@ -510,9 +612,9 @@ class Cache(pulumi.CustomResource):
         """
         Manages a HPC Cache.
 
-        > **Note**: During the first several months of the GA release, a request must be made to the Azure HPC Cache team to add your subscription to the access list before it can be used to create a cache instance. Fill out [this form](https://aka.ms/onboard-hpc-cache) to request access.
+        > **Note:** During the first several months of the GA release, a request must be made to the Azure HPC Cache team to add your subscription to the access list before it can be used to create a cache instance. Fill out [this form](https://aka.ms/onboard-hpc-cache) to request access.
 
-        > **NOTE:**: By request of the service team the provider no longer automatically registering the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace 'Microsoft.StorageCache'`.
+        > **Note:** By request of the service team the provider no longer automatically registering the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace 'Microsoft.StorageCache'`.
 
         ## Example Usage
 
@@ -562,6 +664,9 @@ class Cache(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_size_in_gb: Optional[pulumi.Input[int]] = None,
                  default_access_policy: Optional[pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArgs']]] = None,
+                 directory_active_directory: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryActiveDirectoryArgs']]] = None,
+                 directory_flat_file: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryFlatFileArgs']]] = None,
+                 directory_ldap: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryLdapArgs']]] = None,
                  dns: Optional[pulumi.Input[pulumi.InputType['CacheDnsArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mtu: Optional[pulumi.Input[int]] = None,
@@ -588,6 +693,9 @@ class Cache(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cache_size_in_gb'")
             __props__.__dict__["cache_size_in_gb"] = cache_size_in_gb
             __props__.__dict__["default_access_policy"] = default_access_policy
+            __props__.__dict__["directory_active_directory"] = directory_active_directory
+            __props__.__dict__["directory_flat_file"] = directory_flat_file
+            __props__.__dict__["directory_ldap"] = directory_ldap
             __props__.__dict__["dns"] = dns
             __props__.__dict__["location"] = location
             __props__.__dict__["mtu"] = mtu
@@ -620,6 +728,9 @@ class Cache(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cache_size_in_gb: Optional[pulumi.Input[int]] = None,
             default_access_policy: Optional[pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArgs']]] = None,
+            directory_active_directory: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryActiveDirectoryArgs']]] = None,
+            directory_flat_file: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryFlatFileArgs']]] = None,
+            directory_ldap: Optional[pulumi.Input[pulumi.InputType['CacheDirectoryLdapArgs']]] = None,
             dns: Optional[pulumi.Input[pulumi.InputType['CacheDnsArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             mount_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -640,6 +751,9 @@ class Cache(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['CacheDefaultAccessPolicyArgs']] default_access_policy: A `default_access_policy` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CacheDirectoryActiveDirectoryArgs']] directory_active_directory: A `directory_active_directory` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CacheDirectoryFlatFileArgs']] directory_flat_file: A `directory_flat_file` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CacheDirectoryLdapArgs']] directory_ldap: A `directory_ldap` block as defined below.
         :param pulumi.Input[pulumi.InputType['CacheDnsArgs']] dns: A `dns` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] mount_addresses: A list of IP Addresses where the HPC Cache can be mounted.
@@ -658,6 +772,9 @@ class Cache(pulumi.CustomResource):
 
         __props__.__dict__["cache_size_in_gb"] = cache_size_in_gb
         __props__.__dict__["default_access_policy"] = default_access_policy
+        __props__.__dict__["directory_active_directory"] = directory_active_directory
+        __props__.__dict__["directory_flat_file"] = directory_flat_file
+        __props__.__dict__["directory_ldap"] = directory_ldap
         __props__.__dict__["dns"] = dns
         __props__.__dict__["location"] = location
         __props__.__dict__["mount_addresses"] = mount_addresses
@@ -686,6 +803,30 @@ class Cache(pulumi.CustomResource):
         A `default_access_policy` block as defined below.
         """
         return pulumi.get(self, "default_access_policy")
+
+    @property
+    @pulumi.getter(name="directoryActiveDirectory")
+    def directory_active_directory(self) -> pulumi.Output[Optional['outputs.CacheDirectoryActiveDirectory']]:
+        """
+        A `directory_active_directory` block as defined below.
+        """
+        return pulumi.get(self, "directory_active_directory")
+
+    @property
+    @pulumi.getter(name="directoryFlatFile")
+    def directory_flat_file(self) -> pulumi.Output[Optional['outputs.CacheDirectoryFlatFile']]:
+        """
+        A `directory_flat_file` block as defined below.
+        """
+        return pulumi.get(self, "directory_flat_file")
+
+    @property
+    @pulumi.getter(name="directoryLdap")
+    def directory_ldap(self) -> pulumi.Output[Optional['outputs.CacheDirectoryLdap']]:
+        """
+        A `directory_ldap` block as defined below.
+        """
+        return pulumi.get(self, "directory_ldap")
 
     @property
     @pulumi.getter

@@ -271,7 +271,7 @@ class Subscription(pulumi.CustomResource):
          $ pulumi import azure:core/subscription:Subscription example "/providers/Microsoft.Subscription/aliases/subscription1"
         ```
 
-         In this scenario, the `subscription_id` property can be completed and the provider will assume control of the existing subscription by creating an Alias. e.g.
+         In this scenario, the `subscription_id` property can be completed and this provider will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. This provider requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -341,7 +341,7 @@ class Subscription(pulumi.CustomResource):
          $ pulumi import azure:core/subscription:Subscription example "/providers/Microsoft.Subscription/aliases/subscription1"
         ```
 
-         In this scenario, the `subscription_id` property can be completed and the provider will assume control of the existing subscription by creating an Alias. e.g.
+         In this scenario, the `subscription_id` property can be completed and this provider will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. This provider requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
 
         :param str resource_name: The name of the resource.
         :param SubscriptionArgs args: The arguments to use to populate this resource's properties.

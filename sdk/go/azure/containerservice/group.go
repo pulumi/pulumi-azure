@@ -90,6 +90,8 @@ type Group struct {
 	DnsConfig GroupDnsConfigPtrOutput `pulumi:"dnsConfig"`
 	// The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
 	DnsNameLabel pulumi.StringPtrOutput `pulumi:"dnsNameLabel"`
+	// Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
+	ExposedPorts GroupExposedPortArrayOutput `pulumi:"exposedPorts"`
 	// The FQDN of the container group derived from `dnsNameLabel`.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// An `identity` block as defined below.
@@ -162,6 +164,8 @@ type groupState struct {
 	DnsConfig *GroupDnsConfig `pulumi:"dnsConfig"`
 	// The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
 	DnsNameLabel *string `pulumi:"dnsNameLabel"`
+	// Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
+	ExposedPorts []GroupExposedPort `pulumi:"exposedPorts"`
 	// The FQDN of the container group derived from `dnsNameLabel`.
 	Fqdn *string `pulumi:"fqdn"`
 	// An `identity` block as defined below.
@@ -197,6 +201,8 @@ type GroupState struct {
 	DnsConfig GroupDnsConfigPtrInput
 	// The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
 	DnsNameLabel pulumi.StringPtrInput
+	// Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
+	ExposedPorts GroupExposedPortArrayInput
 	// The FQDN of the container group derived from `dnsNameLabel`.
 	Fqdn pulumi.StringPtrInput
 	// An `identity` block as defined below.
@@ -236,6 +242,8 @@ type groupArgs struct {
 	DnsConfig *GroupDnsConfig `pulumi:"dnsConfig"`
 	// The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
 	DnsNameLabel *string `pulumi:"dnsNameLabel"`
+	// Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
+	ExposedPorts []GroupExposedPort `pulumi:"exposedPorts"`
 	// An `identity` block as defined below.
 	Identity *GroupIdentity `pulumi:"identity"`
 	// A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
@@ -268,6 +276,8 @@ type GroupArgs struct {
 	DnsConfig GroupDnsConfigPtrInput
 	// The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
 	DnsNameLabel pulumi.StringPtrInput
+	// Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
+	ExposedPorts GroupExposedPortArrayInput
 	// An `identity` block as defined below.
 	Identity GroupIdentityPtrInput
 	// A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.

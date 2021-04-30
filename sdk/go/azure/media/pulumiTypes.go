@@ -10,6 +10,452 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AssetFilterPresentationTimeRange struct {
+	// The absolute end time boundary. Applies to Video on Demand (VoD).
+	// For the Live Streaming presentation, it is silently ignored and applied when the presentation ends and the stream becomes VoD. This is a long value that represents an absolute end point of the presentation, rounded to the closest next GOP start. The unit is defined by `unitTimescaleInMiliseconds`, so an `endInUnits` of 180 would be for 3 minutes. Use `startInUnits` and `endInUnits` to trim the fragments that will be in the playlist (manifest). For example, `startInUnits` set to 20 and `endInUnits` set to 60 using `unitTimescaleInMiliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
+	EndInUnits *int `pulumi:"endInUnits"`
+	// Indicates whether the `endInUnits` property must be present. If true, `endInUnits` must be specified or a bad request code is returned. Applies to Live Streaming only. Allowed values: false, true.
+	ForceEnd *bool `pulumi:"forceEnd"`
+	// The relative to end right edge. Applies to Live Streaming only.
+	// This value defines the latest live position that a client can seek to. Using this property, you can delay live playback position and create a server-side buffer for players. The unit is defined by `unitTimescaleInMiliseconds`. The maximum live back off duration is 300 seconds. For example, a value of 20 means that the latest available content is 20 seconds delayed from the real live edge.
+	LiveBackoffInUnits *int `pulumi:"liveBackoffInUnits"`
+	// The relative to end sliding window. Applies to Live Streaming only. Use `presentationWindowInUnits` to apply a sliding window of fragments to include in a playlist. The unit is defined by `unitTimescaleInMiliseconds`. For example, set  `presentationWindowInUnits` to 120 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 60 seconds.
+	PresentationWindowInUnits *int `pulumi:"presentationWindowInUnits"`
+	// The absolute start time boundary. Applies to Video on Demand (VoD) or Live Streaming. This is a long value that represents an absolute start point of the stream. The value gets rounded to the closest next GOP start. The unit is defined by `unitTimescaleInMiliseconds`, so a `startInUnits` of 15 would be for 15 seconds. Use `startInUnits` and `endInUnits` to trim the fragments that will be in the playlist (manifest). For example, `startInUnits` set to 20 and `endInUnits` set to 60 using `unitTimescaleInMiliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
+	StartInUnits *int `pulumi:"startInUnits"`
+	// Specified as the number of miliseconds in one unit timescale. For example, if you want to set a `startInUnits` at 30 seconds, you would use a value of 30 when using the `unitTimescaleInMiliseconds` in 1000. Or if you want to set `startInUnits` in 30 miliseconds, you would use a value of 30 when using the `unitTimescaleInMiliseconds` in 1.  Applies timescale to `startInUnits`, `startTimescale` and `presentationWindowInTimescale` and `liveBackoffInTimescale`.
+	UnitTimescaleInMiliseconds *int `pulumi:"unitTimescaleInMiliseconds"`
+}
+
+// AssetFilterPresentationTimeRangeInput is an input type that accepts AssetFilterPresentationTimeRangeArgs and AssetFilterPresentationTimeRangeOutput values.
+// You can construct a concrete instance of `AssetFilterPresentationTimeRangeInput` via:
+//
+//          AssetFilterPresentationTimeRangeArgs{...}
+type AssetFilterPresentationTimeRangeInput interface {
+	pulumi.Input
+
+	ToAssetFilterPresentationTimeRangeOutput() AssetFilterPresentationTimeRangeOutput
+	ToAssetFilterPresentationTimeRangeOutputWithContext(context.Context) AssetFilterPresentationTimeRangeOutput
+}
+
+type AssetFilterPresentationTimeRangeArgs struct {
+	// The absolute end time boundary. Applies to Video on Demand (VoD).
+	// For the Live Streaming presentation, it is silently ignored and applied when the presentation ends and the stream becomes VoD. This is a long value that represents an absolute end point of the presentation, rounded to the closest next GOP start. The unit is defined by `unitTimescaleInMiliseconds`, so an `endInUnits` of 180 would be for 3 minutes. Use `startInUnits` and `endInUnits` to trim the fragments that will be in the playlist (manifest). For example, `startInUnits` set to 20 and `endInUnits` set to 60 using `unitTimescaleInMiliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
+	EndInUnits pulumi.IntPtrInput `pulumi:"endInUnits"`
+	// Indicates whether the `endInUnits` property must be present. If true, `endInUnits` must be specified or a bad request code is returned. Applies to Live Streaming only. Allowed values: false, true.
+	ForceEnd pulumi.BoolPtrInput `pulumi:"forceEnd"`
+	// The relative to end right edge. Applies to Live Streaming only.
+	// This value defines the latest live position that a client can seek to. Using this property, you can delay live playback position and create a server-side buffer for players. The unit is defined by `unitTimescaleInMiliseconds`. The maximum live back off duration is 300 seconds. For example, a value of 20 means that the latest available content is 20 seconds delayed from the real live edge.
+	LiveBackoffInUnits pulumi.IntPtrInput `pulumi:"liveBackoffInUnits"`
+	// The relative to end sliding window. Applies to Live Streaming only. Use `presentationWindowInUnits` to apply a sliding window of fragments to include in a playlist. The unit is defined by `unitTimescaleInMiliseconds`. For example, set  `presentationWindowInUnits` to 120 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 60 seconds.
+	PresentationWindowInUnits pulumi.IntPtrInput `pulumi:"presentationWindowInUnits"`
+	// The absolute start time boundary. Applies to Video on Demand (VoD) or Live Streaming. This is a long value that represents an absolute start point of the stream. The value gets rounded to the closest next GOP start. The unit is defined by `unitTimescaleInMiliseconds`, so a `startInUnits` of 15 would be for 15 seconds. Use `startInUnits` and `endInUnits` to trim the fragments that will be in the playlist (manifest). For example, `startInUnits` set to 20 and `endInUnits` set to 60 using `unitTimescaleInMiliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
+	StartInUnits pulumi.IntPtrInput `pulumi:"startInUnits"`
+	// Specified as the number of miliseconds in one unit timescale. For example, if you want to set a `startInUnits` at 30 seconds, you would use a value of 30 when using the `unitTimescaleInMiliseconds` in 1000. Or if you want to set `startInUnits` in 30 miliseconds, you would use a value of 30 when using the `unitTimescaleInMiliseconds` in 1.  Applies timescale to `startInUnits`, `startTimescale` and `presentationWindowInTimescale` and `liveBackoffInTimescale`.
+	UnitTimescaleInMiliseconds pulumi.IntPtrInput `pulumi:"unitTimescaleInMiliseconds"`
+}
+
+func (AssetFilterPresentationTimeRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetFilterPresentationTimeRange)(nil)).Elem()
+}
+
+func (i AssetFilterPresentationTimeRangeArgs) ToAssetFilterPresentationTimeRangeOutput() AssetFilterPresentationTimeRangeOutput {
+	return i.ToAssetFilterPresentationTimeRangeOutputWithContext(context.Background())
+}
+
+func (i AssetFilterPresentationTimeRangeArgs) ToAssetFilterPresentationTimeRangeOutputWithContext(ctx context.Context) AssetFilterPresentationTimeRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetFilterPresentationTimeRangeOutput)
+}
+
+func (i AssetFilterPresentationTimeRangeArgs) ToAssetFilterPresentationTimeRangePtrOutput() AssetFilterPresentationTimeRangePtrOutput {
+	return i.ToAssetFilterPresentationTimeRangePtrOutputWithContext(context.Background())
+}
+
+func (i AssetFilterPresentationTimeRangeArgs) ToAssetFilterPresentationTimeRangePtrOutputWithContext(ctx context.Context) AssetFilterPresentationTimeRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetFilterPresentationTimeRangeOutput).ToAssetFilterPresentationTimeRangePtrOutputWithContext(ctx)
+}
+
+// AssetFilterPresentationTimeRangePtrInput is an input type that accepts AssetFilterPresentationTimeRangeArgs, AssetFilterPresentationTimeRangePtr and AssetFilterPresentationTimeRangePtrOutput values.
+// You can construct a concrete instance of `AssetFilterPresentationTimeRangePtrInput` via:
+//
+//          AssetFilterPresentationTimeRangeArgs{...}
+//
+//  or:
+//
+//          nil
+type AssetFilterPresentationTimeRangePtrInput interface {
+	pulumi.Input
+
+	ToAssetFilterPresentationTimeRangePtrOutput() AssetFilterPresentationTimeRangePtrOutput
+	ToAssetFilterPresentationTimeRangePtrOutputWithContext(context.Context) AssetFilterPresentationTimeRangePtrOutput
+}
+
+type assetFilterPresentationTimeRangePtrType AssetFilterPresentationTimeRangeArgs
+
+func AssetFilterPresentationTimeRangePtr(v *AssetFilterPresentationTimeRangeArgs) AssetFilterPresentationTimeRangePtrInput {
+	return (*assetFilterPresentationTimeRangePtrType)(v)
+}
+
+func (*assetFilterPresentationTimeRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssetFilterPresentationTimeRange)(nil)).Elem()
+}
+
+func (i *assetFilterPresentationTimeRangePtrType) ToAssetFilterPresentationTimeRangePtrOutput() AssetFilterPresentationTimeRangePtrOutput {
+	return i.ToAssetFilterPresentationTimeRangePtrOutputWithContext(context.Background())
+}
+
+func (i *assetFilterPresentationTimeRangePtrType) ToAssetFilterPresentationTimeRangePtrOutputWithContext(ctx context.Context) AssetFilterPresentationTimeRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetFilterPresentationTimeRangePtrOutput)
+}
+
+type AssetFilterPresentationTimeRangeOutput struct{ *pulumi.OutputState }
+
+func (AssetFilterPresentationTimeRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetFilterPresentationTimeRange)(nil)).Elem()
+}
+
+func (o AssetFilterPresentationTimeRangeOutput) ToAssetFilterPresentationTimeRangeOutput() AssetFilterPresentationTimeRangeOutput {
+	return o
+}
+
+func (o AssetFilterPresentationTimeRangeOutput) ToAssetFilterPresentationTimeRangeOutputWithContext(ctx context.Context) AssetFilterPresentationTimeRangeOutput {
+	return o
+}
+
+func (o AssetFilterPresentationTimeRangeOutput) ToAssetFilterPresentationTimeRangePtrOutput() AssetFilterPresentationTimeRangePtrOutput {
+	return o.ToAssetFilterPresentationTimeRangePtrOutputWithContext(context.Background())
+}
+
+func (o AssetFilterPresentationTimeRangeOutput) ToAssetFilterPresentationTimeRangePtrOutputWithContext(ctx context.Context) AssetFilterPresentationTimeRangePtrOutput {
+	return o.ApplyT(func(v AssetFilterPresentationTimeRange) *AssetFilterPresentationTimeRange {
+		return &v
+	}).(AssetFilterPresentationTimeRangePtrOutput)
+}
+
+// The absolute end time boundary. Applies to Video on Demand (VoD).
+// For the Live Streaming presentation, it is silently ignored and applied when the presentation ends and the stream becomes VoD. This is a long value that represents an absolute end point of the presentation, rounded to the closest next GOP start. The unit is defined by `unitTimescaleInMiliseconds`, so an `endInUnits` of 180 would be for 3 minutes. Use `startInUnits` and `endInUnits` to trim the fragments that will be in the playlist (manifest). For example, `startInUnits` set to 20 and `endInUnits` set to 60 using `unitTimescaleInMiliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
+func (o AssetFilterPresentationTimeRangeOutput) EndInUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AssetFilterPresentationTimeRange) *int { return v.EndInUnits }).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether the `endInUnits` property must be present. If true, `endInUnits` must be specified or a bad request code is returned. Applies to Live Streaming only. Allowed values: false, true.
+func (o AssetFilterPresentationTimeRangeOutput) ForceEnd() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AssetFilterPresentationTimeRange) *bool { return v.ForceEnd }).(pulumi.BoolPtrOutput)
+}
+
+// The relative to end right edge. Applies to Live Streaming only.
+// This value defines the latest live position that a client can seek to. Using this property, you can delay live playback position and create a server-side buffer for players. The unit is defined by `unitTimescaleInMiliseconds`. The maximum live back off duration is 300 seconds. For example, a value of 20 means that the latest available content is 20 seconds delayed from the real live edge.
+func (o AssetFilterPresentationTimeRangeOutput) LiveBackoffInUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AssetFilterPresentationTimeRange) *int { return v.LiveBackoffInUnits }).(pulumi.IntPtrOutput)
+}
+
+// The relative to end sliding window. Applies to Live Streaming only. Use `presentationWindowInUnits` to apply a sliding window of fragments to include in a playlist. The unit is defined by `unitTimescaleInMiliseconds`. For example, set  `presentationWindowInUnits` to 120 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 60 seconds.
+func (o AssetFilterPresentationTimeRangeOutput) PresentationWindowInUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AssetFilterPresentationTimeRange) *int { return v.PresentationWindowInUnits }).(pulumi.IntPtrOutput)
+}
+
+// The absolute start time boundary. Applies to Video on Demand (VoD) or Live Streaming. This is a long value that represents an absolute start point of the stream. The value gets rounded to the closest next GOP start. The unit is defined by `unitTimescaleInMiliseconds`, so a `startInUnits` of 15 would be for 15 seconds. Use `startInUnits` and `endInUnits` to trim the fragments that will be in the playlist (manifest). For example, `startInUnits` set to 20 and `endInUnits` set to 60 using `unitTimescaleInMiliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
+func (o AssetFilterPresentationTimeRangeOutput) StartInUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AssetFilterPresentationTimeRange) *int { return v.StartInUnits }).(pulumi.IntPtrOutput)
+}
+
+// Specified as the number of miliseconds in one unit timescale. For example, if you want to set a `startInUnits` at 30 seconds, you would use a value of 30 when using the `unitTimescaleInMiliseconds` in 1000. Or if you want to set `startInUnits` in 30 miliseconds, you would use a value of 30 when using the `unitTimescaleInMiliseconds` in 1.  Applies timescale to `startInUnits`, `startTimescale` and `presentationWindowInTimescale` and `liveBackoffInTimescale`.
+func (o AssetFilterPresentationTimeRangeOutput) UnitTimescaleInMiliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AssetFilterPresentationTimeRange) *int { return v.UnitTimescaleInMiliseconds }).(pulumi.IntPtrOutput)
+}
+
+type AssetFilterPresentationTimeRangePtrOutput struct{ *pulumi.OutputState }
+
+func (AssetFilterPresentationTimeRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssetFilterPresentationTimeRange)(nil)).Elem()
+}
+
+func (o AssetFilterPresentationTimeRangePtrOutput) ToAssetFilterPresentationTimeRangePtrOutput() AssetFilterPresentationTimeRangePtrOutput {
+	return o
+}
+
+func (o AssetFilterPresentationTimeRangePtrOutput) ToAssetFilterPresentationTimeRangePtrOutputWithContext(ctx context.Context) AssetFilterPresentationTimeRangePtrOutput {
+	return o
+}
+
+func (o AssetFilterPresentationTimeRangePtrOutput) Elem() AssetFilterPresentationTimeRangeOutput {
+	return o.ApplyT(func(v *AssetFilterPresentationTimeRange) AssetFilterPresentationTimeRange { return *v }).(AssetFilterPresentationTimeRangeOutput)
+}
+
+// The absolute end time boundary. Applies to Video on Demand (VoD).
+// For the Live Streaming presentation, it is silently ignored and applied when the presentation ends and the stream becomes VoD. This is a long value that represents an absolute end point of the presentation, rounded to the closest next GOP start. The unit is defined by `unitTimescaleInMiliseconds`, so an `endInUnits` of 180 would be for 3 minutes. Use `startInUnits` and `endInUnits` to trim the fragments that will be in the playlist (manifest). For example, `startInUnits` set to 20 and `endInUnits` set to 60 using `unitTimescaleInMiliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
+func (o AssetFilterPresentationTimeRangePtrOutput) EndInUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AssetFilterPresentationTimeRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.EndInUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether the `endInUnits` property must be present. If true, `endInUnits` must be specified or a bad request code is returned. Applies to Live Streaming only. Allowed values: false, true.
+func (o AssetFilterPresentationTimeRangePtrOutput) ForceEnd() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AssetFilterPresentationTimeRange) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ForceEnd
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The relative to end right edge. Applies to Live Streaming only.
+// This value defines the latest live position that a client can seek to. Using this property, you can delay live playback position and create a server-side buffer for players. The unit is defined by `unitTimescaleInMiliseconds`. The maximum live back off duration is 300 seconds. For example, a value of 20 means that the latest available content is 20 seconds delayed from the real live edge.
+func (o AssetFilterPresentationTimeRangePtrOutput) LiveBackoffInUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AssetFilterPresentationTimeRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.LiveBackoffInUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+// The relative to end sliding window. Applies to Live Streaming only. Use `presentationWindowInUnits` to apply a sliding window of fragments to include in a playlist. The unit is defined by `unitTimescaleInMiliseconds`. For example, set  `presentationWindowInUnits` to 120 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 60 seconds.
+func (o AssetFilterPresentationTimeRangePtrOutput) PresentationWindowInUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AssetFilterPresentationTimeRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PresentationWindowInUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+// The absolute start time boundary. Applies to Video on Demand (VoD) or Live Streaming. This is a long value that represents an absolute start point of the stream. The value gets rounded to the closest next GOP start. The unit is defined by `unitTimescaleInMiliseconds`, so a `startInUnits` of 15 would be for 15 seconds. Use `startInUnits` and `endInUnits` to trim the fragments that will be in the playlist (manifest). For example, `startInUnits` set to 20 and `endInUnits` set to 60 using `unitTimescaleInMiliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
+func (o AssetFilterPresentationTimeRangePtrOutput) StartInUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AssetFilterPresentationTimeRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StartInUnits
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specified as the number of miliseconds in one unit timescale. For example, if you want to set a `startInUnits` at 30 seconds, you would use a value of 30 when using the `unitTimescaleInMiliseconds` in 1000. Or if you want to set `startInUnits` in 30 miliseconds, you would use a value of 30 when using the `unitTimescaleInMiliseconds` in 1.  Applies timescale to `startInUnits`, `startTimescale` and `presentationWindowInTimescale` and `liveBackoffInTimescale`.
+func (o AssetFilterPresentationTimeRangePtrOutput) UnitTimescaleInMiliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AssetFilterPresentationTimeRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UnitTimescaleInMiliseconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type AssetFilterTrackSelection struct {
+	// One or more `condition` blocks as defined above.
+	Conditions []AssetFilterTrackSelectionCondition `pulumi:"conditions"`
+}
+
+// AssetFilterTrackSelectionInput is an input type that accepts AssetFilterTrackSelectionArgs and AssetFilterTrackSelectionOutput values.
+// You can construct a concrete instance of `AssetFilterTrackSelectionInput` via:
+//
+//          AssetFilterTrackSelectionArgs{...}
+type AssetFilterTrackSelectionInput interface {
+	pulumi.Input
+
+	ToAssetFilterTrackSelectionOutput() AssetFilterTrackSelectionOutput
+	ToAssetFilterTrackSelectionOutputWithContext(context.Context) AssetFilterTrackSelectionOutput
+}
+
+type AssetFilterTrackSelectionArgs struct {
+	// One or more `condition` blocks as defined above.
+	Conditions AssetFilterTrackSelectionConditionArrayInput `pulumi:"conditions"`
+}
+
+func (AssetFilterTrackSelectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetFilterTrackSelection)(nil)).Elem()
+}
+
+func (i AssetFilterTrackSelectionArgs) ToAssetFilterTrackSelectionOutput() AssetFilterTrackSelectionOutput {
+	return i.ToAssetFilterTrackSelectionOutputWithContext(context.Background())
+}
+
+func (i AssetFilterTrackSelectionArgs) ToAssetFilterTrackSelectionOutputWithContext(ctx context.Context) AssetFilterTrackSelectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetFilterTrackSelectionOutput)
+}
+
+// AssetFilterTrackSelectionArrayInput is an input type that accepts AssetFilterTrackSelectionArray and AssetFilterTrackSelectionArrayOutput values.
+// You can construct a concrete instance of `AssetFilterTrackSelectionArrayInput` via:
+//
+//          AssetFilterTrackSelectionArray{ AssetFilterTrackSelectionArgs{...} }
+type AssetFilterTrackSelectionArrayInput interface {
+	pulumi.Input
+
+	ToAssetFilterTrackSelectionArrayOutput() AssetFilterTrackSelectionArrayOutput
+	ToAssetFilterTrackSelectionArrayOutputWithContext(context.Context) AssetFilterTrackSelectionArrayOutput
+}
+
+type AssetFilterTrackSelectionArray []AssetFilterTrackSelectionInput
+
+func (AssetFilterTrackSelectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetFilterTrackSelection)(nil)).Elem()
+}
+
+func (i AssetFilterTrackSelectionArray) ToAssetFilterTrackSelectionArrayOutput() AssetFilterTrackSelectionArrayOutput {
+	return i.ToAssetFilterTrackSelectionArrayOutputWithContext(context.Background())
+}
+
+func (i AssetFilterTrackSelectionArray) ToAssetFilterTrackSelectionArrayOutputWithContext(ctx context.Context) AssetFilterTrackSelectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetFilterTrackSelectionArrayOutput)
+}
+
+type AssetFilterTrackSelectionOutput struct{ *pulumi.OutputState }
+
+func (AssetFilterTrackSelectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetFilterTrackSelection)(nil)).Elem()
+}
+
+func (o AssetFilterTrackSelectionOutput) ToAssetFilterTrackSelectionOutput() AssetFilterTrackSelectionOutput {
+	return o
+}
+
+func (o AssetFilterTrackSelectionOutput) ToAssetFilterTrackSelectionOutputWithContext(ctx context.Context) AssetFilterTrackSelectionOutput {
+	return o
+}
+
+// One or more `condition` blocks as defined above.
+func (o AssetFilterTrackSelectionOutput) Conditions() AssetFilterTrackSelectionConditionArrayOutput {
+	return o.ApplyT(func(v AssetFilterTrackSelection) []AssetFilterTrackSelectionCondition { return v.Conditions }).(AssetFilterTrackSelectionConditionArrayOutput)
+}
+
+type AssetFilterTrackSelectionArrayOutput struct{ *pulumi.OutputState }
+
+func (AssetFilterTrackSelectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetFilterTrackSelection)(nil)).Elem()
+}
+
+func (o AssetFilterTrackSelectionArrayOutput) ToAssetFilterTrackSelectionArrayOutput() AssetFilterTrackSelectionArrayOutput {
+	return o
+}
+
+func (o AssetFilterTrackSelectionArrayOutput) ToAssetFilterTrackSelectionArrayOutputWithContext(ctx context.Context) AssetFilterTrackSelectionArrayOutput {
+	return o
+}
+
+func (o AssetFilterTrackSelectionArrayOutput) Index(i pulumi.IntInput) AssetFilterTrackSelectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetFilterTrackSelection {
+		return vs[0].([]AssetFilterTrackSelection)[vs[1].(int)]
+	}).(AssetFilterTrackSelectionOutput)
+}
+
+type AssetFilterTrackSelectionCondition struct {
+	// The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
+	Operation *string `pulumi:"operation"`
+	// The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/en-us/azure/media-services/latest/filters-concept) for more details.
+	Property *string `pulumi:"property"`
+	// The track property value to match or not match.
+	Value *string `pulumi:"value"`
+}
+
+// AssetFilterTrackSelectionConditionInput is an input type that accepts AssetFilterTrackSelectionConditionArgs and AssetFilterTrackSelectionConditionOutput values.
+// You can construct a concrete instance of `AssetFilterTrackSelectionConditionInput` via:
+//
+//          AssetFilterTrackSelectionConditionArgs{...}
+type AssetFilterTrackSelectionConditionInput interface {
+	pulumi.Input
+
+	ToAssetFilterTrackSelectionConditionOutput() AssetFilterTrackSelectionConditionOutput
+	ToAssetFilterTrackSelectionConditionOutputWithContext(context.Context) AssetFilterTrackSelectionConditionOutput
+}
+
+type AssetFilterTrackSelectionConditionArgs struct {
+	// The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
+	Operation pulumi.StringPtrInput `pulumi:"operation"`
+	// The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/en-us/azure/media-services/latest/filters-concept) for more details.
+	Property pulumi.StringPtrInput `pulumi:"property"`
+	// The track property value to match or not match.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (AssetFilterTrackSelectionConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetFilterTrackSelectionCondition)(nil)).Elem()
+}
+
+func (i AssetFilterTrackSelectionConditionArgs) ToAssetFilterTrackSelectionConditionOutput() AssetFilterTrackSelectionConditionOutput {
+	return i.ToAssetFilterTrackSelectionConditionOutputWithContext(context.Background())
+}
+
+func (i AssetFilterTrackSelectionConditionArgs) ToAssetFilterTrackSelectionConditionOutputWithContext(ctx context.Context) AssetFilterTrackSelectionConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetFilterTrackSelectionConditionOutput)
+}
+
+// AssetFilterTrackSelectionConditionArrayInput is an input type that accepts AssetFilterTrackSelectionConditionArray and AssetFilterTrackSelectionConditionArrayOutput values.
+// You can construct a concrete instance of `AssetFilterTrackSelectionConditionArrayInput` via:
+//
+//          AssetFilterTrackSelectionConditionArray{ AssetFilterTrackSelectionConditionArgs{...} }
+type AssetFilterTrackSelectionConditionArrayInput interface {
+	pulumi.Input
+
+	ToAssetFilterTrackSelectionConditionArrayOutput() AssetFilterTrackSelectionConditionArrayOutput
+	ToAssetFilterTrackSelectionConditionArrayOutputWithContext(context.Context) AssetFilterTrackSelectionConditionArrayOutput
+}
+
+type AssetFilterTrackSelectionConditionArray []AssetFilterTrackSelectionConditionInput
+
+func (AssetFilterTrackSelectionConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetFilterTrackSelectionCondition)(nil)).Elem()
+}
+
+func (i AssetFilterTrackSelectionConditionArray) ToAssetFilterTrackSelectionConditionArrayOutput() AssetFilterTrackSelectionConditionArrayOutput {
+	return i.ToAssetFilterTrackSelectionConditionArrayOutputWithContext(context.Background())
+}
+
+func (i AssetFilterTrackSelectionConditionArray) ToAssetFilterTrackSelectionConditionArrayOutputWithContext(ctx context.Context) AssetFilterTrackSelectionConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetFilterTrackSelectionConditionArrayOutput)
+}
+
+type AssetFilterTrackSelectionConditionOutput struct{ *pulumi.OutputState }
+
+func (AssetFilterTrackSelectionConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetFilterTrackSelectionCondition)(nil)).Elem()
+}
+
+func (o AssetFilterTrackSelectionConditionOutput) ToAssetFilterTrackSelectionConditionOutput() AssetFilterTrackSelectionConditionOutput {
+	return o
+}
+
+func (o AssetFilterTrackSelectionConditionOutput) ToAssetFilterTrackSelectionConditionOutputWithContext(ctx context.Context) AssetFilterTrackSelectionConditionOutput {
+	return o
+}
+
+// The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
+func (o AssetFilterTrackSelectionConditionOutput) Operation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetFilterTrackSelectionCondition) *string { return v.Operation }).(pulumi.StringPtrOutput)
+}
+
+// The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/en-us/azure/media-services/latest/filters-concept) for more details.
+func (o AssetFilterTrackSelectionConditionOutput) Property() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetFilterTrackSelectionCondition) *string { return v.Property }).(pulumi.StringPtrOutput)
+}
+
+// The track property value to match or not match.
+func (o AssetFilterTrackSelectionConditionOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetFilterTrackSelectionCondition) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type AssetFilterTrackSelectionConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (AssetFilterTrackSelectionConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetFilterTrackSelectionCondition)(nil)).Elem()
+}
+
+func (o AssetFilterTrackSelectionConditionArrayOutput) ToAssetFilterTrackSelectionConditionArrayOutput() AssetFilterTrackSelectionConditionArrayOutput {
+	return o
+}
+
+func (o AssetFilterTrackSelectionConditionArrayOutput) ToAssetFilterTrackSelectionConditionArrayOutputWithContext(ctx context.Context) AssetFilterTrackSelectionConditionArrayOutput {
+	return o
+}
+
+func (o AssetFilterTrackSelectionConditionArrayOutput) Index(i pulumi.IntInput) AssetFilterTrackSelectionConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetFilterTrackSelectionCondition {
+		return vs[0].([]AssetFilterTrackSelectionCondition)[vs[1].(int)]
+	}).(AssetFilterTrackSelectionConditionOutput)
+}
+
 type ContentKeyPolicyPolicyOption struct {
 	// Enable a configuration for non-DRM keys.
 	ClearKeyConfigurationEnabled *bool `pulumi:"clearKeyConfigurationEnabled"`
@@ -6139,6 +6585,12 @@ func (o TransformOutputVideoAnalyzerPresetPtrOutput) InsightsType() pulumi.Strin
 }
 
 func init() {
+	pulumi.RegisterOutputType(AssetFilterPresentationTimeRangeOutput{})
+	pulumi.RegisterOutputType(AssetFilterPresentationTimeRangePtrOutput{})
+	pulumi.RegisterOutputType(AssetFilterTrackSelectionOutput{})
+	pulumi.RegisterOutputType(AssetFilterTrackSelectionArrayOutput{})
+	pulumi.RegisterOutputType(AssetFilterTrackSelectionConditionOutput{})
+	pulumi.RegisterOutputType(AssetFilterTrackSelectionConditionArrayOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyPolicyOptionOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyPolicyOptionArrayOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyPolicyOptionFairplayConfigurationOutput{})

@@ -122,6 +122,8 @@ type HadoopCluster struct {
 	Monitor HadoopClusterMonitorPtrOutput `pulumi:"monitor"`
 	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A `network` block as defined below.
+	Network HadoopClusterNetworkPtrOutput `pulumi:"network"`
 	// Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
@@ -202,6 +204,8 @@ type hadoopClusterState struct {
 	Monitor *HadoopClusterMonitor `pulumi:"monitor"`
 	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A `network` block as defined below.
+	Network *HadoopClusterNetwork `pulumi:"network"`
 	// Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
@@ -236,6 +240,8 @@ type HadoopClusterState struct {
 	Monitor HadoopClusterMonitorPtrInput
 	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A `network` block as defined below.
+	Network HadoopClusterNetworkPtrInput
 	// Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `roles` block as defined below.
@@ -272,6 +278,8 @@ type hadoopClusterArgs struct {
 	Monitor *HadoopClusterMonitor `pulumi:"monitor"`
 	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A `network` block as defined below.
+	Network *HadoopClusterNetwork `pulumi:"network"`
 	// Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `roles` block as defined below.
@@ -303,6 +311,8 @@ type HadoopClusterArgs struct {
 	Monitor HadoopClusterMonitorPtrInput
 	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// A `network` block as defined below.
+	Network HadoopClusterNetworkPtrInput
 	// Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `roles` block as defined below.

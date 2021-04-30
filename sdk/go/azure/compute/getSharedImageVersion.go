@@ -45,7 +45,7 @@ func LookupSharedImageVersion(ctx *pulumi.Context, args *LookupSharedImageVersio
 
 // A collection of arguments for invoking getSharedImageVersion.
 type LookupSharedImageVersionArgs struct {
-	// The name of the Shared Image in which the Shared Image exists.
+	// The name of the Shared Image Gallery in which the Shared Image exists.
 	GalleryName string `pulumi:"galleryName"`
 	// The name of the Shared Image in which this Version exists.
 	ImageName string `pulumi:"imageName"`

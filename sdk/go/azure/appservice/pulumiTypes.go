@@ -3653,6 +3653,8 @@ func (o AppServiceSiteConfigCorsPtrOutput) SupportCredentials() pulumi.BoolPtrOu
 type AppServiceSiteConfigIpRestriction struct {
 	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
 	Action *string `pulumi:"action"`
+	// The headers for this specific `ipRestriction` as defined below.
+	Headers *AppServiceSiteConfigIpRestrictionHeaders `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress *string `pulumi:"ipAddress"`
 	// The name for this IP Restriction.
@@ -3679,6 +3681,8 @@ type AppServiceSiteConfigIpRestrictionInput interface {
 type AppServiceSiteConfigIpRestrictionArgs struct {
 	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
 	Action pulumi.StringPtrInput `pulumi:"action"`
+	// The headers for this specific `ipRestriction` as defined below.
+	Headers AppServiceSiteConfigIpRestrictionHeadersPtrInput `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
 	// The name for this IP Restriction.
@@ -3747,6 +3751,11 @@ func (o AppServiceSiteConfigIpRestrictionOutput) Action() pulumi.StringPtrOutput
 	return o.ApplyT(func(v AppServiceSiteConfigIpRestriction) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
+// The headers for this specific `ipRestriction` as defined below.
+func (o AppServiceSiteConfigIpRestrictionOutput) Headers() AppServiceSiteConfigIpRestrictionHeadersPtrOutput {
+	return o.ApplyT(func(v AppServiceSiteConfigIpRestriction) *AppServiceSiteConfigIpRestrictionHeaders { return v.Headers }).(AppServiceSiteConfigIpRestrictionHeadersPtrOutput)
+}
+
 // The IP Address used for this IP Restriction in CIDR notation.
 func (o AppServiceSiteConfigIpRestrictionOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfigIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
@@ -3792,9 +3801,199 @@ func (o AppServiceSiteConfigIpRestrictionArrayOutput) Index(i pulumi.IntInput) A
 	}).(AppServiceSiteConfigIpRestrictionOutput)
 }
 
+type AppServiceSiteConfigIpRestrictionHeaders struct {
+	// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+	XAzureFdids []string `pulumi:"xAzureFdids"`
+	// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+	XFdHealthProbe *string `pulumi:"xFdHealthProbe"`
+	// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+	XForwardedFors []string `pulumi:"xForwardedFors"`
+	// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+	XForwardedHosts []string `pulumi:"xForwardedHosts"`
+}
+
+// AppServiceSiteConfigIpRestrictionHeadersInput is an input type that accepts AppServiceSiteConfigIpRestrictionHeadersArgs and AppServiceSiteConfigIpRestrictionHeadersOutput values.
+// You can construct a concrete instance of `AppServiceSiteConfigIpRestrictionHeadersInput` via:
+//
+//          AppServiceSiteConfigIpRestrictionHeadersArgs{...}
+type AppServiceSiteConfigIpRestrictionHeadersInput interface {
+	pulumi.Input
+
+	ToAppServiceSiteConfigIpRestrictionHeadersOutput() AppServiceSiteConfigIpRestrictionHeadersOutput
+	ToAppServiceSiteConfigIpRestrictionHeadersOutputWithContext(context.Context) AppServiceSiteConfigIpRestrictionHeadersOutput
+}
+
+type AppServiceSiteConfigIpRestrictionHeadersArgs struct {
+	// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+	XAzureFdids pulumi.StringArrayInput `pulumi:"xAzureFdids"`
+	// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+	XFdHealthProbe pulumi.StringPtrInput `pulumi:"xFdHealthProbe"`
+	// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+	XForwardedFors pulumi.StringArrayInput `pulumi:"xForwardedFors"`
+	// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+	XForwardedHosts pulumi.StringArrayInput `pulumi:"xForwardedHosts"`
+}
+
+func (AppServiceSiteConfigIpRestrictionHeadersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppServiceSiteConfigIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (i AppServiceSiteConfigIpRestrictionHeadersArgs) ToAppServiceSiteConfigIpRestrictionHeadersOutput() AppServiceSiteConfigIpRestrictionHeadersOutput {
+	return i.ToAppServiceSiteConfigIpRestrictionHeadersOutputWithContext(context.Background())
+}
+
+func (i AppServiceSiteConfigIpRestrictionHeadersArgs) ToAppServiceSiteConfigIpRestrictionHeadersOutputWithContext(ctx context.Context) AppServiceSiteConfigIpRestrictionHeadersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSiteConfigIpRestrictionHeadersOutput)
+}
+
+func (i AppServiceSiteConfigIpRestrictionHeadersArgs) ToAppServiceSiteConfigIpRestrictionHeadersPtrOutput() AppServiceSiteConfigIpRestrictionHeadersPtrOutput {
+	return i.ToAppServiceSiteConfigIpRestrictionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i AppServiceSiteConfigIpRestrictionHeadersArgs) ToAppServiceSiteConfigIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) AppServiceSiteConfigIpRestrictionHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSiteConfigIpRestrictionHeadersOutput).ToAppServiceSiteConfigIpRestrictionHeadersPtrOutputWithContext(ctx)
+}
+
+// AppServiceSiteConfigIpRestrictionHeadersPtrInput is an input type that accepts AppServiceSiteConfigIpRestrictionHeadersArgs, AppServiceSiteConfigIpRestrictionHeadersPtr and AppServiceSiteConfigIpRestrictionHeadersPtrOutput values.
+// You can construct a concrete instance of `AppServiceSiteConfigIpRestrictionHeadersPtrInput` via:
+//
+//          AppServiceSiteConfigIpRestrictionHeadersArgs{...}
+//
+//  or:
+//
+//          nil
+type AppServiceSiteConfigIpRestrictionHeadersPtrInput interface {
+	pulumi.Input
+
+	ToAppServiceSiteConfigIpRestrictionHeadersPtrOutput() AppServiceSiteConfigIpRestrictionHeadersPtrOutput
+	ToAppServiceSiteConfigIpRestrictionHeadersPtrOutputWithContext(context.Context) AppServiceSiteConfigIpRestrictionHeadersPtrOutput
+}
+
+type appServiceSiteConfigIpRestrictionHeadersPtrType AppServiceSiteConfigIpRestrictionHeadersArgs
+
+func AppServiceSiteConfigIpRestrictionHeadersPtr(v *AppServiceSiteConfigIpRestrictionHeadersArgs) AppServiceSiteConfigIpRestrictionHeadersPtrInput {
+	return (*appServiceSiteConfigIpRestrictionHeadersPtrType)(v)
+}
+
+func (*appServiceSiteConfigIpRestrictionHeadersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppServiceSiteConfigIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (i *appServiceSiteConfigIpRestrictionHeadersPtrType) ToAppServiceSiteConfigIpRestrictionHeadersPtrOutput() AppServiceSiteConfigIpRestrictionHeadersPtrOutput {
+	return i.ToAppServiceSiteConfigIpRestrictionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i *appServiceSiteConfigIpRestrictionHeadersPtrType) ToAppServiceSiteConfigIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) AppServiceSiteConfigIpRestrictionHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSiteConfigIpRestrictionHeadersPtrOutput)
+}
+
+type AppServiceSiteConfigIpRestrictionHeadersOutput struct{ *pulumi.OutputState }
+
+func (AppServiceSiteConfigIpRestrictionHeadersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppServiceSiteConfigIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (o AppServiceSiteConfigIpRestrictionHeadersOutput) ToAppServiceSiteConfigIpRestrictionHeadersOutput() AppServiceSiteConfigIpRestrictionHeadersOutput {
+	return o
+}
+
+func (o AppServiceSiteConfigIpRestrictionHeadersOutput) ToAppServiceSiteConfigIpRestrictionHeadersOutputWithContext(ctx context.Context) AppServiceSiteConfigIpRestrictionHeadersOutput {
+	return o
+}
+
+func (o AppServiceSiteConfigIpRestrictionHeadersOutput) ToAppServiceSiteConfigIpRestrictionHeadersPtrOutput() AppServiceSiteConfigIpRestrictionHeadersPtrOutput {
+	return o.ToAppServiceSiteConfigIpRestrictionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (o AppServiceSiteConfigIpRestrictionHeadersOutput) ToAppServiceSiteConfigIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) AppServiceSiteConfigIpRestrictionHeadersPtrOutput {
+	return o.ApplyT(func(v AppServiceSiteConfigIpRestrictionHeaders) *AppServiceSiteConfigIpRestrictionHeaders {
+		return &v
+	}).(AppServiceSiteConfigIpRestrictionHeadersPtrOutput)
+}
+
+// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+func (o AppServiceSiteConfigIpRestrictionHeadersOutput) XAzureFdids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AppServiceSiteConfigIpRestrictionHeaders) []string { return v.XAzureFdids }).(pulumi.StringArrayOutput)
+}
+
+// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+func (o AppServiceSiteConfigIpRestrictionHeadersOutput) XFdHealthProbe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppServiceSiteConfigIpRestrictionHeaders) *string { return v.XFdHealthProbe }).(pulumi.StringPtrOutput)
+}
+
+// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+func (o AppServiceSiteConfigIpRestrictionHeadersOutput) XForwardedFors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AppServiceSiteConfigIpRestrictionHeaders) []string { return v.XForwardedFors }).(pulumi.StringArrayOutput)
+}
+
+// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+func (o AppServiceSiteConfigIpRestrictionHeadersOutput) XForwardedHosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AppServiceSiteConfigIpRestrictionHeaders) []string { return v.XForwardedHosts }).(pulumi.StringArrayOutput)
+}
+
+type AppServiceSiteConfigIpRestrictionHeadersPtrOutput struct{ *pulumi.OutputState }
+
+func (AppServiceSiteConfigIpRestrictionHeadersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppServiceSiteConfigIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (o AppServiceSiteConfigIpRestrictionHeadersPtrOutput) ToAppServiceSiteConfigIpRestrictionHeadersPtrOutput() AppServiceSiteConfigIpRestrictionHeadersPtrOutput {
+	return o
+}
+
+func (o AppServiceSiteConfigIpRestrictionHeadersPtrOutput) ToAppServiceSiteConfigIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) AppServiceSiteConfigIpRestrictionHeadersPtrOutput {
+	return o
+}
+
+func (o AppServiceSiteConfigIpRestrictionHeadersPtrOutput) Elem() AppServiceSiteConfigIpRestrictionHeadersOutput {
+	return o.ApplyT(func(v *AppServiceSiteConfigIpRestrictionHeaders) AppServiceSiteConfigIpRestrictionHeaders { return *v }).(AppServiceSiteConfigIpRestrictionHeadersOutput)
+}
+
+// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+func (o AppServiceSiteConfigIpRestrictionHeadersPtrOutput) XAzureFdids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppServiceSiteConfigIpRestrictionHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.XAzureFdids
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+func (o AppServiceSiteConfigIpRestrictionHeadersPtrOutput) XFdHealthProbe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServiceSiteConfigIpRestrictionHeaders) *string {
+		if v == nil {
+			return nil
+		}
+		return v.XFdHealthProbe
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+func (o AppServiceSiteConfigIpRestrictionHeadersPtrOutput) XForwardedFors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppServiceSiteConfigIpRestrictionHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.XForwardedFors
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+func (o AppServiceSiteConfigIpRestrictionHeadersPtrOutput) XForwardedHosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppServiceSiteConfigIpRestrictionHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.XForwardedHosts
+	}).(pulumi.StringArrayOutput)
+}
+
 type AppServiceSiteConfigScmIpRestriction struct {
 	// Allow or Deny access for this IP range. Defaults to Allow.
 	Action *string `pulumi:"action"`
+	// The headers for this specific `scmIpRestriction` as defined below.
+	Headers *AppServiceSiteConfigScmIpRestrictionHeaders `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress *string `pulumi:"ipAddress"`
 	// The name for this IP Restriction.
@@ -3821,6 +4020,8 @@ type AppServiceSiteConfigScmIpRestrictionInput interface {
 type AppServiceSiteConfigScmIpRestrictionArgs struct {
 	// Allow or Deny access for this IP range. Defaults to Allow.
 	Action pulumi.StringPtrInput `pulumi:"action"`
+	// The headers for this specific `scmIpRestriction` as defined below.
+	Headers AppServiceSiteConfigScmIpRestrictionHeadersPtrInput `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
 	// The name for this IP Restriction.
@@ -3889,6 +4090,13 @@ func (o AppServiceSiteConfigScmIpRestrictionOutput) Action() pulumi.StringPtrOut
 	return o.ApplyT(func(v AppServiceSiteConfigScmIpRestriction) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
+// The headers for this specific `scmIpRestriction` as defined below.
+func (o AppServiceSiteConfigScmIpRestrictionOutput) Headers() AppServiceSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return o.ApplyT(func(v AppServiceSiteConfigScmIpRestriction) *AppServiceSiteConfigScmIpRestrictionHeaders {
+		return v.Headers
+	}).(AppServiceSiteConfigScmIpRestrictionHeadersPtrOutput)
+}
+
 // The IP Address used for this IP Restriction in CIDR notation.
 func (o AppServiceSiteConfigScmIpRestrictionOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceSiteConfigScmIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
@@ -3932,6 +4140,196 @@ func (o AppServiceSiteConfigScmIpRestrictionArrayOutput) Index(i pulumi.IntInput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppServiceSiteConfigScmIpRestriction {
 		return vs[0].([]AppServiceSiteConfigScmIpRestriction)[vs[1].(int)]
 	}).(AppServiceSiteConfigScmIpRestrictionOutput)
+}
+
+type AppServiceSiteConfigScmIpRestrictionHeaders struct {
+	// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+	XAzureFdids []string `pulumi:"xAzureFdids"`
+	// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+	XFdHealthProbe *string `pulumi:"xFdHealthProbe"`
+	// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+	XForwardedFors []string `pulumi:"xForwardedFors"`
+	// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+	XForwardedHosts []string `pulumi:"xForwardedHosts"`
+}
+
+// AppServiceSiteConfigScmIpRestrictionHeadersInput is an input type that accepts AppServiceSiteConfigScmIpRestrictionHeadersArgs and AppServiceSiteConfigScmIpRestrictionHeadersOutput values.
+// You can construct a concrete instance of `AppServiceSiteConfigScmIpRestrictionHeadersInput` via:
+//
+//          AppServiceSiteConfigScmIpRestrictionHeadersArgs{...}
+type AppServiceSiteConfigScmIpRestrictionHeadersInput interface {
+	pulumi.Input
+
+	ToAppServiceSiteConfigScmIpRestrictionHeadersOutput() AppServiceSiteConfigScmIpRestrictionHeadersOutput
+	ToAppServiceSiteConfigScmIpRestrictionHeadersOutputWithContext(context.Context) AppServiceSiteConfigScmIpRestrictionHeadersOutput
+}
+
+type AppServiceSiteConfigScmIpRestrictionHeadersArgs struct {
+	// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+	XAzureFdids pulumi.StringArrayInput `pulumi:"xAzureFdids"`
+	// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+	XFdHealthProbe pulumi.StringPtrInput `pulumi:"xFdHealthProbe"`
+	// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+	XForwardedFors pulumi.StringArrayInput `pulumi:"xForwardedFors"`
+	// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+	XForwardedHosts pulumi.StringArrayInput `pulumi:"xForwardedHosts"`
+}
+
+func (AppServiceSiteConfigScmIpRestrictionHeadersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppServiceSiteConfigScmIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (i AppServiceSiteConfigScmIpRestrictionHeadersArgs) ToAppServiceSiteConfigScmIpRestrictionHeadersOutput() AppServiceSiteConfigScmIpRestrictionHeadersOutput {
+	return i.ToAppServiceSiteConfigScmIpRestrictionHeadersOutputWithContext(context.Background())
+}
+
+func (i AppServiceSiteConfigScmIpRestrictionHeadersArgs) ToAppServiceSiteConfigScmIpRestrictionHeadersOutputWithContext(ctx context.Context) AppServiceSiteConfigScmIpRestrictionHeadersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSiteConfigScmIpRestrictionHeadersOutput)
+}
+
+func (i AppServiceSiteConfigScmIpRestrictionHeadersArgs) ToAppServiceSiteConfigScmIpRestrictionHeadersPtrOutput() AppServiceSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return i.ToAppServiceSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i AppServiceSiteConfigScmIpRestrictionHeadersArgs) ToAppServiceSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) AppServiceSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSiteConfigScmIpRestrictionHeadersOutput).ToAppServiceSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(ctx)
+}
+
+// AppServiceSiteConfigScmIpRestrictionHeadersPtrInput is an input type that accepts AppServiceSiteConfigScmIpRestrictionHeadersArgs, AppServiceSiteConfigScmIpRestrictionHeadersPtr and AppServiceSiteConfigScmIpRestrictionHeadersPtrOutput values.
+// You can construct a concrete instance of `AppServiceSiteConfigScmIpRestrictionHeadersPtrInput` via:
+//
+//          AppServiceSiteConfigScmIpRestrictionHeadersArgs{...}
+//
+//  or:
+//
+//          nil
+type AppServiceSiteConfigScmIpRestrictionHeadersPtrInput interface {
+	pulumi.Input
+
+	ToAppServiceSiteConfigScmIpRestrictionHeadersPtrOutput() AppServiceSiteConfigScmIpRestrictionHeadersPtrOutput
+	ToAppServiceSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(context.Context) AppServiceSiteConfigScmIpRestrictionHeadersPtrOutput
+}
+
+type appServiceSiteConfigScmIpRestrictionHeadersPtrType AppServiceSiteConfigScmIpRestrictionHeadersArgs
+
+func AppServiceSiteConfigScmIpRestrictionHeadersPtr(v *AppServiceSiteConfigScmIpRestrictionHeadersArgs) AppServiceSiteConfigScmIpRestrictionHeadersPtrInput {
+	return (*appServiceSiteConfigScmIpRestrictionHeadersPtrType)(v)
+}
+
+func (*appServiceSiteConfigScmIpRestrictionHeadersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppServiceSiteConfigScmIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (i *appServiceSiteConfigScmIpRestrictionHeadersPtrType) ToAppServiceSiteConfigScmIpRestrictionHeadersPtrOutput() AppServiceSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return i.ToAppServiceSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i *appServiceSiteConfigScmIpRestrictionHeadersPtrType) ToAppServiceSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) AppServiceSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppServiceSiteConfigScmIpRestrictionHeadersPtrOutput)
+}
+
+type AppServiceSiteConfigScmIpRestrictionHeadersOutput struct{ *pulumi.OutputState }
+
+func (AppServiceSiteConfigScmIpRestrictionHeadersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppServiceSiteConfigScmIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (o AppServiceSiteConfigScmIpRestrictionHeadersOutput) ToAppServiceSiteConfigScmIpRestrictionHeadersOutput() AppServiceSiteConfigScmIpRestrictionHeadersOutput {
+	return o
+}
+
+func (o AppServiceSiteConfigScmIpRestrictionHeadersOutput) ToAppServiceSiteConfigScmIpRestrictionHeadersOutputWithContext(ctx context.Context) AppServiceSiteConfigScmIpRestrictionHeadersOutput {
+	return o
+}
+
+func (o AppServiceSiteConfigScmIpRestrictionHeadersOutput) ToAppServiceSiteConfigScmIpRestrictionHeadersPtrOutput() AppServiceSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return o.ToAppServiceSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (o AppServiceSiteConfigScmIpRestrictionHeadersOutput) ToAppServiceSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) AppServiceSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return o.ApplyT(func(v AppServiceSiteConfigScmIpRestrictionHeaders) *AppServiceSiteConfigScmIpRestrictionHeaders {
+		return &v
+	}).(AppServiceSiteConfigScmIpRestrictionHeadersPtrOutput)
+}
+
+// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+func (o AppServiceSiteConfigScmIpRestrictionHeadersOutput) XAzureFdids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AppServiceSiteConfigScmIpRestrictionHeaders) []string { return v.XAzureFdids }).(pulumi.StringArrayOutput)
+}
+
+// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+func (o AppServiceSiteConfigScmIpRestrictionHeadersOutput) XFdHealthProbe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppServiceSiteConfigScmIpRestrictionHeaders) *string { return v.XFdHealthProbe }).(pulumi.StringPtrOutput)
+}
+
+// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+func (o AppServiceSiteConfigScmIpRestrictionHeadersOutput) XForwardedFors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AppServiceSiteConfigScmIpRestrictionHeaders) []string { return v.XForwardedFors }).(pulumi.StringArrayOutput)
+}
+
+// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+func (o AppServiceSiteConfigScmIpRestrictionHeadersOutput) XForwardedHosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AppServiceSiteConfigScmIpRestrictionHeaders) []string { return v.XForwardedHosts }).(pulumi.StringArrayOutput)
+}
+
+type AppServiceSiteConfigScmIpRestrictionHeadersPtrOutput struct{ *pulumi.OutputState }
+
+func (AppServiceSiteConfigScmIpRestrictionHeadersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppServiceSiteConfigScmIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (o AppServiceSiteConfigScmIpRestrictionHeadersPtrOutput) ToAppServiceSiteConfigScmIpRestrictionHeadersPtrOutput() AppServiceSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return o
+}
+
+func (o AppServiceSiteConfigScmIpRestrictionHeadersPtrOutput) ToAppServiceSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) AppServiceSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return o
+}
+
+func (o AppServiceSiteConfigScmIpRestrictionHeadersPtrOutput) Elem() AppServiceSiteConfigScmIpRestrictionHeadersOutput {
+	return o.ApplyT(func(v *AppServiceSiteConfigScmIpRestrictionHeaders) AppServiceSiteConfigScmIpRestrictionHeaders {
+		return *v
+	}).(AppServiceSiteConfigScmIpRestrictionHeadersOutput)
+}
+
+// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+func (o AppServiceSiteConfigScmIpRestrictionHeadersPtrOutput) XAzureFdids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppServiceSiteConfigScmIpRestrictionHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.XAzureFdids
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+func (o AppServiceSiteConfigScmIpRestrictionHeadersPtrOutput) XFdHealthProbe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServiceSiteConfigScmIpRestrictionHeaders) *string {
+		if v == nil {
+			return nil
+		}
+		return v.XFdHealthProbe
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+func (o AppServiceSiteConfigScmIpRestrictionHeadersPtrOutput) XForwardedFors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppServiceSiteConfigScmIpRestrictionHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.XForwardedFors
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+func (o AppServiceSiteConfigScmIpRestrictionHeadersPtrOutput) XForwardedHosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppServiceSiteConfigScmIpRestrictionHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.XForwardedHosts
+	}).(pulumi.StringArrayOutput)
 }
 
 type AppServiceSiteCredential struct {
@@ -6131,6 +6529,8 @@ type FunctionAppSiteConfig struct {
 	Http2Enabled *bool `pulumi:"http2Enabled"`
 	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
 	IpRestrictions []FunctionAppSiteConfigIpRestriction `pulumi:"ipRestrictions"`
+	// Java version hosted by the function app in Azure. Possible values are `1.8`, `11`.
+	JavaVersion *string `pulumi:"javaVersion"`
 	// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
 	LinuxFxVersion *string `pulumi:"linuxFxVersion"`
 	// The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
@@ -6174,6 +6574,8 @@ type FunctionAppSiteConfigArgs struct {
 	Http2Enabled pulumi.BoolPtrInput `pulumi:"http2Enabled"`
 	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
 	IpRestrictions FunctionAppSiteConfigIpRestrictionArrayInput `pulumi:"ipRestrictions"`
+	// Java version hosted by the function app in Azure. Possible values are `1.8`, `11`.
+	JavaVersion pulumi.StringPtrInput `pulumi:"javaVersion"`
 	// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
 	LinuxFxVersion pulumi.StringPtrInput `pulumi:"linuxFxVersion"`
 	// The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
@@ -6303,6 +6705,11 @@ func (o FunctionAppSiteConfigOutput) IpRestrictions() FunctionAppSiteConfigIpRes
 	return o.ApplyT(func(v FunctionAppSiteConfig) []FunctionAppSiteConfigIpRestriction { return v.IpRestrictions }).(FunctionAppSiteConfigIpRestrictionArrayOutput)
 }
 
+// Java version hosted by the function app in Azure. Possible values are `1.8`, `11`.
+func (o FunctionAppSiteConfigOutput) JavaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfig) *string { return v.JavaVersion }).(pulumi.StringPtrOutput)
+}
+
 // Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
 func (o FunctionAppSiteConfigOutput) LinuxFxVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfig) *string { return v.LinuxFxVersion }).(pulumi.StringPtrOutput)
@@ -6428,6 +6835,16 @@ func (o FunctionAppSiteConfigPtrOutput) IpRestrictions() FunctionAppSiteConfigIp
 		}
 		return v.IpRestrictions
 	}).(FunctionAppSiteConfigIpRestrictionArrayOutput)
+}
+
+// Java version hosted by the function app in Azure. Possible values are `1.8`, `11`.
+func (o FunctionAppSiteConfigPtrOutput) JavaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.JavaVersion
+	}).(pulumi.StringPtrOutput)
 }
 
 // Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
@@ -6663,6 +7080,8 @@ func (o FunctionAppSiteConfigCorsPtrOutput) SupportCredentials() pulumi.BoolPtrO
 type FunctionAppSiteConfigIpRestriction struct {
 	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
 	Action *string `pulumi:"action"`
+	// The headers for this specific `ipRestriction` as defined below.
+	Headers *FunctionAppSiteConfigIpRestrictionHeaders `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress *string `pulumi:"ipAddress"`
 	// The name for this IP Restriction.
@@ -6689,6 +7108,8 @@ type FunctionAppSiteConfigIpRestrictionInput interface {
 type FunctionAppSiteConfigIpRestrictionArgs struct {
 	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
 	Action pulumi.StringPtrInput `pulumi:"action"`
+	// The headers for this specific `ipRestriction` as defined below.
+	Headers FunctionAppSiteConfigIpRestrictionHeadersPtrInput `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
 	// The name for this IP Restriction.
@@ -6757,6 +7178,13 @@ func (o FunctionAppSiteConfigIpRestrictionOutput) Action() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v FunctionAppSiteConfigIpRestriction) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
+// The headers for this specific `ipRestriction` as defined below.
+func (o FunctionAppSiteConfigIpRestrictionOutput) Headers() FunctionAppSiteConfigIpRestrictionHeadersPtrOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfigIpRestriction) *FunctionAppSiteConfigIpRestrictionHeaders {
+		return v.Headers
+	}).(FunctionAppSiteConfigIpRestrictionHeadersPtrOutput)
+}
+
 // The IP Address used for this IP Restriction in CIDR notation.
 func (o FunctionAppSiteConfigIpRestrictionOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfigIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
@@ -6802,9 +7230,201 @@ func (o FunctionAppSiteConfigIpRestrictionArrayOutput) Index(i pulumi.IntInput) 
 	}).(FunctionAppSiteConfigIpRestrictionOutput)
 }
 
+type FunctionAppSiteConfigIpRestrictionHeaders struct {
+	// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+	XAzureFdids []string `pulumi:"xAzureFdids"`
+	// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+	XFdHealthProbe *string `pulumi:"xFdHealthProbe"`
+	// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+	XForwardedFors []string `pulumi:"xForwardedFors"`
+	// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+	XForwardedHosts []string `pulumi:"xForwardedHosts"`
+}
+
+// FunctionAppSiteConfigIpRestrictionHeadersInput is an input type that accepts FunctionAppSiteConfigIpRestrictionHeadersArgs and FunctionAppSiteConfigIpRestrictionHeadersOutput values.
+// You can construct a concrete instance of `FunctionAppSiteConfigIpRestrictionHeadersInput` via:
+//
+//          FunctionAppSiteConfigIpRestrictionHeadersArgs{...}
+type FunctionAppSiteConfigIpRestrictionHeadersInput interface {
+	pulumi.Input
+
+	ToFunctionAppSiteConfigIpRestrictionHeadersOutput() FunctionAppSiteConfigIpRestrictionHeadersOutput
+	ToFunctionAppSiteConfigIpRestrictionHeadersOutputWithContext(context.Context) FunctionAppSiteConfigIpRestrictionHeadersOutput
+}
+
+type FunctionAppSiteConfigIpRestrictionHeadersArgs struct {
+	// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+	XAzureFdids pulumi.StringArrayInput `pulumi:"xAzureFdids"`
+	// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+	XFdHealthProbe pulumi.StringPtrInput `pulumi:"xFdHealthProbe"`
+	// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+	XForwardedFors pulumi.StringArrayInput `pulumi:"xForwardedFors"`
+	// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+	XForwardedHosts pulumi.StringArrayInput `pulumi:"xForwardedHosts"`
+}
+
+func (FunctionAppSiteConfigIpRestrictionHeadersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSiteConfigIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (i FunctionAppSiteConfigIpRestrictionHeadersArgs) ToFunctionAppSiteConfigIpRestrictionHeadersOutput() FunctionAppSiteConfigIpRestrictionHeadersOutput {
+	return i.ToFunctionAppSiteConfigIpRestrictionHeadersOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSiteConfigIpRestrictionHeadersArgs) ToFunctionAppSiteConfigIpRestrictionHeadersOutputWithContext(ctx context.Context) FunctionAppSiteConfigIpRestrictionHeadersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSiteConfigIpRestrictionHeadersOutput)
+}
+
+func (i FunctionAppSiteConfigIpRestrictionHeadersArgs) ToFunctionAppSiteConfigIpRestrictionHeadersPtrOutput() FunctionAppSiteConfigIpRestrictionHeadersPtrOutput {
+	return i.ToFunctionAppSiteConfigIpRestrictionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSiteConfigIpRestrictionHeadersArgs) ToFunctionAppSiteConfigIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) FunctionAppSiteConfigIpRestrictionHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSiteConfigIpRestrictionHeadersOutput).ToFunctionAppSiteConfigIpRestrictionHeadersPtrOutputWithContext(ctx)
+}
+
+// FunctionAppSiteConfigIpRestrictionHeadersPtrInput is an input type that accepts FunctionAppSiteConfigIpRestrictionHeadersArgs, FunctionAppSiteConfigIpRestrictionHeadersPtr and FunctionAppSiteConfigIpRestrictionHeadersPtrOutput values.
+// You can construct a concrete instance of `FunctionAppSiteConfigIpRestrictionHeadersPtrInput` via:
+//
+//          FunctionAppSiteConfigIpRestrictionHeadersArgs{...}
+//
+//  or:
+//
+//          nil
+type FunctionAppSiteConfigIpRestrictionHeadersPtrInput interface {
+	pulumi.Input
+
+	ToFunctionAppSiteConfigIpRestrictionHeadersPtrOutput() FunctionAppSiteConfigIpRestrictionHeadersPtrOutput
+	ToFunctionAppSiteConfigIpRestrictionHeadersPtrOutputWithContext(context.Context) FunctionAppSiteConfigIpRestrictionHeadersPtrOutput
+}
+
+type functionAppSiteConfigIpRestrictionHeadersPtrType FunctionAppSiteConfigIpRestrictionHeadersArgs
+
+func FunctionAppSiteConfigIpRestrictionHeadersPtr(v *FunctionAppSiteConfigIpRestrictionHeadersArgs) FunctionAppSiteConfigIpRestrictionHeadersPtrInput {
+	return (*functionAppSiteConfigIpRestrictionHeadersPtrType)(v)
+}
+
+func (*functionAppSiteConfigIpRestrictionHeadersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionAppSiteConfigIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (i *functionAppSiteConfigIpRestrictionHeadersPtrType) ToFunctionAppSiteConfigIpRestrictionHeadersPtrOutput() FunctionAppSiteConfigIpRestrictionHeadersPtrOutput {
+	return i.ToFunctionAppSiteConfigIpRestrictionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i *functionAppSiteConfigIpRestrictionHeadersPtrType) ToFunctionAppSiteConfigIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) FunctionAppSiteConfigIpRestrictionHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSiteConfigIpRestrictionHeadersPtrOutput)
+}
+
+type FunctionAppSiteConfigIpRestrictionHeadersOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSiteConfigIpRestrictionHeadersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSiteConfigIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (o FunctionAppSiteConfigIpRestrictionHeadersOutput) ToFunctionAppSiteConfigIpRestrictionHeadersOutput() FunctionAppSiteConfigIpRestrictionHeadersOutput {
+	return o
+}
+
+func (o FunctionAppSiteConfigIpRestrictionHeadersOutput) ToFunctionAppSiteConfigIpRestrictionHeadersOutputWithContext(ctx context.Context) FunctionAppSiteConfigIpRestrictionHeadersOutput {
+	return o
+}
+
+func (o FunctionAppSiteConfigIpRestrictionHeadersOutput) ToFunctionAppSiteConfigIpRestrictionHeadersPtrOutput() FunctionAppSiteConfigIpRestrictionHeadersPtrOutput {
+	return o.ToFunctionAppSiteConfigIpRestrictionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionAppSiteConfigIpRestrictionHeadersOutput) ToFunctionAppSiteConfigIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) FunctionAppSiteConfigIpRestrictionHeadersPtrOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfigIpRestrictionHeaders) *FunctionAppSiteConfigIpRestrictionHeaders {
+		return &v
+	}).(FunctionAppSiteConfigIpRestrictionHeadersPtrOutput)
+}
+
+// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+func (o FunctionAppSiteConfigIpRestrictionHeadersOutput) XAzureFdids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfigIpRestrictionHeaders) []string { return v.XAzureFdids }).(pulumi.StringArrayOutput)
+}
+
+// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+func (o FunctionAppSiteConfigIpRestrictionHeadersOutput) XFdHealthProbe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfigIpRestrictionHeaders) *string { return v.XFdHealthProbe }).(pulumi.StringPtrOutput)
+}
+
+// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+func (o FunctionAppSiteConfigIpRestrictionHeadersOutput) XForwardedFors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfigIpRestrictionHeaders) []string { return v.XForwardedFors }).(pulumi.StringArrayOutput)
+}
+
+// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+func (o FunctionAppSiteConfigIpRestrictionHeadersOutput) XForwardedHosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfigIpRestrictionHeaders) []string { return v.XForwardedHosts }).(pulumi.StringArrayOutput)
+}
+
+type FunctionAppSiteConfigIpRestrictionHeadersPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSiteConfigIpRestrictionHeadersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionAppSiteConfigIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (o FunctionAppSiteConfigIpRestrictionHeadersPtrOutput) ToFunctionAppSiteConfigIpRestrictionHeadersPtrOutput() FunctionAppSiteConfigIpRestrictionHeadersPtrOutput {
+	return o
+}
+
+func (o FunctionAppSiteConfigIpRestrictionHeadersPtrOutput) ToFunctionAppSiteConfigIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) FunctionAppSiteConfigIpRestrictionHeadersPtrOutput {
+	return o
+}
+
+func (o FunctionAppSiteConfigIpRestrictionHeadersPtrOutput) Elem() FunctionAppSiteConfigIpRestrictionHeadersOutput {
+	return o.ApplyT(func(v *FunctionAppSiteConfigIpRestrictionHeaders) FunctionAppSiteConfigIpRestrictionHeaders {
+		return *v
+	}).(FunctionAppSiteConfigIpRestrictionHeadersOutput)
+}
+
+// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+func (o FunctionAppSiteConfigIpRestrictionHeadersPtrOutput) XAzureFdids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FunctionAppSiteConfigIpRestrictionHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.XAzureFdids
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+func (o FunctionAppSiteConfigIpRestrictionHeadersPtrOutput) XFdHealthProbe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSiteConfigIpRestrictionHeaders) *string {
+		if v == nil {
+			return nil
+		}
+		return v.XFdHealthProbe
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+func (o FunctionAppSiteConfigIpRestrictionHeadersPtrOutput) XForwardedFors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FunctionAppSiteConfigIpRestrictionHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.XForwardedFors
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+func (o FunctionAppSiteConfigIpRestrictionHeadersPtrOutput) XForwardedHosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FunctionAppSiteConfigIpRestrictionHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.XForwardedHosts
+	}).(pulumi.StringArrayOutput)
+}
+
 type FunctionAppSiteConfigScmIpRestriction struct {
 	// Allow or Deny access for this IP range. Defaults to Allow.
 	Action *string `pulumi:"action"`
+	// The headers for this specific `scmIpRestriction` as defined below.
+	Headers *FunctionAppSiteConfigScmIpRestrictionHeaders `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress *string `pulumi:"ipAddress"`
 	// The name for this IP Restriction.
@@ -6831,6 +7451,8 @@ type FunctionAppSiteConfigScmIpRestrictionInput interface {
 type FunctionAppSiteConfigScmIpRestrictionArgs struct {
 	// Allow or Deny access for this IP range. Defaults to Allow.
 	Action pulumi.StringPtrInput `pulumi:"action"`
+	// The headers for this specific `scmIpRestriction` as defined below.
+	Headers FunctionAppSiteConfigScmIpRestrictionHeadersPtrInput `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
 	// The name for this IP Restriction.
@@ -6899,6 +7521,13 @@ func (o FunctionAppSiteConfigScmIpRestrictionOutput) Action() pulumi.StringPtrOu
 	return o.ApplyT(func(v FunctionAppSiteConfigScmIpRestriction) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
+// The headers for this specific `scmIpRestriction` as defined below.
+func (o FunctionAppSiteConfigScmIpRestrictionOutput) Headers() FunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfigScmIpRestriction) *FunctionAppSiteConfigScmIpRestrictionHeaders {
+		return v.Headers
+	}).(FunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput)
+}
+
 // The IP Address used for this IP Restriction in CIDR notation.
 func (o FunctionAppSiteConfigScmIpRestrictionOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppSiteConfigScmIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
@@ -6942,6 +7571,196 @@ func (o FunctionAppSiteConfigScmIpRestrictionArrayOutput) Index(i pulumi.IntInpu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionAppSiteConfigScmIpRestriction {
 		return vs[0].([]FunctionAppSiteConfigScmIpRestriction)[vs[1].(int)]
 	}).(FunctionAppSiteConfigScmIpRestrictionOutput)
+}
+
+type FunctionAppSiteConfigScmIpRestrictionHeaders struct {
+	// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+	XAzureFdids []string `pulumi:"xAzureFdids"`
+	// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+	XFdHealthProbe *string `pulumi:"xFdHealthProbe"`
+	// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+	XForwardedFors []string `pulumi:"xForwardedFors"`
+	// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+	XForwardedHosts []string `pulumi:"xForwardedHosts"`
+}
+
+// FunctionAppSiteConfigScmIpRestrictionHeadersInput is an input type that accepts FunctionAppSiteConfigScmIpRestrictionHeadersArgs and FunctionAppSiteConfigScmIpRestrictionHeadersOutput values.
+// You can construct a concrete instance of `FunctionAppSiteConfigScmIpRestrictionHeadersInput` via:
+//
+//          FunctionAppSiteConfigScmIpRestrictionHeadersArgs{...}
+type FunctionAppSiteConfigScmIpRestrictionHeadersInput interface {
+	pulumi.Input
+
+	ToFunctionAppSiteConfigScmIpRestrictionHeadersOutput() FunctionAppSiteConfigScmIpRestrictionHeadersOutput
+	ToFunctionAppSiteConfigScmIpRestrictionHeadersOutputWithContext(context.Context) FunctionAppSiteConfigScmIpRestrictionHeadersOutput
+}
+
+type FunctionAppSiteConfigScmIpRestrictionHeadersArgs struct {
+	// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+	XAzureFdids pulumi.StringArrayInput `pulumi:"xAzureFdids"`
+	// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+	XFdHealthProbe pulumi.StringPtrInput `pulumi:"xFdHealthProbe"`
+	// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+	XForwardedFors pulumi.StringArrayInput `pulumi:"xForwardedFors"`
+	// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+	XForwardedHosts pulumi.StringArrayInput `pulumi:"xForwardedHosts"`
+}
+
+func (FunctionAppSiteConfigScmIpRestrictionHeadersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSiteConfigScmIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (i FunctionAppSiteConfigScmIpRestrictionHeadersArgs) ToFunctionAppSiteConfigScmIpRestrictionHeadersOutput() FunctionAppSiteConfigScmIpRestrictionHeadersOutput {
+	return i.ToFunctionAppSiteConfigScmIpRestrictionHeadersOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSiteConfigScmIpRestrictionHeadersArgs) ToFunctionAppSiteConfigScmIpRestrictionHeadersOutputWithContext(ctx context.Context) FunctionAppSiteConfigScmIpRestrictionHeadersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSiteConfigScmIpRestrictionHeadersOutput)
+}
+
+func (i FunctionAppSiteConfigScmIpRestrictionHeadersArgs) ToFunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput() FunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return i.ToFunctionAppSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSiteConfigScmIpRestrictionHeadersArgs) ToFunctionAppSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) FunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSiteConfigScmIpRestrictionHeadersOutput).ToFunctionAppSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(ctx)
+}
+
+// FunctionAppSiteConfigScmIpRestrictionHeadersPtrInput is an input type that accepts FunctionAppSiteConfigScmIpRestrictionHeadersArgs, FunctionAppSiteConfigScmIpRestrictionHeadersPtr and FunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput values.
+// You can construct a concrete instance of `FunctionAppSiteConfigScmIpRestrictionHeadersPtrInput` via:
+//
+//          FunctionAppSiteConfigScmIpRestrictionHeadersArgs{...}
+//
+//  or:
+//
+//          nil
+type FunctionAppSiteConfigScmIpRestrictionHeadersPtrInput interface {
+	pulumi.Input
+
+	ToFunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput() FunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput
+	ToFunctionAppSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(context.Context) FunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput
+}
+
+type functionAppSiteConfigScmIpRestrictionHeadersPtrType FunctionAppSiteConfigScmIpRestrictionHeadersArgs
+
+func FunctionAppSiteConfigScmIpRestrictionHeadersPtr(v *FunctionAppSiteConfigScmIpRestrictionHeadersArgs) FunctionAppSiteConfigScmIpRestrictionHeadersPtrInput {
+	return (*functionAppSiteConfigScmIpRestrictionHeadersPtrType)(v)
+}
+
+func (*functionAppSiteConfigScmIpRestrictionHeadersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionAppSiteConfigScmIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (i *functionAppSiteConfigScmIpRestrictionHeadersPtrType) ToFunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput() FunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return i.ToFunctionAppSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i *functionAppSiteConfigScmIpRestrictionHeadersPtrType) ToFunctionAppSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) FunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput)
+}
+
+type FunctionAppSiteConfigScmIpRestrictionHeadersOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSiteConfigScmIpRestrictionHeadersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSiteConfigScmIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (o FunctionAppSiteConfigScmIpRestrictionHeadersOutput) ToFunctionAppSiteConfigScmIpRestrictionHeadersOutput() FunctionAppSiteConfigScmIpRestrictionHeadersOutput {
+	return o
+}
+
+func (o FunctionAppSiteConfigScmIpRestrictionHeadersOutput) ToFunctionAppSiteConfigScmIpRestrictionHeadersOutputWithContext(ctx context.Context) FunctionAppSiteConfigScmIpRestrictionHeadersOutput {
+	return o
+}
+
+func (o FunctionAppSiteConfigScmIpRestrictionHeadersOutput) ToFunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput() FunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return o.ToFunctionAppSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionAppSiteConfigScmIpRestrictionHeadersOutput) ToFunctionAppSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) FunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfigScmIpRestrictionHeaders) *FunctionAppSiteConfigScmIpRestrictionHeaders {
+		return &v
+	}).(FunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput)
+}
+
+// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+func (o FunctionAppSiteConfigScmIpRestrictionHeadersOutput) XAzureFdids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfigScmIpRestrictionHeaders) []string { return v.XAzureFdids }).(pulumi.StringArrayOutput)
+}
+
+// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+func (o FunctionAppSiteConfigScmIpRestrictionHeadersOutput) XFdHealthProbe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfigScmIpRestrictionHeaders) *string { return v.XFdHealthProbe }).(pulumi.StringPtrOutput)
+}
+
+// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+func (o FunctionAppSiteConfigScmIpRestrictionHeadersOutput) XForwardedFors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfigScmIpRestrictionHeaders) []string { return v.XForwardedFors }).(pulumi.StringArrayOutput)
+}
+
+// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+func (o FunctionAppSiteConfigScmIpRestrictionHeadersOutput) XForwardedHosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FunctionAppSiteConfigScmIpRestrictionHeaders) []string { return v.XForwardedHosts }).(pulumi.StringArrayOutput)
+}
+
+type FunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionAppSiteConfigScmIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (o FunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput) ToFunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput() FunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return o
+}
+
+func (o FunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput) ToFunctionAppSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) FunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return o
+}
+
+func (o FunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput) Elem() FunctionAppSiteConfigScmIpRestrictionHeadersOutput {
+	return o.ApplyT(func(v *FunctionAppSiteConfigScmIpRestrictionHeaders) FunctionAppSiteConfigScmIpRestrictionHeaders {
+		return *v
+	}).(FunctionAppSiteConfigScmIpRestrictionHeadersOutput)
+}
+
+// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+func (o FunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput) XAzureFdids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FunctionAppSiteConfigScmIpRestrictionHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.XAzureFdids
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+func (o FunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput) XFdHealthProbe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSiteConfigScmIpRestrictionHeaders) *string {
+		if v == nil {
+			return nil
+		}
+		return v.XFdHealthProbe
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+func (o FunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput) XForwardedFors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FunctionAppSiteConfigScmIpRestrictionHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.XForwardedFors
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+func (o FunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput) XForwardedHosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FunctionAppSiteConfigScmIpRestrictionHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.XForwardedHosts
+	}).(pulumi.StringArrayOutput)
 }
 
 type FunctionAppSiteCredential struct {
@@ -8566,6 +9385,7 @@ type FunctionAppSlotSiteConfig struct {
 	Http2Enabled *bool `pulumi:"http2Enabled"`
 	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
 	IpRestrictions []FunctionAppSlotSiteConfigIpRestriction `pulumi:"ipRestrictions"`
+	JavaVersion    *string                                  `pulumi:"javaVersion"`
 	// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
 	LinuxFxVersion *string `pulumi:"linuxFxVersion"`
 	// The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
@@ -8606,6 +9426,7 @@ type FunctionAppSlotSiteConfigArgs struct {
 	Http2Enabled pulumi.BoolPtrInput `pulumi:"http2Enabled"`
 	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
 	IpRestrictions FunctionAppSlotSiteConfigIpRestrictionArrayInput `pulumi:"ipRestrictions"`
+	JavaVersion    pulumi.StringPtrInput                            `pulumi:"javaVersion"`
 	// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
 	LinuxFxVersion pulumi.StringPtrInput `pulumi:"linuxFxVersion"`
 	// The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
@@ -8732,6 +9553,10 @@ func (o FunctionAppSlotSiteConfigOutput) IpRestrictions() FunctionAppSlotSiteCon
 	return o.ApplyT(func(v FunctionAppSlotSiteConfig) []FunctionAppSlotSiteConfigIpRestriction { return v.IpRestrictions }).(FunctionAppSlotSiteConfigIpRestrictionArrayOutput)
 }
 
+func (o FunctionAppSlotSiteConfigOutput) JavaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *string { return v.JavaVersion }).(pulumi.StringPtrOutput)
+}
+
 // Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
 func (o FunctionAppSlotSiteConfigOutput) LinuxFxVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppSlotSiteConfig) *string { return v.LinuxFxVersion }).(pulumi.StringPtrOutput)
@@ -8856,6 +9681,15 @@ func (o FunctionAppSlotSiteConfigPtrOutput) IpRestrictions() FunctionAppSlotSite
 		}
 		return v.IpRestrictions
 	}).(FunctionAppSlotSiteConfigIpRestrictionArrayOutput)
+}
+
+func (o FunctionAppSlotSiteConfigPtrOutput) JavaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.JavaVersion
+	}).(pulumi.StringPtrOutput)
 }
 
 // Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
@@ -9088,6 +9922,8 @@ func (o FunctionAppSlotSiteConfigCorsPtrOutput) SupportCredentials() pulumi.Bool
 type FunctionAppSlotSiteConfigIpRestriction struct {
 	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
 	Action *string `pulumi:"action"`
+	// The headers for this specific `ipRestriction` as defined below.
+	Headers *FunctionAppSlotSiteConfigIpRestrictionHeaders `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress *string `pulumi:"ipAddress"`
 	// The name for this IP Restriction.
@@ -9114,6 +9950,8 @@ type FunctionAppSlotSiteConfigIpRestrictionInput interface {
 type FunctionAppSlotSiteConfigIpRestrictionArgs struct {
 	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
 	Action pulumi.StringPtrInput `pulumi:"action"`
+	// The headers for this specific `ipRestriction` as defined below.
+	Headers FunctionAppSlotSiteConfigIpRestrictionHeadersPtrInput `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
 	// The name for this IP Restriction.
@@ -9182,6 +10020,13 @@ func (o FunctionAppSlotSiteConfigIpRestrictionOutput) Action() pulumi.StringPtrO
 	return o.ApplyT(func(v FunctionAppSlotSiteConfigIpRestriction) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
+// The headers for this specific `ipRestriction` as defined below.
+func (o FunctionAppSlotSiteConfigIpRestrictionOutput) Headers() FunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfigIpRestriction) *FunctionAppSlotSiteConfigIpRestrictionHeaders {
+		return v.Headers
+	}).(FunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput)
+}
+
 // The IP Address used for this IP Restriction in CIDR notation.
 func (o FunctionAppSlotSiteConfigIpRestrictionOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppSlotSiteConfigIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
@@ -9227,9 +10072,201 @@ func (o FunctionAppSlotSiteConfigIpRestrictionArrayOutput) Index(i pulumi.IntInp
 	}).(FunctionAppSlotSiteConfigIpRestrictionOutput)
 }
 
+type FunctionAppSlotSiteConfigIpRestrictionHeaders struct {
+	// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+	XAzureFdids []string `pulumi:"xAzureFdids"`
+	// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+	XFdHealthProbe *string `pulumi:"xFdHealthProbe"`
+	// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+	XForwardedFors []string `pulumi:"xForwardedFors"`
+	// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+	XForwardedHosts []string `pulumi:"xForwardedHosts"`
+}
+
+// FunctionAppSlotSiteConfigIpRestrictionHeadersInput is an input type that accepts FunctionAppSlotSiteConfigIpRestrictionHeadersArgs and FunctionAppSlotSiteConfigIpRestrictionHeadersOutput values.
+// You can construct a concrete instance of `FunctionAppSlotSiteConfigIpRestrictionHeadersInput` via:
+//
+//          FunctionAppSlotSiteConfigIpRestrictionHeadersArgs{...}
+type FunctionAppSlotSiteConfigIpRestrictionHeadersInput interface {
+	pulumi.Input
+
+	ToFunctionAppSlotSiteConfigIpRestrictionHeadersOutput() FunctionAppSlotSiteConfigIpRestrictionHeadersOutput
+	ToFunctionAppSlotSiteConfigIpRestrictionHeadersOutputWithContext(context.Context) FunctionAppSlotSiteConfigIpRestrictionHeadersOutput
+}
+
+type FunctionAppSlotSiteConfigIpRestrictionHeadersArgs struct {
+	// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+	XAzureFdids pulumi.StringArrayInput `pulumi:"xAzureFdids"`
+	// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+	XFdHealthProbe pulumi.StringPtrInput `pulumi:"xFdHealthProbe"`
+	// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+	XForwardedFors pulumi.StringArrayInput `pulumi:"xForwardedFors"`
+	// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+	XForwardedHosts pulumi.StringArrayInput `pulumi:"xForwardedHosts"`
+}
+
+func (FunctionAppSlotSiteConfigIpRestrictionHeadersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlotSiteConfigIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (i FunctionAppSlotSiteConfigIpRestrictionHeadersArgs) ToFunctionAppSlotSiteConfigIpRestrictionHeadersOutput() FunctionAppSlotSiteConfigIpRestrictionHeadersOutput {
+	return i.ToFunctionAppSlotSiteConfigIpRestrictionHeadersOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSlotSiteConfigIpRestrictionHeadersArgs) ToFunctionAppSlotSiteConfigIpRestrictionHeadersOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigIpRestrictionHeadersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotSiteConfigIpRestrictionHeadersOutput)
+}
+
+func (i FunctionAppSlotSiteConfigIpRestrictionHeadersArgs) ToFunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput() FunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput {
+	return i.ToFunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSlotSiteConfigIpRestrictionHeadersArgs) ToFunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotSiteConfigIpRestrictionHeadersOutput).ToFunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutputWithContext(ctx)
+}
+
+// FunctionAppSlotSiteConfigIpRestrictionHeadersPtrInput is an input type that accepts FunctionAppSlotSiteConfigIpRestrictionHeadersArgs, FunctionAppSlotSiteConfigIpRestrictionHeadersPtr and FunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput values.
+// You can construct a concrete instance of `FunctionAppSlotSiteConfigIpRestrictionHeadersPtrInput` via:
+//
+//          FunctionAppSlotSiteConfigIpRestrictionHeadersArgs{...}
+//
+//  or:
+//
+//          nil
+type FunctionAppSlotSiteConfigIpRestrictionHeadersPtrInput interface {
+	pulumi.Input
+
+	ToFunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput() FunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput
+	ToFunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutputWithContext(context.Context) FunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput
+}
+
+type functionAppSlotSiteConfigIpRestrictionHeadersPtrType FunctionAppSlotSiteConfigIpRestrictionHeadersArgs
+
+func FunctionAppSlotSiteConfigIpRestrictionHeadersPtr(v *FunctionAppSlotSiteConfigIpRestrictionHeadersArgs) FunctionAppSlotSiteConfigIpRestrictionHeadersPtrInput {
+	return (*functionAppSlotSiteConfigIpRestrictionHeadersPtrType)(v)
+}
+
+func (*functionAppSlotSiteConfigIpRestrictionHeadersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionAppSlotSiteConfigIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (i *functionAppSlotSiteConfigIpRestrictionHeadersPtrType) ToFunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput() FunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput {
+	return i.ToFunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i *functionAppSlotSiteConfigIpRestrictionHeadersPtrType) ToFunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput)
+}
+
+type FunctionAppSlotSiteConfigIpRestrictionHeadersOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSlotSiteConfigIpRestrictionHeadersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlotSiteConfigIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (o FunctionAppSlotSiteConfigIpRestrictionHeadersOutput) ToFunctionAppSlotSiteConfigIpRestrictionHeadersOutput() FunctionAppSlotSiteConfigIpRestrictionHeadersOutput {
+	return o
+}
+
+func (o FunctionAppSlotSiteConfigIpRestrictionHeadersOutput) ToFunctionAppSlotSiteConfigIpRestrictionHeadersOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigIpRestrictionHeadersOutput {
+	return o
+}
+
+func (o FunctionAppSlotSiteConfigIpRestrictionHeadersOutput) ToFunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput() FunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput {
+	return o.ToFunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionAppSlotSiteConfigIpRestrictionHeadersOutput) ToFunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfigIpRestrictionHeaders) *FunctionAppSlotSiteConfigIpRestrictionHeaders {
+		return &v
+	}).(FunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput)
+}
+
+// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+func (o FunctionAppSlotSiteConfigIpRestrictionHeadersOutput) XAzureFdids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfigIpRestrictionHeaders) []string { return v.XAzureFdids }).(pulumi.StringArrayOutput)
+}
+
+// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+func (o FunctionAppSlotSiteConfigIpRestrictionHeadersOutput) XFdHealthProbe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfigIpRestrictionHeaders) *string { return v.XFdHealthProbe }).(pulumi.StringPtrOutput)
+}
+
+// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+func (o FunctionAppSlotSiteConfigIpRestrictionHeadersOutput) XForwardedFors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfigIpRestrictionHeaders) []string { return v.XForwardedFors }).(pulumi.StringArrayOutput)
+}
+
+// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+func (o FunctionAppSlotSiteConfigIpRestrictionHeadersOutput) XForwardedHosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfigIpRestrictionHeaders) []string { return v.XForwardedHosts }).(pulumi.StringArrayOutput)
+}
+
+type FunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionAppSlotSiteConfigIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (o FunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput) ToFunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput() FunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput {
+	return o
+}
+
+func (o FunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput) ToFunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput {
+	return o
+}
+
+func (o FunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput) Elem() FunctionAppSlotSiteConfigIpRestrictionHeadersOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfigIpRestrictionHeaders) FunctionAppSlotSiteConfigIpRestrictionHeaders {
+		return *v
+	}).(FunctionAppSlotSiteConfigIpRestrictionHeadersOutput)
+}
+
+// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+func (o FunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput) XAzureFdids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfigIpRestrictionHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.XAzureFdids
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+func (o FunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput) XFdHealthProbe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfigIpRestrictionHeaders) *string {
+		if v == nil {
+			return nil
+		}
+		return v.XFdHealthProbe
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+func (o FunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput) XForwardedFors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfigIpRestrictionHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.XForwardedFors
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+func (o FunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput) XForwardedHosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfigIpRestrictionHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.XForwardedHosts
+	}).(pulumi.StringArrayOutput)
+}
+
 type FunctionAppSlotSiteConfigScmIpRestriction struct {
 	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
 	Action *string `pulumi:"action"`
+	// The headers for this specific `ipRestriction` as defined below.
+	Headers *FunctionAppSlotSiteConfigScmIpRestrictionHeaders `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress *string `pulumi:"ipAddress"`
 	// Specifies the name of the Function App. Changing this forces a new resource to be created.
@@ -9256,6 +10293,8 @@ type FunctionAppSlotSiteConfigScmIpRestrictionInput interface {
 type FunctionAppSlotSiteConfigScmIpRestrictionArgs struct {
 	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
 	Action pulumi.StringPtrInput `pulumi:"action"`
+	// The headers for this specific `ipRestriction` as defined below.
+	Headers FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrInput `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
 	// Specifies the name of the Function App. Changing this forces a new resource to be created.
@@ -9324,6 +10363,13 @@ func (o FunctionAppSlotSiteConfigScmIpRestrictionOutput) Action() pulumi.StringP
 	return o.ApplyT(func(v FunctionAppSlotSiteConfigScmIpRestriction) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
+// The headers for this specific `ipRestriction` as defined below.
+func (o FunctionAppSlotSiteConfigScmIpRestrictionOutput) Headers() FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfigScmIpRestriction) *FunctionAppSlotSiteConfigScmIpRestrictionHeaders {
+		return v.Headers
+	}).(FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput)
+}
+
 // The IP Address used for this IP Restriction in CIDR notation.
 func (o FunctionAppSlotSiteConfigScmIpRestrictionOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionAppSlotSiteConfigScmIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
@@ -9367,6 +10413,196 @@ func (o FunctionAppSlotSiteConfigScmIpRestrictionArrayOutput) Index(i pulumi.Int
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionAppSlotSiteConfigScmIpRestriction {
 		return vs[0].([]FunctionAppSlotSiteConfigScmIpRestriction)[vs[1].(int)]
 	}).(FunctionAppSlotSiteConfigScmIpRestrictionOutput)
+}
+
+type FunctionAppSlotSiteConfigScmIpRestrictionHeaders struct {
+	// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+	XAzureFdids []string `pulumi:"xAzureFdids"`
+	// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+	XFdHealthProbe *string `pulumi:"xFdHealthProbe"`
+	// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+	XForwardedFors []string `pulumi:"xForwardedFors"`
+	// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+	XForwardedHosts []string `pulumi:"xForwardedHosts"`
+}
+
+// FunctionAppSlotSiteConfigScmIpRestrictionHeadersInput is an input type that accepts FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs and FunctionAppSlotSiteConfigScmIpRestrictionHeadersOutput values.
+// You can construct a concrete instance of `FunctionAppSlotSiteConfigScmIpRestrictionHeadersInput` via:
+//
+//          FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs{...}
+type FunctionAppSlotSiteConfigScmIpRestrictionHeadersInput interface {
+	pulumi.Input
+
+	ToFunctionAppSlotSiteConfigScmIpRestrictionHeadersOutput() FunctionAppSlotSiteConfigScmIpRestrictionHeadersOutput
+	ToFunctionAppSlotSiteConfigScmIpRestrictionHeadersOutputWithContext(context.Context) FunctionAppSlotSiteConfigScmIpRestrictionHeadersOutput
+}
+
+type FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs struct {
+	// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+	XAzureFdids pulumi.StringArrayInput `pulumi:"xAzureFdids"`
+	// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+	XFdHealthProbe pulumi.StringPtrInput `pulumi:"xFdHealthProbe"`
+	// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+	XForwardedFors pulumi.StringArrayInput `pulumi:"xForwardedFors"`
+	// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+	XForwardedHosts pulumi.StringArrayInput `pulumi:"xForwardedHosts"`
+}
+
+func (FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlotSiteConfigScmIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (i FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs) ToFunctionAppSlotSiteConfigScmIpRestrictionHeadersOutput() FunctionAppSlotSiteConfigScmIpRestrictionHeadersOutput {
+	return i.ToFunctionAppSlotSiteConfigScmIpRestrictionHeadersOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs) ToFunctionAppSlotSiteConfigScmIpRestrictionHeadersOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigScmIpRestrictionHeadersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotSiteConfigScmIpRestrictionHeadersOutput)
+}
+
+func (i FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs) ToFunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput() FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return i.ToFunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs) ToFunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotSiteConfigScmIpRestrictionHeadersOutput).ToFunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(ctx)
+}
+
+// FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrInput is an input type that accepts FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs, FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtr and FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput values.
+// You can construct a concrete instance of `FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrInput` via:
+//
+//          FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs{...}
+//
+//  or:
+//
+//          nil
+type FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrInput interface {
+	pulumi.Input
+
+	ToFunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput() FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput
+	ToFunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(context.Context) FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput
+}
+
+type functionAppSlotSiteConfigScmIpRestrictionHeadersPtrType FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs
+
+func FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtr(v *FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs) FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrInput {
+	return (*functionAppSlotSiteConfigScmIpRestrictionHeadersPtrType)(v)
+}
+
+func (*functionAppSlotSiteConfigScmIpRestrictionHeadersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionAppSlotSiteConfigScmIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (i *functionAppSlotSiteConfigScmIpRestrictionHeadersPtrType) ToFunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput() FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return i.ToFunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i *functionAppSlotSiteConfigScmIpRestrictionHeadersPtrType) ToFunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput)
+}
+
+type FunctionAppSlotSiteConfigScmIpRestrictionHeadersOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSlotSiteConfigScmIpRestrictionHeadersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionAppSlotSiteConfigScmIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (o FunctionAppSlotSiteConfigScmIpRestrictionHeadersOutput) ToFunctionAppSlotSiteConfigScmIpRestrictionHeadersOutput() FunctionAppSlotSiteConfigScmIpRestrictionHeadersOutput {
+	return o
+}
+
+func (o FunctionAppSlotSiteConfigScmIpRestrictionHeadersOutput) ToFunctionAppSlotSiteConfigScmIpRestrictionHeadersOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigScmIpRestrictionHeadersOutput {
+	return o
+}
+
+func (o FunctionAppSlotSiteConfigScmIpRestrictionHeadersOutput) ToFunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput() FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return o.ToFunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionAppSlotSiteConfigScmIpRestrictionHeadersOutput) ToFunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfigScmIpRestrictionHeaders) *FunctionAppSlotSiteConfigScmIpRestrictionHeaders {
+		return &v
+	}).(FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput)
+}
+
+// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+func (o FunctionAppSlotSiteConfigScmIpRestrictionHeadersOutput) XAzureFdids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfigScmIpRestrictionHeaders) []string { return v.XAzureFdids }).(pulumi.StringArrayOutput)
+}
+
+// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+func (o FunctionAppSlotSiteConfigScmIpRestrictionHeadersOutput) XFdHealthProbe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfigScmIpRestrictionHeaders) *string { return v.XFdHealthProbe }).(pulumi.StringPtrOutput)
+}
+
+// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+func (o FunctionAppSlotSiteConfigScmIpRestrictionHeadersOutput) XForwardedFors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfigScmIpRestrictionHeaders) []string { return v.XForwardedFors }).(pulumi.StringArrayOutput)
+}
+
+// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+func (o FunctionAppSlotSiteConfigScmIpRestrictionHeadersOutput) XForwardedHosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FunctionAppSlotSiteConfigScmIpRestrictionHeaders) []string { return v.XForwardedHosts }).(pulumi.StringArrayOutput)
+}
+
+type FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionAppSlotSiteConfigScmIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (o FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput) ToFunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput() FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return o
+}
+
+func (o FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput) ToFunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return o
+}
+
+func (o FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput) Elem() FunctionAppSlotSiteConfigScmIpRestrictionHeadersOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfigScmIpRestrictionHeaders) FunctionAppSlotSiteConfigScmIpRestrictionHeaders {
+		return *v
+	}).(FunctionAppSlotSiteConfigScmIpRestrictionHeadersOutput)
+}
+
+// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+func (o FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput) XAzureFdids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfigScmIpRestrictionHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.XAzureFdids
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+func (o FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput) XFdHealthProbe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfigScmIpRestrictionHeaders) *string {
+		if v == nil {
+			return nil
+		}
+		return v.XFdHealthProbe
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+func (o FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput) XForwardedFors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfigScmIpRestrictionHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.XForwardedFors
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+func (o FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput) XForwardedHosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FunctionAppSlotSiteConfigScmIpRestrictionHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.XForwardedHosts
+	}).(pulumi.StringArrayOutput)
 }
 
 type FunctionAppSlotSiteCredential struct {
@@ -13067,6 +14303,8 @@ func (o SlotSiteConfigCorsPtrOutput) SupportCredentials() pulumi.BoolPtrOutput {
 type SlotSiteConfigIpRestriction struct {
 	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
 	Action *string `pulumi:"action"`
+	// The headers for this specific `ipRestriction` as defined below. The http header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+	Headers *SlotSiteConfigIpRestrictionHeaders `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress *string `pulumi:"ipAddress"`
 	// The name for this IP Restriction.
@@ -13093,6 +14331,8 @@ type SlotSiteConfigIpRestrictionInput interface {
 type SlotSiteConfigIpRestrictionArgs struct {
 	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
 	Action pulumi.StringPtrInput `pulumi:"action"`
+	// The headers for this specific `ipRestriction` as defined below. The http header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+	Headers SlotSiteConfigIpRestrictionHeadersPtrInput `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
 	// The name for this IP Restriction.
@@ -13161,6 +14401,11 @@ func (o SlotSiteConfigIpRestrictionOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfigIpRestriction) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
+// The headers for this specific `ipRestriction` as defined below. The http header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+func (o SlotSiteConfigIpRestrictionOutput) Headers() SlotSiteConfigIpRestrictionHeadersPtrOutput {
+	return o.ApplyT(func(v SlotSiteConfigIpRestriction) *SlotSiteConfigIpRestrictionHeaders { return v.Headers }).(SlotSiteConfigIpRestrictionHeadersPtrOutput)
+}
+
 // The IP Address used for this IP Restriction in CIDR notation.
 func (o SlotSiteConfigIpRestrictionOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfigIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
@@ -13206,9 +14451,199 @@ func (o SlotSiteConfigIpRestrictionArrayOutput) Index(i pulumi.IntInput) SlotSit
 	}).(SlotSiteConfigIpRestrictionOutput)
 }
 
+type SlotSiteConfigIpRestrictionHeaders struct {
+	// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+	XAzureFdids []string `pulumi:"xAzureFdids"`
+	// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+	XFdHealthProbe *string `pulumi:"xFdHealthProbe"`
+	// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+	XForwardedFors []string `pulumi:"xForwardedFors"`
+	// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+	XForwardedHosts []string `pulumi:"xForwardedHosts"`
+}
+
+// SlotSiteConfigIpRestrictionHeadersInput is an input type that accepts SlotSiteConfigIpRestrictionHeadersArgs and SlotSiteConfigIpRestrictionHeadersOutput values.
+// You can construct a concrete instance of `SlotSiteConfigIpRestrictionHeadersInput` via:
+//
+//          SlotSiteConfigIpRestrictionHeadersArgs{...}
+type SlotSiteConfigIpRestrictionHeadersInput interface {
+	pulumi.Input
+
+	ToSlotSiteConfigIpRestrictionHeadersOutput() SlotSiteConfigIpRestrictionHeadersOutput
+	ToSlotSiteConfigIpRestrictionHeadersOutputWithContext(context.Context) SlotSiteConfigIpRestrictionHeadersOutput
+}
+
+type SlotSiteConfigIpRestrictionHeadersArgs struct {
+	// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+	XAzureFdids pulumi.StringArrayInput `pulumi:"xAzureFdids"`
+	// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+	XFdHealthProbe pulumi.StringPtrInput `pulumi:"xFdHealthProbe"`
+	// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+	XForwardedFors pulumi.StringArrayInput `pulumi:"xForwardedFors"`
+	// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+	XForwardedHosts pulumi.StringArrayInput `pulumi:"xForwardedHosts"`
+}
+
+func (SlotSiteConfigIpRestrictionHeadersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SlotSiteConfigIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (i SlotSiteConfigIpRestrictionHeadersArgs) ToSlotSiteConfigIpRestrictionHeadersOutput() SlotSiteConfigIpRestrictionHeadersOutput {
+	return i.ToSlotSiteConfigIpRestrictionHeadersOutputWithContext(context.Background())
+}
+
+func (i SlotSiteConfigIpRestrictionHeadersArgs) ToSlotSiteConfigIpRestrictionHeadersOutputWithContext(ctx context.Context) SlotSiteConfigIpRestrictionHeadersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SlotSiteConfigIpRestrictionHeadersOutput)
+}
+
+func (i SlotSiteConfigIpRestrictionHeadersArgs) ToSlotSiteConfigIpRestrictionHeadersPtrOutput() SlotSiteConfigIpRestrictionHeadersPtrOutput {
+	return i.ToSlotSiteConfigIpRestrictionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i SlotSiteConfigIpRestrictionHeadersArgs) ToSlotSiteConfigIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) SlotSiteConfigIpRestrictionHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SlotSiteConfigIpRestrictionHeadersOutput).ToSlotSiteConfigIpRestrictionHeadersPtrOutputWithContext(ctx)
+}
+
+// SlotSiteConfigIpRestrictionHeadersPtrInput is an input type that accepts SlotSiteConfigIpRestrictionHeadersArgs, SlotSiteConfigIpRestrictionHeadersPtr and SlotSiteConfigIpRestrictionHeadersPtrOutput values.
+// You can construct a concrete instance of `SlotSiteConfigIpRestrictionHeadersPtrInput` via:
+//
+//          SlotSiteConfigIpRestrictionHeadersArgs{...}
+//
+//  or:
+//
+//          nil
+type SlotSiteConfigIpRestrictionHeadersPtrInput interface {
+	pulumi.Input
+
+	ToSlotSiteConfigIpRestrictionHeadersPtrOutput() SlotSiteConfigIpRestrictionHeadersPtrOutput
+	ToSlotSiteConfigIpRestrictionHeadersPtrOutputWithContext(context.Context) SlotSiteConfigIpRestrictionHeadersPtrOutput
+}
+
+type slotSiteConfigIpRestrictionHeadersPtrType SlotSiteConfigIpRestrictionHeadersArgs
+
+func SlotSiteConfigIpRestrictionHeadersPtr(v *SlotSiteConfigIpRestrictionHeadersArgs) SlotSiteConfigIpRestrictionHeadersPtrInput {
+	return (*slotSiteConfigIpRestrictionHeadersPtrType)(v)
+}
+
+func (*slotSiteConfigIpRestrictionHeadersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SlotSiteConfigIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (i *slotSiteConfigIpRestrictionHeadersPtrType) ToSlotSiteConfigIpRestrictionHeadersPtrOutput() SlotSiteConfigIpRestrictionHeadersPtrOutput {
+	return i.ToSlotSiteConfigIpRestrictionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i *slotSiteConfigIpRestrictionHeadersPtrType) ToSlotSiteConfigIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) SlotSiteConfigIpRestrictionHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SlotSiteConfigIpRestrictionHeadersPtrOutput)
+}
+
+type SlotSiteConfigIpRestrictionHeadersOutput struct{ *pulumi.OutputState }
+
+func (SlotSiteConfigIpRestrictionHeadersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SlotSiteConfigIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (o SlotSiteConfigIpRestrictionHeadersOutput) ToSlotSiteConfigIpRestrictionHeadersOutput() SlotSiteConfigIpRestrictionHeadersOutput {
+	return o
+}
+
+func (o SlotSiteConfigIpRestrictionHeadersOutput) ToSlotSiteConfigIpRestrictionHeadersOutputWithContext(ctx context.Context) SlotSiteConfigIpRestrictionHeadersOutput {
+	return o
+}
+
+func (o SlotSiteConfigIpRestrictionHeadersOutput) ToSlotSiteConfigIpRestrictionHeadersPtrOutput() SlotSiteConfigIpRestrictionHeadersPtrOutput {
+	return o.ToSlotSiteConfigIpRestrictionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (o SlotSiteConfigIpRestrictionHeadersOutput) ToSlotSiteConfigIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) SlotSiteConfigIpRestrictionHeadersPtrOutput {
+	return o.ApplyT(func(v SlotSiteConfigIpRestrictionHeaders) *SlotSiteConfigIpRestrictionHeaders {
+		return &v
+	}).(SlotSiteConfigIpRestrictionHeadersPtrOutput)
+}
+
+// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+func (o SlotSiteConfigIpRestrictionHeadersOutput) XAzureFdids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SlotSiteConfigIpRestrictionHeaders) []string { return v.XAzureFdids }).(pulumi.StringArrayOutput)
+}
+
+// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+func (o SlotSiteConfigIpRestrictionHeadersOutput) XFdHealthProbe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SlotSiteConfigIpRestrictionHeaders) *string { return v.XFdHealthProbe }).(pulumi.StringPtrOutput)
+}
+
+// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+func (o SlotSiteConfigIpRestrictionHeadersOutput) XForwardedFors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SlotSiteConfigIpRestrictionHeaders) []string { return v.XForwardedFors }).(pulumi.StringArrayOutput)
+}
+
+// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+func (o SlotSiteConfigIpRestrictionHeadersOutput) XForwardedHosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SlotSiteConfigIpRestrictionHeaders) []string { return v.XForwardedHosts }).(pulumi.StringArrayOutput)
+}
+
+type SlotSiteConfigIpRestrictionHeadersPtrOutput struct{ *pulumi.OutputState }
+
+func (SlotSiteConfigIpRestrictionHeadersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SlotSiteConfigIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (o SlotSiteConfigIpRestrictionHeadersPtrOutput) ToSlotSiteConfigIpRestrictionHeadersPtrOutput() SlotSiteConfigIpRestrictionHeadersPtrOutput {
+	return o
+}
+
+func (o SlotSiteConfigIpRestrictionHeadersPtrOutput) ToSlotSiteConfigIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) SlotSiteConfigIpRestrictionHeadersPtrOutput {
+	return o
+}
+
+func (o SlotSiteConfigIpRestrictionHeadersPtrOutput) Elem() SlotSiteConfigIpRestrictionHeadersOutput {
+	return o.ApplyT(func(v *SlotSiteConfigIpRestrictionHeaders) SlotSiteConfigIpRestrictionHeaders { return *v }).(SlotSiteConfigIpRestrictionHeadersOutput)
+}
+
+// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+func (o SlotSiteConfigIpRestrictionHeadersPtrOutput) XAzureFdids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SlotSiteConfigIpRestrictionHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.XAzureFdids
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+func (o SlotSiteConfigIpRestrictionHeadersPtrOutput) XFdHealthProbe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SlotSiteConfigIpRestrictionHeaders) *string {
+		if v == nil {
+			return nil
+		}
+		return v.XFdHealthProbe
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+func (o SlotSiteConfigIpRestrictionHeadersPtrOutput) XForwardedFors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SlotSiteConfigIpRestrictionHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.XForwardedFors
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+func (o SlotSiteConfigIpRestrictionHeadersPtrOutput) XForwardedHosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SlotSiteConfigIpRestrictionHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.XForwardedHosts
+	}).(pulumi.StringArrayOutput)
+}
+
 type SlotSiteConfigScmIpRestriction struct {
 	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
 	Action *string `pulumi:"action"`
+	// The headers for this specific `ipRestriction` as defined below. The http header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+	Headers *SlotSiteConfigScmIpRestrictionHeaders `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress *string `pulumi:"ipAddress"`
 	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
@@ -13235,6 +14670,8 @@ type SlotSiteConfigScmIpRestrictionInput interface {
 type SlotSiteConfigScmIpRestrictionArgs struct {
 	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
 	Action pulumi.StringPtrInput `pulumi:"action"`
+	// The headers for this specific `ipRestriction` as defined below. The http header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+	Headers SlotSiteConfigScmIpRestrictionHeadersPtrInput `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
 	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
@@ -13303,6 +14740,11 @@ func (o SlotSiteConfigScmIpRestrictionOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfigScmIpRestriction) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
+// The headers for this specific `ipRestriction` as defined below. The http header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+func (o SlotSiteConfigScmIpRestrictionOutput) Headers() SlotSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return o.ApplyT(func(v SlotSiteConfigScmIpRestriction) *SlotSiteConfigScmIpRestrictionHeaders { return v.Headers }).(SlotSiteConfigScmIpRestrictionHeadersPtrOutput)
+}
+
 // The IP Address used for this IP Restriction in CIDR notation.
 func (o SlotSiteConfigScmIpRestrictionOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotSiteConfigScmIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
@@ -13346,6 +14788,194 @@ func (o SlotSiteConfigScmIpRestrictionArrayOutput) Index(i pulumi.IntInput) Slot
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SlotSiteConfigScmIpRestriction {
 		return vs[0].([]SlotSiteConfigScmIpRestriction)[vs[1].(int)]
 	}).(SlotSiteConfigScmIpRestrictionOutput)
+}
+
+type SlotSiteConfigScmIpRestrictionHeaders struct {
+	// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+	XAzureFdids []string `pulumi:"xAzureFdids"`
+	// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+	XFdHealthProbe *string `pulumi:"xFdHealthProbe"`
+	// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+	XForwardedFors []string `pulumi:"xForwardedFors"`
+	// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+	XForwardedHosts []string `pulumi:"xForwardedHosts"`
+}
+
+// SlotSiteConfigScmIpRestrictionHeadersInput is an input type that accepts SlotSiteConfigScmIpRestrictionHeadersArgs and SlotSiteConfigScmIpRestrictionHeadersOutput values.
+// You can construct a concrete instance of `SlotSiteConfigScmIpRestrictionHeadersInput` via:
+//
+//          SlotSiteConfigScmIpRestrictionHeadersArgs{...}
+type SlotSiteConfigScmIpRestrictionHeadersInput interface {
+	pulumi.Input
+
+	ToSlotSiteConfigScmIpRestrictionHeadersOutput() SlotSiteConfigScmIpRestrictionHeadersOutput
+	ToSlotSiteConfigScmIpRestrictionHeadersOutputWithContext(context.Context) SlotSiteConfigScmIpRestrictionHeadersOutput
+}
+
+type SlotSiteConfigScmIpRestrictionHeadersArgs struct {
+	// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+	XAzureFdids pulumi.StringArrayInput `pulumi:"xAzureFdids"`
+	// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+	XFdHealthProbe pulumi.StringPtrInput `pulumi:"xFdHealthProbe"`
+	// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+	XForwardedFors pulumi.StringArrayInput `pulumi:"xForwardedFors"`
+	// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+	XForwardedHosts pulumi.StringArrayInput `pulumi:"xForwardedHosts"`
+}
+
+func (SlotSiteConfigScmIpRestrictionHeadersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SlotSiteConfigScmIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (i SlotSiteConfigScmIpRestrictionHeadersArgs) ToSlotSiteConfigScmIpRestrictionHeadersOutput() SlotSiteConfigScmIpRestrictionHeadersOutput {
+	return i.ToSlotSiteConfigScmIpRestrictionHeadersOutputWithContext(context.Background())
+}
+
+func (i SlotSiteConfigScmIpRestrictionHeadersArgs) ToSlotSiteConfigScmIpRestrictionHeadersOutputWithContext(ctx context.Context) SlotSiteConfigScmIpRestrictionHeadersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SlotSiteConfigScmIpRestrictionHeadersOutput)
+}
+
+func (i SlotSiteConfigScmIpRestrictionHeadersArgs) ToSlotSiteConfigScmIpRestrictionHeadersPtrOutput() SlotSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return i.ToSlotSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i SlotSiteConfigScmIpRestrictionHeadersArgs) ToSlotSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) SlotSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SlotSiteConfigScmIpRestrictionHeadersOutput).ToSlotSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(ctx)
+}
+
+// SlotSiteConfigScmIpRestrictionHeadersPtrInput is an input type that accepts SlotSiteConfigScmIpRestrictionHeadersArgs, SlotSiteConfigScmIpRestrictionHeadersPtr and SlotSiteConfigScmIpRestrictionHeadersPtrOutput values.
+// You can construct a concrete instance of `SlotSiteConfigScmIpRestrictionHeadersPtrInput` via:
+//
+//          SlotSiteConfigScmIpRestrictionHeadersArgs{...}
+//
+//  or:
+//
+//          nil
+type SlotSiteConfigScmIpRestrictionHeadersPtrInput interface {
+	pulumi.Input
+
+	ToSlotSiteConfigScmIpRestrictionHeadersPtrOutput() SlotSiteConfigScmIpRestrictionHeadersPtrOutput
+	ToSlotSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(context.Context) SlotSiteConfigScmIpRestrictionHeadersPtrOutput
+}
+
+type slotSiteConfigScmIpRestrictionHeadersPtrType SlotSiteConfigScmIpRestrictionHeadersArgs
+
+func SlotSiteConfigScmIpRestrictionHeadersPtr(v *SlotSiteConfigScmIpRestrictionHeadersArgs) SlotSiteConfigScmIpRestrictionHeadersPtrInput {
+	return (*slotSiteConfigScmIpRestrictionHeadersPtrType)(v)
+}
+
+func (*slotSiteConfigScmIpRestrictionHeadersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SlotSiteConfigScmIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (i *slotSiteConfigScmIpRestrictionHeadersPtrType) ToSlotSiteConfigScmIpRestrictionHeadersPtrOutput() SlotSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return i.ToSlotSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i *slotSiteConfigScmIpRestrictionHeadersPtrType) ToSlotSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) SlotSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SlotSiteConfigScmIpRestrictionHeadersPtrOutput)
+}
+
+type SlotSiteConfigScmIpRestrictionHeadersOutput struct{ *pulumi.OutputState }
+
+func (SlotSiteConfigScmIpRestrictionHeadersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SlotSiteConfigScmIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (o SlotSiteConfigScmIpRestrictionHeadersOutput) ToSlotSiteConfigScmIpRestrictionHeadersOutput() SlotSiteConfigScmIpRestrictionHeadersOutput {
+	return o
+}
+
+func (o SlotSiteConfigScmIpRestrictionHeadersOutput) ToSlotSiteConfigScmIpRestrictionHeadersOutputWithContext(ctx context.Context) SlotSiteConfigScmIpRestrictionHeadersOutput {
+	return o
+}
+
+func (o SlotSiteConfigScmIpRestrictionHeadersOutput) ToSlotSiteConfigScmIpRestrictionHeadersPtrOutput() SlotSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return o.ToSlotSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (o SlotSiteConfigScmIpRestrictionHeadersOutput) ToSlotSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) SlotSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return o.ApplyT(func(v SlotSiteConfigScmIpRestrictionHeaders) *SlotSiteConfigScmIpRestrictionHeaders {
+		return &v
+	}).(SlotSiteConfigScmIpRestrictionHeadersPtrOutput)
+}
+
+// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+func (o SlotSiteConfigScmIpRestrictionHeadersOutput) XAzureFdids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SlotSiteConfigScmIpRestrictionHeaders) []string { return v.XAzureFdids }).(pulumi.StringArrayOutput)
+}
+
+// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+func (o SlotSiteConfigScmIpRestrictionHeadersOutput) XFdHealthProbe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SlotSiteConfigScmIpRestrictionHeaders) *string { return v.XFdHealthProbe }).(pulumi.StringPtrOutput)
+}
+
+// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+func (o SlotSiteConfigScmIpRestrictionHeadersOutput) XForwardedFors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SlotSiteConfigScmIpRestrictionHeaders) []string { return v.XForwardedFors }).(pulumi.StringArrayOutput)
+}
+
+// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+func (o SlotSiteConfigScmIpRestrictionHeadersOutput) XForwardedHosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SlotSiteConfigScmIpRestrictionHeaders) []string { return v.XForwardedHosts }).(pulumi.StringArrayOutput)
+}
+
+type SlotSiteConfigScmIpRestrictionHeadersPtrOutput struct{ *pulumi.OutputState }
+
+func (SlotSiteConfigScmIpRestrictionHeadersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SlotSiteConfigScmIpRestrictionHeaders)(nil)).Elem()
+}
+
+func (o SlotSiteConfigScmIpRestrictionHeadersPtrOutput) ToSlotSiteConfigScmIpRestrictionHeadersPtrOutput() SlotSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return o
+}
+
+func (o SlotSiteConfigScmIpRestrictionHeadersPtrOutput) ToSlotSiteConfigScmIpRestrictionHeadersPtrOutputWithContext(ctx context.Context) SlotSiteConfigScmIpRestrictionHeadersPtrOutput {
+	return o
+}
+
+func (o SlotSiteConfigScmIpRestrictionHeadersPtrOutput) Elem() SlotSiteConfigScmIpRestrictionHeadersOutput {
+	return o.ApplyT(func(v *SlotSiteConfigScmIpRestrictionHeaders) SlotSiteConfigScmIpRestrictionHeaders { return *v }).(SlotSiteConfigScmIpRestrictionHeadersOutput)
+}
+
+// A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+func (o SlotSiteConfigScmIpRestrictionHeadersPtrOutput) XAzureFdids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SlotSiteConfigScmIpRestrictionHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.XAzureFdids
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+func (o SlotSiteConfigScmIpRestrictionHeadersPtrOutput) XFdHealthProbe() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SlotSiteConfigScmIpRestrictionHeaders) *string {
+		if v == nil {
+			return nil
+		}
+		return v.XFdHealthProbe
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+func (o SlotSiteConfigScmIpRestrictionHeadersPtrOutput) XForwardedFors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SlotSiteConfigScmIpRestrictionHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.XForwardedFors
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+func (o SlotSiteConfigScmIpRestrictionHeadersPtrOutput) XForwardedHosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SlotSiteConfigScmIpRestrictionHeaders) []string {
+		if v == nil {
+			return nil
+		}
+		return v.XForwardedHosts
+	}).(pulumi.StringArrayOutput)
 }
 
 type SlotSiteCredential struct {
@@ -15066,6 +16696,8 @@ type GetFunctionAppSiteConfig struct {
 	Http2Enabled bool `pulumi:"http2Enabled"`
 	// One or more `ipRestriction` blocks as defined above.
 	IpRestrictions []GetFunctionAppSiteConfigIpRestriction `pulumi:"ipRestrictions"`
+	// Java version hosted by the function app in Azure.
+	JavaVersion string `pulumi:"javaVersion"`
 	// Linux App Framework and version for the AppService.
 	LinuxFxVersion string `pulumi:"linuxFxVersion"`
 	// The minimum supported TLS version for this App Service.
@@ -15108,6 +16740,8 @@ type GetFunctionAppSiteConfigArgs struct {
 	Http2Enabled pulumi.BoolInput `pulumi:"http2Enabled"`
 	// One or more `ipRestriction` blocks as defined above.
 	IpRestrictions GetFunctionAppSiteConfigIpRestrictionArrayInput `pulumi:"ipRestrictions"`
+	// Java version hosted by the function app in Azure.
+	JavaVersion pulumi.StringInput `pulumi:"javaVersion"`
 	// Linux App Framework and version for the AppService.
 	LinuxFxVersion pulumi.StringInput `pulumi:"linuxFxVersion"`
 	// The minimum supported TLS version for this App Service.
@@ -15208,6 +16842,11 @@ func (o GetFunctionAppSiteConfigOutput) Http2Enabled() pulumi.BoolOutput {
 // One or more `ipRestriction` blocks as defined above.
 func (o GetFunctionAppSiteConfigOutput) IpRestrictions() GetFunctionAppSiteConfigIpRestrictionArrayOutput {
 	return o.ApplyT(func(v GetFunctionAppSiteConfig) []GetFunctionAppSiteConfigIpRestriction { return v.IpRestrictions }).(GetFunctionAppSiteConfigIpRestrictionArrayOutput)
+}
+
+// Java version hosted by the function app in Azure.
+func (o GetFunctionAppSiteConfigOutput) JavaVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionAppSiteConfig) string { return v.JavaVersion }).(pulumi.StringOutput)
 }
 
 // Linux App Framework and version for the AppService.
@@ -15889,8 +17528,12 @@ func init() {
 	pulumi.RegisterOutputType(AppServiceSiteConfigCorsPtrOutput{})
 	pulumi.RegisterOutputType(AppServiceSiteConfigIpRestrictionOutput{})
 	pulumi.RegisterOutputType(AppServiceSiteConfigIpRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(AppServiceSiteConfigIpRestrictionHeadersOutput{})
+	pulumi.RegisterOutputType(AppServiceSiteConfigIpRestrictionHeadersPtrOutput{})
 	pulumi.RegisterOutputType(AppServiceSiteConfigScmIpRestrictionOutput{})
 	pulumi.RegisterOutputType(AppServiceSiteConfigScmIpRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(AppServiceSiteConfigScmIpRestrictionHeadersOutput{})
+	pulumi.RegisterOutputType(AppServiceSiteConfigScmIpRestrictionHeadersPtrOutput{})
 	pulumi.RegisterOutputType(AppServiceSiteCredentialOutput{})
 	pulumi.RegisterOutputType(AppServiceSiteCredentialArrayOutput{})
 	pulumi.RegisterOutputType(AppServiceSourceControlOutput{})
@@ -15923,8 +17566,12 @@ func init() {
 	pulumi.RegisterOutputType(FunctionAppSiteConfigCorsPtrOutput{})
 	pulumi.RegisterOutputType(FunctionAppSiteConfigIpRestrictionOutput{})
 	pulumi.RegisterOutputType(FunctionAppSiteConfigIpRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(FunctionAppSiteConfigIpRestrictionHeadersOutput{})
+	pulumi.RegisterOutputType(FunctionAppSiteConfigIpRestrictionHeadersPtrOutput{})
 	pulumi.RegisterOutputType(FunctionAppSiteConfigScmIpRestrictionOutput{})
 	pulumi.RegisterOutputType(FunctionAppSiteConfigScmIpRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(FunctionAppSiteConfigScmIpRestrictionHeadersOutput{})
+	pulumi.RegisterOutputType(FunctionAppSiteConfigScmIpRestrictionHeadersPtrOutput{})
 	pulumi.RegisterOutputType(FunctionAppSiteCredentialOutput{})
 	pulumi.RegisterOutputType(FunctionAppSiteCredentialArrayOutput{})
 	pulumi.RegisterOutputType(FunctionAppSlotAuthSettingsOutput{})
@@ -15949,8 +17596,12 @@ func init() {
 	pulumi.RegisterOutputType(FunctionAppSlotSiteConfigCorsPtrOutput{})
 	pulumi.RegisterOutputType(FunctionAppSlotSiteConfigIpRestrictionOutput{})
 	pulumi.RegisterOutputType(FunctionAppSlotSiteConfigIpRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(FunctionAppSlotSiteConfigIpRestrictionHeadersOutput{})
+	pulumi.RegisterOutputType(FunctionAppSlotSiteConfigIpRestrictionHeadersPtrOutput{})
 	pulumi.RegisterOutputType(FunctionAppSlotSiteConfigScmIpRestrictionOutput{})
 	pulumi.RegisterOutputType(FunctionAppSlotSiteConfigScmIpRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(FunctionAppSlotSiteConfigScmIpRestrictionHeadersOutput{})
+	pulumi.RegisterOutputType(FunctionAppSlotSiteConfigScmIpRestrictionHeadersPtrOutput{})
 	pulumi.RegisterOutputType(FunctionAppSlotSiteCredentialOutput{})
 	pulumi.RegisterOutputType(FunctionAppSlotSiteCredentialArrayOutput{})
 	pulumi.RegisterOutputType(FunctionAppSourceControlOutput{})
@@ -15991,8 +17642,12 @@ func init() {
 	pulumi.RegisterOutputType(SlotSiteConfigCorsPtrOutput{})
 	pulumi.RegisterOutputType(SlotSiteConfigIpRestrictionOutput{})
 	pulumi.RegisterOutputType(SlotSiteConfigIpRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(SlotSiteConfigIpRestrictionHeadersOutput{})
+	pulumi.RegisterOutputType(SlotSiteConfigIpRestrictionHeadersPtrOutput{})
 	pulumi.RegisterOutputType(SlotSiteConfigScmIpRestrictionOutput{})
 	pulumi.RegisterOutputType(SlotSiteConfigScmIpRestrictionArrayOutput{})
+	pulumi.RegisterOutputType(SlotSiteConfigScmIpRestrictionHeadersOutput{})
+	pulumi.RegisterOutputType(SlotSiteConfigScmIpRestrictionHeadersPtrOutput{})
 	pulumi.RegisterOutputType(SlotSiteCredentialOutput{})
 	pulumi.RegisterOutputType(SlotSiteCredentialArrayOutput{})
 	pulumi.RegisterOutputType(GetAppServiceConnectionStringOutput{})

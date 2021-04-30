@@ -215,7 +215,6 @@ class AwaitableGetPoolResult(GetPoolResult):
 def get_pool(account_name: Optional[str] = None,
              certificates: Optional[Sequence[pulumi.InputType['GetPoolCertificateArgs']]] = None,
              name: Optional[str] = None,
-             network_configuration: Optional[pulumi.InputType['GetPoolNetworkConfigurationArgs']] = None,
              resource_group_name: Optional[str] = None,
              start_task: Optional[pulumi.InputType['GetPoolStartTaskArgs']] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPoolResult:
@@ -243,7 +242,6 @@ def get_pool(account_name: Optional[str] = None,
     __args__['accountName'] = account_name
     __args__['certificates'] = certificates
     __args__['name'] = name
-    __args__['networkConfiguration'] = network_configuration
     __args__['resourceGroupName'] = resource_group_name
     __args__['startTask'] = start_task
     if opts is None:

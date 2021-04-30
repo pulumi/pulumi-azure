@@ -18,6 +18,10 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? Action;
         /// <summary>
+        /// The headers for this specific `ip_restriction` as defined below. The http header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+        /// </summary>
+        public readonly Outputs.SlotSiteConfigIpRestrictionHeaders? Headers;
+        /// <summary>
         /// The IP Address used for this IP Restriction in CIDR notation.
         /// </summary>
         public readonly string? IpAddress;
@@ -42,6 +46,8 @@ namespace Pulumi.Azure.AppService.Outputs
         private SlotSiteConfigIpRestriction(
             string? action,
 
+            Outputs.SlotSiteConfigIpRestrictionHeaders? headers,
+
             string? ipAddress,
 
             string? name,
@@ -53,6 +59,7 @@ namespace Pulumi.Azure.AppService.Outputs
             string? virtualNetworkSubnetId)
         {
             Action = action;
+            Headers = headers;
             IpAddress = ipAddress;
             Name = name;
             Priority = priority;

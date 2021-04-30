@@ -179,6 +179,285 @@ func (o BastionHostIpConfigurationPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ConfigurationPolicyAssignmentConfiguration struct {
+	// The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
+	Name string `pulumi:"name"`
+	// One or more `parameter` blocks which define what configuration parameters and values against.
+	Parameters []ConfigurationPolicyAssignmentConfigurationParameter `pulumi:"parameters"`
+	// The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
+	Version *string `pulumi:"version"`
+}
+
+// ConfigurationPolicyAssignmentConfigurationInput is an input type that accepts ConfigurationPolicyAssignmentConfigurationArgs and ConfigurationPolicyAssignmentConfigurationOutput values.
+// You can construct a concrete instance of `ConfigurationPolicyAssignmentConfigurationInput` via:
+//
+//          ConfigurationPolicyAssignmentConfigurationArgs{...}
+type ConfigurationPolicyAssignmentConfigurationInput interface {
+	pulumi.Input
+
+	ToConfigurationPolicyAssignmentConfigurationOutput() ConfigurationPolicyAssignmentConfigurationOutput
+	ToConfigurationPolicyAssignmentConfigurationOutputWithContext(context.Context) ConfigurationPolicyAssignmentConfigurationOutput
+}
+
+type ConfigurationPolicyAssignmentConfigurationArgs struct {
+	// The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
+	Name pulumi.StringInput `pulumi:"name"`
+	// One or more `parameter` blocks which define what configuration parameters and values against.
+	Parameters ConfigurationPolicyAssignmentConfigurationParameterArrayInput `pulumi:"parameters"`
+	// The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (ConfigurationPolicyAssignmentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPolicyAssignmentConfiguration)(nil)).Elem()
+}
+
+func (i ConfigurationPolicyAssignmentConfigurationArgs) ToConfigurationPolicyAssignmentConfigurationOutput() ConfigurationPolicyAssignmentConfigurationOutput {
+	return i.ToConfigurationPolicyAssignmentConfigurationOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPolicyAssignmentConfigurationArgs) ToConfigurationPolicyAssignmentConfigurationOutputWithContext(ctx context.Context) ConfigurationPolicyAssignmentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyAssignmentConfigurationOutput)
+}
+
+func (i ConfigurationPolicyAssignmentConfigurationArgs) ToConfigurationPolicyAssignmentConfigurationPtrOutput() ConfigurationPolicyAssignmentConfigurationPtrOutput {
+	return i.ToConfigurationPolicyAssignmentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPolicyAssignmentConfigurationArgs) ToConfigurationPolicyAssignmentConfigurationPtrOutputWithContext(ctx context.Context) ConfigurationPolicyAssignmentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyAssignmentConfigurationOutput).ToConfigurationPolicyAssignmentConfigurationPtrOutputWithContext(ctx)
+}
+
+// ConfigurationPolicyAssignmentConfigurationPtrInput is an input type that accepts ConfigurationPolicyAssignmentConfigurationArgs, ConfigurationPolicyAssignmentConfigurationPtr and ConfigurationPolicyAssignmentConfigurationPtrOutput values.
+// You can construct a concrete instance of `ConfigurationPolicyAssignmentConfigurationPtrInput` via:
+//
+//          ConfigurationPolicyAssignmentConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigurationPolicyAssignmentConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationPolicyAssignmentConfigurationPtrOutput() ConfigurationPolicyAssignmentConfigurationPtrOutput
+	ToConfigurationPolicyAssignmentConfigurationPtrOutputWithContext(context.Context) ConfigurationPolicyAssignmentConfigurationPtrOutput
+}
+
+type configurationPolicyAssignmentConfigurationPtrType ConfigurationPolicyAssignmentConfigurationArgs
+
+func ConfigurationPolicyAssignmentConfigurationPtr(v *ConfigurationPolicyAssignmentConfigurationArgs) ConfigurationPolicyAssignmentConfigurationPtrInput {
+	return (*configurationPolicyAssignmentConfigurationPtrType)(v)
+}
+
+func (*configurationPolicyAssignmentConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationPolicyAssignmentConfiguration)(nil)).Elem()
+}
+
+func (i *configurationPolicyAssignmentConfigurationPtrType) ToConfigurationPolicyAssignmentConfigurationPtrOutput() ConfigurationPolicyAssignmentConfigurationPtrOutput {
+	return i.ToConfigurationPolicyAssignmentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationPolicyAssignmentConfigurationPtrType) ToConfigurationPolicyAssignmentConfigurationPtrOutputWithContext(ctx context.Context) ConfigurationPolicyAssignmentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyAssignmentConfigurationPtrOutput)
+}
+
+type ConfigurationPolicyAssignmentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPolicyAssignmentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPolicyAssignmentConfiguration)(nil)).Elem()
+}
+
+func (o ConfigurationPolicyAssignmentConfigurationOutput) ToConfigurationPolicyAssignmentConfigurationOutput() ConfigurationPolicyAssignmentConfigurationOutput {
+	return o
+}
+
+func (o ConfigurationPolicyAssignmentConfigurationOutput) ToConfigurationPolicyAssignmentConfigurationOutputWithContext(ctx context.Context) ConfigurationPolicyAssignmentConfigurationOutput {
+	return o
+}
+
+func (o ConfigurationPolicyAssignmentConfigurationOutput) ToConfigurationPolicyAssignmentConfigurationPtrOutput() ConfigurationPolicyAssignmentConfigurationPtrOutput {
+	return o.ToConfigurationPolicyAssignmentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationPolicyAssignmentConfigurationOutput) ToConfigurationPolicyAssignmentConfigurationPtrOutputWithContext(ctx context.Context) ConfigurationPolicyAssignmentConfigurationPtrOutput {
+	return o.ApplyT(func(v ConfigurationPolicyAssignmentConfiguration) *ConfigurationPolicyAssignmentConfiguration {
+		return &v
+	}).(ConfigurationPolicyAssignmentConfigurationPtrOutput)
+}
+
+// The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
+func (o ConfigurationPolicyAssignmentConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationPolicyAssignmentConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// One or more `parameter` blocks which define what configuration parameters and values against.
+func (o ConfigurationPolicyAssignmentConfigurationOutput) Parameters() ConfigurationPolicyAssignmentConfigurationParameterArrayOutput {
+	return o.ApplyT(func(v ConfigurationPolicyAssignmentConfiguration) []ConfigurationPolicyAssignmentConfigurationParameter {
+		return v.Parameters
+	}).(ConfigurationPolicyAssignmentConfigurationParameterArrayOutput)
+}
+
+// The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
+func (o ConfigurationPolicyAssignmentConfigurationOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationPolicyAssignmentConfiguration) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type ConfigurationPolicyAssignmentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPolicyAssignmentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationPolicyAssignmentConfiguration)(nil)).Elem()
+}
+
+func (o ConfigurationPolicyAssignmentConfigurationPtrOutput) ToConfigurationPolicyAssignmentConfigurationPtrOutput() ConfigurationPolicyAssignmentConfigurationPtrOutput {
+	return o
+}
+
+func (o ConfigurationPolicyAssignmentConfigurationPtrOutput) ToConfigurationPolicyAssignmentConfigurationPtrOutputWithContext(ctx context.Context) ConfigurationPolicyAssignmentConfigurationPtrOutput {
+	return o
+}
+
+func (o ConfigurationPolicyAssignmentConfigurationPtrOutput) Elem() ConfigurationPolicyAssignmentConfigurationOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyAssignmentConfiguration) ConfigurationPolicyAssignmentConfiguration {
+		return *v
+	}).(ConfigurationPolicyAssignmentConfigurationOutput)
+}
+
+// The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
+func (o ConfigurationPolicyAssignmentConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyAssignmentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// One or more `parameter` blocks which define what configuration parameters and values against.
+func (o ConfigurationPolicyAssignmentConfigurationPtrOutput) Parameters() ConfigurationPolicyAssignmentConfigurationParameterArrayOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyAssignmentConfiguration) []ConfigurationPolicyAssignmentConfigurationParameter {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(ConfigurationPolicyAssignmentConfigurationParameterArrayOutput)
+}
+
+// The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
+func (o ConfigurationPolicyAssignmentConfigurationPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyAssignmentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConfigurationPolicyAssignmentConfigurationParameter struct {
+	// The name of the configuration parameter to check.
+	Name string `pulumi:"name"`
+	// The value to check the configuration parameter with.
+	Value string `pulumi:"value"`
+}
+
+// ConfigurationPolicyAssignmentConfigurationParameterInput is an input type that accepts ConfigurationPolicyAssignmentConfigurationParameterArgs and ConfigurationPolicyAssignmentConfigurationParameterOutput values.
+// You can construct a concrete instance of `ConfigurationPolicyAssignmentConfigurationParameterInput` via:
+//
+//          ConfigurationPolicyAssignmentConfigurationParameterArgs{...}
+type ConfigurationPolicyAssignmentConfigurationParameterInput interface {
+	pulumi.Input
+
+	ToConfigurationPolicyAssignmentConfigurationParameterOutput() ConfigurationPolicyAssignmentConfigurationParameterOutput
+	ToConfigurationPolicyAssignmentConfigurationParameterOutputWithContext(context.Context) ConfigurationPolicyAssignmentConfigurationParameterOutput
+}
+
+type ConfigurationPolicyAssignmentConfigurationParameterArgs struct {
+	// The name of the configuration parameter to check.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value to check the configuration parameter with.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ConfigurationPolicyAssignmentConfigurationParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPolicyAssignmentConfigurationParameter)(nil)).Elem()
+}
+
+func (i ConfigurationPolicyAssignmentConfigurationParameterArgs) ToConfigurationPolicyAssignmentConfigurationParameterOutput() ConfigurationPolicyAssignmentConfigurationParameterOutput {
+	return i.ToConfigurationPolicyAssignmentConfigurationParameterOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPolicyAssignmentConfigurationParameterArgs) ToConfigurationPolicyAssignmentConfigurationParameterOutputWithContext(ctx context.Context) ConfigurationPolicyAssignmentConfigurationParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyAssignmentConfigurationParameterOutput)
+}
+
+// ConfigurationPolicyAssignmentConfigurationParameterArrayInput is an input type that accepts ConfigurationPolicyAssignmentConfigurationParameterArray and ConfigurationPolicyAssignmentConfigurationParameterArrayOutput values.
+// You can construct a concrete instance of `ConfigurationPolicyAssignmentConfigurationParameterArrayInput` via:
+//
+//          ConfigurationPolicyAssignmentConfigurationParameterArray{ ConfigurationPolicyAssignmentConfigurationParameterArgs{...} }
+type ConfigurationPolicyAssignmentConfigurationParameterArrayInput interface {
+	pulumi.Input
+
+	ToConfigurationPolicyAssignmentConfigurationParameterArrayOutput() ConfigurationPolicyAssignmentConfigurationParameterArrayOutput
+	ToConfigurationPolicyAssignmentConfigurationParameterArrayOutputWithContext(context.Context) ConfigurationPolicyAssignmentConfigurationParameterArrayOutput
+}
+
+type ConfigurationPolicyAssignmentConfigurationParameterArray []ConfigurationPolicyAssignmentConfigurationParameterInput
+
+func (ConfigurationPolicyAssignmentConfigurationParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationPolicyAssignmentConfigurationParameter)(nil)).Elem()
+}
+
+func (i ConfigurationPolicyAssignmentConfigurationParameterArray) ToConfigurationPolicyAssignmentConfigurationParameterArrayOutput() ConfigurationPolicyAssignmentConfigurationParameterArrayOutput {
+	return i.ToConfigurationPolicyAssignmentConfigurationParameterArrayOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPolicyAssignmentConfigurationParameterArray) ToConfigurationPolicyAssignmentConfigurationParameterArrayOutputWithContext(ctx context.Context) ConfigurationPolicyAssignmentConfigurationParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyAssignmentConfigurationParameterArrayOutput)
+}
+
+type ConfigurationPolicyAssignmentConfigurationParameterOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPolicyAssignmentConfigurationParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPolicyAssignmentConfigurationParameter)(nil)).Elem()
+}
+
+func (o ConfigurationPolicyAssignmentConfigurationParameterOutput) ToConfigurationPolicyAssignmentConfigurationParameterOutput() ConfigurationPolicyAssignmentConfigurationParameterOutput {
+	return o
+}
+
+func (o ConfigurationPolicyAssignmentConfigurationParameterOutput) ToConfigurationPolicyAssignmentConfigurationParameterOutputWithContext(ctx context.Context) ConfigurationPolicyAssignmentConfigurationParameterOutput {
+	return o
+}
+
+// The name of the configuration parameter to check.
+func (o ConfigurationPolicyAssignmentConfigurationParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationPolicyAssignmentConfigurationParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value to check the configuration parameter with.
+func (o ConfigurationPolicyAssignmentConfigurationParameterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationPolicyAssignmentConfigurationParameter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ConfigurationPolicyAssignmentConfigurationParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPolicyAssignmentConfigurationParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationPolicyAssignmentConfigurationParameter)(nil)).Elem()
+}
+
+func (o ConfigurationPolicyAssignmentConfigurationParameterArrayOutput) ToConfigurationPolicyAssignmentConfigurationParameterArrayOutput() ConfigurationPolicyAssignmentConfigurationParameterArrayOutput {
+	return o
+}
+
+func (o ConfigurationPolicyAssignmentConfigurationParameterArrayOutput) ToConfigurationPolicyAssignmentConfigurationParameterArrayOutputWithContext(ctx context.Context) ConfigurationPolicyAssignmentConfigurationParameterArrayOutput {
+	return o
+}
+
+func (o ConfigurationPolicyAssignmentConfigurationParameterArrayOutput) Index(i pulumi.IntInput) ConfigurationPolicyAssignmentConfigurationParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationPolicyAssignmentConfigurationParameter {
+		return vs[0].([]ConfigurationPolicyAssignmentConfigurationParameter)[vs[1].(int)]
+	}).(ConfigurationPolicyAssignmentConfigurationParameterOutput)
+}
+
 type DiskEncryptionSetIdentity struct {
 	// The (Client) ID of the Service Principal.
 	PrincipalId *string `pulumi:"principalId"`
@@ -18776,9 +19055,572 @@ func (o GetVirtualMachineScaleSetIdentityArrayOutput) Index(i pulumi.IntInput) G
 	}).(GetVirtualMachineScaleSetIdentityOutput)
 }
 
+type GetVirtualMachineScaleSetNetworkInterface struct {
+	// The dns servers in use.
+	DnsServers                  []string `pulumi:"dnsServers"`
+	EnableAcceleratedNetworking bool     `pulumi:"enableAcceleratedNetworking"`
+	EnableIpForwarding          bool     `pulumi:"enableIpForwarding"`
+	// An ipConfiguration block as documented below.
+	IpConfigurations []GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration `pulumi:"ipConfigurations"`
+	// The name of this Virtual Machine Scale Set.
+	Name string `pulumi:"name"`
+	// The identifier for the network security group.
+	NetworkSecurityGroupId string `pulumi:"networkSecurityGroupId"`
+	// If this ipConfiguration is the primary one.
+	Primary bool `pulumi:"primary"`
+}
+
+// GetVirtualMachineScaleSetNetworkInterfaceInput is an input type that accepts GetVirtualMachineScaleSetNetworkInterfaceArgs and GetVirtualMachineScaleSetNetworkInterfaceOutput values.
+// You can construct a concrete instance of `GetVirtualMachineScaleSetNetworkInterfaceInput` via:
+//
+//          GetVirtualMachineScaleSetNetworkInterfaceArgs{...}
+type GetVirtualMachineScaleSetNetworkInterfaceInput interface {
+	pulumi.Input
+
+	ToGetVirtualMachineScaleSetNetworkInterfaceOutput() GetVirtualMachineScaleSetNetworkInterfaceOutput
+	ToGetVirtualMachineScaleSetNetworkInterfaceOutputWithContext(context.Context) GetVirtualMachineScaleSetNetworkInterfaceOutput
+}
+
+type GetVirtualMachineScaleSetNetworkInterfaceArgs struct {
+	// The dns servers in use.
+	DnsServers                  pulumi.StringArrayInput `pulumi:"dnsServers"`
+	EnableAcceleratedNetworking pulumi.BoolInput        `pulumi:"enableAcceleratedNetworking"`
+	EnableIpForwarding          pulumi.BoolInput        `pulumi:"enableIpForwarding"`
+	// An ipConfiguration block as documented below.
+	IpConfigurations GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput `pulumi:"ipConfigurations"`
+	// The name of this Virtual Machine Scale Set.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The identifier for the network security group.
+	NetworkSecurityGroupId pulumi.StringInput `pulumi:"networkSecurityGroupId"`
+	// If this ipConfiguration is the primary one.
+	Primary pulumi.BoolInput `pulumi:"primary"`
+}
+
+func (GetVirtualMachineScaleSetNetworkInterfaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualMachineScaleSetNetworkInterface)(nil)).Elem()
+}
+
+func (i GetVirtualMachineScaleSetNetworkInterfaceArgs) ToGetVirtualMachineScaleSetNetworkInterfaceOutput() GetVirtualMachineScaleSetNetworkInterfaceOutput {
+	return i.ToGetVirtualMachineScaleSetNetworkInterfaceOutputWithContext(context.Background())
+}
+
+func (i GetVirtualMachineScaleSetNetworkInterfaceArgs) ToGetVirtualMachineScaleSetNetworkInterfaceOutputWithContext(ctx context.Context) GetVirtualMachineScaleSetNetworkInterfaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualMachineScaleSetNetworkInterfaceOutput)
+}
+
+// GetVirtualMachineScaleSetNetworkInterfaceArrayInput is an input type that accepts GetVirtualMachineScaleSetNetworkInterfaceArray and GetVirtualMachineScaleSetNetworkInterfaceArrayOutput values.
+// You can construct a concrete instance of `GetVirtualMachineScaleSetNetworkInterfaceArrayInput` via:
+//
+//          GetVirtualMachineScaleSetNetworkInterfaceArray{ GetVirtualMachineScaleSetNetworkInterfaceArgs{...} }
+type GetVirtualMachineScaleSetNetworkInterfaceArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualMachineScaleSetNetworkInterfaceArrayOutput() GetVirtualMachineScaleSetNetworkInterfaceArrayOutput
+	ToGetVirtualMachineScaleSetNetworkInterfaceArrayOutputWithContext(context.Context) GetVirtualMachineScaleSetNetworkInterfaceArrayOutput
+}
+
+type GetVirtualMachineScaleSetNetworkInterfaceArray []GetVirtualMachineScaleSetNetworkInterfaceInput
+
+func (GetVirtualMachineScaleSetNetworkInterfaceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualMachineScaleSetNetworkInterface)(nil)).Elem()
+}
+
+func (i GetVirtualMachineScaleSetNetworkInterfaceArray) ToGetVirtualMachineScaleSetNetworkInterfaceArrayOutput() GetVirtualMachineScaleSetNetworkInterfaceArrayOutput {
+	return i.ToGetVirtualMachineScaleSetNetworkInterfaceArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualMachineScaleSetNetworkInterfaceArray) ToGetVirtualMachineScaleSetNetworkInterfaceArrayOutputWithContext(ctx context.Context) GetVirtualMachineScaleSetNetworkInterfaceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualMachineScaleSetNetworkInterfaceArrayOutput)
+}
+
+type GetVirtualMachineScaleSetNetworkInterfaceOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualMachineScaleSetNetworkInterfaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualMachineScaleSetNetworkInterface)(nil)).Elem()
+}
+
+func (o GetVirtualMachineScaleSetNetworkInterfaceOutput) ToGetVirtualMachineScaleSetNetworkInterfaceOutput() GetVirtualMachineScaleSetNetworkInterfaceOutput {
+	return o
+}
+
+func (o GetVirtualMachineScaleSetNetworkInterfaceOutput) ToGetVirtualMachineScaleSetNetworkInterfaceOutputWithContext(ctx context.Context) GetVirtualMachineScaleSetNetworkInterfaceOutput {
+	return o
+}
+
+// The dns servers in use.
+func (o GetVirtualMachineScaleSetNetworkInterfaceOutput) DnsServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterface) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
+}
+
+func (o GetVirtualMachineScaleSetNetworkInterfaceOutput) EnableAcceleratedNetworking() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterface) bool { return v.EnableAcceleratedNetworking }).(pulumi.BoolOutput)
+}
+
+func (o GetVirtualMachineScaleSetNetworkInterfaceOutput) EnableIpForwarding() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterface) bool { return v.EnableIpForwarding }).(pulumi.BoolOutput)
+}
+
+// An ipConfiguration block as documented below.
+func (o GetVirtualMachineScaleSetNetworkInterfaceOutput) IpConfigurations() GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterface) []GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
+		return v.IpConfigurations
+	}).(GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput)
+}
+
+// The name of this Virtual Machine Scale Set.
+func (o GetVirtualMachineScaleSetNetworkInterfaceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterface) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The identifier for the network security group.
+func (o GetVirtualMachineScaleSetNetworkInterfaceOutput) NetworkSecurityGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterface) string { return v.NetworkSecurityGroupId }).(pulumi.StringOutput)
+}
+
+// If this ipConfiguration is the primary one.
+func (o GetVirtualMachineScaleSetNetworkInterfaceOutput) Primary() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterface) bool { return v.Primary }).(pulumi.BoolOutput)
+}
+
+type GetVirtualMachineScaleSetNetworkInterfaceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualMachineScaleSetNetworkInterfaceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualMachineScaleSetNetworkInterface)(nil)).Elem()
+}
+
+func (o GetVirtualMachineScaleSetNetworkInterfaceArrayOutput) ToGetVirtualMachineScaleSetNetworkInterfaceArrayOutput() GetVirtualMachineScaleSetNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o GetVirtualMachineScaleSetNetworkInterfaceArrayOutput) ToGetVirtualMachineScaleSetNetworkInterfaceArrayOutputWithContext(ctx context.Context) GetVirtualMachineScaleSetNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o GetVirtualMachineScaleSetNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) GetVirtualMachineScaleSetNetworkInterfaceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualMachineScaleSetNetworkInterface {
+		return vs[0].([]GetVirtualMachineScaleSetNetworkInterface)[vs[1].(int)]
+	}).(GetVirtualMachineScaleSetNetworkInterfaceOutput)
+}
+
+type GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration struct {
+	// An array of references to backend address pools of application gateways.
+	ApplicationGatewayBackendAddressPoolIds []string `pulumi:"applicationGatewayBackendAddressPoolIds"`
+	// The application security group IDs to use.
+	ApplicationSecurityGroupIds []string `pulumi:"applicationSecurityGroupIds"`
+	// An array of references to backend address pools of load balancers.
+	LoadBalancerBackendAddressPoolIds []string `pulumi:"loadBalancerBackendAddressPoolIds"`
+	// An array of references to inbound NAT pools for load balancers.
+	LoadBalancerInboundNatRulesIds []string `pulumi:"loadBalancerInboundNatRulesIds"`
+	// The name of this Virtual Machine Scale Set.
+	Name string `pulumi:"name"`
+	// If this ipConfiguration is the primary one.
+	Primary           bool                                                                      `pulumi:"primary"`
+	PublicIpAddresses []GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress `pulumi:"publicIpAddresses"`
+	// The the identifier of the subnet.
+	SubnetId string `pulumi:"subnetId"`
+	Version  string `pulumi:"version"`
+}
+
+// GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput is an input type that accepts GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs and GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput values.
+// You can construct a concrete instance of `GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput` via:
+//
+//          GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{...}
+type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput interface {
+	pulumi.Input
+
+	ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput() GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput
+	ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutputWithContext(context.Context) GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput
+}
+
+type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs struct {
+	// An array of references to backend address pools of application gateways.
+	ApplicationGatewayBackendAddressPoolIds pulumi.StringArrayInput `pulumi:"applicationGatewayBackendAddressPoolIds"`
+	// The application security group IDs to use.
+	ApplicationSecurityGroupIds pulumi.StringArrayInput `pulumi:"applicationSecurityGroupIds"`
+	// An array of references to backend address pools of load balancers.
+	LoadBalancerBackendAddressPoolIds pulumi.StringArrayInput `pulumi:"loadBalancerBackendAddressPoolIds"`
+	// An array of references to inbound NAT pools for load balancers.
+	LoadBalancerInboundNatRulesIds pulumi.StringArrayInput `pulumi:"loadBalancerInboundNatRulesIds"`
+	// The name of this Virtual Machine Scale Set.
+	Name pulumi.StringInput `pulumi:"name"`
+	// If this ipConfiguration is the primary one.
+	Primary           pulumi.BoolInput                                                                  `pulumi:"primary"`
+	PublicIpAddresses GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput `pulumi:"publicIpAddresses"`
+	// The the identifier of the subnet.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	Version  pulumi.StringInput `pulumi:"version"`
+}
+
+func (GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration)(nil)).Elem()
+}
+
+func (i GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs) ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput() GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput {
+	return i.ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs) ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutputWithContext(ctx context.Context) GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput)
+}
+
+// GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput is an input type that accepts GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray and GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput` via:
+//
+//          GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{ GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{...} }
+type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput() GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput
+	ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutputWithContext(context.Context) GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput
+}
+
+type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray []GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput
+
+func (GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration)(nil)).Elem()
+}
+
+func (i GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray) ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput() GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
+	return i.ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray) ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutputWithContext(ctx context.Context) GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput)
+}
+
+type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration)(nil)).Elem()
+}
+
+func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput() GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput {
+	return o
+}
+
+func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutputWithContext(ctx context.Context) GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput {
+	return o
+}
+
+// An array of references to backend address pools of application gateways.
+func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ApplicationGatewayBackendAddressPoolIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string {
+		return v.ApplicationGatewayBackendAddressPoolIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The application security group IDs to use.
+func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) ApplicationSecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string {
+		return v.ApplicationSecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// An array of references to backend address pools of load balancers.
+func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) LoadBalancerBackendAddressPoolIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string {
+		return v.LoadBalancerBackendAddressPoolIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// An array of references to inbound NAT pools for load balancers.
+func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) LoadBalancerInboundNatRulesIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []string {
+		return v.LoadBalancerInboundNatRulesIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of this Virtual Machine Scale Set.
+func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// If this ipConfiguration is the primary one.
+func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) Primary() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration) bool { return v.Primary }).(pulumi.BoolOutput)
+}
+
+func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) PublicIpAddresses() GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration) []GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
+		return v.PublicIpAddresses
+	}).(GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput)
+}
+
+// The the identifier of the subnet.
+func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration)(nil)).Elem()
+}
+
+func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput) ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput() GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
+	return o
+}
+
+func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput) ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutputWithContext(ctx context.Context) GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput {
+	return o
+}
+
+func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput) Index(i pulumi.IntInput) GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
+		return vs[0].([]GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration)[vs[1].(int)]
+	}).(GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput)
+}
+
+type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress struct {
+	// The domain name label for the dns settings.
+	DomainNameLabel      string                                                                         `pulumi:"domainNameLabel"`
+	IdleTimeoutInMinutes int                                                                            `pulumi:"idleTimeoutInMinutes"`
+	IpTags               []GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag `pulumi:"ipTags"`
+	// The name of this Virtual Machine Scale Set.
+	Name             string `pulumi:"name"`
+	PublicIpPrefixId string `pulumi:"publicIpPrefixId"`
+}
+
+// GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput is an input type that accepts GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs and GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput values.
+// You can construct a concrete instance of `GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput` via:
+//
+//          GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs{...}
+type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput interface {
+	pulumi.Input
+
+	ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput() GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput
+	ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutputWithContext(context.Context) GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput
+}
+
+type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs struct {
+	// The domain name label for the dns settings.
+	DomainNameLabel      pulumi.StringInput                                                                     `pulumi:"domainNameLabel"`
+	IdleTimeoutInMinutes pulumi.IntInput                                                                        `pulumi:"idleTimeoutInMinutes"`
+	IpTags               GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput `pulumi:"ipTags"`
+	// The name of this Virtual Machine Scale Set.
+	Name             pulumi.StringInput `pulumi:"name"`
+	PublicIpPrefixId pulumi.StringInput `pulumi:"publicIpPrefixId"`
+}
+
+func (GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress)(nil)).Elem()
+}
+
+func (i GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs) ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput() GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput {
+	return i.ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutputWithContext(context.Background())
+}
+
+func (i GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs) ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutputWithContext(ctx context.Context) GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput)
+}
+
+// GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput is an input type that accepts GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray and GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput values.
+// You can construct a concrete instance of `GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput` via:
+//
+//          GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray{ GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs{...} }
+type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput() GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput
+	ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutputWithContext(context.Context) GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput
+}
+
+type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray []GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput
+
+func (GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress)(nil)).Elem()
+}
+
+func (i GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray) ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput() GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput {
+	return i.ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray) ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutputWithContext(ctx context.Context) GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput)
+}
+
+type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress)(nil)).Elem()
+}
+
+func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput() GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput {
+	return o
+}
+
+func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutputWithContext(ctx context.Context) GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput {
+	return o
+}
+
+// The domain name label for the dns settings.
+func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) DomainNameLabel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) string {
+		return v.DomainNameLabel
+	}).(pulumi.StringOutput)
+}
+
+func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) IdleTimeoutInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) int {
+		return v.IdleTimeoutInMinutes
+	}).(pulumi.IntOutput)
+}
+
+func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) IpTags() GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) []GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
+		return v.IpTags
+	}).(GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput)
+}
+
+// The name of this Virtual Machine Scale Set.
+func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) PublicIpPrefixId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) string {
+		return v.PublicIpPrefixId
+	}).(pulumi.StringOutput)
+}
+
+type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress)(nil)).Elem()
+}
+
+func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput) ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput() GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput {
+	return o
+}
+
+func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput) ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutputWithContext(ctx context.Context) GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput {
+	return o
+}
+
+func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput) Index(i pulumi.IntInput) GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
+		return vs[0].([]GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress)[vs[1].(int)]
+	}).(GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput)
+}
+
+type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag struct {
+	Tag string `pulumi:"tag"`
+	// The identity type of the Managed Identity assigned to the Virtual Machine Scale Set.
+	Type string `pulumi:"type"`
+}
+
+// GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput is an input type that accepts GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs and GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput values.
+// You can construct a concrete instance of `GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput` via:
+//
+//          GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs{...}
+type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput interface {
+	pulumi.Input
+
+	ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput() GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput
+	ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutputWithContext(context.Context) GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput
+}
+
+type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs struct {
+	Tag pulumi.StringInput `pulumi:"tag"`
+	// The identity type of the Managed Identity assigned to the Virtual Machine Scale Set.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag)(nil)).Elem()
+}
+
+func (i GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs) ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput() GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput {
+	return i.ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutputWithContext(context.Background())
+}
+
+func (i GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs) ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutputWithContext(ctx context.Context) GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput)
+}
+
+// GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput is an input type that accepts GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray and GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput values.
+// You can construct a concrete instance of `GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput` via:
+//
+//          GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray{ GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs{...} }
+type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput() GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput
+	ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutputWithContext(context.Context) GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput
+}
+
+type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray []GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput
+
+func (GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag)(nil)).Elem()
+}
+
+func (i GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray) ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput() GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput {
+	return i.ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray) ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutputWithContext(ctx context.Context) GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput)
+}
+
+type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag)(nil)).Elem()
+}
+
+func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput() GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput {
+	return o
+}
+
+func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutputWithContext(ctx context.Context) GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput {
+	return o
+}
+
+func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) Tag() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag) string {
+		return v.Tag
+	}).(pulumi.StringOutput)
+}
+
+// The identity type of the Managed Identity assigned to the Virtual Machine Scale Set.
+func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag)(nil)).Elem()
+}
+
+func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput) ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput() GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput {
+	return o
+}
+
+func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput) ToGetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutputWithContext(ctx context.Context) GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput {
+	return o
+}
+
+func (o GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput) Index(i pulumi.IntInput) GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
+		return vs[0].([]GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag)[vs[1].(int)]
+	}).(GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BastionHostIpConfigurationOutput{})
 	pulumi.RegisterOutputType(BastionHostIpConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationPolicyAssignmentConfigurationOutput{})
+	pulumi.RegisterOutputType(ConfigurationPolicyAssignmentConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationPolicyAssignmentConfigurationParameterOutput{})
+	pulumi.RegisterOutputType(ConfigurationPolicyAssignmentConfigurationParameterArrayOutput{})
 	pulumi.RegisterOutputType(DiskEncryptionSetIdentityOutput{})
 	pulumi.RegisterOutputType(DiskEncryptionSetIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ImageDataDiskOutput{})
@@ -19027,4 +19869,12 @@ func init() {
 	pulumi.RegisterOutputType(GetVirtualMachineIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetVirtualMachineScaleSetIdentityOutput{})
 	pulumi.RegisterOutputType(GetVirtualMachineScaleSetIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualMachineScaleSetNetworkInterfaceOutput{})
+	pulumi.RegisterOutputType(GetVirtualMachineScaleSetNetworkInterfaceArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput{})
+	pulumi.RegisterOutputType(GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput{})
+	pulumi.RegisterOutputType(GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput{})
+	pulumi.RegisterOutputType(GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput{})
 }

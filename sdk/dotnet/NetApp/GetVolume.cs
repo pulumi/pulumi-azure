@@ -80,6 +80,9 @@ namespace Pulumi.Azure.NetApp
     public sealed class GetVolumeResult
     {
         public readonly string AccountName;
+        /// <summary>
+        /// A `data_protection_replication` block as defined below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetVolumeDataProtectionReplicationResult> DataProtectionReplications;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -95,6 +98,9 @@ namespace Pulumi.Azure.NetApp
         public readonly ImmutableArray<string> MountIpAddresses;
         public readonly string Name;
         public readonly string PoolName;
+        /// <summary>
+        /// A list of protocol types.
+        /// </summary>
         public readonly ImmutableArray<string> Protocols;
         public readonly string ResourceGroupName;
         /// <summary>

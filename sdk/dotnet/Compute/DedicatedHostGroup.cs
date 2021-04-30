@@ -49,6 +49,12 @@ namespace Pulumi.Azure.Compute
     public partial class DedicatedHostGroup : Pulumi.CustomResource
     {
         /// <summary>
+        /// Would virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group? Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("automaticPlacementEnabled")]
+        public Output<bool?> AutomaticPlacementEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The Azure location where the Dedicated Host Group exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -131,6 +137,12 @@ namespace Pulumi.Azure.Compute
     public sealed class DedicatedHostGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Would virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group? Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("automaticPlacementEnabled")]
+        public Input<bool>? AutomaticPlacementEnabled { get; set; }
+
+        /// <summary>
         /// The Azure location where the Dedicated Host Group exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -179,6 +191,12 @@ namespace Pulumi.Azure.Compute
 
     public sealed class DedicatedHostGroupState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Would virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group? Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("automaticPlacementEnabled")]
+        public Input<bool>? AutomaticPlacementEnabled { get; set; }
+
         /// <summary>
         /// The Azure location where the Dedicated Host Group exists. Changing this forces a new resource to be created.
         /// </summary>

@@ -18,6 +18,11 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly ImmutableArray<string> BlobTypes;
         /// <summary>
+        /// A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
+        /// ---
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetPolicyRuleFilterMatchBlobIndexTagResult> MatchBlobIndexTags;
+        /// <summary>
         /// An array of strings for prefixes to be matched.
         /// </summary>
         public readonly ImmutableArray<string> PrefixMatches;
@@ -26,9 +31,12 @@ namespace Pulumi.Azure.Storage.Outputs
         private GetPolicyRuleFilterResult(
             ImmutableArray<string> blobTypes,
 
+            ImmutableArray<Outputs.GetPolicyRuleFilterMatchBlobIndexTagResult> matchBlobIndexTags,
+
             ImmutableArray<string> prefixMatches)
         {
             BlobTypes = blobTypes;
+            MatchBlobIndexTags = matchBlobIndexTags;
             PrefixMatches = prefixMatches;
         }
     }

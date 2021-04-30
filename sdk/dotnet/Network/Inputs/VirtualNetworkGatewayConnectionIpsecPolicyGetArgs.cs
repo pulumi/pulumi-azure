@@ -22,14 +22,14 @@ namespace Pulumi.Azure.Network.Inputs
 
         /// <summary>
         /// The IKE encryption algorithm. Valid
-        /// options are `AES128`, `AES192`, `AES256`, `DES`, or `DES3`.
+        /// options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, or `GCMAES256`.
         /// </summary>
         [Input("ikeEncryption", required: true)]
         public Input<string> IkeEncryption { get; set; } = null!;
 
         /// <summary>
         /// The IKE integrity algorithm. Valid
-        /// options are `MD5`, `SHA1`, `SHA256`, or `SHA384`.
+        /// options are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256`, or `SHA384`.
         /// </summary>
         [Input("ikeIntegrity", required: true)]
         public Input<string> IkeIntegrity { get; set; } = null!;
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.Network.Inputs
 
         /// <summary>
         /// The DH group used in IKE phase 2 for new child SA.
-        /// Valid options are `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS2048`, `PFS24`,
+        /// Valid options are `ECP256`, `ECP384`, `PFS1`, `PFS14`, `PFS2`, `PFS2048`, `PFS24`, `PFSMM`,
         /// or `None`.
         /// </summary>
         [Input("pfsGroup", required: true)]

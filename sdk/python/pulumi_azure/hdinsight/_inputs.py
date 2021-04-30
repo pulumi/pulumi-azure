@@ -29,6 +29,7 @@ __all__ = [
     'HadoopClusterMetastoresHiveArgs',
     'HadoopClusterMetastoresOozieArgs',
     'HadoopClusterMonitorArgs',
+    'HadoopClusterNetworkArgs',
     'HadoopClusterRolesArgs',
     'HadoopClusterRolesEdgeNodeArgs',
     'HadoopClusterRolesEdgeNodeInstallScriptActionArgs',
@@ -44,6 +45,7 @@ __all__ = [
     'InteractiveQueryClusterMetastoresHiveArgs',
     'InteractiveQueryClusterMetastoresOozieArgs',
     'InteractiveQueryClusterMonitorArgs',
+    'InteractiveQueryClusterNetworkArgs',
     'InteractiveQueryClusterRolesArgs',
     'InteractiveQueryClusterRolesHeadNodeArgs',
     'InteractiveQueryClusterRolesWorkerNodeArgs',
@@ -86,6 +88,7 @@ __all__ = [
     'SparkClusterMetastoresHiveArgs',
     'SparkClusterMetastoresOozieArgs',
     'SparkClusterMonitorArgs',
+    'SparkClusterNetworkArgs',
     'SparkClusterRolesArgs',
     'SparkClusterRolesHeadNodeArgs',
     'SparkClusterRolesWorkerNodeArgs',
@@ -1357,6 +1360,45 @@ class HadoopClusterMonitorArgs:
 
 
 @pulumi.input_type
+class HadoopClusterNetworkArgs:
+    def __init__(__self__, *,
+                 connection_direction: Optional[pulumi.Input[str]] = None,
+                 private_link_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] connection_direction: The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] private_link_enabled: Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+        """
+        if connection_direction is not None:
+            pulumi.set(__self__, "connection_direction", connection_direction)
+        if private_link_enabled is not None:
+            pulumi.set(__self__, "private_link_enabled", private_link_enabled)
+
+    @property
+    @pulumi.getter(name="connectionDirection")
+    def connection_direction(self) -> Optional[pulumi.Input[str]]:
+        """
+        The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "connection_direction")
+
+    @connection_direction.setter
+    def connection_direction(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_direction", value)
+
+    @property
+    @pulumi.getter(name="privateLinkEnabled")
+    def private_link_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "private_link_enabled")
+
+    @private_link_enabled.setter
+    def private_link_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "private_link_enabled", value)
+
+
+@pulumi.input_type
 class HadoopClusterRolesArgs:
     def __init__(__self__, *,
                  head_node: pulumi.Input['HadoopClusterRolesHeadNodeArgs'],
@@ -2332,6 +2374,45 @@ class InteractiveQueryClusterMonitorArgs:
     @primary_key.setter
     def primary_key(self, value: pulumi.Input[str]):
         pulumi.set(self, "primary_key", value)
+
+
+@pulumi.input_type
+class InteractiveQueryClusterNetworkArgs:
+    def __init__(__self__, *,
+                 connection_direction: Optional[pulumi.Input[str]] = None,
+                 private_link_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] connection_direction: The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] private_link_enabled: Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+        """
+        if connection_direction is not None:
+            pulumi.set(__self__, "connection_direction", connection_direction)
+        if private_link_enabled is not None:
+            pulumi.set(__self__, "private_link_enabled", private_link_enabled)
+
+    @property
+    @pulumi.getter(name="connectionDirection")
+    def connection_direction(self) -> Optional[pulumi.Input[str]]:
+        """
+        The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "connection_direction")
+
+    @connection_direction.setter
+    def connection_direction(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_direction", value)
+
+    @property
+    @pulumi.getter(name="privateLinkEnabled")
+    def private_link_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "private_link_enabled")
+
+    @private_link_enabled.setter
+    def private_link_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "private_link_enabled", value)
 
 
 @pulumi.input_type
@@ -5470,6 +5551,45 @@ class SparkClusterMonitorArgs:
     @primary_key.setter
     def primary_key(self, value: pulumi.Input[str]):
         pulumi.set(self, "primary_key", value)
+
+
+@pulumi.input_type
+class SparkClusterNetworkArgs:
+    def __init__(__self__, *,
+                 connection_direction: Optional[pulumi.Input[str]] = None,
+                 private_link_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] connection_direction: The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] private_link_enabled: Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+        """
+        if connection_direction is not None:
+            pulumi.set(__self__, "connection_direction", connection_direction)
+        if private_link_enabled is not None:
+            pulumi.set(__self__, "private_link_enabled", private_link_enabled)
+
+    @property
+    @pulumi.getter(name="connectionDirection")
+    def connection_direction(self) -> Optional[pulumi.Input[str]]:
+        """
+        The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "connection_direction")
+
+    @connection_direction.setter
+    def connection_direction(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_direction", value)
+
+    @property
+    @pulumi.getter(name="privateLinkEnabled")
+    def private_link_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "private_link_enabled")
+
+    @private_link_enabled.setter
+    def private_link_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "private_link_enabled", value)
 
 
 @pulumi.input_type

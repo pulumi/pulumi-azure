@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DatasetParquet{}
 	case "azure:datafactory/datasetPostgresql:DatasetPostgresql":
 		r = &DatasetPostgresql{}
+	case "azure:datafactory/datasetSnowflake:DatasetSnowflake":
+		r = &DatasetSnowflake{}
 	case "azure:datafactory/datasetSqlServerTable:DatasetSqlServerTable":
 		r = &DatasetSqlServerTable{}
 	case "azure:datafactory/factory:Factory":
@@ -136,6 +138,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"datafactory/datasetPostgresql",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"datafactory/datasetSnowflake",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

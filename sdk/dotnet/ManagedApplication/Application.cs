@@ -120,10 +120,16 @@ namespace Pulumi.Azure.ManagedApplication
         public Output<ImmutableDictionary<string, string>> Outputs { get; private set; } = null!;
 
         /// <summary>
+        /// The parameter values to pass to the Managed Application. This field is a json object that allows you to assign parameters to this Managed Application.
+        /// </summary>
+        [Output("parameterValues")]
+        public Output<string> ParameterValues { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of name and value pairs to pass to the managed application as parameters.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// One `plan` block as defined below.
@@ -219,6 +225,12 @@ namespace Pulumi.Azure.ManagedApplication
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The parameter values to pass to the Managed Application. This field is a json object that allows you to assign parameters to this Managed Application.
+        /// </summary>
+        [Input("parameterValues")]
+        public Input<string>? ParameterValues { get; set; }
+
         [Input("parameters")]
         private InputMap<string>? _parameters;
 
@@ -303,6 +315,12 @@ namespace Pulumi.Azure.ManagedApplication
             get => _outputs ?? (_outputs = new InputMap<string>());
             set => _outputs = value;
         }
+
+        /// <summary>
+        /// The parameter values to pass to the Managed Application. This field is a json object that allows you to assign parameters to this Managed Application.
+        /// </summary>
+        [Input("parameterValues")]
+        public Input<string>? ParameterValues { get; set; }
 
         [Input("parameters")]
         private InputMap<string>? _parameters;

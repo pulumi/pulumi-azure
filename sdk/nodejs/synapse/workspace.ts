@@ -90,6 +90,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly connectivityEndpoints!: pulumi.Output<{[key: string]: string}>;
     /**
+     * The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+     */
+    public readonly customerManagedKeyVersionlessId!: pulumi.Output<string | undefined>;
+    /**
      * A `githubRepo` block as defined below.
      */
     public readonly githubRepo!: pulumi.Output<outputs.synapse.WorkspaceGithubRepo | undefined>;
@@ -154,6 +158,7 @@ export class Workspace extends pulumi.CustomResource {
             inputs["aadAdmin"] = state ? state.aadAdmin : undefined;
             inputs["azureDevopsRepo"] = state ? state.azureDevopsRepo : undefined;
             inputs["connectivityEndpoints"] = state ? state.connectivityEndpoints : undefined;
+            inputs["customerManagedKeyVersionlessId"] = state ? state.customerManagedKeyVersionlessId : undefined;
             inputs["githubRepo"] = state ? state.githubRepo : undefined;
             inputs["identities"] = state ? state.identities : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -182,6 +187,7 @@ export class Workspace extends pulumi.CustomResource {
             }
             inputs["aadAdmin"] = args ? args.aadAdmin : undefined;
             inputs["azureDevopsRepo"] = args ? args.azureDevopsRepo : undefined;
+            inputs["customerManagedKeyVersionlessId"] = args ? args.customerManagedKeyVersionlessId : undefined;
             inputs["githubRepo"] = args ? args.githubRepo : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
@@ -219,6 +225,10 @@ export interface WorkspaceState {
      * A list of Connectivity endpoints for this Synapse Workspace.
      */
     readonly connectivityEndpoints?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+     */
+    readonly customerManagedKeyVersionlessId?: pulumi.Input<string>;
     /**
      * A `githubRepo` block as defined below.
      */
@@ -281,6 +291,10 @@ export interface WorkspaceArgs {
      * An `azureDevopsRepo` block as defined below.
      */
     readonly azureDevopsRepo?: pulumi.Input<inputs.synapse.WorkspaceAzureDevopsRepo>;
+    /**
+     * The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+     */
+    readonly customerManagedKeyVersionlessId?: pulumi.Input<string>;
     /**
      * A `githubRepo` block as defined below.
      */

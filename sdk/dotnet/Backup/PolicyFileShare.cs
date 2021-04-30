@@ -12,8 +12,6 @@ namespace Pulumi.Azure.Backup
     /// <summary>
     /// Manages an Azure File Share Backup Policy within a Recovery Services vault.
     /// 
-    /// &gt; **NOTE:** Azure Backup for Azure File Shares is currently in public preview. During the preview, the service is subject to additional limitations and unsupported backup scenarios. [Read More](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files#limitations-for-azure-file-share-backup-during-preview)
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -24,20 +22,20 @@ namespace Pulumi.Azure.Backup
     /// {
     ///     public MyStack()
     ///     {
-    ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
     ///         {
     ///             Location = "West Europe",
     ///         });
-    ///         var vault = new Azure.RecoveryServices.Vault("vault", new Azure.RecoveryServices.VaultArgs
+    ///         var exampleVault = new Azure.RecoveryServices.Vault("exampleVault", new Azure.RecoveryServices.VaultArgs
     ///         {
-    ///             Location = rg.Location,
-    ///             ResourceGroupName = rg.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Sku = "Standard",
     ///         });
     ///         var policy = new Azure.Backup.PolicyFileShare("policy", new Azure.Backup.PolicyFileShareArgs
     ///         {
-    ///             ResourceGroupName = rg.Name,
-    ///             RecoveryVaultName = vault.Name,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             RecoveryVaultName = azurerm_recovery_services_vault.Vault.Name,
     ///             Timezone = "UTC",
     ///             Backup = new Azure.Backup.Inputs.PolicyFileShareBackupArgs
     ///             {
@@ -47,6 +45,47 @@ namespace Pulumi.Azure.Backup
     ///             RetentionDaily = new Azure.Backup.Inputs.PolicyFileShareRetentionDailyArgs
     ///             {
     ///                 Count = 10,
+    ///             },
+    ///             RetentionWeekly = new Azure.Backup.Inputs.PolicyFileShareRetentionWeeklyArgs
+    ///             {
+    ///                 Count = 7,
+    ///                 Weekdays = 
+    ///                 {
+    ///                     "Sunday",
+    ///                     "Wednesday",
+    ///                     "Friday",
+    ///                     "Saturday",
+    ///                 },
+    ///             },
+    ///             RetentionMonthly = new Azure.Backup.Inputs.PolicyFileShareRetentionMonthlyArgs
+    ///             {
+    ///                 Count = 7,
+    ///                 Weekdays = 
+    ///                 {
+    ///                     "Sunday",
+    ///                     "Wednesday",
+    ///                 },
+    ///                 Weeks = 
+    ///                 {
+    ///                     "First",
+    ///                     "Last",
+    ///                 },
+    ///             },
+    ///             RetentionYearly = new Azure.Backup.Inputs.PolicyFileShareRetentionYearlyArgs
+    ///             {
+    ///                 Count = 7,
+    ///                 Weekdays = 
+    ///                 {
+    ///                     "Sunday",
+    ///                 },
+    ///                 Weeks = 
+    ///                 {
+    ///                     "Last",
+    ///                 },
+    ///                 Months = 
+    ///                 {
+    ///                     "January",
+    ///                 },
     ///             },
     ///         });
     ///     }
@@ -94,6 +133,27 @@ namespace Pulumi.Azure.Backup
         /// </summary>
         [Output("retentionDaily")]
         public Output<Outputs.PolicyFileShareRetentionDaily> RetentionDaily { get; private set; } = null!;
+
+        /// <summary>
+        /// Configures the policy monthly retention as documented in the `retention_monthly` block below.
+        /// </summary>
+        [Output("retentionMonthly")]
+        public Output<Outputs.PolicyFileShareRetentionMonthly?> RetentionMonthly { get; private set; } = null!;
+
+        /// <summary>
+        /// Configures the policy weekly retention as documented in the `retention_weekly` block below.
+        /// </summary>
+        [Output("retentionWeekly")]
+        public Output<Outputs.PolicyFileShareRetentionWeekly?> RetentionWeekly { get; private set; } = null!;
+
+        /// <summary>
+        /// Configures the policy yearly retention as documented in the `retention_yearly` block below.
+        /// </summary>
+        [Output("retentionYearly")]
+        public Output<Outputs.PolicyFileShareRetentionYearly?> RetentionYearly { get; private set; } = null!;
+
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
@@ -178,6 +238,32 @@ namespace Pulumi.Azure.Backup
         public Input<Inputs.PolicyFileShareRetentionDailyArgs> RetentionDaily { get; set; } = null!;
 
         /// <summary>
+        /// Configures the policy monthly retention as documented in the `retention_monthly` block below.
+        /// </summary>
+        [Input("retentionMonthly")]
+        public Input<Inputs.PolicyFileShareRetentionMonthlyArgs>? RetentionMonthly { get; set; }
+
+        /// <summary>
+        /// Configures the policy weekly retention as documented in the `retention_weekly` block below.
+        /// </summary>
+        [Input("retentionWeekly")]
+        public Input<Inputs.PolicyFileShareRetentionWeeklyArgs>? RetentionWeekly { get; set; }
+
+        /// <summary>
+        /// Configures the policy yearly retention as documented in the `retention_yearly` block below.
+        /// </summary>
+        [Input("retentionYearly")]
+        public Input<Inputs.PolicyFileShareRetentionYearlyArgs>? RetentionYearly { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        /// <summary>
         /// Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         /// </summary>
         [Input("timezone")]
@@ -219,6 +305,32 @@ namespace Pulumi.Azure.Backup
         /// </summary>
         [Input("retentionDaily")]
         public Input<Inputs.PolicyFileShareRetentionDailyGetArgs>? RetentionDaily { get; set; }
+
+        /// <summary>
+        /// Configures the policy monthly retention as documented in the `retention_monthly` block below.
+        /// </summary>
+        [Input("retentionMonthly")]
+        public Input<Inputs.PolicyFileShareRetentionMonthlyGetArgs>? RetentionMonthly { get; set; }
+
+        /// <summary>
+        /// Configures the policy weekly retention as documented in the `retention_weekly` block below.
+        /// </summary>
+        [Input("retentionWeekly")]
+        public Input<Inputs.PolicyFileShareRetentionWeeklyGetArgs>? RetentionWeekly { get; set; }
+
+        /// <summary>
+        /// Configures the policy yearly retention as documented in the `retention_yearly` block below.
+        /// </summary>
+        [Input("retentionYearly")]
+        public Input<Inputs.PolicyFileShareRetentionYearlyGetArgs>? RetentionYearly { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`

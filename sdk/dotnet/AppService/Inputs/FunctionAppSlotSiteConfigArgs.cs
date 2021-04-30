@@ -57,6 +57,9 @@ namespace Pulumi.Azure.AppService.Inputs
             set => _ipRestrictions = value;
         }
 
+        [Input("javaVersion")]
+        public Input<string>? JavaVersion { get; set; }
+
         /// <summary>
         /// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
         /// </summary>

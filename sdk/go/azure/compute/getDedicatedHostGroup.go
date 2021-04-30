@@ -52,6 +52,8 @@ type LookupDedicatedHostGroupArgs struct {
 
 // A collection of values returned by getDedicatedHostGroup.
 type LookupDedicatedHostGroupResult struct {
+	// Whether virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group.
+	AutomaticPlacementEnabled bool `pulumi:"automaticPlacementEnabled"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure location where the Dedicated Host Group exists.

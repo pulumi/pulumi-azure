@@ -35,7 +35,7 @@ namespace Pulumi.Azure.DataFactory
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             DataFactoryName = exampleFactory.Name,
-    ///             ConnectionString = "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test",
+    ///             ConnectionString = "jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&amp;db=db&amp;warehouse=wh",
     ///         });
     ///     }
     /// 

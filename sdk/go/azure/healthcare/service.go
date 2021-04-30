@@ -84,6 +84,8 @@ type Service struct {
 	AuthenticationConfiguration ServiceAuthenticationConfigurationOutput `pulumi:"authenticationConfiguration"`
 	// A `corsConfiguration` block as defined below.
 	CorsConfiguration ServiceCorsConfigurationOutput `pulumi:"corsConfiguration"`
+	// A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
+	CosmosdbKeyVaultKeyVersionlessId pulumi.StringPtrOutput `pulumi:"cosmosdbKeyVaultKeyVersionlessId"`
 	// The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
 	CosmosdbThroughput pulumi.IntPtrOutput `pulumi:"cosmosdbThroughput"`
 	// The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
@@ -135,6 +137,8 @@ type serviceState struct {
 	AuthenticationConfiguration *ServiceAuthenticationConfiguration `pulumi:"authenticationConfiguration"`
 	// A `corsConfiguration` block as defined below.
 	CorsConfiguration *ServiceCorsConfiguration `pulumi:"corsConfiguration"`
+	// A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
+	CosmosdbKeyVaultKeyVersionlessId *string `pulumi:"cosmosdbKeyVaultKeyVersionlessId"`
 	// The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
 	CosmosdbThroughput *int `pulumi:"cosmosdbThroughput"`
 	// The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
@@ -155,6 +159,8 @@ type ServiceState struct {
 	AuthenticationConfiguration ServiceAuthenticationConfigurationPtrInput
 	// A `corsConfiguration` block as defined below.
 	CorsConfiguration ServiceCorsConfigurationPtrInput
+	// A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
+	CosmosdbKeyVaultKeyVersionlessId pulumi.StringPtrInput
 	// The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
 	CosmosdbThroughput pulumi.IntPtrInput
 	// The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
@@ -179,6 +185,8 @@ type serviceArgs struct {
 	AuthenticationConfiguration *ServiceAuthenticationConfiguration `pulumi:"authenticationConfiguration"`
 	// A `corsConfiguration` block as defined below.
 	CorsConfiguration *ServiceCorsConfiguration `pulumi:"corsConfiguration"`
+	// A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
+	CosmosdbKeyVaultKeyVersionlessId *string `pulumi:"cosmosdbKeyVaultKeyVersionlessId"`
 	// The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
 	CosmosdbThroughput *int `pulumi:"cosmosdbThroughput"`
 	// The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
@@ -200,6 +208,8 @@ type ServiceArgs struct {
 	AuthenticationConfiguration ServiceAuthenticationConfigurationPtrInput
 	// A `corsConfiguration` block as defined below.
 	CorsConfiguration ServiceCorsConfigurationPtrInput
+	// A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
+	CosmosdbKeyVaultKeyVersionlessId pulumi.StringPtrInput
 	// The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
 	CosmosdbThroughput pulumi.IntPtrInput
 	// The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.

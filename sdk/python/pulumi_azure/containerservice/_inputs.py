@@ -21,12 +21,14 @@ __all__ = [
     'GroupDiagnosticsArgs',
     'GroupDiagnosticsLogAnalyticsArgs',
     'GroupDnsConfigArgs',
+    'GroupExposedPortArgs',
     'GroupIdentityArgs',
     'GroupImageRegistryCredentialArgs',
     'KubernetesClusterAddonProfileArgs',
     'KubernetesClusterAddonProfileAciConnectorLinuxArgs',
     'KubernetesClusterAddonProfileAzurePolicyArgs',
     'KubernetesClusterAddonProfileHttpApplicationRoutingArgs',
+    'KubernetesClusterAddonProfileIngressApplicationGatewayArgs',
     'KubernetesClusterAddonProfileKubeDashboardArgs',
     'KubernetesClusterAddonProfileOmsAgentArgs',
     'KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs',
@@ -46,6 +48,7 @@ __all__ = [
     'KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs',
     'KubernetesClusterServicePrincipalArgs',
     'KubernetesClusterWindowsProfileArgs',
+    'RegistryGeoreplicationArgs',
     'RegistryNetworkRuleSetArgs',
     'RegistryNetworkRuleSetIpRuleArgs',
     'RegistryNetworkRuleSetVirtualNetworkArgs',
@@ -300,7 +303,7 @@ class GroupContainerLivenessProbeArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] execs: Commands to be run to validate container readiness. Changing this forces a new resource to be created.
         :param pulumi.Input[int] failure_threshold: How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['GroupContainerLivenessProbeHttpGetArgs']]] http_gets: The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupContainerLivenessProbeHttpGetArgs']]] http_gets: The definition of the http_get for this container as documented in the `http_get` block below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] initial_delay_seconds: Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
         :param pulumi.Input[int] period_seconds: How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] success_threshold: Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
@@ -349,7 +352,7 @@ class GroupContainerLivenessProbeArgs:
     @pulumi.getter(name="httpGets")
     def http_gets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerLivenessProbeHttpGetArgs']]]]:
         """
-        The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
+        The definition of the http_get for this container as documented in the `http_get` block below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "http_gets")
 
@@ -513,7 +516,7 @@ class GroupContainerReadinessProbeArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] execs: Commands to be run to validate container readiness. Changing this forces a new resource to be created.
         :param pulumi.Input[int] failure_threshold: How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['GroupContainerReadinessProbeHttpGetArgs']]] http_gets: The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupContainerReadinessProbeHttpGetArgs']]] http_gets: The definition of the http_get for this container as documented in the `http_get` block below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] initial_delay_seconds: Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
         :param pulumi.Input[int] period_seconds: How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] success_threshold: Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
@@ -562,7 +565,7 @@ class GroupContainerReadinessProbeArgs:
     @pulumi.getter(name="httpGets")
     def http_gets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerReadinessProbeHttpGetArgs']]]]:
         """
-        The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
+        The definition of the http_get for this container as documented in the `http_get` block below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "http_gets")
 
@@ -1021,6 +1024,45 @@ class GroupDnsConfigArgs:
 
 
 @pulumi.input_type
+class GroupExposedPortArgs:
+    def __init__(__self__, *,
+                 port: Optional[pulumi.Input[int]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] port: The port number the container will expose. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] protocol: The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
+        """
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port number the container will expose. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
+
+
+@pulumi.input_type
 class GroupIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
@@ -1128,12 +1170,14 @@ class KubernetesClusterAddonProfileArgs:
                  aci_connector_linux: Optional[pulumi.Input['KubernetesClusterAddonProfileAciConnectorLinuxArgs']] = None,
                  azure_policy: Optional[pulumi.Input['KubernetesClusterAddonProfileAzurePolicyArgs']] = None,
                  http_application_routing: Optional[pulumi.Input['KubernetesClusterAddonProfileHttpApplicationRoutingArgs']] = None,
+                 ingress_application_gateway: Optional[pulumi.Input['KubernetesClusterAddonProfileIngressApplicationGatewayArgs']] = None,
                  kube_dashboard: Optional[pulumi.Input['KubernetesClusterAddonProfileKubeDashboardArgs']] = None,
                  oms_agent: Optional[pulumi.Input['KubernetesClusterAddonProfileOmsAgentArgs']] = None):
         """
         :param pulumi.Input['KubernetesClusterAddonProfileAciConnectorLinuxArgs'] aci_connector_linux: A `aci_connector_linux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal).
         :param pulumi.Input['KubernetesClusterAddonProfileAzurePolicyArgs'] azure_policy: A `azure_policy` block as defined below. For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input['KubernetesClusterAddonProfileHttpApplicationRoutingArgs'] http_application_routing: A `http_application_routing` block as defined below.
+        :param pulumi.Input['KubernetesClusterAddonProfileIngressApplicationGatewayArgs'] ingress_application_gateway: An `ingress_application_gateway` block as defined below.
         :param pulumi.Input['KubernetesClusterAddonProfileKubeDashboardArgs'] kube_dashboard: A `kube_dashboard` block as defined below.
         :param pulumi.Input['KubernetesClusterAddonProfileOmsAgentArgs'] oms_agent: A `oms_agent` block as defined below. For more details, please visit [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard).
         """
@@ -1143,6 +1187,8 @@ class KubernetesClusterAddonProfileArgs:
             pulumi.set(__self__, "azure_policy", azure_policy)
         if http_application_routing is not None:
             pulumi.set(__self__, "http_application_routing", http_application_routing)
+        if ingress_application_gateway is not None:
+            pulumi.set(__self__, "ingress_application_gateway", ingress_application_gateway)
         if kube_dashboard is not None:
             pulumi.set(__self__, "kube_dashboard", kube_dashboard)
         if oms_agent is not None:
@@ -1183,6 +1229,18 @@ class KubernetesClusterAddonProfileArgs:
     @http_application_routing.setter
     def http_application_routing(self, value: Optional[pulumi.Input['KubernetesClusterAddonProfileHttpApplicationRoutingArgs']]):
         pulumi.set(self, "http_application_routing", value)
+
+    @property
+    @pulumi.getter(name="ingressApplicationGateway")
+    def ingress_application_gateway(self) -> Optional[pulumi.Input['KubernetesClusterAddonProfileIngressApplicationGatewayArgs']]:
+        """
+        An `ingress_application_gateway` block as defined below.
+        """
+        return pulumi.get(self, "ingress_application_gateway")
+
+    @ingress_application_gateway.setter
+    def ingress_application_gateway(self, value: Optional[pulumi.Input['KubernetesClusterAddonProfileIngressApplicationGatewayArgs']]):
+        pulumi.set(self, "ingress_application_gateway", value)
 
     @property
     @pulumi.getter(name="kubeDashboard")
@@ -1305,6 +1363,88 @@ class KubernetesClusterAddonProfileHttpApplicationRoutingArgs:
     @http_application_routing_zone_name.setter
     def http_application_routing_zone_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "http_application_routing_zone_name", value)
+
+
+@pulumi.input_type
+class KubernetesClusterAddonProfileIngressApplicationGatewayArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 effective_gateway_id: Optional[pulumi.Input[str]] = None,
+                 gateway_id: Optional[pulumi.Input[str]] = None,
+                 subnet_cidr: Optional[pulumi.Input[str]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster?
+        :param pulumi.Input[str] gateway_id: The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
+        :param pulumi.Input[str] subnet_cidr: The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if effective_gateway_id is not None:
+            pulumi.set(__self__, "effective_gateway_id", effective_gateway_id)
+        if gateway_id is not None:
+            pulumi.set(__self__, "gateway_id", gateway_id)
+        if subnet_cidr is not None:
+            pulumi.set(__self__, "subnet_cidr", subnet_cidr)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster?
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="effectiveGatewayId")
+    def effective_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "effective_gateway_id")
+
+    @effective_gateway_id.setter
+    def effective_gateway_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "effective_gateway_id", value)
+
+    @property
+    @pulumi.getter(name="gatewayId")
+    def gateway_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
+        """
+        return pulumi.get(self, "gateway_id")
+
+    @gateway_id.setter
+    def gateway_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gateway_id", value)
+
+    @property
+    @pulumi.getter(name="subnetCidr")
+    def subnet_cidr(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+        """
+        return pulumi.get(self, "subnet_cidr")
+
+    @subnet_cidr.setter
+    def subnet_cidr(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_cidr", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
 
 
 @pulumi.input_type
@@ -1442,8 +1582,12 @@ class KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs:
 class KubernetesClusterAutoScalerProfileArgs:
     def __init__(__self__, *,
                  balance_similar_node_groups: Optional[pulumi.Input[bool]] = None,
+                 empty_bulk_delete_max: Optional[pulumi.Input[str]] = None,
                  expander: Optional[pulumi.Input[str]] = None,
                  max_graceful_termination_sec: Optional[pulumi.Input[str]] = None,
+                 max_node_provisioning_time: Optional[pulumi.Input[str]] = None,
+                 max_unready_nodes: Optional[pulumi.Input[int]] = None,
+                 max_unready_percentage: Optional[pulumi.Input[float]] = None,
                  new_pod_scale_up_delay: Optional[pulumi.Input[str]] = None,
                  scale_down_delay_after_add: Optional[pulumi.Input[str]] = None,
                  scale_down_delay_after_delete: Optional[pulumi.Input[str]] = None,
@@ -1456,8 +1600,12 @@ class KubernetesClusterAutoScalerProfileArgs:
                  skip_nodes_with_system_pods: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[bool] balance_similar_node_groups: Detect similar node groups and balance the number of nodes between them. Defaults to `false`.
+        :param pulumi.Input[str] empty_bulk_delete_max: Maximum number of empty nodes that can be deleted at the same time. Defaults to `10`.
         :param pulumi.Input[str] expander: Expander to use. Possible values are `least-waste`, `priority`, `most-pods` and `random`. Defaults to `random`.
         :param pulumi.Input[str] max_graceful_termination_sec: Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
+        :param pulumi.Input[str] max_node_provisioning_time: Maximum time the autoscaler waits for a node to be provisioned. Defaults to `15m`.
+        :param pulumi.Input[int] max_unready_nodes: Maximum Number of allowed unready nodes. Defaults to `3`.
+        :param pulumi.Input[float] max_unready_percentage: Maximum percentage of unready nodes the cluster autoscaler will stop if the percentage is exceeded. Defaults to `45`.
         :param pulumi.Input[str] new_pod_scale_up_delay: For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. Defaults to `10s`.
         :param pulumi.Input[str] scale_down_delay_after_add: How long after the scale up of AKS nodes the scale down evaluation resumes. Defaults to `10m`.
         :param pulumi.Input[str] scale_down_delay_after_delete: How long after node deletion that scale down evaluation resumes. Defaults to the value used for `scan_interval`.
@@ -1471,10 +1619,18 @@ class KubernetesClusterAutoScalerProfileArgs:
         """
         if balance_similar_node_groups is not None:
             pulumi.set(__self__, "balance_similar_node_groups", balance_similar_node_groups)
+        if empty_bulk_delete_max is not None:
+            pulumi.set(__self__, "empty_bulk_delete_max", empty_bulk_delete_max)
         if expander is not None:
             pulumi.set(__self__, "expander", expander)
         if max_graceful_termination_sec is not None:
             pulumi.set(__self__, "max_graceful_termination_sec", max_graceful_termination_sec)
+        if max_node_provisioning_time is not None:
+            pulumi.set(__self__, "max_node_provisioning_time", max_node_provisioning_time)
+        if max_unready_nodes is not None:
+            pulumi.set(__self__, "max_unready_nodes", max_unready_nodes)
+        if max_unready_percentage is not None:
+            pulumi.set(__self__, "max_unready_percentage", max_unready_percentage)
         if new_pod_scale_up_delay is not None:
             pulumi.set(__self__, "new_pod_scale_up_delay", new_pod_scale_up_delay)
         if scale_down_delay_after_add is not None:
@@ -1509,6 +1665,18 @@ class KubernetesClusterAutoScalerProfileArgs:
         pulumi.set(self, "balance_similar_node_groups", value)
 
     @property
+    @pulumi.getter(name="emptyBulkDeleteMax")
+    def empty_bulk_delete_max(self) -> Optional[pulumi.Input[str]]:
+        """
+        Maximum number of empty nodes that can be deleted at the same time. Defaults to `10`.
+        """
+        return pulumi.get(self, "empty_bulk_delete_max")
+
+    @empty_bulk_delete_max.setter
+    def empty_bulk_delete_max(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "empty_bulk_delete_max", value)
+
+    @property
     @pulumi.getter
     def expander(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1531,6 +1699,42 @@ class KubernetesClusterAutoScalerProfileArgs:
     @max_graceful_termination_sec.setter
     def max_graceful_termination_sec(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "max_graceful_termination_sec", value)
+
+    @property
+    @pulumi.getter(name="maxNodeProvisioningTime")
+    def max_node_provisioning_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Maximum time the autoscaler waits for a node to be provisioned. Defaults to `15m`.
+        """
+        return pulumi.get(self, "max_node_provisioning_time")
+
+    @max_node_provisioning_time.setter
+    def max_node_provisioning_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "max_node_provisioning_time", value)
+
+    @property
+    @pulumi.getter(name="maxUnreadyNodes")
+    def max_unready_nodes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum Number of allowed unready nodes. Defaults to `3`.
+        """
+        return pulumi.get(self, "max_unready_nodes")
+
+    @max_unready_nodes.setter
+    def max_unready_nodes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_unready_nodes", value)
+
+    @property
+    @pulumi.getter(name="maxUnreadyPercentage")
+    def max_unready_percentage(self) -> Optional[pulumi.Input[float]]:
+        """
+        Maximum percentage of unready nodes the cluster autoscaler will stop if the percentage is exceeded. Defaults to `45`.
+        """
+        return pulumi.get(self, "max_unready_percentage")
+
+    @max_unready_percentage.setter
+    def max_unready_percentage(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_unready_percentage", value)
 
     @property
     @pulumi.getter(name="newPodScaleUpDelay")
@@ -2731,6 +2935,7 @@ class KubernetesClusterRoleBasedAccessControlArgs:
 class KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs:
     def __init__(__self__, *,
                  admin_group_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 azure_rbac_enabled: Optional[pulumi.Input[bool]] = None,
                  client_app_id: Optional[pulumi.Input[str]] = None,
                  managed: Optional[pulumi.Input[bool]] = None,
                  server_app_id: Optional[pulumi.Input[str]] = None,
@@ -2738,6 +2943,7 @@ class KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs:
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_group_object_ids: A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
+        :param pulumi.Input[bool] azure_rbac_enabled: Is Role Based Access Control based on Azure AD enabled? Changing this forces a new resource to be created.
         :param pulumi.Input[str] client_app_id: The Client ID of an Azure Active Directory Application.
         :param pulumi.Input[bool] managed: Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
         :param pulumi.Input[str] server_app_id: The Server ID of an Azure Active Directory Application.
@@ -2746,6 +2952,8 @@ class KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs:
         """
         if admin_group_object_ids is not None:
             pulumi.set(__self__, "admin_group_object_ids", admin_group_object_ids)
+        if azure_rbac_enabled is not None:
+            pulumi.set(__self__, "azure_rbac_enabled", azure_rbac_enabled)
         if client_app_id is not None:
             pulumi.set(__self__, "client_app_id", client_app_id)
         if managed is not None:
@@ -2768,6 +2976,18 @@ class KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs:
     @admin_group_object_ids.setter
     def admin_group_object_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "admin_group_object_ids", value)
+
+    @property
+    @pulumi.getter(name="azureRbacEnabled")
+    def azure_rbac_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Role Based Access Control based on Azure AD enabled? Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "azure_rbac_enabled")
+
+    @azure_rbac_enabled.setter
+    def azure_rbac_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "azure_rbac_enabled", value)
 
     @property
     @pulumi.getter(name="clientAppId")
@@ -2903,6 +3123,44 @@ class KubernetesClusterWindowsProfileArgs:
     @admin_password.setter
     def admin_password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "admin_password", value)
+
+
+@pulumi.input_type
+class RegistryGeoreplicationArgs:
+    def __init__(__self__, *,
+                 location: pulumi.Input[str],
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] location: A location where the container registry should be geo-replicated.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to this replication location.
+        """
+        pulumi.set(__self__, "location", location)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def location(self) -> pulumi.Input[str]:
+        """
+        A location where the container registry should be geo-replicated.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: pulumi.Input[str]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to this replication location.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type

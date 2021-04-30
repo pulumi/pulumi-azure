@@ -381,7 +381,7 @@ class LinkedServiceSnowflake(pulumi.CustomResource):
         example_linked_service_snowflake = azure.datafactory.LinkedServiceSnowflake("exampleLinkedServiceSnowflake",
             resource_group_name=example_resource_group.name,
             data_factory_name=example_factory.name,
-            connection_string="Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test")
+            connection_string="jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh")
         ```
         ### With Password In Key Vault
 
@@ -457,7 +457,7 @@ class LinkedServiceSnowflake(pulumi.CustomResource):
         example_linked_service_snowflake = azure.datafactory.LinkedServiceSnowflake("exampleLinkedServiceSnowflake",
             resource_group_name=example_resource_group.name,
             data_factory_name=example_factory.name,
-            connection_string="Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test")
+            connection_string="jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh")
         ```
         ### With Password In Key Vault
 

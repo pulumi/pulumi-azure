@@ -15,9 +15,11 @@ export * from "./getCertificateData";
 export * from "./getCertificateIssuer";
 export * from "./getKey";
 export * from "./getKeyVault";
+export * from "./getManagedHardwareSecurityModule";
 export * from "./getSecret";
 export * from "./key";
 export * from "./keyVault";
+export * from "./managedHardwareSecurityModule";
 export * from "./secret";
 
 // Import resources to register:
@@ -27,6 +29,7 @@ import { Certificate } from "./certificate";
 import { CertificateIssuer } from "./certificateIssuer";
 import { Key } from "./key";
 import { KeyVault } from "./keyVault";
+import { ManagedHardwareSecurityModule } from "./managedHardwareSecurityModule";
 import { Secret } from "./secret";
 
 const _module = {
@@ -45,6 +48,8 @@ const _module = {
                 return new Key(name, <any>undefined, { urn })
             case "azure:keyvault/keyVault:KeyVault":
                 return new KeyVault(name, <any>undefined, { urn })
+            case "azure:keyvault/managedHardwareSecurityModule:ManagedHardwareSecurityModule":
+                return new ManagedHardwareSecurityModule(name, <any>undefined, { urn })
             case "azure:keyvault/secret:Secret":
                 return new Secret(name, <any>undefined, { urn })
             default:
@@ -58,4 +63,5 @@ pulumi.runtime.registerResourceModule("azure", "keyvault/certificate", _module)
 pulumi.runtime.registerResourceModule("azure", "keyvault/certificateIssuer", _module)
 pulumi.runtime.registerResourceModule("azure", "keyvault/key", _module)
 pulumi.runtime.registerResourceModule("azure", "keyvault/keyVault", _module)
+pulumi.runtime.registerResourceModule("azure", "keyvault/managedHardwareSecurityModule", _module)
 pulumi.runtime.registerResourceModule("azure", "keyvault/secret", _module)

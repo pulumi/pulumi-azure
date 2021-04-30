@@ -54,6 +54,10 @@ export interface GetDedicatedHostGroupArgs {
  */
 export interface GetDedicatedHostGroupResult {
     /**
+     * Whether virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group.
+     */
+    readonly automaticPlacementEnabled: boolean;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

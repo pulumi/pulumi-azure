@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Database{}
 	case "azure:postgresql/firewallRule:FirewallRule":
 		r = &FirewallRule{}
+	case "azure:postgresql/flexibleServer:FlexibleServer":
+		r = &FlexibleServer{}
 	case "azure:postgresql/server:Server":
 		r = &Server{}
 	case "azure:postgresql/serverKey:ServerKey":
@@ -66,6 +68,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"postgresql/firewallRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"postgresql/flexibleServer",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

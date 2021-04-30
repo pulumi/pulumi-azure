@@ -26,6 +26,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly Outputs.KubernetesClusterAddonProfileHttpApplicationRouting? HttpApplicationRouting;
         /// <summary>
+        /// An `ingress_application_gateway` block as defined below.
+        /// </summary>
+        public readonly Outputs.KubernetesClusterAddonProfileIngressApplicationGateway? IngressApplicationGateway;
+        /// <summary>
         /// A `kube_dashboard` block as defined below.
         /// </summary>
         public readonly Outputs.KubernetesClusterAddonProfileKubeDashboard? KubeDashboard;
@@ -42,6 +46,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             Outputs.KubernetesClusterAddonProfileHttpApplicationRouting? httpApplicationRouting,
 
+            Outputs.KubernetesClusterAddonProfileIngressApplicationGateway? ingressApplicationGateway,
+
             Outputs.KubernetesClusterAddonProfileKubeDashboard? kubeDashboard,
 
             Outputs.KubernetesClusterAddonProfileOmsAgent? omsAgent)
@@ -49,6 +55,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             AciConnectorLinux = aciConnectorLinux;
             AzurePolicy = azurePolicy;
             HttpApplicationRouting = httpApplicationRouting;
+            IngressApplicationGateway = ingressApplicationGateway;
             KubeDashboard = kubeDashboard;
             OmsAgent = omsAgent;
         }

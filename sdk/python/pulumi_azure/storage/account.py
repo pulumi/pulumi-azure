@@ -31,6 +31,7 @@ class AccountArgs:
                  min_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_rules: Optional[pulumi.Input['AccountNetworkRulesArgs']] = None,
+                 nfsv3_enabled: Optional[pulumi.Input[bool]] = None,
                  queue_properties: Optional[pulumi.Input['AccountQueuePropertiesArgs']] = None,
                  static_website: Optional[pulumi.Input['AccountStaticWebsiteArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -53,6 +54,7 @@ class AccountArgs:
         :param pulumi.Input[str] min_tls_version: The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
         :param pulumi.Input[str] name: Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
         :param pulumi.Input['AccountNetworkRulesArgs'] network_rules: A `network_rules` block as documented below.
+        :param pulumi.Input[bool] nfsv3_enabled: Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input['AccountQueuePropertiesArgs'] queue_properties: A `queue_properties` block as defined below.
         :param pulumi.Input['AccountStaticWebsiteArgs'] static_website: A `static_website` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -86,6 +88,8 @@ class AccountArgs:
             pulumi.set(__self__, "name", name)
         if network_rules is not None:
             pulumi.set(__self__, "network_rules", network_rules)
+        if nfsv3_enabled is not None:
+            pulumi.set(__self__, "nfsv3_enabled", nfsv3_enabled)
         if queue_properties is not None:
             pulumi.set(__self__, "queue_properties", queue_properties)
         if static_website is not None:
@@ -287,6 +291,18 @@ class AccountArgs:
         pulumi.set(self, "network_rules", value)
 
     @property
+    @pulumi.getter(name="nfsv3Enabled")
+    def nfsv3_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
+        """
+        return pulumi.get(self, "nfsv3_enabled")
+
+    @nfsv3_enabled.setter
+    def nfsv3_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "nfsv3_enabled", value)
+
+    @property
     @pulumi.getter(name="queueProperties")
     def queue_properties(self) -> Optional[pulumi.Input['AccountQueuePropertiesArgs']]:
         """
@@ -341,6 +357,7 @@ class _AccountState:
                  min_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_rules: Optional[pulumi.Input['AccountNetworkRulesArgs']] = None,
+                 nfsv3_enabled: Optional[pulumi.Input[bool]] = None,
                  primary_access_key: Optional[pulumi.Input[str]] = None,
                  primary_blob_connection_string: Optional[pulumi.Input[str]] = None,
                  primary_blob_endpoint: Optional[pulumi.Input[str]] = None,
@@ -395,6 +412,7 @@ class _AccountState:
         :param pulumi.Input[str] min_tls_version: The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
         :param pulumi.Input[str] name: Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
         :param pulumi.Input['AccountNetworkRulesArgs'] network_rules: A `network_rules` block as documented below.
+        :param pulumi.Input[bool] nfsv3_enabled: Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input[str] primary_access_key: The primary access key for the storage account.
         :param pulumi.Input[str] primary_blob_connection_string: The connection string associated with the primary blob location.
         :param pulumi.Input[str] primary_blob_endpoint: The endpoint URL for blob storage in the primary location.
@@ -462,6 +480,8 @@ class _AccountState:
             pulumi.set(__self__, "name", name)
         if network_rules is not None:
             pulumi.set(__self__, "network_rules", network_rules)
+        if nfsv3_enabled is not None:
+            pulumi.set(__self__, "nfsv3_enabled", nfsv3_enabled)
         if primary_access_key is not None:
             pulumi.set(__self__, "primary_access_key", primary_access_key)
         if primary_blob_connection_string is not None:
@@ -715,6 +735,18 @@ class _AccountState:
     @network_rules.setter
     def network_rules(self, value: Optional[pulumi.Input['AccountNetworkRulesArgs']]):
         pulumi.set(self, "network_rules", value)
+
+    @property
+    @pulumi.getter(name="nfsv3Enabled")
+    def nfsv3_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
+        """
+        return pulumi.get(self, "nfsv3_enabled")
+
+    @nfsv3_enabled.setter
+    def nfsv3_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "nfsv3_enabled", value)
 
     @property
     @pulumi.getter(name="primaryAccessKey")
@@ -1169,6 +1201,7 @@ class Account(pulumi.CustomResource):
                  min_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_rules: Optional[pulumi.Input[pulumi.InputType['AccountNetworkRulesArgs']]] = None,
+                 nfsv3_enabled: Optional[pulumi.Input[bool]] = None,
                  queue_properties: Optional[pulumi.Input[pulumi.InputType['AccountQueuePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  static_website: Optional[pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']]] = None,
@@ -1253,6 +1286,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] min_tls_version: The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
         :param pulumi.Input[str] name: Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
         :param pulumi.Input[pulumi.InputType['AccountNetworkRulesArgs']] network_rules: A `network_rules` block as documented below.
+        :param pulumi.Input[bool] nfsv3_enabled: Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['AccountQueuePropertiesArgs']] queue_properties: A `queue_properties` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']] static_website: A `static_website` block as defined below.
@@ -1355,6 +1389,7 @@ class Account(pulumi.CustomResource):
                  min_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_rules: Optional[pulumi.Input[pulumi.InputType['AccountNetworkRulesArgs']]] = None,
+                 nfsv3_enabled: Optional[pulumi.Input[bool]] = None,
                  queue_properties: Optional[pulumi.Input[pulumi.InputType['AccountQueuePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  static_website: Optional[pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']]] = None,
@@ -1390,6 +1425,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["min_tls_version"] = min_tls_version
             __props__.__dict__["name"] = name
             __props__.__dict__["network_rules"] = network_rules
+            __props__.__dict__["nfsv3_enabled"] = nfsv3_enabled
             __props__.__dict__["queue_properties"] = queue_properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -1453,6 +1489,7 @@ class Account(pulumi.CustomResource):
             min_tls_version: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_rules: Optional[pulumi.Input[pulumi.InputType['AccountNetworkRulesArgs']]] = None,
+            nfsv3_enabled: Optional[pulumi.Input[bool]] = None,
             primary_access_key: Optional[pulumi.Input[str]] = None,
             primary_blob_connection_string: Optional[pulumi.Input[str]] = None,
             primary_blob_endpoint: Optional[pulumi.Input[str]] = None,
@@ -1512,6 +1549,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] min_tls_version: The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
         :param pulumi.Input[str] name: Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
         :param pulumi.Input[pulumi.InputType['AccountNetworkRulesArgs']] network_rules: A `network_rules` block as documented below.
+        :param pulumi.Input[bool] nfsv3_enabled: Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input[str] primary_access_key: The primary access key for the storage account.
         :param pulumi.Input[str] primary_blob_connection_string: The connection string associated with the primary blob location.
         :param pulumi.Input[str] primary_blob_endpoint: The endpoint URL for blob storage in the primary location.
@@ -1568,6 +1606,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["min_tls_version"] = min_tls_version
         __props__.__dict__["name"] = name
         __props__.__dict__["network_rules"] = network_rules
+        __props__.__dict__["nfsv3_enabled"] = nfsv3_enabled
         __props__.__dict__["primary_access_key"] = primary_access_key
         __props__.__dict__["primary_blob_connection_string"] = primary_blob_connection_string
         __props__.__dict__["primary_blob_endpoint"] = primary_blob_endpoint
@@ -1726,6 +1765,14 @@ class Account(pulumi.CustomResource):
         A `network_rules` block as documented below.
         """
         return pulumi.get(self, "network_rules")
+
+    @property
+    @pulumi.getter(name="nfsv3Enabled")
+    def nfsv3_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
+        """
+        return pulumi.get(self, "nfsv3_enabled")
 
     @property
     @pulumi.getter(name="primaryAccessKey")

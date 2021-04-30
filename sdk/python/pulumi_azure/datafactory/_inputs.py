@@ -23,6 +23,7 @@ __all__ = [
     'DatasetParquetHttpServerLocationArgs',
     'DatasetParquetSchemaColumnArgs',
     'DatasetPostgresqlSchemaColumnArgs',
+    'DatasetSnowflakeSchemaColumnArgs',
     'DatasetSqlServerTableSchemaColumnArgs',
     'FactoryGithubConfigurationArgs',
     'FactoryIdentityArgs',
@@ -37,6 +38,7 @@ __all__ = [
     'LinkedServiceAzureDatabricksInstancePoolArgs',
     'LinkedServiceAzureDatabricksKeyVaultPasswordArgs',
     'LinkedServiceAzureDatabricksNewClusterConfigArgs',
+    'LinkedServiceAzureFileStorageKeyVaultPasswordArgs',
     'LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs',
     'LinkedServiceSnowflakeKeyVaultPasswordArgs',
     'LinkedServiceSqlServerKeyVaultPasswordArgs',
@@ -735,6 +737,60 @@ class DatasetParquetSchemaColumnArgs:
 
 @pulumi.input_type
 class DatasetPostgresqlSchemaColumnArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the column.
+        :param pulumi.Input[str] description: The description of the column.
+        :param pulumi.Input[str] type: Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+        """
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the column.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the column.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class DatasetSnowflakeSchemaColumnArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -1653,6 +1709,43 @@ class LinkedServiceAzureDatabricksNewClusterConfigArgs:
     @spark_environment_variables.setter
     def spark_environment_variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "spark_environment_variables", value)
+
+
+@pulumi.input_type
+class LinkedServiceAzureFileStorageKeyVaultPasswordArgs:
+    def __init__(__self__, *,
+                 linked_service_name: pulumi.Input[str],
+                 secret_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
+        :param pulumi.Input[str] secret_name: Specifies the secret name in Azure Key Vault that stores Azure File Storage password.
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "linked_service_name", value)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the secret name in Azure Key Vault that stores Azure File Storage password.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @secret_name.setter
+    def secret_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret_name", value)
 
 
 @pulumi.input_type

@@ -16,6 +16,7 @@ export * from "./encryptionScope";
 export * from "./getAccount";
 export * from "./getAccountBlobContainerSAS";
 export * from "./getAccountSAS";
+export * from "./getBlob";
 export * from "./getEncryptionScope";
 export * from "./getPolicy";
 export * from "./getStorageContainer";

@@ -29,6 +29,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &KubernetesClusterNodePool{}
 	case "azure:containerservice/registry:Registry":
 		r = &Registry{}
+	case "azure:containerservice/registryScopeMap:RegistryScopeMap":
+		r = &RegistryScopeMap{}
+	case "azure:containerservice/registryToken:RegistryToken":
+		r = &RegistryToken{}
 	case "azure:containerservice/registryWebhook:RegistryWebhook":
 		r = &RegistryWebhook{}
 	case "azure:containerservice/registryWebook:RegistryWebook":
@@ -64,6 +68,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"containerservice/registry",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"containerservice/registryScopeMap",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"containerservice/registryToken",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

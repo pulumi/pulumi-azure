@@ -91,7 +91,7 @@ export class GremlinGraph extends pulumi.CustomResource {
     public readonly accountName!: pulumi.Output<string>;
     public readonly autoscaleSettings!: pulumi.Output<outputs.cosmosdb.GremlinGraphAutoscaleSettings | undefined>;
     /**
-     * The conflict resolution policy for the graph. One or more `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
+     * A `conflictResolutionPolicy` blocks as defined below.
      */
     public readonly conflictResolutionPolicies!: pulumi.Output<outputs.cosmosdb.GremlinGraphConflictResolutionPolicy[]>;
     /**
@@ -113,7 +113,7 @@ export class GremlinGraph extends pulumi.CustomResource {
     /**
      * Define a partition key. Changing this forces a new resource to be created.
      */
-    public readonly partitionKeyPath!: pulumi.Output<string | undefined>;
+    public readonly partitionKeyPath!: pulumi.Output<string>;
     /**
      * The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
      */
@@ -156,14 +156,14 @@ export class GremlinGraph extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.conflictResolutionPolicies === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'conflictResolutionPolicies'");
-            }
             if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
             if ((!args || args.indexPolicies === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'indexPolicies'");
+            }
+            if ((!args || args.partitionKeyPath === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'partitionKeyPath'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -197,7 +197,7 @@ export interface GremlinGraphState {
     readonly accountName?: pulumi.Input<string>;
     readonly autoscaleSettings?: pulumi.Input<inputs.cosmosdb.GremlinGraphAutoscaleSettings>;
     /**
-     * The conflict resolution policy for the graph. One or more `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
+     * A `conflictResolutionPolicy` blocks as defined below.
      */
     readonly conflictResolutionPolicies?: pulumi.Input<pulumi.Input<inputs.cosmosdb.GremlinGraphConflictResolutionPolicy>[]>;
     /**
@@ -244,9 +244,9 @@ export interface GremlinGraphArgs {
     readonly accountName: pulumi.Input<string>;
     readonly autoscaleSettings?: pulumi.Input<inputs.cosmosdb.GremlinGraphAutoscaleSettings>;
     /**
-     * The conflict resolution policy for the graph. One or more `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
+     * A `conflictResolutionPolicy` blocks as defined below.
      */
-    readonly conflictResolutionPolicies: pulumi.Input<pulumi.Input<inputs.cosmosdb.GremlinGraphConflictResolutionPolicy>[]>;
+    readonly conflictResolutionPolicies?: pulumi.Input<pulumi.Input<inputs.cosmosdb.GremlinGraphConflictResolutionPolicy>[]>;
     /**
      * The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
      */
@@ -266,7 +266,7 @@ export interface GremlinGraphArgs {
     /**
      * Define a partition key. Changing this forces a new resource to be created.
      */
-    readonly partitionKeyPath?: pulumi.Input<string>;
+    readonly partitionKeyPath: pulumi.Input<string>;
     /**
      * The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
      */

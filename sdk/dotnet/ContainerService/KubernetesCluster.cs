@@ -110,7 +110,13 @@ namespace Pulumi.Azure.ContainerService
         /// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
         /// </summary>
         [Output("dnsPrefix")]
-        public Output<string> DnsPrefix { get; private set; } = null!;
+        public Output<string?> DnsPrefix { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("dnsPrefixPrivateCluster")]
+        public Output<string?> DnsPrefixPrivateCluster { get; private set; } = null!;
 
         [Output("enablePodSecurityPolicy")]
         public Output<bool?> EnablePodSecurityPolicy { get; private set; } = null!;
@@ -341,8 +347,14 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("dnsPrefix", required: true)]
-        public Input<string> DnsPrefix { get; set; } = null!;
+        [Input("dnsPrefix")]
+        public Input<string>? DnsPrefix { get; set; }
+
+        /// <summary>
+        /// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("dnsPrefixPrivateCluster")]
+        public Input<string>? DnsPrefixPrivateCluster { get; set; }
 
         [Input("enablePodSecurityPolicy")]
         public Input<bool>? EnablePodSecurityPolicy { get; set; }
@@ -500,6 +512,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("dnsPrefix")]
         public Input<string>? DnsPrefix { get; set; }
+
+        /// <summary>
+        /// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("dnsPrefixPrivateCluster")]
+        public Input<string>? DnsPrefixPrivateCluster { get; set; }
 
         [Input("enablePodSecurityPolicy")]
         public Input<bool>? EnablePodSecurityPolicy { get; set; }

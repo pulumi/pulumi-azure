@@ -5,16 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./cluster";
 export * from "./getPrivateCloud";
 export * from "./privateCloud";
 
 // Import resources to register:
+import { Cluster } from "./cluster";
 import { PrivateCloud } from "./privateCloud";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:avs/cluster:Cluster":
+                return new Cluster(name, <any>undefined, { urn })
             case "azure:avs/privateCloud:PrivateCloud":
                 return new PrivateCloud(name, <any>undefined, { urn })
             default:
@@ -22,4 +26,5 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "avs/cluster", _module)
 pulumi.runtime.registerResourceModule("azure", "avs/privateCloud", _module)

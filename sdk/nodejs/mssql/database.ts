@@ -97,7 +97,7 @@ export class Database extends pulumi.CustomResource {
     /**
      * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
      */
-    public readonly createMode!: pulumi.Output<string>;
+    public readonly createMode!: pulumi.Output<string | undefined>;
     /**
      * The id of the source database to be referred to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
      */

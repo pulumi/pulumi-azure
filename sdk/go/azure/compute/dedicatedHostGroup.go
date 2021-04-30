@@ -55,6 +55,8 @@ import (
 type DedicatedHostGroup struct {
 	pulumi.CustomResourceState
 
+	// Would virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group? Defaults to `false`. Changing this forces a new resource to be created.
+	AutomaticPlacementEnabled pulumi.BoolPtrOutput `pulumi:"automaticPlacementEnabled"`
 	// The Azure location where the Dedicated Host Group exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Dedicated Host Group. Changing this forces a new resource to be created.
@@ -104,6 +106,8 @@ func GetDedicatedHostGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DedicatedHostGroup resources.
 type dedicatedHostGroupState struct {
+	// Would virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group? Defaults to `false`. Changing this forces a new resource to be created.
+	AutomaticPlacementEnabled *bool `pulumi:"automaticPlacementEnabled"`
 	// The Azure location where the Dedicated Host Group exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Dedicated Host Group. Changing this forces a new resource to be created.
@@ -119,6 +123,8 @@ type dedicatedHostGroupState struct {
 }
 
 type DedicatedHostGroupState struct {
+	// Would virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group? Defaults to `false`. Changing this forces a new resource to be created.
+	AutomaticPlacementEnabled pulumi.BoolPtrInput
 	// The Azure location where the Dedicated Host Group exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Dedicated Host Group. Changing this forces a new resource to be created.
@@ -138,6 +144,8 @@ func (DedicatedHostGroupState) ElementType() reflect.Type {
 }
 
 type dedicatedHostGroupArgs struct {
+	// Would virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group? Defaults to `false`. Changing this forces a new resource to be created.
+	AutomaticPlacementEnabled *bool `pulumi:"automaticPlacementEnabled"`
 	// The Azure location where the Dedicated Host Group exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Dedicated Host Group. Changing this forces a new resource to be created.
@@ -154,6 +162,8 @@ type dedicatedHostGroupArgs struct {
 
 // The set of arguments for constructing a DedicatedHostGroup resource.
 type DedicatedHostGroupArgs struct {
+	// Would virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group? Defaults to `false`. Changing this forces a new resource to be created.
+	AutomaticPlacementEnabled pulumi.BoolPtrInput
 	// The Azure location where the Dedicated Host Group exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Dedicated Host Group. Changing this forces a new resource to be created.

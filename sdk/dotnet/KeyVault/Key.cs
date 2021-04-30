@@ -86,7 +86,7 @@ namespace Pulumi.Azure.KeyVault
     public partial class Key : Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-384`, `P-521`, and `SECP256K1`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
+        /// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Output("curve")]
         public Output<string> Curve { get; private set; } = null!;
@@ -222,7 +222,7 @@ namespace Pulumi.Azure.KeyVault
     public sealed class KeyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-384`, `P-521`, and `SECP256K1`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
+        /// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Input("curve")]
         public Input<string>? Curve { get; set; }
@@ -295,7 +295,7 @@ namespace Pulumi.Azure.KeyVault
     public sealed class KeyState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-384`, `P-521`, and `SECP256K1`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
+        /// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
         /// </summary>
         [Input("curve")]
         public Input<string>? Curve { get; set; }

@@ -110,6 +110,9 @@ export class Volume extends pulumi.CustomResource {
      * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`.
      */
     public readonly createFromSnapshotResourceId!: pulumi.Output<string>;
+    /**
+     * A `dataProtectionReplication` block as defined below.
+     */
     public readonly dataProtectionReplication!: pulumi.Output<outputs.netapp.VolumeDataProtectionReplication | undefined>;
     /**
      * One or more `exportPolicyRule` block defined below.
@@ -246,6 +249,9 @@ export interface VolumeState {
      * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`.
      */
     readonly createFromSnapshotResourceId?: pulumi.Input<string>;
+    /**
+     * A `dataProtectionReplication` block as defined below.
+     */
     readonly dataProtectionReplication?: pulumi.Input<inputs.netapp.VolumeDataProtectionReplication>;
     /**
      * One or more `exportPolicyRule` block defined below.
@@ -309,6 +315,9 @@ export interface VolumeArgs {
      * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`.
      */
     readonly createFromSnapshotResourceId?: pulumi.Input<string>;
+    /**
+     * A `dataProtectionReplication` block as defined below.
+     */
     readonly dataProtectionReplication?: pulumi.Input<inputs.netapp.VolumeDataProtectionReplication>;
     /**
      * One or more `exportPolicyRule` block defined below.

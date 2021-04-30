@@ -113,6 +113,8 @@ type ManagedDisk struct {
 
 	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `sourceUri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `sourceResourceId`), `FromImage` (Copy a Platform Image, specified with `imageReferenceId`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `sourceResourceId`).
 	CreateOption pulumi.StringOutput `pulumi:"createOption"`
+	// The ID of the disk access resource for using private endpoints on disks.
+	DiskAccessId pulumi.StringPtrOutput `pulumi:"diskAccessId"`
 	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
 	DiskEncryptionSetId pulumi.StringPtrOutput `pulumi:"diskEncryptionSetId"`
 	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
@@ -129,6 +131,8 @@ type ManagedDisk struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+	NetworkAccessPolicy pulumi.StringPtrOutput `pulumi:"networkAccessPolicy"`
 	// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType pulumi.StringPtrOutput `pulumi:"osType"`
 	// The name of the Resource Group where the Managed Disk should exist.
@@ -187,6 +191,8 @@ func GetManagedDisk(ctx *pulumi.Context,
 type managedDiskState struct {
 	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `sourceUri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `sourceResourceId`), `FromImage` (Copy a Platform Image, specified with `imageReferenceId`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `sourceResourceId`).
 	CreateOption *string `pulumi:"createOption"`
+	// The ID of the disk access resource for using private endpoints on disks.
+	DiskAccessId *string `pulumi:"diskAccessId"`
 	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
@@ -203,6 +209,8 @@ type managedDiskState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+	NetworkAccessPolicy *string `pulumi:"networkAccessPolicy"`
 	// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType *string `pulumi:"osType"`
 	// The name of the Resource Group where the Managed Disk should exist.
@@ -224,6 +232,8 @@ type managedDiskState struct {
 type ManagedDiskState struct {
 	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `sourceUri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `sourceResourceId`), `FromImage` (Copy a Platform Image, specified with `imageReferenceId`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `sourceResourceId`).
 	CreateOption pulumi.StringPtrInput
+	// The ID of the disk access resource for using private endpoints on disks.
+	DiskAccessId pulumi.StringPtrInput
 	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
 	DiskEncryptionSetId pulumi.StringPtrInput
 	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
@@ -240,6 +250,8 @@ type ManagedDiskState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+	NetworkAccessPolicy pulumi.StringPtrInput
 	// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType pulumi.StringPtrInput
 	// The name of the Resource Group where the Managed Disk should exist.
@@ -265,6 +277,8 @@ func (ManagedDiskState) ElementType() reflect.Type {
 type managedDiskArgs struct {
 	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `sourceUri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `sourceResourceId`), `FromImage` (Copy a Platform Image, specified with `imageReferenceId`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `sourceResourceId`).
 	CreateOption string `pulumi:"createOption"`
+	// The ID of the disk access resource for using private endpoints on disks.
+	DiskAccessId *string `pulumi:"diskAccessId"`
 	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
@@ -281,6 +295,8 @@ type managedDiskArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+	NetworkAccessPolicy *string `pulumi:"networkAccessPolicy"`
 	// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType *string `pulumi:"osType"`
 	// The name of the Resource Group where the Managed Disk should exist.
@@ -303,6 +319,8 @@ type managedDiskArgs struct {
 type ManagedDiskArgs struct {
 	// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `sourceUri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `sourceResourceId`), `FromImage` (Copy a Platform Image, specified with `imageReferenceId`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `sourceResourceId`).
 	CreateOption pulumi.StringInput
+	// The ID of the disk access resource for using private endpoints on disks.
+	DiskAccessId pulumi.StringPtrInput
 	// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
 	DiskEncryptionSetId pulumi.StringPtrInput
 	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
@@ -319,6 +337,8 @@ type ManagedDiskArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+	NetworkAccessPolicy pulumi.StringPtrInput
 	// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
 	OsType pulumi.StringPtrInput
 	// The name of the Resource Group where the Managed Disk should exist.

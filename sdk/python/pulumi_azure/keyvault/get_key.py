@@ -19,7 +19,7 @@ class GetKeyResult:
     """
     A collection of values returned by getKey.
     """
-    def __init__(__self__, e=None, id=None, key_opts=None, key_size=None, key_type=None, key_vault_id=None, n=None, name=None, tags=None, version=None):
+    def __init__(__self__, e=None, id=None, key_opts=None, key_size=None, key_type=None, key_vault_id=None, n=None, name=None, tags=None, version=None, versionless_id=None):
         if e and not isinstance(e, str):
             raise TypeError("Expected argument 'e' to be a str")
         pulumi.set(__self__, "e", e)
@@ -50,6 +50,9 @@ class GetKeyResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
+        if versionless_id and not isinstance(versionless_id, str):
+            raise TypeError("Expected argument 'versionless_id' to be a str")
+        pulumi.set(__self__, "versionless_id", versionless_id)
 
     @property
     @pulumi.getter
@@ -125,6 +128,14 @@ class GetKeyResult:
         """
         return pulumi.get(self, "version")
 
+    @property
+    @pulumi.getter(name="versionlessId")
+    def versionless_id(self) -> str:
+        """
+        The Base ID of the Key Vault Key.
+        """
+        return pulumi.get(self, "versionless_id")
+
 
 class AwaitableGetKeyResult(GetKeyResult):
     # pylint: disable=using-constant-test
@@ -141,7 +152,8 @@ class AwaitableGetKeyResult(GetKeyResult):
             n=self.n,
             name=self.name,
             tags=self.tags,
-            version=self.version)
+            version=self.version,
+            versionless_id=self.versionless_id)
 
 
 def get_key(key_vault_id: Optional[str] = None,
@@ -184,4 +196,5 @@ def get_key(key_vault_id: Optional[str] = None,
         n=__ret__.n,
         name=__ret__.name,
         tags=__ret__.tags,
-        version=__ret__.version)
+        version=__ret__.version,
+        versionless_id=__ret__.versionless_id)

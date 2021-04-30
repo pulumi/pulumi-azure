@@ -67,7 +67,11 @@ type Registry struct {
 	// The Username associated with the Container Registry Admin account - if the admin account is enabled.
 	AdminUsername pulumi.StringOutput `pulumi:"adminUsername"`
 	// A list of Azure locations where the container registry should be geo-replicated.
+	//
+	// Deprecated: Deprecated in favour of `georeplications`
 	GeoreplicationLocations pulumi.StringArrayOutput `pulumi:"georeplicationLocations"`
+	// A `georeplications` block as documented below.
+	Georeplications RegistryGeoreplicationArrayOutput `pulumi:"georeplications"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The URL that can be used to log into the container registry.
@@ -133,7 +137,11 @@ type registryState struct {
 	// The Username associated with the Container Registry Admin account - if the admin account is enabled.
 	AdminUsername *string `pulumi:"adminUsername"`
 	// A list of Azure locations where the container registry should be geo-replicated.
+	//
+	// Deprecated: Deprecated in favour of `georeplications`
 	GeoreplicationLocations []string `pulumi:"georeplicationLocations"`
+	// A `georeplications` block as documented below.
+	Georeplications []RegistryGeoreplication `pulumi:"georeplications"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The URL that can be used to log into the container registry.
@@ -168,7 +176,11 @@ type RegistryState struct {
 	// The Username associated with the Container Registry Admin account - if the admin account is enabled.
 	AdminUsername pulumi.StringPtrInput
 	// A list of Azure locations where the container registry should be geo-replicated.
+	//
+	// Deprecated: Deprecated in favour of `georeplications`
 	GeoreplicationLocations pulumi.StringArrayInput
+	// A `georeplications` block as documented below.
+	Georeplications RegistryGeoreplicationArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The URL that can be used to log into the container registry.
@@ -203,7 +215,11 @@ type registryArgs struct {
 	// Specifies whether the admin user is enabled. Defaults to `false`.
 	AdminEnabled *bool `pulumi:"adminEnabled"`
 	// A list of Azure locations where the container registry should be geo-replicated.
+	//
+	// Deprecated: Deprecated in favour of `georeplications`
 	GeoreplicationLocations []string `pulumi:"georeplicationLocations"`
+	// A `georeplications` block as documented below.
+	Georeplications []RegistryGeoreplication `pulumi:"georeplications"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Container Registry. Changing this forces a new resource to be created.
@@ -233,7 +249,11 @@ type RegistryArgs struct {
 	// Specifies whether the admin user is enabled. Defaults to `false`.
 	AdminEnabled pulumi.BoolPtrInput
 	// A list of Azure locations where the container registry should be geo-replicated.
+	//
+	// Deprecated: Deprecated in favour of `georeplications`
 	GeoreplicationLocations pulumi.StringArrayInput
+	// A `georeplications` block as documented below.
+	Georeplications RegistryGeoreplicationArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Container Registry. Changing this forces a new resource to be created.

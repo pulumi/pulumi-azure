@@ -13,6 +13,7 @@ export * from "./datasetJson";
 export * from "./datasetMysql";
 export * from "./datasetParquet";
 export * from "./datasetPostgresql";
+export * from "./datasetSnowflake";
 export * from "./datasetSqlServerTable";
 export * from "./factory";
 export * from "./getFactory";
@@ -48,6 +49,7 @@ import { DatasetJson } from "./datasetJson";
 import { DatasetMysql } from "./datasetMysql";
 import { DatasetParquet } from "./datasetParquet";
 import { DatasetPostgresql } from "./datasetPostgresql";
+import { DatasetSnowflake } from "./datasetSnowflake";
 import { DatasetSqlServerTable } from "./datasetSqlServerTable";
 import { Factory } from "./factory";
 import { IntegrationRuntimeManaged } from "./integrationRuntimeManaged";
@@ -93,6 +95,8 @@ const _module = {
                 return new DatasetParquet(name, <any>undefined, { urn })
             case "azure:datafactory/datasetPostgresql:DatasetPostgresql":
                 return new DatasetPostgresql(name, <any>undefined, { urn })
+            case "azure:datafactory/datasetSnowflake:DatasetSnowflake":
+                return new DatasetSnowflake(name, <any>undefined, { urn })
             case "azure:datafactory/datasetSqlServerTable:DatasetSqlServerTable":
                 return new DatasetSqlServerTable(name, <any>undefined, { urn })
             case "azure:datafactory/factory:Factory":
@@ -154,6 +158,7 @@ pulumi.runtime.registerResourceModule("azure", "datafactory/datasetJson", _modul
 pulumi.runtime.registerResourceModule("azure", "datafactory/datasetMysql", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/datasetParquet", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/datasetPostgresql", _module)
+pulumi.runtime.registerResourceModule("azure", "datafactory/datasetSnowflake", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/datasetSqlServerTable", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/factory", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/integrationRuntimeManaged", _module)

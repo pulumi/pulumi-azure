@@ -104,6 +104,12 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> IntegrationRuntimeName { get; private set; } = null!;
 
         /// <summary>
+        /// A `key_vault_password` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+        /// </summary>
+        [Output("keyVaultPassword")]
+        public Output<Outputs.LinkedServiceAzureFileStorageKeyVaultPassword?> KeyVaultPassword { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
         /// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         /// </summary>
@@ -232,6 +238,12 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? IntegrationRuntimeName { get; set; }
 
         /// <summary>
+        /// A `key_vault_password` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+        /// </summary>
+        [Input("keyVaultPassword")]
+        public Input<Inputs.LinkedServiceAzureFileStorageKeyVaultPasswordArgs>? KeyVaultPassword { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
         /// factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         /// </summary>
@@ -325,6 +337,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("integrationRuntimeName")]
         public Input<string>? IntegrationRuntimeName { get; set; }
+
+        /// <summary>
+        /// A `key_vault_password` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+        /// </summary>
+        [Input("keyVaultPassword")]
+        public Input<Inputs.LinkedServiceAzureFileStorageKeyVaultPasswordGetArgs>? KeyVaultPassword { get; set; }
 
         /// <summary>
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data

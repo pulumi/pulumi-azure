@@ -21,15 +21,22 @@ namespace Pulumi.Azure.Storage.Outputs
         /// A `snapshot` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPolicyRuleActionSnapshotResult> Snapshots;
+        /// <summary>
+        /// A `version` block as documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetPolicyRuleActionVersionResult> Versions;
 
         [OutputConstructor]
         private GetPolicyRuleActionResult(
             ImmutableArray<Outputs.GetPolicyRuleActionBaseBlobResult> baseBlobs,
 
-            ImmutableArray<Outputs.GetPolicyRuleActionSnapshotResult> snapshots)
+            ImmutableArray<Outputs.GetPolicyRuleActionSnapshotResult> snapshots,
+
+            ImmutableArray<Outputs.GetPolicyRuleActionVersionResult> versions)
         {
             BaseBlobs = baseBlobs;
             Snapshots = snapshots;
+            Versions = versions;
         }
     }
 }

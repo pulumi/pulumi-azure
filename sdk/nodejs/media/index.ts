@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./asset";
+export * from "./assetFilter";
 export * from "./contentKeyPolicy";
 export * from "./job";
 export * from "./liveEvent";
@@ -18,6 +19,7 @@ export * from "./transform";
 
 // Import resources to register:
 import { Asset } from "./asset";
+import { AssetFilter } from "./assetFilter";
 import { ContentKeyPolicy } from "./contentKeyPolicy";
 import { Job } from "./job";
 import { LiveEvent } from "./liveEvent";
@@ -34,6 +36,8 @@ const _module = {
         switch (type) {
             case "azure:media/asset:Asset":
                 return new Asset(name, <any>undefined, { urn })
+            case "azure:media/assetFilter:AssetFilter":
+                return new AssetFilter(name, <any>undefined, { urn })
             case "azure:media/contentKeyPolicy:ContentKeyPolicy":
                 return new ContentKeyPolicy(name, <any>undefined, { urn })
             case "azure:media/job:Job":
@@ -58,6 +62,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "media/asset", _module)
+pulumi.runtime.registerResourceModule("azure", "media/assetFilter", _module)
 pulumi.runtime.registerResourceModule("azure", "media/contentKeyPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "media/job", _module)
 pulumi.runtime.registerResourceModule("azure", "media/liveEvent", _module)

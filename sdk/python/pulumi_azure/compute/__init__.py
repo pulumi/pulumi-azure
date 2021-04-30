@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from .availability_set import *
 from .bastion_host import *
+from .configuration_policy_assignment import *
 from .data_disk_attachment import *
 from .dedicated_host import *
 from .dedicated_host_group import *
@@ -62,6 +63,8 @@ def _register_module():
                 return AvailabilitySet(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:compute/bastionHost:BastionHost":
                 return BastionHost(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:compute/configurationPolicyAssignment:ConfigurationPolicyAssignment":
+                return ConfigurationPolicyAssignment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:compute/dataDiskAttachment:DataDiskAttachment":
                 return DataDiskAttachment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:compute/dedicatedHost:DedicatedHost":
@@ -111,6 +114,7 @@ def _register_module():
     _module_instance = Module()
     pulumi.runtime.register_resource_module("azure", "compute/availabilitySet", _module_instance)
     pulumi.runtime.register_resource_module("azure", "compute/bastionHost", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "compute/configurationPolicyAssignment", _module_instance)
     pulumi.runtime.register_resource_module("azure", "compute/dataDiskAttachment", _module_instance)
     pulumi.runtime.register_resource_module("azure", "compute/dedicatedHost", _module_instance)
     pulumi.runtime.register_resource_module("azure", "compute/dedicatedHostGroup", _module_instance)

@@ -11,6 +11,7 @@ from .data_connector_azure_active_directory import *
 from .data_connector_azure_advanced_thread_protection import *
 from .data_connector_azure_security_center import *
 from .data_connector_microsoft_cloud_app_security import *
+from .data_connector_microsoft_defender_advanced_threat_protection import *
 from .data_connector_office365 import *
 from .data_connector_threat_intelligence import *
 from .get_alert_rule import *
@@ -46,6 +47,8 @@ def _register_module():
                 return DataConnectorAzureSecurityCenter(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:sentinel/dataConnectorMicrosoftCloudAppSecurity:DataConnectorMicrosoftCloudAppSecurity":
                 return DataConnectorMicrosoftCloudAppSecurity(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:sentinel/dataConnectorMicrosoftDefenderAdvancedThreatProtection:DataConnectorMicrosoftDefenderAdvancedThreatProtection":
+                return DataConnectorMicrosoftDefenderAdvancedThreatProtection(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:sentinel/dataConnectorOffice365:DataConnectorOffice365":
                 return DataConnectorOffice365(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:sentinel/dataConnectorThreatIntelligence:DataConnectorThreatIntelligence":
@@ -63,6 +66,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "sentinel/dataConnectorAzureAdvancedThreadProtection", _module_instance)
     pulumi.runtime.register_resource_module("azure", "sentinel/dataConnectorAzureSecurityCenter", _module_instance)
     pulumi.runtime.register_resource_module("azure", "sentinel/dataConnectorMicrosoftCloudAppSecurity", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "sentinel/dataConnectorMicrosoftDefenderAdvancedThreatProtection", _module_instance)
     pulumi.runtime.register_resource_module("azure", "sentinel/dataConnectorOffice365", _module_instance)
     pulumi.runtime.register_resource_module("azure", "sentinel/dataConnectorThreatIntelligence", _module_instance)
 

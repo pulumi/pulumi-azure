@@ -105,6 +105,12 @@ namespace Pulumi.Azure.Compute
         public Output<string> CreateOption { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the disk access resource for using private endpoints on disks.
+        /// </summary>
+        [Output("diskAccessId")]
+        public Output<string?> DiskAccessId { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
         /// </summary>
         [Output("diskEncryptionSetId")]
@@ -151,6 +157,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+        /// </summary>
+        [Output("networkAccessPolicy")]
+        public Output<string?> NetworkAccessPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
@@ -253,6 +265,12 @@ namespace Pulumi.Azure.Compute
         public Input<string> CreateOption { get; set; } = null!;
 
         /// <summary>
+        /// The ID of the disk access resource for using private endpoints on disks.
+        /// </summary>
+        [Input("diskAccessId")]
+        public Input<string>? DiskAccessId { get; set; }
+
+        /// <summary>
         /// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
         /// </summary>
         [Input("diskEncryptionSetId")]
@@ -299,6 +317,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+        /// </summary>
+        [Input("networkAccessPolicy")]
+        public Input<string>? NetworkAccessPolicy { get; set; }
 
         /// <summary>
         /// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
@@ -368,6 +392,12 @@ namespace Pulumi.Azure.Compute
         public Input<string>? CreateOption { get; set; }
 
         /// <summary>
+        /// The ID of the disk access resource for using private endpoints on disks.
+        /// </summary>
+        [Input("diskAccessId")]
+        public Input<string>? DiskAccessId { get; set; }
+
+        /// <summary>
         /// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
         /// </summary>
         [Input("diskEncryptionSetId")]
@@ -414,6 +444,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+        /// </summary>
+        [Input("networkAccessPolicy")]
+        public Input<string>? NetworkAccessPolicy { get; set; }
 
         /// <summary>
         /// Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.

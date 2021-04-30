@@ -61,6 +61,12 @@ namespace Pulumi.Azure.Redis
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// The minimum TLS version.  Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
+        /// </summary>
+        [Output("minimumTlsVersion")]
+        public Output<string?> MinimumTlsVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The name which should be used for this Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
         /// </summary>
         [Output("name")]
@@ -149,6 +155,12 @@ namespace Pulumi.Azure.Redis
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The minimum TLS version.  Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
+        /// </summary>
+        [Input("minimumTlsVersion")]
+        public Input<string>? MinimumTlsVersion { get; set; }
+
+        /// <summary>
         /// The name which should be used for this Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
         /// </summary>
         [Input("name")]
@@ -208,6 +220,12 @@ namespace Pulumi.Azure.Redis
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The minimum TLS version.  Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
+        /// </summary>
+        [Input("minimumTlsVersion")]
+        public Input<string>? MinimumTlsVersion { get; set; }
 
         /// <summary>
         /// The name which should be used for this Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.

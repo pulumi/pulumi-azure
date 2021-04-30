@@ -18,6 +18,7 @@ class RegistryArgs:
                  resource_group_name: pulumi.Input[str],
                  admin_enabled: Optional[pulumi.Input[bool]] = None,
                  georeplication_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 georeplications: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_rule_set: Optional[pulumi.Input['RegistryNetworkRuleSetArgs']] = None,
@@ -33,6 +34,7 @@ class RegistryArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] admin_enabled: Specifies whether the admin user is enabled. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] georeplication_locations: A list of Azure locations where the container registry should be geo-replicated.
+        :param pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]] georeplications: A `georeplications` block as documented below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Registry. Changing this forces a new resource to be created.
         :param pulumi.Input['RegistryNetworkRuleSetArgs'] network_rule_set: A `network_rule_set` block as documented below.
@@ -48,7 +50,12 @@ class RegistryArgs:
         if admin_enabled is not None:
             pulumi.set(__self__, "admin_enabled", admin_enabled)
         if georeplication_locations is not None:
+            warnings.warn("""Deprecated in favour of `georeplications`""", DeprecationWarning)
+            pulumi.log.warn("""georeplication_locations is deprecated: Deprecated in favour of `georeplications`""")
+        if georeplication_locations is not None:
             pulumi.set(__self__, "georeplication_locations", georeplication_locations)
+        if georeplications is not None:
+            pulumi.set(__self__, "georeplications", georeplications)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -105,6 +112,18 @@ class RegistryArgs:
     @georeplication_locations.setter
     def georeplication_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "georeplication_locations", value)
+
+    @property
+    @pulumi.getter
+    def georeplications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]]:
+        """
+        A `georeplications` block as documented below.
+        """
+        return pulumi.get(self, "georeplications")
+
+    @georeplications.setter
+    def georeplications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]]):
+        pulumi.set(self, "georeplications", value)
 
     @property
     @pulumi.getter
@@ -234,6 +253,7 @@ class _RegistryState:
                  admin_password: Optional[pulumi.Input[str]] = None,
                  admin_username: Optional[pulumi.Input[str]] = None,
                  georeplication_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 georeplications: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  login_server: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -252,6 +272,7 @@ class _RegistryState:
         :param pulumi.Input[str] admin_password: The Password associated with the Container Registry Admin account - if the admin account is enabled.
         :param pulumi.Input[str] admin_username: The Username associated with the Container Registry Admin account - if the admin account is enabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] georeplication_locations: A list of Azure locations where the container registry should be geo-replicated.
+        :param pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]] georeplications: A `georeplications` block as documented below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] login_server: The URL that can be used to log into the container registry.
         :param pulumi.Input[str] name: Specifies the name of the Container Registry. Changing this forces a new resource to be created.
@@ -272,7 +293,12 @@ class _RegistryState:
         if admin_username is not None:
             pulumi.set(__self__, "admin_username", admin_username)
         if georeplication_locations is not None:
+            warnings.warn("""Deprecated in favour of `georeplications`""", DeprecationWarning)
+            pulumi.log.warn("""georeplication_locations is deprecated: Deprecated in favour of `georeplications`""")
+        if georeplication_locations is not None:
             pulumi.set(__self__, "georeplication_locations", georeplication_locations)
+        if georeplications is not None:
+            pulumi.set(__self__, "georeplications", georeplications)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if login_server is not None:
@@ -345,6 +371,18 @@ class _RegistryState:
     @georeplication_locations.setter
     def georeplication_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "georeplication_locations", value)
+
+    @property
+    @pulumi.getter
+    def georeplications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]]:
+        """
+        A `georeplications` block as documented below.
+        """
+        return pulumi.get(self, "georeplications")
+
+    @georeplications.setter
+    def georeplications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]]):
+        pulumi.set(self, "georeplications", value)
 
     @property
     @pulumi.getter
@@ -498,6 +536,7 @@ class Registry(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_enabled: Optional[pulumi.Input[bool]] = None,
                  georeplication_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 georeplications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryGeoreplicationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_rule_set: Optional[pulumi.Input[pulumi.InputType['RegistryNetworkRuleSetArgs']]] = None,
@@ -543,6 +582,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] admin_enabled: Specifies whether the admin user is enabled. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] georeplication_locations: A list of Azure locations where the container registry should be geo-replicated.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryGeoreplicationArgs']]]] georeplications: A `georeplications` block as documented below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Registry. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['RegistryNetworkRuleSetArgs']] network_rule_set: A `network_rule_set` block as documented below.
@@ -607,6 +647,7 @@ class Registry(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_enabled: Optional[pulumi.Input[bool]] = None,
                  georeplication_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 georeplications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryGeoreplicationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_rule_set: Optional[pulumi.Input[pulumi.InputType['RegistryNetworkRuleSetArgs']]] = None,
@@ -631,7 +672,11 @@ class Registry(pulumi.CustomResource):
             __props__ = RegistryArgs.__new__(RegistryArgs)
 
             __props__.__dict__["admin_enabled"] = admin_enabled
+            if georeplication_locations is not None and not opts.urn:
+                warnings.warn("""Deprecated in favour of `georeplications`""", DeprecationWarning)
+                pulumi.log.warn("""georeplication_locations is deprecated: Deprecated in favour of `georeplications`""")
             __props__.__dict__["georeplication_locations"] = georeplication_locations
+            __props__.__dict__["georeplications"] = georeplications
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["network_rule_set"] = network_rule_set
@@ -662,6 +707,7 @@ class Registry(pulumi.CustomResource):
             admin_password: Optional[pulumi.Input[str]] = None,
             admin_username: Optional[pulumi.Input[str]] = None,
             georeplication_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            georeplications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryGeoreplicationArgs']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             login_server: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -685,6 +731,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[str] admin_password: The Password associated with the Container Registry Admin account - if the admin account is enabled.
         :param pulumi.Input[str] admin_username: The Username associated with the Container Registry Admin account - if the admin account is enabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] georeplication_locations: A list of Azure locations where the container registry should be geo-replicated.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryGeoreplicationArgs']]]] georeplications: A `georeplications` block as documented below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] login_server: The URL that can be used to log into the container registry.
         :param pulumi.Input[str] name: Specifies the name of the Container Registry. Changing this forces a new resource to be created.
@@ -706,6 +753,7 @@ class Registry(pulumi.CustomResource):
         __props__.__dict__["admin_password"] = admin_password
         __props__.__dict__["admin_username"] = admin_username
         __props__.__dict__["georeplication_locations"] = georeplication_locations
+        __props__.__dict__["georeplications"] = georeplications
         __props__.__dict__["location"] = location
         __props__.__dict__["login_server"] = login_server
         __props__.__dict__["name"] = name
@@ -746,11 +794,19 @@ class Registry(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="georeplicationLocations")
-    def georeplication_locations(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def georeplication_locations(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of Azure locations where the container registry should be geo-replicated.
         """
         return pulumi.get(self, "georeplication_locations")
+
+    @property
+    @pulumi.getter
+    def georeplications(self) -> pulumi.Output[Sequence['outputs.RegistryGeoreplication']]:
+        """
+        A `georeplications` block as documented below.
+        """
+        return pulumi.get(self, "georeplications")
 
     @property
     @pulumi.getter

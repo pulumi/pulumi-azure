@@ -66,6 +66,9 @@ export interface GetVolumeArgs {
  */
 export interface GetVolumeResult {
     readonly accountName: string;
+    /**
+     * A `dataProtectionReplication` block as defined below.
+     */
     readonly dataProtectionReplications: outputs.netapp.GetVolumeDataProtectionReplication[];
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -81,6 +84,9 @@ export interface GetVolumeResult {
     readonly mountIpAddresses: string[];
     readonly name: string;
     readonly poolName: string;
+    /**
+     * A list of protocol types.
+     */
     readonly protocols: string[];
     readonly resourceGroupName: string;
     /**

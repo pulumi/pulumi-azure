@@ -33,7 +33,6 @@ export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise
         "accountName": args.accountName,
         "certificates": args.certificates,
         "name": args.name,
-        "networkConfiguration": args.networkConfiguration,
         "resourceGroupName": args.resourceGroupName,
         "startTask": args.startTask,
     }, opts);
@@ -55,7 +54,6 @@ export interface GetPoolArgs {
      * The name of the endpoint.
      */
     readonly name: string;
-    readonly networkConfiguration?: inputs.batch.GetPoolNetworkConfiguration;
     readonly resourceGroupName: string;
     /**
      * A `startTask` block that describes the start task settings for the Batch pool.

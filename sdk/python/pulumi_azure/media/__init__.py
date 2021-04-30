@@ -4,6 +4,7 @@
 
 # Export this package's modules as members:
 from .asset import *
+from .asset_filter import *
 from .content_key_policy import *
 from .job import *
 from .live_event import *
@@ -30,6 +31,8 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "azure:media/asset:Asset":
                 return Asset(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:media/assetFilter:AssetFilter":
+                return AssetFilter(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:media/contentKeyPolicy:ContentKeyPolicy":
                 return ContentKeyPolicy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:media/job:Job":
@@ -54,6 +57,7 @@ def _register_module():
 
     _module_instance = Module()
     pulumi.runtime.register_resource_module("azure", "media/asset", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "media/assetFilter", _module_instance)
     pulumi.runtime.register_resource_module("azure", "media/contentKeyPolicy", _module_instance)
     pulumi.runtime.register_resource_module("azure", "media/job", _module_instance)
     pulumi.runtime.register_resource_module("azure", "media/liveEvent", _module_instance)

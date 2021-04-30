@@ -94,6 +94,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly corsConfiguration!: pulumi.Output<outputs.healthcare.ServiceCorsConfiguration>;
     /**
+     * A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
+     */
+    public readonly cosmosdbKeyVaultKeyVersionlessId!: pulumi.Output<string | undefined>;
+    /**
      * The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
      */
     public readonly cosmosdbThroughput!: pulumi.Output<number | undefined>;
@@ -134,6 +138,7 @@ export class Service extends pulumi.CustomResource {
             inputs["accessPolicyObjectIds"] = state ? state.accessPolicyObjectIds : undefined;
             inputs["authenticationConfiguration"] = state ? state.authenticationConfiguration : undefined;
             inputs["corsConfiguration"] = state ? state.corsConfiguration : undefined;
+            inputs["cosmosdbKeyVaultKeyVersionlessId"] = state ? state.cosmosdbKeyVaultKeyVersionlessId : undefined;
             inputs["cosmosdbThroughput"] = state ? state.cosmosdbThroughput : undefined;
             inputs["kind"] = state ? state.kind : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -148,6 +153,7 @@ export class Service extends pulumi.CustomResource {
             inputs["accessPolicyObjectIds"] = args ? args.accessPolicyObjectIds : undefined;
             inputs["authenticationConfiguration"] = args ? args.authenticationConfiguration : undefined;
             inputs["corsConfiguration"] = args ? args.corsConfiguration : undefined;
+            inputs["cosmosdbKeyVaultKeyVersionlessId"] = args ? args.cosmosdbKeyVaultKeyVersionlessId : undefined;
             inputs["cosmosdbThroughput"] = args ? args.cosmosdbThroughput : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -175,6 +181,10 @@ export interface ServiceState {
      * A `corsConfiguration` block as defined below.
      */
     readonly corsConfiguration?: pulumi.Input<inputs.healthcare.ServiceCorsConfiguration>;
+    /**
+     * A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
+     */
+    readonly cosmosdbKeyVaultKeyVersionlessId?: pulumi.Input<string>;
     /**
      * The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
      */
@@ -214,6 +224,10 @@ export interface ServiceArgs {
      * A `corsConfiguration` block as defined below.
      */
     readonly corsConfiguration?: pulumi.Input<inputs.healthcare.ServiceCorsConfiguration>;
+    /**
+     * A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
+     */
+    readonly cosmosdbKeyVaultKeyVersionlessId?: pulumi.Input<string>;
     /**
      * The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
      */

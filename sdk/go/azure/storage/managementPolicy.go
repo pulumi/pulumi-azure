@@ -55,6 +55,13 @@ import (
 // 						BlobTypes: pulumi.StringArray{
 // 							pulumi.String("blockBlob"),
 // 						},
+// 						MatchBlobIndexTags: storage.ManagementPolicyRuleFiltersMatchBlobIndexTagArray{
+// 							&storage.ManagementPolicyRuleFiltersMatchBlobIndexTagArgs{
+// 								Name:      pulumi.String("tag1"),
+// 								Operation: pulumi.String("=="),
+// 								Value:     pulumi.String("val1"),
+// 							},
+// 						},
 // 					},
 // 					Actions: &storage.ManagementPolicyRuleActionsArgs{
 // 						BaseBlob: &storage.ManagementPolicyRuleActionsBaseBlobArgs{
@@ -86,7 +93,14 @@ import (
 // 							DeleteAfterDaysSinceModificationGreaterThan:        pulumi.Int(101),
 // 						},
 // 						Snapshot: &storage.ManagementPolicyRuleActionsSnapshotArgs{
-// 							DeleteAfterDaysSinceCreationGreaterThan: pulumi.Int(31),
+// 							ChangeTierToArchiveAfterDaysSinceCreation: pulumi.Int(90),
+// 							ChangeTierToCoolAfterDaysSinceCreation:    pulumi.Int(23),
+// 							DeleteAfterDaysSinceCreationGreaterThan:   pulumi.Int(31),
+// 						},
+// 						Version: &storage.ManagementPolicyRuleActionsVersionArgs{
+// 							ChangeTierToArchiveAfterDaysSinceCreation: pulumi.Int(9),
+// 							ChangeTierToCoolAfterDaysSinceCreation:    pulumi.Int(90),
+// 							DeleteAfterDaysSinceCreation:              pulumi.Int(3),
 // 						},
 // 					},
 // 				},

@@ -69,6 +69,9 @@ class GetVolumeResult:
     @property
     @pulumi.getter(name="dataProtectionReplications")
     def data_protection_replications(self) -> Sequence['outputs.GetVolumeDataProtectionReplicationResult']:
+        """
+        A `data_protection_replication` block as defined below.
+        """
         return pulumi.get(self, "data_protection_replications")
 
     @property
@@ -108,6 +111,9 @@ class GetVolumeResult:
     @property
     @pulumi.getter
     def protocols(self) -> Sequence[str]:
+        """
+        A list of protocol types.
+        """
         return pulumi.get(self, "protocols")
 
     @property

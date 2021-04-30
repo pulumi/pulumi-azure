@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .cluster import *
 from .get_private_cloud import *
 from .private_cloud import *
 from ._inputs import *
@@ -20,13 +21,16 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "azure:avs/privateCloud:PrivateCloud":
+            if typ == "azure:avs/cluster:Cluster":
+                return Cluster(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:avs/privateCloud:PrivateCloud":
                 return PrivateCloud(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 
 
     _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure", "avs/cluster", _module_instance)
     pulumi.runtime.register_resource_module("azure", "avs/privateCloud", _module_instance)
 
 _register_module()

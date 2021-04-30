@@ -93,6 +93,12 @@ namespace Pulumi.Azure.CosmosDB
         public Output<Outputs.SqlContainerAutoscaleSettings?> AutoscaleSettings { get; private set; } = null!;
 
         /// <summary>
+        /// A `conflict_resolution_policy` blocks as defined below.
+        /// </summary>
+        [Output("conflictResolutionPolicy")]
+        public Output<Outputs.SqlContainerConflictResolutionPolicy> ConflictResolutionPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
         /// </summary>
         [Output("databaseName")]
@@ -120,7 +126,7 @@ namespace Pulumi.Azure.CosmosDB
         /// Define a partition key. Changing this forces a new resource to be created.
         /// </summary>
         [Output("partitionKeyPath")]
-        public Output<string?> PartitionKeyPath { get; private set; } = null!;
+        public Output<string> PartitionKeyPath { get; private set; } = null!;
 
         /// <summary>
         /// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
@@ -205,6 +211,12 @@ namespace Pulumi.Azure.CosmosDB
         public Input<Inputs.SqlContainerAutoscaleSettingsArgs>? AutoscaleSettings { get; set; }
 
         /// <summary>
+        /// A `conflict_resolution_policy` blocks as defined below.
+        /// </summary>
+        [Input("conflictResolutionPolicy")]
+        public Input<Inputs.SqlContainerConflictResolutionPolicyArgs>? ConflictResolutionPolicy { get; set; }
+
+        /// <summary>
         /// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
         /// </summary>
         [Input("databaseName", required: true)]
@@ -231,8 +243,8 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// Define a partition key. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("partitionKeyPath")]
-        public Input<string>? PartitionKeyPath { get; set; }
+        [Input("partitionKeyPath", required: true)]
+        public Input<string> PartitionKeyPath { get; set; } = null!;
 
         /// <summary>
         /// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
@@ -282,6 +294,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("autoscaleSettings")]
         public Input<Inputs.SqlContainerAutoscaleSettingsGetArgs>? AutoscaleSettings { get; set; }
+
+        /// <summary>
+        /// A `conflict_resolution_policy` blocks as defined below.
+        /// </summary>
+        [Input("conflictResolutionPolicy")]
+        public Input<Inputs.SqlContainerConflictResolutionPolicyGetArgs>? ConflictResolutionPolicy { get; set; }
 
         /// <summary>
         /// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.

@@ -13,6 +13,10 @@ __all__ = [
     'CacheAccessPolicyAccessRule',
     'CacheDefaultAccessPolicy',
     'CacheDefaultAccessPolicyAccessRule',
+    'CacheDirectoryActiveDirectory',
+    'CacheDirectoryFlatFile',
+    'CacheDirectoryLdap',
+    'CacheDirectoryLdapBind',
     'CacheDns',
     'CacheNfsTargetNamespaceJunction',
 ]
@@ -302,6 +306,291 @@ class CacheDefaultAccessPolicyAccessRule(dict):
         Whether [SUID](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#suid) is allowed? Defaults to `false`.
         """
         return pulumi.get(self, "suid_enabled")
+
+
+@pulumi.output_type
+class CacheDirectoryActiveDirectory(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cacheNetbiosName":
+            suggest = "cache_netbios_name"
+        elif key == "dnsPrimaryIp":
+            suggest = "dns_primary_ip"
+        elif key == "domainName":
+            suggest = "domain_name"
+        elif key == "domainNetbiosName":
+            suggest = "domain_netbios_name"
+        elif key == "dnsSecondaryIp":
+            suggest = "dns_secondary_ip"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CacheDirectoryActiveDirectory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CacheDirectoryActiveDirectory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CacheDirectoryActiveDirectory.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cache_netbios_name: str,
+                 dns_primary_ip: str,
+                 domain_name: str,
+                 domain_netbios_name: str,
+                 password: str,
+                 username: str,
+                 dns_secondary_ip: Optional[str] = None):
+        """
+        :param str cache_netbios_name: The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server.
+        :param str dns_primary_ip: The primary DNS IP address used to resolve the Active Directory domain controller's FQDN.
+        :param str domain_name: The fully qualified domain name of the Active Directory domain controller.
+        :param str domain_netbios_name: The Active Directory domain's NetBIOS name.
+        :param str password: The password of the Active Directory domain administrator.
+        :param str username: The username of the Active Directory domain administrator.
+        :param str dns_secondary_ip: The secondary DNS IP address used to resolve the Active Directory domain controller's FQDN.
+        """
+        pulumi.set(__self__, "cache_netbios_name", cache_netbios_name)
+        pulumi.set(__self__, "dns_primary_ip", dns_primary_ip)
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "domain_netbios_name", domain_netbios_name)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+        if dns_secondary_ip is not None:
+            pulumi.set(__self__, "dns_secondary_ip", dns_secondary_ip)
+
+    @property
+    @pulumi.getter(name="cacheNetbiosName")
+    def cache_netbios_name(self) -> str:
+        """
+        The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server.
+        """
+        return pulumi.get(self, "cache_netbios_name")
+
+    @property
+    @pulumi.getter(name="dnsPrimaryIp")
+    def dns_primary_ip(self) -> str:
+        """
+        The primary DNS IP address used to resolve the Active Directory domain controller's FQDN.
+        """
+        return pulumi.get(self, "dns_primary_ip")
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> str:
+        """
+        The fully qualified domain name of the Active Directory domain controller.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter(name="domainNetbiosName")
+    def domain_netbios_name(self) -> str:
+        """
+        The Active Directory domain's NetBIOS name.
+        """
+        return pulumi.get(self, "domain_netbios_name")
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        The password of the Active Directory domain administrator.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        The username of the Active Directory domain administrator.
+        """
+        return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter(name="dnsSecondaryIp")
+    def dns_secondary_ip(self) -> Optional[str]:
+        """
+        The secondary DNS IP address used to resolve the Active Directory domain controller's FQDN.
+        """
+        return pulumi.get(self, "dns_secondary_ip")
+
+
+@pulumi.output_type
+class CacheDirectoryFlatFile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupFileUri":
+            suggest = "group_file_uri"
+        elif key == "passwordFileUri":
+            suggest = "password_file_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CacheDirectoryFlatFile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CacheDirectoryFlatFile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CacheDirectoryFlatFile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_file_uri: str,
+                 password_file_uri: str):
+        """
+        :param str group_file_uri: The URI of the file containing group information (`/etc/group` file format in Unix-like OS).
+        :param str password_file_uri: The URI of the file containing user information (`/etc/passwd` file format in Unix-like OS).
+        """
+        pulumi.set(__self__, "group_file_uri", group_file_uri)
+        pulumi.set(__self__, "password_file_uri", password_file_uri)
+
+    @property
+    @pulumi.getter(name="groupFileUri")
+    def group_file_uri(self) -> str:
+        """
+        The URI of the file containing group information (`/etc/group` file format in Unix-like OS).
+        """
+        return pulumi.get(self, "group_file_uri")
+
+    @property
+    @pulumi.getter(name="passwordFileUri")
+    def password_file_uri(self) -> str:
+        """
+        The URI of the file containing user information (`/etc/passwd` file format in Unix-like OS).
+        """
+        return pulumi.get(self, "password_file_uri")
+
+
+@pulumi.output_type
+class CacheDirectoryLdap(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseDn":
+            suggest = "base_dn"
+        elif key == "certificateValidationUri":
+            suggest = "certificate_validation_uri"
+        elif key == "downloadCertificateAutomatically":
+            suggest = "download_certificate_automatically"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CacheDirectoryLdap. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CacheDirectoryLdap.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CacheDirectoryLdap.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 base_dn: str,
+                 server: str,
+                 bind: Optional['outputs.CacheDirectoryLdapBind'] = None,
+                 certificate_validation_uri: Optional[str] = None,
+                 download_certificate_automatically: Optional[bool] = None,
+                 encrypted: Optional[bool] = None):
+        """
+        :param str base_dn: The base distinguished name (DN) for the LDAP domain.
+        :param str server: The FQDN or IP address of the LDAP server.
+        :param 'CacheDirectoryLdapBindArgs' bind: A `bind` block as defined above.
+        :param str certificate_validation_uri: The URI of the CA certificate to validate the LDAP secure connection.
+        :param bool download_certificate_automatically: Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided. Defaults to `false`.
+        :param bool encrypted: Whether the LDAP connection should be encrypted? Defaults to `false`.
+        """
+        pulumi.set(__self__, "base_dn", base_dn)
+        pulumi.set(__self__, "server", server)
+        if bind is not None:
+            pulumi.set(__self__, "bind", bind)
+        if certificate_validation_uri is not None:
+            pulumi.set(__self__, "certificate_validation_uri", certificate_validation_uri)
+        if download_certificate_automatically is not None:
+            pulumi.set(__self__, "download_certificate_automatically", download_certificate_automatically)
+        if encrypted is not None:
+            pulumi.set(__self__, "encrypted", encrypted)
+
+    @property
+    @pulumi.getter(name="baseDn")
+    def base_dn(self) -> str:
+        """
+        The base distinguished name (DN) for the LDAP domain.
+        """
+        return pulumi.get(self, "base_dn")
+
+    @property
+    @pulumi.getter
+    def server(self) -> str:
+        """
+        The FQDN or IP address of the LDAP server.
+        """
+        return pulumi.get(self, "server")
+
+    @property
+    @pulumi.getter
+    def bind(self) -> Optional['outputs.CacheDirectoryLdapBind']:
+        """
+        A `bind` block as defined above.
+        """
+        return pulumi.get(self, "bind")
+
+    @property
+    @pulumi.getter(name="certificateValidationUri")
+    def certificate_validation_uri(self) -> Optional[str]:
+        """
+        The URI of the CA certificate to validate the LDAP secure connection.
+        """
+        return pulumi.get(self, "certificate_validation_uri")
+
+    @property
+    @pulumi.getter(name="downloadCertificateAutomatically")
+    def download_certificate_automatically(self) -> Optional[bool]:
+        """
+        Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided. Defaults to `false`.
+        """
+        return pulumi.get(self, "download_certificate_automatically")
+
+    @property
+    @pulumi.getter
+    def encrypted(self) -> Optional[bool]:
+        """
+        Whether the LDAP connection should be encrypted? Defaults to `false`.
+        """
+        return pulumi.get(self, "encrypted")
+
+
+@pulumi.output_type
+class CacheDirectoryLdapBind(dict):
+    def __init__(__self__, *,
+                 dn: str,
+                 password: str):
+        """
+        :param str dn: The Bind Distinguished Name (DN) identity to be used in the secure LDAP connection.
+        :param str password: The Bind password to be used in the secure LDAP connection.
+        """
+        pulumi.set(__self__, "dn", dn)
+        pulumi.set(__self__, "password", password)
+
+    @property
+    @pulumi.getter
+    def dn(self) -> str:
+        """
+        The Bind Distinguished Name (DN) identity to be used in the secure LDAP connection.
+        """
+        return pulumi.get(self, "dn")
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        The Bind password to be used in the secure LDAP connection.
+        """
+        return pulumi.get(self, "password")
 
 
 @pulumi.output_type

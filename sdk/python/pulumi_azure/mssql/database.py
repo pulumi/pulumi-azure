@@ -1197,7 +1197,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> pulumi.Output[str]:
+    def create_mode(self) -> pulumi.Output[Optional[str]]:
         """
         The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
         """

@@ -68,6 +68,13 @@ export interface GetServiceResult {
      * A `corsConfiguration` block as defined below.
      */
     readonly corsConfigurations: outputs.healthcare.GetServiceCorsConfiguration[];
+    /**
+     * The versionless Key Vault Key ID for CMK encryption of the backing database.
+     */
+    readonly cosmosdbKeyVaultKeyVersionlessId: string;
+    /**
+     * The provisioned throughput for the backing database.
+     */
     readonly cosmosdbThroughput: number;
     /**
      * The provider-assigned unique ID for this managed resource.

@@ -17,12 +17,13 @@ class SqlContainerArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
                  database_name: pulumi.Input[str],
+                 partition_key_path: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  autoscale_settings: Optional[pulumi.Input['SqlContainerAutoscaleSettingsArgs']] = None,
+                 conflict_resolution_policy: Optional[pulumi.Input['SqlContainerConflictResolutionPolicyArgs']] = None,
                  default_ttl: Optional[pulumi.Input[int]] = None,
                  indexing_policy: Optional[pulumi.Input['SqlContainerIndexingPolicyArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 partition_key_path: Optional[pulumi.Input[str]] = None,
                  partition_key_version: Optional[pulumi.Input[int]] = None,
                  throughput: Optional[pulumi.Input[int]] = None,
                  unique_keys: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerUniqueKeyArgs']]]] = None):
@@ -30,29 +31,31 @@ class SqlContainerArgs:
         The set of arguments for constructing a SqlContainer resource.
         :param pulumi.Input[str] account_name: The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] partition_key_path: Define a partition key. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
         :param pulumi.Input['SqlContainerAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partition_key_path` to be set.
+        :param pulumi.Input['SqlContainerConflictResolutionPolicyArgs'] conflict_resolution_policy: A `conflict_resolution_policy` blocks as defined below.
         :param pulumi.Input[int] default_ttl: The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         :param pulumi.Input['SqlContainerIndexingPolicyArgs'] indexing_policy: An `indexing_policy` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] partition_key_path: Define a partition key. Changing this forces a new resource to be created.
         :param pulumi.Input[int] partition_key_version: Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
         :param pulumi.Input[int] throughput: The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
         :param pulumi.Input[Sequence[pulumi.Input['SqlContainerUniqueKeyArgs']]] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "partition_key_path", partition_key_path)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if autoscale_settings is not None:
             pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+        if conflict_resolution_policy is not None:
+            pulumi.set(__self__, "conflict_resolution_policy", conflict_resolution_policy)
         if default_ttl is not None:
             pulumi.set(__self__, "default_ttl", default_ttl)
         if indexing_policy is not None:
             pulumi.set(__self__, "indexing_policy", indexing_policy)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if partition_key_path is not None:
-            pulumi.set(__self__, "partition_key_path", partition_key_path)
         if partition_key_version is not None:
             pulumi.set(__self__, "partition_key_version", partition_key_version)
         if throughput is not None:
@@ -85,6 +88,18 @@ class SqlContainerArgs:
         pulumi.set(self, "database_name", value)
 
     @property
+    @pulumi.getter(name="partitionKeyPath")
+    def partition_key_path(self) -> pulumi.Input[str]:
+        """
+        Define a partition key. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "partition_key_path")
+
+    @partition_key_path.setter
+    def partition_key_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "partition_key_path", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -107,6 +122,18 @@ class SqlContainerArgs:
     @autoscale_settings.setter
     def autoscale_settings(self, value: Optional[pulumi.Input['SqlContainerAutoscaleSettingsArgs']]):
         pulumi.set(self, "autoscale_settings", value)
+
+    @property
+    @pulumi.getter(name="conflictResolutionPolicy")
+    def conflict_resolution_policy(self) -> Optional[pulumi.Input['SqlContainerConflictResolutionPolicyArgs']]:
+        """
+        A `conflict_resolution_policy` blocks as defined below.
+        """
+        return pulumi.get(self, "conflict_resolution_policy")
+
+    @conflict_resolution_policy.setter
+    def conflict_resolution_policy(self, value: Optional[pulumi.Input['SqlContainerConflictResolutionPolicyArgs']]):
+        pulumi.set(self, "conflict_resolution_policy", value)
 
     @property
     @pulumi.getter(name="defaultTtl")
@@ -143,18 +170,6 @@ class SqlContainerArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="partitionKeyPath")
-    def partition_key_path(self) -> Optional[pulumi.Input[str]]:
-        """
-        Define a partition key. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "partition_key_path")
-
-    @partition_key_path.setter
-    def partition_key_path(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "partition_key_path", value)
 
     @property
     @pulumi.getter(name="partitionKeyVersion")
@@ -198,6 +213,7 @@ class _SqlContainerState:
     def __init__(__self__, *,
                  account_name: Optional[pulumi.Input[str]] = None,
                  autoscale_settings: Optional[pulumi.Input['SqlContainerAutoscaleSettingsArgs']] = None,
+                 conflict_resolution_policy: Optional[pulumi.Input['SqlContainerConflictResolutionPolicyArgs']] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  default_ttl: Optional[pulumi.Input[int]] = None,
                  indexing_policy: Optional[pulumi.Input['SqlContainerIndexingPolicyArgs']] = None,
@@ -211,6 +227,7 @@ class _SqlContainerState:
         Input properties used for looking up and filtering SqlContainer resources.
         :param pulumi.Input[str] account_name: The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
         :param pulumi.Input['SqlContainerAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partition_key_path` to be set.
+        :param pulumi.Input['SqlContainerConflictResolutionPolicyArgs'] conflict_resolution_policy: A `conflict_resolution_policy` blocks as defined below.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
         :param pulumi.Input[int] default_ttl: The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         :param pulumi.Input['SqlContainerIndexingPolicyArgs'] indexing_policy: An `indexing_policy` block as defined below.
@@ -225,6 +242,8 @@ class _SqlContainerState:
             pulumi.set(__self__, "account_name", account_name)
         if autoscale_settings is not None:
             pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+        if conflict_resolution_policy is not None:
+            pulumi.set(__self__, "conflict_resolution_policy", conflict_resolution_policy)
         if database_name is not None:
             pulumi.set(__self__, "database_name", database_name)
         if default_ttl is not None:
@@ -267,6 +286,18 @@ class _SqlContainerState:
     @autoscale_settings.setter
     def autoscale_settings(self, value: Optional[pulumi.Input['SqlContainerAutoscaleSettingsArgs']]):
         pulumi.set(self, "autoscale_settings", value)
+
+    @property
+    @pulumi.getter(name="conflictResolutionPolicy")
+    def conflict_resolution_policy(self) -> Optional[pulumi.Input['SqlContainerConflictResolutionPolicyArgs']]:
+        """
+        A `conflict_resolution_policy` blocks as defined below.
+        """
+        return pulumi.get(self, "conflict_resolution_policy")
+
+    @conflict_resolution_policy.setter
+    def conflict_resolution_policy(self, value: Optional[pulumi.Input['SqlContainerConflictResolutionPolicyArgs']]):
+        pulumi.set(self, "conflict_resolution_policy", value)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -384,6 +415,7 @@ class SqlContainer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  autoscale_settings: Optional[pulumi.Input[pulumi.InputType['SqlContainerAutoscaleSettingsArgs']]] = None,
+                 conflict_resolution_policy: Optional[pulumi.Input[pulumi.InputType['SqlContainerConflictResolutionPolicyArgs']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  default_ttl: Optional[pulumi.Input[int]] = None,
                  indexing_policy: Optional[pulumi.Input[pulumi.InputType['SqlContainerIndexingPolicyArgs']]] = None,
@@ -444,6 +476,7 @@ class SqlContainer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SqlContainerAutoscaleSettingsArgs']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partition_key_path` to be set.
+        :param pulumi.Input[pulumi.InputType['SqlContainerConflictResolutionPolicyArgs']] conflict_resolution_policy: A `conflict_resolution_policy` blocks as defined below.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
         :param pulumi.Input[int] default_ttl: The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         :param pulumi.Input[pulumi.InputType['SqlContainerIndexingPolicyArgs']] indexing_policy: An `indexing_policy` block as defined below.
@@ -523,6 +556,7 @@ class SqlContainer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  autoscale_settings: Optional[pulumi.Input[pulumi.InputType['SqlContainerAutoscaleSettingsArgs']]] = None,
+                 conflict_resolution_policy: Optional[pulumi.Input[pulumi.InputType['SqlContainerConflictResolutionPolicyArgs']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  default_ttl: Optional[pulumi.Input[int]] = None,
                  indexing_policy: Optional[pulumi.Input[pulumi.InputType['SqlContainerIndexingPolicyArgs']]] = None,
@@ -548,12 +582,15 @@ class SqlContainer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["autoscale_settings"] = autoscale_settings
+            __props__.__dict__["conflict_resolution_policy"] = conflict_resolution_policy
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["default_ttl"] = default_ttl
             __props__.__dict__["indexing_policy"] = indexing_policy
             __props__.__dict__["name"] = name
+            if partition_key_path is None and not opts.urn:
+                raise TypeError("Missing required property 'partition_key_path'")
             __props__.__dict__["partition_key_path"] = partition_key_path
             __props__.__dict__["partition_key_version"] = partition_key_version
             if resource_group_name is None and not opts.urn:
@@ -573,6 +610,7 @@ class SqlContainer(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             account_name: Optional[pulumi.Input[str]] = None,
             autoscale_settings: Optional[pulumi.Input[pulumi.InputType['SqlContainerAutoscaleSettingsArgs']]] = None,
+            conflict_resolution_policy: Optional[pulumi.Input[pulumi.InputType['SqlContainerConflictResolutionPolicyArgs']]] = None,
             database_name: Optional[pulumi.Input[str]] = None,
             default_ttl: Optional[pulumi.Input[int]] = None,
             indexing_policy: Optional[pulumi.Input[pulumi.InputType['SqlContainerIndexingPolicyArgs']]] = None,
@@ -591,6 +629,7 @@ class SqlContainer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SqlContainerAutoscaleSettingsArgs']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partition_key_path` to be set.
+        :param pulumi.Input[pulumi.InputType['SqlContainerConflictResolutionPolicyArgs']] conflict_resolution_policy: A `conflict_resolution_policy` blocks as defined below.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
         :param pulumi.Input[int] default_ttl: The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         :param pulumi.Input[pulumi.InputType['SqlContainerIndexingPolicyArgs']] indexing_policy: An `indexing_policy` block as defined below.
@@ -607,6 +646,7 @@ class SqlContainer(pulumi.CustomResource):
 
         __props__.__dict__["account_name"] = account_name
         __props__.__dict__["autoscale_settings"] = autoscale_settings
+        __props__.__dict__["conflict_resolution_policy"] = conflict_resolution_policy
         __props__.__dict__["database_name"] = database_name
         __props__.__dict__["default_ttl"] = default_ttl
         __props__.__dict__["indexing_policy"] = indexing_policy
@@ -633,6 +673,14 @@ class SqlContainer(pulumi.CustomResource):
         An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partition_key_path` to be set.
         """
         return pulumi.get(self, "autoscale_settings")
+
+    @property
+    @pulumi.getter(name="conflictResolutionPolicy")
+    def conflict_resolution_policy(self) -> pulumi.Output['outputs.SqlContainerConflictResolutionPolicy']:
+        """
+        A `conflict_resolution_policy` blocks as defined below.
+        """
+        return pulumi.get(self, "conflict_resolution_policy")
 
     @property
     @pulumi.getter(name="databaseName")
@@ -668,7 +716,7 @@ class SqlContainer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partitionKeyPath")
-    def partition_key_path(self) -> pulumi.Output[Optional[str]]:
+    def partition_key_path(self) -> pulumi.Output[str]:
         """
         Define a partition key. Changing this forces a new resource to be created.
         """

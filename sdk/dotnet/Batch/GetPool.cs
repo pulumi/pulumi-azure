@@ -70,9 +70,6 @@ namespace Pulumi.Azure.Batch
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        [Input("networkConfiguration")]
-        public Inputs.GetPoolNetworkConfigurationArgs? NetworkConfiguration { get; set; }
-
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 

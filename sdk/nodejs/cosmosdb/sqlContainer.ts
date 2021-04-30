@@ -89,6 +89,10 @@ export class SqlContainer extends pulumi.CustomResource {
      */
     public readonly autoscaleSettings!: pulumi.Output<outputs.cosmosdb.SqlContainerAutoscaleSettings | undefined>;
     /**
+     * A `conflictResolutionPolicy` blocks as defined below.
+     */
+    public readonly conflictResolutionPolicy!: pulumi.Output<outputs.cosmosdb.SqlContainerConflictResolutionPolicy>;
+    /**
      * The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
      */
     public readonly databaseName!: pulumi.Output<string>;
@@ -107,7 +111,7 @@ export class SqlContainer extends pulumi.CustomResource {
     /**
      * Define a partition key. Changing this forces a new resource to be created.
      */
-    public readonly partitionKeyPath!: pulumi.Output<string | undefined>;
+    public readonly partitionKeyPath!: pulumi.Output<string>;
     /**
      * Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
      */
@@ -140,6 +144,7 @@ export class SqlContainer extends pulumi.CustomResource {
             const state = argsOrState as SqlContainerState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["autoscaleSettings"] = state ? state.autoscaleSettings : undefined;
+            inputs["conflictResolutionPolicy"] = state ? state.conflictResolutionPolicy : undefined;
             inputs["databaseName"] = state ? state.databaseName : undefined;
             inputs["defaultTtl"] = state ? state.defaultTtl : undefined;
             inputs["indexingPolicy"] = state ? state.indexingPolicy : undefined;
@@ -157,11 +162,15 @@ export class SqlContainer extends pulumi.CustomResource {
             if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
+            if ((!args || args.partitionKeyPath === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'partitionKeyPath'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["autoscaleSettings"] = args ? args.autoscaleSettings : undefined;
+            inputs["conflictResolutionPolicy"] = args ? args.conflictResolutionPolicy : undefined;
             inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["defaultTtl"] = args ? args.defaultTtl : undefined;
             inputs["indexingPolicy"] = args ? args.indexingPolicy : undefined;
@@ -191,6 +200,10 @@ export interface SqlContainerState {
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
      */
     readonly autoscaleSettings?: pulumi.Input<inputs.cosmosdb.SqlContainerAutoscaleSettings>;
+    /**
+     * A `conflictResolutionPolicy` blocks as defined below.
+     */
+    readonly conflictResolutionPolicy?: pulumi.Input<inputs.cosmosdb.SqlContainerConflictResolutionPolicy>;
     /**
      * The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
      */
@@ -242,6 +255,10 @@ export interface SqlContainerArgs {
      */
     readonly autoscaleSettings?: pulumi.Input<inputs.cosmosdb.SqlContainerAutoscaleSettings>;
     /**
+     * A `conflictResolutionPolicy` blocks as defined below.
+     */
+    readonly conflictResolutionPolicy?: pulumi.Input<inputs.cosmosdb.SqlContainerConflictResolutionPolicy>;
+    /**
      * The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
      */
     readonly databaseName: pulumi.Input<string>;
@@ -260,7 +277,7 @@ export interface SqlContainerArgs {
     /**
      * Define a partition key. Changing this forces a new resource to be created.
      */
-    readonly partitionKeyPath?: pulumi.Input<string>;
+    readonly partitionKeyPath: pulumi.Input<string>;
     /**
      * Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
      */

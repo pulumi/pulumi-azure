@@ -461,6 +461,777 @@ func (o CacheDefaultAccessPolicyAccessRuleArrayOutput) Index(i pulumi.IntInput) 
 	}).(CacheDefaultAccessPolicyAccessRuleOutput)
 }
 
+type CacheDirectoryActiveDirectory struct {
+	// The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server.
+	CacheNetbiosName string `pulumi:"cacheNetbiosName"`
+	// The primary DNS IP address used to resolve the Active Directory domain controller's FQDN.
+	DnsPrimaryIp string `pulumi:"dnsPrimaryIp"`
+	// The secondary DNS IP address used to resolve the Active Directory domain controller's FQDN.
+	DnsSecondaryIp *string `pulumi:"dnsSecondaryIp"`
+	// The fully qualified domain name of the Active Directory domain controller.
+	DomainName string `pulumi:"domainName"`
+	// The Active Directory domain's NetBIOS name.
+	DomainNetbiosName string `pulumi:"domainNetbiosName"`
+	// The password of the Active Directory domain administrator.
+	Password string `pulumi:"password"`
+	// The username of the Active Directory domain administrator.
+	Username string `pulumi:"username"`
+}
+
+// CacheDirectoryActiveDirectoryInput is an input type that accepts CacheDirectoryActiveDirectoryArgs and CacheDirectoryActiveDirectoryOutput values.
+// You can construct a concrete instance of `CacheDirectoryActiveDirectoryInput` via:
+//
+//          CacheDirectoryActiveDirectoryArgs{...}
+type CacheDirectoryActiveDirectoryInput interface {
+	pulumi.Input
+
+	ToCacheDirectoryActiveDirectoryOutput() CacheDirectoryActiveDirectoryOutput
+	ToCacheDirectoryActiveDirectoryOutputWithContext(context.Context) CacheDirectoryActiveDirectoryOutput
+}
+
+type CacheDirectoryActiveDirectoryArgs struct {
+	// The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server.
+	CacheNetbiosName pulumi.StringInput `pulumi:"cacheNetbiosName"`
+	// The primary DNS IP address used to resolve the Active Directory domain controller's FQDN.
+	DnsPrimaryIp pulumi.StringInput `pulumi:"dnsPrimaryIp"`
+	// The secondary DNS IP address used to resolve the Active Directory domain controller's FQDN.
+	DnsSecondaryIp pulumi.StringPtrInput `pulumi:"dnsSecondaryIp"`
+	// The fully qualified domain name of the Active Directory domain controller.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// The Active Directory domain's NetBIOS name.
+	DomainNetbiosName pulumi.StringInput `pulumi:"domainNetbiosName"`
+	// The password of the Active Directory domain administrator.
+	Password pulumi.StringInput `pulumi:"password"`
+	// The username of the Active Directory domain administrator.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (CacheDirectoryActiveDirectoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheDirectoryActiveDirectory)(nil)).Elem()
+}
+
+func (i CacheDirectoryActiveDirectoryArgs) ToCacheDirectoryActiveDirectoryOutput() CacheDirectoryActiveDirectoryOutput {
+	return i.ToCacheDirectoryActiveDirectoryOutputWithContext(context.Background())
+}
+
+func (i CacheDirectoryActiveDirectoryArgs) ToCacheDirectoryActiveDirectoryOutputWithContext(ctx context.Context) CacheDirectoryActiveDirectoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheDirectoryActiveDirectoryOutput)
+}
+
+func (i CacheDirectoryActiveDirectoryArgs) ToCacheDirectoryActiveDirectoryPtrOutput() CacheDirectoryActiveDirectoryPtrOutput {
+	return i.ToCacheDirectoryActiveDirectoryPtrOutputWithContext(context.Background())
+}
+
+func (i CacheDirectoryActiveDirectoryArgs) ToCacheDirectoryActiveDirectoryPtrOutputWithContext(ctx context.Context) CacheDirectoryActiveDirectoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheDirectoryActiveDirectoryOutput).ToCacheDirectoryActiveDirectoryPtrOutputWithContext(ctx)
+}
+
+// CacheDirectoryActiveDirectoryPtrInput is an input type that accepts CacheDirectoryActiveDirectoryArgs, CacheDirectoryActiveDirectoryPtr and CacheDirectoryActiveDirectoryPtrOutput values.
+// You can construct a concrete instance of `CacheDirectoryActiveDirectoryPtrInput` via:
+//
+//          CacheDirectoryActiveDirectoryArgs{...}
+//
+//  or:
+//
+//          nil
+type CacheDirectoryActiveDirectoryPtrInput interface {
+	pulumi.Input
+
+	ToCacheDirectoryActiveDirectoryPtrOutput() CacheDirectoryActiveDirectoryPtrOutput
+	ToCacheDirectoryActiveDirectoryPtrOutputWithContext(context.Context) CacheDirectoryActiveDirectoryPtrOutput
+}
+
+type cacheDirectoryActiveDirectoryPtrType CacheDirectoryActiveDirectoryArgs
+
+func CacheDirectoryActiveDirectoryPtr(v *CacheDirectoryActiveDirectoryArgs) CacheDirectoryActiveDirectoryPtrInput {
+	return (*cacheDirectoryActiveDirectoryPtrType)(v)
+}
+
+func (*cacheDirectoryActiveDirectoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheDirectoryActiveDirectory)(nil)).Elem()
+}
+
+func (i *cacheDirectoryActiveDirectoryPtrType) ToCacheDirectoryActiveDirectoryPtrOutput() CacheDirectoryActiveDirectoryPtrOutput {
+	return i.ToCacheDirectoryActiveDirectoryPtrOutputWithContext(context.Background())
+}
+
+func (i *cacheDirectoryActiveDirectoryPtrType) ToCacheDirectoryActiveDirectoryPtrOutputWithContext(ctx context.Context) CacheDirectoryActiveDirectoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheDirectoryActiveDirectoryPtrOutput)
+}
+
+type CacheDirectoryActiveDirectoryOutput struct{ *pulumi.OutputState }
+
+func (CacheDirectoryActiveDirectoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheDirectoryActiveDirectory)(nil)).Elem()
+}
+
+func (o CacheDirectoryActiveDirectoryOutput) ToCacheDirectoryActiveDirectoryOutput() CacheDirectoryActiveDirectoryOutput {
+	return o
+}
+
+func (o CacheDirectoryActiveDirectoryOutput) ToCacheDirectoryActiveDirectoryOutputWithContext(ctx context.Context) CacheDirectoryActiveDirectoryOutput {
+	return o
+}
+
+func (o CacheDirectoryActiveDirectoryOutput) ToCacheDirectoryActiveDirectoryPtrOutput() CacheDirectoryActiveDirectoryPtrOutput {
+	return o.ToCacheDirectoryActiveDirectoryPtrOutputWithContext(context.Background())
+}
+
+func (o CacheDirectoryActiveDirectoryOutput) ToCacheDirectoryActiveDirectoryPtrOutputWithContext(ctx context.Context) CacheDirectoryActiveDirectoryPtrOutput {
+	return o.ApplyT(func(v CacheDirectoryActiveDirectory) *CacheDirectoryActiveDirectory {
+		return &v
+	}).(CacheDirectoryActiveDirectoryPtrOutput)
+}
+
+// The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server.
+func (o CacheDirectoryActiveDirectoryOutput) CacheNetbiosName() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheDirectoryActiveDirectory) string { return v.CacheNetbiosName }).(pulumi.StringOutput)
+}
+
+// The primary DNS IP address used to resolve the Active Directory domain controller's FQDN.
+func (o CacheDirectoryActiveDirectoryOutput) DnsPrimaryIp() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheDirectoryActiveDirectory) string { return v.DnsPrimaryIp }).(pulumi.StringOutput)
+}
+
+// The secondary DNS IP address used to resolve the Active Directory domain controller's FQDN.
+func (o CacheDirectoryActiveDirectoryOutput) DnsSecondaryIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheDirectoryActiveDirectory) *string { return v.DnsSecondaryIp }).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified domain name of the Active Directory domain controller.
+func (o CacheDirectoryActiveDirectoryOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheDirectoryActiveDirectory) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The Active Directory domain's NetBIOS name.
+func (o CacheDirectoryActiveDirectoryOutput) DomainNetbiosName() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheDirectoryActiveDirectory) string { return v.DomainNetbiosName }).(pulumi.StringOutput)
+}
+
+// The password of the Active Directory domain administrator.
+func (o CacheDirectoryActiveDirectoryOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheDirectoryActiveDirectory) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// The username of the Active Directory domain administrator.
+func (o CacheDirectoryActiveDirectoryOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheDirectoryActiveDirectory) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type CacheDirectoryActiveDirectoryPtrOutput struct{ *pulumi.OutputState }
+
+func (CacheDirectoryActiveDirectoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheDirectoryActiveDirectory)(nil)).Elem()
+}
+
+func (o CacheDirectoryActiveDirectoryPtrOutput) ToCacheDirectoryActiveDirectoryPtrOutput() CacheDirectoryActiveDirectoryPtrOutput {
+	return o
+}
+
+func (o CacheDirectoryActiveDirectoryPtrOutput) ToCacheDirectoryActiveDirectoryPtrOutputWithContext(ctx context.Context) CacheDirectoryActiveDirectoryPtrOutput {
+	return o
+}
+
+func (o CacheDirectoryActiveDirectoryPtrOutput) Elem() CacheDirectoryActiveDirectoryOutput {
+	return o.ApplyT(func(v *CacheDirectoryActiveDirectory) CacheDirectoryActiveDirectory { return *v }).(CacheDirectoryActiveDirectoryOutput)
+}
+
+// The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server.
+func (o CacheDirectoryActiveDirectoryPtrOutput) CacheNetbiosName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheDirectoryActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CacheNetbiosName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The primary DNS IP address used to resolve the Active Directory domain controller's FQDN.
+func (o CacheDirectoryActiveDirectoryPtrOutput) DnsPrimaryIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheDirectoryActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DnsPrimaryIp
+	}).(pulumi.StringPtrOutput)
+}
+
+// The secondary DNS IP address used to resolve the Active Directory domain controller's FQDN.
+func (o CacheDirectoryActiveDirectoryPtrOutput) DnsSecondaryIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheDirectoryActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DnsSecondaryIp
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified domain name of the Active Directory domain controller.
+func (o CacheDirectoryActiveDirectoryPtrOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheDirectoryActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Active Directory domain's NetBIOS name.
+func (o CacheDirectoryActiveDirectoryPtrOutput) DomainNetbiosName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheDirectoryActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainNetbiosName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The password of the Active Directory domain administrator.
+func (o CacheDirectoryActiveDirectoryPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheDirectoryActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// The username of the Active Directory domain administrator.
+func (o CacheDirectoryActiveDirectoryPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheDirectoryActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+type CacheDirectoryFlatFile struct {
+	// The URI of the file containing group information (`/etc/group` file format in Unix-like OS).
+	GroupFileUri string `pulumi:"groupFileUri"`
+	// The URI of the file containing user information (`/etc/passwd` file format in Unix-like OS).
+	PasswordFileUri string `pulumi:"passwordFileUri"`
+}
+
+// CacheDirectoryFlatFileInput is an input type that accepts CacheDirectoryFlatFileArgs and CacheDirectoryFlatFileOutput values.
+// You can construct a concrete instance of `CacheDirectoryFlatFileInput` via:
+//
+//          CacheDirectoryFlatFileArgs{...}
+type CacheDirectoryFlatFileInput interface {
+	pulumi.Input
+
+	ToCacheDirectoryFlatFileOutput() CacheDirectoryFlatFileOutput
+	ToCacheDirectoryFlatFileOutputWithContext(context.Context) CacheDirectoryFlatFileOutput
+}
+
+type CacheDirectoryFlatFileArgs struct {
+	// The URI of the file containing group information (`/etc/group` file format in Unix-like OS).
+	GroupFileUri pulumi.StringInput `pulumi:"groupFileUri"`
+	// The URI of the file containing user information (`/etc/passwd` file format in Unix-like OS).
+	PasswordFileUri pulumi.StringInput `pulumi:"passwordFileUri"`
+}
+
+func (CacheDirectoryFlatFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheDirectoryFlatFile)(nil)).Elem()
+}
+
+func (i CacheDirectoryFlatFileArgs) ToCacheDirectoryFlatFileOutput() CacheDirectoryFlatFileOutput {
+	return i.ToCacheDirectoryFlatFileOutputWithContext(context.Background())
+}
+
+func (i CacheDirectoryFlatFileArgs) ToCacheDirectoryFlatFileOutputWithContext(ctx context.Context) CacheDirectoryFlatFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheDirectoryFlatFileOutput)
+}
+
+func (i CacheDirectoryFlatFileArgs) ToCacheDirectoryFlatFilePtrOutput() CacheDirectoryFlatFilePtrOutput {
+	return i.ToCacheDirectoryFlatFilePtrOutputWithContext(context.Background())
+}
+
+func (i CacheDirectoryFlatFileArgs) ToCacheDirectoryFlatFilePtrOutputWithContext(ctx context.Context) CacheDirectoryFlatFilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheDirectoryFlatFileOutput).ToCacheDirectoryFlatFilePtrOutputWithContext(ctx)
+}
+
+// CacheDirectoryFlatFilePtrInput is an input type that accepts CacheDirectoryFlatFileArgs, CacheDirectoryFlatFilePtr and CacheDirectoryFlatFilePtrOutput values.
+// You can construct a concrete instance of `CacheDirectoryFlatFilePtrInput` via:
+//
+//          CacheDirectoryFlatFileArgs{...}
+//
+//  or:
+//
+//          nil
+type CacheDirectoryFlatFilePtrInput interface {
+	pulumi.Input
+
+	ToCacheDirectoryFlatFilePtrOutput() CacheDirectoryFlatFilePtrOutput
+	ToCacheDirectoryFlatFilePtrOutputWithContext(context.Context) CacheDirectoryFlatFilePtrOutput
+}
+
+type cacheDirectoryFlatFilePtrType CacheDirectoryFlatFileArgs
+
+func CacheDirectoryFlatFilePtr(v *CacheDirectoryFlatFileArgs) CacheDirectoryFlatFilePtrInput {
+	return (*cacheDirectoryFlatFilePtrType)(v)
+}
+
+func (*cacheDirectoryFlatFilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheDirectoryFlatFile)(nil)).Elem()
+}
+
+func (i *cacheDirectoryFlatFilePtrType) ToCacheDirectoryFlatFilePtrOutput() CacheDirectoryFlatFilePtrOutput {
+	return i.ToCacheDirectoryFlatFilePtrOutputWithContext(context.Background())
+}
+
+func (i *cacheDirectoryFlatFilePtrType) ToCacheDirectoryFlatFilePtrOutputWithContext(ctx context.Context) CacheDirectoryFlatFilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheDirectoryFlatFilePtrOutput)
+}
+
+type CacheDirectoryFlatFileOutput struct{ *pulumi.OutputState }
+
+func (CacheDirectoryFlatFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheDirectoryFlatFile)(nil)).Elem()
+}
+
+func (o CacheDirectoryFlatFileOutput) ToCacheDirectoryFlatFileOutput() CacheDirectoryFlatFileOutput {
+	return o
+}
+
+func (o CacheDirectoryFlatFileOutput) ToCacheDirectoryFlatFileOutputWithContext(ctx context.Context) CacheDirectoryFlatFileOutput {
+	return o
+}
+
+func (o CacheDirectoryFlatFileOutput) ToCacheDirectoryFlatFilePtrOutput() CacheDirectoryFlatFilePtrOutput {
+	return o.ToCacheDirectoryFlatFilePtrOutputWithContext(context.Background())
+}
+
+func (o CacheDirectoryFlatFileOutput) ToCacheDirectoryFlatFilePtrOutputWithContext(ctx context.Context) CacheDirectoryFlatFilePtrOutput {
+	return o.ApplyT(func(v CacheDirectoryFlatFile) *CacheDirectoryFlatFile {
+		return &v
+	}).(CacheDirectoryFlatFilePtrOutput)
+}
+
+// The URI of the file containing group information (`/etc/group` file format in Unix-like OS).
+func (o CacheDirectoryFlatFileOutput) GroupFileUri() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheDirectoryFlatFile) string { return v.GroupFileUri }).(pulumi.StringOutput)
+}
+
+// The URI of the file containing user information (`/etc/passwd` file format in Unix-like OS).
+func (o CacheDirectoryFlatFileOutput) PasswordFileUri() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheDirectoryFlatFile) string { return v.PasswordFileUri }).(pulumi.StringOutput)
+}
+
+type CacheDirectoryFlatFilePtrOutput struct{ *pulumi.OutputState }
+
+func (CacheDirectoryFlatFilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheDirectoryFlatFile)(nil)).Elem()
+}
+
+func (o CacheDirectoryFlatFilePtrOutput) ToCacheDirectoryFlatFilePtrOutput() CacheDirectoryFlatFilePtrOutput {
+	return o
+}
+
+func (o CacheDirectoryFlatFilePtrOutput) ToCacheDirectoryFlatFilePtrOutputWithContext(ctx context.Context) CacheDirectoryFlatFilePtrOutput {
+	return o
+}
+
+func (o CacheDirectoryFlatFilePtrOutput) Elem() CacheDirectoryFlatFileOutput {
+	return o.ApplyT(func(v *CacheDirectoryFlatFile) CacheDirectoryFlatFile { return *v }).(CacheDirectoryFlatFileOutput)
+}
+
+// The URI of the file containing group information (`/etc/group` file format in Unix-like OS).
+func (o CacheDirectoryFlatFilePtrOutput) GroupFileUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheDirectoryFlatFile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GroupFileUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URI of the file containing user information (`/etc/passwd` file format in Unix-like OS).
+func (o CacheDirectoryFlatFilePtrOutput) PasswordFileUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheDirectoryFlatFile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PasswordFileUri
+	}).(pulumi.StringPtrOutput)
+}
+
+type CacheDirectoryLdap struct {
+	// The base distinguished name (DN) for the LDAP domain.
+	BaseDn string `pulumi:"baseDn"`
+	// A `bind` block as defined above.
+	Bind *CacheDirectoryLdapBind `pulumi:"bind"`
+	// The URI of the CA certificate to validate the LDAP secure connection.
+	CertificateValidationUri *string `pulumi:"certificateValidationUri"`
+	// Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificateValidationUri` is provided. Defaults to `false`.
+	DownloadCertificateAutomatically *bool `pulumi:"downloadCertificateAutomatically"`
+	// Whether the LDAP connection should be encrypted? Defaults to `false`.
+	Encrypted *bool `pulumi:"encrypted"`
+	// The FQDN or IP address of the LDAP server.
+	Server string `pulumi:"server"`
+}
+
+// CacheDirectoryLdapInput is an input type that accepts CacheDirectoryLdapArgs and CacheDirectoryLdapOutput values.
+// You can construct a concrete instance of `CacheDirectoryLdapInput` via:
+//
+//          CacheDirectoryLdapArgs{...}
+type CacheDirectoryLdapInput interface {
+	pulumi.Input
+
+	ToCacheDirectoryLdapOutput() CacheDirectoryLdapOutput
+	ToCacheDirectoryLdapOutputWithContext(context.Context) CacheDirectoryLdapOutput
+}
+
+type CacheDirectoryLdapArgs struct {
+	// The base distinguished name (DN) for the LDAP domain.
+	BaseDn pulumi.StringInput `pulumi:"baseDn"`
+	// A `bind` block as defined above.
+	Bind CacheDirectoryLdapBindPtrInput `pulumi:"bind"`
+	// The URI of the CA certificate to validate the LDAP secure connection.
+	CertificateValidationUri pulumi.StringPtrInput `pulumi:"certificateValidationUri"`
+	// Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificateValidationUri` is provided. Defaults to `false`.
+	DownloadCertificateAutomatically pulumi.BoolPtrInput `pulumi:"downloadCertificateAutomatically"`
+	// Whether the LDAP connection should be encrypted? Defaults to `false`.
+	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
+	// The FQDN or IP address of the LDAP server.
+	Server pulumi.StringInput `pulumi:"server"`
+}
+
+func (CacheDirectoryLdapArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheDirectoryLdap)(nil)).Elem()
+}
+
+func (i CacheDirectoryLdapArgs) ToCacheDirectoryLdapOutput() CacheDirectoryLdapOutput {
+	return i.ToCacheDirectoryLdapOutputWithContext(context.Background())
+}
+
+func (i CacheDirectoryLdapArgs) ToCacheDirectoryLdapOutputWithContext(ctx context.Context) CacheDirectoryLdapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheDirectoryLdapOutput)
+}
+
+func (i CacheDirectoryLdapArgs) ToCacheDirectoryLdapPtrOutput() CacheDirectoryLdapPtrOutput {
+	return i.ToCacheDirectoryLdapPtrOutputWithContext(context.Background())
+}
+
+func (i CacheDirectoryLdapArgs) ToCacheDirectoryLdapPtrOutputWithContext(ctx context.Context) CacheDirectoryLdapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheDirectoryLdapOutput).ToCacheDirectoryLdapPtrOutputWithContext(ctx)
+}
+
+// CacheDirectoryLdapPtrInput is an input type that accepts CacheDirectoryLdapArgs, CacheDirectoryLdapPtr and CacheDirectoryLdapPtrOutput values.
+// You can construct a concrete instance of `CacheDirectoryLdapPtrInput` via:
+//
+//          CacheDirectoryLdapArgs{...}
+//
+//  or:
+//
+//          nil
+type CacheDirectoryLdapPtrInput interface {
+	pulumi.Input
+
+	ToCacheDirectoryLdapPtrOutput() CacheDirectoryLdapPtrOutput
+	ToCacheDirectoryLdapPtrOutputWithContext(context.Context) CacheDirectoryLdapPtrOutput
+}
+
+type cacheDirectoryLdapPtrType CacheDirectoryLdapArgs
+
+func CacheDirectoryLdapPtr(v *CacheDirectoryLdapArgs) CacheDirectoryLdapPtrInput {
+	return (*cacheDirectoryLdapPtrType)(v)
+}
+
+func (*cacheDirectoryLdapPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheDirectoryLdap)(nil)).Elem()
+}
+
+func (i *cacheDirectoryLdapPtrType) ToCacheDirectoryLdapPtrOutput() CacheDirectoryLdapPtrOutput {
+	return i.ToCacheDirectoryLdapPtrOutputWithContext(context.Background())
+}
+
+func (i *cacheDirectoryLdapPtrType) ToCacheDirectoryLdapPtrOutputWithContext(ctx context.Context) CacheDirectoryLdapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheDirectoryLdapPtrOutput)
+}
+
+type CacheDirectoryLdapOutput struct{ *pulumi.OutputState }
+
+func (CacheDirectoryLdapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheDirectoryLdap)(nil)).Elem()
+}
+
+func (o CacheDirectoryLdapOutput) ToCacheDirectoryLdapOutput() CacheDirectoryLdapOutput {
+	return o
+}
+
+func (o CacheDirectoryLdapOutput) ToCacheDirectoryLdapOutputWithContext(ctx context.Context) CacheDirectoryLdapOutput {
+	return o
+}
+
+func (o CacheDirectoryLdapOutput) ToCacheDirectoryLdapPtrOutput() CacheDirectoryLdapPtrOutput {
+	return o.ToCacheDirectoryLdapPtrOutputWithContext(context.Background())
+}
+
+func (o CacheDirectoryLdapOutput) ToCacheDirectoryLdapPtrOutputWithContext(ctx context.Context) CacheDirectoryLdapPtrOutput {
+	return o.ApplyT(func(v CacheDirectoryLdap) *CacheDirectoryLdap {
+		return &v
+	}).(CacheDirectoryLdapPtrOutput)
+}
+
+// The base distinguished name (DN) for the LDAP domain.
+func (o CacheDirectoryLdapOutput) BaseDn() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheDirectoryLdap) string { return v.BaseDn }).(pulumi.StringOutput)
+}
+
+// A `bind` block as defined above.
+func (o CacheDirectoryLdapOutput) Bind() CacheDirectoryLdapBindPtrOutput {
+	return o.ApplyT(func(v CacheDirectoryLdap) *CacheDirectoryLdapBind { return v.Bind }).(CacheDirectoryLdapBindPtrOutput)
+}
+
+// The URI of the CA certificate to validate the LDAP secure connection.
+func (o CacheDirectoryLdapOutput) CertificateValidationUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheDirectoryLdap) *string { return v.CertificateValidationUri }).(pulumi.StringPtrOutput)
+}
+
+// Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificateValidationUri` is provided. Defaults to `false`.
+func (o CacheDirectoryLdapOutput) DownloadCertificateAutomatically() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CacheDirectoryLdap) *bool { return v.DownloadCertificateAutomatically }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the LDAP connection should be encrypted? Defaults to `false`.
+func (o CacheDirectoryLdapOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CacheDirectoryLdap) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
+}
+
+// The FQDN or IP address of the LDAP server.
+func (o CacheDirectoryLdapOutput) Server() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheDirectoryLdap) string { return v.Server }).(pulumi.StringOutput)
+}
+
+type CacheDirectoryLdapPtrOutput struct{ *pulumi.OutputState }
+
+func (CacheDirectoryLdapPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheDirectoryLdap)(nil)).Elem()
+}
+
+func (o CacheDirectoryLdapPtrOutput) ToCacheDirectoryLdapPtrOutput() CacheDirectoryLdapPtrOutput {
+	return o
+}
+
+func (o CacheDirectoryLdapPtrOutput) ToCacheDirectoryLdapPtrOutputWithContext(ctx context.Context) CacheDirectoryLdapPtrOutput {
+	return o
+}
+
+func (o CacheDirectoryLdapPtrOutput) Elem() CacheDirectoryLdapOutput {
+	return o.ApplyT(func(v *CacheDirectoryLdap) CacheDirectoryLdap { return *v }).(CacheDirectoryLdapOutput)
+}
+
+// The base distinguished name (DN) for the LDAP domain.
+func (o CacheDirectoryLdapPtrOutput) BaseDn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheDirectoryLdap) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BaseDn
+	}).(pulumi.StringPtrOutput)
+}
+
+// A `bind` block as defined above.
+func (o CacheDirectoryLdapPtrOutput) Bind() CacheDirectoryLdapBindPtrOutput {
+	return o.ApplyT(func(v *CacheDirectoryLdap) *CacheDirectoryLdapBind {
+		if v == nil {
+			return nil
+		}
+		return v.Bind
+	}).(CacheDirectoryLdapBindPtrOutput)
+}
+
+// The URI of the CA certificate to validate the LDAP secure connection.
+func (o CacheDirectoryLdapPtrOutput) CertificateValidationUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheDirectoryLdap) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateValidationUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificateValidationUri` is provided. Defaults to `false`.
+func (o CacheDirectoryLdapPtrOutput) DownloadCertificateAutomatically() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CacheDirectoryLdap) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DownloadCertificateAutomatically
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether the LDAP connection should be encrypted? Defaults to `false`.
+func (o CacheDirectoryLdapPtrOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CacheDirectoryLdap) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Encrypted
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The FQDN or IP address of the LDAP server.
+func (o CacheDirectoryLdapPtrOutput) Server() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheDirectoryLdap) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Server
+	}).(pulumi.StringPtrOutput)
+}
+
+type CacheDirectoryLdapBind struct {
+	// The Bind Distinguished Name (DN) identity to be used in the secure LDAP connection.
+	Dn string `pulumi:"dn"`
+	// The Bind password to be used in the secure LDAP connection.
+	Password string `pulumi:"password"`
+}
+
+// CacheDirectoryLdapBindInput is an input type that accepts CacheDirectoryLdapBindArgs and CacheDirectoryLdapBindOutput values.
+// You can construct a concrete instance of `CacheDirectoryLdapBindInput` via:
+//
+//          CacheDirectoryLdapBindArgs{...}
+type CacheDirectoryLdapBindInput interface {
+	pulumi.Input
+
+	ToCacheDirectoryLdapBindOutput() CacheDirectoryLdapBindOutput
+	ToCacheDirectoryLdapBindOutputWithContext(context.Context) CacheDirectoryLdapBindOutput
+}
+
+type CacheDirectoryLdapBindArgs struct {
+	// The Bind Distinguished Name (DN) identity to be used in the secure LDAP connection.
+	Dn pulumi.StringInput `pulumi:"dn"`
+	// The Bind password to be used in the secure LDAP connection.
+	Password pulumi.StringInput `pulumi:"password"`
+}
+
+func (CacheDirectoryLdapBindArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheDirectoryLdapBind)(nil)).Elem()
+}
+
+func (i CacheDirectoryLdapBindArgs) ToCacheDirectoryLdapBindOutput() CacheDirectoryLdapBindOutput {
+	return i.ToCacheDirectoryLdapBindOutputWithContext(context.Background())
+}
+
+func (i CacheDirectoryLdapBindArgs) ToCacheDirectoryLdapBindOutputWithContext(ctx context.Context) CacheDirectoryLdapBindOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheDirectoryLdapBindOutput)
+}
+
+func (i CacheDirectoryLdapBindArgs) ToCacheDirectoryLdapBindPtrOutput() CacheDirectoryLdapBindPtrOutput {
+	return i.ToCacheDirectoryLdapBindPtrOutputWithContext(context.Background())
+}
+
+func (i CacheDirectoryLdapBindArgs) ToCacheDirectoryLdapBindPtrOutputWithContext(ctx context.Context) CacheDirectoryLdapBindPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheDirectoryLdapBindOutput).ToCacheDirectoryLdapBindPtrOutputWithContext(ctx)
+}
+
+// CacheDirectoryLdapBindPtrInput is an input type that accepts CacheDirectoryLdapBindArgs, CacheDirectoryLdapBindPtr and CacheDirectoryLdapBindPtrOutput values.
+// You can construct a concrete instance of `CacheDirectoryLdapBindPtrInput` via:
+//
+//          CacheDirectoryLdapBindArgs{...}
+//
+//  or:
+//
+//          nil
+type CacheDirectoryLdapBindPtrInput interface {
+	pulumi.Input
+
+	ToCacheDirectoryLdapBindPtrOutput() CacheDirectoryLdapBindPtrOutput
+	ToCacheDirectoryLdapBindPtrOutputWithContext(context.Context) CacheDirectoryLdapBindPtrOutput
+}
+
+type cacheDirectoryLdapBindPtrType CacheDirectoryLdapBindArgs
+
+func CacheDirectoryLdapBindPtr(v *CacheDirectoryLdapBindArgs) CacheDirectoryLdapBindPtrInput {
+	return (*cacheDirectoryLdapBindPtrType)(v)
+}
+
+func (*cacheDirectoryLdapBindPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheDirectoryLdapBind)(nil)).Elem()
+}
+
+func (i *cacheDirectoryLdapBindPtrType) ToCacheDirectoryLdapBindPtrOutput() CacheDirectoryLdapBindPtrOutput {
+	return i.ToCacheDirectoryLdapBindPtrOutputWithContext(context.Background())
+}
+
+func (i *cacheDirectoryLdapBindPtrType) ToCacheDirectoryLdapBindPtrOutputWithContext(ctx context.Context) CacheDirectoryLdapBindPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheDirectoryLdapBindPtrOutput)
+}
+
+type CacheDirectoryLdapBindOutput struct{ *pulumi.OutputState }
+
+func (CacheDirectoryLdapBindOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheDirectoryLdapBind)(nil)).Elem()
+}
+
+func (o CacheDirectoryLdapBindOutput) ToCacheDirectoryLdapBindOutput() CacheDirectoryLdapBindOutput {
+	return o
+}
+
+func (o CacheDirectoryLdapBindOutput) ToCacheDirectoryLdapBindOutputWithContext(ctx context.Context) CacheDirectoryLdapBindOutput {
+	return o
+}
+
+func (o CacheDirectoryLdapBindOutput) ToCacheDirectoryLdapBindPtrOutput() CacheDirectoryLdapBindPtrOutput {
+	return o.ToCacheDirectoryLdapBindPtrOutputWithContext(context.Background())
+}
+
+func (o CacheDirectoryLdapBindOutput) ToCacheDirectoryLdapBindPtrOutputWithContext(ctx context.Context) CacheDirectoryLdapBindPtrOutput {
+	return o.ApplyT(func(v CacheDirectoryLdapBind) *CacheDirectoryLdapBind {
+		return &v
+	}).(CacheDirectoryLdapBindPtrOutput)
+}
+
+// The Bind Distinguished Name (DN) identity to be used in the secure LDAP connection.
+func (o CacheDirectoryLdapBindOutput) Dn() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheDirectoryLdapBind) string { return v.Dn }).(pulumi.StringOutput)
+}
+
+// The Bind password to be used in the secure LDAP connection.
+func (o CacheDirectoryLdapBindOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v CacheDirectoryLdapBind) string { return v.Password }).(pulumi.StringOutput)
+}
+
+type CacheDirectoryLdapBindPtrOutput struct{ *pulumi.OutputState }
+
+func (CacheDirectoryLdapBindPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheDirectoryLdapBind)(nil)).Elem()
+}
+
+func (o CacheDirectoryLdapBindPtrOutput) ToCacheDirectoryLdapBindPtrOutput() CacheDirectoryLdapBindPtrOutput {
+	return o
+}
+
+func (o CacheDirectoryLdapBindPtrOutput) ToCacheDirectoryLdapBindPtrOutputWithContext(ctx context.Context) CacheDirectoryLdapBindPtrOutput {
+	return o
+}
+
+func (o CacheDirectoryLdapBindPtrOutput) Elem() CacheDirectoryLdapBindOutput {
+	return o.ApplyT(func(v *CacheDirectoryLdapBind) CacheDirectoryLdapBind { return *v }).(CacheDirectoryLdapBindOutput)
+}
+
+// The Bind Distinguished Name (DN) identity to be used in the secure LDAP connection.
+func (o CacheDirectoryLdapBindPtrOutput) Dn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheDirectoryLdapBind) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Dn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Bind password to be used in the secure LDAP connection.
+func (o CacheDirectoryLdapBindPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheDirectoryLdapBind) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
 type CacheDns struct {
 	// The DNS search domain for the HPC Cache.
 	SearchDomain *string `pulumi:"searchDomain"`
@@ -742,6 +1513,14 @@ func init() {
 	pulumi.RegisterOutputType(CacheDefaultAccessPolicyPtrOutput{})
 	pulumi.RegisterOutputType(CacheDefaultAccessPolicyAccessRuleOutput{})
 	pulumi.RegisterOutputType(CacheDefaultAccessPolicyAccessRuleArrayOutput{})
+	pulumi.RegisterOutputType(CacheDirectoryActiveDirectoryOutput{})
+	pulumi.RegisterOutputType(CacheDirectoryActiveDirectoryPtrOutput{})
+	pulumi.RegisterOutputType(CacheDirectoryFlatFileOutput{})
+	pulumi.RegisterOutputType(CacheDirectoryFlatFilePtrOutput{})
+	pulumi.RegisterOutputType(CacheDirectoryLdapOutput{})
+	pulumi.RegisterOutputType(CacheDirectoryLdapPtrOutput{})
+	pulumi.RegisterOutputType(CacheDirectoryLdapBindOutput{})
+	pulumi.RegisterOutputType(CacheDirectoryLdapBindPtrOutput{})
 	pulumi.RegisterOutputType(CacheDnsOutput{})
 	pulumi.RegisterOutputType(CacheDnsPtrOutput{})
 	pulumi.RegisterOutputType(CacheNfsTargetNamespaceJunctionOutput{})

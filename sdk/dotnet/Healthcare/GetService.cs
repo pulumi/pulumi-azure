@@ -85,6 +85,13 @@ namespace Pulumi.Azure.Healthcare
         /// A `cors_configuration` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceCorsConfigurationResult> CorsConfigurations;
+        /// <summary>
+        /// The versionless Key Vault Key ID for CMK encryption of the backing database.
+        /// </summary>
+        public readonly string CosmosdbKeyVaultKeyVersionlessId;
+        /// <summary>
+        /// The provisioned throughput for the backing database.
+        /// </summary>
         public readonly int CosmosdbThroughput;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -113,6 +120,8 @@ namespace Pulumi.Azure.Healthcare
 
             ImmutableArray<Outputs.GetServiceCorsConfigurationResult> corsConfigurations,
 
+            string cosmosdbKeyVaultKeyVersionlessId,
+
             int cosmosdbThroughput,
 
             string id,
@@ -130,6 +139,7 @@ namespace Pulumi.Azure.Healthcare
             AccessPolicyObjectIds = accessPolicyObjectIds;
             AuthenticationConfigurations = authenticationConfigurations;
             CorsConfigurations = corsConfigurations;
+            CosmosdbKeyVaultKeyVersionlessId = cosmosdbKeyVaultKeyVersionlessId;
             CosmosdbThroughput = cosmosdbThroughput;
             Id = id;
             Kind = kind;

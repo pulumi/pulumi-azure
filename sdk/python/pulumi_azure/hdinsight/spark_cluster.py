@@ -25,6 +25,7 @@ class SparkClusterArgs:
                  metastores: Optional[pulumi.Input['SparkClusterMetastoresArgs']] = None,
                  monitor: Optional[pulumi.Input['SparkClusterMonitorArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network: Optional[pulumi.Input['SparkClusterNetworkArgs']] = None,
                  storage_account_gen2: Optional[pulumi.Input['SparkClusterStorageAccountGen2Args']] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterStorageAccountArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -41,6 +42,7 @@ class SparkClusterArgs:
         :param pulumi.Input['SparkClusterMetastoresArgs'] metastores: A `metastores` block as defined below.
         :param pulumi.Input['SparkClusterMonitorArgs'] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input['SparkClusterNetworkArgs'] network: A `network` block as defined below.
         :param pulumi.Input['SparkClusterStorageAccountGen2Args'] storage_account_gen2: A `storage_account_gen2` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['SparkClusterStorageAccountArgs']]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight Spark Cluster.
@@ -59,6 +61,8 @@ class SparkClusterArgs:
             pulumi.set(__self__, "monitor", monitor)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network is not None:
+            pulumi.set(__self__, "network", network)
         if storage_account_gen2 is not None:
             pulumi.set(__self__, "storage_account_gen2", storage_account_gen2)
         if storage_accounts is not None:
@@ -189,6 +193,18 @@ class SparkClusterArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def network(self) -> Optional[pulumi.Input['SparkClusterNetworkArgs']]:
+        """
+        A `network` block as defined below.
+        """
+        return pulumi.get(self, "network")
+
+    @network.setter
+    def network(self, value: Optional[pulumi.Input['SparkClusterNetworkArgs']]):
+        pulumi.set(self, "network", value)
+
+    @property
     @pulumi.getter(name="storageAccountGen2")
     def storage_account_gen2(self) -> Optional[pulumi.Input['SparkClusterStorageAccountGen2Args']]:
         """
@@ -245,6 +261,7 @@ class _SparkClusterState:
                  metastores: Optional[pulumi.Input['SparkClusterMetastoresArgs']] = None,
                  monitor: Optional[pulumi.Input['SparkClusterMonitorArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network: Optional[pulumi.Input['SparkClusterNetworkArgs']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input['SparkClusterRolesArgs']] = None,
                  ssh_endpoint: Optional[pulumi.Input[str]] = None,
@@ -263,6 +280,7 @@ class _SparkClusterState:
         :param pulumi.Input['SparkClusterMetastoresArgs'] metastores: A `metastores` block as defined below.
         :param pulumi.Input['SparkClusterMonitorArgs'] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input['SparkClusterNetworkArgs'] network: A `network` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['SparkClusterRolesArgs'] roles: A `roles` block as defined below.
         :param pulumi.Input[str] ssh_endpoint: The SSH Connectivity Endpoint for this HDInsight Spark Cluster.
@@ -287,6 +305,8 @@ class _SparkClusterState:
             pulumi.set(__self__, "monitor", monitor)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network is not None:
+            pulumi.set(__self__, "network", network)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if roles is not None:
@@ -401,6 +421,18 @@ class _SparkClusterState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def network(self) -> Optional[pulumi.Input['SparkClusterNetworkArgs']]:
+        """
+        A `network` block as defined below.
+        """
+        return pulumi.get(self, "network")
+
+    @network.setter
+    def network(self, value: Optional[pulumi.Input['SparkClusterNetworkArgs']]):
+        pulumi.set(self, "network", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -506,6 +538,7 @@ class SparkCluster(pulumi.CustomResource):
                  metastores: Optional[pulumi.Input[pulumi.InputType['SparkClusterMetastoresArgs']]] = None,
                  monitor: Optional[pulumi.Input[pulumi.InputType['SparkClusterMonitorArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network: Optional[pulumi.Input[pulumi.InputType['SparkClusterNetworkArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[pulumi.InputType['SparkClusterRolesArgs']]] = None,
                  storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['SparkClusterStorageAccountGen2Args']]] = None,
@@ -587,6 +620,7 @@ class SparkCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SparkClusterMetastoresArgs']] metastores: A `metastores` block as defined below.
         :param pulumi.Input[pulumi.InputType['SparkClusterMonitorArgs']] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['SparkClusterNetworkArgs']] network: A `network` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SparkClusterRolesArgs']] roles: A `roles` block as defined below.
         :param pulumi.Input[pulumi.InputType['SparkClusterStorageAccountGen2Args']] storage_account_gen2: A `storage_account_gen2` block as defined below.
@@ -686,6 +720,7 @@ class SparkCluster(pulumi.CustomResource):
                  metastores: Optional[pulumi.Input[pulumi.InputType['SparkClusterMetastoresArgs']]] = None,
                  monitor: Optional[pulumi.Input[pulumi.InputType['SparkClusterMonitorArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network: Optional[pulumi.Input[pulumi.InputType['SparkClusterNetworkArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[pulumi.InputType['SparkClusterRolesArgs']]] = None,
                  storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['SparkClusterStorageAccountGen2Args']]] = None,
@@ -718,6 +753,7 @@ class SparkCluster(pulumi.CustomResource):
             __props__.__dict__["metastores"] = metastores
             __props__.__dict__["monitor"] = monitor
             __props__.__dict__["name"] = name
+            __props__.__dict__["network"] = network
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -751,6 +787,7 @@ class SparkCluster(pulumi.CustomResource):
             metastores: Optional[pulumi.Input[pulumi.InputType['SparkClusterMetastoresArgs']]] = None,
             monitor: Optional[pulumi.Input[pulumi.InputType['SparkClusterMonitorArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            network: Optional[pulumi.Input[pulumi.InputType['SparkClusterNetworkArgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             roles: Optional[pulumi.Input[pulumi.InputType['SparkClusterRolesArgs']]] = None,
             ssh_endpoint: Optional[pulumi.Input[str]] = None,
@@ -774,6 +811,7 @@ class SparkCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SparkClusterMetastoresArgs']] metastores: A `metastores` block as defined below.
         :param pulumi.Input[pulumi.InputType['SparkClusterMonitorArgs']] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['SparkClusterNetworkArgs']] network: A `network` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SparkClusterRolesArgs']] roles: A `roles` block as defined below.
         :param pulumi.Input[str] ssh_endpoint: The SSH Connectivity Endpoint for this HDInsight Spark Cluster.
@@ -794,6 +832,7 @@ class SparkCluster(pulumi.CustomResource):
         __props__.__dict__["metastores"] = metastores
         __props__.__dict__["monitor"] = monitor
         __props__.__dict__["name"] = name
+        __props__.__dict__["network"] = network
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["roles"] = roles
         __props__.__dict__["ssh_endpoint"] = ssh_endpoint
@@ -867,6 +906,14 @@ class SparkCluster(pulumi.CustomResource):
         Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def network(self) -> pulumi.Output[Optional['outputs.SparkClusterNetwork']]:
+        """
+        A `network` block as defined below.
+        """
+        return pulumi.get(self, "network")
 
     @property
     @pulumi.getter(name="resourceGroupName")

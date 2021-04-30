@@ -31,6 +31,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<Inputs.KubernetesClusterAddonProfileHttpApplicationRoutingGetArgs>? HttpApplicationRouting { get; set; }
 
         /// <summary>
+        /// An `ingress_application_gateway` block as defined below.
+        /// </summary>
+        [Input("ingressApplicationGateway")]
+        public Input<Inputs.KubernetesClusterAddonProfileIngressApplicationGatewayGetArgs>? IngressApplicationGateway { get; set; }
+
+        /// <summary>
         /// A `kube_dashboard` block as defined below.
         /// </summary>
         [Input("kubeDashboard")]

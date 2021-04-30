@@ -651,11 +651,13 @@ func (o CertifiateCertificatePolicyIssuerParametersPtrOutput) Name() pulumi.Stri
 }
 
 type CertifiateCertificatePolicyKeyProperties struct {
-	// Is this Certificate Exportable? Changing this forces a new resource to be created.
+	// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
+	Curve *string `pulumi:"curve"`
+	// Is this certificate exportable? Changing this forces a new resource to be created.
 	Exportable bool `pulumi:"exportable"`
-	// The size of the Key used in the Certificate. Possible values include `2048`, `3072`, and `4096`. Changing this forces a new resource to be created.
-	KeySize int `pulumi:"keySize"`
-	// Specifies the Type of Key, such as `RSA`. Changing this forces a new resource to be created.
+	// The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
+	KeySize *int `pulumi:"keySize"`
+	// Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
 	KeyType string `pulumi:"keyType"`
 	// Is the key reusable? Changing this forces a new resource to be created.
 	ReuseKey bool `pulumi:"reuseKey"`
@@ -673,11 +675,13 @@ type CertifiateCertificatePolicyKeyPropertiesInput interface {
 }
 
 type CertifiateCertificatePolicyKeyPropertiesArgs struct {
-	// Is this Certificate Exportable? Changing this forces a new resource to be created.
+	// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
+	Curve pulumi.StringPtrInput `pulumi:"curve"`
+	// Is this certificate exportable? Changing this forces a new resource to be created.
 	Exportable pulumi.BoolInput `pulumi:"exportable"`
-	// The size of the Key used in the Certificate. Possible values include `2048`, `3072`, and `4096`. Changing this forces a new resource to be created.
-	KeySize pulumi.IntInput `pulumi:"keySize"`
-	// Specifies the Type of Key, such as `RSA`. Changing this forces a new resource to be created.
+	// The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
+	KeySize pulumi.IntPtrInput `pulumi:"keySize"`
+	// Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
 	KeyType pulumi.StringInput `pulumi:"keyType"`
 	// Is the key reusable? Changing this forces a new resource to be created.
 	ReuseKey pulumi.BoolInput `pulumi:"reuseKey"`
@@ -760,17 +764,22 @@ func (o CertifiateCertificatePolicyKeyPropertiesOutput) ToCertifiateCertificateP
 	}).(CertifiateCertificatePolicyKeyPropertiesPtrOutput)
 }
 
-// Is this Certificate Exportable? Changing this forces a new resource to be created.
+// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
+func (o CertifiateCertificatePolicyKeyPropertiesOutput) Curve() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertifiateCertificatePolicyKeyProperties) *string { return v.Curve }).(pulumi.StringPtrOutput)
+}
+
+// Is this certificate exportable? Changing this forces a new resource to be created.
 func (o CertifiateCertificatePolicyKeyPropertiesOutput) Exportable() pulumi.BoolOutput {
 	return o.ApplyT(func(v CertifiateCertificatePolicyKeyProperties) bool { return v.Exportable }).(pulumi.BoolOutput)
 }
 
-// The size of the Key used in the Certificate. Possible values include `2048`, `3072`, and `4096`. Changing this forces a new resource to be created.
-func (o CertifiateCertificatePolicyKeyPropertiesOutput) KeySize() pulumi.IntOutput {
-	return o.ApplyT(func(v CertifiateCertificatePolicyKeyProperties) int { return v.KeySize }).(pulumi.IntOutput)
+// The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
+func (o CertifiateCertificatePolicyKeyPropertiesOutput) KeySize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CertifiateCertificatePolicyKeyProperties) *int { return v.KeySize }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the Type of Key, such as `RSA`. Changing this forces a new resource to be created.
+// Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
 func (o CertifiateCertificatePolicyKeyPropertiesOutput) KeyType() pulumi.StringOutput {
 	return o.ApplyT(func(v CertifiateCertificatePolicyKeyProperties) string { return v.KeyType }).(pulumi.StringOutput)
 }
@@ -798,7 +807,17 @@ func (o CertifiateCertificatePolicyKeyPropertiesPtrOutput) Elem() CertifiateCert
 	return o.ApplyT(func(v *CertifiateCertificatePolicyKeyProperties) CertifiateCertificatePolicyKeyProperties { return *v }).(CertifiateCertificatePolicyKeyPropertiesOutput)
 }
 
-// Is this Certificate Exportable? Changing this forces a new resource to be created.
+// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
+func (o CertifiateCertificatePolicyKeyPropertiesPtrOutput) Curve() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertifiateCertificatePolicyKeyProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Curve
+	}).(pulumi.StringPtrOutput)
+}
+
+// Is this certificate exportable? Changing this forces a new resource to be created.
 func (o CertifiateCertificatePolicyKeyPropertiesPtrOutput) Exportable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertifiateCertificatePolicyKeyProperties) *bool {
 		if v == nil {
@@ -808,17 +827,17 @@ func (o CertifiateCertificatePolicyKeyPropertiesPtrOutput) Exportable() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The size of the Key used in the Certificate. Possible values include `2048`, `3072`, and `4096`. Changing this forces a new resource to be created.
+// The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
 func (o CertifiateCertificatePolicyKeyPropertiesPtrOutput) KeySize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CertifiateCertificatePolicyKeyProperties) *int {
 		if v == nil {
 			return nil
 		}
-		return &v.KeySize
+		return v.KeySize
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the Type of Key, such as `RSA`. Changing this forces a new resource to be created.
+// Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
 func (o CertifiateCertificatePolicyKeyPropertiesPtrOutput) KeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertifiateCertificatePolicyKeyProperties) *string {
 		if v == nil {
@@ -2223,11 +2242,13 @@ func (o CertificateCertificatePolicyIssuerParametersPtrOutput) Name() pulumi.Str
 }
 
 type CertificateCertificatePolicyKeyProperties struct {
-	// Is this Certificate Exportable? Changing this forces a new resource to be created.
+	// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
+	Curve *string `pulumi:"curve"`
+	// Is this certificate exportable? Changing this forces a new resource to be created.
 	Exportable bool `pulumi:"exportable"`
-	// The size of the Key used in the Certificate. Possible values include `2048`, `3072`, and `4096`. Changing this forces a new resource to be created.
-	KeySize int `pulumi:"keySize"`
-	// Specifies the Type of Key, such as `RSA`. Changing this forces a new resource to be created.
+	// The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
+	KeySize *int `pulumi:"keySize"`
+	// Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
 	KeyType string `pulumi:"keyType"`
 	// Is the key reusable? Changing this forces a new resource to be created.
 	ReuseKey bool `pulumi:"reuseKey"`
@@ -2245,11 +2266,13 @@ type CertificateCertificatePolicyKeyPropertiesInput interface {
 }
 
 type CertificateCertificatePolicyKeyPropertiesArgs struct {
-	// Is this Certificate Exportable? Changing this forces a new resource to be created.
+	// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
+	Curve pulumi.StringPtrInput `pulumi:"curve"`
+	// Is this certificate exportable? Changing this forces a new resource to be created.
 	Exportable pulumi.BoolInput `pulumi:"exportable"`
-	// The size of the Key used in the Certificate. Possible values include `2048`, `3072`, and `4096`. Changing this forces a new resource to be created.
-	KeySize pulumi.IntInput `pulumi:"keySize"`
-	// Specifies the Type of Key, such as `RSA`. Changing this forces a new resource to be created.
+	// The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
+	KeySize pulumi.IntPtrInput `pulumi:"keySize"`
+	// Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
 	KeyType pulumi.StringInput `pulumi:"keyType"`
 	// Is the key reusable? Changing this forces a new resource to be created.
 	ReuseKey pulumi.BoolInput `pulumi:"reuseKey"`
@@ -2332,17 +2355,22 @@ func (o CertificateCertificatePolicyKeyPropertiesOutput) ToCertificateCertificat
 	}).(CertificateCertificatePolicyKeyPropertiesPtrOutput)
 }
 
-// Is this Certificate Exportable? Changing this forces a new resource to be created.
+// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
+func (o CertificateCertificatePolicyKeyPropertiesOutput) Curve() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateCertificatePolicyKeyProperties) *string { return v.Curve }).(pulumi.StringPtrOutput)
+}
+
+// Is this certificate exportable? Changing this forces a new resource to be created.
 func (o CertificateCertificatePolicyKeyPropertiesOutput) Exportable() pulumi.BoolOutput {
 	return o.ApplyT(func(v CertificateCertificatePolicyKeyProperties) bool { return v.Exportable }).(pulumi.BoolOutput)
 }
 
-// The size of the Key used in the Certificate. Possible values include `2048`, `3072`, and `4096`. Changing this forces a new resource to be created.
-func (o CertificateCertificatePolicyKeyPropertiesOutput) KeySize() pulumi.IntOutput {
-	return o.ApplyT(func(v CertificateCertificatePolicyKeyProperties) int { return v.KeySize }).(pulumi.IntOutput)
+// The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
+func (o CertificateCertificatePolicyKeyPropertiesOutput) KeySize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CertificateCertificatePolicyKeyProperties) *int { return v.KeySize }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the Type of Key, such as `RSA`. Changing this forces a new resource to be created.
+// Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
 func (o CertificateCertificatePolicyKeyPropertiesOutput) KeyType() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateCertificatePolicyKeyProperties) string { return v.KeyType }).(pulumi.StringOutput)
 }
@@ -2372,7 +2400,17 @@ func (o CertificateCertificatePolicyKeyPropertiesPtrOutput) Elem() CertificateCe
 	}).(CertificateCertificatePolicyKeyPropertiesOutput)
 }
 
-// Is this Certificate Exportable? Changing this forces a new resource to be created.
+// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
+func (o CertificateCertificatePolicyKeyPropertiesPtrOutput) Curve() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateCertificatePolicyKeyProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Curve
+	}).(pulumi.StringPtrOutput)
+}
+
+// Is this certificate exportable? Changing this forces a new resource to be created.
 func (o CertificateCertificatePolicyKeyPropertiesPtrOutput) Exportable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificateCertificatePolicyKeyProperties) *bool {
 		if v == nil {
@@ -2382,17 +2420,17 @@ func (o CertificateCertificatePolicyKeyPropertiesPtrOutput) Exportable() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The size of the Key used in the Certificate. Possible values include `2048`, `3072`, and `4096`. Changing this forces a new resource to be created.
+// The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
 func (o CertificateCertificatePolicyKeyPropertiesPtrOutput) KeySize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CertificateCertificatePolicyKeyProperties) *int {
 		if v == nil {
 			return nil
 		}
-		return &v.KeySize
+		return v.KeySize
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the Type of Key, such as `RSA`. Changing this forces a new resource to be created.
+// Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
 func (o CertificateCertificatePolicyKeyPropertiesPtrOutput) KeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateCertificatePolicyKeyProperties) *string {
 		if v == nil {
@@ -3975,6 +4013,7 @@ func (o GetCertificateCertificatePolicyIssuerParameterArrayOutput) Index(i pulum
 }
 
 type GetCertificateCertificatePolicyKeyProperty struct {
+	Curve string `pulumi:"curve"`
 	// Is this Certificate Exportable?
 	Exportable bool `pulumi:"exportable"`
 	// The size of the Key used in the Certificate.
@@ -3997,6 +4036,7 @@ type GetCertificateCertificatePolicyKeyPropertyInput interface {
 }
 
 type GetCertificateCertificatePolicyKeyPropertyArgs struct {
+	Curve pulumi.StringInput `pulumi:"curve"`
 	// Is this Certificate Exportable?
 	Exportable pulumi.BoolInput `pulumi:"exportable"`
 	// The size of the Key used in the Certificate.
@@ -4056,6 +4096,10 @@ func (o GetCertificateCertificatePolicyKeyPropertyOutput) ToGetCertificateCertif
 
 func (o GetCertificateCertificatePolicyKeyPropertyOutput) ToGetCertificateCertificatePolicyKeyPropertyOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyKeyPropertyOutput {
 	return o
+}
+
+func (o GetCertificateCertificatePolicyKeyPropertyOutput) Curve() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificateCertificatePolicyKeyProperty) string { return v.Curve }).(pulumi.StringOutput)
 }
 
 // Is this Certificate Exportable?

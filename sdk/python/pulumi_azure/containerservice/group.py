@@ -21,6 +21,7 @@ class GroupArgs:
                  diagnostics: Optional[pulumi.Input['GroupDiagnosticsArgs']] = None,
                  dns_config: Optional[pulumi.Input['GroupDnsConfigArgs']] = None,
                  dns_name_label: Optional[pulumi.Input[str]] = None,
+                 exposed_ports: Optional[pulumi.Input[Sequence[pulumi.Input['GroupExposedPortArgs']]]] = None,
                  identity: Optional[pulumi.Input['GroupIdentityArgs']] = None,
                  image_registry_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['GroupImageRegistryCredentialArgs']]]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
@@ -37,6 +38,7 @@ class GroupArgs:
         :param pulumi.Input['GroupDiagnosticsArgs'] diagnostics: A `diagnostics` block as documented below.
         :param pulumi.Input['GroupDnsConfigArgs'] dns_config: A `dns_config` block as documented below.
         :param pulumi.Input[str] dns_name_label: The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupExposedPortArgs']]] exposed_ports: Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['GroupIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['GroupImageRegistryCredentialArgs']]] image_registry_credentials: A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ip_address_type: Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
@@ -55,6 +57,8 @@ class GroupArgs:
             pulumi.set(__self__, "dns_config", dns_config)
         if dns_name_label is not None:
             pulumi.set(__self__, "dns_name_label", dns_name_label)
+        if exposed_ports is not None:
+            pulumi.set(__self__, "exposed_ports", exposed_ports)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if image_registry_credentials is not None:
@@ -143,6 +147,18 @@ class GroupArgs:
     @dns_name_label.setter
     def dns_name_label(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dns_name_label", value)
+
+    @property
+    @pulumi.getter(name="exposedPorts")
+    def exposed_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupExposedPortArgs']]]]:
+        """
+        Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "exposed_ports")
+
+    @exposed_ports.setter
+    def exposed_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupExposedPortArgs']]]]):
+        pulumi.set(self, "exposed_ports", value)
 
     @property
     @pulumi.getter
@@ -248,6 +264,7 @@ class _GroupState:
                  diagnostics: Optional[pulumi.Input['GroupDiagnosticsArgs']] = None,
                  dns_config: Optional[pulumi.Input['GroupDnsConfigArgs']] = None,
                  dns_name_label: Optional[pulumi.Input[str]] = None,
+                 exposed_ports: Optional[pulumi.Input[Sequence[pulumi.Input['GroupExposedPortArgs']]]] = None,
                  fqdn: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['GroupIdentityArgs']] = None,
                  image_registry_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['GroupImageRegistryCredentialArgs']]]] = None,
@@ -266,6 +283,7 @@ class _GroupState:
         :param pulumi.Input['GroupDiagnosticsArgs'] diagnostics: A `diagnostics` block as documented below.
         :param pulumi.Input['GroupDnsConfigArgs'] dns_config: A `dns_config` block as documented below.
         :param pulumi.Input[str] dns_name_label: The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupExposedPortArgs']]] exposed_ports: Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The FQDN of the container group derived from `dns_name_label`.
         :param pulumi.Input['GroupIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['GroupImageRegistryCredentialArgs']]] image_registry_credentials: A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
@@ -287,6 +305,8 @@ class _GroupState:
             pulumi.set(__self__, "dns_config", dns_config)
         if dns_name_label is not None:
             pulumi.set(__self__, "dns_name_label", dns_name_label)
+        if exposed_ports is not None:
+            pulumi.set(__self__, "exposed_ports", exposed_ports)
         if fqdn is not None:
             pulumi.set(__self__, "fqdn", fqdn)
         if identity is not None:
@@ -359,6 +379,18 @@ class _GroupState:
     @dns_name_label.setter
     def dns_name_label(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dns_name_label", value)
+
+    @property
+    @pulumi.getter(name="exposedPorts")
+    def exposed_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupExposedPortArgs']]]]:
+        """
+        Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "exposed_ports")
+
+    @exposed_ports.setter
+    def exposed_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupExposedPortArgs']]]]):
+        pulumi.set(self, "exposed_ports", value)
 
     @property
     @pulumi.getter
@@ -514,6 +546,7 @@ class Group(pulumi.CustomResource):
                  diagnostics: Optional[pulumi.Input[pulumi.InputType['GroupDiagnosticsArgs']]] = None,
                  dns_config: Optional[pulumi.Input[pulumi.InputType['GroupDnsConfigArgs']]] = None,
                  dns_name_label: Optional[pulumi.Input[str]] = None,
+                 exposed_ports: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupExposedPortArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['GroupIdentityArgs']]] = None,
                  image_registry_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupImageRegistryCredentialArgs']]]]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
@@ -580,6 +613,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['GroupDiagnosticsArgs']] diagnostics: A `diagnostics` block as documented below.
         :param pulumi.Input[pulumi.InputType['GroupDnsConfigArgs']] dns_config: A `dns_config` block as documented below.
         :param pulumi.Input[str] dns_name_label: The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupExposedPortArgs']]]] exposed_ports: Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['GroupIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupImageRegistryCredentialArgs']]]] image_registry_credentials: A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ip_address_type: Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
@@ -665,6 +699,7 @@ class Group(pulumi.CustomResource):
                  diagnostics: Optional[pulumi.Input[pulumi.InputType['GroupDiagnosticsArgs']]] = None,
                  dns_config: Optional[pulumi.Input[pulumi.InputType['GroupDnsConfigArgs']]] = None,
                  dns_name_label: Optional[pulumi.Input[str]] = None,
+                 exposed_ports: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupExposedPortArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['GroupIdentityArgs']]] = None,
                  image_registry_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupImageRegistryCredentialArgs']]]]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
@@ -693,6 +728,7 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["diagnostics"] = diagnostics
             __props__.__dict__["dns_config"] = dns_config
             __props__.__dict__["dns_name_label"] = dns_name_label
+            __props__.__dict__["exposed_ports"] = exposed_ports
             __props__.__dict__["identity"] = identity
             __props__.__dict__["image_registry_credentials"] = image_registry_credentials
             __props__.__dict__["ip_address_type"] = ip_address_type
@@ -723,6 +759,7 @@ class Group(pulumi.CustomResource):
             diagnostics: Optional[pulumi.Input[pulumi.InputType['GroupDiagnosticsArgs']]] = None,
             dns_config: Optional[pulumi.Input[pulumi.InputType['GroupDnsConfigArgs']]] = None,
             dns_name_label: Optional[pulumi.Input[str]] = None,
+            exposed_ports: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupExposedPortArgs']]]]] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['GroupIdentityArgs']]] = None,
             image_registry_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupImageRegistryCredentialArgs']]]]] = None,
@@ -746,6 +783,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['GroupDiagnosticsArgs']] diagnostics: A `diagnostics` block as documented below.
         :param pulumi.Input[pulumi.InputType['GroupDnsConfigArgs']] dns_config: A `dns_config` block as documented below.
         :param pulumi.Input[str] dns_name_label: The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupExposedPortArgs']]]] exposed_ports: Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The FQDN of the container group derived from `dns_name_label`.
         :param pulumi.Input[pulumi.InputType['GroupIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupImageRegistryCredentialArgs']]]] image_registry_credentials: A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
@@ -767,6 +805,7 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["diagnostics"] = diagnostics
         __props__.__dict__["dns_config"] = dns_config
         __props__.__dict__["dns_name_label"] = dns_name_label
+        __props__.__dict__["exposed_ports"] = exposed_ports
         __props__.__dict__["fqdn"] = fqdn
         __props__.__dict__["identity"] = identity
         __props__.__dict__["image_registry_credentials"] = image_registry_credentials
@@ -812,6 +851,14 @@ class Group(pulumi.CustomResource):
         The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "dns_name_label")
+
+    @property
+    @pulumi.getter(name="exposedPorts")
+    def exposed_ports(self) -> pulumi.Output[Sequence['outputs.GroupExposedPort']]:
+        """
+        Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "exposed_ports")
 
     @property
     @pulumi.getter

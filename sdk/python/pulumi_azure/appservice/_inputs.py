@@ -28,7 +28,9 @@ __all__ = [
     'AppServiceSiteConfigArgs',
     'AppServiceSiteConfigCorsArgs',
     'AppServiceSiteConfigIpRestrictionArgs',
+    'AppServiceSiteConfigIpRestrictionHeadersArgs',
     'AppServiceSiteConfigScmIpRestrictionArgs',
+    'AppServiceSiteConfigScmIpRestrictionHeadersArgs',
     'AppServiceSiteCredentialArgs',
     'AppServiceSourceControlArgs',
     'AppServiceStorageAccountArgs',
@@ -45,7 +47,9 @@ __all__ = [
     'FunctionAppSiteConfigArgs',
     'FunctionAppSiteConfigCorsArgs',
     'FunctionAppSiteConfigIpRestrictionArgs',
+    'FunctionAppSiteConfigIpRestrictionHeadersArgs',
     'FunctionAppSiteConfigScmIpRestrictionArgs',
+    'FunctionAppSiteConfigScmIpRestrictionHeadersArgs',
     'FunctionAppSiteCredentialArgs',
     'FunctionAppSlotAuthSettingsArgs',
     'FunctionAppSlotAuthSettingsActiveDirectoryArgs',
@@ -58,7 +62,9 @@ __all__ = [
     'FunctionAppSlotSiteConfigArgs',
     'FunctionAppSlotSiteConfigCorsArgs',
     'FunctionAppSlotSiteConfigIpRestrictionArgs',
+    'FunctionAppSlotSiteConfigIpRestrictionHeadersArgs',
     'FunctionAppSlotSiteConfigScmIpRestrictionArgs',
+    'FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs',
     'FunctionAppSlotSiteCredentialArgs',
     'FunctionAppSourceControlArgs',
     'PlanSkuArgs',
@@ -79,7 +85,9 @@ __all__ = [
     'SlotSiteConfigArgs',
     'SlotSiteConfigCorsArgs',
     'SlotSiteConfigIpRestrictionArgs',
+    'SlotSiteConfigIpRestrictionHeadersArgs',
     'SlotSiteConfigScmIpRestrictionArgs',
+    'SlotSiteConfigScmIpRestrictionHeadersArgs',
     'SlotSiteCredentialArgs',
 ]
 
@@ -1592,6 +1600,7 @@ class AppServiceSiteConfigCorsArgs:
 class AppServiceSiteConfigIpRestrictionArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[pulumi.Input['AppServiceSiteConfigIpRestrictionHeadersArgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -1599,6 +1608,7 @@ class AppServiceSiteConfigIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        :param pulumi.Input['AppServiceSiteConfigIpRestrictionHeadersArgs'] headers: The headers for this specific `ip_restriction` as defined below.
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: The name for this IP Restriction.
         :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -1607,6 +1617,8 @@ class AppServiceSiteConfigIpRestrictionArgs:
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
         if ip_address is not None:
             pulumi.set(__self__, "ip_address", ip_address)
         if name is not None:
@@ -1629,6 +1641,18 @@ class AppServiceSiteConfigIpRestrictionArgs:
     @action.setter
     def action(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input['AppServiceSiteConfigIpRestrictionHeadersArgs']]:
+        """
+        The headers for this specific `ip_restriction` as defined below.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input['AppServiceSiteConfigIpRestrictionHeadersArgs']]):
+        pulumi.set(self, "headers", value)
 
     @property
     @pulumi.getter(name="ipAddress")
@@ -1692,9 +1716,81 @@ class AppServiceSiteConfigIpRestrictionArgs:
 
 
 @pulumi.input_type
+class AppServiceSiteConfigIpRestrictionHeadersArgs:
+    def __init__(__self__, *,
+                 x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_fd_health_probe: Optional[pulumi.Input[str]] = None,
+                 x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_azure_fdids: A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+        :param pulumi.Input[str] x_fd_health_probe: A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_fors: A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_hosts: A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+        """
+        if x_azure_fdids is not None:
+            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        if x_fd_health_probe is not None:
+            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+        if x_forwarded_fors is not None:
+            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        if x_forwarded_hosts is not None:
+            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+        """
+        return pulumi.get(self, "x_azure_fdids")
+
+    @x_azure_fdids.setter
+    def x_azure_fdids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_azure_fdids", value)
+
+    @property
+    @pulumi.getter(name="xFdHealthProbe")
+    def x_fd_health_probe(self) -> Optional[pulumi.Input[str]]:
+        """
+        A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+        """
+        return pulumi.get(self, "x_fd_health_probe")
+
+    @x_fd_health_probe.setter
+    def x_fd_health_probe(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x_fd_health_probe", value)
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+        """
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @x_forwarded_fors.setter
+    def x_forwarded_fors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_fors", value)
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+        """
+        return pulumi.get(self, "x_forwarded_hosts")
+
+    @x_forwarded_hosts.setter
+    def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_hosts", value)
+
+
+@pulumi.input_type
 class AppServiceSiteConfigScmIpRestrictionArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[pulumi.Input['AppServiceSiteConfigScmIpRestrictionHeadersArgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -1702,6 +1798,7 @@ class AppServiceSiteConfigScmIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Allow or Deny access for this IP range. Defaults to Allow.
+        :param pulumi.Input['AppServiceSiteConfigScmIpRestrictionHeadersArgs'] headers: The headers for this specific `scm_ip_restriction` as defined below.
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: The name for this IP Restriction.
         :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -1710,6 +1807,8 @@ class AppServiceSiteConfigScmIpRestrictionArgs:
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
         if ip_address is not None:
             pulumi.set(__self__, "ip_address", ip_address)
         if name is not None:
@@ -1732,6 +1831,18 @@ class AppServiceSiteConfigScmIpRestrictionArgs:
     @action.setter
     def action(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input['AppServiceSiteConfigScmIpRestrictionHeadersArgs']]:
+        """
+        The headers for this specific `scm_ip_restriction` as defined below.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input['AppServiceSiteConfigScmIpRestrictionHeadersArgs']]):
+        pulumi.set(self, "headers", value)
 
     @property
     @pulumi.getter(name="ipAddress")
@@ -1792,6 +1903,77 @@ class AppServiceSiteConfigScmIpRestrictionArgs:
     @virtual_network_subnet_id.setter
     def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_network_subnet_id", value)
+
+
+@pulumi.input_type
+class AppServiceSiteConfigScmIpRestrictionHeadersArgs:
+    def __init__(__self__, *,
+                 x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_fd_health_probe: Optional[pulumi.Input[str]] = None,
+                 x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_azure_fdids: A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+        :param pulumi.Input[str] x_fd_health_probe: A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_fors: A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_hosts: A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+        """
+        if x_azure_fdids is not None:
+            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        if x_fd_health_probe is not None:
+            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+        if x_forwarded_fors is not None:
+            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        if x_forwarded_hosts is not None:
+            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+        """
+        return pulumi.get(self, "x_azure_fdids")
+
+    @x_azure_fdids.setter
+    def x_azure_fdids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_azure_fdids", value)
+
+    @property
+    @pulumi.getter(name="xFdHealthProbe")
+    def x_fd_health_probe(self) -> Optional[pulumi.Input[str]]:
+        """
+        A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+        """
+        return pulumi.get(self, "x_fd_health_probe")
+
+    @x_fd_health_probe.setter
+    def x_fd_health_probe(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x_fd_health_probe", value)
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+        """
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @x_forwarded_fors.setter
+    def x_forwarded_fors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_fors", value)
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+        """
+        return pulumi.get(self, "x_forwarded_hosts")
+
+    @x_forwarded_hosts.setter
+    def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_hosts", value)
 
 
 @pulumi.input_type
@@ -2728,6 +2910,7 @@ class FunctionAppSiteConfigArgs:
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  http2_enabled: Optional[pulumi.Input[bool]] = None,
                  ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigIpRestrictionArgs']]]] = None,
+                 java_version: Optional[pulumi.Input[str]] = None,
                  linux_fx_version: Optional[pulumi.Input[str]] = None,
                  min_tls_version: Optional[pulumi.Input[str]] = None,
                  pre_warmed_instance_count: Optional[pulumi.Input[int]] = None,
@@ -2743,6 +2926,7 @@ class FunctionAppSiteConfigArgs:
         :param pulumi.Input[str] health_check_path: Path which will be checked for this function app health.
         :param pulumi.Input[bool] http2_enabled: Specifies whether or not the http2 protocol should be enabled. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigIpRestrictionArgs']]] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        :param pulumi.Input[str] java_version: Java version hosted by the function app in Azure. Possible values are `1.8`, `11`.
         :param pulumi.Input[str] linux_fx_version: Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
         :param pulumi.Input[str] min_tls_version: The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
         :param pulumi.Input[int] pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
@@ -2766,6 +2950,8 @@ class FunctionAppSiteConfigArgs:
             pulumi.set(__self__, "http2_enabled", http2_enabled)
         if ip_restrictions is not None:
             pulumi.set(__self__, "ip_restrictions", ip_restrictions)
+        if java_version is not None:
+            pulumi.set(__self__, "java_version", java_version)
         if linux_fx_version is not None:
             pulumi.set(__self__, "linux_fx_version", linux_fx_version)
         if min_tls_version is not None:
@@ -2863,6 +3049,18 @@ class FunctionAppSiteConfigArgs:
     @ip_restrictions.setter
     def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigIpRestrictionArgs']]]]):
         pulumi.set(self, "ip_restrictions", value)
+
+    @property
+    @pulumi.getter(name="javaVersion")
+    def java_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Java version hosted by the function app in Azure. Possible values are `1.8`, `11`.
+        """
+        return pulumi.get(self, "java_version")
+
+    @java_version.setter
+    def java_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "java_version", value)
 
     @property
     @pulumi.getter(name="linuxFxVersion")
@@ -3003,6 +3201,7 @@ class FunctionAppSiteConfigCorsArgs:
 class FunctionAppSiteConfigIpRestrictionArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[pulumi.Input['FunctionAppSiteConfigIpRestrictionHeadersArgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -3010,6 +3209,7 @@ class FunctionAppSiteConfigIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        :param pulumi.Input['FunctionAppSiteConfigIpRestrictionHeadersArgs'] headers: The headers for this specific `ip_restriction` as defined below.
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: The name for this IP Restriction.
         :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
@@ -3018,6 +3218,8 @@ class FunctionAppSiteConfigIpRestrictionArgs:
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
         if ip_address is not None:
             pulumi.set(__self__, "ip_address", ip_address)
         if name is not None:
@@ -3040,6 +3242,18 @@ class FunctionAppSiteConfigIpRestrictionArgs:
     @action.setter
     def action(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input['FunctionAppSiteConfigIpRestrictionHeadersArgs']]:
+        """
+        The headers for this specific `ip_restriction` as defined below.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input['FunctionAppSiteConfigIpRestrictionHeadersArgs']]):
+        pulumi.set(self, "headers", value)
 
     @property
     @pulumi.getter(name="ipAddress")
@@ -3103,9 +3317,81 @@ class FunctionAppSiteConfigIpRestrictionArgs:
 
 
 @pulumi.input_type
+class FunctionAppSiteConfigIpRestrictionHeadersArgs:
+    def __init__(__self__, *,
+                 x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_fd_health_probe: Optional[pulumi.Input[str]] = None,
+                 x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_azure_fdids: A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+        :param pulumi.Input[str] x_fd_health_probe: A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_fors: A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_hosts: A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+        """
+        if x_azure_fdids is not None:
+            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        if x_fd_health_probe is not None:
+            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+        if x_forwarded_fors is not None:
+            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        if x_forwarded_hosts is not None:
+            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+        """
+        return pulumi.get(self, "x_azure_fdids")
+
+    @x_azure_fdids.setter
+    def x_azure_fdids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_azure_fdids", value)
+
+    @property
+    @pulumi.getter(name="xFdHealthProbe")
+    def x_fd_health_probe(self) -> Optional[pulumi.Input[str]]:
+        """
+        A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+        """
+        return pulumi.get(self, "x_fd_health_probe")
+
+    @x_fd_health_probe.setter
+    def x_fd_health_probe(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x_fd_health_probe", value)
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+        """
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @x_forwarded_fors.setter
+    def x_forwarded_fors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_fors", value)
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+        """
+        return pulumi.get(self, "x_forwarded_hosts")
+
+    @x_forwarded_hosts.setter
+    def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_hosts", value)
+
+
+@pulumi.input_type
 class FunctionAppSiteConfigScmIpRestrictionArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[pulumi.Input['FunctionAppSiteConfigScmIpRestrictionHeadersArgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -3113,6 +3399,7 @@ class FunctionAppSiteConfigScmIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Allow or Deny access for this IP range. Defaults to Allow.
+        :param pulumi.Input['FunctionAppSiteConfigScmIpRestrictionHeadersArgs'] headers: The headers for this specific `scm_ip_restriction` as defined below.
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: The name for this IP Restriction.
         :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -3121,6 +3408,8 @@ class FunctionAppSiteConfigScmIpRestrictionArgs:
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
         if ip_address is not None:
             pulumi.set(__self__, "ip_address", ip_address)
         if name is not None:
@@ -3143,6 +3432,18 @@ class FunctionAppSiteConfigScmIpRestrictionArgs:
     @action.setter
     def action(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input['FunctionAppSiteConfigScmIpRestrictionHeadersArgs']]:
+        """
+        The headers for this specific `scm_ip_restriction` as defined below.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input['FunctionAppSiteConfigScmIpRestrictionHeadersArgs']]):
+        pulumi.set(self, "headers", value)
 
     @property
     @pulumi.getter(name="ipAddress")
@@ -3203,6 +3504,77 @@ class FunctionAppSiteConfigScmIpRestrictionArgs:
     @virtual_network_subnet_id.setter
     def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_network_subnet_id", value)
+
+
+@pulumi.input_type
+class FunctionAppSiteConfigScmIpRestrictionHeadersArgs:
+    def __init__(__self__, *,
+                 x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_fd_health_probe: Optional[pulumi.Input[str]] = None,
+                 x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_azure_fdids: A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+        :param pulumi.Input[str] x_fd_health_probe: A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_fors: A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_hosts: A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+        """
+        if x_azure_fdids is not None:
+            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        if x_fd_health_probe is not None:
+            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+        if x_forwarded_fors is not None:
+            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        if x_forwarded_hosts is not None:
+            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+        """
+        return pulumi.get(self, "x_azure_fdids")
+
+    @x_azure_fdids.setter
+    def x_azure_fdids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_azure_fdids", value)
+
+    @property
+    @pulumi.getter(name="xFdHealthProbe")
+    def x_fd_health_probe(self) -> Optional[pulumi.Input[str]]:
+        """
+        A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+        """
+        return pulumi.get(self, "x_fd_health_probe")
+
+    @x_fd_health_probe.setter
+    def x_fd_health_probe(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x_fd_health_probe", value)
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+        """
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @x_forwarded_fors.setter
+    def x_forwarded_fors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_fors", value)
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+        """
+        return pulumi.get(self, "x_forwarded_hosts")
+
+    @x_forwarded_hosts.setter
+    def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_hosts", value)
 
 
 @pulumi.input_type
@@ -3846,6 +4218,7 @@ class FunctionAppSlotSiteConfigArgs:
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  http2_enabled: Optional[pulumi.Input[bool]] = None,
                  ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionArgs']]]] = None,
+                 java_version: Optional[pulumi.Input[str]] = None,
                  linux_fx_version: Optional[pulumi.Input[str]] = None,
                  min_tls_version: Optional[pulumi.Input[str]] = None,
                  pre_warmed_instance_count: Optional[pulumi.Input[int]] = None,
@@ -3881,6 +4254,8 @@ class FunctionAppSlotSiteConfigArgs:
             pulumi.set(__self__, "http2_enabled", http2_enabled)
         if ip_restrictions is not None:
             pulumi.set(__self__, "ip_restrictions", ip_restrictions)
+        if java_version is not None:
+            pulumi.set(__self__, "java_version", java_version)
         if linux_fx_version is not None:
             pulumi.set(__self__, "linux_fx_version", linux_fx_version)
         if min_tls_version is not None:
@@ -3978,6 +4353,15 @@ class FunctionAppSlotSiteConfigArgs:
     @ip_restrictions.setter
     def ip_restrictions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionArgs']]]]):
         pulumi.set(self, "ip_restrictions", value)
+
+    @property
+    @pulumi.getter(name="javaVersion")
+    def java_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "java_version")
+
+    @java_version.setter
+    def java_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "java_version", value)
 
     @property
     @pulumi.getter(name="linuxFxVersion")
@@ -4109,6 +4493,7 @@ class FunctionAppSlotSiteConfigCorsArgs:
 class FunctionAppSlotSiteConfigIpRestrictionArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionHeadersArgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -4116,6 +4501,7 @@ class FunctionAppSlotSiteConfigIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        :param pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionHeadersArgs'] headers: The headers for this specific `ip_restriction` as defined below.
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: The name for this IP Restriction.
         :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -4124,6 +4510,8 @@ class FunctionAppSlotSiteConfigIpRestrictionArgs:
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
         if ip_address is not None:
             pulumi.set(__self__, "ip_address", ip_address)
         if name is not None:
@@ -4146,6 +4534,18 @@ class FunctionAppSlotSiteConfigIpRestrictionArgs:
     @action.setter
     def action(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionHeadersArgs']]:
+        """
+        The headers for this specific `ip_restriction` as defined below.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionHeadersArgs']]):
+        pulumi.set(self, "headers", value)
 
     @property
     @pulumi.getter(name="ipAddress")
@@ -4209,9 +4609,81 @@ class FunctionAppSlotSiteConfigIpRestrictionArgs:
 
 
 @pulumi.input_type
+class FunctionAppSlotSiteConfigIpRestrictionHeadersArgs:
+    def __init__(__self__, *,
+                 x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_fd_health_probe: Optional[pulumi.Input[str]] = None,
+                 x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_azure_fdids: A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+        :param pulumi.Input[str] x_fd_health_probe: A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_fors: A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_hosts: A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+        """
+        if x_azure_fdids is not None:
+            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        if x_fd_health_probe is not None:
+            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+        if x_forwarded_fors is not None:
+            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        if x_forwarded_hosts is not None:
+            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+        """
+        return pulumi.get(self, "x_azure_fdids")
+
+    @x_azure_fdids.setter
+    def x_azure_fdids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_azure_fdids", value)
+
+    @property
+    @pulumi.getter(name="xFdHealthProbe")
+    def x_fd_health_probe(self) -> Optional[pulumi.Input[str]]:
+        """
+        A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+        """
+        return pulumi.get(self, "x_fd_health_probe")
+
+    @x_fd_health_probe.setter
+    def x_fd_health_probe(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x_fd_health_probe", value)
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+        """
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @x_forwarded_fors.setter
+    def x_forwarded_fors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_fors", value)
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+        """
+        return pulumi.get(self, "x_forwarded_hosts")
+
+    @x_forwarded_hosts.setter
+    def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_hosts", value)
+
+
+@pulumi.input_type
 class FunctionAppSlotSiteConfigScmIpRestrictionArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[pulumi.Input['FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -4219,6 +4691,7 @@ class FunctionAppSlotSiteConfigScmIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        :param pulumi.Input['FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs'] headers: The headers for this specific `ip_restriction` as defined below.
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created.
         :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -4227,6 +4700,8 @@ class FunctionAppSlotSiteConfigScmIpRestrictionArgs:
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
         if ip_address is not None:
             pulumi.set(__self__, "ip_address", ip_address)
         if name is not None:
@@ -4249,6 +4724,18 @@ class FunctionAppSlotSiteConfigScmIpRestrictionArgs:
     @action.setter
     def action(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input['FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs']]:
+        """
+        The headers for this specific `ip_restriction` as defined below.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input['FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs']]):
+        pulumi.set(self, "headers", value)
 
     @property
     @pulumi.getter(name="ipAddress")
@@ -4309,6 +4796,77 @@ class FunctionAppSlotSiteConfigScmIpRestrictionArgs:
     @virtual_network_subnet_id.setter
     def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_network_subnet_id", value)
+
+
+@pulumi.input_type
+class FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs:
+    def __init__(__self__, *,
+                 x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_fd_health_probe: Optional[pulumi.Input[str]] = None,
+                 x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_azure_fdids: A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+        :param pulumi.Input[str] x_fd_health_probe: A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_fors: A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_hosts: A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+        """
+        if x_azure_fdids is not None:
+            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        if x_fd_health_probe is not None:
+            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+        if x_forwarded_fors is not None:
+            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        if x_forwarded_hosts is not None:
+            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+        """
+        return pulumi.get(self, "x_azure_fdids")
+
+    @x_azure_fdids.setter
+    def x_azure_fdids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_azure_fdids", value)
+
+    @property
+    @pulumi.getter(name="xFdHealthProbe")
+    def x_fd_health_probe(self) -> Optional[pulumi.Input[str]]:
+        """
+        A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+        """
+        return pulumi.get(self, "x_fd_health_probe")
+
+    @x_fd_health_probe.setter
+    def x_fd_health_probe(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x_fd_health_probe", value)
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+        """
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @x_forwarded_fors.setter
+    def x_forwarded_fors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_fors", value)
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+        """
+        return pulumi.get(self, "x_forwarded_hosts")
+
+    @x_forwarded_hosts.setter
+    def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_hosts", value)
 
 
 @pulumi.input_type
@@ -5818,6 +6376,7 @@ class SlotSiteConfigCorsArgs:
 class SlotSiteConfigIpRestrictionArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[pulumi.Input['SlotSiteConfigIpRestrictionHeadersArgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -5825,6 +6384,7 @@ class SlotSiteConfigIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        :param pulumi.Input['SlotSiteConfigIpRestrictionHeadersArgs'] headers: The headers for this specific `ip_restriction` as defined below. The http header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: The name for this IP Restriction.
         :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -5833,6 +6393,8 @@ class SlotSiteConfigIpRestrictionArgs:
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
         if ip_address is not None:
             pulumi.set(__self__, "ip_address", ip_address)
         if name is not None:
@@ -5855,6 +6417,18 @@ class SlotSiteConfigIpRestrictionArgs:
     @action.setter
     def action(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input['SlotSiteConfigIpRestrictionHeadersArgs']]:
+        """
+        The headers for this specific `ip_restriction` as defined below. The http header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input['SlotSiteConfigIpRestrictionHeadersArgs']]):
+        pulumi.set(self, "headers", value)
 
     @property
     @pulumi.getter(name="ipAddress")
@@ -5918,9 +6492,81 @@ class SlotSiteConfigIpRestrictionArgs:
 
 
 @pulumi.input_type
+class SlotSiteConfigIpRestrictionHeadersArgs:
+    def __init__(__self__, *,
+                 x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_fd_health_probe: Optional[pulumi.Input[str]] = None,
+                 x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_azure_fdids: A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+        :param pulumi.Input[str] x_fd_health_probe: A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_fors: A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_hosts: A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+        """
+        if x_azure_fdids is not None:
+            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        if x_fd_health_probe is not None:
+            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+        if x_forwarded_fors is not None:
+            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        if x_forwarded_hosts is not None:
+            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+        """
+        return pulumi.get(self, "x_azure_fdids")
+
+    @x_azure_fdids.setter
+    def x_azure_fdids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_azure_fdids", value)
+
+    @property
+    @pulumi.getter(name="xFdHealthProbe")
+    def x_fd_health_probe(self) -> Optional[pulumi.Input[str]]:
+        """
+        A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+        """
+        return pulumi.get(self, "x_fd_health_probe")
+
+    @x_fd_health_probe.setter
+    def x_fd_health_probe(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x_fd_health_probe", value)
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+        """
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @x_forwarded_fors.setter
+    def x_forwarded_fors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_fors", value)
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+        """
+        return pulumi.get(self, "x_forwarded_hosts")
+
+    @x_forwarded_hosts.setter
+    def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_hosts", value)
+
+
+@pulumi.input_type
 class SlotSiteConfigScmIpRestrictionArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[pulumi.Input['SlotSiteConfigScmIpRestrictionHeadersArgs']] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -5928,6 +6574,7 @@ class SlotSiteConfigScmIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        :param pulumi.Input['SlotSiteConfigScmIpRestrictionHeadersArgs'] headers: The headers for this specific `ip_restriction` as defined below. The http header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
         :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -5936,6 +6583,8 @@ class SlotSiteConfigScmIpRestrictionArgs:
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
         if ip_address is not None:
             pulumi.set(__self__, "ip_address", ip_address)
         if name is not None:
@@ -5958,6 +6607,18 @@ class SlotSiteConfigScmIpRestrictionArgs:
     @action.setter
     def action(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input['SlotSiteConfigScmIpRestrictionHeadersArgs']]:
+        """
+        The headers for this specific `ip_restriction` as defined below. The http header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input['SlotSiteConfigScmIpRestrictionHeadersArgs']]):
+        pulumi.set(self, "headers", value)
 
     @property
     @pulumi.getter(name="ipAddress")
@@ -6018,6 +6679,77 @@ class SlotSiteConfigScmIpRestrictionArgs:
     @virtual_network_subnet_id.setter
     def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_network_subnet_id", value)
+
+
+@pulumi.input_type
+class SlotSiteConfigScmIpRestrictionHeadersArgs:
+    def __init__(__self__, *,
+                 x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_fd_health_probe: Optional[pulumi.Input[str]] = None,
+                 x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_azure_fdids: A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+        :param pulumi.Input[str] x_fd_health_probe: A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_fors: A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_hosts: A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+        """
+        if x_azure_fdids is not None:
+            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+        if x_fd_health_probe is not None:
+            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+        if x_forwarded_fors is not None:
+            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+        if x_forwarded_hosts is not None:
+            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+
+    @property
+    @pulumi.getter(name="xAzureFdids")
+    def x_azure_fdids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+        """
+        return pulumi.get(self, "x_azure_fdids")
+
+    @x_azure_fdids.setter
+    def x_azure_fdids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_azure_fdids", value)
+
+    @property
+    @pulumi.getter(name="xFdHealthProbe")
+    def x_fd_health_probe(self) -> Optional[pulumi.Input[str]]:
+        """
+        A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+        """
+        return pulumi.get(self, "x_fd_health_probe")
+
+    @x_fd_health_probe.setter
+    def x_fd_health_probe(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x_fd_health_probe", value)
+
+    @property
+    @pulumi.getter(name="xForwardedFors")
+    def x_forwarded_fors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+        """
+        return pulumi.get(self, "x_forwarded_fors")
+
+    @x_forwarded_fors.setter
+    def x_forwarded_fors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_fors", value)
+
+    @property
+    @pulumi.getter(name="xForwardedHosts")
+    def x_forwarded_hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+        """
+        return pulumi.get(self, "x_forwarded_hosts")
+
+    @x_forwarded_hosts.setter
+    def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "x_forwarded_hosts", value)
 
 
 @pulumi.input_type

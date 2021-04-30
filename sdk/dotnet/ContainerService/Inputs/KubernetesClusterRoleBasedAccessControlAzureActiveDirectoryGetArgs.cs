@@ -25,6 +25,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         }
 
         /// <summary>
+        /// Is Role Based Access Control based on Azure AD enabled? Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("azureRbacEnabled")]
+        public Input<bool>? AzureRbacEnabled { get; set; }
+
+        /// <summary>
         /// The Client ID of an Azure Active Directory Application.
         /// </summary>
         [Input("clientAppId")]

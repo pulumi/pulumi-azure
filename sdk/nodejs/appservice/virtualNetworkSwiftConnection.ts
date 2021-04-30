@@ -60,13 +60,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
  * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: azurerm_resource_group.example.location,
- *     resourceGroupName: azurerm_resource_group.example.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: azurerm_resource_group.example.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.1.0/24"],
  *     delegations: [{
@@ -78,22 +79,22 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const examplePlan = new azure.appservice.Plan("examplePlan", {
- *     location: azurerm_resource_group.example.location,
- *     resourceGroupName: azurerm_resource_group.example.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
  *         tier: "Standard",
  *         size: "S1",
  *     },
  * });
  * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: azurerm_resource_group.example.name,
- *     location: azurerm_resource_group.example.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
  * const exampleFunctionApp = new azure.appservice.FunctionApp("exampleFunctionApp", {
- *     location: azurerm_resource_group.example.location,
- *     resourceGroupName: azurerm_resource_group.example.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     appServicePlanId: examplePlan.id,
  *     storageAccountName: exampleAccount.name,
  *     storageAccountAccessKey: exampleAccount.primaryAccessKey,

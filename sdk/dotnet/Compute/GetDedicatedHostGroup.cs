@@ -70,6 +70,10 @@ namespace Pulumi.Azure.Compute
     public sealed class GetDedicatedHostGroupResult
     {
         /// <summary>
+        /// Whether virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group.
+        /// </summary>
+        public readonly bool AutomaticPlacementEnabled;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -94,6 +98,8 @@ namespace Pulumi.Azure.Compute
 
         [OutputConstructor]
         private GetDedicatedHostGroupResult(
+            bool automaticPlacementEnabled,
+
             string id,
 
             string location,
@@ -108,6 +114,7 @@ namespace Pulumi.Azure.Compute
 
             ImmutableArray<string> zones)
         {
+            AutomaticPlacementEnabled = automaticPlacementEnabled;
             Id = id;
             Location = location;
             Name = name;

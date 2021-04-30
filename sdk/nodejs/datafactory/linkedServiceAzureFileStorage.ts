@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -95,6 +96,10 @@ export class LinkedServiceAzureFileStorage extends pulumi.CustomResource {
      */
     public readonly integrationRuntimeName!: pulumi.Output<string | undefined>;
     /**
+     * A `keyVaultPassword` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+     */
+    public readonly keyVaultPassword!: pulumi.Output<outputs.datafactory.LinkedServiceAzureFileStorageKeyVaultPassword | undefined>;
+    /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
      * factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
@@ -131,6 +136,7 @@ export class LinkedServiceAzureFileStorage extends pulumi.CustomResource {
             inputs["fileShare"] = state ? state.fileShare : undefined;
             inputs["host"] = state ? state.host : undefined;
             inputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
+            inputs["keyVaultPassword"] = state ? state.keyVaultPassword : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["parameters"] = state ? state.parameters : undefined;
             inputs["password"] = state ? state.password : undefined;
@@ -155,6 +161,7 @@ export class LinkedServiceAzureFileStorage extends pulumi.CustomResource {
             inputs["fileShare"] = args ? args.fileShare : undefined;
             inputs["host"] = args ? args.host : undefined;
             inputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
+            inputs["keyVaultPassword"] = args ? args.keyVaultPassword : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["password"] = args ? args.password : undefined;
@@ -201,6 +208,10 @@ export interface LinkedServiceAzureFileStorageState {
      * The integration runtime reference to associate with the Data Factory Linked Service.
      */
     readonly integrationRuntimeName?: pulumi.Input<string>;
+    /**
+     * A `keyVaultPassword` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+     */
+    readonly keyVaultPassword?: pulumi.Input<inputs.datafactory.LinkedServiceAzureFileStorageKeyVaultPassword>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
      * factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
@@ -251,6 +262,10 @@ export interface LinkedServiceAzureFileStorageArgs {
      * The integration runtime reference to associate with the Data Factory Linked Service.
      */
     readonly integrationRuntimeName?: pulumi.Input<string>;
+    /**
+     * A `keyVaultPassword` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+     */
+    readonly keyVaultPassword?: pulumi.Input<inputs.datafactory.LinkedServiceAzureFileStorageKeyVaultPassword>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
      * factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.

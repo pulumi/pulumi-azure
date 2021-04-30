@@ -19,7 +19,10 @@ class GetDedicatedHostGroupResult:
     """
     A collection of values returned by getDedicatedHostGroup.
     """
-    def __init__(__self__, id=None, location=None, name=None, platform_fault_domain_count=None, resource_group_name=None, tags=None, zones=None):
+    def __init__(__self__, automatic_placement_enabled=None, id=None, location=None, name=None, platform_fault_domain_count=None, resource_group_name=None, tags=None, zones=None):
+        if automatic_placement_enabled and not isinstance(automatic_placement_enabled, bool):
+            raise TypeError("Expected argument 'automatic_placement_enabled' to be a bool")
+        pulumi.set(__self__, "automatic_placement_enabled", automatic_placement_enabled)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -41,6 +44,14 @@ class GetDedicatedHostGroupResult:
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="automaticPlacementEnabled")
+    def automatic_placement_enabled(self) -> bool:
+        """
+        Whether virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group.
+        """
+        return pulumi.get(self, "automatic_placement_enabled")
 
     @property
     @pulumi.getter
@@ -99,6 +110,7 @@ class AwaitableGetDedicatedHostGroupResult(GetDedicatedHostGroupResult):
         if False:
             yield self
         return GetDedicatedHostGroupResult(
+            automatic_placement_enabled=self.automatic_placement_enabled,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -139,6 +151,7 @@ def get_dedicated_host_group(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:compute/getDedicatedHostGroup:getDedicatedHostGroup', __args__, opts=opts, typ=GetDedicatedHostGroupResult).value
 
     return AwaitableGetDedicatedHostGroupResult(
+        automatic_placement_enabled=__ret__.automatic_placement_enabled,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,

@@ -96,6 +96,12 @@ namespace Pulumi.Azure.Healthcare
         public Output<Outputs.ServiceCorsConfiguration> CorsConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("cosmosdbKeyVaultKeyVersionlessId")]
+        public Output<string?> CosmosdbKeyVaultKeyVersionlessId { get; private set; } = null!;
+
+        /// <summary>
         /// The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
         /// </summary>
         [Output("cosmosdbThroughput")]
@@ -198,6 +204,12 @@ namespace Pulumi.Azure.Healthcare
         public Input<Inputs.ServiceCorsConfigurationArgs>? CorsConfiguration { get; set; }
 
         /// <summary>
+        /// A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("cosmosdbKeyVaultKeyVersionlessId")]
+        public Input<string>? CosmosdbKeyVaultKeyVersionlessId { get; set; }
+
+        /// <summary>
         /// The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
         /// </summary>
         [Input("cosmosdbThroughput")]
@@ -265,6 +277,12 @@ namespace Pulumi.Azure.Healthcare
         /// </summary>
         [Input("corsConfiguration")]
         public Input<Inputs.ServiceCorsConfigurationGetArgs>? CorsConfiguration { get; set; }
+
+        /// <summary>
+        /// A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("cosmosdbKeyVaultKeyVersionlessId")]
+        public Input<string>? CosmosdbKeyVaultKeyVersionlessId { get; set; }
 
         /// <summary>
         /// The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.

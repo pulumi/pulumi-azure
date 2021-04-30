@@ -15,6 +15,7 @@ class DedicatedHostGroupArgs:
     def __init__(__self__, *,
                  platform_fault_domain_count: pulumi.Input[int],
                  resource_group_name: pulumi.Input[str],
+                 automatic_placement_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -23,6 +24,7 @@ class DedicatedHostGroupArgs:
         The set of arguments for constructing a DedicatedHostGroup resource.
         :param pulumi.Input[int] platform_fault_domain_count: The number of fault domains that the Dedicated Host Group spans. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group the Dedicated Host Group is located in. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] automatic_placement_enabled: Would virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The Azure location where the Dedicated Host Group exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Dedicated Host Group. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -30,6 +32,8 @@ class DedicatedHostGroupArgs:
         """
         pulumi.set(__self__, "platform_fault_domain_count", platform_fault_domain_count)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if automatic_placement_enabled is not None:
+            pulumi.set(__self__, "automatic_placement_enabled", automatic_placement_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -62,6 +66,18 @@ class DedicatedHostGroupArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="automaticPlacementEnabled")
+    def automatic_placement_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Would virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group? Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "automatic_placement_enabled")
+
+    @automatic_placement_enabled.setter
+    def automatic_placement_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "automatic_placement_enabled", value)
 
     @property
     @pulumi.getter
@@ -115,6 +131,7 @@ class DedicatedHostGroupArgs:
 @pulumi.input_type
 class _DedicatedHostGroupState:
     def __init__(__self__, *,
+                 automatic_placement_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
@@ -123,6 +140,7 @@ class _DedicatedHostGroupState:
                  zones: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DedicatedHostGroup resources.
+        :param pulumi.Input[bool] automatic_placement_enabled: Would virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The Azure location where the Dedicated Host Group exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Dedicated Host Group. Changing this forces a new resource to be created.
         :param pulumi.Input[int] platform_fault_domain_count: The number of fault domains that the Dedicated Host Group spans. Changing this forces a new resource to be created.
@@ -130,6 +148,8 @@ class _DedicatedHostGroupState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zones: A list of Availability Zones in which the Dedicated Host Group should be located. Changing this forces a new resource to be created.
         """
+        if automatic_placement_enabled is not None:
+            pulumi.set(__self__, "automatic_placement_enabled", automatic_placement_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -142,6 +162,18 @@ class _DedicatedHostGroupState:
             pulumi.set(__self__, "tags", tags)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="automaticPlacementEnabled")
+    def automatic_placement_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Would virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group? Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "automatic_placement_enabled")
+
+    @automatic_placement_enabled.setter
+    def automatic_placement_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "automatic_placement_enabled", value)
 
     @property
     @pulumi.getter
@@ -221,6 +253,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 automatic_placement_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
@@ -254,6 +287,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] automatic_placement_enabled: Would virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The Azure location where the Dedicated Host Group exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Dedicated Host Group. Changing this forces a new resource to be created.
         :param pulumi.Input[int] platform_fault_domain_count: The number of fault domains that the Dedicated Host Group spans. Changing this forces a new resource to be created.
@@ -306,6 +340,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 automatic_placement_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
@@ -324,6 +359,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DedicatedHostGroupArgs.__new__(DedicatedHostGroupArgs)
 
+            __props__.__dict__["automatic_placement_enabled"] = automatic_placement_enabled
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             if platform_fault_domain_count is None and not opts.urn:
@@ -344,6 +380,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            automatic_placement_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
@@ -357,6 +394,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] automatic_placement_enabled: Would virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The Azure location where the Dedicated Host Group exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Dedicated Host Group. Changing this forces a new resource to be created.
         :param pulumi.Input[int] platform_fault_domain_count: The number of fault domains that the Dedicated Host Group spans. Changing this forces a new resource to be created.
@@ -368,6 +406,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
 
         __props__ = _DedicatedHostGroupState.__new__(_DedicatedHostGroupState)
 
+        __props__.__dict__["automatic_placement_enabled"] = automatic_placement_enabled
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["platform_fault_domain_count"] = platform_fault_domain_count
@@ -375,6 +414,14 @@ class DedicatedHostGroup(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["zones"] = zones
         return DedicatedHostGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="automaticPlacementEnabled")
+    def automatic_placement_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Would virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group? Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "automatic_placement_enabled")
 
     @property
     @pulumi.getter
