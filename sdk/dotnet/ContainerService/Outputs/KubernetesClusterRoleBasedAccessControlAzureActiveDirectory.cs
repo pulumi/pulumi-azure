@@ -18,6 +18,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AdminGroupObjectIds;
         /// <summary>
+        /// Is Role Based Access Control based on Azure AD enabled? Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly bool? AzureRbacEnabled;
+        /// <summary>
         /// The Client ID of an Azure Active Directory Application.
         /// </summary>
         public readonly string? ClientAppId;
@@ -42,6 +46,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
         private KubernetesClusterRoleBasedAccessControlAzureActiveDirectory(
             ImmutableArray<string> adminGroupObjectIds,
 
+            bool? azureRbacEnabled,
+
             string? clientAppId,
 
             bool? managed,
@@ -53,6 +59,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             string? tenantId)
         {
             AdminGroupObjectIds = adminGroupObjectIds;
+            AzureRbacEnabled = azureRbacEnabled;
             ClientAppId = clientAppId;
             Managed = managed;
             ServerAppId = serverAppId;

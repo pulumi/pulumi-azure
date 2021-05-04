@@ -23,6 +23,7 @@ __all__ = [
     'DatasetParquetHttpServerLocation',
     'DatasetParquetSchemaColumn',
     'DatasetPostgresqlSchemaColumn',
+    'DatasetSnowflakeSchemaColumn',
     'DatasetSqlServerTableSchemaColumn',
     'FactoryGithubConfiguration',
     'FactoryIdentity',
@@ -37,6 +38,7 @@ __all__ = [
     'LinkedServiceAzureDatabricksInstancePool',
     'LinkedServiceAzureDatabricksKeyVaultPassword',
     'LinkedServiceAzureDatabricksNewClusterConfig',
+    'LinkedServiceAzureFileStorageKeyVaultPassword',
     'LinkedServiceAzureSqlDatabaseKeyVaultPassword',
     'LinkedServiceSnowflakeKeyVaultPassword',
     'LinkedServiceSqlServerKeyVaultPassword',
@@ -633,6 +635,48 @@ class DatasetParquetSchemaColumn(dict):
 
 @pulumi.output_type
 class DatasetPostgresqlSchemaColumn(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 description: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        :param str name: The name of the column.
+        :param str description: The description of the column.
+        :param str type: Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+        """
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the column.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the column.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class DatasetSnowflakeSchemaColumn(dict):
     def __init__(__self__, *,
                  name: str,
                  description: Optional[str] = None,
@@ -1626,6 +1670,54 @@ class LinkedServiceAzureDatabricksNewClusterConfig(dict):
         User-specified Spark environment variables key-value pairs.
         """
         return pulumi.get(self, "spark_environment_variables")
+
+
+@pulumi.output_type
+class LinkedServiceAzureFileStorageKeyVaultPassword(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "secretName":
+            suggest = "secret_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkedServiceAzureFileStorageKeyVaultPassword. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkedServiceAzureFileStorageKeyVaultPassword.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkedServiceAzureFileStorageKeyVaultPassword.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 linked_service_name: str,
+                 secret_name: str):
+        """
+        :param str linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
+        :param str secret_name: Specifies the secret name in Azure Key Vault that stores Azure File Storage password.
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> str:
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        Specifies the secret name in Azure Key Vault that stores Azure File Storage password.
+        """
+        return pulumi.get(self, "secret_name")
 
 
 @pulumi.output_type

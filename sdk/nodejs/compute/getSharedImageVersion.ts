@@ -43,7 +43,7 @@ export function getSharedImageVersion(args: GetSharedImageVersionArgs, opts?: pu
  */
 export interface GetSharedImageVersionArgs {
     /**
-     * The name of the Shared Image in which the Shared Image exists.
+     * The name of the Shared Image Gallery in which the Shared Image exists.
      */
     readonly galleryName: string;
     /**

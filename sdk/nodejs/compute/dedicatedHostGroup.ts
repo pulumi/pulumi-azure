@@ -58,6 +58,10 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
     }
 
     /**
+     * Would virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group? Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    public readonly automaticPlacementEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The Azure location where the Dedicated Host Group exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -95,6 +99,7 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DedicatedHostGroupState | undefined;
+            inputs["automaticPlacementEnabled"] = state ? state.automaticPlacementEnabled : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["platformFaultDomainCount"] = state ? state.platformFaultDomainCount : undefined;
@@ -109,6 +114,7 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["automaticPlacementEnabled"] = args ? args.automaticPlacementEnabled : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
@@ -127,6 +133,10 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DedicatedHostGroup resources.
  */
 export interface DedicatedHostGroupState {
+    /**
+     * Would virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group? Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    readonly automaticPlacementEnabled?: pulumi.Input<boolean>;
     /**
      * The Azure location where the Dedicated Host Group exists. Changing this forces a new resource to be created.
      */
@@ -157,6 +167,10 @@ export interface DedicatedHostGroupState {
  * The set of arguments for constructing a DedicatedHostGroup resource.
  */
 export interface DedicatedHostGroupArgs {
+    /**
+     * Would virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group? Defaults to `false`. Changing this forces a new resource to be created.
+     */
+    readonly automaticPlacementEnabled?: pulumi.Input<boolean>;
     /**
      * The Azure location where the Dedicated Host Group exists. Changing this forces a new resource to be created.
      */

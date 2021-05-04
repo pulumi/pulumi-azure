@@ -61,6 +61,12 @@ namespace Pulumi.Azure.Storage
     public partial class EncryptionScope : Pulumi.CustomResource
     {
         /// <summary>
+        /// Is a secondary layer of encryption with Platform Managed Keys for data applied?
+        /// </summary>
+        [Output("infrastructureEncryptionRequired")]
+        public Output<bool?> InfrastructureEncryptionRequired { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
         /// </summary>
         [Output("keyVaultKeyId")]
@@ -131,6 +137,12 @@ namespace Pulumi.Azure.Storage
     public sealed class EncryptionScopeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Is a secondary layer of encryption with Platform Managed Keys for data applied?
+        /// </summary>
+        [Input("infrastructureEncryptionRequired")]
+        public Input<bool>? InfrastructureEncryptionRequired { get; set; }
+
+        /// <summary>
         /// The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
         /// </summary>
         [Input("keyVaultKeyId")]
@@ -161,6 +173,12 @@ namespace Pulumi.Azure.Storage
 
     public sealed class EncryptionScopeState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Is a secondary layer of encryption with Platform Managed Keys for data applied?
+        /// </summary>
+        [Input("infrastructureEncryptionRequired")]
+        public Input<bool>? InfrastructureEncryptionRequired { get; set; }
+
         /// <summary>
         /// The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
         /// </summary>

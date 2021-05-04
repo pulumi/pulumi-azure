@@ -24,6 +24,18 @@ namespace Pulumi.Azure.Storage.Inputs
             set => _blobTypes = value;
         }
 
+        [Input("matchBlobIndexTags")]
+        private InputList<Inputs.ManagementPolicyRuleFiltersMatchBlobIndexTagGetArgs>? _matchBlobIndexTags;
+
+        /// <summary>
+        /// A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
+        /// </summary>
+        public InputList<Inputs.ManagementPolicyRuleFiltersMatchBlobIndexTagGetArgs> MatchBlobIndexTags
+        {
+            get => _matchBlobIndexTags ?? (_matchBlobIndexTags = new InputList<Inputs.ManagementPolicyRuleFiltersMatchBlobIndexTagGetArgs>());
+            set => _matchBlobIndexTags = value;
+        }
+
         [Input("prefixMatches")]
         private InputList<string>? _prefixMatches;
 

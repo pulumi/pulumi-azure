@@ -25,6 +25,7 @@ class InteractiveQueryClusterArgs:
                  metastores: Optional[pulumi.Input['InteractiveQueryClusterMetastoresArgs']] = None,
                  monitor: Optional[pulumi.Input['InteractiveQueryClusterMonitorArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network: Optional[pulumi.Input['InteractiveQueryClusterNetworkArgs']] = None,
                  storage_account_gen2: Optional[pulumi.Input['InteractiveQueryClusterStorageAccountGen2Args']] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterStorageAccountArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -41,6 +42,7 @@ class InteractiveQueryClusterArgs:
         :param pulumi.Input['InteractiveQueryClusterMetastoresArgs'] metastores: A `metastores` block as defined below.
         :param pulumi.Input['InteractiveQueryClusterMonitorArgs'] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input['InteractiveQueryClusterNetworkArgs'] network: A `network` block as defined below.
         :param pulumi.Input['InteractiveQueryClusterStorageAccountGen2Args'] storage_account_gen2: A `storage_account_gen2` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterStorageAccountArgs']]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
@@ -59,6 +61,8 @@ class InteractiveQueryClusterArgs:
             pulumi.set(__self__, "monitor", monitor)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network is not None:
+            pulumi.set(__self__, "network", network)
         if storage_account_gen2 is not None:
             pulumi.set(__self__, "storage_account_gen2", storage_account_gen2)
         if storage_accounts is not None:
@@ -189,6 +193,18 @@ class InteractiveQueryClusterArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def network(self) -> Optional[pulumi.Input['InteractiveQueryClusterNetworkArgs']]:
+        """
+        A `network` block as defined below.
+        """
+        return pulumi.get(self, "network")
+
+    @network.setter
+    def network(self, value: Optional[pulumi.Input['InteractiveQueryClusterNetworkArgs']]):
+        pulumi.set(self, "network", value)
+
+    @property
     @pulumi.getter(name="storageAccountGen2")
     def storage_account_gen2(self) -> Optional[pulumi.Input['InteractiveQueryClusterStorageAccountGen2Args']]:
         """
@@ -245,6 +261,7 @@ class _InteractiveQueryClusterState:
                  metastores: Optional[pulumi.Input['InteractiveQueryClusterMetastoresArgs']] = None,
                  monitor: Optional[pulumi.Input['InteractiveQueryClusterMonitorArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network: Optional[pulumi.Input['InteractiveQueryClusterNetworkArgs']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input['InteractiveQueryClusterRolesArgs']] = None,
                  ssh_endpoint: Optional[pulumi.Input[str]] = None,
@@ -263,6 +280,7 @@ class _InteractiveQueryClusterState:
         :param pulumi.Input['InteractiveQueryClusterMetastoresArgs'] metastores: A `metastores` block as defined below.
         :param pulumi.Input['InteractiveQueryClusterMonitorArgs'] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input['InteractiveQueryClusterNetworkArgs'] network: A `network` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['InteractiveQueryClusterRolesArgs'] roles: A `roles` block as defined below.
         :param pulumi.Input[str] ssh_endpoint: The SSH Connectivity Endpoint for this HDInsight Interactive Query Cluster.
@@ -287,6 +305,8 @@ class _InteractiveQueryClusterState:
             pulumi.set(__self__, "monitor", monitor)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network is not None:
+            pulumi.set(__self__, "network", network)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if roles is not None:
@@ -401,6 +421,18 @@ class _InteractiveQueryClusterState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def network(self) -> Optional[pulumi.Input['InteractiveQueryClusterNetworkArgs']]:
+        """
+        A `network` block as defined below.
+        """
+        return pulumi.get(self, "network")
+
+    @network.setter
+    def network(self, value: Optional[pulumi.Input['InteractiveQueryClusterNetworkArgs']]):
+        pulumi.set(self, "network", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -506,6 +538,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
                  metastores: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterMetastoresArgs']]] = None,
                  monitor: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterMonitorArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterNetworkArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterRolesArgs']]] = None,
                  storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterStorageAccountGen2Args']]] = None,
@@ -587,6 +620,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterMetastoresArgs']] metastores: A `metastores` block as defined below.
         :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterMonitorArgs']] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterNetworkArgs']] network: A `network` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterRolesArgs']] roles: A `roles` block as defined below.
         :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterStorageAccountGen2Args']] storage_account_gen2: A `storage_account_gen2` block as defined below.
@@ -686,6 +720,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
                  metastores: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterMetastoresArgs']]] = None,
                  monitor: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterMonitorArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterNetworkArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterRolesArgs']]] = None,
                  storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterStorageAccountGen2Args']]] = None,
@@ -718,6 +753,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
             __props__.__dict__["metastores"] = metastores
             __props__.__dict__["monitor"] = monitor
             __props__.__dict__["name"] = name
+            __props__.__dict__["network"] = network
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -751,6 +787,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
             metastores: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterMetastoresArgs']]] = None,
             monitor: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterMonitorArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            network: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterNetworkArgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             roles: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterRolesArgs']]] = None,
             ssh_endpoint: Optional[pulumi.Input[str]] = None,
@@ -774,6 +811,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterMetastoresArgs']] metastores: A `metastores` block as defined below.
         :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterMonitorArgs']] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterNetworkArgs']] network: A `network` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterRolesArgs']] roles: A `roles` block as defined below.
         :param pulumi.Input[str] ssh_endpoint: The SSH Connectivity Endpoint for this HDInsight Interactive Query Cluster.
@@ -794,6 +832,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
         __props__.__dict__["metastores"] = metastores
         __props__.__dict__["monitor"] = monitor
         __props__.__dict__["name"] = name
+        __props__.__dict__["network"] = network
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["roles"] = roles
         __props__.__dict__["ssh_endpoint"] = ssh_endpoint
@@ -867,6 +906,14 @@ class InteractiveQueryCluster(pulumi.CustomResource):
         Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def network(self) -> pulumi.Output[Optional['outputs.InteractiveQueryClusterNetwork']]:
+        """
+        A `network` block as defined below.
+        """
+        return pulumi.get(self, "network")
 
     @property
     @pulumi.getter(name="resourceGroupName")

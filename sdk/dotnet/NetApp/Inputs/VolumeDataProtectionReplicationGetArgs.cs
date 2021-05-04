@@ -19,13 +19,13 @@ namespace Pulumi.Azure.NetApp.Inputs
         public Input<string>? EndpointType { get; set; }
 
         /// <summary>
-        /// Primary volume's location.
+        /// Location of the primary volume.
         /// </summary>
         [Input("remoteVolumeLocation", required: true)]
         public Input<string> RemoteVolumeLocation { get; set; } = null!;
 
         /// <summary>
-        /// Primary volume's resource id.
+        /// Resource ID of the primary volume.
         /// </summary>
         [Input("remoteVolumeResourceId", required: true)]
         public Input<string> RemoteVolumeResourceId { get; set; } = null!;

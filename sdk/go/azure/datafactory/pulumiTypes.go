@@ -1946,6 +1946,121 @@ func (o DatasetPostgresqlSchemaColumnArrayOutput) Index(i pulumi.IntInput) Datas
 	}).(DatasetPostgresqlSchemaColumnOutput)
 }
 
+type DatasetSnowflakeSchemaColumn struct {
+	// The description of the column.
+	Description *string `pulumi:"description"`
+	// The name of the column.
+	Name string `pulumi:"name"`
+	// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+	Type *string `pulumi:"type"`
+}
+
+// DatasetSnowflakeSchemaColumnInput is an input type that accepts DatasetSnowflakeSchemaColumnArgs and DatasetSnowflakeSchemaColumnOutput values.
+// You can construct a concrete instance of `DatasetSnowflakeSchemaColumnInput` via:
+//
+//          DatasetSnowflakeSchemaColumnArgs{...}
+type DatasetSnowflakeSchemaColumnInput interface {
+	pulumi.Input
+
+	ToDatasetSnowflakeSchemaColumnOutput() DatasetSnowflakeSchemaColumnOutput
+	ToDatasetSnowflakeSchemaColumnOutputWithContext(context.Context) DatasetSnowflakeSchemaColumnOutput
+}
+
+type DatasetSnowflakeSchemaColumnArgs struct {
+	// The description of the column.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The name of the column.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (DatasetSnowflakeSchemaColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetSnowflakeSchemaColumn)(nil)).Elem()
+}
+
+func (i DatasetSnowflakeSchemaColumnArgs) ToDatasetSnowflakeSchemaColumnOutput() DatasetSnowflakeSchemaColumnOutput {
+	return i.ToDatasetSnowflakeSchemaColumnOutputWithContext(context.Background())
+}
+
+func (i DatasetSnowflakeSchemaColumnArgs) ToDatasetSnowflakeSchemaColumnOutputWithContext(ctx context.Context) DatasetSnowflakeSchemaColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetSnowflakeSchemaColumnOutput)
+}
+
+// DatasetSnowflakeSchemaColumnArrayInput is an input type that accepts DatasetSnowflakeSchemaColumnArray and DatasetSnowflakeSchemaColumnArrayOutput values.
+// You can construct a concrete instance of `DatasetSnowflakeSchemaColumnArrayInput` via:
+//
+//          DatasetSnowflakeSchemaColumnArray{ DatasetSnowflakeSchemaColumnArgs{...} }
+type DatasetSnowflakeSchemaColumnArrayInput interface {
+	pulumi.Input
+
+	ToDatasetSnowflakeSchemaColumnArrayOutput() DatasetSnowflakeSchemaColumnArrayOutput
+	ToDatasetSnowflakeSchemaColumnArrayOutputWithContext(context.Context) DatasetSnowflakeSchemaColumnArrayOutput
+}
+
+type DatasetSnowflakeSchemaColumnArray []DatasetSnowflakeSchemaColumnInput
+
+func (DatasetSnowflakeSchemaColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatasetSnowflakeSchemaColumn)(nil)).Elem()
+}
+
+func (i DatasetSnowflakeSchemaColumnArray) ToDatasetSnowflakeSchemaColumnArrayOutput() DatasetSnowflakeSchemaColumnArrayOutput {
+	return i.ToDatasetSnowflakeSchemaColumnArrayOutputWithContext(context.Background())
+}
+
+func (i DatasetSnowflakeSchemaColumnArray) ToDatasetSnowflakeSchemaColumnArrayOutputWithContext(ctx context.Context) DatasetSnowflakeSchemaColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetSnowflakeSchemaColumnArrayOutput)
+}
+
+type DatasetSnowflakeSchemaColumnOutput struct{ *pulumi.OutputState }
+
+func (DatasetSnowflakeSchemaColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetSnowflakeSchemaColumn)(nil)).Elem()
+}
+
+func (o DatasetSnowflakeSchemaColumnOutput) ToDatasetSnowflakeSchemaColumnOutput() DatasetSnowflakeSchemaColumnOutput {
+	return o
+}
+
+func (o DatasetSnowflakeSchemaColumnOutput) ToDatasetSnowflakeSchemaColumnOutputWithContext(ctx context.Context) DatasetSnowflakeSchemaColumnOutput {
+	return o
+}
+
+// The description of the column.
+func (o DatasetSnowflakeSchemaColumnOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetSnowflakeSchemaColumn) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name of the column.
+func (o DatasetSnowflakeSchemaColumnOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetSnowflakeSchemaColumn) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+func (o DatasetSnowflakeSchemaColumnOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetSnowflakeSchemaColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type DatasetSnowflakeSchemaColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (DatasetSnowflakeSchemaColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatasetSnowflakeSchemaColumn)(nil)).Elem()
+}
+
+func (o DatasetSnowflakeSchemaColumnArrayOutput) ToDatasetSnowflakeSchemaColumnArrayOutput() DatasetSnowflakeSchemaColumnArrayOutput {
+	return o
+}
+
+func (o DatasetSnowflakeSchemaColumnArrayOutput) ToDatasetSnowflakeSchemaColumnArrayOutputWithContext(ctx context.Context) DatasetSnowflakeSchemaColumnArrayOutput {
+	return o
+}
+
+func (o DatasetSnowflakeSchemaColumnArrayOutput) Index(i pulumi.IntInput) DatasetSnowflakeSchemaColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetSnowflakeSchemaColumn {
+		return vs[0].([]DatasetSnowflakeSchemaColumn)[vs[1].(int)]
+	}).(DatasetSnowflakeSchemaColumnOutput)
+}
+
 type DatasetSqlServerTableSchemaColumn struct {
 	// The description of the column.
 	Description *string `pulumi:"description"`
@@ -4384,6 +4499,158 @@ func (o LinkedServiceAzureDatabricksNewClusterConfigPtrOutput) SparkEnvironmentV
 	}).(pulumi.StringMapOutput)
 }
 
+type LinkedServiceAzureFileStorageKeyVaultPassword struct {
+	// Specifies the name of an existing Key Vault Data Factory Linked Service.
+	LinkedServiceName string `pulumi:"linkedServiceName"`
+	// Specifies the secret name in Azure Key Vault that stores Azure File Storage password.
+	SecretName string `pulumi:"secretName"`
+}
+
+// LinkedServiceAzureFileStorageKeyVaultPasswordInput is an input type that accepts LinkedServiceAzureFileStorageKeyVaultPasswordArgs and LinkedServiceAzureFileStorageKeyVaultPasswordOutput values.
+// You can construct a concrete instance of `LinkedServiceAzureFileStorageKeyVaultPasswordInput` via:
+//
+//          LinkedServiceAzureFileStorageKeyVaultPasswordArgs{...}
+type LinkedServiceAzureFileStorageKeyVaultPasswordInput interface {
+	pulumi.Input
+
+	ToLinkedServiceAzureFileStorageKeyVaultPasswordOutput() LinkedServiceAzureFileStorageKeyVaultPasswordOutput
+	ToLinkedServiceAzureFileStorageKeyVaultPasswordOutputWithContext(context.Context) LinkedServiceAzureFileStorageKeyVaultPasswordOutput
+}
+
+type LinkedServiceAzureFileStorageKeyVaultPasswordArgs struct {
+	// Specifies the name of an existing Key Vault Data Factory Linked Service.
+	LinkedServiceName pulumi.StringInput `pulumi:"linkedServiceName"`
+	// Specifies the secret name in Azure Key Vault that stores Azure File Storage password.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+}
+
+func (LinkedServiceAzureFileStorageKeyVaultPasswordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceAzureFileStorageKeyVaultPassword)(nil)).Elem()
+}
+
+func (i LinkedServiceAzureFileStorageKeyVaultPasswordArgs) ToLinkedServiceAzureFileStorageKeyVaultPasswordOutput() LinkedServiceAzureFileStorageKeyVaultPasswordOutput {
+	return i.ToLinkedServiceAzureFileStorageKeyVaultPasswordOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceAzureFileStorageKeyVaultPasswordArgs) ToLinkedServiceAzureFileStorageKeyVaultPasswordOutputWithContext(ctx context.Context) LinkedServiceAzureFileStorageKeyVaultPasswordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureFileStorageKeyVaultPasswordOutput)
+}
+
+func (i LinkedServiceAzureFileStorageKeyVaultPasswordArgs) ToLinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput() LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput {
+	return i.ToLinkedServiceAzureFileStorageKeyVaultPasswordPtrOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceAzureFileStorageKeyVaultPasswordArgs) ToLinkedServiceAzureFileStorageKeyVaultPasswordPtrOutputWithContext(ctx context.Context) LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureFileStorageKeyVaultPasswordOutput).ToLinkedServiceAzureFileStorageKeyVaultPasswordPtrOutputWithContext(ctx)
+}
+
+// LinkedServiceAzureFileStorageKeyVaultPasswordPtrInput is an input type that accepts LinkedServiceAzureFileStorageKeyVaultPasswordArgs, LinkedServiceAzureFileStorageKeyVaultPasswordPtr and LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput values.
+// You can construct a concrete instance of `LinkedServiceAzureFileStorageKeyVaultPasswordPtrInput` via:
+//
+//          LinkedServiceAzureFileStorageKeyVaultPasswordArgs{...}
+//
+//  or:
+//
+//          nil
+type LinkedServiceAzureFileStorageKeyVaultPasswordPtrInput interface {
+	pulumi.Input
+
+	ToLinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput() LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput
+	ToLinkedServiceAzureFileStorageKeyVaultPasswordPtrOutputWithContext(context.Context) LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput
+}
+
+type linkedServiceAzureFileStorageKeyVaultPasswordPtrType LinkedServiceAzureFileStorageKeyVaultPasswordArgs
+
+func LinkedServiceAzureFileStorageKeyVaultPasswordPtr(v *LinkedServiceAzureFileStorageKeyVaultPasswordArgs) LinkedServiceAzureFileStorageKeyVaultPasswordPtrInput {
+	return (*linkedServiceAzureFileStorageKeyVaultPasswordPtrType)(v)
+}
+
+func (*linkedServiceAzureFileStorageKeyVaultPasswordPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceAzureFileStorageKeyVaultPassword)(nil)).Elem()
+}
+
+func (i *linkedServiceAzureFileStorageKeyVaultPasswordPtrType) ToLinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput() LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput {
+	return i.ToLinkedServiceAzureFileStorageKeyVaultPasswordPtrOutputWithContext(context.Background())
+}
+
+func (i *linkedServiceAzureFileStorageKeyVaultPasswordPtrType) ToLinkedServiceAzureFileStorageKeyVaultPasswordPtrOutputWithContext(ctx context.Context) LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput)
+}
+
+type LinkedServiceAzureFileStorageKeyVaultPasswordOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceAzureFileStorageKeyVaultPasswordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceAzureFileStorageKeyVaultPassword)(nil)).Elem()
+}
+
+func (o LinkedServiceAzureFileStorageKeyVaultPasswordOutput) ToLinkedServiceAzureFileStorageKeyVaultPasswordOutput() LinkedServiceAzureFileStorageKeyVaultPasswordOutput {
+	return o
+}
+
+func (o LinkedServiceAzureFileStorageKeyVaultPasswordOutput) ToLinkedServiceAzureFileStorageKeyVaultPasswordOutputWithContext(ctx context.Context) LinkedServiceAzureFileStorageKeyVaultPasswordOutput {
+	return o
+}
+
+func (o LinkedServiceAzureFileStorageKeyVaultPasswordOutput) ToLinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput() LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput {
+	return o.ToLinkedServiceAzureFileStorageKeyVaultPasswordPtrOutputWithContext(context.Background())
+}
+
+func (o LinkedServiceAzureFileStorageKeyVaultPasswordOutput) ToLinkedServiceAzureFileStorageKeyVaultPasswordPtrOutputWithContext(ctx context.Context) LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput {
+	return o.ApplyT(func(v LinkedServiceAzureFileStorageKeyVaultPassword) *LinkedServiceAzureFileStorageKeyVaultPassword {
+		return &v
+	}).(LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput)
+}
+
+// Specifies the name of an existing Key Vault Data Factory Linked Service.
+func (o LinkedServiceAzureFileStorageKeyVaultPasswordOutput) LinkedServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceAzureFileStorageKeyVaultPassword) string { return v.LinkedServiceName }).(pulumi.StringOutput)
+}
+
+// Specifies the secret name in Azure Key Vault that stores Azure File Storage password.
+func (o LinkedServiceAzureFileStorageKeyVaultPasswordOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceAzureFileStorageKeyVaultPassword) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+type LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceAzureFileStorageKeyVaultPassword)(nil)).Elem()
+}
+
+func (o LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput) ToLinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput() LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput {
+	return o
+}
+
+func (o LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput) ToLinkedServiceAzureFileStorageKeyVaultPasswordPtrOutputWithContext(ctx context.Context) LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput {
+	return o
+}
+
+func (o LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput) Elem() LinkedServiceAzureFileStorageKeyVaultPasswordOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureFileStorageKeyVaultPassword) LinkedServiceAzureFileStorageKeyVaultPassword {
+		return *v
+	}).(LinkedServiceAzureFileStorageKeyVaultPasswordOutput)
+}
+
+// Specifies the name of an existing Key Vault Data Factory Linked Service.
+func (o LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput) LinkedServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureFileStorageKeyVaultPassword) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LinkedServiceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the secret name in Azure Key Vault that stores Azure File Storage password.
+func (o LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureFileStorageKeyVaultPassword) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretName
+	}).(pulumi.StringPtrOutput)
+}
+
 type LinkedServiceAzureSqlDatabaseKeyVaultPassword struct {
 	// Specifies the name of an existing Key Vault Data Factory Linked Service.
 	LinkedServiceName string `pulumi:"linkedServiceName"`
@@ -5405,6 +5672,8 @@ func init() {
 	pulumi.RegisterOutputType(DatasetParquetSchemaColumnArrayOutput{})
 	pulumi.RegisterOutputType(DatasetPostgresqlSchemaColumnOutput{})
 	pulumi.RegisterOutputType(DatasetPostgresqlSchemaColumnArrayOutput{})
+	pulumi.RegisterOutputType(DatasetSnowflakeSchemaColumnOutput{})
+	pulumi.RegisterOutputType(DatasetSnowflakeSchemaColumnArrayOutput{})
 	pulumi.RegisterOutputType(DatasetSqlServerTableSchemaColumnOutput{})
 	pulumi.RegisterOutputType(DatasetSqlServerTableSchemaColumnArrayOutput{})
 	pulumi.RegisterOutputType(FactoryGithubConfigurationOutput{})
@@ -5433,6 +5702,8 @@ func init() {
 	pulumi.RegisterOutputType(LinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureDatabricksNewClusterConfigOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureDatabricksNewClusterConfigPtrOutput{})
+	pulumi.RegisterOutputType(LinkedServiceAzureFileStorageKeyVaultPasswordOutput{})
+	pulumi.RegisterOutputType(LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureSqlDatabaseKeyVaultPasswordOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSnowflakeKeyVaultPasswordOutput{})

@@ -100,6 +100,10 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly dnsNameLabel!: pulumi.Output<string | undefined>;
     /**
+     * Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
+     */
+    public readonly exposedPorts!: pulumi.Output<outputs.containerservice.GroupExposedPort[]>;
+    /**
      * The FQDN of the container group derived from `dnsNameLabel`.
      */
     public /*out*/ readonly fqdn!: pulumi.Output<string>;
@@ -165,6 +169,7 @@ export class Group extends pulumi.CustomResource {
             inputs["diagnostics"] = state ? state.diagnostics : undefined;
             inputs["dnsConfig"] = state ? state.dnsConfig : undefined;
             inputs["dnsNameLabel"] = state ? state.dnsNameLabel : undefined;
+            inputs["exposedPorts"] = state ? state.exposedPorts : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["imageRegistryCredentials"] = state ? state.imageRegistryCredentials : undefined;
@@ -192,6 +197,7 @@ export class Group extends pulumi.CustomResource {
             inputs["diagnostics"] = args ? args.diagnostics : undefined;
             inputs["dnsConfig"] = args ? args.dnsConfig : undefined;
             inputs["dnsNameLabel"] = args ? args.dnsNameLabel : undefined;
+            inputs["exposedPorts"] = args ? args.exposedPorts : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["imageRegistryCredentials"] = args ? args.imageRegistryCredentials : undefined;
             inputs["ipAddressType"] = args ? args.ipAddressType : undefined;
@@ -232,6 +238,10 @@ export interface GroupState {
      * The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
      */
     readonly dnsNameLabel?: pulumi.Input<string>;
+    /**
+     * Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
+     */
+    readonly exposedPorts?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupExposedPort>[]>;
     /**
      * The FQDN of the container group derived from `dnsNameLabel`.
      */
@@ -302,6 +312,10 @@ export interface GroupArgs {
      * The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
      */
     readonly dnsNameLabel?: pulumi.Input<string>;
+    /**
+     * Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
+     */
+    readonly exposedPorts?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupExposedPort>[]>;
     /**
      * An `identity` block as defined below.
      */

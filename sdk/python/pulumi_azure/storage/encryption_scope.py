@@ -15,17 +15,21 @@ class EncryptionScopeArgs:
     def __init__(__self__, *,
                  source: pulumi.Input[str],
                  storage_account_id: pulumi.Input[str],
+                 infrastructure_encryption_required: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a EncryptionScope resource.
         :param pulumi.Input[str] source: The source of the Storage Encryption Scope. Possible values are `Microsoft.KeyVault` and `Microsoft.Storage`.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where this Storage Encryption Scope is created. Changing this forces a new Storage Encryption Scope to be created.
+        :param pulumi.Input[bool] infrastructure_encryption_required: Is a secondary layer of encryption with Platform Managed Keys for data applied?
         :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
         :param pulumi.Input[str] name: The name which should be used for this Storage Encryption Scope. Changing this forces a new Storage Encryption Scope to be created.
         """
         pulumi.set(__self__, "source", source)
         pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if infrastructure_encryption_required is not None:
+            pulumi.set(__self__, "infrastructure_encryption_required", infrastructure_encryption_required)
         if key_vault_key_id is not None:
             pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if name is not None:
@@ -56,6 +60,18 @@ class EncryptionScopeArgs:
         pulumi.set(self, "storage_account_id", value)
 
     @property
+    @pulumi.getter(name="infrastructureEncryptionRequired")
+    def infrastructure_encryption_required(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is a secondary layer of encryption with Platform Managed Keys for data applied?
+        """
+        return pulumi.get(self, "infrastructure_encryption_required")
+
+    @infrastructure_encryption_required.setter
+    def infrastructure_encryption_required(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "infrastructure_encryption_required", value)
+
+    @property
     @pulumi.getter(name="keyVaultKeyId")
     def key_vault_key_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -83,17 +99,21 @@ class EncryptionScopeArgs:
 @pulumi.input_type
 class _EncryptionScopeState:
     def __init__(__self__, *,
+                 infrastructure_encryption_required: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EncryptionScope resources.
+        :param pulumi.Input[bool] infrastructure_encryption_required: Is a secondary layer of encryption with Platform Managed Keys for data applied?
         :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
         :param pulumi.Input[str] name: The name which should be used for this Storage Encryption Scope. Changing this forces a new Storage Encryption Scope to be created.
         :param pulumi.Input[str] source: The source of the Storage Encryption Scope. Possible values are `Microsoft.KeyVault` and `Microsoft.Storage`.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where this Storage Encryption Scope is created. Changing this forces a new Storage Encryption Scope to be created.
         """
+        if infrastructure_encryption_required is not None:
+            pulumi.set(__self__, "infrastructure_encryption_required", infrastructure_encryption_required)
         if key_vault_key_id is not None:
             pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if name is not None:
@@ -102,6 +122,18 @@ class _EncryptionScopeState:
             pulumi.set(__self__, "source", source)
         if storage_account_id is not None:
             pulumi.set(__self__, "storage_account_id", storage_account_id)
+
+    @property
+    @pulumi.getter(name="infrastructureEncryptionRequired")
+    def infrastructure_encryption_required(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is a secondary layer of encryption with Platform Managed Keys for data applied?
+        """
+        return pulumi.get(self, "infrastructure_encryption_required")
+
+    @infrastructure_encryption_required.setter
+    def infrastructure_encryption_required(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "infrastructure_encryption_required", value)
 
     @property
     @pulumi.getter(name="keyVaultKeyId")
@@ -157,6 +189,7 @@ class EncryptionScope(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 infrastructure_encryption_required: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None,
@@ -197,6 +230,7 @@ class EncryptionScope(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] infrastructure_encryption_required: Is a secondary layer of encryption with Platform Managed Keys for data applied?
         :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
         :param pulumi.Input[str] name: The name which should be used for this Storage Encryption Scope. Changing this forces a new Storage Encryption Scope to be created.
         :param pulumi.Input[str] source: The source of the Storage Encryption Scope. Possible values are `Microsoft.KeyVault` and `Microsoft.Storage`.
@@ -256,6 +290,7 @@ class EncryptionScope(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 infrastructure_encryption_required: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None,
@@ -272,6 +307,7 @@ class EncryptionScope(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EncryptionScopeArgs.__new__(EncryptionScopeArgs)
 
+            __props__.__dict__["infrastructure_encryption_required"] = infrastructure_encryption_required
             __props__.__dict__["key_vault_key_id"] = key_vault_key_id
             __props__.__dict__["name"] = name
             if source is None and not opts.urn:
@@ -290,6 +326,7 @@ class EncryptionScope(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            infrastructure_encryption_required: Optional[pulumi.Input[bool]] = None,
             key_vault_key_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             source: Optional[pulumi.Input[str]] = None,
@@ -301,6 +338,7 @@ class EncryptionScope(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] infrastructure_encryption_required: Is a secondary layer of encryption with Platform Managed Keys for data applied?
         :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
         :param pulumi.Input[str] name: The name which should be used for this Storage Encryption Scope. Changing this forces a new Storage Encryption Scope to be created.
         :param pulumi.Input[str] source: The source of the Storage Encryption Scope. Possible values are `Microsoft.KeyVault` and `Microsoft.Storage`.
@@ -310,11 +348,20 @@ class EncryptionScope(pulumi.CustomResource):
 
         __props__ = _EncryptionScopeState.__new__(_EncryptionScopeState)
 
+        __props__.__dict__["infrastructure_encryption_required"] = infrastructure_encryption_required
         __props__.__dict__["key_vault_key_id"] = key_vault_key_id
         __props__.__dict__["name"] = name
         __props__.__dict__["source"] = source
         __props__.__dict__["storage_account_id"] = storage_account_id
         return EncryptionScope(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="infrastructureEncryptionRequired")
+    def infrastructure_encryption_required(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is a secondary layer of encryption with Platform Managed Keys for data applied?
+        """
+        return pulumi.get(self, "infrastructure_encryption_required")
 
     @property
     @pulumi.getter(name="keyVaultKeyId")

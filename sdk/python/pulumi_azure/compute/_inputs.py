@@ -10,6 +10,8 @@ from .. import _utilities
 
 __all__ = [
     'BastionHostIpConfigurationArgs',
+    'ConfigurationPolicyAssignmentConfigurationArgs',
+    'ConfigurationPolicyAssignmentConfigurationParameterArgs',
     'DiskEncryptionSetIdentityArgs',
     'ImageDataDiskArgs',
     'ImageOsDiskArgs',
@@ -172,6 +174,97 @@ class BastionHostIpConfigurationArgs:
     @subnet_id.setter
     def subnet_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "subnet_id", value)
+
+
+@pulumi.input_type
+class ConfigurationPolicyAssignmentConfigurationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationPolicyAssignmentConfigurationParameterArgs']]]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationPolicyAssignmentConfigurationParameterArgs']]] parameters: One or more `parameter` blocks which define what configuration parameters and values against.
+        :param pulumi.Input[str] version: The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
+        """
+        pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationPolicyAssignmentConfigurationParameterArgs']]]]:
+        """
+        One or more `parameter` blocks which define what configuration parameters and values against.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationPolicyAssignmentConfigurationParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class ConfigurationPolicyAssignmentConfigurationParameterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the configuration parameter to check.
+        :param pulumi.Input[str] value: The value to check the configuration parameter with.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the configuration parameter to check.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value to check the configuration parameter with.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

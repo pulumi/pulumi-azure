@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPolicyRuleFilterResult> Filters;
         /// <summary>
-        /// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+        /// The filter tag name used for tag based filtering for blob objects.
         /// </summary>
         public readonly string Name;
 

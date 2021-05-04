@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure:avs/cluster:Cluster":
+		r = &Cluster{}
 	case "azure:avs/privateCloud:PrivateCloud":
 		r = &PrivateCloud{}
 	default:
@@ -36,6 +38,11 @@ func init() {
 	if err != nil {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
+	pulumi.RegisterResourceModule(
+		"azure",
+		"avs/cluster",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"azure",
 		"avs/privateCloud",

@@ -19,6 +19,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<bool>? BalanceSimilarNodeGroups { get; set; }
 
         /// <summary>
+        /// Maximum number of empty nodes that can be deleted at the same time. Defaults to `10`.
+        /// </summary>
+        [Input("emptyBulkDeleteMax")]
+        public Input<string>? EmptyBulkDeleteMax { get; set; }
+
+        /// <summary>
         /// Expander to use. Possible values are `least-waste`, `priority`, `most-pods` and `random`. Defaults to `random`.
         /// </summary>
         [Input("expander")]
@@ -29,6 +35,24 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// </summary>
         [Input("maxGracefulTerminationSec")]
         public Input<string>? MaxGracefulTerminationSec { get; set; }
+
+        /// <summary>
+        /// Maximum time the autoscaler waits for a node to be provisioned. Defaults to `15m`.
+        /// </summary>
+        [Input("maxNodeProvisioningTime")]
+        public Input<string>? MaxNodeProvisioningTime { get; set; }
+
+        /// <summary>
+        /// Maximum Number of allowed unready nodes. Defaults to `3`.
+        /// </summary>
+        [Input("maxUnreadyNodes")]
+        public Input<int>? MaxUnreadyNodes { get; set; }
+
+        /// <summary>
+        /// Maximum percentage of unready nodes the cluster autoscaler will stop if the percentage is exceeded. Defaults to `45`.
+        /// </summary>
+        [Input("maxUnreadyPercentage")]
+        public Input<double>? MaxUnreadyPercentage { get; set; }
 
         /// <summary>
         /// For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. Defaults to `10s`.

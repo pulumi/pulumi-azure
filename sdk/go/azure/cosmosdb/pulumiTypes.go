@@ -2464,6 +2464,175 @@ func (o SqlContainerAutoscaleSettingsPtrOutput) MaxThroughput() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
+type SqlContainerConflictResolutionPolicy struct {
+	// The conflict resolution path in the case of `LastWriterWins` mode.
+	ConflictResolutionPath *string `pulumi:"conflictResolutionPath"`
+	// The procedure to resolve conflicts in the case of `Custom` mode.
+	ConflictResolutionProcedure *string `pulumi:"conflictResolutionProcedure"`
+	// Indicates the conflict resolution mode. Possible values include: `LastWriterWins`, `Custom`.
+	Mode string `pulumi:"mode"`
+}
+
+// SqlContainerConflictResolutionPolicyInput is an input type that accepts SqlContainerConflictResolutionPolicyArgs and SqlContainerConflictResolutionPolicyOutput values.
+// You can construct a concrete instance of `SqlContainerConflictResolutionPolicyInput` via:
+//
+//          SqlContainerConflictResolutionPolicyArgs{...}
+type SqlContainerConflictResolutionPolicyInput interface {
+	pulumi.Input
+
+	ToSqlContainerConflictResolutionPolicyOutput() SqlContainerConflictResolutionPolicyOutput
+	ToSqlContainerConflictResolutionPolicyOutputWithContext(context.Context) SqlContainerConflictResolutionPolicyOutput
+}
+
+type SqlContainerConflictResolutionPolicyArgs struct {
+	// The conflict resolution path in the case of `LastWriterWins` mode.
+	ConflictResolutionPath pulumi.StringPtrInput `pulumi:"conflictResolutionPath"`
+	// The procedure to resolve conflicts in the case of `Custom` mode.
+	ConflictResolutionProcedure pulumi.StringPtrInput `pulumi:"conflictResolutionProcedure"`
+	// Indicates the conflict resolution mode. Possible values include: `LastWriterWins`, `Custom`.
+	Mode pulumi.StringInput `pulumi:"mode"`
+}
+
+func (SqlContainerConflictResolutionPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlContainerConflictResolutionPolicy)(nil)).Elem()
+}
+
+func (i SqlContainerConflictResolutionPolicyArgs) ToSqlContainerConflictResolutionPolicyOutput() SqlContainerConflictResolutionPolicyOutput {
+	return i.ToSqlContainerConflictResolutionPolicyOutputWithContext(context.Background())
+}
+
+func (i SqlContainerConflictResolutionPolicyArgs) ToSqlContainerConflictResolutionPolicyOutputWithContext(ctx context.Context) SqlContainerConflictResolutionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerConflictResolutionPolicyOutput)
+}
+
+func (i SqlContainerConflictResolutionPolicyArgs) ToSqlContainerConflictResolutionPolicyPtrOutput() SqlContainerConflictResolutionPolicyPtrOutput {
+	return i.ToSqlContainerConflictResolutionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i SqlContainerConflictResolutionPolicyArgs) ToSqlContainerConflictResolutionPolicyPtrOutputWithContext(ctx context.Context) SqlContainerConflictResolutionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerConflictResolutionPolicyOutput).ToSqlContainerConflictResolutionPolicyPtrOutputWithContext(ctx)
+}
+
+// SqlContainerConflictResolutionPolicyPtrInput is an input type that accepts SqlContainerConflictResolutionPolicyArgs, SqlContainerConflictResolutionPolicyPtr and SqlContainerConflictResolutionPolicyPtrOutput values.
+// You can construct a concrete instance of `SqlContainerConflictResolutionPolicyPtrInput` via:
+//
+//          SqlContainerConflictResolutionPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type SqlContainerConflictResolutionPolicyPtrInput interface {
+	pulumi.Input
+
+	ToSqlContainerConflictResolutionPolicyPtrOutput() SqlContainerConflictResolutionPolicyPtrOutput
+	ToSqlContainerConflictResolutionPolicyPtrOutputWithContext(context.Context) SqlContainerConflictResolutionPolicyPtrOutput
+}
+
+type sqlContainerConflictResolutionPolicyPtrType SqlContainerConflictResolutionPolicyArgs
+
+func SqlContainerConflictResolutionPolicyPtr(v *SqlContainerConflictResolutionPolicyArgs) SqlContainerConflictResolutionPolicyPtrInput {
+	return (*sqlContainerConflictResolutionPolicyPtrType)(v)
+}
+
+func (*sqlContainerConflictResolutionPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlContainerConflictResolutionPolicy)(nil)).Elem()
+}
+
+func (i *sqlContainerConflictResolutionPolicyPtrType) ToSqlContainerConflictResolutionPolicyPtrOutput() SqlContainerConflictResolutionPolicyPtrOutput {
+	return i.ToSqlContainerConflictResolutionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *sqlContainerConflictResolutionPolicyPtrType) ToSqlContainerConflictResolutionPolicyPtrOutputWithContext(ctx context.Context) SqlContainerConflictResolutionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerConflictResolutionPolicyPtrOutput)
+}
+
+type SqlContainerConflictResolutionPolicyOutput struct{ *pulumi.OutputState }
+
+func (SqlContainerConflictResolutionPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlContainerConflictResolutionPolicy)(nil)).Elem()
+}
+
+func (o SqlContainerConflictResolutionPolicyOutput) ToSqlContainerConflictResolutionPolicyOutput() SqlContainerConflictResolutionPolicyOutput {
+	return o
+}
+
+func (o SqlContainerConflictResolutionPolicyOutput) ToSqlContainerConflictResolutionPolicyOutputWithContext(ctx context.Context) SqlContainerConflictResolutionPolicyOutput {
+	return o
+}
+
+func (o SqlContainerConflictResolutionPolicyOutput) ToSqlContainerConflictResolutionPolicyPtrOutput() SqlContainerConflictResolutionPolicyPtrOutput {
+	return o.ToSqlContainerConflictResolutionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o SqlContainerConflictResolutionPolicyOutput) ToSqlContainerConflictResolutionPolicyPtrOutputWithContext(ctx context.Context) SqlContainerConflictResolutionPolicyPtrOutput {
+	return o.ApplyT(func(v SqlContainerConflictResolutionPolicy) *SqlContainerConflictResolutionPolicy {
+		return &v
+	}).(SqlContainerConflictResolutionPolicyPtrOutput)
+}
+
+// The conflict resolution path in the case of `LastWriterWins` mode.
+func (o SqlContainerConflictResolutionPolicyOutput) ConflictResolutionPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlContainerConflictResolutionPolicy) *string { return v.ConflictResolutionPath }).(pulumi.StringPtrOutput)
+}
+
+// The procedure to resolve conflicts in the case of `Custom` mode.
+func (o SqlContainerConflictResolutionPolicyOutput) ConflictResolutionProcedure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlContainerConflictResolutionPolicy) *string { return v.ConflictResolutionProcedure }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the conflict resolution mode. Possible values include: `LastWriterWins`, `Custom`.
+func (o SqlContainerConflictResolutionPolicyOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlContainerConflictResolutionPolicy) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+type SqlContainerConflictResolutionPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (SqlContainerConflictResolutionPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlContainerConflictResolutionPolicy)(nil)).Elem()
+}
+
+func (o SqlContainerConflictResolutionPolicyPtrOutput) ToSqlContainerConflictResolutionPolicyPtrOutput() SqlContainerConflictResolutionPolicyPtrOutput {
+	return o
+}
+
+func (o SqlContainerConflictResolutionPolicyPtrOutput) ToSqlContainerConflictResolutionPolicyPtrOutputWithContext(ctx context.Context) SqlContainerConflictResolutionPolicyPtrOutput {
+	return o
+}
+
+func (o SqlContainerConflictResolutionPolicyPtrOutput) Elem() SqlContainerConflictResolutionPolicyOutput {
+	return o.ApplyT(func(v *SqlContainerConflictResolutionPolicy) SqlContainerConflictResolutionPolicy { return *v }).(SqlContainerConflictResolutionPolicyOutput)
+}
+
+// The conflict resolution path in the case of `LastWriterWins` mode.
+func (o SqlContainerConflictResolutionPolicyPtrOutput) ConflictResolutionPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlContainerConflictResolutionPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConflictResolutionPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// The procedure to resolve conflicts in the case of `Custom` mode.
+func (o SqlContainerConflictResolutionPolicyPtrOutput) ConflictResolutionProcedure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlContainerConflictResolutionPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConflictResolutionProcedure
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates the conflict resolution mode. Possible values include: `LastWriterWins`, `Custom`.
+func (o SqlContainerConflictResolutionPolicyPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlContainerConflictResolutionPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
 type SqlContainerIndexingPolicy struct {
 	// One or more `compositeIndex` blocks as defined below.
 	CompositeIndices []SqlContainerIndexingPolicyCompositeIndex `pulumi:"compositeIndices"`
@@ -3874,6 +4043,8 @@ func init() {
 	pulumi.RegisterOutputType(MongoDatabaseAutoscaleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SqlContainerAutoscaleSettingsOutput{})
 	pulumi.RegisterOutputType(SqlContainerAutoscaleSettingsPtrOutput{})
+	pulumi.RegisterOutputType(SqlContainerConflictResolutionPolicyOutput{})
+	pulumi.RegisterOutputType(SqlContainerConflictResolutionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(SqlContainerIndexingPolicyOutput{})
 	pulumi.RegisterOutputType(SqlContainerIndexingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(SqlContainerIndexingPolicyCompositeIndexOutput{})

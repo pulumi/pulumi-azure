@@ -87,4 +87,8 @@ export interface GetKeyResult {
      * The current version of the Key Vault Key.
      */
     readonly version: string;
+    /**
+     * The Base ID of the Key Vault Key.
+     */
+    readonly versionlessId: string;
 }

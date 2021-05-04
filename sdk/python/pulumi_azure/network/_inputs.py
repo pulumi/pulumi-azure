@@ -7801,15 +7801,15 @@ class VirtualNetworkGatewayConnectionIpsecPolicyArgs:
                options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`,
                `ECP256`, `ECP384`, or `None`.
         :param pulumi.Input[str] ike_encryption: The IKE encryption algorithm. Valid
-               options are `AES128`, `AES192`, `AES256`, `DES`, or `DES3`.
+               options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, or `GCMAES256`.
         :param pulumi.Input[str] ike_integrity: The IKE integrity algorithm. Valid
-               options are `MD5`, `SHA1`, `SHA256`, or `SHA384`.
+               options are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256`, or `SHA384`.
         :param pulumi.Input[str] ipsec_encryption: The IPSec encryption algorithm. Valid
                options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
         :param pulumi.Input[str] ipsec_integrity: The IPSec integrity algorithm. Valid
                options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
         :param pulumi.Input[str] pfs_group: The DH group used in IKE phase 2 for new child SA.
-               Valid options are `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS2048`, `PFS24`,
+               Valid options are `ECP256`, `ECP384`, `PFS1`, `PFS14`, `PFS2`, `PFS2048`, `PFS24`, `PFSMM`,
                or `None`.
         :param pulumi.Input[int] sa_datasize: The IPSec SA payload size in KB. Must be at least
                `1024` KB. Defaults to `102400000` KB.
@@ -7846,7 +7846,7 @@ class VirtualNetworkGatewayConnectionIpsecPolicyArgs:
     def ike_encryption(self) -> pulumi.Input[str]:
         """
         The IKE encryption algorithm. Valid
-        options are `AES128`, `AES192`, `AES256`, `DES`, or `DES3`.
+        options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, or `GCMAES256`.
         """
         return pulumi.get(self, "ike_encryption")
 
@@ -7859,7 +7859,7 @@ class VirtualNetworkGatewayConnectionIpsecPolicyArgs:
     def ike_integrity(self) -> pulumi.Input[str]:
         """
         The IKE integrity algorithm. Valid
-        options are `MD5`, `SHA1`, `SHA256`, or `SHA384`.
+        options are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256`, or `SHA384`.
         """
         return pulumi.get(self, "ike_integrity")
 
@@ -7898,7 +7898,7 @@ class VirtualNetworkGatewayConnectionIpsecPolicyArgs:
     def pfs_group(self) -> pulumi.Input[str]:
         """
         The DH group used in IKE phase 2 for new child SA.
-        Valid options are `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS2048`, `PFS24`,
+        Valid options are `ECP256`, `ECP384`, `PFS1`, `PFS14`, `PFS2`, `PFS2048`, `PFS24`, `PFSMM`,
         or `None`.
         """
         return pulumi.get(self, "pfs_group")
@@ -7966,7 +7966,7 @@ class VirtualNetworkGatewayCustomRouteArgs:
     def __init__(__self__, *,
                  address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] address_prefixes: A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] address_prefixes: A list of address blocks reserved for this virtual network in CIDR notation.
         """
         if address_prefixes is not None:
             pulumi.set(__self__, "address_prefixes", address_prefixes)
@@ -7975,7 +7975,7 @@ class VirtualNetworkGatewayCustomRouteArgs:
     @pulumi.getter(name="addressPrefixes")
     def address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+        A list of address blocks reserved for this virtual network in CIDR notation.
         """
         return pulumi.get(self, "address_prefixes")
 

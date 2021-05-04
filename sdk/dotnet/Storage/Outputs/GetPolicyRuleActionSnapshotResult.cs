@@ -14,13 +14,28 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class GetPolicyRuleActionSnapshotResult
     {
         /// <summary>
-        /// The age in days after create to delete the snapshot.
+        /// The age in days after creation to tier blob version to archive storage.
+        /// </summary>
+        public readonly int ChangeTierToArchiveAfterDaysSinceCreation;
+        /// <summary>
+        /// The age in days after creation to tier blob version to cool storage.
+        /// </summary>
+        public readonly int ChangeTierToCoolAfterDaysSinceCreation;
+        /// <summary>
+        /// The age in days after creation to delete the blob snapshot.
         /// </summary>
         public readonly int DeleteAfterDaysSinceCreationGreaterThan;
 
         [OutputConstructor]
-        private GetPolicyRuleActionSnapshotResult(int deleteAfterDaysSinceCreationGreaterThan)
+        private GetPolicyRuleActionSnapshotResult(
+            int changeTierToArchiveAfterDaysSinceCreation,
+
+            int changeTierToCoolAfterDaysSinceCreation,
+
+            int deleteAfterDaysSinceCreationGreaterThan)
         {
+            ChangeTierToArchiveAfterDaysSinceCreation = changeTierToArchiveAfterDaysSinceCreation;
+            ChangeTierToCoolAfterDaysSinceCreation = changeTierToCoolAfterDaysSinceCreation;
             DeleteAfterDaysSinceCreationGreaterThan = deleteAfterDaysSinceCreationGreaterThan;
         }
     }

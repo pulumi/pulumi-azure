@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Lighthouse.Outputs
     public sealed class DefinitionAuthorization
     {
         /// <summary>
+        /// The set of role definition ids which define all the permissions that the principal id can assign.
+        /// </summary>
+        public readonly ImmutableArray<string> DelegatedRoleDefinitionIds;
+        /// <summary>
         /// The display name of the security group/service principal/user that would be assigned permissions to the projected subscription.
         /// </summary>
         public readonly string? PrincipalDisplayName;
@@ -28,12 +32,15 @@ namespace Pulumi.Azure.Lighthouse.Outputs
 
         [OutputConstructor]
         private DefinitionAuthorization(
+            ImmutableArray<string> delegatedRoleDefinitionIds,
+
             string? principalDisplayName,
 
             string principalId,
 
             string roleDefinitionId)
         {
+            DelegatedRoleDefinitionIds = delegatedRoleDefinitionIds;
             PrincipalDisplayName = principalDisplayName;
             PrincipalId = principalId;
             RoleDefinitionId = roleDefinitionId;

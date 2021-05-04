@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:media/asset:Asset":
 		r = &Asset{}
+	case "azure:media/assetFilter:AssetFilter":
+		r = &AssetFilter{}
 	case "azure:media/contentKeyPolicy:ContentKeyPolicy":
 		r = &ContentKeyPolicy{}
 	case "azure:media/job:Job":
@@ -57,6 +59,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"media/asset",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"media/assetFilter",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

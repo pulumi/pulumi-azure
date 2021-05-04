@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * const exampleLinkedServiceSnowflake = new azure.datafactory.LinkedServiceSnowflake("exampleLinkedServiceSnowflake", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     dataFactoryName: exampleFactory.name,
- *     connectionString: "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test",
+ *     connectionString: "jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh",
  * });
  * ```
  * ### With Password In Key Vault

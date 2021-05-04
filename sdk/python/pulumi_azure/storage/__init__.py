@@ -14,6 +14,7 @@ from .encryption_scope import *
 from .get_account import *
 from .get_account_blob_container_sas import *
 from .get_account_sas import *
+from .get_blob import *
 from .get_encryption_scope import *
 from .get_policy import *
 from .get_storage_container import *

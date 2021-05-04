@@ -13,9 +13,9 @@ import (
 
 // Manages a HPC Cache.
 //
-// > **Note**: During the first several months of the GA release, a request must be made to the Azure HPC Cache team to add your subscription to the access list before it can be used to create a cache instance. Fill out [this form](https://aka.ms/onboard-hpc-cache) to request access.
+// > **Note:** During the first several months of the GA release, a request must be made to the Azure HPC Cache team to add your subscription to the access list before it can be used to create a cache instance. Fill out [this form](https://aka.ms/onboard-hpc-cache) to request access.
 //
-// > **NOTE:**: By request of the service team the provider no longer automatically registering the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace 'Microsoft.StorageCache'`.
+// > **Note:** By request of the service team the provider no longer automatically registering the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace 'Microsoft.StorageCache'`.
 //
 // ## Example Usage
 //
@@ -86,6 +86,12 @@ type Cache struct {
 	CacheSizeInGb pulumi.IntOutput `pulumi:"cacheSizeInGb"`
 	// A `defaultAccessPolicy` block as defined below.
 	DefaultAccessPolicy CacheDefaultAccessPolicyOutput `pulumi:"defaultAccessPolicy"`
+	// A `directoryActiveDirectory` block as defined below.
+	DirectoryActiveDirectory CacheDirectoryActiveDirectoryPtrOutput `pulumi:"directoryActiveDirectory"`
+	// A `directoryFlatFile` block as defined below.
+	DirectoryFlatFile CacheDirectoryFlatFilePtrOutput `pulumi:"directoryFlatFile"`
+	// A `directoryLdap` block as defined below.
+	DirectoryLdap CacheDirectoryLdapPtrOutput `pulumi:"directoryLdap"`
 	// A `dns` block as defined below.
 	Dns CacheDnsPtrOutput `pulumi:"dns"`
 	// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
@@ -157,6 +163,12 @@ type cacheState struct {
 	CacheSizeInGb *int `pulumi:"cacheSizeInGb"`
 	// A `defaultAccessPolicy` block as defined below.
 	DefaultAccessPolicy *CacheDefaultAccessPolicy `pulumi:"defaultAccessPolicy"`
+	// A `directoryActiveDirectory` block as defined below.
+	DirectoryActiveDirectory *CacheDirectoryActiveDirectory `pulumi:"directoryActiveDirectory"`
+	// A `directoryFlatFile` block as defined below.
+	DirectoryFlatFile *CacheDirectoryFlatFile `pulumi:"directoryFlatFile"`
+	// A `directoryLdap` block as defined below.
+	DirectoryLdap *CacheDirectoryLdap `pulumi:"directoryLdap"`
 	// A `dns` block as defined below.
 	Dns *CacheDns `pulumi:"dns"`
 	// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
@@ -188,6 +200,12 @@ type CacheState struct {
 	CacheSizeInGb pulumi.IntPtrInput
 	// A `defaultAccessPolicy` block as defined below.
 	DefaultAccessPolicy CacheDefaultAccessPolicyPtrInput
+	// A `directoryActiveDirectory` block as defined below.
+	DirectoryActiveDirectory CacheDirectoryActiveDirectoryPtrInput
+	// A `directoryFlatFile` block as defined below.
+	DirectoryFlatFile CacheDirectoryFlatFilePtrInput
+	// A `directoryLdap` block as defined below.
+	DirectoryLdap CacheDirectoryLdapPtrInput
 	// A `dns` block as defined below.
 	Dns CacheDnsPtrInput
 	// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
@@ -223,6 +241,12 @@ type cacheArgs struct {
 	CacheSizeInGb int `pulumi:"cacheSizeInGb"`
 	// A `defaultAccessPolicy` block as defined below.
 	DefaultAccessPolicy *CacheDefaultAccessPolicy `pulumi:"defaultAccessPolicy"`
+	// A `directoryActiveDirectory` block as defined below.
+	DirectoryActiveDirectory *CacheDirectoryActiveDirectory `pulumi:"directoryActiveDirectory"`
+	// A `directoryFlatFile` block as defined below.
+	DirectoryFlatFile *CacheDirectoryFlatFile `pulumi:"directoryFlatFile"`
+	// A `directoryLdap` block as defined below.
+	DirectoryLdap *CacheDirectoryLdap `pulumi:"directoryLdap"`
 	// A `dns` block as defined below.
 	Dns *CacheDns `pulumi:"dns"`
 	// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
@@ -253,6 +277,12 @@ type CacheArgs struct {
 	CacheSizeInGb pulumi.IntInput
 	// A `defaultAccessPolicy` block as defined below.
 	DefaultAccessPolicy CacheDefaultAccessPolicyPtrInput
+	// A `directoryActiveDirectory` block as defined below.
+	DirectoryActiveDirectory CacheDirectoryActiveDirectoryPtrInput
+	// A `directoryFlatFile` block as defined below.
+	DirectoryFlatFile CacheDirectoryFlatFilePtrInput
+	// A `directoryLdap` block as defined below.
+	DirectoryLdap CacheDirectoryLdapPtrInput
 	// A `dns` block as defined below.
 	Dns CacheDnsPtrInput
 	// Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.

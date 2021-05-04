@@ -10,6 +10,175 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type FlexibleServerMaintenanceWindow struct {
+	// The day of week for maintenance window. Defaults to `0`.
+	DayOfWeek *int `pulumi:"dayOfWeek"`
+	// The day of week for maintenance window. Defaults to `0`.
+	StartHour *int `pulumi:"startHour"`
+	// The start minute for maintenance window. Defaults to `0`.
+	StartMinute *int `pulumi:"startMinute"`
+}
+
+// FlexibleServerMaintenanceWindowInput is an input type that accepts FlexibleServerMaintenanceWindowArgs and FlexibleServerMaintenanceWindowOutput values.
+// You can construct a concrete instance of `FlexibleServerMaintenanceWindowInput` via:
+//
+//          FlexibleServerMaintenanceWindowArgs{...}
+type FlexibleServerMaintenanceWindowInput interface {
+	pulumi.Input
+
+	ToFlexibleServerMaintenanceWindowOutput() FlexibleServerMaintenanceWindowOutput
+	ToFlexibleServerMaintenanceWindowOutputWithContext(context.Context) FlexibleServerMaintenanceWindowOutput
+}
+
+type FlexibleServerMaintenanceWindowArgs struct {
+	// The day of week for maintenance window. Defaults to `0`.
+	DayOfWeek pulumi.IntPtrInput `pulumi:"dayOfWeek"`
+	// The day of week for maintenance window. Defaults to `0`.
+	StartHour pulumi.IntPtrInput `pulumi:"startHour"`
+	// The start minute for maintenance window. Defaults to `0`.
+	StartMinute pulumi.IntPtrInput `pulumi:"startMinute"`
+}
+
+func (FlexibleServerMaintenanceWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlexibleServerMaintenanceWindow)(nil)).Elem()
+}
+
+func (i FlexibleServerMaintenanceWindowArgs) ToFlexibleServerMaintenanceWindowOutput() FlexibleServerMaintenanceWindowOutput {
+	return i.ToFlexibleServerMaintenanceWindowOutputWithContext(context.Background())
+}
+
+func (i FlexibleServerMaintenanceWindowArgs) ToFlexibleServerMaintenanceWindowOutputWithContext(ctx context.Context) FlexibleServerMaintenanceWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerMaintenanceWindowOutput)
+}
+
+func (i FlexibleServerMaintenanceWindowArgs) ToFlexibleServerMaintenanceWindowPtrOutput() FlexibleServerMaintenanceWindowPtrOutput {
+	return i.ToFlexibleServerMaintenanceWindowPtrOutputWithContext(context.Background())
+}
+
+func (i FlexibleServerMaintenanceWindowArgs) ToFlexibleServerMaintenanceWindowPtrOutputWithContext(ctx context.Context) FlexibleServerMaintenanceWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerMaintenanceWindowOutput).ToFlexibleServerMaintenanceWindowPtrOutputWithContext(ctx)
+}
+
+// FlexibleServerMaintenanceWindowPtrInput is an input type that accepts FlexibleServerMaintenanceWindowArgs, FlexibleServerMaintenanceWindowPtr and FlexibleServerMaintenanceWindowPtrOutput values.
+// You can construct a concrete instance of `FlexibleServerMaintenanceWindowPtrInput` via:
+//
+//          FlexibleServerMaintenanceWindowArgs{...}
+//
+//  or:
+//
+//          nil
+type FlexibleServerMaintenanceWindowPtrInput interface {
+	pulumi.Input
+
+	ToFlexibleServerMaintenanceWindowPtrOutput() FlexibleServerMaintenanceWindowPtrOutput
+	ToFlexibleServerMaintenanceWindowPtrOutputWithContext(context.Context) FlexibleServerMaintenanceWindowPtrOutput
+}
+
+type flexibleServerMaintenanceWindowPtrType FlexibleServerMaintenanceWindowArgs
+
+func FlexibleServerMaintenanceWindowPtr(v *FlexibleServerMaintenanceWindowArgs) FlexibleServerMaintenanceWindowPtrInput {
+	return (*flexibleServerMaintenanceWindowPtrType)(v)
+}
+
+func (*flexibleServerMaintenanceWindowPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlexibleServerMaintenanceWindow)(nil)).Elem()
+}
+
+func (i *flexibleServerMaintenanceWindowPtrType) ToFlexibleServerMaintenanceWindowPtrOutput() FlexibleServerMaintenanceWindowPtrOutput {
+	return i.ToFlexibleServerMaintenanceWindowPtrOutputWithContext(context.Background())
+}
+
+func (i *flexibleServerMaintenanceWindowPtrType) ToFlexibleServerMaintenanceWindowPtrOutputWithContext(ctx context.Context) FlexibleServerMaintenanceWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerMaintenanceWindowPtrOutput)
+}
+
+type FlexibleServerMaintenanceWindowOutput struct{ *pulumi.OutputState }
+
+func (FlexibleServerMaintenanceWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlexibleServerMaintenanceWindow)(nil)).Elem()
+}
+
+func (o FlexibleServerMaintenanceWindowOutput) ToFlexibleServerMaintenanceWindowOutput() FlexibleServerMaintenanceWindowOutput {
+	return o
+}
+
+func (o FlexibleServerMaintenanceWindowOutput) ToFlexibleServerMaintenanceWindowOutputWithContext(ctx context.Context) FlexibleServerMaintenanceWindowOutput {
+	return o
+}
+
+func (o FlexibleServerMaintenanceWindowOutput) ToFlexibleServerMaintenanceWindowPtrOutput() FlexibleServerMaintenanceWindowPtrOutput {
+	return o.ToFlexibleServerMaintenanceWindowPtrOutputWithContext(context.Background())
+}
+
+func (o FlexibleServerMaintenanceWindowOutput) ToFlexibleServerMaintenanceWindowPtrOutputWithContext(ctx context.Context) FlexibleServerMaintenanceWindowPtrOutput {
+	return o.ApplyT(func(v FlexibleServerMaintenanceWindow) *FlexibleServerMaintenanceWindow {
+		return &v
+	}).(FlexibleServerMaintenanceWindowPtrOutput)
+}
+
+// The day of week for maintenance window. Defaults to `0`.
+func (o FlexibleServerMaintenanceWindowOutput) DayOfWeek() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FlexibleServerMaintenanceWindow) *int { return v.DayOfWeek }).(pulumi.IntPtrOutput)
+}
+
+// The day of week for maintenance window. Defaults to `0`.
+func (o FlexibleServerMaintenanceWindowOutput) StartHour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FlexibleServerMaintenanceWindow) *int { return v.StartHour }).(pulumi.IntPtrOutput)
+}
+
+// The start minute for maintenance window. Defaults to `0`.
+func (o FlexibleServerMaintenanceWindowOutput) StartMinute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FlexibleServerMaintenanceWindow) *int { return v.StartMinute }).(pulumi.IntPtrOutput)
+}
+
+type FlexibleServerMaintenanceWindowPtrOutput struct{ *pulumi.OutputState }
+
+func (FlexibleServerMaintenanceWindowPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlexibleServerMaintenanceWindow)(nil)).Elem()
+}
+
+func (o FlexibleServerMaintenanceWindowPtrOutput) ToFlexibleServerMaintenanceWindowPtrOutput() FlexibleServerMaintenanceWindowPtrOutput {
+	return o
+}
+
+func (o FlexibleServerMaintenanceWindowPtrOutput) ToFlexibleServerMaintenanceWindowPtrOutputWithContext(ctx context.Context) FlexibleServerMaintenanceWindowPtrOutput {
+	return o
+}
+
+func (o FlexibleServerMaintenanceWindowPtrOutput) Elem() FlexibleServerMaintenanceWindowOutput {
+	return o.ApplyT(func(v *FlexibleServerMaintenanceWindow) FlexibleServerMaintenanceWindow { return *v }).(FlexibleServerMaintenanceWindowOutput)
+}
+
+// The day of week for maintenance window. Defaults to `0`.
+func (o FlexibleServerMaintenanceWindowPtrOutput) DayOfWeek() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlexibleServerMaintenanceWindow) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DayOfWeek
+	}).(pulumi.IntPtrOutput)
+}
+
+// The day of week for maintenance window. Defaults to `0`.
+func (o FlexibleServerMaintenanceWindowPtrOutput) StartHour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlexibleServerMaintenanceWindow) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StartHour
+	}).(pulumi.IntPtrOutput)
+}
+
+// The start minute for maintenance window. Defaults to `0`.
+func (o FlexibleServerMaintenanceWindowPtrOutput) StartMinute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlexibleServerMaintenanceWindow) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StartMinute
+	}).(pulumi.IntPtrOutput)
+}
+
 type ServerIdentity struct {
 	// The Client ID of the Service Principal assigned to this PostgreSQL Server.
 	PrincipalId *string `pulumi:"principalId"`
@@ -744,6 +913,8 @@ func (o GetServerIdentityArrayOutput) Index(i pulumi.IntInput) GetServerIdentity
 }
 
 func init() {
+	pulumi.RegisterOutputType(FlexibleServerMaintenanceWindowOutput{})
+	pulumi.RegisterOutputType(FlexibleServerMaintenanceWindowPtrOutput{})
 	pulumi.RegisterOutputType(ServerIdentityOutput{})
 	pulumi.RegisterOutputType(ServerIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ServerStorageProfileOutput{})

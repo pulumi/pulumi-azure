@@ -19,6 +19,7 @@ class ServiceArgs:
                  access_policy_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  authentication_configuration: Optional[pulumi.Input['ServiceAuthenticationConfigurationArgs']] = None,
                  cors_configuration: Optional[pulumi.Input['ServiceCorsConfigurationArgs']] = None,
+                 cosmosdb_key_vault_key_versionless_id: Optional[pulumi.Input[str]] = None,
                  cosmosdb_throughput: Optional[pulumi.Input[int]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -29,6 +30,7 @@ class ServiceArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Service.
         :param pulumi.Input['ServiceAuthenticationConfigurationArgs'] authentication_configuration: An `authentication_configuration` block as defined below.
         :param pulumi.Input['ServiceCorsConfigurationArgs'] cors_configuration: A `cors_configuration` block as defined below.
+        :param pulumi.Input[str] cosmosdb_key_vault_key_versionless_id: A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
         :param pulumi.Input[int] cosmosdb_throughput: The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
         :param pulumi.Input[str] kind: The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the Service should be created.
@@ -42,6 +44,8 @@ class ServiceArgs:
             pulumi.set(__self__, "authentication_configuration", authentication_configuration)
         if cors_configuration is not None:
             pulumi.set(__self__, "cors_configuration", cors_configuration)
+        if cosmosdb_key_vault_key_versionless_id is not None:
+            pulumi.set(__self__, "cosmosdb_key_vault_key_versionless_id", cosmosdb_key_vault_key_versionless_id)
         if cosmosdb_throughput is not None:
             pulumi.set(__self__, "cosmosdb_throughput", cosmosdb_throughput)
         if kind is not None:
@@ -97,6 +101,18 @@ class ServiceArgs:
     @cors_configuration.setter
     def cors_configuration(self, value: Optional[pulumi.Input['ServiceCorsConfigurationArgs']]):
         pulumi.set(self, "cors_configuration", value)
+
+    @property
+    @pulumi.getter(name="cosmosdbKeyVaultKeyVersionlessId")
+    def cosmosdb_key_vault_key_versionless_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cosmosdb_key_vault_key_versionless_id")
+
+    @cosmosdb_key_vault_key_versionless_id.setter
+    def cosmosdb_key_vault_key_versionless_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cosmosdb_key_vault_key_versionless_id", value)
 
     @property
     @pulumi.getter(name="cosmosdbThroughput")
@@ -165,6 +181,7 @@ class _ServiceState:
                  access_policy_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  authentication_configuration: Optional[pulumi.Input['ServiceAuthenticationConfigurationArgs']] = None,
                  cors_configuration: Optional[pulumi.Input['ServiceCorsConfigurationArgs']] = None,
+                 cosmosdb_key_vault_key_versionless_id: Optional[pulumi.Input[str]] = None,
                  cosmosdb_throughput: Optional[pulumi.Input[int]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -175,6 +192,7 @@ class _ServiceState:
         Input properties used for looking up and filtering Service resources.
         :param pulumi.Input['ServiceAuthenticationConfigurationArgs'] authentication_configuration: An `authentication_configuration` block as defined below.
         :param pulumi.Input['ServiceCorsConfigurationArgs'] cors_configuration: A `cors_configuration` block as defined below.
+        :param pulumi.Input[str] cosmosdb_key_vault_key_versionless_id: A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
         :param pulumi.Input[int] cosmosdb_throughput: The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
         :param pulumi.Input[str] kind: The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the Service should be created.
@@ -188,6 +206,8 @@ class _ServiceState:
             pulumi.set(__self__, "authentication_configuration", authentication_configuration)
         if cors_configuration is not None:
             pulumi.set(__self__, "cors_configuration", cors_configuration)
+        if cosmosdb_key_vault_key_versionless_id is not None:
+            pulumi.set(__self__, "cosmosdb_key_vault_key_versionless_id", cosmosdb_key_vault_key_versionless_id)
         if cosmosdb_throughput is not None:
             pulumi.set(__self__, "cosmosdb_throughput", cosmosdb_throughput)
         if kind is not None:
@@ -233,6 +253,18 @@ class _ServiceState:
     @cors_configuration.setter
     def cors_configuration(self, value: Optional[pulumi.Input['ServiceCorsConfigurationArgs']]):
         pulumi.set(self, "cors_configuration", value)
+
+    @property
+    @pulumi.getter(name="cosmosdbKeyVaultKeyVersionlessId")
+    def cosmosdb_key_vault_key_versionless_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cosmosdb_key_vault_key_versionless_id")
+
+    @cosmosdb_key_vault_key_versionless_id.setter
+    def cosmosdb_key_vault_key_versionless_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cosmosdb_key_vault_key_versionless_id", value)
 
     @property
     @pulumi.getter(name="cosmosdbThroughput")
@@ -315,6 +347,7 @@ class Service(pulumi.CustomResource):
                  access_policy_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  authentication_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceAuthenticationConfigurationArgs']]] = None,
                  cors_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceCorsConfigurationArgs']]] = None,
+                 cosmosdb_key_vault_key_versionless_id: Optional[pulumi.Input[str]] = None,
                  cosmosdb_throughput: Optional[pulumi.Input[int]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -376,6 +409,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ServiceAuthenticationConfigurationArgs']] authentication_configuration: An `authentication_configuration` block as defined below.
         :param pulumi.Input[pulumi.InputType['ServiceCorsConfigurationArgs']] cors_configuration: A `cors_configuration` block as defined below.
+        :param pulumi.Input[str] cosmosdb_key_vault_key_versionless_id: A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
         :param pulumi.Input[int] cosmosdb_throughput: The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
         :param pulumi.Input[str] kind: The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the Service should be created.
@@ -457,6 +491,7 @@ class Service(pulumi.CustomResource):
                  access_policy_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  authentication_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceAuthenticationConfigurationArgs']]] = None,
                  cors_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceCorsConfigurationArgs']]] = None,
+                 cosmosdb_key_vault_key_versionless_id: Optional[pulumi.Input[str]] = None,
                  cosmosdb_throughput: Optional[pulumi.Input[int]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -478,6 +513,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["access_policy_object_ids"] = access_policy_object_ids
             __props__.__dict__["authentication_configuration"] = authentication_configuration
             __props__.__dict__["cors_configuration"] = cors_configuration
+            __props__.__dict__["cosmosdb_key_vault_key_versionless_id"] = cosmosdb_key_vault_key_versionless_id
             __props__.__dict__["cosmosdb_throughput"] = cosmosdb_throughput
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
@@ -499,6 +535,7 @@ class Service(pulumi.CustomResource):
             access_policy_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             authentication_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceAuthenticationConfigurationArgs']]] = None,
             cors_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceCorsConfigurationArgs']]] = None,
+            cosmosdb_key_vault_key_versionless_id: Optional[pulumi.Input[str]] = None,
             cosmosdb_throughput: Optional[pulumi.Input[int]] = None,
             kind: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -514,6 +551,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ServiceAuthenticationConfigurationArgs']] authentication_configuration: An `authentication_configuration` block as defined below.
         :param pulumi.Input[pulumi.InputType['ServiceCorsConfigurationArgs']] cors_configuration: A `cors_configuration` block as defined below.
+        :param pulumi.Input[str] cosmosdb_key_vault_key_versionless_id: A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
         :param pulumi.Input[int] cosmosdb_throughput: The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
         :param pulumi.Input[str] kind: The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the Service should be created.
@@ -528,6 +566,7 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["access_policy_object_ids"] = access_policy_object_ids
         __props__.__dict__["authentication_configuration"] = authentication_configuration
         __props__.__dict__["cors_configuration"] = cors_configuration
+        __props__.__dict__["cosmosdb_key_vault_key_versionless_id"] = cosmosdb_key_vault_key_versionless_id
         __props__.__dict__["cosmosdb_throughput"] = cosmosdb_throughput
         __props__.__dict__["kind"] = kind
         __props__.__dict__["location"] = location
@@ -556,6 +595,14 @@ class Service(pulumi.CustomResource):
         A `cors_configuration` block as defined below.
         """
         return pulumi.get(self, "cors_configuration")
+
+    @property
+    @pulumi.getter(name="cosmosdbKeyVaultKeyVersionlessId")
+    def cosmosdb_key_vault_key_versionless_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "cosmosdb_key_vault_key_versionless_id")
 
     @property
     @pulumi.getter(name="cosmosdbThroughput")

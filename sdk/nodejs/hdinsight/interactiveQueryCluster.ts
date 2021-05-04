@@ -133,6 +133,10 @@ export class InteractiveQueryCluster extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * A `network` block as defined below.
+     */
+    public readonly network!: pulumi.Output<outputs.hdinsight.InteractiveQueryClusterNetwork | undefined>;
+    /**
      * Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -183,6 +187,7 @@ export class InteractiveQueryCluster extends pulumi.CustomResource {
             inputs["metastores"] = state ? state.metastores : undefined;
             inputs["monitor"] = state ? state.monitor : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["network"] = state ? state.network : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["roles"] = state ? state.roles : undefined;
             inputs["sshEndpoint"] = state ? state.sshEndpoint : undefined;
@@ -218,6 +223,7 @@ export class InteractiveQueryCluster extends pulumi.CustomResource {
             inputs["metastores"] = args ? args.metastores : undefined;
             inputs["monitor"] = args ? args.monitor : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["network"] = args ? args.network : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["roles"] = args ? args.roles : undefined;
             inputs["storageAccountGen2"] = args ? args.storageAccountGen2 : undefined;
@@ -271,6 +277,10 @@ export interface InteractiveQueryClusterState {
      * Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A `network` block as defined below.
+     */
+    readonly network?: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterNetwork>;
     /**
      * Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
      */
@@ -334,6 +344,10 @@ export interface InteractiveQueryClusterArgs {
      * Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A `network` block as defined below.
+     */
+    readonly network?: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterNetwork>;
     /**
      * Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
      */

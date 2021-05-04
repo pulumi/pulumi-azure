@@ -8,23 +8,21 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure File Share Backup Policy within a Recovery Services vault.
  *
- * > **NOTE:** Azure Backup for Azure File Shares is currently in public preview. During the preview, the service is subject to additional limitations and unsupported backup scenarios. [Read More](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files#limitations-for-azure-file-share-backup-during-preview)
- *
  * ## Example Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const rg = new azure.core.ResourceGroup("rg", {location: "West Europe"});
- * const vault = new azure.recoveryservices.Vault("vault", {
- *     location: rg.location,
- *     resourceGroupName: rg.name,
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVault = new azure.recoveryservices.Vault("exampleVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  * });
  * const policy = new azure.backup.PolicyFileShare("policy", {
- *     resourceGroupName: rg.name,
- *     recoveryVaultName: vault.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     recoveryVaultName: azurerm_recovery_services_vault.vault.name,
  *     timezone: "UTC",
  *     backup: {
  *         frequency: "Daily",
@@ -32,6 +30,32 @@ import * as utilities from "../utilities";
  *     },
  *     retentionDaily: {
  *         count: 10,
+ *     },
+ *     retentionWeekly: {
+ *         count: 7,
+ *         weekdays: [
+ *             "Sunday",
+ *             "Wednesday",
+ *             "Friday",
+ *             "Saturday",
+ *         ],
+ *     },
+ *     retentionMonthly: {
+ *         count: 7,
+ *         weekdays: [
+ *             "Sunday",
+ *             "Wednesday",
+ *         ],
+ *         weeks: [
+ *             "First",
+ *             "Last",
+ *         ],
+ *     },
+ *     retentionYearly: {
+ *         count: 7,
+ *         weekdays: ["Sunday"],
+ *         weeks: ["Last"],
+ *         months: ["January"],
  *     },
  * });
  * ```
@@ -93,6 +117,19 @@ export class PolicyFileShare extends pulumi.CustomResource {
      */
     public readonly retentionDaily!: pulumi.Output<outputs.backup.PolicyFileShareRetentionDaily>;
     /**
+     * Configures the policy monthly retention as documented in the `retentionMonthly` block below.
+     */
+    public readonly retentionMonthly!: pulumi.Output<outputs.backup.PolicyFileShareRetentionMonthly | undefined>;
+    /**
+     * Configures the policy weekly retention as documented in the `retentionWeekly` block below.
+     */
+    public readonly retentionWeekly!: pulumi.Output<outputs.backup.PolicyFileShareRetentionWeekly | undefined>;
+    /**
+     * Configures the policy yearly retention as documented in the `retentionYearly` block below.
+     */
+    public readonly retentionYearly!: pulumi.Output<outputs.backup.PolicyFileShareRetentionYearly | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
      */
     public readonly timezone!: pulumi.Output<string | undefined>;
@@ -115,6 +152,10 @@ export class PolicyFileShare extends pulumi.CustomResource {
             inputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["retentionDaily"] = state ? state.retentionDaily : undefined;
+            inputs["retentionMonthly"] = state ? state.retentionMonthly : undefined;
+            inputs["retentionWeekly"] = state ? state.retentionWeekly : undefined;
+            inputs["retentionYearly"] = state ? state.retentionYearly : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["timezone"] = state ? state.timezone : undefined;
         } else {
             const args = argsOrState as PolicyFileShareArgs | undefined;
@@ -135,6 +176,10 @@ export class PolicyFileShare extends pulumi.CustomResource {
             inputs["recoveryVaultName"] = args ? args.recoveryVaultName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["retentionDaily"] = args ? args.retentionDaily : undefined;
+            inputs["retentionMonthly"] = args ? args.retentionMonthly : undefined;
+            inputs["retentionWeekly"] = args ? args.retentionWeekly : undefined;
+            inputs["retentionYearly"] = args ? args.retentionYearly : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["timezone"] = args ? args.timezone : undefined;
         }
         if (!opts.version) {
@@ -169,6 +214,19 @@ export interface PolicyFileShareState {
      */
     readonly retentionDaily?: pulumi.Input<inputs.backup.PolicyFileShareRetentionDaily>;
     /**
+     * Configures the policy monthly retention as documented in the `retentionMonthly` block below.
+     */
+    readonly retentionMonthly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionMonthly>;
+    /**
+     * Configures the policy weekly retention as documented in the `retentionWeekly` block below.
+     */
+    readonly retentionWeekly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionWeekly>;
+    /**
+     * Configures the policy yearly retention as documented in the `retentionYearly` block below.
+     */
+    readonly retentionYearly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionYearly>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
      */
     readonly timezone?: pulumi.Input<string>;
@@ -198,6 +256,19 @@ export interface PolicyFileShareArgs {
      * Configures the policy daily retention as documented in the `retentionDaily` block below.
      */
     readonly retentionDaily: pulumi.Input<inputs.backup.PolicyFileShareRetentionDaily>;
+    /**
+     * Configures the policy monthly retention as documented in the `retentionMonthly` block below.
+     */
+    readonly retentionMonthly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionMonthly>;
+    /**
+     * Configures the policy weekly retention as documented in the `retentionWeekly` block below.
+     */
+    readonly retentionWeekly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionWeekly>;
+    /**
+     * Configures the policy yearly retention as documented in the `retentionYearly` block below.
+     */
+    readonly retentionYearly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionYearly>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
      */

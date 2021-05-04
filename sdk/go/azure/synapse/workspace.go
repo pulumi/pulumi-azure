@@ -89,6 +89,8 @@ type Workspace struct {
 	AzureDevopsRepo WorkspaceAzureDevopsRepoPtrOutput `pulumi:"azureDevopsRepo"`
 	// A list of Connectivity endpoints for this Synapse Workspace.
 	ConnectivityEndpoints pulumi.StringMapOutput `pulumi:"connectivityEndpoints"`
+	// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+	CustomerManagedKeyVersionlessId pulumi.StringPtrOutput `pulumi:"customerManagedKeyVersionlessId"`
 	// A `githubRepo` block as defined below.
 	GithubRepo WorkspaceGithubRepoPtrOutput `pulumi:"githubRepo"`
 	// An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
@@ -162,6 +164,8 @@ type workspaceState struct {
 	AzureDevopsRepo *WorkspaceAzureDevopsRepo `pulumi:"azureDevopsRepo"`
 	// A list of Connectivity endpoints for this Synapse Workspace.
 	ConnectivityEndpoints map[string]string `pulumi:"connectivityEndpoints"`
+	// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+	CustomerManagedKeyVersionlessId *string `pulumi:"customerManagedKeyVersionlessId"`
 	// A `githubRepo` block as defined below.
 	GithubRepo *WorkspaceGithubRepo `pulumi:"githubRepo"`
 	// An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
@@ -195,6 +199,8 @@ type WorkspaceState struct {
 	AzureDevopsRepo WorkspaceAzureDevopsRepoPtrInput
 	// A list of Connectivity endpoints for this Synapse Workspace.
 	ConnectivityEndpoints pulumi.StringMapInput
+	// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+	CustomerManagedKeyVersionlessId pulumi.StringPtrInput
 	// A `githubRepo` block as defined below.
 	GithubRepo WorkspaceGithubRepoPtrInput
 	// An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
@@ -230,6 +236,8 @@ type workspaceArgs struct {
 	AadAdmin *WorkspaceAadAdmin `pulumi:"aadAdmin"`
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo *WorkspaceAzureDevopsRepo `pulumi:"azureDevopsRepo"`
+	// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+	CustomerManagedKeyVersionlessId *string `pulumi:"customerManagedKeyVersionlessId"`
 	// A `githubRepo` block as defined below.
 	GithubRepo *WorkspaceGithubRepo `pulumi:"githubRepo"`
 	// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
@@ -260,6 +268,8 @@ type WorkspaceArgs struct {
 	AadAdmin WorkspaceAadAdminPtrInput
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo WorkspaceAzureDevopsRepoPtrInput
+	// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+	CustomerManagedKeyVersionlessId pulumi.StringPtrInput
 	// A `githubRepo` block as defined below.
 	GithubRepo WorkspaceGithubRepoPtrInput
 	// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.

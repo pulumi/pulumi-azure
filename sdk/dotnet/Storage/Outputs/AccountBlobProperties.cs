@@ -22,9 +22,21 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AccountBlobPropertiesCorsRule> CorsRules;
         /// <summary>
+        /// The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version. Defaults to `2020-06-12`.
+        /// </summary>
+        public readonly string? DefaultServiceVersion;
+        /// <summary>
         /// A `delete_retention_policy` block as defined below.
         /// </summary>
         public readonly Outputs.AccountBlobPropertiesDeleteRetentionPolicy? DeleteRetentionPolicy;
+        /// <summary>
+        /// Is the last access time based tracking enabled? Default to `false`.
+        /// </summary>
+        public readonly bool? LastAccessTimeEnabled;
+        /// <summary>
+        /// Is versioning enabled? Default to `false`.
+        /// </summary>
+        public readonly bool? VersioningEnabled;
 
         [OutputConstructor]
         private AccountBlobProperties(
@@ -32,11 +44,20 @@ namespace Pulumi.Azure.Storage.Outputs
 
             ImmutableArray<Outputs.AccountBlobPropertiesCorsRule> corsRules,
 
-            Outputs.AccountBlobPropertiesDeleteRetentionPolicy? deleteRetentionPolicy)
+            string? defaultServiceVersion,
+
+            Outputs.AccountBlobPropertiesDeleteRetentionPolicy? deleteRetentionPolicy,
+
+            bool? lastAccessTimeEnabled,
+
+            bool? versioningEnabled)
         {
             ContainerDeleteRetentionPolicy = containerDeleteRetentionPolicy;
             CorsRules = corsRules;
+            DefaultServiceVersion = defaultServiceVersion;
             DeleteRetentionPolicy = deleteRetentionPolicy;
+            LastAccessTimeEnabled = lastAccessTimeEnabled;
+            VersioningEnabled = versioningEnabled;
         }
     }
 }

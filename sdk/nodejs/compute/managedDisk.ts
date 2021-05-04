@@ -98,6 +98,10 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly createOption!: pulumi.Output<string>;
     /**
+     * The ID of the disk access resource for using private endpoints on disks.
+     */
+    public readonly diskAccessId!: pulumi.Output<string | undefined>;
+    /**
      * The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
      */
     public readonly diskEncryptionSetId!: pulumi.Output<string | undefined>;
@@ -129,6 +133,10 @@ export class ManagedDisk extends pulumi.CustomResource {
      * Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+     */
+    public readonly networkAccessPolicy!: pulumi.Output<string | undefined>;
     /**
      * Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
      */
@@ -176,6 +184,7 @@ export class ManagedDisk extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ManagedDiskState | undefined;
             inputs["createOption"] = state ? state.createOption : undefined;
+            inputs["diskAccessId"] = state ? state.diskAccessId : undefined;
             inputs["diskEncryptionSetId"] = state ? state.diskEncryptionSetId : undefined;
             inputs["diskIopsReadWrite"] = state ? state.diskIopsReadWrite : undefined;
             inputs["diskMbpsReadWrite"] = state ? state.diskMbpsReadWrite : undefined;
@@ -184,6 +193,7 @@ export class ManagedDisk extends pulumi.CustomResource {
             inputs["imageReferenceId"] = state ? state.imageReferenceId : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["networkAccessPolicy"] = state ? state.networkAccessPolicy : undefined;
             inputs["osType"] = state ? state.osType : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["sourceResourceId"] = state ? state.sourceResourceId : undefined;
@@ -204,6 +214,7 @@ export class ManagedDisk extends pulumi.CustomResource {
                 throw new Error("Missing required property 'storageAccountType'");
             }
             inputs["createOption"] = args ? args.createOption : undefined;
+            inputs["diskAccessId"] = args ? args.diskAccessId : undefined;
             inputs["diskEncryptionSetId"] = args ? args.diskEncryptionSetId : undefined;
             inputs["diskIopsReadWrite"] = args ? args.diskIopsReadWrite : undefined;
             inputs["diskMbpsReadWrite"] = args ? args.diskMbpsReadWrite : undefined;
@@ -212,6 +223,7 @@ export class ManagedDisk extends pulumi.CustomResource {
             inputs["imageReferenceId"] = args ? args.imageReferenceId : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["networkAccessPolicy"] = args ? args.networkAccessPolicy : undefined;
             inputs["osType"] = args ? args.osType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sourceResourceId"] = args ? args.sourceResourceId : undefined;
@@ -236,6 +248,10 @@ export interface ManagedDiskState {
      * The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `sourceUri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `sourceResourceId`), `FromImage` (Copy a Platform Image, specified with `imageReferenceId`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `sourceResourceId`).
      */
     readonly createOption?: pulumi.Input<string>;
+    /**
+     * The ID of the disk access resource for using private endpoints on disks.
+     */
+    readonly diskAccessId?: pulumi.Input<string>;
     /**
      * The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
      */
@@ -268,6 +284,10 @@ export interface ManagedDiskState {
      * Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+     */
+    readonly networkAccessPolicy?: pulumi.Input<string>;
     /**
      * Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
      */
@@ -311,6 +331,10 @@ export interface ManagedDiskArgs {
      */
     readonly createOption: pulumi.Input<string>;
     /**
+     * The ID of the disk access resource for using private endpoints on disks.
+     */
+    readonly diskAccessId?: pulumi.Input<string>;
+    /**
      * The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
      */
     readonly diskEncryptionSetId?: pulumi.Input<string>;
@@ -342,6 +366,10 @@ export interface ManagedDiskArgs {
      * Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+     */
+    readonly networkAccessPolicy?: pulumi.Input<string>;
     /**
      * Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
      */

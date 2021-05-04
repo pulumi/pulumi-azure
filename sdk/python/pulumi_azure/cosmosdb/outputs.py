@@ -30,6 +30,7 @@ __all__ = [
     'MongoCollectionSystemIndex',
     'MongoDatabaseAutoscaleSettings',
     'SqlContainerAutoscaleSettings',
+    'SqlContainerConflictResolutionPolicy',
     'SqlContainerIndexingPolicy',
     'SqlContainerIndexingPolicyCompositeIndex',
     'SqlContainerIndexingPolicyCompositeIndexIndex',
@@ -874,6 +875,67 @@ class SqlContainerAutoscaleSettings(dict):
         The maximum throughput of the SQL container (RU/s). Must be between `4,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
         """
         return pulumi.get(self, "max_throughput")
+
+
+@pulumi.output_type
+class SqlContainerConflictResolutionPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "conflictResolutionPath":
+            suggest = "conflict_resolution_path"
+        elif key == "conflictResolutionProcedure":
+            suggest = "conflict_resolution_procedure"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlContainerConflictResolutionPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlContainerConflictResolutionPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlContainerConflictResolutionPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mode: str,
+                 conflict_resolution_path: Optional[str] = None,
+                 conflict_resolution_procedure: Optional[str] = None):
+        """
+        :param str mode: Indicates the conflict resolution mode. Possible values include: `LastWriterWins`, `Custom`.
+        :param str conflict_resolution_path: The conflict resolution path in the case of `LastWriterWins` mode.
+        :param str conflict_resolution_procedure: The procedure to resolve conflicts in the case of `Custom` mode.
+        """
+        pulumi.set(__self__, "mode", mode)
+        if conflict_resolution_path is not None:
+            pulumi.set(__self__, "conflict_resolution_path", conflict_resolution_path)
+        if conflict_resolution_procedure is not None:
+            pulumi.set(__self__, "conflict_resolution_procedure", conflict_resolution_procedure)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        Indicates the conflict resolution mode. Possible values include: `LastWriterWins`, `Custom`.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter(name="conflictResolutionPath")
+    def conflict_resolution_path(self) -> Optional[str]:
+        """
+        The conflict resolution path in the case of `LastWriterWins` mode.
+        """
+        return pulumi.get(self, "conflict_resolution_path")
+
+    @property
+    @pulumi.getter(name="conflictResolutionProcedure")
+    def conflict_resolution_procedure(self) -> Optional[str]:
+        """
+        The procedure to resolve conflicts in the case of `Custom` mode.
+        """
+        return pulumi.get(self, "conflict_resolution_procedure")
 
 
 @pulumi.output_type

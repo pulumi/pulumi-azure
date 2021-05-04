@@ -53,6 +53,15 @@ namespace Pulumi.Azure.Storage
     ///                         {
     ///                             "blockBlob",
     ///                         },
+    ///                         MatchBlobIndexTags = 
+    ///                         {
+    ///                             new Azure.Storage.Inputs.ManagementPolicyRuleFiltersMatchBlobIndexTagArgs
+    ///                             {
+    ///                                 Name = "tag1",
+    ///                                 Operation = "==",
+    ///                                 Value = "val1",
+    ///                             },
+    ///                         },
     ///                     },
     ///                     Actions = new Azure.Storage.Inputs.ManagementPolicyRuleActionsArgs
     ///                     {
@@ -94,7 +103,15 @@ namespace Pulumi.Azure.Storage
     ///                         },
     ///                         Snapshot = new Azure.Storage.Inputs.ManagementPolicyRuleActionsSnapshotArgs
     ///                         {
+    ///                             ChangeTierToArchiveAfterDaysSinceCreation = 90,
+    ///                             ChangeTierToCoolAfterDaysSinceCreation = 23,
     ///                             DeleteAfterDaysSinceCreationGreaterThan = 31,
+    ///                         },
+    ///                         Version = new Azure.Storage.Inputs.ManagementPolicyRuleActionsVersionArgs
+    ///                         {
+    ///                             ChangeTierToArchiveAfterDaysSinceCreation = 9,
+    ///                             ChangeTierToCoolAfterDaysSinceCreation = 90,
+    ///                             DeleteAfterDaysSinceCreation = 3,
     ///                         },
     ///                     },
     ///                 },

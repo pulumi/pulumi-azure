@@ -21,6 +21,8 @@ class DefinitionAuthorization(dict):
             suggest = "principal_id"
         elif key == "roleDefinitionId":
             suggest = "role_definition_id"
+        elif key == "delegatedRoleDefinitionIds":
+            suggest = "delegated_role_definition_ids"
         elif key == "principalDisplayName":
             suggest = "principal_display_name"
 
@@ -38,14 +40,18 @@ class DefinitionAuthorization(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  role_definition_id: str,
+                 delegated_role_definition_ids: Optional[Sequence[str]] = None,
                  principal_display_name: Optional[str] = None):
         """
         :param str principal_id: Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
         :param str role_definition_id: The role definition identifier. This role will define the permissions that are granted to the principal. This cannot be an `Owner` role.
+        :param Sequence[str] delegated_role_definition_ids: The set of role definition ids which define all the permissions that the principal id can assign.
         :param str principal_display_name: The display name of the security group/service principal/user that would be assigned permissions to the projected subscription.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "role_definition_id", role_definition_id)
+        if delegated_role_definition_ids is not None:
+            pulumi.set(__self__, "delegated_role_definition_ids", delegated_role_definition_ids)
         if principal_display_name is not None:
             pulumi.set(__self__, "principal_display_name", principal_display_name)
 
@@ -64,6 +70,14 @@ class DefinitionAuthorization(dict):
         The role definition identifier. This role will define the permissions that are granted to the principal. This cannot be an `Owner` role.
         """
         return pulumi.get(self, "role_definition_id")
+
+    @property
+    @pulumi.getter(name="delegatedRoleDefinitionIds")
+    def delegated_role_definition_ids(self) -> Optional[Sequence[str]]:
+        """
+        The set of role definition ids which define all the permissions that the principal id can assign.
+        """
+        return pulumi.get(self, "delegated_role_definition_ids")
 
     @property
     @pulumi.getter(name="principalDisplayName")

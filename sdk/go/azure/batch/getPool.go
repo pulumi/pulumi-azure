@@ -49,9 +49,8 @@ type LookupPoolArgs struct {
 	// One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
 	Certificates []GetPoolCertificate `pulumi:"certificates"`
 	// The name of the endpoint.
-	Name                 string                       `pulumi:"name"`
-	NetworkConfiguration *GetPoolNetworkConfiguration `pulumi:"networkConfiguration"`
-	ResourceGroupName    string                       `pulumi:"resourceGroupName"`
+	Name              string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `startTask` block that describes the start task settings for the Batch pool.
 	StartTask *GetPoolStartTask `pulumi:"startTask"`
 }

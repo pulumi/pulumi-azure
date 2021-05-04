@@ -15387,10 +15387,10 @@ type VirtualNetworkGatewayConnectionIpsecPolicy struct {
 	// `ECP256`, `ECP384`, or `None`.
 	DhGroup string `pulumi:"dhGroup"`
 	// The IKE encryption algorithm. Valid
-	// options are `AES128`, `AES192`, `AES256`, `DES`, or `DES3`.
+	// options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, or `GCMAES256`.
 	IkeEncryption string `pulumi:"ikeEncryption"`
 	// The IKE integrity algorithm. Valid
-	// options are `MD5`, `SHA1`, `SHA256`, or `SHA384`.
+	// options are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256`, or `SHA384`.
 	IkeIntegrity string `pulumi:"ikeIntegrity"`
 	// The IPSec encryption algorithm. Valid
 	// options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
@@ -15399,7 +15399,7 @@ type VirtualNetworkGatewayConnectionIpsecPolicy struct {
 	// options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
 	IpsecIntegrity string `pulumi:"ipsecIntegrity"`
 	// The DH group used in IKE phase 2 for new child SA.
-	// Valid options are `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS2048`, `PFS24`,
+	// Valid options are `ECP256`, `ECP384`, `PFS1`, `PFS14`, `PFS2`, `PFS2048`, `PFS24`, `PFSMM`,
 	// or `None`.
 	PfsGroup string `pulumi:"pfsGroup"`
 	// The IPSec SA payload size in KB. Must be at least
@@ -15427,10 +15427,10 @@ type VirtualNetworkGatewayConnectionIpsecPolicyArgs struct {
 	// `ECP256`, `ECP384`, or `None`.
 	DhGroup pulumi.StringInput `pulumi:"dhGroup"`
 	// The IKE encryption algorithm. Valid
-	// options are `AES128`, `AES192`, `AES256`, `DES`, or `DES3`.
+	// options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, or `GCMAES256`.
 	IkeEncryption pulumi.StringInput `pulumi:"ikeEncryption"`
 	// The IKE integrity algorithm. Valid
-	// options are `MD5`, `SHA1`, `SHA256`, or `SHA384`.
+	// options are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256`, or `SHA384`.
 	IkeIntegrity pulumi.StringInput `pulumi:"ikeIntegrity"`
 	// The IPSec encryption algorithm. Valid
 	// options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
@@ -15439,7 +15439,7 @@ type VirtualNetworkGatewayConnectionIpsecPolicyArgs struct {
 	// options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
 	IpsecIntegrity pulumi.StringInput `pulumi:"ipsecIntegrity"`
 	// The DH group used in IKE phase 2 for new child SA.
-	// Valid options are `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS2048`, `PFS24`,
+	// Valid options are `ECP256`, `ECP384`, `PFS1`, `PFS14`, `PFS2`, `PFS2048`, `PFS24`, `PFSMM`,
 	// or `None`.
 	PfsGroup pulumi.StringInput `pulumi:"pfsGroup"`
 	// The IPSec SA payload size in KB. Must be at least
@@ -15535,13 +15535,13 @@ func (o VirtualNetworkGatewayConnectionIpsecPolicyOutput) DhGroup() pulumi.Strin
 }
 
 // The IKE encryption algorithm. Valid
-// options are `AES128`, `AES192`, `AES256`, `DES`, or `DES3`.
+// options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, or `GCMAES256`.
 func (o VirtualNetworkGatewayConnectionIpsecPolicyOutput) IkeEncryption() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayConnectionIpsecPolicy) string { return v.IkeEncryption }).(pulumi.StringOutput)
 }
 
 // The IKE integrity algorithm. Valid
-// options are `MD5`, `SHA1`, `SHA256`, or `SHA384`.
+// options are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256`, or `SHA384`.
 func (o VirtualNetworkGatewayConnectionIpsecPolicyOutput) IkeIntegrity() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayConnectionIpsecPolicy) string { return v.IkeIntegrity }).(pulumi.StringOutput)
 }
@@ -15559,7 +15559,7 @@ func (o VirtualNetworkGatewayConnectionIpsecPolicyOutput) IpsecIntegrity() pulum
 }
 
 // The DH group used in IKE phase 2 for new child SA.
-// Valid options are `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS2048`, `PFS24`,
+// Valid options are `ECP256`, `ECP384`, `PFS1`, `PFS14`, `PFS2`, `PFS2048`, `PFS24`, `PFSMM`,
 // or `None`.
 func (o VirtualNetworkGatewayConnectionIpsecPolicyOutput) PfsGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayConnectionIpsecPolicy) string { return v.PfsGroup }).(pulumi.StringOutput)
@@ -15610,7 +15610,7 @@ func (o VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput) DhGroup() pulumi.St
 }
 
 // The IKE encryption algorithm. Valid
-// options are `AES128`, `AES192`, `AES256`, `DES`, or `DES3`.
+// options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, or `GCMAES256`.
 func (o VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput) IkeEncryption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnectionIpsecPolicy) *string {
 		if v == nil {
@@ -15621,7 +15621,7 @@ func (o VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput) IkeEncryption() pul
 }
 
 // The IKE integrity algorithm. Valid
-// options are `MD5`, `SHA1`, `SHA256`, or `SHA384`.
+// options are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256`, or `SHA384`.
 func (o VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput) IkeIntegrity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnectionIpsecPolicy) *string {
 		if v == nil {
@@ -15654,7 +15654,7 @@ func (o VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput) IpsecIntegrity() pu
 }
 
 // The DH group used in IKE phase 2 for new child SA.
-// Valid options are `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS2048`, `PFS24`,
+// Valid options are `ECP256`, `ECP384`, `PFS1`, `PFS14`, `PFS2`, `PFS2048`, `PFS24`, `PFSMM`,
 // or `None`.
 func (o VirtualNetworkGatewayConnectionIpsecPolicyPtrOutput) PfsGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnectionIpsecPolicy) *string {
@@ -15831,7 +15831,7 @@ func (o VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput) RemoteAdd
 }
 
 type VirtualNetworkGatewayCustomRoute struct {
-	// A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+	// A list of address blocks reserved for this virtual network in CIDR notation.
 	AddressPrefixes []string `pulumi:"addressPrefixes"`
 }
 
@@ -15847,7 +15847,7 @@ type VirtualNetworkGatewayCustomRouteInput interface {
 }
 
 type VirtualNetworkGatewayCustomRouteArgs struct {
-	// A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+	// A list of address blocks reserved for this virtual network in CIDR notation.
 	AddressPrefixes pulumi.StringArrayInput `pulumi:"addressPrefixes"`
 }
 
@@ -15928,7 +15928,7 @@ func (o VirtualNetworkGatewayCustomRouteOutput) ToVirtualNetworkGatewayCustomRou
 	}).(VirtualNetworkGatewayCustomRoutePtrOutput)
 }
 
-// A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+// A list of address blocks reserved for this virtual network in CIDR notation.
 func (o VirtualNetworkGatewayCustomRouteOutput) AddressPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayCustomRoute) []string { return v.AddressPrefixes }).(pulumi.StringArrayOutput)
 }
@@ -15951,7 +15951,7 @@ func (o VirtualNetworkGatewayCustomRoutePtrOutput) Elem() VirtualNetworkGatewayC
 	return o.ApplyT(func(v *VirtualNetworkGatewayCustomRoute) VirtualNetworkGatewayCustomRoute { return *v }).(VirtualNetworkGatewayCustomRouteOutput)
 }
 
-// A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+// A list of address blocks reserved for this virtual network in CIDR notation.
 func (o VirtualNetworkGatewayCustomRoutePtrOutput) AddressPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayCustomRoute) []string {
 		if v == nil {

@@ -100,7 +100,11 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
      */
-    public readonly dnsPrefix!: pulumi.Output<string>;
+    public readonly dnsPrefix!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
+     */
+    public readonly dnsPrefixPrivateCluster!: pulumi.Output<string | undefined>;
     public readonly enablePodSecurityPolicy!: pulumi.Output<boolean | undefined>;
     /**
      * The FQDN of the Azure Kubernetes Managed Cluster.
@@ -215,6 +219,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["defaultNodePool"] = state ? state.defaultNodePool : undefined;
             inputs["diskEncryptionSetId"] = state ? state.diskEncryptionSetId : undefined;
             inputs["dnsPrefix"] = state ? state.dnsPrefix : undefined;
+            inputs["dnsPrefixPrivateCluster"] = state ? state.dnsPrefixPrivateCluster : undefined;
             inputs["enablePodSecurityPolicy"] = state ? state.enablePodSecurityPolicy : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
             inputs["identity"] = state ? state.identity : undefined;
@@ -244,9 +249,6 @@ export class KubernetesCluster extends pulumi.CustomResource {
             if ((!args || args.defaultNodePool === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'defaultNodePool'");
             }
-            if ((!args || args.dnsPrefix === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dnsPrefix'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -257,6 +259,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["defaultNodePool"] = args ? args.defaultNodePool : undefined;
             inputs["diskEncryptionSetId"] = args ? args.diskEncryptionSetId : undefined;
             inputs["dnsPrefix"] = args ? args.dnsPrefix : undefined;
+            inputs["dnsPrefixPrivateCluster"] = args ? args.dnsPrefixPrivateCluster : undefined;
             inputs["enablePodSecurityPolicy"] = args ? args.enablePodSecurityPolicy : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["kubernetesVersion"] = args ? args.kubernetesVersion : undefined;
@@ -321,6 +324,10 @@ export interface KubernetesClusterState {
      * DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
      */
     readonly dnsPrefix?: pulumi.Input<string>;
+    /**
+     * Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
+     */
+    readonly dnsPrefixPrivateCluster?: pulumi.Input<string>;
     readonly enablePodSecurityPolicy?: pulumi.Input<boolean>;
     /**
      * The FQDN of the Azure Kubernetes Managed Cluster.
@@ -447,7 +454,11 @@ export interface KubernetesClusterArgs {
     /**
      * DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
      */
-    readonly dnsPrefix: pulumi.Input<string>;
+    readonly dnsPrefix?: pulumi.Input<string>;
+    /**
+     * Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
+     */
+    readonly dnsPrefixPrivateCluster?: pulumi.Input<string>;
     readonly enablePodSecurityPolicy?: pulumi.Input<boolean>;
     /**
      * An `identity` block as defined below. Changing this forces a new resource to be created.

@@ -19,6 +19,12 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? Action { get; set; }
 
         /// <summary>
+        /// The headers for this specific `ip_restriction` as defined below. The http header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+        /// </summary>
+        [Input("headers")]
+        public Input<Inputs.SlotSiteConfigScmIpRestrictionHeadersArgs>? Headers { get; set; }
+
+        /// <summary>
         /// The IP Address used for this IP Restriction in CIDR notation.
         /// </summary>
         [Input("ipAddress")]

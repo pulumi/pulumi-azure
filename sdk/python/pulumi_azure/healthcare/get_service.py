@@ -20,7 +20,7 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, access_policy_object_ids=None, authentication_configurations=None, cors_configurations=None, cosmosdb_throughput=None, id=None, kind=None, location=None, name=None, resource_group_name=None, tags=None):
+    def __init__(__self__, access_policy_object_ids=None, authentication_configurations=None, cors_configurations=None, cosmosdb_key_vault_key_versionless_id=None, cosmosdb_throughput=None, id=None, kind=None, location=None, name=None, resource_group_name=None, tags=None):
         if access_policy_object_ids and not isinstance(access_policy_object_ids, list):
             raise TypeError("Expected argument 'access_policy_object_ids' to be a list")
         pulumi.set(__self__, "access_policy_object_ids", access_policy_object_ids)
@@ -30,6 +30,9 @@ class GetServiceResult:
         if cors_configurations and not isinstance(cors_configurations, list):
             raise TypeError("Expected argument 'cors_configurations' to be a list")
         pulumi.set(__self__, "cors_configurations", cors_configurations)
+        if cosmosdb_key_vault_key_versionless_id and not isinstance(cosmosdb_key_vault_key_versionless_id, str):
+            raise TypeError("Expected argument 'cosmosdb_key_vault_key_versionless_id' to be a str")
+        pulumi.set(__self__, "cosmosdb_key_vault_key_versionless_id", cosmosdb_key_vault_key_versionless_id)
         if cosmosdb_throughput and not isinstance(cosmosdb_throughput, int):
             raise TypeError("Expected argument 'cosmosdb_throughput' to be a int")
         pulumi.set(__self__, "cosmosdb_throughput", cosmosdb_throughput)
@@ -74,8 +77,19 @@ class GetServiceResult:
         return pulumi.get(self, "cors_configurations")
 
     @property
+    @pulumi.getter(name="cosmosdbKeyVaultKeyVersionlessId")
+    def cosmosdb_key_vault_key_versionless_id(self) -> str:
+        """
+        The versionless Key Vault Key ID for CMK encryption of the backing database.
+        """
+        return pulumi.get(self, "cosmosdb_key_vault_key_versionless_id")
+
+    @property
     @pulumi.getter(name="cosmosdbThroughput")
     def cosmosdb_throughput(self) -> int:
+        """
+        The provisioned throughput for the backing database.
+        """
         return pulumi.get(self, "cosmosdb_throughput")
 
     @property
@@ -130,6 +144,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             access_policy_object_ids=self.access_policy_object_ids,
             authentication_configurations=self.authentication_configurations,
             cors_configurations=self.cors_configurations,
+            cosmosdb_key_vault_key_versionless_id=self.cosmosdb_key_vault_key_versionless_id,
             cosmosdb_throughput=self.cosmosdb_throughput,
             id=self.id,
             kind=self.kind,
@@ -177,6 +192,7 @@ def get_service(location: Optional[str] = None,
         access_policy_object_ids=__ret__.access_policy_object_ids,
         authentication_configurations=__ret__.authentication_configurations,
         cors_configurations=__ret__.cors_configurations,
+        cosmosdb_key_vault_key_versionless_id=__ret__.cosmosdb_key_vault_key_versionless_id,
         cosmosdb_throughput=__ret__.cosmosdb_throughput,
         id=__ret__.id,
         kind=__ret__.kind,

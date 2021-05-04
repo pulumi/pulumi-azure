@@ -58,16 +58,18 @@ type LookupVolumeArgs struct {
 
 // A collection of values returned by getVolume.
 type LookupVolumeResult struct {
-	AccountName                string                               `pulumi:"accountName"`
+	AccountName string `pulumi:"accountName"`
+	// A `dataProtectionReplication` block as defined below.
 	DataProtectionReplications []GetVolumeDataProtectionReplication `pulumi:"dataProtectionReplications"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The Azure Region where the NetApp Volume exists.
 	Location string `pulumi:"location"`
 	// A list of IPv4 Addresses which should be used to mount the volume.
-	MountIpAddresses  []string `pulumi:"mountIpAddresses"`
-	Name              string   `pulumi:"name"`
-	PoolName          string   `pulumi:"poolName"`
+	MountIpAddresses []string `pulumi:"mountIpAddresses"`
+	Name             string   `pulumi:"name"`
+	PoolName         string   `pulumi:"poolName"`
+	// A list of protocol types.
 	Protocols         []string `pulumi:"protocols"`
 	ResourceGroupName string   `pulumi:"resourceGroupName"`
 	// The service level of the file system.

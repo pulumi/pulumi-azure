@@ -56,11 +56,11 @@ type EnterpriseCluster struct {
 	pulumi.CustomResourceState
 
 	// DNS name of the cluster endpoint.
-	//
-	// Deprecated: This field currently is not yet being returned from the service API, please see https://github.com/Azure/azure-sdk-for-go/issues/14420 for more information
 	Hostname pulumi.StringOutput `pulumi:"hostname"`
 	// The Azure Region where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The minimum TLS version.  Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
+	MinimumTlsVersion pulumi.StringPtrOutput `pulumi:"minimumTlsVersion"`
 	// The name which should be used for this Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
@@ -113,11 +113,11 @@ func GetEnterpriseCluster(ctx *pulumi.Context,
 // Input properties used for looking up and filtering EnterpriseCluster resources.
 type enterpriseClusterState struct {
 	// DNS name of the cluster endpoint.
-	//
-	// Deprecated: This field currently is not yet being returned from the service API, please see https://github.com/Azure/azure-sdk-for-go/issues/14420 for more information
 	Hostname *string `pulumi:"hostname"`
 	// The Azure Region where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
 	Location *string `pulumi:"location"`
+	// The minimum TLS version.  Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
+	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name which should be used for this Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
@@ -136,11 +136,11 @@ type enterpriseClusterState struct {
 
 type EnterpriseClusterState struct {
 	// DNS name of the cluster endpoint.
-	//
-	// Deprecated: This field currently is not yet being returned from the service API, please see https://github.com/Azure/azure-sdk-for-go/issues/14420 for more information
 	Hostname pulumi.StringPtrInput
 	// The Azure Region where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
 	Location pulumi.StringPtrInput
+	// The minimum TLS version.  Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
+	MinimumTlsVersion pulumi.StringPtrInput
 	// The name which should be used for this Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
@@ -164,6 +164,8 @@ func (EnterpriseClusterState) ElementType() reflect.Type {
 type enterpriseClusterArgs struct {
 	// The Azure Region where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
 	Location *string `pulumi:"location"`
+	// The minimum TLS version.  Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
+	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name which should be used for this Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
@@ -180,6 +182,8 @@ type enterpriseClusterArgs struct {
 type EnterpriseClusterArgs struct {
 	// The Azure Region where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
 	Location pulumi.StringPtrInput
+	// The minimum TLS version.  Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
+	MinimumTlsVersion pulumi.StringPtrInput
 	// The name which should be used for this Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.

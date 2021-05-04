@@ -92,6 +92,12 @@ namespace Pulumi.Azure.Synapse
         public Output<ImmutableDictionary<string, string>> ConnectivityEndpoints { get; private set; } = null!;
 
         /// <summary>
+        /// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+        /// </summary>
+        [Output("customerManagedKeyVersionlessId")]
+        public Output<string?> CustomerManagedKeyVersionlessId { get; private set; } = null!;
+
+        /// <summary>
         /// A `github_repo` block as defined below.
         /// </summary>
         [Output("githubRepo")]
@@ -222,6 +228,12 @@ namespace Pulumi.Azure.Synapse
         public Input<Inputs.WorkspaceAzureDevopsRepoArgs>? AzureDevopsRepo { get; set; }
 
         /// <summary>
+        /// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+        /// </summary>
+        [Input("customerManagedKeyVersionlessId")]
+        public Input<string>? CustomerManagedKeyVersionlessId { get; set; }
+
+        /// <summary>
         /// A `github_repo` block as defined below.
         /// </summary>
         [Input("githubRepo")]
@@ -323,6 +335,12 @@ namespace Pulumi.Azure.Synapse
             get => _connectivityEndpoints ?? (_connectivityEndpoints = new InputMap<string>());
             set => _connectivityEndpoints = value;
         }
+
+        /// <summary>
+        /// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
+        /// </summary>
+        [Input("customerManagedKeyVersionlessId")]
+        public Input<string>? CustomerManagedKeyVersionlessId { get; set; }
 
         /// <summary>
         /// A `github_repo` block as defined below.

@@ -31,6 +31,11 @@ import * as utilities from "../utilities";
  *             filters: {
  *                 prefixMatches: ["container1/prefix1"],
  *                 blobTypes: ["blockBlob"],
+ *                 matchBlobIndexTags: [{
+ *                     name: "tag1",
+ *                     operation: "==",
+ *                     value: "val1",
+ *                 }],
  *             },
  *             actions: {
  *                 baseBlob: {
@@ -60,7 +65,14 @@ import * as utilities from "../utilities";
  *                     deleteAfterDaysSinceModificationGreaterThan: 101,
  *                 },
  *                 snapshot: {
+ *                     changeTierToArchiveAfterDaysSinceCreation: 90,
+ *                     changeTierToCoolAfterDaysSinceCreation: 23,
  *                     deleteAfterDaysSinceCreationGreaterThan: 31,
+ *                 },
+ *                 version: {
+ *                     changeTierToArchiveAfterDaysSinceCreation: 9,
+ *                     changeTierToCoolAfterDaysSinceCreation: 90,
+ *                     deleteAfterDaysSinceCreation: 3,
  *                 },
  *             },
  *         },

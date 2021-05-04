@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * The IoT Central Application can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:iotcentral/application:Application example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.IoTCentral/IoTApps/app1
+ *  $ pulumi import azure:iotcentral/application:Application example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.IoTCentral/ioTApps/app1
  * ```
  */
 export class Application extends pulumi.CustomResource {

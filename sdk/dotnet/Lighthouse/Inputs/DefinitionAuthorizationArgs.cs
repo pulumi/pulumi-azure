@@ -12,6 +12,18 @@ namespace Pulumi.Azure.Lighthouse.Inputs
 
     public sealed class DefinitionAuthorizationArgs : Pulumi.ResourceArgs
     {
+        [Input("delegatedRoleDefinitionIds")]
+        private InputList<string>? _delegatedRoleDefinitionIds;
+
+        /// <summary>
+        /// The set of role definition ids which define all the permissions that the principal id can assign.
+        /// </summary>
+        public InputList<string> DelegatedRoleDefinitionIds
+        {
+            get => _delegatedRoleDefinitionIds ?? (_delegatedRoleDefinitionIds = new InputList<string>());
+            set => _delegatedRoleDefinitionIds = value;
+        }
+
         /// <summary>
         /// The display name of the security group/service principal/user that would be assigned permissions to the projected subscription.
         /// </summary>

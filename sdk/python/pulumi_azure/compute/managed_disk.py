@@ -18,6 +18,7 @@ class ManagedDiskArgs:
                  create_option: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  storage_account_type: pulumi.Input[str],
+                 disk_access_id: Optional[pulumi.Input[str]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  disk_iops_read_write: Optional[pulumi.Input[int]] = None,
                  disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
@@ -26,6 +27,7 @@ class ManagedDiskArgs:
                  image_reference_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_access_policy: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
                  source_uri: Optional[pulumi.Input[str]] = None,
@@ -37,6 +39,7 @@ class ManagedDiskArgs:
         :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `source_uri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `source_resource_id`), `FromImage` (Copy a Platform Image, specified with `image_reference_id`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `source_resource_id`).
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Disk should exist.
         :param pulumi.Input[str] storage_account_type: The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
+        :param pulumi.Input[str] disk_access_id: The ID of the disk access resource for using private endpoints on disks.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
         :param pulumi.Input[int] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[int] disk_mbps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
@@ -45,6 +48,7 @@ class ManagedDiskArgs:
         :param pulumi.Input[str] image_reference_id: ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_access_policy: Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
         :param pulumi.Input[str] os_type: Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         :param pulumi.Input[str] source_resource_id: The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
         :param pulumi.Input[str] source_uri: URI to a valid VHD file to be used when `create_option` is `Import`.
@@ -55,6 +59,8 @@ class ManagedDiskArgs:
         pulumi.set(__self__, "create_option", create_option)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "storage_account_type", storage_account_type)
+        if disk_access_id is not None:
+            pulumi.set(__self__, "disk_access_id", disk_access_id)
         if disk_encryption_set_id is not None:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         if disk_iops_read_write is not None:
@@ -71,6 +77,8 @@ class ManagedDiskArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_access_policy is not None:
+            pulumi.set(__self__, "network_access_policy", network_access_policy)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
         if source_resource_id is not None:
@@ -119,6 +127,18 @@ class ManagedDiskArgs:
     @storage_account_type.setter
     def storage_account_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "storage_account_type", value)
+
+    @property
+    @pulumi.getter(name="diskAccessId")
+    def disk_access_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the disk access resource for using private endpoints on disks.
+        """
+        return pulumi.get(self, "disk_access_id")
+
+    @disk_access_id.setter
+    def disk_access_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_access_id", value)
 
     @property
     @pulumi.getter(name="diskEncryptionSetId")
@@ -215,6 +235,18 @@ class ManagedDiskArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="networkAccessPolicy")
+    def network_access_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+        """
+        return pulumi.get(self, "network_access_policy")
+
+    @network_access_policy.setter
+    def network_access_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_access_policy", value)
 
     @property
     @pulumi.getter(name="osType")
@@ -293,6 +325,7 @@ class ManagedDiskArgs:
 class _ManagedDiskState:
     def __init__(__self__, *,
                  create_option: Optional[pulumi.Input[str]] = None,
+                 disk_access_id: Optional[pulumi.Input[str]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  disk_iops_read_write: Optional[pulumi.Input[int]] = None,
                  disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
@@ -301,6 +334,7 @@ class _ManagedDiskState:
                  image_reference_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_access_policy: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
@@ -312,6 +346,7 @@ class _ManagedDiskState:
         """
         Input properties used for looking up and filtering ManagedDisk resources.
         :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `source_uri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `source_resource_id`), `FromImage` (Copy a Platform Image, specified with `image_reference_id`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `source_resource_id`).
+        :param pulumi.Input[str] disk_access_id: The ID of the disk access resource for using private endpoints on disks.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
         :param pulumi.Input[int] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[int] disk_mbps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
@@ -320,6 +355,7 @@ class _ManagedDiskState:
         :param pulumi.Input[str] image_reference_id: ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_access_policy: Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
         :param pulumi.Input[str] os_type: Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Disk should exist.
         :param pulumi.Input[str] source_resource_id: The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
@@ -331,6 +367,8 @@ class _ManagedDiskState:
         """
         if create_option is not None:
             pulumi.set(__self__, "create_option", create_option)
+        if disk_access_id is not None:
+            pulumi.set(__self__, "disk_access_id", disk_access_id)
         if disk_encryption_set_id is not None:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         if disk_iops_read_write is not None:
@@ -347,6 +385,8 @@ class _ManagedDiskState:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_access_policy is not None:
+            pulumi.set(__self__, "network_access_policy", network_access_policy)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
         if resource_group_name is not None:
@@ -375,6 +415,18 @@ class _ManagedDiskState:
     @create_option.setter
     def create_option(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "create_option", value)
+
+    @property
+    @pulumi.getter(name="diskAccessId")
+    def disk_access_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the disk access resource for using private endpoints on disks.
+        """
+        return pulumi.get(self, "disk_access_id")
+
+    @disk_access_id.setter
+    def disk_access_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_access_id", value)
 
     @property
     @pulumi.getter(name="diskEncryptionSetId")
@@ -471,6 +523,18 @@ class _ManagedDiskState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="networkAccessPolicy")
+    def network_access_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+        """
+        return pulumi.get(self, "network_access_policy")
+
+    @network_access_policy.setter
+    def network_access_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_access_policy", value)
 
     @property
     @pulumi.getter(name="osType")
@@ -575,6 +639,7 @@ class ManagedDisk(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  create_option: Optional[pulumi.Input[str]] = None,
+                 disk_access_id: Optional[pulumi.Input[str]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  disk_iops_read_write: Optional[pulumi.Input[int]] = None,
                  disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
@@ -583,6 +648,7 @@ class ManagedDisk(pulumi.CustomResource):
                  image_reference_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_access_policy: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
@@ -652,6 +718,7 @@ class ManagedDisk(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `source_uri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `source_resource_id`), `FromImage` (Copy a Platform Image, specified with `image_reference_id`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `source_resource_id`).
+        :param pulumi.Input[str] disk_access_id: The ID of the disk access resource for using private endpoints on disks.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
         :param pulumi.Input[int] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[int] disk_mbps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
@@ -660,6 +727,7 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[str] image_reference_id: ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_access_policy: Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
         :param pulumi.Input[str] os_type: Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Disk should exist.
         :param pulumi.Input[str] source_resource_id: The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
@@ -748,6 +816,7 @@ class ManagedDisk(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  create_option: Optional[pulumi.Input[str]] = None,
+                 disk_access_id: Optional[pulumi.Input[str]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  disk_iops_read_write: Optional[pulumi.Input[int]] = None,
                  disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
@@ -756,6 +825,7 @@ class ManagedDisk(pulumi.CustomResource):
                  image_reference_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_access_policy: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
@@ -779,6 +849,7 @@ class ManagedDisk(pulumi.CustomResource):
             if create_option is None and not opts.urn:
                 raise TypeError("Missing required property 'create_option'")
             __props__.__dict__["create_option"] = create_option
+            __props__.__dict__["disk_access_id"] = disk_access_id
             __props__.__dict__["disk_encryption_set_id"] = disk_encryption_set_id
             __props__.__dict__["disk_iops_read_write"] = disk_iops_read_write
             __props__.__dict__["disk_mbps_read_write"] = disk_mbps_read_write
@@ -787,6 +858,7 @@ class ManagedDisk(pulumi.CustomResource):
             __props__.__dict__["image_reference_id"] = image_reference_id
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["network_access_policy"] = network_access_policy
             __props__.__dict__["os_type"] = os_type
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -810,6 +882,7 @@ class ManagedDisk(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             create_option: Optional[pulumi.Input[str]] = None,
+            disk_access_id: Optional[pulumi.Input[str]] = None,
             disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
             disk_iops_read_write: Optional[pulumi.Input[int]] = None,
             disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
@@ -818,6 +891,7 @@ class ManagedDisk(pulumi.CustomResource):
             image_reference_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            network_access_policy: Optional[pulumi.Input[str]] = None,
             os_type: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             source_resource_id: Optional[pulumi.Input[str]] = None,
@@ -834,6 +908,7 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `source_uri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `source_resource_id`), `FromImage` (Copy a Platform Image, specified with `image_reference_id`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `source_resource_id`).
+        :param pulumi.Input[str] disk_access_id: The ID of the disk access resource for using private endpoints on disks.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
         :param pulumi.Input[int] disk_iops_read_write: The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
         :param pulumi.Input[int] disk_mbps_read_write: The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
@@ -842,6 +917,7 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[str] image_reference_id: ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_access_policy: Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
         :param pulumi.Input[str] os_type: Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Disk should exist.
         :param pulumi.Input[str] source_resource_id: The ID of an existing Managed Disk to copy `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`
@@ -856,6 +932,7 @@ class ManagedDisk(pulumi.CustomResource):
         __props__ = _ManagedDiskState.__new__(_ManagedDiskState)
 
         __props__.__dict__["create_option"] = create_option
+        __props__.__dict__["disk_access_id"] = disk_access_id
         __props__.__dict__["disk_encryption_set_id"] = disk_encryption_set_id
         __props__.__dict__["disk_iops_read_write"] = disk_iops_read_write
         __props__.__dict__["disk_mbps_read_write"] = disk_mbps_read_write
@@ -864,6 +941,7 @@ class ManagedDisk(pulumi.CustomResource):
         __props__.__dict__["image_reference_id"] = image_reference_id
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["network_access_policy"] = network_access_policy
         __props__.__dict__["os_type"] = os_type
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["source_resource_id"] = source_resource_id
@@ -881,6 +959,14 @@ class ManagedDisk(pulumi.CustomResource):
         The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `source_uri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `source_resource_id`), `FromImage` (Copy a Platform Image, specified with `image_reference_id`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `source_resource_id`).
         """
         return pulumi.get(self, "create_option")
+
+    @property
+    @pulumi.getter(name="diskAccessId")
+    def disk_access_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the disk access resource for using private endpoints on disks.
+        """
+        return pulumi.get(self, "disk_access_id")
 
     @property
     @pulumi.getter(name="diskEncryptionSetId")
@@ -945,6 +1031,14 @@ class ManagedDisk(pulumi.CustomResource):
         Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkAccessPolicy")
+    def network_access_policy(self) -> pulumi.Output[Optional[str]]:
+        """
+        Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
+        """
+        return pulumi.get(self, "network_access_policy")
 
     @property
     @pulumi.getter(name="osType")

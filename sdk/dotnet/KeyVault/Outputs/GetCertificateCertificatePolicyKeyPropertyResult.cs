@@ -13,6 +13,7 @@ namespace Pulumi.Azure.KeyVault.Outputs
     [OutputType]
     public sealed class GetCertificateCertificatePolicyKeyPropertyResult
     {
+        public readonly string Curve;
         /// <summary>
         /// Is this Certificate Exportable?
         /// </summary>
@@ -32,6 +33,8 @@ namespace Pulumi.Azure.KeyVault.Outputs
 
         [OutputConstructor]
         private GetCertificateCertificatePolicyKeyPropertyResult(
+            string curve,
+
             bool exportable,
 
             int keySize,
@@ -40,6 +43,7 @@ namespace Pulumi.Azure.KeyVault.Outputs
 
             bool reuseKey)
         {
+            Curve = curve;
             Exportable = exportable;
             KeySize = keySize;
             KeyType = keyType;

@@ -12,9 +12,9 @@ namespace Pulumi.Azure.Hpc
     /// <summary>
     /// Manages a HPC Cache.
     /// 
-    /// &gt; **Note**: During the first several months of the GA release, a request must be made to the Azure HPC Cache team to add your subscription to the access list before it can be used to create a cache instance. Fill out [this form](https://aka.ms/onboard-hpc-cache) to request access.
+    /// &gt; **Note:** During the first several months of the GA release, a request must be made to the Azure HPC Cache team to add your subscription to the access list before it can be used to create a cache instance. Fill out [this form](https://aka.ms/onboard-hpc-cache) to request access.
     /// 
-    /// &gt; **NOTE:**: By request of the service team the provider no longer automatically registering the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace 'Microsoft.StorageCache'`.
+    /// &gt; **Note:** By request of the service team the provider no longer automatically registering the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace 'Microsoft.StorageCache'`.
     /// 
     /// ## Example Usage
     /// 
@@ -83,6 +83,24 @@ namespace Pulumi.Azure.Hpc
         /// </summary>
         [Output("defaultAccessPolicy")]
         public Output<Outputs.CacheDefaultAccessPolicy> DefaultAccessPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// A `directory_active_directory` block as defined below.
+        /// </summary>
+        [Output("directoryActiveDirectory")]
+        public Output<Outputs.CacheDirectoryActiveDirectory?> DirectoryActiveDirectory { get; private set; } = null!;
+
+        /// <summary>
+        /// A `directory_flat_file` block as defined below.
+        /// </summary>
+        [Output("directoryFlatFile")]
+        public Output<Outputs.CacheDirectoryFlatFile?> DirectoryFlatFile { get; private set; } = null!;
+
+        /// <summary>
+        /// A `directory_ldap` block as defined below.
+        /// </summary>
+        [Output("directoryLdap")]
+        public Output<Outputs.CacheDirectoryLdap?> DirectoryLdap { get; private set; } = null!;
 
         /// <summary>
         /// A `dns` block as defined below.
@@ -209,6 +227,24 @@ namespace Pulumi.Azure.Hpc
         public Input<Inputs.CacheDefaultAccessPolicyArgs>? DefaultAccessPolicy { get; set; }
 
         /// <summary>
+        /// A `directory_active_directory` block as defined below.
+        /// </summary>
+        [Input("directoryActiveDirectory")]
+        public Input<Inputs.CacheDirectoryActiveDirectoryArgs>? DirectoryActiveDirectory { get; set; }
+
+        /// <summary>
+        /// A `directory_flat_file` block as defined below.
+        /// </summary>
+        [Input("directoryFlatFile")]
+        public Input<Inputs.CacheDirectoryFlatFileArgs>? DirectoryFlatFile { get; set; }
+
+        /// <summary>
+        /// A `directory_ldap` block as defined below.
+        /// </summary>
+        [Input("directoryLdap")]
+        public Input<Inputs.CacheDirectoryLdapArgs>? DirectoryLdap { get; set; }
+
+        /// <summary>
         /// A `dns` block as defined below.
         /// </summary>
         [Input("dns")]
@@ -292,6 +328,24 @@ namespace Pulumi.Azure.Hpc
         /// </summary>
         [Input("defaultAccessPolicy")]
         public Input<Inputs.CacheDefaultAccessPolicyGetArgs>? DefaultAccessPolicy { get; set; }
+
+        /// <summary>
+        /// A `directory_active_directory` block as defined below.
+        /// </summary>
+        [Input("directoryActiveDirectory")]
+        public Input<Inputs.CacheDirectoryActiveDirectoryGetArgs>? DirectoryActiveDirectory { get; set; }
+
+        /// <summary>
+        /// A `directory_flat_file` block as defined below.
+        /// </summary>
+        [Input("directoryFlatFile")]
+        public Input<Inputs.CacheDirectoryFlatFileGetArgs>? DirectoryFlatFile { get; set; }
+
+        /// <summary>
+        /// A `directory_ldap` block as defined below.
+        /// </summary>
+        [Input("directoryLdap")]
+        public Input<Inputs.CacheDirectoryLdapGetArgs>? DirectoryLdap { get; set; }
 
         /// <summary>
         /// A `dns` block as defined below.

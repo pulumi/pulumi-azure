@@ -290,12 +290,12 @@ class CertifiateCertificatePolicyKeyProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "keySize":
-            suggest = "key_size"
-        elif key == "keyType":
+        if key == "keyType":
             suggest = "key_type"
         elif key == "reuseKey":
             suggest = "reuse_key"
+        elif key == "keySize":
+            suggest = "key_size"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CertifiateCertificatePolicyKeyProperties. Access the value via the '{suggest}' property getter instead.")
@@ -310,41 +310,38 @@ class CertifiateCertificatePolicyKeyProperties(dict):
 
     def __init__(__self__, *,
                  exportable: bool,
-                 key_size: int,
                  key_type: str,
-                 reuse_key: bool):
+                 reuse_key: bool,
+                 curve: Optional[str] = None,
+                 key_size: Optional[int] = None):
         """
-        :param bool exportable: Is this Certificate Exportable? Changing this forces a new resource to be created.
-        :param int key_size: The size of the Key used in the Certificate. Possible values include `2048`, `3072`, and `4096`. Changing this forces a new resource to be created.
-        :param str key_type: Specifies the Type of Key, such as `RSA`. Changing this forces a new resource to be created.
+        :param bool exportable: Is this certificate exportable? Changing this forces a new resource to be created.
+        :param str key_type: Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
         :param bool reuse_key: Is the key reusable? Changing this forces a new resource to be created.
+        :param str curve: Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
+        :param int key_size: The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "exportable", exportable)
-        pulumi.set(__self__, "key_size", key_size)
         pulumi.set(__self__, "key_type", key_type)
         pulumi.set(__self__, "reuse_key", reuse_key)
+        if curve is not None:
+            pulumi.set(__self__, "curve", curve)
+        if key_size is not None:
+            pulumi.set(__self__, "key_size", key_size)
 
     @property
     @pulumi.getter
     def exportable(self) -> bool:
         """
-        Is this Certificate Exportable? Changing this forces a new resource to be created.
+        Is this certificate exportable? Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "exportable")
-
-    @property
-    @pulumi.getter(name="keySize")
-    def key_size(self) -> int:
-        """
-        The size of the Key used in the Certificate. Possible values include `2048`, `3072`, and `4096`. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "key_size")
 
     @property
     @pulumi.getter(name="keyType")
     def key_type(self) -> str:
         """
-        Specifies the Type of Key, such as `RSA`. Changing this forces a new resource to be created.
+        Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_type")
 
@@ -355,6 +352,22 @@ class CertifiateCertificatePolicyKeyProperties(dict):
         Is the key reusable? Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "reuse_key")
+
+    @property
+    @pulumi.getter
+    def curve(self) -> Optional[str]:
+        """
+        Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "curve")
+
+    @property
+    @pulumi.getter(name="keySize")
+    def key_size(self) -> Optional[int]:
+        """
+        The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "key_size")
 
 
 @pulumi.output_type
@@ -893,12 +906,12 @@ class CertificateCertificatePolicyKeyProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "keySize":
-            suggest = "key_size"
-        elif key == "keyType":
+        if key == "keyType":
             suggest = "key_type"
         elif key == "reuseKey":
             suggest = "reuse_key"
+        elif key == "keySize":
+            suggest = "key_size"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CertificateCertificatePolicyKeyProperties. Access the value via the '{suggest}' property getter instead.")
@@ -913,41 +926,38 @@ class CertificateCertificatePolicyKeyProperties(dict):
 
     def __init__(__self__, *,
                  exportable: bool,
-                 key_size: int,
                  key_type: str,
-                 reuse_key: bool):
+                 reuse_key: bool,
+                 curve: Optional[str] = None,
+                 key_size: Optional[int] = None):
         """
-        :param bool exportable: Is this Certificate Exportable? Changing this forces a new resource to be created.
-        :param int key_size: The size of the Key used in the Certificate. Possible values include `2048`, `3072`, and `4096`. Changing this forces a new resource to be created.
-        :param str key_type: Specifies the Type of Key, such as `RSA`. Changing this forces a new resource to be created.
+        :param bool exportable: Is this certificate exportable? Changing this forces a new resource to be created.
+        :param str key_type: Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
         :param bool reuse_key: Is the key reusable? Changing this forces a new resource to be created.
+        :param str curve: Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
+        :param int key_size: The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "exportable", exportable)
-        pulumi.set(__self__, "key_size", key_size)
         pulumi.set(__self__, "key_type", key_type)
         pulumi.set(__self__, "reuse_key", reuse_key)
+        if curve is not None:
+            pulumi.set(__self__, "curve", curve)
+        if key_size is not None:
+            pulumi.set(__self__, "key_size", key_size)
 
     @property
     @pulumi.getter
     def exportable(self) -> bool:
         """
-        Is this Certificate Exportable? Changing this forces a new resource to be created.
+        Is this certificate exportable? Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "exportable")
-
-    @property
-    @pulumi.getter(name="keySize")
-    def key_size(self) -> int:
-        """
-        The size of the Key used in the Certificate. Possible values include `2048`, `3072`, and `4096`. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "key_size")
 
     @property
     @pulumi.getter(name="keyType")
     def key_type(self) -> str:
         """
-        Specifies the Type of Key, such as `RSA`. Changing this forces a new resource to be created.
+        Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_type")
 
@@ -958,6 +968,22 @@ class CertificateCertificatePolicyKeyProperties(dict):
         Is the key reusable? Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "reuse_key")
+
+    @property
+    @pulumi.getter
+    def curve(self) -> Optional[str]:
+        """
+        Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "curve")
+
+    @property
+    @pulumi.getter(name="keySize")
+    def key_size(self) -> Optional[int]:
+        """
+        The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "key_size")
 
 
 @pulumi.output_type
@@ -1570,22 +1596,21 @@ class GetCertificateCertificatePolicyResult(dict):
     def __init__(__self__, *,
                  issuer_parameters: Sequence['outputs.GetCertificateCertificatePolicyIssuerParameterResult'],
                  key_properties: Sequence['outputs.GetCertificateCertificatePolicyKeyPropertyResult'],
+                 lifetime_actions: Sequence['outputs.GetCertificateCertificatePolicyLifetimeActionResult'],
                  secret_properties: Sequence['outputs.GetCertificateCertificatePolicySecretPropertyResult'],
-                 x509_certificate_properties: Sequence['outputs.GetCertificateCertificatePolicyX509CertificatePropertyResult'],
-                 lifetime_actions: Optional[Sequence['outputs.GetCertificateCertificatePolicyLifetimeActionResult']] = None):
+                 x509_certificate_properties: Sequence['outputs.GetCertificateCertificatePolicyX509CertificatePropertyResult']):
         """
         :param Sequence['GetCertificateCertificatePolicyIssuerParameterArgs'] issuer_parameters: A `issuer_parameters` block as defined below.
         :param Sequence['GetCertificateCertificatePolicyKeyPropertyArgs'] key_properties: A `key_properties` block as defined below.
+        :param Sequence['GetCertificateCertificatePolicyLifetimeActionArgs'] lifetime_actions: A `lifetime_action` block as defined below.
         :param Sequence['GetCertificateCertificatePolicySecretPropertyArgs'] secret_properties: A `secret_properties` block as defined below.
         :param Sequence['GetCertificateCertificatePolicyX509CertificatePropertyArgs'] x509_certificate_properties: An `x509_certificate_properties` block as defined below.
-        :param Sequence['GetCertificateCertificatePolicyLifetimeActionArgs'] lifetime_actions: A `lifetime_action` block as defined below.
         """
         pulumi.set(__self__, "issuer_parameters", issuer_parameters)
         pulumi.set(__self__, "key_properties", key_properties)
+        pulumi.set(__self__, "lifetime_actions", lifetime_actions)
         pulumi.set(__self__, "secret_properties", secret_properties)
         pulumi.set(__self__, "x509_certificate_properties", x509_certificate_properties)
-        if lifetime_actions is not None:
-            pulumi.set(__self__, "lifetime_actions", lifetime_actions)
 
     @property
     @pulumi.getter(name="issuerParameters")
@@ -1604,6 +1629,14 @@ class GetCertificateCertificatePolicyResult(dict):
         return pulumi.get(self, "key_properties")
 
     @property
+    @pulumi.getter(name="lifetimeActions")
+    def lifetime_actions(self) -> Sequence['outputs.GetCertificateCertificatePolicyLifetimeActionResult']:
+        """
+        A `lifetime_action` block as defined below.
+        """
+        return pulumi.get(self, "lifetime_actions")
+
+    @property
     @pulumi.getter(name="secretProperties")
     def secret_properties(self) -> Sequence['outputs.GetCertificateCertificatePolicySecretPropertyResult']:
         """
@@ -1618,14 +1651,6 @@ class GetCertificateCertificatePolicyResult(dict):
         An `x509_certificate_properties` block as defined below.
         """
         return pulumi.get(self, "x509_certificate_properties")
-
-    @property
-    @pulumi.getter(name="lifetimeActions")
-    def lifetime_actions(self) -> Optional[Sequence['outputs.GetCertificateCertificatePolicyLifetimeActionResult']]:
-        """
-        A `lifetime_action` block as defined below.
-        """
-        return pulumi.get(self, "lifetime_actions")
 
 
 @pulumi.output_type
@@ -1649,6 +1674,7 @@ class GetCertificateCertificatePolicyIssuerParameterResult(dict):
 @pulumi.output_type
 class GetCertificateCertificatePolicyKeyPropertyResult(dict):
     def __init__(__self__, *,
+                 curve: str,
                  exportable: bool,
                  key_size: int,
                  key_type: str,
@@ -1659,10 +1685,16 @@ class GetCertificateCertificatePolicyKeyPropertyResult(dict):
         :param str key_type: Specifies the Type of Key, for example `RSA`.
         :param bool reuse_key: Is the key reusable?
         """
+        pulumi.set(__self__, "curve", curve)
         pulumi.set(__self__, "exportable", exportable)
         pulumi.set(__self__, "key_size", key_size)
         pulumi.set(__self__, "key_type", key_type)
         pulumi.set(__self__, "reuse_key", reuse_key)
+
+    @property
+    @pulumi.getter
+    def curve(self) -> str:
+        return pulumi.get(self, "curve")
 
     @property
     @pulumi.getter

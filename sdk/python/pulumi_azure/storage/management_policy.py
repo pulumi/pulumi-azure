@@ -124,6 +124,11 @@ class ManagementPolicy(pulumi.CustomResource):
                     filters=azure.storage.ManagementPolicyRuleFiltersArgs(
                         prefix_matches=["container1/prefix1"],
                         blob_types=["blockBlob"],
+                        match_blob_index_tags=[azure.storage.ManagementPolicyRuleFiltersMatchBlobIndexTagArgs(
+                            name="tag1",
+                            operation="==",
+                            value="val1",
+                        )],
                     ),
                     actions=azure.storage.ManagementPolicyRuleActionsArgs(
                         base_blob=azure.storage.ManagementPolicyRuleActionsBaseBlobArgs(
@@ -153,7 +158,14 @@ class ManagementPolicy(pulumi.CustomResource):
                             delete_after_days_since_modification_greater_than=101,
                         ),
                         snapshot=azure.storage.ManagementPolicyRuleActionsSnapshotArgs(
+                            change_tier_to_archive_after_days_since_creation=90,
+                            change_tier_to_cool_after_days_since_creation=23,
                             delete_after_days_since_creation_greater_than=31,
+                        ),
+                        version=azure.storage.ManagementPolicyRuleActionsVersionArgs(
+                            change_tier_to_archive_after_days_since_creation=9,
+                            change_tier_to_cool_after_days_since_creation=90,
+                            delete_after_days_since_creation=3,
                         ),
                     ),
                 ),
@@ -204,6 +216,11 @@ class ManagementPolicy(pulumi.CustomResource):
                     filters=azure.storage.ManagementPolicyRuleFiltersArgs(
                         prefix_matches=["container1/prefix1"],
                         blob_types=["blockBlob"],
+                        match_blob_index_tags=[azure.storage.ManagementPolicyRuleFiltersMatchBlobIndexTagArgs(
+                            name="tag1",
+                            operation="==",
+                            value="val1",
+                        )],
                     ),
                     actions=azure.storage.ManagementPolicyRuleActionsArgs(
                         base_blob=azure.storage.ManagementPolicyRuleActionsBaseBlobArgs(
@@ -233,7 +250,14 @@ class ManagementPolicy(pulumi.CustomResource):
                             delete_after_days_since_modification_greater_than=101,
                         ),
                         snapshot=azure.storage.ManagementPolicyRuleActionsSnapshotArgs(
+                            change_tier_to_archive_after_days_since_creation=90,
+                            change_tier_to_cool_after_days_since_creation=23,
                             delete_after_days_since_creation_greater_than=31,
+                        ),
+                        version=azure.storage.ManagementPolicyRuleActionsVersionArgs(
+                            change_tier_to_archive_after_days_since_creation=9,
+                            change_tier_to_cool_after_days_since_creation=90,
+                            delete_after_days_since_creation=3,
                         ),
                     ),
                 ),

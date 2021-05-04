@@ -58,6 +58,12 @@ namespace Pulumi.Azure.AppService.Inputs
         }
 
         /// <summary>
+        /// Java version hosted by the function app in Azure. Possible values are `1.8`, `11`.
+        /// </summary>
+        [Input("javaVersion")]
+        public Input<string>? JavaVersion { get; set; }
+
+        /// <summary>
         /// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
         /// </summary>
         [Input("linuxFxVersion")]

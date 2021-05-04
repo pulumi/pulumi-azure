@@ -106,9 +106,13 @@ export class Application extends pulumi.CustomResource {
      */
     public /*out*/ readonly outputs!: pulumi.Output<{[key: string]: string}>;
     /**
+     * The parameter values to pass to the Managed Application. This field is a json object that allows you to assign parameters to this Managed Application.
+     */
+    public readonly parameterValues!: pulumi.Output<string>;
+    /**
      * A mapping of name and value pairs to pass to the managed application as parameters.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly parameters!: pulumi.Output<{[key: string]: string}>;
     /**
      * One `plan` block as defined below.
      */
@@ -141,6 +145,7 @@ export class Application extends pulumi.CustomResource {
             inputs["managedResourceGroupName"] = state ? state.managedResourceGroupName : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["outputs"] = state ? state.outputs : undefined;
+            inputs["parameterValues"] = state ? state.parameterValues : undefined;
             inputs["parameters"] = state ? state.parameters : undefined;
             inputs["plan"] = state ? state.plan : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -161,6 +166,7 @@ export class Application extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["parameterValues"] = args ? args.parameterValues : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["plan"] = args ? args.plan : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -203,6 +209,10 @@ export interface ApplicationState {
      */
     readonly outputs?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * The parameter values to pass to the Managed Application. This field is a json object that allows you to assign parameters to this Managed Application.
+     */
+    readonly parameterValues?: pulumi.Input<string>;
+    /**
      * A mapping of name and value pairs to pass to the managed application as parameters.
      */
     readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -244,6 +254,10 @@ export interface ApplicationArgs {
      * Specifies the name of the Managed Application. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The parameter values to pass to the Managed Application. This field is a json object that allows you to assign parameters to this Managed Application.
+     */
+    readonly parameterValues?: pulumi.Input<string>;
     /**
      * A mapping of name and value pairs to pass to the managed application as parameters.
      */

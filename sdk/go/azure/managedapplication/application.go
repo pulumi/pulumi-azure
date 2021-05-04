@@ -35,6 +35,8 @@ type Application struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name and value pairs that define the managed application outputs.
 	Outputs pulumi.StringMapOutput `pulumi:"outputs"`
+	// The parameter values to pass to the Managed Application. This field is a json object that allows you to assign parameters to this Managed Application.
+	ParameterValues pulumi.StringOutput `pulumi:"parameterValues"`
 	// A mapping of name and value pairs to pass to the managed application as parameters.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// One `plan` block as defined below.
@@ -95,6 +97,8 @@ type applicationState struct {
 	Name *string `pulumi:"name"`
 	// The name and value pairs that define the managed application outputs.
 	Outputs map[string]string `pulumi:"outputs"`
+	// The parameter values to pass to the Managed Application. This field is a json object that allows you to assign parameters to this Managed Application.
+	ParameterValues *string `pulumi:"parameterValues"`
 	// A mapping of name and value pairs to pass to the managed application as parameters.
 	Parameters map[string]string `pulumi:"parameters"`
 	// One `plan` block as defined below.
@@ -118,6 +122,8 @@ type ApplicationState struct {
 	Name pulumi.StringPtrInput
 	// The name and value pairs that define the managed application outputs.
 	Outputs pulumi.StringMapInput
+	// The parameter values to pass to the Managed Application. This field is a json object that allows you to assign parameters to this Managed Application.
+	ParameterValues pulumi.StringPtrInput
 	// A mapping of name and value pairs to pass to the managed application as parameters.
 	Parameters pulumi.StringMapInput
 	// One `plan` block as defined below.
@@ -143,6 +149,8 @@ type applicationArgs struct {
 	ManagedResourceGroupName string `pulumi:"managedResourceGroupName"`
 	// Specifies the name of the Managed Application. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The parameter values to pass to the Managed Application. This field is a json object that allows you to assign parameters to this Managed Application.
+	ParameterValues *string `pulumi:"parameterValues"`
 	// A mapping of name and value pairs to pass to the managed application as parameters.
 	Parameters map[string]string `pulumi:"parameters"`
 	// One `plan` block as defined below.
@@ -165,6 +173,8 @@ type ApplicationArgs struct {
 	ManagedResourceGroupName pulumi.StringInput
 	// Specifies the name of the Managed Application. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The parameter values to pass to the Managed Application. This field is a json object that allows you to assign parameters to this Managed Application.
+	ParameterValues pulumi.StringPtrInput
 	// A mapping of name and value pairs to pass to the managed application as parameters.
 	Parameters pulumi.StringMapInput
 	// One `plan` block as defined below.

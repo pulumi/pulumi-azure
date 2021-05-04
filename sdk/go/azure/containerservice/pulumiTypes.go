@@ -361,7 +361,7 @@ type GroupContainerLivenessProbe struct {
 	Execs []string `pulumi:"execs"`
 	// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
 	FailureThreshold *int `pulumi:"failureThreshold"`
-	// The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
+	// The definition of the httpGet for this container as documented in the `httpGet` block below. Changing this forces a new resource to be created.
 	HttpGets []GroupContainerLivenessProbeHttpGet `pulumi:"httpGets"`
 	// Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
 	InitialDelaySeconds *int `pulumi:"initialDelaySeconds"`
@@ -389,7 +389,7 @@ type GroupContainerLivenessProbeArgs struct {
 	Execs pulumi.StringArrayInput `pulumi:"execs"`
 	// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
 	FailureThreshold pulumi.IntPtrInput `pulumi:"failureThreshold"`
-	// The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
+	// The definition of the httpGet for this container as documented in the `httpGet` block below. Changing this forces a new resource to be created.
 	HttpGets GroupContainerLivenessProbeHttpGetArrayInput `pulumi:"httpGets"`
 	// Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
 	InitialDelaySeconds pulumi.IntPtrInput `pulumi:"initialDelaySeconds"`
@@ -488,7 +488,7 @@ func (o GroupContainerLivenessProbeOutput) FailureThreshold() pulumi.IntPtrOutpu
 	return o.ApplyT(func(v GroupContainerLivenessProbe) *int { return v.FailureThreshold }).(pulumi.IntPtrOutput)
 }
 
-// The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
+// The definition of the httpGet for this container as documented in the `httpGet` block below. Changing this forces a new resource to be created.
 func (o GroupContainerLivenessProbeOutput) HttpGets() GroupContainerLivenessProbeHttpGetArrayOutput {
 	return o.ApplyT(func(v GroupContainerLivenessProbe) []GroupContainerLivenessProbeHttpGet { return v.HttpGets }).(GroupContainerLivenessProbeHttpGetArrayOutput)
 }
@@ -551,7 +551,7 @@ func (o GroupContainerLivenessProbePtrOutput) FailureThreshold() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
+// The definition of the httpGet for this container as documented in the `httpGet` block below. Changing this forces a new resource to be created.
 func (o GroupContainerLivenessProbePtrOutput) HttpGets() GroupContainerLivenessProbeHttpGetArrayOutput {
 	return o.ApplyT(func(v *GroupContainerLivenessProbe) []GroupContainerLivenessProbeHttpGet {
 		if v == nil {
@@ -827,7 +827,7 @@ type GroupContainerReadinessProbe struct {
 	Execs []string `pulumi:"execs"`
 	// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
 	FailureThreshold *int `pulumi:"failureThreshold"`
-	// The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
+	// The definition of the httpGet for this container as documented in the `httpGet` block below. Changing this forces a new resource to be created.
 	HttpGets []GroupContainerReadinessProbeHttpGet `pulumi:"httpGets"`
 	// Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
 	InitialDelaySeconds *int `pulumi:"initialDelaySeconds"`
@@ -855,7 +855,7 @@ type GroupContainerReadinessProbeArgs struct {
 	Execs pulumi.StringArrayInput `pulumi:"execs"`
 	// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
 	FailureThreshold pulumi.IntPtrInput `pulumi:"failureThreshold"`
-	// The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
+	// The definition of the httpGet for this container as documented in the `httpGet` block below. Changing this forces a new resource to be created.
 	HttpGets GroupContainerReadinessProbeHttpGetArrayInput `pulumi:"httpGets"`
 	// Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
 	InitialDelaySeconds pulumi.IntPtrInput `pulumi:"initialDelaySeconds"`
@@ -954,7 +954,7 @@ func (o GroupContainerReadinessProbeOutput) FailureThreshold() pulumi.IntPtrOutp
 	return o.ApplyT(func(v GroupContainerReadinessProbe) *int { return v.FailureThreshold }).(pulumi.IntPtrOutput)
 }
 
-// The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
+// The definition of the httpGet for this container as documented in the `httpGet` block below. Changing this forces a new resource to be created.
 func (o GroupContainerReadinessProbeOutput) HttpGets() GroupContainerReadinessProbeHttpGetArrayOutput {
 	return o.ApplyT(func(v GroupContainerReadinessProbe) []GroupContainerReadinessProbeHttpGet { return v.HttpGets }).(GroupContainerReadinessProbeHttpGetArrayOutput)
 }
@@ -1017,7 +1017,7 @@ func (o GroupContainerReadinessProbePtrOutput) FailureThreshold() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// The definition of the httpget for this container as documented in the `httpget` block below. Changing this forces a new resource to be created.
+// The definition of the httpGet for this container as documented in the `httpGet` block below. Changing this forces a new resource to be created.
 func (o GroupContainerReadinessProbePtrOutput) HttpGets() GroupContainerReadinessProbeHttpGetArrayOutput {
 	return o.ApplyT(func(v *GroupContainerReadinessProbe) []GroupContainerReadinessProbeHttpGet {
 		if v == nil {
@@ -2008,6 +2008,112 @@ func (o GroupDnsConfigPtrOutput) SearchDomains() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+type GroupExposedPort struct {
+	// The port number the container will expose. Changing this forces a new resource to be created.
+	Port *int `pulumi:"port"`
+	// The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
+	Protocol *string `pulumi:"protocol"`
+}
+
+// GroupExposedPortInput is an input type that accepts GroupExposedPortArgs and GroupExposedPortOutput values.
+// You can construct a concrete instance of `GroupExposedPortInput` via:
+//
+//          GroupExposedPortArgs{...}
+type GroupExposedPortInput interface {
+	pulumi.Input
+
+	ToGroupExposedPortOutput() GroupExposedPortOutput
+	ToGroupExposedPortOutputWithContext(context.Context) GroupExposedPortOutput
+}
+
+type GroupExposedPortArgs struct {
+	// The port number the container will expose. Changing this forces a new resource to be created.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+}
+
+func (GroupExposedPortArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupExposedPort)(nil)).Elem()
+}
+
+func (i GroupExposedPortArgs) ToGroupExposedPortOutput() GroupExposedPortOutput {
+	return i.ToGroupExposedPortOutputWithContext(context.Background())
+}
+
+func (i GroupExposedPortArgs) ToGroupExposedPortOutputWithContext(ctx context.Context) GroupExposedPortOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupExposedPortOutput)
+}
+
+// GroupExposedPortArrayInput is an input type that accepts GroupExposedPortArray and GroupExposedPortArrayOutput values.
+// You can construct a concrete instance of `GroupExposedPortArrayInput` via:
+//
+//          GroupExposedPortArray{ GroupExposedPortArgs{...} }
+type GroupExposedPortArrayInput interface {
+	pulumi.Input
+
+	ToGroupExposedPortArrayOutput() GroupExposedPortArrayOutput
+	ToGroupExposedPortArrayOutputWithContext(context.Context) GroupExposedPortArrayOutput
+}
+
+type GroupExposedPortArray []GroupExposedPortInput
+
+func (GroupExposedPortArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupExposedPort)(nil)).Elem()
+}
+
+func (i GroupExposedPortArray) ToGroupExposedPortArrayOutput() GroupExposedPortArrayOutput {
+	return i.ToGroupExposedPortArrayOutputWithContext(context.Background())
+}
+
+func (i GroupExposedPortArray) ToGroupExposedPortArrayOutputWithContext(ctx context.Context) GroupExposedPortArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupExposedPortArrayOutput)
+}
+
+type GroupExposedPortOutput struct{ *pulumi.OutputState }
+
+func (GroupExposedPortOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupExposedPort)(nil)).Elem()
+}
+
+func (o GroupExposedPortOutput) ToGroupExposedPortOutput() GroupExposedPortOutput {
+	return o
+}
+
+func (o GroupExposedPortOutput) ToGroupExposedPortOutputWithContext(ctx context.Context) GroupExposedPortOutput {
+	return o
+}
+
+// The port number the container will expose. Changing this forces a new resource to be created.
+func (o GroupExposedPortOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GroupExposedPort) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
+func (o GroupExposedPortOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupExposedPort) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+type GroupExposedPortArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupExposedPortArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupExposedPort)(nil)).Elem()
+}
+
+func (o GroupExposedPortArrayOutput) ToGroupExposedPortArrayOutput() GroupExposedPortArrayOutput {
+	return o
+}
+
+func (o GroupExposedPortArrayOutput) ToGroupExposedPortArrayOutputWithContext(ctx context.Context) GroupExposedPortArrayOutput {
+	return o
+}
+
+func (o GroupExposedPortArrayOutput) Index(i pulumi.IntInput) GroupExposedPortOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupExposedPort {
+		return vs[0].([]GroupExposedPort)[vs[1].(int)]
+	}).(GroupExposedPortOutput)
+}
+
 type GroupIdentity struct {
 	// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`. Changing this forces a new resource to be created.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -2295,6 +2401,8 @@ type KubernetesClusterAddonProfile struct {
 	AzurePolicy *KubernetesClusterAddonProfileAzurePolicy `pulumi:"azurePolicy"`
 	// A `httpApplicationRouting` block as defined below.
 	HttpApplicationRouting *KubernetesClusterAddonProfileHttpApplicationRouting `pulumi:"httpApplicationRouting"`
+	// An `ingressApplicationGateway` block as defined below.
+	IngressApplicationGateway *KubernetesClusterAddonProfileIngressApplicationGateway `pulumi:"ingressApplicationGateway"`
 	// A `kubeDashboard` block as defined below.
 	KubeDashboard *KubernetesClusterAddonProfileKubeDashboard `pulumi:"kubeDashboard"`
 	// A `omsAgent` block as defined below. For more details, please visit [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard).
@@ -2319,6 +2427,8 @@ type KubernetesClusterAddonProfileArgs struct {
 	AzurePolicy KubernetesClusterAddonProfileAzurePolicyPtrInput `pulumi:"azurePolicy"`
 	// A `httpApplicationRouting` block as defined below.
 	HttpApplicationRouting KubernetesClusterAddonProfileHttpApplicationRoutingPtrInput `pulumi:"httpApplicationRouting"`
+	// An `ingressApplicationGateway` block as defined below.
+	IngressApplicationGateway KubernetesClusterAddonProfileIngressApplicationGatewayPtrInput `pulumi:"ingressApplicationGateway"`
 	// A `kubeDashboard` block as defined below.
 	KubeDashboard KubernetesClusterAddonProfileKubeDashboardPtrInput `pulumi:"kubeDashboard"`
 	// A `omsAgent` block as defined below. For more details, please visit [How to onboard Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-onboard).
@@ -2421,6 +2531,13 @@ func (o KubernetesClusterAddonProfileOutput) HttpApplicationRouting() Kubernetes
 	}).(KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput)
 }
 
+// An `ingressApplicationGateway` block as defined below.
+func (o KubernetesClusterAddonProfileOutput) IngressApplicationGateway() KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileIngressApplicationGateway {
+		return v.IngressApplicationGateway
+	}).(KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput)
+}
+
 // A `kubeDashboard` block as defined below.
 func (o KubernetesClusterAddonProfileOutput) KubeDashboard() KubernetesClusterAddonProfileKubeDashboardPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileKubeDashboard {
@@ -2479,6 +2596,16 @@ func (o KubernetesClusterAddonProfilePtrOutput) HttpApplicationRouting() Kuberne
 		}
 		return v.HttpApplicationRouting
 	}).(KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput)
+}
+
+// An `ingressApplicationGateway` block as defined below.
+func (o KubernetesClusterAddonProfilePtrOutput) IngressApplicationGateway() KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAddonProfile) *KubernetesClusterAddonProfileIngressApplicationGateway {
+		if v == nil {
+			return nil
+		}
+		return v.IngressApplicationGateway
+	}).(KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput)
 }
 
 // A `kubeDashboard` block as defined below.
@@ -2938,6 +3065,210 @@ func (o KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput) HttpApplic
 	}).(pulumi.StringPtrOutput)
 }
 
+type KubernetesClusterAddonProfileIngressApplicationGateway struct {
+	EffectiveGatewayId *string `pulumi:"effectiveGatewayId"`
+	// Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster?
+	Enabled bool `pulumi:"enabled"`
+	// The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
+	GatewayId *string `pulumi:"gatewayId"`
+	// The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+	SubnetCidr *string `pulumi:"subnetCidr"`
+	// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+	SubnetId *string `pulumi:"subnetId"`
+}
+
+// KubernetesClusterAddonProfileIngressApplicationGatewayInput is an input type that accepts KubernetesClusterAddonProfileIngressApplicationGatewayArgs and KubernetesClusterAddonProfileIngressApplicationGatewayOutput values.
+// You can construct a concrete instance of `KubernetesClusterAddonProfileIngressApplicationGatewayInput` via:
+//
+//          KubernetesClusterAddonProfileIngressApplicationGatewayArgs{...}
+type KubernetesClusterAddonProfileIngressApplicationGatewayInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterAddonProfileIngressApplicationGatewayOutput() KubernetesClusterAddonProfileIngressApplicationGatewayOutput
+	ToKubernetesClusterAddonProfileIngressApplicationGatewayOutputWithContext(context.Context) KubernetesClusterAddonProfileIngressApplicationGatewayOutput
+}
+
+type KubernetesClusterAddonProfileIngressApplicationGatewayArgs struct {
+	EffectiveGatewayId pulumi.StringPtrInput `pulumi:"effectiveGatewayId"`
+	// Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster?
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
+	GatewayId pulumi.StringPtrInput `pulumi:"gatewayId"`
+	// The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+	SubnetCidr pulumi.StringPtrInput `pulumi:"subnetCidr"`
+	// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+}
+
+func (KubernetesClusterAddonProfileIngressApplicationGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterAddonProfileIngressApplicationGateway)(nil)).Elem()
+}
+
+func (i KubernetesClusterAddonProfileIngressApplicationGatewayArgs) ToKubernetesClusterAddonProfileIngressApplicationGatewayOutput() KubernetesClusterAddonProfileIngressApplicationGatewayOutput {
+	return i.ToKubernetesClusterAddonProfileIngressApplicationGatewayOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterAddonProfileIngressApplicationGatewayArgs) ToKubernetesClusterAddonProfileIngressApplicationGatewayOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileIngressApplicationGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileIngressApplicationGatewayOutput)
+}
+
+func (i KubernetesClusterAddonProfileIngressApplicationGatewayArgs) ToKubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput() KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput {
+	return i.ToKubernetesClusterAddonProfileIngressApplicationGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterAddonProfileIngressApplicationGatewayArgs) ToKubernetesClusterAddonProfileIngressApplicationGatewayPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileIngressApplicationGatewayOutput).ToKubernetesClusterAddonProfileIngressApplicationGatewayPtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterAddonProfileIngressApplicationGatewayPtrInput is an input type that accepts KubernetesClusterAddonProfileIngressApplicationGatewayArgs, KubernetesClusterAddonProfileIngressApplicationGatewayPtr and KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterAddonProfileIngressApplicationGatewayPtrInput` via:
+//
+//          KubernetesClusterAddonProfileIngressApplicationGatewayArgs{...}
+//
+//  or:
+//
+//          nil
+type KubernetesClusterAddonProfileIngressApplicationGatewayPtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput() KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput
+	ToKubernetesClusterAddonProfileIngressApplicationGatewayPtrOutputWithContext(context.Context) KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput
+}
+
+type kubernetesClusterAddonProfileIngressApplicationGatewayPtrType KubernetesClusterAddonProfileIngressApplicationGatewayArgs
+
+func KubernetesClusterAddonProfileIngressApplicationGatewayPtr(v *KubernetesClusterAddonProfileIngressApplicationGatewayArgs) KubernetesClusterAddonProfileIngressApplicationGatewayPtrInput {
+	return (*kubernetesClusterAddonProfileIngressApplicationGatewayPtrType)(v)
+}
+
+func (*kubernetesClusterAddonProfileIngressApplicationGatewayPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterAddonProfileIngressApplicationGateway)(nil)).Elem()
+}
+
+func (i *kubernetesClusterAddonProfileIngressApplicationGatewayPtrType) ToKubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput() KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput {
+	return i.ToKubernetesClusterAddonProfileIngressApplicationGatewayPtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterAddonProfileIngressApplicationGatewayPtrType) ToKubernetesClusterAddonProfileIngressApplicationGatewayPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput)
+}
+
+type KubernetesClusterAddonProfileIngressApplicationGatewayOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterAddonProfileIngressApplicationGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterAddonProfileIngressApplicationGateway)(nil)).Elem()
+}
+
+func (o KubernetesClusterAddonProfileIngressApplicationGatewayOutput) ToKubernetesClusterAddonProfileIngressApplicationGatewayOutput() KubernetesClusterAddonProfileIngressApplicationGatewayOutput {
+	return o
+}
+
+func (o KubernetesClusterAddonProfileIngressApplicationGatewayOutput) ToKubernetesClusterAddonProfileIngressApplicationGatewayOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileIngressApplicationGatewayOutput {
+	return o
+}
+
+func (o KubernetesClusterAddonProfileIngressApplicationGatewayOutput) ToKubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput() KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput {
+	return o.ToKubernetesClusterAddonProfileIngressApplicationGatewayPtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterAddonProfileIngressApplicationGatewayOutput) ToKubernetesClusterAddonProfileIngressApplicationGatewayPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAddonProfileIngressApplicationGateway) *KubernetesClusterAddonProfileIngressApplicationGateway {
+		return &v
+	}).(KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput)
+}
+func (o KubernetesClusterAddonProfileIngressApplicationGatewayOutput) EffectiveGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAddonProfileIngressApplicationGateway) *string { return v.EffectiveGatewayId }).(pulumi.StringPtrOutput)
+}
+
+// Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster?
+func (o KubernetesClusterAddonProfileIngressApplicationGatewayOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v KubernetesClusterAddonProfileIngressApplicationGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
+func (o KubernetesClusterAddonProfileIngressApplicationGatewayOutput) GatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAddonProfileIngressApplicationGateway) *string { return v.GatewayId }).(pulumi.StringPtrOutput)
+}
+
+// The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+func (o KubernetesClusterAddonProfileIngressApplicationGatewayOutput) SubnetCidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAddonProfileIngressApplicationGateway) *string { return v.SubnetCidr }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+func (o KubernetesClusterAddonProfileIngressApplicationGatewayOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAddonProfileIngressApplicationGateway) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterAddonProfileIngressApplicationGateway)(nil)).Elem()
+}
+
+func (o KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) ToKubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput() KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) ToKubernetesClusterAddonProfileIngressApplicationGatewayPtrOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) Elem() KubernetesClusterAddonProfileIngressApplicationGatewayOutput {
+	return o.ApplyT(func(v *KubernetesClusterAddonProfileIngressApplicationGateway) KubernetesClusterAddonProfileIngressApplicationGateway {
+		return *v
+	}).(KubernetesClusterAddonProfileIngressApplicationGatewayOutput)
+}
+
+func (o KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) EffectiveGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAddonProfileIngressApplicationGateway) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EffectiveGatewayId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster?
+func (o KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAddonProfileIngressApplicationGateway) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
+func (o KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) GatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAddonProfileIngressApplicationGateway) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GatewayId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+func (o KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) SubnetCidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAddonProfileIngressApplicationGateway) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetCidr
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+func (o KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAddonProfileIngressApplicationGateway) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
 type KubernetesClusterAddonProfileKubeDashboard struct {
 	// Is the Kubernetes Dashboard enabled?
 	Enabled bool `pulumi:"enabled"`
@@ -3360,10 +3691,18 @@ func (o KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArrayOutput) Index(
 type KubernetesClusterAutoScalerProfile struct {
 	// Detect similar node groups and balance the number of nodes between them. Defaults to `false`.
 	BalanceSimilarNodeGroups *bool `pulumi:"balanceSimilarNodeGroups"`
+	// Maximum number of empty nodes that can be deleted at the same time. Defaults to `10`.
+	EmptyBulkDeleteMax *string `pulumi:"emptyBulkDeleteMax"`
 	// Expander to use. Possible values are `least-waste`, `priority`, `most-pods` and `random`. Defaults to `random`.
 	Expander *string `pulumi:"expander"`
 	// Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
 	MaxGracefulTerminationSec *string `pulumi:"maxGracefulTerminationSec"`
+	// Maximum time the autoscaler waits for a node to be provisioned. Defaults to `15m`.
+	MaxNodeProvisioningTime *string `pulumi:"maxNodeProvisioningTime"`
+	// Maximum Number of allowed unready nodes. Defaults to `3`.
+	MaxUnreadyNodes *int `pulumi:"maxUnreadyNodes"`
+	// Maximum percentage of unready nodes the cluster autoscaler will stop if the percentage is exceeded. Defaults to `45`.
+	MaxUnreadyPercentage *float64 `pulumi:"maxUnreadyPercentage"`
 	// For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. Defaults to `10s`.
 	NewPodScaleUpDelay *string `pulumi:"newPodScaleUpDelay"`
 	// How long after the scale up of AKS nodes the scale down evaluation resumes. Defaults to `10m`.
@@ -3400,10 +3739,18 @@ type KubernetesClusterAutoScalerProfileInput interface {
 type KubernetesClusterAutoScalerProfileArgs struct {
 	// Detect similar node groups and balance the number of nodes between them. Defaults to `false`.
 	BalanceSimilarNodeGroups pulumi.BoolPtrInput `pulumi:"balanceSimilarNodeGroups"`
+	// Maximum number of empty nodes that can be deleted at the same time. Defaults to `10`.
+	EmptyBulkDeleteMax pulumi.StringPtrInput `pulumi:"emptyBulkDeleteMax"`
 	// Expander to use. Possible values are `least-waste`, `priority`, `most-pods` and `random`. Defaults to `random`.
 	Expander pulumi.StringPtrInput `pulumi:"expander"`
 	// Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
 	MaxGracefulTerminationSec pulumi.StringPtrInput `pulumi:"maxGracefulTerminationSec"`
+	// Maximum time the autoscaler waits for a node to be provisioned. Defaults to `15m`.
+	MaxNodeProvisioningTime pulumi.StringPtrInput `pulumi:"maxNodeProvisioningTime"`
+	// Maximum Number of allowed unready nodes. Defaults to `3`.
+	MaxUnreadyNodes pulumi.IntPtrInput `pulumi:"maxUnreadyNodes"`
+	// Maximum percentage of unready nodes the cluster autoscaler will stop if the percentage is exceeded. Defaults to `45`.
+	MaxUnreadyPercentage pulumi.Float64PtrInput `pulumi:"maxUnreadyPercentage"`
 	// For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. Defaults to `10s`.
 	NewPodScaleUpDelay pulumi.StringPtrInput `pulumi:"newPodScaleUpDelay"`
 	// How long after the scale up of AKS nodes the scale down evaluation resumes. Defaults to `10m`.
@@ -3508,6 +3855,11 @@ func (o KubernetesClusterAutoScalerProfileOutput) BalanceSimilarNodeGroups() pul
 	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *bool { return v.BalanceSimilarNodeGroups }).(pulumi.BoolPtrOutput)
 }
 
+// Maximum number of empty nodes that can be deleted at the same time. Defaults to `10`.
+func (o KubernetesClusterAutoScalerProfileOutput) EmptyBulkDeleteMax() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *string { return v.EmptyBulkDeleteMax }).(pulumi.StringPtrOutput)
+}
+
 // Expander to use. Possible values are `least-waste`, `priority`, `most-pods` and `random`. Defaults to `random`.
 func (o KubernetesClusterAutoScalerProfileOutput) Expander() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *string { return v.Expander }).(pulumi.StringPtrOutput)
@@ -3516,6 +3868,21 @@ func (o KubernetesClusterAutoScalerProfileOutput) Expander() pulumi.StringPtrOut
 // Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
 func (o KubernetesClusterAutoScalerProfileOutput) MaxGracefulTerminationSec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *string { return v.MaxGracefulTerminationSec }).(pulumi.StringPtrOutput)
+}
+
+// Maximum time the autoscaler waits for a node to be provisioned. Defaults to `15m`.
+func (o KubernetesClusterAutoScalerProfileOutput) MaxNodeProvisioningTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *string { return v.MaxNodeProvisioningTime }).(pulumi.StringPtrOutput)
+}
+
+// Maximum Number of allowed unready nodes. Defaults to `3`.
+func (o KubernetesClusterAutoScalerProfileOutput) MaxUnreadyNodes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *int { return v.MaxUnreadyNodes }).(pulumi.IntPtrOutput)
+}
+
+// Maximum percentage of unready nodes the cluster autoscaler will stop if the percentage is exceeded. Defaults to `45`.
+func (o KubernetesClusterAutoScalerProfileOutput) MaxUnreadyPercentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *float64 { return v.MaxUnreadyPercentage }).(pulumi.Float64PtrOutput)
 }
 
 // For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. Defaults to `10s`.
@@ -3596,6 +3963,16 @@ func (o KubernetesClusterAutoScalerProfilePtrOutput) BalanceSimilarNodeGroups() 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Maximum number of empty nodes that can be deleted at the same time. Defaults to `10`.
+func (o KubernetesClusterAutoScalerProfilePtrOutput) EmptyBulkDeleteMax() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EmptyBulkDeleteMax
+	}).(pulumi.StringPtrOutput)
+}
+
 // Expander to use. Possible values are `least-waste`, `priority`, `most-pods` and `random`. Defaults to `random`.
 func (o KubernetesClusterAutoScalerProfilePtrOutput) Expander() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAutoScalerProfile) *string {
@@ -3614,6 +3991,36 @@ func (o KubernetesClusterAutoScalerProfilePtrOutput) MaxGracefulTerminationSec()
 		}
 		return v.MaxGracefulTerminationSec
 	}).(pulumi.StringPtrOutput)
+}
+
+// Maximum time the autoscaler waits for a node to be provisioned. Defaults to `15m`.
+func (o KubernetesClusterAutoScalerProfilePtrOutput) MaxNodeProvisioningTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxNodeProvisioningTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Maximum Number of allowed unready nodes. Defaults to `3`.
+func (o KubernetesClusterAutoScalerProfilePtrOutput) MaxUnreadyNodes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAutoScalerProfile) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxUnreadyNodes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum percentage of unready nodes the cluster autoscaler will stop if the percentage is exceeded. Defaults to `45`.
+func (o KubernetesClusterAutoScalerProfilePtrOutput) MaxUnreadyPercentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAutoScalerProfile) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MaxUnreadyPercentage
+	}).(pulumi.Float64PtrOutput)
 }
 
 // For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. Defaults to `10s`.
@@ -6040,6 +6447,8 @@ func (o KubernetesClusterRoleBasedAccessControlPtrOutput) Enabled() pulumi.BoolP
 type KubernetesClusterRoleBasedAccessControlAzureActiveDirectory struct {
 	// A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
 	AdminGroupObjectIds []string `pulumi:"adminGroupObjectIds"`
+	// Is Role Based Access Control based on Azure AD enabled? Changing this forces a new resource to be created.
+	AzureRbacEnabled *bool `pulumi:"azureRbacEnabled"`
 	// The Client ID of an Azure Active Directory Application.
 	ClientAppId *string `pulumi:"clientAppId"`
 	// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
@@ -6066,6 +6475,8 @@ type KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryInput interface 
 type KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs struct {
 	// A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
 	AdminGroupObjectIds pulumi.StringArrayInput `pulumi:"adminGroupObjectIds"`
+	// Is Role Based Access Control based on Azure AD enabled? Changing this forces a new resource to be created.
+	AzureRbacEnabled pulumi.BoolPtrInput `pulumi:"azureRbacEnabled"`
 	// The Client ID of an Azure Active Directory Application.
 	ClientAppId pulumi.StringPtrInput `pulumi:"clientAppId"`
 	// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
@@ -6162,6 +6573,11 @@ func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) Admin
 	}).(pulumi.StringArrayOutput)
 }
 
+// Is Role Based Access Control based on Azure AD enabled? Changing this forces a new resource to be created.
+func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) AzureRbacEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *bool { return v.AzureRbacEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The Client ID of an Azure Active Directory Application.
 func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) ClientAppId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *string { return v.ClientAppId }).(pulumi.StringPtrOutput)
@@ -6215,6 +6631,16 @@ func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) Ad
 		}
 		return v.AdminGroupObjectIds
 	}).(pulumi.StringArrayOutput)
+}
+
+// Is Role Based Access Control based on Azure AD enabled? Changing this forces a new resource to be created.
+func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) AzureRbacEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AzureRbacEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The Client ID of an Azure Active Directory Application.
@@ -6565,6 +6991,112 @@ func (o KubernetesClusterWindowsProfilePtrOutput) AdminUsername() pulumi.StringP
 		}
 		return &v.AdminUsername
 	}).(pulumi.StringPtrOutput)
+}
+
+type RegistryGeoreplication struct {
+	// A location where the container registry should be geo-replicated.
+	Location string `pulumi:"location"`
+	// A mapping of tags to assign to this replication location.
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// RegistryGeoreplicationInput is an input type that accepts RegistryGeoreplicationArgs and RegistryGeoreplicationOutput values.
+// You can construct a concrete instance of `RegistryGeoreplicationInput` via:
+//
+//          RegistryGeoreplicationArgs{...}
+type RegistryGeoreplicationInput interface {
+	pulumi.Input
+
+	ToRegistryGeoreplicationOutput() RegistryGeoreplicationOutput
+	ToRegistryGeoreplicationOutputWithContext(context.Context) RegistryGeoreplicationOutput
+}
+
+type RegistryGeoreplicationArgs struct {
+	// A location where the container registry should be geo-replicated.
+	Location pulumi.StringInput `pulumi:"location"`
+	// A mapping of tags to assign to this replication location.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (RegistryGeoreplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryGeoreplication)(nil)).Elem()
+}
+
+func (i RegistryGeoreplicationArgs) ToRegistryGeoreplicationOutput() RegistryGeoreplicationOutput {
+	return i.ToRegistryGeoreplicationOutputWithContext(context.Background())
+}
+
+func (i RegistryGeoreplicationArgs) ToRegistryGeoreplicationOutputWithContext(ctx context.Context) RegistryGeoreplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryGeoreplicationOutput)
+}
+
+// RegistryGeoreplicationArrayInput is an input type that accepts RegistryGeoreplicationArray and RegistryGeoreplicationArrayOutput values.
+// You can construct a concrete instance of `RegistryGeoreplicationArrayInput` via:
+//
+//          RegistryGeoreplicationArray{ RegistryGeoreplicationArgs{...} }
+type RegistryGeoreplicationArrayInput interface {
+	pulumi.Input
+
+	ToRegistryGeoreplicationArrayOutput() RegistryGeoreplicationArrayOutput
+	ToRegistryGeoreplicationArrayOutputWithContext(context.Context) RegistryGeoreplicationArrayOutput
+}
+
+type RegistryGeoreplicationArray []RegistryGeoreplicationInput
+
+func (RegistryGeoreplicationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegistryGeoreplication)(nil)).Elem()
+}
+
+func (i RegistryGeoreplicationArray) ToRegistryGeoreplicationArrayOutput() RegistryGeoreplicationArrayOutput {
+	return i.ToRegistryGeoreplicationArrayOutputWithContext(context.Background())
+}
+
+func (i RegistryGeoreplicationArray) ToRegistryGeoreplicationArrayOutputWithContext(ctx context.Context) RegistryGeoreplicationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryGeoreplicationArrayOutput)
+}
+
+type RegistryGeoreplicationOutput struct{ *pulumi.OutputState }
+
+func (RegistryGeoreplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryGeoreplication)(nil)).Elem()
+}
+
+func (o RegistryGeoreplicationOutput) ToRegistryGeoreplicationOutput() RegistryGeoreplicationOutput {
+	return o
+}
+
+func (o RegistryGeoreplicationOutput) ToRegistryGeoreplicationOutputWithContext(ctx context.Context) RegistryGeoreplicationOutput {
+	return o
+}
+
+// A location where the container registry should be geo-replicated.
+func (o RegistryGeoreplicationOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryGeoreplication) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// A mapping of tags to assign to this replication location.
+func (o RegistryGeoreplicationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v RegistryGeoreplication) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+type RegistryGeoreplicationArrayOutput struct{ *pulumi.OutputState }
+
+func (RegistryGeoreplicationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegistryGeoreplication)(nil)).Elem()
+}
+
+func (o RegistryGeoreplicationArrayOutput) ToRegistryGeoreplicationArrayOutput() RegistryGeoreplicationArrayOutput {
+	return o
+}
+
+func (o RegistryGeoreplicationArrayOutput) ToRegistryGeoreplicationArrayOutputWithContext(ctx context.Context) RegistryGeoreplicationArrayOutput {
+	return o
+}
+
+func (o RegistryGeoreplicationArrayOutput) Index(i pulumi.IntInput) RegistryGeoreplicationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegistryGeoreplication {
+		return vs[0].([]RegistryGeoreplication)[vs[1].(int)]
+	}).(RegistryGeoreplicationOutput)
 }
 
 type RegistryNetworkRuleSet struct {
@@ -7331,6 +7863,8 @@ type GetKubernetesClusterAddonProfile struct {
 	AzurePolicies []GetKubernetesClusterAddonProfileAzurePolicy `pulumi:"azurePolicies"`
 	// A `httpApplicationRouting` block.
 	HttpApplicationRoutings []GetKubernetesClusterAddonProfileHttpApplicationRouting `pulumi:"httpApplicationRoutings"`
+	// An `ingressApplicationGateway` block.
+	IngressApplicationGateways []GetKubernetesClusterAddonProfileIngressApplicationGateway `pulumi:"ingressApplicationGateways"`
 	// A `kubeDashboard` block.
 	KubeDashboards []GetKubernetesClusterAddonProfileKubeDashboard `pulumi:"kubeDashboards"`
 	// A `omsAgent` block.
@@ -7353,6 +7887,8 @@ type GetKubernetesClusterAddonProfileArgs struct {
 	AzurePolicies GetKubernetesClusterAddonProfileAzurePolicyArrayInput `pulumi:"azurePolicies"`
 	// A `httpApplicationRouting` block.
 	HttpApplicationRoutings GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayInput `pulumi:"httpApplicationRoutings"`
+	// An `ingressApplicationGateway` block.
+	IngressApplicationGateways GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayInput `pulumi:"ingressApplicationGateways"`
 	// A `kubeDashboard` block.
 	KubeDashboards GetKubernetesClusterAddonProfileKubeDashboardArrayInput `pulumi:"kubeDashboards"`
 	// A `omsAgent` block.
@@ -7422,6 +7958,13 @@ func (o GetKubernetesClusterAddonProfileOutput) HttpApplicationRoutings() GetKub
 	return o.ApplyT(func(v GetKubernetesClusterAddonProfile) []GetKubernetesClusterAddonProfileHttpApplicationRouting {
 		return v.HttpApplicationRoutings
 	}).(GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput)
+}
+
+// An `ingressApplicationGateway` block.
+func (o GetKubernetesClusterAddonProfileOutput) IngressApplicationGateways() GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfile) []GetKubernetesClusterAddonProfileIngressApplicationGateway {
+		return v.IngressApplicationGateways
+	}).(GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput)
 }
 
 // A `kubeDashboard` block.
@@ -7661,6 +8204,139 @@ func (o GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput) Index
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAddonProfileHttpApplicationRouting {
 		return vs[0].([]GetKubernetesClusterAddonProfileHttpApplicationRouting)[vs[1].(int)]
 	}).(GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput)
+}
+
+type GetKubernetesClusterAddonProfileIngressApplicationGateway struct {
+	// The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
+	EffectiveGatewayId string `pulumi:"effectiveGatewayId"`
+	// Is Role Based Access Control enabled?
+	Enabled bool `pulumi:"enabled"`
+	// The ID of the Application Gateway integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when gatewayId is specified when configuring the `ingressApplicationGateway` addon.
+	GatewayId string `pulumi:"gatewayId"`
+	// The subnet CIDR used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnetCidr` is specified when configuring the `ingressApplicationGateway` addon.
+	SubnetCidr string `pulumi:"subnetCidr"`
+	// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnetId` is specified when configuring the `ingressApplicationGateway` addon.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// GetKubernetesClusterAddonProfileIngressApplicationGatewayInput is an input type that accepts GetKubernetesClusterAddonProfileIngressApplicationGatewayArgs and GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput values.
+// You can construct a concrete instance of `GetKubernetesClusterAddonProfileIngressApplicationGatewayInput` via:
+//
+//          GetKubernetesClusterAddonProfileIngressApplicationGatewayArgs{...}
+type GetKubernetesClusterAddonProfileIngressApplicationGatewayInput interface {
+	pulumi.Input
+
+	ToGetKubernetesClusterAddonProfileIngressApplicationGatewayOutput() GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput
+	ToGetKubernetesClusterAddonProfileIngressApplicationGatewayOutputWithContext(context.Context) GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput
+}
+
+type GetKubernetesClusterAddonProfileIngressApplicationGatewayArgs struct {
+	// The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
+	EffectiveGatewayId pulumi.StringInput `pulumi:"effectiveGatewayId"`
+	// Is Role Based Access Control enabled?
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The ID of the Application Gateway integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when gatewayId is specified when configuring the `ingressApplicationGateway` addon.
+	GatewayId pulumi.StringInput `pulumi:"gatewayId"`
+	// The subnet CIDR used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnetCidr` is specified when configuring the `ingressApplicationGateway` addon.
+	SubnetCidr pulumi.StringInput `pulumi:"subnetCidr"`
+	// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnetId` is specified when configuring the `ingressApplicationGateway` addon.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (GetKubernetesClusterAddonProfileIngressApplicationGatewayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKubernetesClusterAddonProfileIngressApplicationGateway)(nil)).Elem()
+}
+
+func (i GetKubernetesClusterAddonProfileIngressApplicationGatewayArgs) ToGetKubernetesClusterAddonProfileIngressApplicationGatewayOutput() GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput {
+	return i.ToGetKubernetesClusterAddonProfileIngressApplicationGatewayOutputWithContext(context.Background())
+}
+
+func (i GetKubernetesClusterAddonProfileIngressApplicationGatewayArgs) ToGetKubernetesClusterAddonProfileIngressApplicationGatewayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput)
+}
+
+// GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayInput is an input type that accepts GetKubernetesClusterAddonProfileIngressApplicationGatewayArray and GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput values.
+// You can construct a concrete instance of `GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayInput` via:
+//
+//          GetKubernetesClusterAddonProfileIngressApplicationGatewayArray{ GetKubernetesClusterAddonProfileIngressApplicationGatewayArgs{...} }
+type GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayInput interface {
+	pulumi.Input
+
+	ToGetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput() GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput
+	ToGetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutputWithContext(context.Context) GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput
+}
+
+type GetKubernetesClusterAddonProfileIngressApplicationGatewayArray []GetKubernetesClusterAddonProfileIngressApplicationGatewayInput
+
+func (GetKubernetesClusterAddonProfileIngressApplicationGatewayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileIngressApplicationGateway)(nil)).Elem()
+}
+
+func (i GetKubernetesClusterAddonProfileIngressApplicationGatewayArray) ToGetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput() GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput {
+	return i.ToGetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutputWithContext(context.Background())
+}
+
+func (i GetKubernetesClusterAddonProfileIngressApplicationGatewayArray) ToGetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput)
+}
+
+type GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput struct{ *pulumi.OutputState }
+
+func (GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKubernetesClusterAddonProfileIngressApplicationGateway)(nil)).Elem()
+}
+
+func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput) ToGetKubernetesClusterAddonProfileIngressApplicationGatewayOutput() GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput {
+	return o
+}
+
+func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput) ToGetKubernetesClusterAddonProfileIngressApplicationGatewayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput {
+	return o
+}
+
+// The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
+func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput) EffectiveGatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileIngressApplicationGateway) string { return v.EffectiveGatewayId }).(pulumi.StringOutput)
+}
+
+// Is Role Based Access Control enabled?
+func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileIngressApplicationGateway) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The ID of the Application Gateway integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when gatewayId is specified when configuring the `ingressApplicationGateway` addon.
+func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput) GatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileIngressApplicationGateway) string { return v.GatewayId }).(pulumi.StringOutput)
+}
+
+// The subnet CIDR used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnetCidr` is specified when configuring the `ingressApplicationGateway` addon.
+func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput) SubnetCidr() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileIngressApplicationGateway) string { return v.SubnetCidr }).(pulumi.StringOutput)
+}
+
+// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnetId` is specified when configuring the `ingressApplicationGateway` addon.
+func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileIngressApplicationGateway) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileIngressApplicationGateway)(nil)).Elem()
+}
+
+func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput) ToGetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput() GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput {
+	return o
+}
+
+func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput) ToGetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput {
+	return o
+}
+
+func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAddonProfileIngressApplicationGateway {
+		return vs[0].([]GetKubernetesClusterAddonProfileIngressApplicationGateway)[vs[1].(int)]
+	}).(GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput)
 }
 
 type GetKubernetesClusterAddonProfileKubeDashboard struct {
@@ -9670,6 +10346,8 @@ func init() {
 	pulumi.RegisterOutputType(GroupDiagnosticsLogAnalyticsPtrOutput{})
 	pulumi.RegisterOutputType(GroupDnsConfigOutput{})
 	pulumi.RegisterOutputType(GroupDnsConfigPtrOutput{})
+	pulumi.RegisterOutputType(GroupExposedPortOutput{})
+	pulumi.RegisterOutputType(GroupExposedPortArrayOutput{})
 	pulumi.RegisterOutputType(GroupIdentityOutput{})
 	pulumi.RegisterOutputType(GroupIdentityPtrOutput{})
 	pulumi.RegisterOutputType(GroupImageRegistryCredentialOutput{})
@@ -9682,6 +10360,8 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterAddonProfileAzurePolicyPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAddonProfileHttpApplicationRoutingOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterAddonProfileIngressApplicationGatewayOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAddonProfileKubeDashboardOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAddonProfileKubeDashboardPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAddonProfileOmsAgentOutput{})
@@ -9720,6 +10400,8 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterServicePrincipalPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterWindowsProfileOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterWindowsProfilePtrOutput{})
+	pulumi.RegisterOutputType(RegistryGeoreplicationOutput{})
+	pulumi.RegisterOutputType(RegistryGeoreplicationArrayOutput{})
 	pulumi.RegisterOutputType(RegistryNetworkRuleSetOutput{})
 	pulumi.RegisterOutputType(RegistryNetworkRuleSetPtrOutput{})
 	pulumi.RegisterOutputType(RegistryNetworkRuleSetIpRuleOutput{})
@@ -9738,6 +10420,8 @@ func init() {
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileAzurePolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileHttpApplicationRoutingOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput{})
+	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput{})
+	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileKubeDashboardOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileKubeDashboardArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileOmsAgentOutput{})

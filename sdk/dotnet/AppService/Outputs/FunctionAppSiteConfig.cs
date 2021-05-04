@@ -39,6 +39,10 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.FunctionAppSiteConfigIpRestriction> IpRestrictions;
         /// <summary>
+        /// Java version hosted by the function app in Azure. Possible values are `1.8`, `11`.
+        /// </summary>
+        public readonly string? JavaVersion;
+        /// <summary>
         /// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
         /// </summary>
         public readonly string? LinuxFxVersion;
@@ -87,6 +91,8 @@ namespace Pulumi.Azure.AppService.Outputs
 
             ImmutableArray<Outputs.FunctionAppSiteConfigIpRestriction> ipRestrictions,
 
+            string? javaVersion,
+
             string? linuxFxVersion,
 
             string? minTlsVersion,
@@ -110,6 +116,7 @@ namespace Pulumi.Azure.AppService.Outputs
             HealthCheckPath = healthCheckPath;
             Http2Enabled = http2Enabled;
             IpRestrictions = ipRestrictions;
+            JavaVersion = javaVersion;
             LinuxFxVersion = linuxFxVersion;
             MinTlsVersion = minTlsVersion;
             PreWarmedInstanceCount = preWarmedInstanceCount;

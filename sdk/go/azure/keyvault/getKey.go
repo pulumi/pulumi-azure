@@ -70,4 +70,6 @@ type LookupKeyResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The current version of the Key Vault Key.
 	Version string `pulumi:"version"`
+	// The Base ID of the Key Vault Key.
+	VersionlessId string `pulumi:"versionlessId"`
 }

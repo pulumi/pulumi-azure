@@ -18,7 +18,7 @@ namespace Pulumi.Azure.FrontDoor.Outputs
         /// </summary>
         public readonly string? AzureKeyVaultCertificateSecretName;
         /// <summary>
-        /// The version of the Key Vault secret representing the full certificate PFX.
+        /// The version of the Key Vault secret representing the full certificate PFX. Defaults to `Latest`.
         /// </summary>
         public readonly string? AzureKeyVaultCertificateSecretVersion;
         /// <summary>

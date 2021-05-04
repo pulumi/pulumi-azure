@@ -28,7 +28,9 @@ __all__ = [
     'ManagementPolicyRuleActionsArgs',
     'ManagementPolicyRuleActionsBaseBlobArgs',
     'ManagementPolicyRuleActionsSnapshotArgs',
+    'ManagementPolicyRuleActionsVersionArgs',
     'ManagementPolicyRuleFiltersArgs',
+    'ManagementPolicyRuleFiltersMatchBlobIndexTagArgs',
     'ShareAclArgs',
     'ShareAclAccessPolicyArgs',
     'TableAclArgs',
@@ -44,18 +46,30 @@ class AccountBlobPropertiesArgs:
     def __init__(__self__, *,
                  container_delete_retention_policy: Optional[pulumi.Input['AccountBlobPropertiesContainerDeleteRetentionPolicyArgs']] = None,
                  cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountBlobPropertiesCorsRuleArgs']]]] = None,
-                 delete_retention_policy: Optional[pulumi.Input['AccountBlobPropertiesDeleteRetentionPolicyArgs']] = None):
+                 default_service_version: Optional[pulumi.Input[str]] = None,
+                 delete_retention_policy: Optional[pulumi.Input['AccountBlobPropertiesDeleteRetentionPolicyArgs']] = None,
+                 last_access_time_enabled: Optional[pulumi.Input[bool]] = None,
+                 versioning_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input['AccountBlobPropertiesContainerDeleteRetentionPolicyArgs'] container_delete_retention_policy: A `container_delete_retention_policy` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AccountBlobPropertiesCorsRuleArgs']]] cors_rules: A `cors_rule` block as defined below.
+        :param pulumi.Input[str] default_service_version: The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version. Defaults to `2020-06-12`.
         :param pulumi.Input['AccountBlobPropertiesDeleteRetentionPolicyArgs'] delete_retention_policy: A `delete_retention_policy` block as defined below.
+        :param pulumi.Input[bool] last_access_time_enabled: Is the last access time based tracking enabled? Default to `false`.
+        :param pulumi.Input[bool] versioning_enabled: Is versioning enabled? Default to `false`.
         """
         if container_delete_retention_policy is not None:
             pulumi.set(__self__, "container_delete_retention_policy", container_delete_retention_policy)
         if cors_rules is not None:
             pulumi.set(__self__, "cors_rules", cors_rules)
+        if default_service_version is not None:
+            pulumi.set(__self__, "default_service_version", default_service_version)
         if delete_retention_policy is not None:
             pulumi.set(__self__, "delete_retention_policy", delete_retention_policy)
+        if last_access_time_enabled is not None:
+            pulumi.set(__self__, "last_access_time_enabled", last_access_time_enabled)
+        if versioning_enabled is not None:
+            pulumi.set(__self__, "versioning_enabled", versioning_enabled)
 
     @property
     @pulumi.getter(name="containerDeleteRetentionPolicy")
@@ -82,6 +96,18 @@ class AccountBlobPropertiesArgs:
         pulumi.set(self, "cors_rules", value)
 
     @property
+    @pulumi.getter(name="defaultServiceVersion")
+    def default_service_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version. Defaults to `2020-06-12`.
+        """
+        return pulumi.get(self, "default_service_version")
+
+    @default_service_version.setter
+    def default_service_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_service_version", value)
+
+    @property
     @pulumi.getter(name="deleteRetentionPolicy")
     def delete_retention_policy(self) -> Optional[pulumi.Input['AccountBlobPropertiesDeleteRetentionPolicyArgs']]:
         """
@@ -92,6 +118,30 @@ class AccountBlobPropertiesArgs:
     @delete_retention_policy.setter
     def delete_retention_policy(self, value: Optional[pulumi.Input['AccountBlobPropertiesDeleteRetentionPolicyArgs']]):
         pulumi.set(self, "delete_retention_policy", value)
+
+    @property
+    @pulumi.getter(name="lastAccessTimeEnabled")
+    def last_access_time_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the last access time based tracking enabled? Default to `false`.
+        """
+        return pulumi.get(self, "last_access_time_enabled")
+
+    @last_access_time_enabled.setter
+    def last_access_time_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "last_access_time_enabled", value)
+
+    @property
+    @pulumi.getter(name="versioningEnabled")
+    def versioning_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is versioning enabled? Default to `false`.
+        """
+        return pulumi.get(self, "versioning_enabled")
+
+    @versioning_enabled.setter
+    def versioning_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "versioning_enabled", value)
 
 
 @pulumi.input_type
@@ -1013,15 +1063,19 @@ class ManagementPolicyRuleArgs:
 class ManagementPolicyRuleActionsArgs:
     def __init__(__self__, *,
                  base_blob: Optional[pulumi.Input['ManagementPolicyRuleActionsBaseBlobArgs']] = None,
-                 snapshot: Optional[pulumi.Input['ManagementPolicyRuleActionsSnapshotArgs']] = None):
+                 snapshot: Optional[pulumi.Input['ManagementPolicyRuleActionsSnapshotArgs']] = None,
+                 version: Optional[pulumi.Input['ManagementPolicyRuleActionsVersionArgs']] = None):
         """
         :param pulumi.Input['ManagementPolicyRuleActionsBaseBlobArgs'] base_blob: A `base_blob` block as documented below.
         :param pulumi.Input['ManagementPolicyRuleActionsSnapshotArgs'] snapshot: A `snapshot` block as documented below.
+        :param pulumi.Input['ManagementPolicyRuleActionsVersionArgs'] version: A `version` block as documented below.
         """
         if base_blob is not None:
             pulumi.set(__self__, "base_blob", base_blob)
         if snapshot is not None:
             pulumi.set(__self__, "snapshot", snapshot)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="baseBlob")
@@ -1047,6 +1101,18 @@ class ManagementPolicyRuleActionsArgs:
     def snapshot(self, value: Optional[pulumi.Input['ManagementPolicyRuleActionsSnapshotArgs']]):
         pulumi.set(self, "snapshot", value)
 
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input['ManagementPolicyRuleActionsVersionArgs']]:
+        """
+        A `version` block as documented below.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input['ManagementPolicyRuleActionsVersionArgs']]):
+        pulumi.set(self, "version", value)
+
 
 @pulumi.input_type
 class ManagementPolicyRuleActionsBaseBlobArgs:
@@ -1055,9 +1121,9 @@ class ManagementPolicyRuleActionsBaseBlobArgs:
                  tier_to_archive_after_days_since_modification_greater_than: Optional[pulumi.Input[int]] = None,
                  tier_to_cool_after_days_since_modification_greater_than: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] delete_after_days_since_modification_greater_than: The age in days after last modification to delete the blob. Must be at least 0.
-        :param pulumi.Input[int] tier_to_archive_after_days_since_modification_greater_than: The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be at least 0.
-        :param pulumi.Input[int] tier_to_cool_after_days_since_modification_greater_than: The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be at least 0.
+        :param pulumi.Input[int] delete_after_days_since_modification_greater_than: The age in days after last modification to delete the blob. Must be between 0 and 99999.
+        :param pulumi.Input[int] tier_to_archive_after_days_since_modification_greater_than: The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
+        :param pulumi.Input[int] tier_to_cool_after_days_since_modification_greater_than: The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999.
         """
         if delete_after_days_since_modification_greater_than is not None:
             pulumi.set(__self__, "delete_after_days_since_modification_greater_than", delete_after_days_since_modification_greater_than)
@@ -1070,7 +1136,7 @@ class ManagementPolicyRuleActionsBaseBlobArgs:
     @pulumi.getter(name="deleteAfterDaysSinceModificationGreaterThan")
     def delete_after_days_since_modification_greater_than(self) -> Optional[pulumi.Input[int]]:
         """
-        The age in days after last modification to delete the blob. Must be at least 0.
+        The age in days after last modification to delete the blob. Must be between 0 and 99999.
         """
         return pulumi.get(self, "delete_after_days_since_modification_greater_than")
 
@@ -1082,7 +1148,7 @@ class ManagementPolicyRuleActionsBaseBlobArgs:
     @pulumi.getter(name="tierToArchiveAfterDaysSinceModificationGreaterThan")
     def tier_to_archive_after_days_since_modification_greater_than(self) -> Optional[pulumi.Input[int]]:
         """
-        The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be at least 0.
+        The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
         """
         return pulumi.get(self, "tier_to_archive_after_days_since_modification_greater_than")
 
@@ -1094,7 +1160,7 @@ class ManagementPolicyRuleActionsBaseBlobArgs:
     @pulumi.getter(name="tierToCoolAfterDaysSinceModificationGreaterThan")
     def tier_to_cool_after_days_since_modification_greater_than(self) -> Optional[pulumi.Input[int]]:
         """
-        The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be at least 0.
+        The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999.
         """
         return pulumi.get(self, "tier_to_cool_after_days_since_modification_greater_than")
 
@@ -1106,18 +1172,50 @@ class ManagementPolicyRuleActionsBaseBlobArgs:
 @pulumi.input_type
 class ManagementPolicyRuleActionsSnapshotArgs:
     def __init__(__self__, *,
+                 change_tier_to_archive_after_days_since_creation: Optional[pulumi.Input[int]] = None,
+                 change_tier_to_cool_after_days_since_creation: Optional[pulumi.Input[int]] = None,
                  delete_after_days_since_creation_greater_than: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] delete_after_days_since_creation_greater_than: The age in days after create to delete the snaphot. Must be at least 0.
+        :param pulumi.Input[int] change_tier_to_archive_after_days_since_creation: The age in days after creation to tier blob snapshot to archive storage. Must be between 0 and 99999.
+        :param pulumi.Input[int] change_tier_to_cool_after_days_since_creation: The age in days after creation to tier blob snapshot to cool storage. Must be between 0 and 99999.
+        :param pulumi.Input[int] delete_after_days_since_creation_greater_than: The age in days after creation to delete the blob snapshot. Must be between 0 and 99999.
         """
+        if change_tier_to_archive_after_days_since_creation is not None:
+            pulumi.set(__self__, "change_tier_to_archive_after_days_since_creation", change_tier_to_archive_after_days_since_creation)
+        if change_tier_to_cool_after_days_since_creation is not None:
+            pulumi.set(__self__, "change_tier_to_cool_after_days_since_creation", change_tier_to_cool_after_days_since_creation)
         if delete_after_days_since_creation_greater_than is not None:
             pulumi.set(__self__, "delete_after_days_since_creation_greater_than", delete_after_days_since_creation_greater_than)
+
+    @property
+    @pulumi.getter(name="changeTierToArchiveAfterDaysSinceCreation")
+    def change_tier_to_archive_after_days_since_creation(self) -> Optional[pulumi.Input[int]]:
+        """
+        The age in days after creation to tier blob snapshot to archive storage. Must be between 0 and 99999.
+        """
+        return pulumi.get(self, "change_tier_to_archive_after_days_since_creation")
+
+    @change_tier_to_archive_after_days_since_creation.setter
+    def change_tier_to_archive_after_days_since_creation(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "change_tier_to_archive_after_days_since_creation", value)
+
+    @property
+    @pulumi.getter(name="changeTierToCoolAfterDaysSinceCreation")
+    def change_tier_to_cool_after_days_since_creation(self) -> Optional[pulumi.Input[int]]:
+        """
+        The age in days after creation to tier blob snapshot to cool storage. Must be between 0 and 99999.
+        """
+        return pulumi.get(self, "change_tier_to_cool_after_days_since_creation")
+
+    @change_tier_to_cool_after_days_since_creation.setter
+    def change_tier_to_cool_after_days_since_creation(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "change_tier_to_cool_after_days_since_creation", value)
 
     @property
     @pulumi.getter(name="deleteAfterDaysSinceCreationGreaterThan")
     def delete_after_days_since_creation_greater_than(self) -> Optional[pulumi.Input[int]]:
         """
-        The age in days after create to delete the snaphot. Must be at least 0.
+        The age in days after creation to delete the blob snapshot. Must be between 0 and 99999.
         """
         return pulumi.get(self, "delete_after_days_since_creation_greater_than")
 
@@ -1127,16 +1225,75 @@ class ManagementPolicyRuleActionsSnapshotArgs:
 
 
 @pulumi.input_type
+class ManagementPolicyRuleActionsVersionArgs:
+    def __init__(__self__, *,
+                 change_tier_to_archive_after_days_since_creation: Optional[pulumi.Input[int]] = None,
+                 change_tier_to_cool_after_days_since_creation: Optional[pulumi.Input[int]] = None,
+                 delete_after_days_since_creation: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] change_tier_to_archive_after_days_since_creation: The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999.
+        :param pulumi.Input[int] change_tier_to_cool_after_days_since_creation: The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999.
+        :param pulumi.Input[int] delete_after_days_since_creation: The age in days after creation to delete the blob version. Must be between 0 and 99999.
+        """
+        if change_tier_to_archive_after_days_since_creation is not None:
+            pulumi.set(__self__, "change_tier_to_archive_after_days_since_creation", change_tier_to_archive_after_days_since_creation)
+        if change_tier_to_cool_after_days_since_creation is not None:
+            pulumi.set(__self__, "change_tier_to_cool_after_days_since_creation", change_tier_to_cool_after_days_since_creation)
+        if delete_after_days_since_creation is not None:
+            pulumi.set(__self__, "delete_after_days_since_creation", delete_after_days_since_creation)
+
+    @property
+    @pulumi.getter(name="changeTierToArchiveAfterDaysSinceCreation")
+    def change_tier_to_archive_after_days_since_creation(self) -> Optional[pulumi.Input[int]]:
+        """
+        The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999.
+        """
+        return pulumi.get(self, "change_tier_to_archive_after_days_since_creation")
+
+    @change_tier_to_archive_after_days_since_creation.setter
+    def change_tier_to_archive_after_days_since_creation(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "change_tier_to_archive_after_days_since_creation", value)
+
+    @property
+    @pulumi.getter(name="changeTierToCoolAfterDaysSinceCreation")
+    def change_tier_to_cool_after_days_since_creation(self) -> Optional[pulumi.Input[int]]:
+        """
+        The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999.
+        """
+        return pulumi.get(self, "change_tier_to_cool_after_days_since_creation")
+
+    @change_tier_to_cool_after_days_since_creation.setter
+    def change_tier_to_cool_after_days_since_creation(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "change_tier_to_cool_after_days_since_creation", value)
+
+    @property
+    @pulumi.getter(name="deleteAfterDaysSinceCreation")
+    def delete_after_days_since_creation(self) -> Optional[pulumi.Input[int]]:
+        """
+        The age in days after creation to delete the blob version. Must be between 0 and 99999.
+        """
+        return pulumi.get(self, "delete_after_days_since_creation")
+
+    @delete_after_days_since_creation.setter
+    def delete_after_days_since_creation(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "delete_after_days_since_creation", value)
+
+
+@pulumi.input_type
 class ManagementPolicyRuleFiltersArgs:
     def __init__(__self__, *,
                  blob_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 match_blob_index_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleFiltersMatchBlobIndexTagArgs']]]] = None,
                  prefix_matches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] blob_types: An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleFiltersMatchBlobIndexTagArgs']]] match_blob_index_tags: A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_matches: An array of strings for prefixes to be matched.
         """
         if blob_types is not None:
             pulumi.set(__self__, "blob_types", blob_types)
+        if match_blob_index_tags is not None:
+            pulumi.set(__self__, "match_blob_index_tags", match_blob_index_tags)
         if prefix_matches is not None:
             pulumi.set(__self__, "prefix_matches", prefix_matches)
 
@@ -1153,6 +1310,18 @@ class ManagementPolicyRuleFiltersArgs:
         pulumi.set(self, "blob_types", value)
 
     @property
+    @pulumi.getter(name="matchBlobIndexTags")
+    def match_blob_index_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleFiltersMatchBlobIndexTagArgs']]]]:
+        """
+        A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
+        """
+        return pulumi.get(self, "match_blob_index_tags")
+
+    @match_blob_index_tags.setter
+    def match_blob_index_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleFiltersMatchBlobIndexTagArgs']]]]):
+        pulumi.set(self, "match_blob_index_tags", value)
+
+    @property
     @pulumi.getter(name="prefixMatches")
     def prefix_matches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -1163,6 +1332,59 @@ class ManagementPolicyRuleFiltersArgs:
     @prefix_matches.setter
     def prefix_matches(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "prefix_matches", value)
+
+
+@pulumi.input_type
+class ManagementPolicyRuleFiltersMatchBlobIndexTagArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str],
+                 operation: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The filter tag name used for tag based filtering for blob objects.
+        :param pulumi.Input[str] value: The filter tag value used for tag based filtering for blob objects.
+        :param pulumi.Input[str] operation: The comparison operator which is used for object comparison and filtering. Possible value is `==`. Defaults to `==`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+        if operation is not None:
+            pulumi.set(__self__, "operation", operation)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The filter tag name used for tag based filtering for blob objects.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The filter tag value used for tag based filtering for blob objects.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def operation(self) -> Optional[pulumi.Input[str]]:
+        """
+        The comparison operator which is used for object comparison and filtering. Possible value is `==`. Defaults to `==`.
+        """
+        return pulumi.get(self, "operation")
+
+    @operation.setter
+    def operation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "operation", value)
 
 
 @pulumi.input_type

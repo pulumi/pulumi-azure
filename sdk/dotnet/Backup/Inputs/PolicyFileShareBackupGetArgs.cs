@@ -18,6 +18,9 @@ namespace Pulumi.Azure.Backup.Inputs
         [Input("frequency", required: true)]
         public Input<string> Frequency { get; set; } = null!;
 
+        /// <summary>
+        /// The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+        /// </summary>
         [Input("time", required: true)]
         public Input<string> Time { get; set; } = null!;
 

@@ -59,14 +59,16 @@ export class EnterpriseCluster extends pulumi.CustomResource {
 
     /**
      * DNS name of the cluster endpoint.
-     *
-     * @deprecated This field currently is not yet being returned from the service API, please see https://github.com/Azure/azure-sdk-for-go/issues/14420 for more information
      */
     public /*out*/ readonly hostname!: pulumi.Output<string>;
     /**
      * The Azure Region where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * The minimum TLS version.  Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
+     */
+    public readonly minimumTlsVersion!: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
      */
@@ -109,6 +111,7 @@ export class EnterpriseCluster extends pulumi.CustomResource {
             const state = argsOrState as EnterpriseClusterState | undefined;
             inputs["hostname"] = state ? state.hostname : undefined;
             inputs["location"] = state ? state.location : undefined;
+            inputs["minimumTlsVersion"] = state ? state.minimumTlsVersion : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["skuName"] = state ? state.skuName : undefined;
@@ -124,6 +127,7 @@ export class EnterpriseCluster extends pulumi.CustomResource {
                 throw new Error("Missing required property 'skuName'");
             }
             inputs["location"] = args ? args.location : undefined;
+            inputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["skuName"] = args ? args.skuName : undefined;
@@ -145,14 +149,16 @@ export class EnterpriseCluster extends pulumi.CustomResource {
 export interface EnterpriseClusterState {
     /**
      * DNS name of the cluster endpoint.
-     *
-     * @deprecated This field currently is not yet being returned from the service API, please see https://github.com/Azure/azure-sdk-for-go/issues/14420 for more information
      */
     readonly hostname?: pulumi.Input<string>;
     /**
      * The Azure Region where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * The minimum TLS version.  Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
+     */
+    readonly minimumTlsVersion?: pulumi.Input<string>;
     /**
      * The name which should be used for this Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
      */
@@ -189,6 +195,10 @@ export interface EnterpriseClusterArgs {
      * The Azure Region where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * The minimum TLS version.  Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
+     */
+    readonly minimumTlsVersion?: pulumi.Input<string>;
     /**
      * The name which should be used for this Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
      */

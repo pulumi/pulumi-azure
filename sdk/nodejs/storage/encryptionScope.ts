@@ -68,6 +68,10 @@ export class EncryptionScope extends pulumi.CustomResource {
     }
 
     /**
+     * Is a secondary layer of encryption with Platform Managed Keys for data applied?
+     */
+    public readonly infrastructureEncryptionRequired!: pulumi.Output<boolean | undefined>;
+    /**
      * The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
      */
     public readonly keyVaultKeyId!: pulumi.Output<string | undefined>;
@@ -97,6 +101,7 @@ export class EncryptionScope extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EncryptionScopeState | undefined;
+            inputs["infrastructureEncryptionRequired"] = state ? state.infrastructureEncryptionRequired : undefined;
             inputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["source"] = state ? state.source : undefined;
@@ -109,6 +114,7 @@ export class EncryptionScope extends pulumi.CustomResource {
             if ((!args || args.storageAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
+            inputs["infrastructureEncryptionRequired"] = args ? args.infrastructureEncryptionRequired : undefined;
             inputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["source"] = args ? args.source : undefined;
@@ -125,6 +131,10 @@ export class EncryptionScope extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EncryptionScope resources.
  */
 export interface EncryptionScopeState {
+    /**
+     * Is a secondary layer of encryption with Platform Managed Keys for data applied?
+     */
+    readonly infrastructureEncryptionRequired?: pulumi.Input<boolean>;
     /**
      * The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
      */
@@ -147,6 +157,10 @@ export interface EncryptionScopeState {
  * The set of arguments for constructing a EncryptionScope resource.
  */
 export interface EncryptionScopeArgs {
+    /**
+     * Is a secondary layer of encryption with Platform Managed Keys for data applied?
+     */
+    readonly infrastructureEncryptionRequired?: pulumi.Input<boolean>;
     /**
      * The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
      */

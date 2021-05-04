@@ -39,6 +39,7 @@ class VolumeArgs:
         :param pulumi.Input[str] subnet_id: The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
         :param pulumi.Input[str] volume_path: A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
         :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`.
+        :param pulumi.Input['VolumeDataProtectionReplicationArgs'] data_protection_replication: A `data_protection_replication` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['VolumeExportPolicyRuleArgs']]] export_policy_rules: One or more `export_policy_rule` block defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
@@ -166,6 +167,9 @@ class VolumeArgs:
     @property
     @pulumi.getter(name="dataProtectionReplication")
     def data_protection_replication(self) -> Optional[pulumi.Input['VolumeDataProtectionReplicationArgs']]:
+        """
+        A `data_protection_replication` block as defined below.
+        """
         return pulumi.get(self, "data_protection_replication")
 
     @data_protection_replication.setter
@@ -255,6 +259,7 @@ class _VolumeState:
         Input properties used for looking up and filtering Volume resources.
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`.
+        :param pulumi.Input['VolumeDataProtectionReplicationArgs'] data_protection_replication: A `data_protection_replication` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['VolumeExportPolicyRuleArgs']]] export_policy_rules: One or more `export_policy_rule` block defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] mount_ip_addresses: A list of IPv4 Addresses which should be used to mount the volume.
@@ -326,6 +331,9 @@ class _VolumeState:
     @property
     @pulumi.getter(name="dataProtectionReplication")
     def data_protection_replication(self) -> Optional[pulumi.Input['VolumeDataProtectionReplicationArgs']]:
+        """
+        A `data_protection_replication` block as defined below.
+        """
         return pulumi.get(self, "data_protection_replication")
 
     @data_protection_replication.setter
@@ -565,6 +573,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`.
+        :param pulumi.Input[pulumi.InputType['VolumeDataProtectionReplicationArgs']] data_protection_replication: A `data_protection_replication` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]] export_policy_rules: One or more `export_policy_rule` block defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
@@ -751,6 +760,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`.
+        :param pulumi.Input[pulumi.InputType['VolumeDataProtectionReplicationArgs']] data_protection_replication: A `data_protection_replication` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeExportPolicyRuleArgs']]]] export_policy_rules: One or more `export_policy_rule` block defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] mount_ip_addresses: A list of IPv4 Addresses which should be used to mount the volume.
@@ -804,6 +814,9 @@ class Volume(pulumi.CustomResource):
     @property
     @pulumi.getter(name="dataProtectionReplication")
     def data_protection_replication(self) -> pulumi.Output[Optional['outputs.VolumeDataProtectionReplication']]:
+        """
+        A `data_protection_replication` block as defined below.
+        """
         return pulumi.get(self, "data_protection_replication")
 
     @property

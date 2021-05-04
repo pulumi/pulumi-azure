@@ -20,6 +20,10 @@ class PolicyFileShareArgs:
                  resource_group_name: pulumi.Input[str],
                  retention_daily: pulumi.Input['PolicyFileShareRetentionDailyArgs'],
                  name: Optional[pulumi.Input[str]] = None,
+                 retention_monthly: Optional[pulumi.Input['PolicyFileShareRetentionMonthlyArgs']] = None,
+                 retention_weekly: Optional[pulumi.Input['PolicyFileShareRetentionWeeklyArgs']] = None,
+                 retention_yearly: Optional[pulumi.Input['PolicyFileShareRetentionYearlyArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PolicyFileShare resource.
@@ -28,6 +32,9 @@ class PolicyFileShareArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
         :param pulumi.Input['PolicyFileShareRetentionDailyArgs'] retention_daily: Configures the policy daily retention as documented in the `retention_daily` block below.
         :param pulumi.Input[str] name: Specifies the name of the policy. Changing this forces a new resource to be created.
+        :param pulumi.Input['PolicyFileShareRetentionMonthlyArgs'] retention_monthly: Configures the policy monthly retention as documented in the `retention_monthly` block below.
+        :param pulumi.Input['PolicyFileShareRetentionWeeklyArgs'] retention_weekly: Configures the policy weekly retention as documented in the `retention_weekly` block below.
+        :param pulumi.Input['PolicyFileShareRetentionYearlyArgs'] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
         :param pulumi.Input[str] timezone: Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         """
         pulumi.set(__self__, "backup", backup)
@@ -36,6 +43,14 @@ class PolicyFileShareArgs:
         pulumi.set(__self__, "retention_daily", retention_daily)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if retention_monthly is not None:
+            pulumi.set(__self__, "retention_monthly", retention_monthly)
+        if retention_weekly is not None:
+            pulumi.set(__self__, "retention_weekly", retention_weekly)
+        if retention_yearly is not None:
+            pulumi.set(__self__, "retention_yearly", retention_yearly)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
 
@@ -100,6 +115,51 @@ class PolicyFileShareArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="retentionMonthly")
+    def retention_monthly(self) -> Optional[pulumi.Input['PolicyFileShareRetentionMonthlyArgs']]:
+        """
+        Configures the policy monthly retention as documented in the `retention_monthly` block below.
+        """
+        return pulumi.get(self, "retention_monthly")
+
+    @retention_monthly.setter
+    def retention_monthly(self, value: Optional[pulumi.Input['PolicyFileShareRetentionMonthlyArgs']]):
+        pulumi.set(self, "retention_monthly", value)
+
+    @property
+    @pulumi.getter(name="retentionWeekly")
+    def retention_weekly(self) -> Optional[pulumi.Input['PolicyFileShareRetentionWeeklyArgs']]:
+        """
+        Configures the policy weekly retention as documented in the `retention_weekly` block below.
+        """
+        return pulumi.get(self, "retention_weekly")
+
+    @retention_weekly.setter
+    def retention_weekly(self, value: Optional[pulumi.Input['PolicyFileShareRetentionWeeklyArgs']]):
+        pulumi.set(self, "retention_weekly", value)
+
+    @property
+    @pulumi.getter(name="retentionYearly")
+    def retention_yearly(self) -> Optional[pulumi.Input['PolicyFileShareRetentionYearlyArgs']]:
+        """
+        Configures the policy yearly retention as documented in the `retention_yearly` block below.
+        """
+        return pulumi.get(self, "retention_yearly")
+
+    @retention_yearly.setter
+    def retention_yearly(self, value: Optional[pulumi.Input['PolicyFileShareRetentionYearlyArgs']]):
+        pulumi.set(self, "retention_yearly", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
     @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[str]]:
         """
@@ -120,6 +180,10 @@ class _PolicyFileShareState:
                  recovery_vault_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_daily: Optional[pulumi.Input['PolicyFileShareRetentionDailyArgs']] = None,
+                 retention_monthly: Optional[pulumi.Input['PolicyFileShareRetentionMonthlyArgs']] = None,
+                 retention_weekly: Optional[pulumi.Input['PolicyFileShareRetentionWeeklyArgs']] = None,
+                 retention_yearly: Optional[pulumi.Input['PolicyFileShareRetentionYearlyArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PolicyFileShare resources.
@@ -128,6 +192,9 @@ class _PolicyFileShareState:
         :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
         :param pulumi.Input['PolicyFileShareRetentionDailyArgs'] retention_daily: Configures the policy daily retention as documented in the `retention_daily` block below.
+        :param pulumi.Input['PolicyFileShareRetentionMonthlyArgs'] retention_monthly: Configures the policy monthly retention as documented in the `retention_monthly` block below.
+        :param pulumi.Input['PolicyFileShareRetentionWeeklyArgs'] retention_weekly: Configures the policy weekly retention as documented in the `retention_weekly` block below.
+        :param pulumi.Input['PolicyFileShareRetentionYearlyArgs'] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
         :param pulumi.Input[str] timezone: Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         """
         if backup is not None:
@@ -140,6 +207,14 @@ class _PolicyFileShareState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if retention_daily is not None:
             pulumi.set(__self__, "retention_daily", retention_daily)
+        if retention_monthly is not None:
+            pulumi.set(__self__, "retention_monthly", retention_monthly)
+        if retention_weekly is not None:
+            pulumi.set(__self__, "retention_weekly", retention_weekly)
+        if retention_yearly is not None:
+            pulumi.set(__self__, "retention_yearly", retention_yearly)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
 
@@ -204,6 +279,51 @@ class _PolicyFileShareState:
         pulumi.set(self, "retention_daily", value)
 
     @property
+    @pulumi.getter(name="retentionMonthly")
+    def retention_monthly(self) -> Optional[pulumi.Input['PolicyFileShareRetentionMonthlyArgs']]:
+        """
+        Configures the policy monthly retention as documented in the `retention_monthly` block below.
+        """
+        return pulumi.get(self, "retention_monthly")
+
+    @retention_monthly.setter
+    def retention_monthly(self, value: Optional[pulumi.Input['PolicyFileShareRetentionMonthlyArgs']]):
+        pulumi.set(self, "retention_monthly", value)
+
+    @property
+    @pulumi.getter(name="retentionWeekly")
+    def retention_weekly(self) -> Optional[pulumi.Input['PolicyFileShareRetentionWeeklyArgs']]:
+        """
+        Configures the policy weekly retention as documented in the `retention_weekly` block below.
+        """
+        return pulumi.get(self, "retention_weekly")
+
+    @retention_weekly.setter
+    def retention_weekly(self, value: Optional[pulumi.Input['PolicyFileShareRetentionWeeklyArgs']]):
+        pulumi.set(self, "retention_weekly", value)
+
+    @property
+    @pulumi.getter(name="retentionYearly")
+    def retention_yearly(self) -> Optional[pulumi.Input['PolicyFileShareRetentionYearlyArgs']]:
+        """
+        Configures the policy yearly retention as documented in the `retention_yearly` block below.
+        """
+        return pulumi.get(self, "retention_yearly")
+
+    @retention_yearly.setter
+    def retention_yearly(self, value: Optional[pulumi.Input['PolicyFileShareRetentionYearlyArgs']]):
+        pulumi.set(self, "retention_yearly", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
     @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[str]]:
         """
@@ -226,12 +346,14 @@ class PolicyFileShare(pulumi.CustomResource):
                  recovery_vault_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_daily: Optional[pulumi.Input[pulumi.InputType['PolicyFileShareRetentionDailyArgs']]] = None,
+                 retention_monthly: Optional[pulumi.Input[pulumi.InputType['PolicyFileShareRetentionMonthlyArgs']]] = None,
+                 retention_weekly: Optional[pulumi.Input[pulumi.InputType['PolicyFileShareRetentionWeeklyArgs']]] = None,
+                 retention_yearly: Optional[pulumi.Input[pulumi.InputType['PolicyFileShareRetentionYearlyArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages an Azure File Share Backup Policy within a Recovery Services vault.
-
-        > **NOTE:** Azure Backup for Azure File Shares is currently in public preview. During the preview, the service is subject to additional limitations and unsupported backup scenarios. [Read More](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files#limitations-for-azure-file-share-backup-during-preview)
 
         ## Example Usage
 
@@ -239,14 +361,14 @@ class PolicyFileShare(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        rg = azure.core.ResourceGroup("rg", location="West Europe")
-        vault = azure.recoveryservices.Vault("vault",
-            location=rg.location,
-            resource_group_name=rg.name,
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_vault = azure.recoveryservices.Vault("exampleVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             sku="Standard")
         policy = azure.backup.PolicyFileShare("policy",
-            resource_group_name=rg.name,
-            recovery_vault_name=vault.name,
+            resource_group_name=example_resource_group.name,
+            recovery_vault_name=azurerm_recovery_services_vault["vault"]["name"],
             timezone="UTC",
             backup=azure.backup.PolicyFileShareBackupArgs(
                 frequency="Daily",
@@ -254,6 +376,32 @@ class PolicyFileShare(pulumi.CustomResource):
             ),
             retention_daily=azure.backup.PolicyFileShareRetentionDailyArgs(
                 count=10,
+            ),
+            retention_weekly=azure.backup.PolicyFileShareRetentionWeeklyArgs(
+                count=7,
+                weekdays=[
+                    "Sunday",
+                    "Wednesday",
+                    "Friday",
+                    "Saturday",
+                ],
+            ),
+            retention_monthly=azure.backup.PolicyFileShareRetentionMonthlyArgs(
+                count=7,
+                weekdays=[
+                    "Sunday",
+                    "Wednesday",
+                ],
+                weeks=[
+                    "First",
+                    "Last",
+                ],
+            ),
+            retention_yearly=azure.backup.PolicyFileShareRetentionYearlyArgs(
+                count=7,
+                weekdays=["Sunday"],
+                weeks=["Last"],
+                months=["January"],
             ))
         ```
 
@@ -272,6 +420,9 @@ class PolicyFileShare(pulumi.CustomResource):
         :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['PolicyFileShareRetentionDailyArgs']] retention_daily: Configures the policy daily retention as documented in the `retention_daily` block below.
+        :param pulumi.Input[pulumi.InputType['PolicyFileShareRetentionMonthlyArgs']] retention_monthly: Configures the policy monthly retention as documented in the `retention_monthly` block below.
+        :param pulumi.Input[pulumi.InputType['PolicyFileShareRetentionWeeklyArgs']] retention_weekly: Configures the policy weekly retention as documented in the `retention_weekly` block below.
+        :param pulumi.Input[pulumi.InputType['PolicyFileShareRetentionYearlyArgs']] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
         :param pulumi.Input[str] timezone: Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         """
         ...
@@ -283,22 +434,20 @@ class PolicyFileShare(pulumi.CustomResource):
         """
         Manages an Azure File Share Backup Policy within a Recovery Services vault.
 
-        > **NOTE:** Azure Backup for Azure File Shares is currently in public preview. During the preview, the service is subject to additional limitations and unsupported backup scenarios. [Read More](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files#limitations-for-azure-file-share-backup-during-preview)
-
         ## Example Usage
 
         ```python
         import pulumi
         import pulumi_azure as azure
 
-        rg = azure.core.ResourceGroup("rg", location="West Europe")
-        vault = azure.recoveryservices.Vault("vault",
-            location=rg.location,
-            resource_group_name=rg.name,
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_vault = azure.recoveryservices.Vault("exampleVault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
             sku="Standard")
         policy = azure.backup.PolicyFileShare("policy",
-            resource_group_name=rg.name,
-            recovery_vault_name=vault.name,
+            resource_group_name=example_resource_group.name,
+            recovery_vault_name=azurerm_recovery_services_vault["vault"]["name"],
             timezone="UTC",
             backup=azure.backup.PolicyFileShareBackupArgs(
                 frequency="Daily",
@@ -306,6 +455,32 @@ class PolicyFileShare(pulumi.CustomResource):
             ),
             retention_daily=azure.backup.PolicyFileShareRetentionDailyArgs(
                 count=10,
+            ),
+            retention_weekly=azure.backup.PolicyFileShareRetentionWeeklyArgs(
+                count=7,
+                weekdays=[
+                    "Sunday",
+                    "Wednesday",
+                    "Friday",
+                    "Saturday",
+                ],
+            ),
+            retention_monthly=azure.backup.PolicyFileShareRetentionMonthlyArgs(
+                count=7,
+                weekdays=[
+                    "Sunday",
+                    "Wednesday",
+                ],
+                weeks=[
+                    "First",
+                    "Last",
+                ],
+            ),
+            retention_yearly=azure.backup.PolicyFileShareRetentionYearlyArgs(
+                count=7,
+                weekdays=["Sunday"],
+                weeks=["Last"],
+                months=["January"],
             ))
         ```
 
@@ -337,6 +512,10 @@ class PolicyFileShare(pulumi.CustomResource):
                  recovery_vault_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_daily: Optional[pulumi.Input[pulumi.InputType['PolicyFileShareRetentionDailyArgs']]] = None,
+                 retention_monthly: Optional[pulumi.Input[pulumi.InputType['PolicyFileShareRetentionMonthlyArgs']]] = None,
+                 retention_weekly: Optional[pulumi.Input[pulumi.InputType['PolicyFileShareRetentionWeeklyArgs']]] = None,
+                 retention_yearly: Optional[pulumi.Input[pulumi.InputType['PolicyFileShareRetentionYearlyArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -363,6 +542,10 @@ class PolicyFileShare(pulumi.CustomResource):
             if retention_daily is None and not opts.urn:
                 raise TypeError("Missing required property 'retention_daily'")
             __props__.__dict__["retention_daily"] = retention_daily
+            __props__.__dict__["retention_monthly"] = retention_monthly
+            __props__.__dict__["retention_weekly"] = retention_weekly
+            __props__.__dict__["retention_yearly"] = retention_yearly
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["timezone"] = timezone
         super(PolicyFileShare, __self__).__init__(
             'azure:backup/policyFileShare:PolicyFileShare',
@@ -379,6 +562,10 @@ class PolicyFileShare(pulumi.CustomResource):
             recovery_vault_name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             retention_daily: Optional[pulumi.Input[pulumi.InputType['PolicyFileShareRetentionDailyArgs']]] = None,
+            retention_monthly: Optional[pulumi.Input[pulumi.InputType['PolicyFileShareRetentionMonthlyArgs']]] = None,
+            retention_weekly: Optional[pulumi.Input[pulumi.InputType['PolicyFileShareRetentionWeeklyArgs']]] = None,
+            retention_yearly: Optional[pulumi.Input[pulumi.InputType['PolicyFileShareRetentionYearlyArgs']]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             timezone: Optional[pulumi.Input[str]] = None) -> 'PolicyFileShare':
         """
         Get an existing PolicyFileShare resource's state with the given name, id, and optional extra
@@ -392,6 +579,9 @@ class PolicyFileShare(pulumi.CustomResource):
         :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['PolicyFileShareRetentionDailyArgs']] retention_daily: Configures the policy daily retention as documented in the `retention_daily` block below.
+        :param pulumi.Input[pulumi.InputType['PolicyFileShareRetentionMonthlyArgs']] retention_monthly: Configures the policy monthly retention as documented in the `retention_monthly` block below.
+        :param pulumi.Input[pulumi.InputType['PolicyFileShareRetentionWeeklyArgs']] retention_weekly: Configures the policy weekly retention as documented in the `retention_weekly` block below.
+        :param pulumi.Input[pulumi.InputType['PolicyFileShareRetentionYearlyArgs']] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
         :param pulumi.Input[str] timezone: Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -403,6 +593,10 @@ class PolicyFileShare(pulumi.CustomResource):
         __props__.__dict__["recovery_vault_name"] = recovery_vault_name
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["retention_daily"] = retention_daily
+        __props__.__dict__["retention_monthly"] = retention_monthly
+        __props__.__dict__["retention_weekly"] = retention_weekly
+        __props__.__dict__["retention_yearly"] = retention_yearly
+        __props__.__dict__["tags"] = tags
         __props__.__dict__["timezone"] = timezone
         return PolicyFileShare(resource_name, opts=opts, __props__=__props__)
 
@@ -445,6 +639,35 @@ class PolicyFileShare(pulumi.CustomResource):
         Configures the policy daily retention as documented in the `retention_daily` block below.
         """
         return pulumi.get(self, "retention_daily")
+
+    @property
+    @pulumi.getter(name="retentionMonthly")
+    def retention_monthly(self) -> pulumi.Output[Optional['outputs.PolicyFileShareRetentionMonthly']]:
+        """
+        Configures the policy monthly retention as documented in the `retention_monthly` block below.
+        """
+        return pulumi.get(self, "retention_monthly")
+
+    @property
+    @pulumi.getter(name="retentionWeekly")
+    def retention_weekly(self) -> pulumi.Output[Optional['outputs.PolicyFileShareRetentionWeekly']]:
+        """
+        Configures the policy weekly retention as documented in the `retention_weekly` block below.
+        """
+        return pulumi.get(self, "retention_weekly")
+
+    @property
+    @pulumi.getter(name="retentionYearly")
+    def retention_yearly(self) -> pulumi.Output[Optional['outputs.PolicyFileShareRetentionYearly']]:
+        """
+        Configures the policy yearly retention as documented in the `retention_yearly` block below.
+        """
+        return pulumi.get(self, "retention_yearly")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter

@@ -20,7 +20,7 @@ class GetVirtualMachineScaleSetResult:
     """
     A collection of values returned by getVirtualMachineScaleSet.
     """
-    def __init__(__self__, id=None, identities=None, location=None, name=None, resource_group_name=None):
+    def __init__(__self__, id=None, identities=None, location=None, name=None, network_interfaces=None, resource_group_name=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -33,6 +33,9 @@ class GetVirtualMachineScaleSetResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if network_interfaces and not isinstance(network_interfaces, list):
+            raise TypeError("Expected argument 'network_interfaces' to be a list")
+        pulumi.set(__self__, "network_interfaces", network_interfaces)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -61,7 +64,18 @@ class GetVirtualMachineScaleSetResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the public ip address configuration
+        """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkInterfaces")
+    def network_interfaces(self) -> Sequence['outputs.GetVirtualMachineScaleSetNetworkInterfaceResult']:
+        """
+        A list of `network_interface` blocks as defined below.
+        """
+        return pulumi.get(self, "network_interfaces")
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -79,6 +93,7 @@ class AwaitableGetVirtualMachineScaleSetResult(GetVirtualMachineScaleSetResult):
             identities=self.identities,
             location=self.location,
             name=self.name,
+            network_interfaces=self.network_interfaces,
             resource_group_name=self.resource_group_name)
 
 
@@ -117,4 +132,5 @@ def get_virtual_machine_scale_set(name: Optional[str] = None,
         identities=__ret__.identities,
         location=__ret__.location,
         name=__ret__.name,
+        network_interfaces=__ret__.network_interfaces,
         resource_group_name=__ret__.resource_group_name)

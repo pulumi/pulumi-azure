@@ -16,13 +16,14 @@ __all__ = ['KubernetesClusterArgs', 'KubernetesCluster']
 class KubernetesClusterArgs:
     def __init__(__self__, *,
                  default_node_pool: pulumi.Input['KubernetesClusterDefaultNodePoolArgs'],
-                 dns_prefix: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  addon_profile: Optional[pulumi.Input['KubernetesClusterAddonProfileArgs']] = None,
                  api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_scaler_profile: Optional[pulumi.Input['KubernetesClusterAutoScalerProfileArgs']] = None,
                  automatic_channel_upgrade: Optional[pulumi.Input[str]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+                 dns_prefix: Optional[pulumi.Input[str]] = None,
+                 dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
                  enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['KubernetesClusterIdentityArgs']] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
@@ -42,13 +43,14 @@ class KubernetesClusterArgs:
         """
         The set of arguments for constructing a KubernetesCluster resource.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolArgs'] default_node_pool: A `default_node_pool` block as defined below.
-        :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterAddonProfileArgs'] addon_profile: A `addon_profile` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] api_server_authorized_ip_ranges: The IP ranges to whitelist for incoming traffic to the masters.
         :param pulumi.Input['KubernetesClusterAutoScalerProfileArgs'] auto_scaler_profile: A `auto_scaler_profile` block as defined below.
         :param pulumi.Input[str] automatic_channel_upgrade: The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, and `stable`.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
+        :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] dns_prefix_private_cluster: Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
         :param pulumi.Input['KubernetesClusterLinuxProfileArgs'] linux_profile: A `linux_profile` block as defined below.
@@ -65,7 +67,6 @@ class KubernetesClusterArgs:
         :param pulumi.Input['KubernetesClusterWindowsProfileArgs'] windows_profile: A `windows_profile` block as defined below.
         """
         pulumi.set(__self__, "default_node_pool", default_node_pool)
-        pulumi.set(__self__, "dns_prefix", dns_prefix)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if addon_profile is not None:
             pulumi.set(__self__, "addon_profile", addon_profile)
@@ -77,6 +78,10 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "automatic_channel_upgrade", automatic_channel_upgrade)
         if disk_encryption_set_id is not None:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+        if dns_prefix is not None:
+            pulumi.set(__self__, "dns_prefix", dns_prefix)
+        if dns_prefix_private_cluster is not None:
+            pulumi.set(__self__, "dns_prefix_private_cluster", dns_prefix_private_cluster)
         if enable_pod_security_policy is not None:
             pulumi.set(__self__, "enable_pod_security_policy", enable_pod_security_policy)
         if identity is not None:
@@ -124,18 +129,6 @@ class KubernetesClusterArgs:
     @default_node_pool.setter
     def default_node_pool(self, value: pulumi.Input['KubernetesClusterDefaultNodePoolArgs']):
         pulumi.set(self, "default_node_pool", value)
-
-    @property
-    @pulumi.getter(name="dnsPrefix")
-    def dns_prefix(self) -> pulumi.Input[str]:
-        """
-        DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "dns_prefix")
-
-    @dns_prefix.setter
-    def dns_prefix(self, value: pulumi.Input[str]):
-        pulumi.set(self, "dns_prefix", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -208,6 +201,30 @@ class KubernetesClusterArgs:
     @disk_encryption_set_id.setter
     def disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "disk_encryption_set_id", value)
+
+    @property
+    @pulumi.getter(name="dnsPrefix")
+    def dns_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "dns_prefix")
+
+    @dns_prefix.setter
+    def dns_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dns_prefix", value)
+
+    @property
+    @pulumi.getter(name="dnsPrefixPrivateCluster")
+    def dns_prefix_private_cluster(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "dns_prefix_private_cluster")
+
+    @dns_prefix_private_cluster.setter
+    def dns_prefix_private_cluster(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dns_prefix_private_cluster", value)
 
     @property
     @pulumi.getter(name="enablePodSecurityPolicy")
@@ -406,6 +423,7 @@ class _KubernetesClusterState:
                  default_node_pool: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolArgs']] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
+                 dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
                  enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
                  fqdn: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['KubernetesClusterIdentityArgs']] = None,
@@ -439,6 +457,7 @@ class _KubernetesClusterState:
         :param pulumi.Input['KubernetesClusterDefaultNodePoolArgs'] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] dns_prefix_private_cluster: Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The FQDN of the Azure Kubernetes Managed Cluster.
         :param pulumi.Input['KubernetesClusterIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kube_admin_config_raw: Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
@@ -476,6 +495,8 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         if dns_prefix is not None:
             pulumi.set(__self__, "dns_prefix", dns_prefix)
+        if dns_prefix_private_cluster is not None:
+            pulumi.set(__self__, "dns_prefix_private_cluster", dns_prefix_private_cluster)
         if enable_pod_security_policy is not None:
             pulumi.set(__self__, "enable_pod_security_policy", enable_pod_security_policy)
         if fqdn is not None:
@@ -611,6 +632,18 @@ class _KubernetesClusterState:
     @dns_prefix.setter
     def dns_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dns_prefix", value)
+
+    @property
+    @pulumi.getter(name="dnsPrefixPrivateCluster")
+    def dns_prefix_private_cluster(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "dns_prefix_private_cluster")
+
+    @dns_prefix_private_cluster.setter
+    def dns_prefix_private_cluster(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dns_prefix_private_cluster", value)
 
     @property
     @pulumi.getter(name="enablePodSecurityPolicy")
@@ -907,6 +940,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  default_node_pool: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
+                 dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
                  enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']]] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
@@ -973,6 +1007,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] dns_prefix_private_cluster: Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
         :param pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArgs']] linux_profile: A `linux_profile` block as defined below.
@@ -1056,6 +1091,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  default_node_pool: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']]] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
+                 dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
                  enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']]] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
@@ -1093,9 +1129,8 @@ class KubernetesCluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'default_node_pool'")
             __props__.__dict__["default_node_pool"] = default_node_pool
             __props__.__dict__["disk_encryption_set_id"] = disk_encryption_set_id
-            if dns_prefix is None and not opts.urn:
-                raise TypeError("Missing required property 'dns_prefix'")
             __props__.__dict__["dns_prefix"] = dns_prefix
+            __props__.__dict__["dns_prefix_private_cluster"] = dns_prefix_private_cluster
             __props__.__dict__["enable_pod_security_policy"] = enable_pod_security_policy
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kubernetes_version"] = kubernetes_version
@@ -1142,6 +1177,7 @@ class KubernetesCluster(pulumi.CustomResource):
             default_node_pool: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']]] = None,
             disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
             dns_prefix: Optional[pulumi.Input[str]] = None,
+            dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
             enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']]] = None,
@@ -1180,6 +1216,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] dns_prefix_private_cluster: Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The FQDN of the Azure Kubernetes Managed Cluster.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kube_admin_config_raw: Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
@@ -1214,6 +1251,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["default_node_pool"] = default_node_pool
         __props__.__dict__["disk_encryption_set_id"] = disk_encryption_set_id
         __props__.__dict__["dns_prefix"] = dns_prefix
+        __props__.__dict__["dns_prefix_private_cluster"] = dns_prefix_private_cluster
         __props__.__dict__["enable_pod_security_policy"] = enable_pod_security_policy
         __props__.__dict__["fqdn"] = fqdn
         __props__.__dict__["identity"] = identity
@@ -1290,11 +1328,19 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsPrefix")
-    def dns_prefix(self) -> pulumi.Output[str]:
+    def dns_prefix(self) -> pulumi.Output[Optional[str]]:
         """
         DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "dns_prefix")
+
+    @property
+    @pulumi.getter(name="dnsPrefixPrivateCluster")
+    def dns_prefix_private_cluster(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "dns_prefix_private_cluster")
 
     @property
     @pulumi.getter(name="enablePodSecurityPolicy")

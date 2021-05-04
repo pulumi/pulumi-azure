@@ -13,9 +13,12 @@ export * from "./firewallRule";
 export * from "./getDatabase";
 export * from "./getElasticPool";
 export * from "./getServer";
+export * from "./jobAgent";
+export * from "./jobCredential";
 export * from "./server";
 export * from "./serverExtendedAuditingPolicy";
 export * from "./serverSecurityAlertPolicy";
+export * from "./serverTransparentDataEncryption";
 export * from "./serverVulnerabilityAssessment";
 export * from "./virtualMachine";
 export * from "./virtualNetworkRule";
@@ -26,9 +29,12 @@ import { DatabaseExtendedAuditingPolicy } from "./databaseExtendedAuditingPolicy
 import { DatabaseVulnerabilityAssessmentRuleBaseline } from "./databaseVulnerabilityAssessmentRuleBaseline";
 import { ElasticPool } from "./elasticPool";
 import { FirewallRule } from "./firewallRule";
+import { JobAgent } from "./jobAgent";
+import { JobCredential } from "./jobCredential";
 import { Server } from "./server";
 import { ServerExtendedAuditingPolicy } from "./serverExtendedAuditingPolicy";
 import { ServerSecurityAlertPolicy } from "./serverSecurityAlertPolicy";
+import { ServerTransparentDataEncryption } from "./serverTransparentDataEncryption";
 import { ServerVulnerabilityAssessment } from "./serverVulnerabilityAssessment";
 import { VirtualMachine } from "./virtualMachine";
 import { VirtualNetworkRule } from "./virtualNetworkRule";
@@ -47,12 +53,18 @@ const _module = {
                 return new ElasticPool(name, <any>undefined, { urn })
             case "azure:mssql/firewallRule:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
+            case "azure:mssql/jobAgent:JobAgent":
+                return new JobAgent(name, <any>undefined, { urn })
+            case "azure:mssql/jobCredential:JobCredential":
+                return new JobCredential(name, <any>undefined, { urn })
             case "azure:mssql/server:Server":
                 return new Server(name, <any>undefined, { urn })
             case "azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy":
                 return new ServerExtendedAuditingPolicy(name, <any>undefined, { urn })
             case "azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy":
                 return new ServerSecurityAlertPolicy(name, <any>undefined, { urn })
+            case "azure:mssql/serverTransparentDataEncryption:ServerTransparentDataEncryption":
+                return new ServerTransparentDataEncryption(name, <any>undefined, { urn })
             case "azure:mssql/serverVulnerabilityAssessment:ServerVulnerabilityAssessment":
                 return new ServerVulnerabilityAssessment(name, <any>undefined, { urn })
             case "azure:mssql/virtualMachine:VirtualMachine":
@@ -69,9 +81,12 @@ pulumi.runtime.registerResourceModule("azure", "mssql/databaseExtendedAuditingPo
 pulumi.runtime.registerResourceModule("azure", "mssql/databaseVulnerabilityAssessmentRuleBaseline", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/elasticPool", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/firewallRule", _module)
+pulumi.runtime.registerResourceModule("azure", "mssql/jobAgent", _module)
+pulumi.runtime.registerResourceModule("azure", "mssql/jobCredential", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/server", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/serverExtendedAuditingPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/serverSecurityAlertPolicy", _module)
+pulumi.runtime.registerResourceModule("azure", "mssql/serverTransparentDataEncryption", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/serverVulnerabilityAssessment", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/virtualMachine", _module)
 pulumi.runtime.registerResourceModule("azure", "mssql/virtualNetworkRule", _module)

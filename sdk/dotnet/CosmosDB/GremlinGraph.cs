@@ -103,7 +103,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<Outputs.GremlinGraphAutoscaleSettings?> AutoscaleSettings { get; private set; } = null!;
 
         /// <summary>
-        /// The conflict resolution policy for the graph. One or more `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
+        /// A `conflict_resolution_policy` blocks as defined below.
         /// </summary>
         [Output("conflictResolutionPolicies")]
         public Output<ImmutableArray<Outputs.GremlinGraphConflictResolutionPolicy>> ConflictResolutionPolicies { get; private set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.Azure.CosmosDB
         /// Define a partition key. Changing this forces a new resource to be created.
         /// </summary>
         [Output("partitionKeyPath")]
-        public Output<string?> PartitionKeyPath { get; private set; } = null!;
+        public Output<string> PartitionKeyPath { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
@@ -211,11 +211,11 @@ namespace Pulumi.Azure.CosmosDB
         [Input("autoscaleSettings")]
         public Input<Inputs.GremlinGraphAutoscaleSettingsArgs>? AutoscaleSettings { get; set; }
 
-        [Input("conflictResolutionPolicies", required: true)]
+        [Input("conflictResolutionPolicies")]
         private InputList<Inputs.GremlinGraphConflictResolutionPolicyArgs>? _conflictResolutionPolicies;
 
         /// <summary>
-        /// The conflict resolution policy for the graph. One or more `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
+        /// A `conflict_resolution_policy` blocks as defined below.
         /// </summary>
         public InputList<Inputs.GremlinGraphConflictResolutionPolicyArgs> ConflictResolutionPolicies
         {
@@ -256,8 +256,8 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// Define a partition key. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("partitionKeyPath")]
-        public Input<string>? PartitionKeyPath { get; set; }
+        [Input("partitionKeyPath", required: true)]
+        public Input<string> PartitionKeyPath { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
@@ -303,7 +303,7 @@ namespace Pulumi.Azure.CosmosDB
         private InputList<Inputs.GremlinGraphConflictResolutionPolicyGetArgs>? _conflictResolutionPolicies;
 
         /// <summary>
-        /// The conflict resolution policy for the graph. One or more `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
+        /// A `conflict_resolution_policy` blocks as defined below.
         /// </summary>
         public InputList<Inputs.GremlinGraphConflictResolutionPolicyGetArgs> ConflictResolutionPolicies
         {

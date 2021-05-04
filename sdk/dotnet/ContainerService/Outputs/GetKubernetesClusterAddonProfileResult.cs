@@ -22,6 +22,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterAddonProfileHttpApplicationRoutingResult> HttpApplicationRoutings;
         /// <summary>
+        /// An `ingress_application_gateway` block.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetKubernetesClusterAddonProfileIngressApplicationGatewayResult> IngressApplicationGateways;
+        /// <summary>
         /// A `kube_dashboard` block.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKubernetesClusterAddonProfileKubeDashboardResult> KubeDashboards;
@@ -36,12 +40,15 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             ImmutableArray<Outputs.GetKubernetesClusterAddonProfileHttpApplicationRoutingResult> httpApplicationRoutings,
 
+            ImmutableArray<Outputs.GetKubernetesClusterAddonProfileIngressApplicationGatewayResult> ingressApplicationGateways,
+
             ImmutableArray<Outputs.GetKubernetesClusterAddonProfileKubeDashboardResult> kubeDashboards,
 
             ImmutableArray<Outputs.GetKubernetesClusterAddonProfileOmsAgentResult> omsAgents)
         {
             AzurePolicies = azurePolicies;
             HttpApplicationRoutings = httpApplicationRoutings;
+            IngressApplicationGateways = ingressApplicationGateways;
             KubeDashboards = kubeDashboards;
             OmsAgents = omsAgents;
         }

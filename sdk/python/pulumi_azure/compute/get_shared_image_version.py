@@ -187,7 +187,7 @@ def get_shared_image_version(gallery_name: Optional[str] = None,
     ```
 
 
-    :param str gallery_name: The name of the Shared Image in which the Shared Image exists.
+    :param str gallery_name: The name of the Shared Image Gallery in which the Shared Image exists.
     :param str image_name: The name of the Shared Image in which this Version exists.
     :param str name: The name of the Image Version.
     :param str resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists.

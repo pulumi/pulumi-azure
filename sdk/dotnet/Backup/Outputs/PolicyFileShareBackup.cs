@@ -17,6 +17,9 @@ namespace Pulumi.Azure.Backup.Outputs
         /// Sets the backup frequency. Currently, only `Daily` is supported
         /// </summary>
         public readonly string Frequency;
+        /// <summary>
+        /// The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+        /// </summary>
         public readonly string Time;
 
         [OutputConstructor]

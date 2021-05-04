@@ -68,6 +68,8 @@ import (
 type EncryptionScope struct {
 	pulumi.CustomResourceState
 
+	// Is a secondary layer of encryption with Platform Managed Keys for data applied?
+	InfrastructureEncryptionRequired pulumi.BoolPtrOutput `pulumi:"infrastructureEncryptionRequired"`
 	// The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
 	KeyVaultKeyId pulumi.StringPtrOutput `pulumi:"keyVaultKeyId"`
 	// The name which should be used for this Storage Encryption Scope. Changing this forces a new Storage Encryption Scope to be created.
@@ -113,6 +115,8 @@ func GetEncryptionScope(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EncryptionScope resources.
 type encryptionScopeState struct {
+	// Is a secondary layer of encryption with Platform Managed Keys for data applied?
+	InfrastructureEncryptionRequired *bool `pulumi:"infrastructureEncryptionRequired"`
 	// The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
 	// The name which should be used for this Storage Encryption Scope. Changing this forces a new Storage Encryption Scope to be created.
@@ -124,6 +128,8 @@ type encryptionScopeState struct {
 }
 
 type EncryptionScopeState struct {
+	// Is a secondary layer of encryption with Platform Managed Keys for data applied?
+	InfrastructureEncryptionRequired pulumi.BoolPtrInput
 	// The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
 	KeyVaultKeyId pulumi.StringPtrInput
 	// The name which should be used for this Storage Encryption Scope. Changing this forces a new Storage Encryption Scope to be created.
@@ -139,6 +145,8 @@ func (EncryptionScopeState) ElementType() reflect.Type {
 }
 
 type encryptionScopeArgs struct {
+	// Is a secondary layer of encryption with Platform Managed Keys for data applied?
+	InfrastructureEncryptionRequired *bool `pulumi:"infrastructureEncryptionRequired"`
 	// The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
 	// The name which should be used for this Storage Encryption Scope. Changing this forces a new Storage Encryption Scope to be created.
@@ -151,6 +159,8 @@ type encryptionScopeArgs struct {
 
 // The set of arguments for constructing a EncryptionScope resource.
 type EncryptionScopeArgs struct {
+	// Is a secondary layer of encryption with Platform Managed Keys for data applied?
+	InfrastructureEncryptionRequired pulumi.BoolPtrInput
 	// The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
 	KeyVaultKeyId pulumi.StringPtrInput
 	// The name which should be used for this Storage Encryption Scope. Changing this forces a new Storage Encryption Scope to be created.

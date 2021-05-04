@@ -209,6 +209,12 @@ namespace Pulumi.Azure.Storage
         public Output<Outputs.AccountNetworkRules> NetworkRules { get; private set; } = null!;
 
         /// <summary>
+        /// Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
+        /// </summary>
+        [Output("nfsv3Enabled")]
+        public Output<bool?> Nfsv3Enabled { get; private set; } = null!;
+
+        /// <summary>
         /// The primary access key for the storage account.
         /// </summary>
         [Output("primaryAccessKey")]
@@ -562,6 +568,12 @@ namespace Pulumi.Azure.Storage
         public Input<Inputs.AccountNetworkRulesArgs>? NetworkRules { get; set; }
 
         /// <summary>
+        /// Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
+        /// </summary>
+        [Input("nfsv3Enabled")]
+        public Input<bool>? Nfsv3Enabled { get; set; }
+
+        /// <summary>
         /// A `queue_properties` block as defined below.
         /// </summary>
         [Input("queueProperties")]
@@ -688,6 +700,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("networkRules")]
         public Input<Inputs.AccountNetworkRulesGetArgs>? NetworkRules { get; set; }
+
+        /// <summary>
+        /// Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
+        /// </summary>
+        [Input("nfsv3Enabled")]
+        public Input<bool>? Nfsv3Enabled { get; set; }
 
         /// <summary>
         /// The primary access key for the storage account.

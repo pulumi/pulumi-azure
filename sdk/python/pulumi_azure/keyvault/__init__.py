@@ -13,9 +13,11 @@ from .get_certificate_data import *
 from .get_certificate_issuer import *
 from .get_key import *
 from .get_key_vault import *
+from .get_managed_hardware_security_module import *
 from .get_secret import *
 from .key import *
 from .key_vault import *
+from .managed_hardware_security_module import *
 from .secret import *
 from ._inputs import *
 from . import outputs
@@ -44,6 +46,8 @@ def _register_module():
                 return Key(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:keyvault/keyVault:KeyVault":
                 return KeyVault(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:keyvault/managedHardwareSecurityModule:ManagedHardwareSecurityModule":
+                return ManagedHardwareSecurityModule(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:keyvault/secret:Secret":
                 return Secret(name, pulumi.ResourceOptions(urn=urn))
             else:
@@ -57,6 +61,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "keyvault/certificateIssuer", _module_instance)
     pulumi.runtime.register_resource_module("azure", "keyvault/key", _module_instance)
     pulumi.runtime.register_resource_module("azure", "keyvault/keyVault", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "keyvault/managedHardwareSecurityModule", _module_instance)
     pulumi.runtime.register_resource_module("azure", "keyvault/secret", _module_instance)
 
 _register_module()

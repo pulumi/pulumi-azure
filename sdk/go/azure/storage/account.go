@@ -159,6 +159,8 @@ type Account struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `networkRules` block as documented below.
 	NetworkRules AccountNetworkRulesTypeOutput `pulumi:"networkRules"`
+	// Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
+	Nfsv3Enabled pulumi.BoolPtrOutput `pulumi:"nfsv3Enabled"`
 	// The primary access key for the storage account.
 	PrimaryAccessKey pulumi.StringOutput `pulumi:"primaryAccessKey"`
 	// The connection string associated with the primary blob location.
@@ -302,6 +304,8 @@ type accountState struct {
 	Name *string `pulumi:"name"`
 	// A `networkRules` block as documented below.
 	NetworkRules *AccountNetworkRulesType `pulumi:"networkRules"`
+	// Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
+	Nfsv3Enabled *bool `pulumi:"nfsv3Enabled"`
 	// The primary access key for the storage account.
 	PrimaryAccessKey *string `pulumi:"primaryAccessKey"`
 	// The connection string associated with the primary blob location.
@@ -408,6 +412,8 @@ type AccountState struct {
 	Name pulumi.StringPtrInput
 	// A `networkRules` block as documented below.
 	NetworkRules AccountNetworkRulesTypePtrInput
+	// Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
+	Nfsv3Enabled pulumi.BoolPtrInput
 	// The primary access key for the storage account.
 	PrimaryAccessKey pulumi.StringPtrInput
 	// The connection string associated with the primary blob location.
@@ -518,6 +524,8 @@ type accountArgs struct {
 	Name *string `pulumi:"name"`
 	// A `networkRules` block as documented below.
 	NetworkRules *AccountNetworkRulesType `pulumi:"networkRules"`
+	// Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
+	Nfsv3Enabled *bool `pulumi:"nfsv3Enabled"`
 	// A `queueProperties` block as defined below.
 	QueueProperties *AccountQueueProperties `pulumi:"queueProperties"`
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
@@ -561,6 +569,8 @@ type AccountArgs struct {
 	Name pulumi.StringPtrInput
 	// A `networkRules` block as documented below.
 	NetworkRules AccountNetworkRulesTypePtrInput
+	// Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
+	Nfsv3Enabled pulumi.BoolPtrInput
 	// A `queueProperties` block as defined below.
 	QueueProperties AccountQueuePropertiesPtrInput
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.

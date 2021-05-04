@@ -13,9 +13,22 @@ namespace Pulumi.Azure.NetApp.Outputs
     [OutputType]
     public sealed class GetVolumeDataProtectionReplicationResult
     {
+        /// <summary>
+        /// The endpoint type.
+        /// </summary>
         public readonly string EndpointType;
+        /// <summary>
+        /// Location of the primary volume.
+        /// </summary>
         public readonly string RemoteVolumeLocation;
+        /// <summary>
+        /// Resource ID of the primary volume.
+        /// </summary>
         public readonly string RemoteVolumeResourceId;
+        /// <summary>
+        /// Frequency of replication.
+        /// </summary>
+        public readonly string ReplicationFrequency;
         public readonly string ReplicationSchedule;
 
         [OutputConstructor]
@@ -26,11 +39,14 @@ namespace Pulumi.Azure.NetApp.Outputs
 
             string remoteVolumeResourceId,
 
+            string replicationFrequency,
+
             string replicationSchedule)
         {
             EndpointType = endpointType;
             RemoteVolumeLocation = remoteVolumeLocation;
             RemoteVolumeResourceId = remoteVolumeResourceId;
+            ReplicationFrequency = replicationFrequency;
             ReplicationSchedule = replicationSchedule;
         }
     }

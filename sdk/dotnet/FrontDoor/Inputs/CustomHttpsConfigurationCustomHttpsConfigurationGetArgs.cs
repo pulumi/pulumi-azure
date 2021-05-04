@@ -19,7 +19,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public Input<string>? AzureKeyVaultCertificateSecretName { get; set; }
 
         /// <summary>
-        /// The version of the Key Vault secret representing the full certificate PFX.
+        /// The version of the Key Vault secret representing the full certificate PFX. Defaults to `Latest`.
         /// </summary>
         [Input("azureKeyVaultCertificateSecretVersion")]
         public Input<string>? AzureKeyVaultCertificateSecretVersion { get; set; }

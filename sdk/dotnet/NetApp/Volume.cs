@@ -124,6 +124,9 @@ namespace Pulumi.Azure.NetApp
         [Output("createFromSnapshotResourceId")]
         public Output<string> CreateFromSnapshotResourceId { get; private set; } = null!;
 
+        /// <summary>
+        /// A `data_protection_replication` block as defined below.
+        /// </summary>
         [Output("dataProtectionReplication")]
         public Output<Outputs.VolumeDataProtectionReplication?> DataProtectionReplication { get; private set; } = null!;
 
@@ -257,6 +260,9 @@ namespace Pulumi.Azure.NetApp
         [Input("createFromSnapshotResourceId")]
         public Input<string>? CreateFromSnapshotResourceId { get; set; }
 
+        /// <summary>
+        /// A `data_protection_replication` block as defined below.
+        /// </summary>
         [Input("dataProtectionReplication")]
         public Input<Inputs.VolumeDataProtectionReplicationArgs>? DataProtectionReplication { get; set; }
 
@@ -363,6 +369,9 @@ namespace Pulumi.Azure.NetApp
         [Input("createFromSnapshotResourceId")]
         public Input<string>? CreateFromSnapshotResourceId { get; set; }
 
+        /// <summary>
+        /// A `data_protection_replication` block as defined below.
+        /// </summary>
         [Input("dataProtectionReplication")]
         public Input<Inputs.VolumeDataProtectionReplicationGetArgs>? DataProtectionReplication { get; set; }
 

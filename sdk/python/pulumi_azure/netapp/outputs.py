@@ -141,8 +141,8 @@ class VolumeDataProtectionReplication(dict):
                  replication_frequency: str,
                  endpoint_type: Optional[str] = None):
         """
-        :param str remote_volume_location: Primary volume's location.
-        :param str remote_volume_resource_id: Primary volume's resource id.
+        :param str remote_volume_location: Location of the primary volume.
+        :param str remote_volume_resource_id: Resource ID of the primary volume.
         :param str replication_frequency: Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
         :param str endpoint_type: The endpoint type, default value is `dst` for destination.
         """
@@ -156,7 +156,7 @@ class VolumeDataProtectionReplication(dict):
     @pulumi.getter(name="remoteVolumeLocation")
     def remote_volume_location(self) -> str:
         """
-        Primary volume's location.
+        Location of the primary volume.
         """
         return pulumi.get(self, "remote_volume_location")
 
@@ -164,7 +164,7 @@ class VolumeDataProtectionReplication(dict):
     @pulumi.getter(name="remoteVolumeResourceId")
     def remote_volume_resource_id(self) -> str:
         """
-        Primary volume's resource id.
+        Resource ID of the primary volume.
         """
         return pulumi.get(self, "remote_volume_resource_id")
 
@@ -237,6 +237,7 @@ class VolumeExportPolicyRule(dict):
         :param bool nfsv3_enabled: Is the NFSv3 protocol allowed?
         :param bool nfsv4_enabled: Is the NFSv4 protocol allowed?
         :param str protocols_enabled: A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
+        :param bool root_access_enabled: Is root access permitted to this volume?
         :param bool unix_read_only: Is the file system on unix read only?
         :param bool unix_read_write: Is the file system on unix read and write?
         """
@@ -308,6 +309,9 @@ class VolumeExportPolicyRule(dict):
     @property
     @pulumi.getter(name="rootAccessEnabled")
     def root_access_enabled(self) -> Optional[bool]:
+        """
+        Is root access permitted to this volume?
+        """
         return pulumi.get(self, "root_access_enabled")
 
     @property
@@ -333,26 +337,51 @@ class GetVolumeDataProtectionReplicationResult(dict):
                  endpoint_type: str,
                  remote_volume_location: str,
                  remote_volume_resource_id: str,
+                 replication_frequency: str,
                  replication_schedule: str):
+        """
+        :param str endpoint_type: The endpoint type.
+        :param str remote_volume_location: Location of the primary volume.
+        :param str remote_volume_resource_id: Resource ID of the primary volume.
+        :param str replication_frequency: Frequency of replication.
+        """
         pulumi.set(__self__, "endpoint_type", endpoint_type)
         pulumi.set(__self__, "remote_volume_location", remote_volume_location)
         pulumi.set(__self__, "remote_volume_resource_id", remote_volume_resource_id)
+        pulumi.set(__self__, "replication_frequency", replication_frequency)
         pulumi.set(__self__, "replication_schedule", replication_schedule)
 
     @property
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> str:
+        """
+        The endpoint type.
+        """
         return pulumi.get(self, "endpoint_type")
 
     @property
     @pulumi.getter(name="remoteVolumeLocation")
     def remote_volume_location(self) -> str:
+        """
+        Location of the primary volume.
+        """
         return pulumi.get(self, "remote_volume_location")
 
     @property
     @pulumi.getter(name="remoteVolumeResourceId")
     def remote_volume_resource_id(self) -> str:
+        """
+        Resource ID of the primary volume.
+        """
         return pulumi.get(self, "remote_volume_resource_id")
+
+    @property
+    @pulumi.getter(name="replicationFrequency")
+    def replication_frequency(self) -> str:
+        """
+        Frequency of replication.
+        """
+        return pulumi.get(self, "replication_frequency")
 
     @property
     @pulumi.getter(name="replicationSchedule")

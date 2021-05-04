@@ -13,7 +13,19 @@ namespace Pulumi.Azure.Storage.Inputs
     public sealed class ManagementPolicyRuleActionsSnapshotArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The age in days after create to delete the snaphot. Must be at least 0.
+        /// The age in days after creation to tier blob snapshot to archive storage. Must be between 0 and 99999.
+        /// </summary>
+        [Input("changeTierToArchiveAfterDaysSinceCreation")]
+        public Input<int>? ChangeTierToArchiveAfterDaysSinceCreation { get; set; }
+
+        /// <summary>
+        /// The age in days after creation to tier blob snapshot to cool storage. Must be between 0 and 99999.
+        /// </summary>
+        [Input("changeTierToCoolAfterDaysSinceCreation")]
+        public Input<int>? ChangeTierToCoolAfterDaysSinceCreation { get; set; }
+
+        /// <summary>
+        /// The age in days after creation to delete the blob snapshot. Must be between 0 and 99999.
         /// </summary>
         [Input("deleteAfterDaysSinceCreationGreaterThan")]
         public Input<int>? DeleteAfterDaysSinceCreationGreaterThan { get; set; }

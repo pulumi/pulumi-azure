@@ -13,7 +13,7 @@ import (
 type CustomHttpsConfigurationCustomHttpsConfiguration struct {
 	// The name of the Key Vault secret representing the full certificate PFX.
 	AzureKeyVaultCertificateSecretName *string `pulumi:"azureKeyVaultCertificateSecretName"`
-	// The version of the Key Vault secret representing the full certificate PFX.
+	// The version of the Key Vault secret representing the full certificate PFX. Defaults to `Latest`.
 	AzureKeyVaultCertificateSecretVersion *string `pulumi:"azureKeyVaultCertificateSecretVersion"`
 	// The ID of the Key Vault containing the SSL certificate.
 	AzureKeyVaultCertificateVaultId *string `pulumi:"azureKeyVaultCertificateVaultId"`
@@ -39,7 +39,7 @@ type CustomHttpsConfigurationCustomHttpsConfigurationInput interface {
 type CustomHttpsConfigurationCustomHttpsConfigurationArgs struct {
 	// The name of the Key Vault secret representing the full certificate PFX.
 	AzureKeyVaultCertificateSecretName pulumi.StringPtrInput `pulumi:"azureKeyVaultCertificateSecretName"`
-	// The version of the Key Vault secret representing the full certificate PFX.
+	// The version of the Key Vault secret representing the full certificate PFX. Defaults to `Latest`.
 	AzureKeyVaultCertificateSecretVersion pulumi.StringPtrInput `pulumi:"azureKeyVaultCertificateSecretVersion"`
 	// The ID of the Key Vault containing the SSL certificate.
 	AzureKeyVaultCertificateVaultId pulumi.StringPtrInput `pulumi:"azureKeyVaultCertificateVaultId"`
@@ -135,7 +135,7 @@ func (o CustomHttpsConfigurationCustomHttpsConfigurationOutput) AzureKeyVaultCer
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the Key Vault secret representing the full certificate PFX.
+// The version of the Key Vault secret representing the full certificate PFX. Defaults to `Latest`.
 func (o CustomHttpsConfigurationCustomHttpsConfigurationOutput) AzureKeyVaultCertificateSecretVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomHttpsConfigurationCustomHttpsConfiguration) *string {
 		return v.AzureKeyVaultCertificateSecretVersion
@@ -197,7 +197,7 @@ func (o CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput) AzureKeyVault
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the Key Vault secret representing the full certificate PFX.
+// The version of the Key Vault secret representing the full certificate PFX. Defaults to `Latest`.
 func (o CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput) AzureKeyVaultCertificateSecretVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomHttpsConfigurationCustomHttpsConfiguration) *string {
 		if v == nil {

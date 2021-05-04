@@ -18,6 +18,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly bool? BalanceSimilarNodeGroups;
         /// <summary>
+        /// Maximum number of empty nodes that can be deleted at the same time. Defaults to `10`.
+        /// </summary>
+        public readonly string? EmptyBulkDeleteMax;
+        /// <summary>
         /// Expander to use. Possible values are `least-waste`, `priority`, `most-pods` and `random`. Defaults to `random`.
         /// </summary>
         public readonly string? Expander;
@@ -25,6 +29,18 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to `600`.
         /// </summary>
         public readonly string? MaxGracefulTerminationSec;
+        /// <summary>
+        /// Maximum time the autoscaler waits for a node to be provisioned. Defaults to `15m`.
+        /// </summary>
+        public readonly string? MaxNodeProvisioningTime;
+        /// <summary>
+        /// Maximum Number of allowed unready nodes. Defaults to `3`.
+        /// </summary>
+        public readonly int? MaxUnreadyNodes;
+        /// <summary>
+        /// Maximum percentage of unready nodes the cluster autoscaler will stop if the percentage is exceeded. Defaults to `45`.
+        /// </summary>
+        public readonly double? MaxUnreadyPercentage;
         /// <summary>
         /// For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. Defaults to `10s`.
         /// </summary>
@@ -70,9 +86,17 @@ namespace Pulumi.Azure.ContainerService.Outputs
         private KubernetesClusterAutoScalerProfile(
             bool? balanceSimilarNodeGroups,
 
+            string? emptyBulkDeleteMax,
+
             string? expander,
 
             string? maxGracefulTerminationSec,
+
+            string? maxNodeProvisioningTime,
+
+            int? maxUnreadyNodes,
+
+            double? maxUnreadyPercentage,
 
             string? newPodScaleUpDelay,
 
@@ -95,8 +119,12 @@ namespace Pulumi.Azure.ContainerService.Outputs
             bool? skipNodesWithSystemPods)
         {
             BalanceSimilarNodeGroups = balanceSimilarNodeGroups;
+            EmptyBulkDeleteMax = emptyBulkDeleteMax;
             Expander = expander;
             MaxGracefulTerminationSec = maxGracefulTerminationSec;
+            MaxNodeProvisioningTime = maxNodeProvisioningTime;
+            MaxUnreadyNodes = maxUnreadyNodes;
+            MaxUnreadyPercentage = maxUnreadyPercentage;
             NewPodScaleUpDelay = newPodScaleUpDelay;
             ScaleDownDelayAfterAdd = scaleDownDelayAfterAdd;
             ScaleDownDelayAfterDelete = scaleDownDelayAfterDelete;

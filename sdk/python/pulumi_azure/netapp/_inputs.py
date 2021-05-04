@@ -120,8 +120,8 @@ class VolumeDataProtectionReplicationArgs:
                  replication_frequency: pulumi.Input[str],
                  endpoint_type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] remote_volume_location: Primary volume's location.
-        :param pulumi.Input[str] remote_volume_resource_id: Primary volume's resource id.
+        :param pulumi.Input[str] remote_volume_location: Location of the primary volume.
+        :param pulumi.Input[str] remote_volume_resource_id: Resource ID of the primary volume.
         :param pulumi.Input[str] replication_frequency: Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
         :param pulumi.Input[str] endpoint_type: The endpoint type, default value is `dst` for destination.
         """
@@ -135,7 +135,7 @@ class VolumeDataProtectionReplicationArgs:
     @pulumi.getter(name="remoteVolumeLocation")
     def remote_volume_location(self) -> pulumi.Input[str]:
         """
-        Primary volume's location.
+        Location of the primary volume.
         """
         return pulumi.get(self, "remote_volume_location")
 
@@ -147,7 +147,7 @@ class VolumeDataProtectionReplicationArgs:
     @pulumi.getter(name="remoteVolumeResourceId")
     def remote_volume_resource_id(self) -> pulumi.Input[str]:
         """
-        Primary volume's resource id.
+        Resource ID of the primary volume.
         """
         return pulumi.get(self, "remote_volume_resource_id")
 
@@ -199,6 +199,7 @@ class VolumeExportPolicyRuleArgs:
         :param pulumi.Input[bool] nfsv3_enabled: Is the NFSv3 protocol allowed?
         :param pulumi.Input[bool] nfsv4_enabled: Is the NFSv4 protocol allowed?
         :param pulumi.Input[str] protocols_enabled: A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
+        :param pulumi.Input[bool] root_access_enabled: Is root access permitted to this volume?
         :param pulumi.Input[bool] unix_read_only: Is the file system on unix read only?
         :param pulumi.Input[bool] unix_read_write: Is the file system on unix read and write?
         """
@@ -303,6 +304,9 @@ class VolumeExportPolicyRuleArgs:
     @property
     @pulumi.getter(name="rootAccessEnabled")
     def root_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is root access permitted to this volume?
+        """
         return pulumi.get(self, "root_access_enabled")
 
     @root_access_enabled.setter

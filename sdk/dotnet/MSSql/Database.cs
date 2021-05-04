@@ -96,7 +96,7 @@ namespace Pulumi.Azure.MSSql
         /// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
         /// </summary>
         [Output("createMode")]
-        public Output<string> CreateMode { get; private set; } = null!;
+        public Output<string?> CreateMode { get; private set; } = null!;
 
         /// <summary>
         /// The id of the source database to be referred to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.

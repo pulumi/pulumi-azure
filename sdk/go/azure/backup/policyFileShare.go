@@ -13,8 +13,6 @@ import (
 
 // Manages an Azure File Share Backup Policy within a Recovery Services vault.
 //
-// > **NOTE:** Azure Backup for Azure File Shares is currently in public preview. During the preview, the service is subject to additional limitations and unsupported backup scenarios. [Read More](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files#limitations-for-azure-file-share-backup-during-preview)
-//
 // ## Example Usage
 //
 // ```go
@@ -29,23 +27,23 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		rg, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
 // 			Location: pulumi.String("West Europe"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		vault, err := recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
-// 			Location:          rg.Location,
-// 			ResourceGroupName: rg.Name,
+// 		_, err = recoveryservices.NewVault(ctx, "exampleVault", &recoveryservices.VaultArgs{
+// 			Location:          exampleResourceGroup.Location,
+// 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Sku:               pulumi.String("Standard"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = backup.NewPolicyFileShare(ctx, "policy", &backup.PolicyFileShareArgs{
-// 			ResourceGroupName: rg.Name,
-// 			RecoveryVaultName: vault.Name,
+// 			ResourceGroupName: exampleResourceGroup.Name,
+// 			RecoveryVaultName: pulumi.Any(azurerm_recovery_services_vault.Vault.Name),
 // 			Timezone:          pulumi.String("UTC"),
 // 			Backup: &backup.PolicyFileShareBackupArgs{
 // 				Frequency: pulumi.String("Daily"),
@@ -53,6 +51,38 @@ import (
 // 			},
 // 			RetentionDaily: &backup.PolicyFileShareRetentionDailyArgs{
 // 				Count: pulumi.Int(10),
+// 			},
+// 			RetentionWeekly: &backup.PolicyFileShareRetentionWeeklyArgs{
+// 				Count: pulumi.Int(7),
+// 				Weekdays: pulumi.StringArray{
+// 					pulumi.String("Sunday"),
+// 					pulumi.String("Wednesday"),
+// 					pulumi.String("Friday"),
+// 					pulumi.String("Saturday"),
+// 				},
+// 			},
+// 			RetentionMonthly: &backup.PolicyFileShareRetentionMonthlyArgs{
+// 				Count: pulumi.Int(7),
+// 				Weekdays: pulumi.StringArray{
+// 					pulumi.String("Sunday"),
+// 					pulumi.String("Wednesday"),
+// 				},
+// 				Weeks: pulumi.StringArray{
+// 					pulumi.String("First"),
+// 					pulumi.String("Last"),
+// 				},
+// 			},
+// 			RetentionYearly: &backup.PolicyFileShareRetentionYearlyArgs{
+// 				Count: pulumi.Int(7),
+// 				Weekdays: pulumi.StringArray{
+// 					pulumi.String("Sunday"),
+// 				},
+// 				Weeks: pulumi.StringArray{
+// 					pulumi.String("Last"),
+// 				},
+// 				Months: pulumi.StringArray{
+// 					pulumi.String("January"),
+// 				},
 // 			},
 // 		})
 // 		if err != nil {
@@ -83,6 +113,13 @@ type PolicyFileShare struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Configures the policy daily retention as documented in the `retentionDaily` block below.
 	RetentionDaily PolicyFileShareRetentionDailyOutput `pulumi:"retentionDaily"`
+	// Configures the policy monthly retention as documented in the `retentionMonthly` block below.
+	RetentionMonthly PolicyFileShareRetentionMonthlyPtrOutput `pulumi:"retentionMonthly"`
+	// Configures the policy weekly retention as documented in the `retentionWeekly` block below.
+	RetentionWeekly PolicyFileShareRetentionWeeklyPtrOutput `pulumi:"retentionWeekly"`
+	// Configures the policy yearly retention as documented in the `retentionYearly` block below.
+	RetentionYearly PolicyFileShareRetentionYearlyPtrOutput `pulumi:"retentionYearly"`
+	Tags            pulumi.StringMapOutput                  `pulumi:"tags"`
 	// Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
 	Timezone pulumi.StringPtrOutput `pulumi:"timezone"`
 }
@@ -138,6 +175,13 @@ type policyFileShareState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Configures the policy daily retention as documented in the `retentionDaily` block below.
 	RetentionDaily *PolicyFileShareRetentionDaily `pulumi:"retentionDaily"`
+	// Configures the policy monthly retention as documented in the `retentionMonthly` block below.
+	RetentionMonthly *PolicyFileShareRetentionMonthly `pulumi:"retentionMonthly"`
+	// Configures the policy weekly retention as documented in the `retentionWeekly` block below.
+	RetentionWeekly *PolicyFileShareRetentionWeekly `pulumi:"retentionWeekly"`
+	// Configures the policy yearly retention as documented in the `retentionYearly` block below.
+	RetentionYearly *PolicyFileShareRetentionYearly `pulumi:"retentionYearly"`
+	Tags            map[string]string               `pulumi:"tags"`
 	// Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
 	Timezone *string `pulumi:"timezone"`
 }
@@ -153,6 +197,13 @@ type PolicyFileShareState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// Configures the policy daily retention as documented in the `retentionDaily` block below.
 	RetentionDaily PolicyFileShareRetentionDailyPtrInput
+	// Configures the policy monthly retention as documented in the `retentionMonthly` block below.
+	RetentionMonthly PolicyFileShareRetentionMonthlyPtrInput
+	// Configures the policy weekly retention as documented in the `retentionWeekly` block below.
+	RetentionWeekly PolicyFileShareRetentionWeeklyPtrInput
+	// Configures the policy yearly retention as documented in the `retentionYearly` block below.
+	RetentionYearly PolicyFileShareRetentionYearlyPtrInput
+	Tags            pulumi.StringMapInput
 	// Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
 	Timezone pulumi.StringPtrInput
 }
@@ -172,6 +223,13 @@ type policyFileShareArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Configures the policy daily retention as documented in the `retentionDaily` block below.
 	RetentionDaily PolicyFileShareRetentionDaily `pulumi:"retentionDaily"`
+	// Configures the policy monthly retention as documented in the `retentionMonthly` block below.
+	RetentionMonthly *PolicyFileShareRetentionMonthly `pulumi:"retentionMonthly"`
+	// Configures the policy weekly retention as documented in the `retentionWeekly` block below.
+	RetentionWeekly *PolicyFileShareRetentionWeekly `pulumi:"retentionWeekly"`
+	// Configures the policy yearly retention as documented in the `retentionYearly` block below.
+	RetentionYearly *PolicyFileShareRetentionYearly `pulumi:"retentionYearly"`
+	Tags            map[string]string               `pulumi:"tags"`
 	// Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
 	Timezone *string `pulumi:"timezone"`
 }
@@ -188,6 +246,13 @@ type PolicyFileShareArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Configures the policy daily retention as documented in the `retentionDaily` block below.
 	RetentionDaily PolicyFileShareRetentionDailyInput
+	// Configures the policy monthly retention as documented in the `retentionMonthly` block below.
+	RetentionMonthly PolicyFileShareRetentionMonthlyPtrInput
+	// Configures the policy weekly retention as documented in the `retentionWeekly` block below.
+	RetentionWeekly PolicyFileShareRetentionWeeklyPtrInput
+	// Configures the policy yearly retention as documented in the `retentionYearly` block below.
+	RetentionYearly PolicyFileShareRetentionYearlyPtrInput
+	Tags            pulumi.StringMapInput
 	// Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
 	Timezone pulumi.StringPtrInput
 }

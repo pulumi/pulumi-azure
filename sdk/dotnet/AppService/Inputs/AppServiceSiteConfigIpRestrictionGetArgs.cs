@@ -19,6 +19,12 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? Action { get; set; }
 
         /// <summary>
+        /// The headers for this specific `ip_restriction` as defined below.
+        /// </summary>
+        [Input("headers")]
+        public Input<Inputs.AppServiceSiteConfigIpRestrictionHeadersGetArgs>? Headers { get; set; }
+
+        /// <summary>
         /// The IP Address used for this IP Restriction in CIDR notation.
         /// </summary>
         [Input("ipAddress")]

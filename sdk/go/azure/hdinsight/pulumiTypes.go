@@ -3588,6 +3588,156 @@ func (o HadoopClusterMonitorPtrOutput) PrimaryKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type HadoopClusterNetwork struct {
+	// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+	ConnectionDirection *string `pulumi:"connectionDirection"`
+	// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+	PrivateLinkEnabled *bool `pulumi:"privateLinkEnabled"`
+}
+
+// HadoopClusterNetworkInput is an input type that accepts HadoopClusterNetworkArgs and HadoopClusterNetworkOutput values.
+// You can construct a concrete instance of `HadoopClusterNetworkInput` via:
+//
+//          HadoopClusterNetworkArgs{...}
+type HadoopClusterNetworkInput interface {
+	pulumi.Input
+
+	ToHadoopClusterNetworkOutput() HadoopClusterNetworkOutput
+	ToHadoopClusterNetworkOutputWithContext(context.Context) HadoopClusterNetworkOutput
+}
+
+type HadoopClusterNetworkArgs struct {
+	// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+	ConnectionDirection pulumi.StringPtrInput `pulumi:"connectionDirection"`
+	// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+	PrivateLinkEnabled pulumi.BoolPtrInput `pulumi:"privateLinkEnabled"`
+}
+
+func (HadoopClusterNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterNetwork)(nil)).Elem()
+}
+
+func (i HadoopClusterNetworkArgs) ToHadoopClusterNetworkOutput() HadoopClusterNetworkOutput {
+	return i.ToHadoopClusterNetworkOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterNetworkArgs) ToHadoopClusterNetworkOutputWithContext(ctx context.Context) HadoopClusterNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterNetworkOutput)
+}
+
+func (i HadoopClusterNetworkArgs) ToHadoopClusterNetworkPtrOutput() HadoopClusterNetworkPtrOutput {
+	return i.ToHadoopClusterNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterNetworkArgs) ToHadoopClusterNetworkPtrOutputWithContext(ctx context.Context) HadoopClusterNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterNetworkOutput).ToHadoopClusterNetworkPtrOutputWithContext(ctx)
+}
+
+// HadoopClusterNetworkPtrInput is an input type that accepts HadoopClusterNetworkArgs, HadoopClusterNetworkPtr and HadoopClusterNetworkPtrOutput values.
+// You can construct a concrete instance of `HadoopClusterNetworkPtrInput` via:
+//
+//          HadoopClusterNetworkArgs{...}
+//
+//  or:
+//
+//          nil
+type HadoopClusterNetworkPtrInput interface {
+	pulumi.Input
+
+	ToHadoopClusterNetworkPtrOutput() HadoopClusterNetworkPtrOutput
+	ToHadoopClusterNetworkPtrOutputWithContext(context.Context) HadoopClusterNetworkPtrOutput
+}
+
+type hadoopClusterNetworkPtrType HadoopClusterNetworkArgs
+
+func HadoopClusterNetworkPtr(v *HadoopClusterNetworkArgs) HadoopClusterNetworkPtrInput {
+	return (*hadoopClusterNetworkPtrType)(v)
+}
+
+func (*hadoopClusterNetworkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HadoopClusterNetwork)(nil)).Elem()
+}
+
+func (i *hadoopClusterNetworkPtrType) ToHadoopClusterNetworkPtrOutput() HadoopClusterNetworkPtrOutput {
+	return i.ToHadoopClusterNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i *hadoopClusterNetworkPtrType) ToHadoopClusterNetworkPtrOutputWithContext(ctx context.Context) HadoopClusterNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterNetworkPtrOutput)
+}
+
+type HadoopClusterNetworkOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterNetwork)(nil)).Elem()
+}
+
+func (o HadoopClusterNetworkOutput) ToHadoopClusterNetworkOutput() HadoopClusterNetworkOutput {
+	return o
+}
+
+func (o HadoopClusterNetworkOutput) ToHadoopClusterNetworkOutputWithContext(ctx context.Context) HadoopClusterNetworkOutput {
+	return o
+}
+
+func (o HadoopClusterNetworkOutput) ToHadoopClusterNetworkPtrOutput() HadoopClusterNetworkPtrOutput {
+	return o.ToHadoopClusterNetworkPtrOutputWithContext(context.Background())
+}
+
+func (o HadoopClusterNetworkOutput) ToHadoopClusterNetworkPtrOutputWithContext(ctx context.Context) HadoopClusterNetworkPtrOutput {
+	return o.ApplyT(func(v HadoopClusterNetwork) *HadoopClusterNetwork {
+		return &v
+	}).(HadoopClusterNetworkPtrOutput)
+}
+
+// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+func (o HadoopClusterNetworkOutput) ConnectionDirection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HadoopClusterNetwork) *string { return v.ConnectionDirection }).(pulumi.StringPtrOutput)
+}
+
+// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+func (o HadoopClusterNetworkOutput) PrivateLinkEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HadoopClusterNetwork) *bool { return v.PrivateLinkEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type HadoopClusterNetworkPtrOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterNetworkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HadoopClusterNetwork)(nil)).Elem()
+}
+
+func (o HadoopClusterNetworkPtrOutput) ToHadoopClusterNetworkPtrOutput() HadoopClusterNetworkPtrOutput {
+	return o
+}
+
+func (o HadoopClusterNetworkPtrOutput) ToHadoopClusterNetworkPtrOutputWithContext(ctx context.Context) HadoopClusterNetworkPtrOutput {
+	return o
+}
+
+func (o HadoopClusterNetworkPtrOutput) Elem() HadoopClusterNetworkOutput {
+	return o.ApplyT(func(v *HadoopClusterNetwork) HadoopClusterNetwork { return *v }).(HadoopClusterNetworkOutput)
+}
+
+// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+func (o HadoopClusterNetworkPtrOutput) ConnectionDirection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterNetwork) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionDirection
+	}).(pulumi.StringPtrOutput)
+}
+
+// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+func (o HadoopClusterNetworkPtrOutput) PrivateLinkEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterNetwork) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateLinkEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type HadoopClusterRoles struct {
 	// A `edgeNode` block as defined below.
 	EdgeNode *HadoopClusterRolesEdgeNode `pulumi:"edgeNode"`
@@ -6264,6 +6414,156 @@ func (o InteractiveQueryClusterMonitorPtrOutput) PrimaryKey() pulumi.StringPtrOu
 		}
 		return &v.PrimaryKey
 	}).(pulumi.StringPtrOutput)
+}
+
+type InteractiveQueryClusterNetwork struct {
+	// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+	ConnectionDirection *string `pulumi:"connectionDirection"`
+	// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+	PrivateLinkEnabled *bool `pulumi:"privateLinkEnabled"`
+}
+
+// InteractiveQueryClusterNetworkInput is an input type that accepts InteractiveQueryClusterNetworkArgs and InteractiveQueryClusterNetworkOutput values.
+// You can construct a concrete instance of `InteractiveQueryClusterNetworkInput` via:
+//
+//          InteractiveQueryClusterNetworkArgs{...}
+type InteractiveQueryClusterNetworkInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterNetworkOutput() InteractiveQueryClusterNetworkOutput
+	ToInteractiveQueryClusterNetworkOutputWithContext(context.Context) InteractiveQueryClusterNetworkOutput
+}
+
+type InteractiveQueryClusterNetworkArgs struct {
+	// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+	ConnectionDirection pulumi.StringPtrInput `pulumi:"connectionDirection"`
+	// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+	PrivateLinkEnabled pulumi.BoolPtrInput `pulumi:"privateLinkEnabled"`
+}
+
+func (InteractiveQueryClusterNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InteractiveQueryClusterNetwork)(nil)).Elem()
+}
+
+func (i InteractiveQueryClusterNetworkArgs) ToInteractiveQueryClusterNetworkOutput() InteractiveQueryClusterNetworkOutput {
+	return i.ToInteractiveQueryClusterNetworkOutputWithContext(context.Background())
+}
+
+func (i InteractiveQueryClusterNetworkArgs) ToInteractiveQueryClusterNetworkOutputWithContext(ctx context.Context) InteractiveQueryClusterNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterNetworkOutput)
+}
+
+func (i InteractiveQueryClusterNetworkArgs) ToInteractiveQueryClusterNetworkPtrOutput() InteractiveQueryClusterNetworkPtrOutput {
+	return i.ToInteractiveQueryClusterNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i InteractiveQueryClusterNetworkArgs) ToInteractiveQueryClusterNetworkPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterNetworkOutput).ToInteractiveQueryClusterNetworkPtrOutputWithContext(ctx)
+}
+
+// InteractiveQueryClusterNetworkPtrInput is an input type that accepts InteractiveQueryClusterNetworkArgs, InteractiveQueryClusterNetworkPtr and InteractiveQueryClusterNetworkPtrOutput values.
+// You can construct a concrete instance of `InteractiveQueryClusterNetworkPtrInput` via:
+//
+//          InteractiveQueryClusterNetworkArgs{...}
+//
+//  or:
+//
+//          nil
+type InteractiveQueryClusterNetworkPtrInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterNetworkPtrOutput() InteractiveQueryClusterNetworkPtrOutput
+	ToInteractiveQueryClusterNetworkPtrOutputWithContext(context.Context) InteractiveQueryClusterNetworkPtrOutput
+}
+
+type interactiveQueryClusterNetworkPtrType InteractiveQueryClusterNetworkArgs
+
+func InteractiveQueryClusterNetworkPtr(v *InteractiveQueryClusterNetworkArgs) InteractiveQueryClusterNetworkPtrInput {
+	return (*interactiveQueryClusterNetworkPtrType)(v)
+}
+
+func (*interactiveQueryClusterNetworkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InteractiveQueryClusterNetwork)(nil)).Elem()
+}
+
+func (i *interactiveQueryClusterNetworkPtrType) ToInteractiveQueryClusterNetworkPtrOutput() InteractiveQueryClusterNetworkPtrOutput {
+	return i.ToInteractiveQueryClusterNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i *interactiveQueryClusterNetworkPtrType) ToInteractiveQueryClusterNetworkPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterNetworkPtrOutput)
+}
+
+type InteractiveQueryClusterNetworkOutput struct{ *pulumi.OutputState }
+
+func (InteractiveQueryClusterNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InteractiveQueryClusterNetwork)(nil)).Elem()
+}
+
+func (o InteractiveQueryClusterNetworkOutput) ToInteractiveQueryClusterNetworkOutput() InteractiveQueryClusterNetworkOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterNetworkOutput) ToInteractiveQueryClusterNetworkOutputWithContext(ctx context.Context) InteractiveQueryClusterNetworkOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterNetworkOutput) ToInteractiveQueryClusterNetworkPtrOutput() InteractiveQueryClusterNetworkPtrOutput {
+	return o.ToInteractiveQueryClusterNetworkPtrOutputWithContext(context.Background())
+}
+
+func (o InteractiveQueryClusterNetworkOutput) ToInteractiveQueryClusterNetworkPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterNetworkPtrOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterNetwork) *InteractiveQueryClusterNetwork {
+		return &v
+	}).(InteractiveQueryClusterNetworkPtrOutput)
+}
+
+// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+func (o InteractiveQueryClusterNetworkOutput) ConnectionDirection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterNetwork) *string { return v.ConnectionDirection }).(pulumi.StringPtrOutput)
+}
+
+// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+func (o InteractiveQueryClusterNetworkOutput) PrivateLinkEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterNetwork) *bool { return v.PrivateLinkEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type InteractiveQueryClusterNetworkPtrOutput struct{ *pulumi.OutputState }
+
+func (InteractiveQueryClusterNetworkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InteractiveQueryClusterNetwork)(nil)).Elem()
+}
+
+func (o InteractiveQueryClusterNetworkPtrOutput) ToInteractiveQueryClusterNetworkPtrOutput() InteractiveQueryClusterNetworkPtrOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterNetworkPtrOutput) ToInteractiveQueryClusterNetworkPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterNetworkPtrOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterNetworkPtrOutput) Elem() InteractiveQueryClusterNetworkOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterNetwork) InteractiveQueryClusterNetwork { return *v }).(InteractiveQueryClusterNetworkOutput)
+}
+
+// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+func (o InteractiveQueryClusterNetworkPtrOutput) ConnectionDirection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterNetwork) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionDirection
+	}).(pulumi.StringPtrOutput)
+}
+
+// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+func (o InteractiveQueryClusterNetworkPtrOutput) PrivateLinkEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterNetwork) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateLinkEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type InteractiveQueryClusterRoles struct {
@@ -14299,6 +14599,156 @@ func (o SparkClusterMonitorPtrOutput) PrimaryKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type SparkClusterNetwork struct {
+	// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+	ConnectionDirection *string `pulumi:"connectionDirection"`
+	// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+	PrivateLinkEnabled *bool `pulumi:"privateLinkEnabled"`
+}
+
+// SparkClusterNetworkInput is an input type that accepts SparkClusterNetworkArgs and SparkClusterNetworkOutput values.
+// You can construct a concrete instance of `SparkClusterNetworkInput` via:
+//
+//          SparkClusterNetworkArgs{...}
+type SparkClusterNetworkInput interface {
+	pulumi.Input
+
+	ToSparkClusterNetworkOutput() SparkClusterNetworkOutput
+	ToSparkClusterNetworkOutputWithContext(context.Context) SparkClusterNetworkOutput
+}
+
+type SparkClusterNetworkArgs struct {
+	// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+	ConnectionDirection pulumi.StringPtrInput `pulumi:"connectionDirection"`
+	// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+	PrivateLinkEnabled pulumi.BoolPtrInput `pulumi:"privateLinkEnabled"`
+}
+
+func (SparkClusterNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkClusterNetwork)(nil)).Elem()
+}
+
+func (i SparkClusterNetworkArgs) ToSparkClusterNetworkOutput() SparkClusterNetworkOutput {
+	return i.ToSparkClusterNetworkOutputWithContext(context.Background())
+}
+
+func (i SparkClusterNetworkArgs) ToSparkClusterNetworkOutputWithContext(ctx context.Context) SparkClusterNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterNetworkOutput)
+}
+
+func (i SparkClusterNetworkArgs) ToSparkClusterNetworkPtrOutput() SparkClusterNetworkPtrOutput {
+	return i.ToSparkClusterNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i SparkClusterNetworkArgs) ToSparkClusterNetworkPtrOutputWithContext(ctx context.Context) SparkClusterNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterNetworkOutput).ToSparkClusterNetworkPtrOutputWithContext(ctx)
+}
+
+// SparkClusterNetworkPtrInput is an input type that accepts SparkClusterNetworkArgs, SparkClusterNetworkPtr and SparkClusterNetworkPtrOutput values.
+// You can construct a concrete instance of `SparkClusterNetworkPtrInput` via:
+//
+//          SparkClusterNetworkArgs{...}
+//
+//  or:
+//
+//          nil
+type SparkClusterNetworkPtrInput interface {
+	pulumi.Input
+
+	ToSparkClusterNetworkPtrOutput() SparkClusterNetworkPtrOutput
+	ToSparkClusterNetworkPtrOutputWithContext(context.Context) SparkClusterNetworkPtrOutput
+}
+
+type sparkClusterNetworkPtrType SparkClusterNetworkArgs
+
+func SparkClusterNetworkPtr(v *SparkClusterNetworkArgs) SparkClusterNetworkPtrInput {
+	return (*sparkClusterNetworkPtrType)(v)
+}
+
+func (*sparkClusterNetworkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkClusterNetwork)(nil)).Elem()
+}
+
+func (i *sparkClusterNetworkPtrType) ToSparkClusterNetworkPtrOutput() SparkClusterNetworkPtrOutput {
+	return i.ToSparkClusterNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i *sparkClusterNetworkPtrType) ToSparkClusterNetworkPtrOutputWithContext(ctx context.Context) SparkClusterNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterNetworkPtrOutput)
+}
+
+type SparkClusterNetworkOutput struct{ *pulumi.OutputState }
+
+func (SparkClusterNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkClusterNetwork)(nil)).Elem()
+}
+
+func (o SparkClusterNetworkOutput) ToSparkClusterNetworkOutput() SparkClusterNetworkOutput {
+	return o
+}
+
+func (o SparkClusterNetworkOutput) ToSparkClusterNetworkOutputWithContext(ctx context.Context) SparkClusterNetworkOutput {
+	return o
+}
+
+func (o SparkClusterNetworkOutput) ToSparkClusterNetworkPtrOutput() SparkClusterNetworkPtrOutput {
+	return o.ToSparkClusterNetworkPtrOutputWithContext(context.Background())
+}
+
+func (o SparkClusterNetworkOutput) ToSparkClusterNetworkPtrOutputWithContext(ctx context.Context) SparkClusterNetworkPtrOutput {
+	return o.ApplyT(func(v SparkClusterNetwork) *SparkClusterNetwork {
+		return &v
+	}).(SparkClusterNetworkPtrOutput)
+}
+
+// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+func (o SparkClusterNetworkOutput) ConnectionDirection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SparkClusterNetwork) *string { return v.ConnectionDirection }).(pulumi.StringPtrOutput)
+}
+
+// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+func (o SparkClusterNetworkOutput) PrivateLinkEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SparkClusterNetwork) *bool { return v.PrivateLinkEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type SparkClusterNetworkPtrOutput struct{ *pulumi.OutputState }
+
+func (SparkClusterNetworkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkClusterNetwork)(nil)).Elem()
+}
+
+func (o SparkClusterNetworkPtrOutput) ToSparkClusterNetworkPtrOutput() SparkClusterNetworkPtrOutput {
+	return o
+}
+
+func (o SparkClusterNetworkPtrOutput) ToSparkClusterNetworkPtrOutputWithContext(ctx context.Context) SparkClusterNetworkPtrOutput {
+	return o
+}
+
+func (o SparkClusterNetworkPtrOutput) Elem() SparkClusterNetworkOutput {
+	return o.ApplyT(func(v *SparkClusterNetwork) SparkClusterNetwork { return *v }).(SparkClusterNetworkOutput)
+}
+
+// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+func (o SparkClusterNetworkPtrOutput) ConnectionDirection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkClusterNetwork) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionDirection
+	}).(pulumi.StringPtrOutput)
+}
+
+// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+func (o SparkClusterNetworkPtrOutput) PrivateLinkEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SparkClusterNetwork) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateLinkEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type SparkClusterRoles struct {
 	// A `headNode` block as defined above.
 	HeadNode SparkClusterRolesHeadNode `pulumi:"headNode"`
@@ -17850,6 +18300,8 @@ func init() {
 	pulumi.RegisterOutputType(HadoopClusterMetastoresOoziePtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterMonitorOutput{})
 	pulumi.RegisterOutputType(HadoopClusterMonitorPtrOutput{})
+	pulumi.RegisterOutputType(HadoopClusterNetworkOutput{})
+	pulumi.RegisterOutputType(HadoopClusterNetworkPtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesPtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesEdgeNodeOutput{})
@@ -17880,6 +18332,8 @@ func init() {
 	pulumi.RegisterOutputType(InteractiveQueryClusterMetastoresOoziePtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterMonitorOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterMonitorPtrOutput{})
+	pulumi.RegisterOutputType(InteractiveQueryClusterNetworkOutput{})
+	pulumi.RegisterOutputType(InteractiveQueryClusterNetworkPtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesPtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesHeadNodeOutput{})
@@ -17964,6 +18418,8 @@ func init() {
 	pulumi.RegisterOutputType(SparkClusterMetastoresOoziePtrOutput{})
 	pulumi.RegisterOutputType(SparkClusterMonitorOutput{})
 	pulumi.RegisterOutputType(SparkClusterMonitorPtrOutput{})
+	pulumi.RegisterOutputType(SparkClusterNetworkOutput{})
+	pulumi.RegisterOutputType(SparkClusterNetworkPtrOutput{})
 	pulumi.RegisterOutputType(SparkClusterRolesOutput{})
 	pulumi.RegisterOutputType(SparkClusterRolesPtrOutput{})
 	pulumi.RegisterOutputType(SparkClusterRolesHeadNodeOutput{})

@@ -38,6 +38,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FunctionAppSlotSiteConfigIpRestriction> IpRestrictions;
+        public readonly string? JavaVersion;
         /// <summary>
         /// Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
         /// </summary>
@@ -78,6 +79,8 @@ namespace Pulumi.Azure.AppService.Outputs
 
             ImmutableArray<Outputs.FunctionAppSlotSiteConfigIpRestriction> ipRestrictions,
 
+            string? javaVersion,
+
             string? linuxFxVersion,
 
             string? minTlsVersion,
@@ -101,6 +104,7 @@ namespace Pulumi.Azure.AppService.Outputs
             HealthCheckPath = healthCheckPath;
             Http2Enabled = http2Enabled;
             IpRestrictions = ipRestrictions;
+            JavaVersion = javaVersion;
             LinuxFxVersion = linuxFxVersion;
             MinTlsVersion = minTlsVersion;
             PreWarmedInstanceCount = preWarmedInstanceCount;

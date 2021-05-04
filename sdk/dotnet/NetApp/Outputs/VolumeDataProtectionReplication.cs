@@ -18,11 +18,11 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// </summary>
         public readonly string? EndpointType;
         /// <summary>
-        /// Primary volume's location.
+        /// Location of the primary volume.
         /// </summary>
         public readonly string RemoteVolumeLocation;
         /// <summary>
-        /// Primary volume's resource id.
+        /// Resource ID of the primary volume.
         /// </summary>
         public readonly string RemoteVolumeResourceId;
         /// <summary>

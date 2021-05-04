@@ -48,7 +48,7 @@ namespace Pulumi.Azure.Compute
     public sealed class GetSharedImageVersionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Shared Image in which the Shared Image exists.
+        /// The name of the Shared Image Gallery in which the Shared Image exists.
         /// </summary>
         [Input("galleryName", required: true)]
         public string GalleryName { get; set; } = null!;

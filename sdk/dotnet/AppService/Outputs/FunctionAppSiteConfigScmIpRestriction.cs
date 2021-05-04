@@ -18,6 +18,10 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? Action;
         /// <summary>
+        /// The headers for this specific `scm_ip_restriction` as defined below.
+        /// </summary>
+        public readonly Outputs.FunctionAppSiteConfigScmIpRestrictionHeaders? Headers;
+        /// <summary>
         /// The IP Address used for this IP Restriction in CIDR notation.
         /// </summary>
         public readonly string? IpAddress;
@@ -42,6 +46,8 @@ namespace Pulumi.Azure.AppService.Outputs
         private FunctionAppSiteConfigScmIpRestriction(
             string? action,
 
+            Outputs.FunctionAppSiteConfigScmIpRestrictionHeaders? headers,
+
             string? ipAddress,
 
             string? name,
@@ -53,6 +59,7 @@ namespace Pulumi.Azure.AppService.Outputs
             string? virtualNetworkSubnetId)
         {
             Action = action;
+            Headers = headers;
             IpAddress = ipAddress;
             Name = name;
             Priority = priority;

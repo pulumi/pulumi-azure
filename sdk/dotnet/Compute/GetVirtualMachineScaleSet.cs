@@ -78,7 +78,14 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualMachineScaleSetIdentityResult> Identities;
         public readonly string Location;
+        /// <summary>
+        /// The name of the public ip address configuration
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// A list of `network_interface` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetVirtualMachineScaleSetNetworkInterfaceResult> NetworkInterfaces;
         public readonly string ResourceGroupName;
 
         [OutputConstructor]
@@ -91,12 +98,15 @@ namespace Pulumi.Azure.Compute
 
             string name,
 
+            ImmutableArray<Outputs.GetVirtualMachineScaleSetNetworkInterfaceResult> networkInterfaces,
+
             string resourceGroupName)
         {
             Id = id;
             Identities = identities;
             Location = location;
             Name = name;
+            NetworkInterfaces = networkInterfaces;
             ResourceGroupName = resourceGroupName;
         }
     }

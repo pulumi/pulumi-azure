@@ -24,6 +24,12 @@ namespace Pulumi.Azure.Storage.Inputs
         [Input("snapshot")]
         public Input<Inputs.ManagementPolicyRuleActionsSnapshotArgs>? Snapshot { get; set; }
 
+        /// <summary>
+        /// A `version` block as documented below.
+        /// </summary>
+        [Input("version")]
+        public Input<Inputs.ManagementPolicyRuleActionsVersionArgs>? Version { get; set; }
+
         public ManagementPolicyRuleActionsArgs()
         {
         }

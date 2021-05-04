@@ -10,6 +10,9 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AssetFilterPresentationTimeRange',
+    'AssetFilterTrackSelection',
+    'AssetFilterTrackSelectionCondition',
     'ContentKeyPolicyPolicyOption',
     'ContentKeyPolicyPolicyOptionFairplayConfiguration',
     'ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration',
@@ -49,6 +52,178 @@ __all__ = [
     'TransformOutputFaceDetectorPreset',
     'TransformOutputVideoAnalyzerPreset',
 ]
+
+@pulumi.output_type
+class AssetFilterPresentationTimeRange(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endInUnits":
+            suggest = "end_in_units"
+        elif key == "forceEnd":
+            suggest = "force_end"
+        elif key == "liveBackoffInUnits":
+            suggest = "live_backoff_in_units"
+        elif key == "presentationWindowInUnits":
+            suggest = "presentation_window_in_units"
+        elif key == "startInUnits":
+            suggest = "start_in_units"
+        elif key == "unitTimescaleInMiliseconds":
+            suggest = "unit_timescale_in_miliseconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssetFilterPresentationTimeRange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssetFilterPresentationTimeRange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssetFilterPresentationTimeRange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_in_units: Optional[int] = None,
+                 force_end: Optional[bool] = None,
+                 live_backoff_in_units: Optional[int] = None,
+                 presentation_window_in_units: Optional[int] = None,
+                 start_in_units: Optional[int] = None,
+                 unit_timescale_in_miliseconds: Optional[int] = None):
+        """
+        :param int end_in_units: The absolute end time boundary. Applies to Video on Demand (VoD).
+               For the Live Streaming presentation, it is silently ignored and applied when the presentation ends and the stream becomes VoD. This is a long value that represents an absolute end point of the presentation, rounded to the closest next GOP start. The unit is defined by `unit_timescale_in_miliseconds`, so an `end_in_units` of 180 would be for 3 minutes. Use `start_in_units` and `end_in_units` to trim the fragments that will be in the playlist (manifest). For example, `start_in_units` set to 20 and `end_in_units` set to 60 using `unit_timescale_in_miliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
+        :param bool force_end: Indicates whether the `end_in_units` property must be present. If true, `end_in_units` must be specified or a bad request code is returned. Applies to Live Streaming only. Allowed values: false, true.
+        :param int live_backoff_in_units: The relative to end right edge. Applies to Live Streaming only.
+               This value defines the latest live position that a client can seek to. Using this property, you can delay live playback position and create a server-side buffer for players. The unit is defined by `unit_timescale_in_miliseconds`. The maximum live back off duration is 300 seconds. For example, a value of 20 means that the latest available content is 20 seconds delayed from the real live edge.
+        :param int presentation_window_in_units: The relative to end sliding window. Applies to Live Streaming only. Use `presentation_window_in_units` to apply a sliding window of fragments to include in a playlist. The unit is defined by `unit_timescale_in_miliseconds`. For example, set  `presentation_window_in_units` to 120 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 60 seconds.
+        :param int start_in_units: The absolute start time boundary. Applies to Video on Demand (VoD) or Live Streaming. This is a long value that represents an absolute start point of the stream. The value gets rounded to the closest next GOP start. The unit is defined by `unit_timescale_in_miliseconds`, so a `start_in_units` of 15 would be for 15 seconds. Use `start_in_units` and `end_in_units` to trim the fragments that will be in the playlist (manifest). For example, `start_in_units` set to 20 and `end_in_units` set to 60 using `unit_timescale_in_miliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
+        :param int unit_timescale_in_miliseconds: Specified as the number of miliseconds in one unit timescale. For example, if you want to set a `start_in_units` at 30 seconds, you would use a value of 30 when using the `unit_timescale_in_miliseconds` in 1000. Or if you want to set `start_in_units` in 30 miliseconds, you would use a value of 30 when using the `unit_timescale_in_miliseconds` in 1.  Applies timescale to `start_in_units`, `start_timescale` and `presentation_window_in_timescale` and `live_backoff_in_timescale`.
+        """
+        if end_in_units is not None:
+            pulumi.set(__self__, "end_in_units", end_in_units)
+        if force_end is not None:
+            pulumi.set(__self__, "force_end", force_end)
+        if live_backoff_in_units is not None:
+            pulumi.set(__self__, "live_backoff_in_units", live_backoff_in_units)
+        if presentation_window_in_units is not None:
+            pulumi.set(__self__, "presentation_window_in_units", presentation_window_in_units)
+        if start_in_units is not None:
+            pulumi.set(__self__, "start_in_units", start_in_units)
+        if unit_timescale_in_miliseconds is not None:
+            pulumi.set(__self__, "unit_timescale_in_miliseconds", unit_timescale_in_miliseconds)
+
+    @property
+    @pulumi.getter(name="endInUnits")
+    def end_in_units(self) -> Optional[int]:
+        """
+        The absolute end time boundary. Applies to Video on Demand (VoD).
+        For the Live Streaming presentation, it is silently ignored and applied when the presentation ends and the stream becomes VoD. This is a long value that represents an absolute end point of the presentation, rounded to the closest next GOP start. The unit is defined by `unit_timescale_in_miliseconds`, so an `end_in_units` of 180 would be for 3 minutes. Use `start_in_units` and `end_in_units` to trim the fragments that will be in the playlist (manifest). For example, `start_in_units` set to 20 and `end_in_units` set to 60 using `unit_timescale_in_miliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
+        """
+        return pulumi.get(self, "end_in_units")
+
+    @property
+    @pulumi.getter(name="forceEnd")
+    def force_end(self) -> Optional[bool]:
+        """
+        Indicates whether the `end_in_units` property must be present. If true, `end_in_units` must be specified or a bad request code is returned. Applies to Live Streaming only. Allowed values: false, true.
+        """
+        return pulumi.get(self, "force_end")
+
+    @property
+    @pulumi.getter(name="liveBackoffInUnits")
+    def live_backoff_in_units(self) -> Optional[int]:
+        """
+        The relative to end right edge. Applies to Live Streaming only.
+        This value defines the latest live position that a client can seek to. Using this property, you can delay live playback position and create a server-side buffer for players. The unit is defined by `unit_timescale_in_miliseconds`. The maximum live back off duration is 300 seconds. For example, a value of 20 means that the latest available content is 20 seconds delayed from the real live edge.
+        """
+        return pulumi.get(self, "live_backoff_in_units")
+
+    @property
+    @pulumi.getter(name="presentationWindowInUnits")
+    def presentation_window_in_units(self) -> Optional[int]:
+        """
+        The relative to end sliding window. Applies to Live Streaming only. Use `presentation_window_in_units` to apply a sliding window of fragments to include in a playlist. The unit is defined by `unit_timescale_in_miliseconds`. For example, set  `presentation_window_in_units` to 120 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 60 seconds.
+        """
+        return pulumi.get(self, "presentation_window_in_units")
+
+    @property
+    @pulumi.getter(name="startInUnits")
+    def start_in_units(self) -> Optional[int]:
+        """
+        The absolute start time boundary. Applies to Video on Demand (VoD) or Live Streaming. This is a long value that represents an absolute start point of the stream. The value gets rounded to the closest next GOP start. The unit is defined by `unit_timescale_in_miliseconds`, so a `start_in_units` of 15 would be for 15 seconds. Use `start_in_units` and `end_in_units` to trim the fragments that will be in the playlist (manifest). For example, `start_in_units` set to 20 and `end_in_units` set to 60 using `unit_timescale_in_miliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
+        """
+        return pulumi.get(self, "start_in_units")
+
+    @property
+    @pulumi.getter(name="unitTimescaleInMiliseconds")
+    def unit_timescale_in_miliseconds(self) -> Optional[int]:
+        """
+        Specified as the number of miliseconds in one unit timescale. For example, if you want to set a `start_in_units` at 30 seconds, you would use a value of 30 when using the `unit_timescale_in_miliseconds` in 1000. Or if you want to set `start_in_units` in 30 miliseconds, you would use a value of 30 when using the `unit_timescale_in_miliseconds` in 1.  Applies timescale to `start_in_units`, `start_timescale` and `presentation_window_in_timescale` and `live_backoff_in_timescale`.
+        """
+        return pulumi.get(self, "unit_timescale_in_miliseconds")
+
+
+@pulumi.output_type
+class AssetFilterTrackSelection(dict):
+    def __init__(__self__, *,
+                 conditions: Optional[Sequence['outputs.AssetFilterTrackSelectionCondition']] = None):
+        """
+        :param Sequence['AssetFilterTrackSelectionConditionArgs'] conditions: One or more `condition` blocks as defined above.
+        """
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Optional[Sequence['outputs.AssetFilterTrackSelectionCondition']]:
+        """
+        One or more `condition` blocks as defined above.
+        """
+        return pulumi.get(self, "conditions")
+
+
+@pulumi.output_type
+class AssetFilterTrackSelectionCondition(dict):
+    def __init__(__self__, *,
+                 operation: Optional[str] = None,
+                 property: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str operation: The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
+        :param str property: The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/en-us/azure/media-services/latest/filters-concept) for more details.
+        :param str value: The track property value to match or not match.
+        """
+        if operation is not None:
+            pulumi.set(__self__, "operation", operation)
+        if property is not None:
+            pulumi.set(__self__, "property", property)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def operation(self) -> Optional[str]:
+        """
+        The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
+        """
+        return pulumi.get(self, "operation")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The track property value to match or not match.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def property(self) -> Optional[str]:
+        """
+        The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/en-us/azure/media-services/latest/filters-concept) for more details.
+        """
+        return pulumi.get(self, "property")
+
 
 @pulumi.output_type
 class ContentKeyPolicyPolicyOption(dict):

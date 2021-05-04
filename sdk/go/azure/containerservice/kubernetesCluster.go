@@ -85,8 +85,10 @@ type KubernetesCluster struct {
 	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
 	DiskEncryptionSetId pulumi.StringPtrOutput `pulumi:"diskEncryptionSetId"`
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
-	DnsPrefix               pulumi.StringOutput  `pulumi:"dnsPrefix"`
-	EnablePodSecurityPolicy pulumi.BoolPtrOutput `pulumi:"enablePodSecurityPolicy"`
+	DnsPrefix pulumi.StringPtrOutput `pulumi:"dnsPrefix"`
+	// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
+	DnsPrefixPrivateCluster pulumi.StringPtrOutput `pulumi:"dnsPrefixPrivateCluster"`
+	EnablePodSecurityPolicy pulumi.BoolPtrOutput   `pulumi:"enablePodSecurityPolicy"`
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// An `identity` block as defined below. Changing this forces a new resource to be created.
@@ -145,9 +147,6 @@ func NewKubernetesCluster(ctx *pulumi.Context,
 	if args.DefaultNodePool == nil {
 		return nil, errors.New("invalid value for required argument 'DefaultNodePool'")
 	}
-	if args.DnsPrefix == nil {
-		return nil, errors.New("invalid value for required argument 'DnsPrefix'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -186,7 +185,9 @@ type kubernetesClusterState struct {
 	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
-	DnsPrefix               *string `pulumi:"dnsPrefix"`
+	DnsPrefix *string `pulumi:"dnsPrefix"`
+	// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
+	DnsPrefixPrivateCluster *string `pulumi:"dnsPrefixPrivateCluster"`
 	EnablePodSecurityPolicy *bool   `pulumi:"enablePodSecurityPolicy"`
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn *string `pulumi:"fqdn"`
@@ -250,7 +251,9 @@ type KubernetesClusterState struct {
 	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
 	DiskEncryptionSetId pulumi.StringPtrInput
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
-	DnsPrefix               pulumi.StringPtrInput
+	DnsPrefix pulumi.StringPtrInput
+	// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
+	DnsPrefixPrivateCluster pulumi.StringPtrInput
 	EnablePodSecurityPolicy pulumi.BoolPtrInput
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn pulumi.StringPtrInput
@@ -318,8 +321,10 @@ type kubernetesClusterArgs struct {
 	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
-	DnsPrefix               string `pulumi:"dnsPrefix"`
-	EnablePodSecurityPolicy *bool  `pulumi:"enablePodSecurityPolicy"`
+	DnsPrefix *string `pulumi:"dnsPrefix"`
+	// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
+	DnsPrefixPrivateCluster *string `pulumi:"dnsPrefixPrivateCluster"`
+	EnablePodSecurityPolicy *bool   `pulumi:"enablePodSecurityPolicy"`
 	// An `identity` block as defined below. Changing this forces a new resource to be created.
 	Identity *KubernetesClusterIdentity `pulumi:"identity"`
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
@@ -369,7 +374,9 @@ type KubernetesClusterArgs struct {
 	// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
 	DiskEncryptionSetId pulumi.StringPtrInput
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
-	DnsPrefix               pulumi.StringInput
+	DnsPrefix pulumi.StringPtrInput
+	// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
+	DnsPrefixPrivateCluster pulumi.StringPtrInput
 	EnablePodSecurityPolicy pulumi.BoolPtrInput
 	// An `identity` block as defined below. Changing this forces a new resource to be created.
 	Identity KubernetesClusterIdentityPtrInput

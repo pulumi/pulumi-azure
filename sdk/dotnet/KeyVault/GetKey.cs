@@ -103,6 +103,10 @@ namespace Pulumi.Azure.KeyVault
         /// The current version of the Key Vault Key.
         /// </summary>
         public readonly string Version;
+        /// <summary>
+        /// The Base ID of the Key Vault Key.
+        /// </summary>
+        public readonly string VersionlessId;
 
         [OutputConstructor]
         private GetKeyResult(
@@ -124,7 +128,9 @@ namespace Pulumi.Azure.KeyVault
 
             ImmutableDictionary<string, string> tags,
 
-            string version)
+            string version,
+
+            string versionlessId)
         {
             E = e;
             Id = id;
@@ -136,6 +142,7 @@ namespace Pulumi.Azure.KeyVault
             Name = name;
             Tags = tags;
             Version = version;
+            VersionlessId = versionlessId;
         }
     }
 }

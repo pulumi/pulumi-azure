@@ -95,7 +95,7 @@ type GremlinGraph struct {
 	// The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
 	AccountName       pulumi.StringOutput                    `pulumi:"accountName"`
 	AutoscaleSettings GremlinGraphAutoscaleSettingsPtrOutput `pulumi:"autoscaleSettings"`
-	// The conflict resolution policy for the graph. One or more `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
+	// A `conflictResolutionPolicy` blocks as defined below.
 	ConflictResolutionPolicies GremlinGraphConflictResolutionPolicyArrayOutput `pulumi:"conflictResolutionPolicies"`
 	// The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
@@ -106,7 +106,7 @@ type GremlinGraph struct {
 	// Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Define a partition key. Changing this forces a new resource to be created.
-	PartitionKeyPath pulumi.StringPtrOutput `pulumi:"partitionKeyPath"`
+	PartitionKeyPath pulumi.StringOutput `pulumi:"partitionKeyPath"`
 	// The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply.
@@ -125,14 +125,14 @@ func NewGremlinGraph(ctx *pulumi.Context,
 	if args.AccountName == nil {
 		return nil, errors.New("invalid value for required argument 'AccountName'")
 	}
-	if args.ConflictResolutionPolicies == nil {
-		return nil, errors.New("invalid value for required argument 'ConflictResolutionPolicies'")
-	}
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
 	}
 	if args.IndexPolicies == nil {
 		return nil, errors.New("invalid value for required argument 'IndexPolicies'")
+	}
+	if args.PartitionKeyPath == nil {
+		return nil, errors.New("invalid value for required argument 'PartitionKeyPath'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
@@ -162,7 +162,7 @@ type gremlinGraphState struct {
 	// The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
 	AccountName       *string                        `pulumi:"accountName"`
 	AutoscaleSettings *GremlinGraphAutoscaleSettings `pulumi:"autoscaleSettings"`
-	// The conflict resolution policy for the graph. One or more `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
+	// A `conflictResolutionPolicy` blocks as defined below.
 	ConflictResolutionPolicies []GremlinGraphConflictResolutionPolicy `pulumi:"conflictResolutionPolicies"`
 	// The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
 	DatabaseName *string `pulumi:"databaseName"`
@@ -186,7 +186,7 @@ type GremlinGraphState struct {
 	// The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
 	AccountName       pulumi.StringPtrInput
 	AutoscaleSettings GremlinGraphAutoscaleSettingsPtrInput
-	// The conflict resolution policy for the graph. One or more `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
+	// A `conflictResolutionPolicy` blocks as defined below.
 	ConflictResolutionPolicies GremlinGraphConflictResolutionPolicyArrayInput
 	// The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringPtrInput
@@ -214,7 +214,7 @@ type gremlinGraphArgs struct {
 	// The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
 	AccountName       string                         `pulumi:"accountName"`
 	AutoscaleSettings *GremlinGraphAutoscaleSettings `pulumi:"autoscaleSettings"`
-	// The conflict resolution policy for the graph. One or more `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
+	// A `conflictResolutionPolicy` blocks as defined below.
 	ConflictResolutionPolicies []GremlinGraphConflictResolutionPolicy `pulumi:"conflictResolutionPolicies"`
 	// The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
@@ -225,7 +225,7 @@ type gremlinGraphArgs struct {
 	// Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Define a partition key. Changing this forces a new resource to be created.
-	PartitionKeyPath *string `pulumi:"partitionKeyPath"`
+	PartitionKeyPath string `pulumi:"partitionKeyPath"`
 	// The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply.
@@ -239,7 +239,7 @@ type GremlinGraphArgs struct {
 	// The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
 	AccountName       pulumi.StringInput
 	AutoscaleSettings GremlinGraphAutoscaleSettingsPtrInput
-	// The conflict resolution policy for the graph. One or more `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
+	// A `conflictResolutionPolicy` blocks as defined below.
 	ConflictResolutionPolicies GremlinGraphConflictResolutionPolicyArrayInput
 	// The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput
@@ -250,7 +250,7 @@ type GremlinGraphArgs struct {
 	// Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Define a partition key. Changing this forces a new resource to be created.
-	PartitionKeyPath pulumi.StringPtrInput
+	PartitionKeyPath pulumi.StringInput
 	// The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply.
