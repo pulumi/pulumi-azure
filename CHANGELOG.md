@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.57.0 of the AzureRM Terraform Provider
+_(none)_
 
 ---
+
+## 4.1.0 (2021-05-04)
+* Upgrade to v2.57.0 of the AzureRM Terraform Provider
 
 ## 4.0.1 (2021-04-28)
 * Ensure `azure.compute.LinuxVirtualMachine` and `azure.compute.WindowsVirtualMachine` resources don't error with validation
