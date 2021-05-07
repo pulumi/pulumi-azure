@@ -1837,15 +1837,125 @@ func (o FrontdoorBackendPoolLoadBalancingArrayOutput) Index(i pulumi.IntInput) F
 	}).(FrontdoorBackendPoolLoadBalancingOutput)
 }
 
+type FrontdoorExplicitResourceOrder struct {
+	BackendPoolHealthProbeIds   []string `pulumi:"backendPoolHealthProbeIds"`
+	BackendPoolIds              []string `pulumi:"backendPoolIds"`
+	BackendPoolLoadBalancingIds []string `pulumi:"backendPoolLoadBalancingIds"`
+	FrontendEndpointIds         []string `pulumi:"frontendEndpointIds"`
+	RoutingRuleIds              []string `pulumi:"routingRuleIds"`
+}
+
+// FrontdoorExplicitResourceOrderInput is an input type that accepts FrontdoorExplicitResourceOrderArgs and FrontdoorExplicitResourceOrderOutput values.
+// You can construct a concrete instance of `FrontdoorExplicitResourceOrderInput` via:
+//
+//          FrontdoorExplicitResourceOrderArgs{...}
+type FrontdoorExplicitResourceOrderInput interface {
+	pulumi.Input
+
+	ToFrontdoorExplicitResourceOrderOutput() FrontdoorExplicitResourceOrderOutput
+	ToFrontdoorExplicitResourceOrderOutputWithContext(context.Context) FrontdoorExplicitResourceOrderOutput
+}
+
+type FrontdoorExplicitResourceOrderArgs struct {
+	BackendPoolHealthProbeIds   pulumi.StringArrayInput `pulumi:"backendPoolHealthProbeIds"`
+	BackendPoolIds              pulumi.StringArrayInput `pulumi:"backendPoolIds"`
+	BackendPoolLoadBalancingIds pulumi.StringArrayInput `pulumi:"backendPoolLoadBalancingIds"`
+	FrontendEndpointIds         pulumi.StringArrayInput `pulumi:"frontendEndpointIds"`
+	RoutingRuleIds              pulumi.StringArrayInput `pulumi:"routingRuleIds"`
+}
+
+func (FrontdoorExplicitResourceOrderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorExplicitResourceOrder)(nil)).Elem()
+}
+
+func (i FrontdoorExplicitResourceOrderArgs) ToFrontdoorExplicitResourceOrderOutput() FrontdoorExplicitResourceOrderOutput {
+	return i.ToFrontdoorExplicitResourceOrderOutputWithContext(context.Background())
+}
+
+func (i FrontdoorExplicitResourceOrderArgs) ToFrontdoorExplicitResourceOrderOutputWithContext(ctx context.Context) FrontdoorExplicitResourceOrderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorExplicitResourceOrderOutput)
+}
+
+// FrontdoorExplicitResourceOrderArrayInput is an input type that accepts FrontdoorExplicitResourceOrderArray and FrontdoorExplicitResourceOrderArrayOutput values.
+// You can construct a concrete instance of `FrontdoorExplicitResourceOrderArrayInput` via:
+//
+//          FrontdoorExplicitResourceOrderArray{ FrontdoorExplicitResourceOrderArgs{...} }
+type FrontdoorExplicitResourceOrderArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorExplicitResourceOrderArrayOutput() FrontdoorExplicitResourceOrderArrayOutput
+	ToFrontdoorExplicitResourceOrderArrayOutputWithContext(context.Context) FrontdoorExplicitResourceOrderArrayOutput
+}
+
+type FrontdoorExplicitResourceOrderArray []FrontdoorExplicitResourceOrderInput
+
+func (FrontdoorExplicitResourceOrderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorExplicitResourceOrder)(nil)).Elem()
+}
+
+func (i FrontdoorExplicitResourceOrderArray) ToFrontdoorExplicitResourceOrderArrayOutput() FrontdoorExplicitResourceOrderArrayOutput {
+	return i.ToFrontdoorExplicitResourceOrderArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorExplicitResourceOrderArray) ToFrontdoorExplicitResourceOrderArrayOutputWithContext(ctx context.Context) FrontdoorExplicitResourceOrderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorExplicitResourceOrderArrayOutput)
+}
+
+type FrontdoorExplicitResourceOrderOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorExplicitResourceOrderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorExplicitResourceOrder)(nil)).Elem()
+}
+
+func (o FrontdoorExplicitResourceOrderOutput) ToFrontdoorExplicitResourceOrderOutput() FrontdoorExplicitResourceOrderOutput {
+	return o
+}
+
+func (o FrontdoorExplicitResourceOrderOutput) ToFrontdoorExplicitResourceOrderOutputWithContext(ctx context.Context) FrontdoorExplicitResourceOrderOutput {
+	return o
+}
+
+func (o FrontdoorExplicitResourceOrderOutput) BackendPoolHealthProbeIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorExplicitResourceOrder) []string { return v.BackendPoolHealthProbeIds }).(pulumi.StringArrayOutput)
+}
+
+func (o FrontdoorExplicitResourceOrderOutput) BackendPoolIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorExplicitResourceOrder) []string { return v.BackendPoolIds }).(pulumi.StringArrayOutput)
+}
+
+func (o FrontdoorExplicitResourceOrderOutput) BackendPoolLoadBalancingIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorExplicitResourceOrder) []string { return v.BackendPoolLoadBalancingIds }).(pulumi.StringArrayOutput)
+}
+
+func (o FrontdoorExplicitResourceOrderOutput) FrontendEndpointIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorExplicitResourceOrder) []string { return v.FrontendEndpointIds }).(pulumi.StringArrayOutput)
+}
+
+func (o FrontdoorExplicitResourceOrderOutput) RoutingRuleIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorExplicitResourceOrder) []string { return v.RoutingRuleIds }).(pulumi.StringArrayOutput)
+}
+
+type FrontdoorExplicitResourceOrderArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorExplicitResourceOrderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorExplicitResourceOrder)(nil)).Elem()
+}
+
+func (o FrontdoorExplicitResourceOrderArrayOutput) ToFrontdoorExplicitResourceOrderArrayOutput() FrontdoorExplicitResourceOrderArrayOutput {
+	return o
+}
+
+func (o FrontdoorExplicitResourceOrderArrayOutput) ToFrontdoorExplicitResourceOrderArrayOutputWithContext(ctx context.Context) FrontdoorExplicitResourceOrderArrayOutput {
+	return o
+}
+
+func (o FrontdoorExplicitResourceOrderArrayOutput) Index(i pulumi.IntInput) FrontdoorExplicitResourceOrderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorExplicitResourceOrder {
+		return vs[0].([]FrontdoorExplicitResourceOrder)[vs[1].(int)]
+	}).(FrontdoorExplicitResourceOrderOutput)
+}
+
 type FrontdoorFrontendEndpoint struct {
-	// A `customHttpsConfiguration` block as defined below.
-	//
-	// Deprecated: Deprecated in favour of `azurerm_frontdoor_custom_https_configuration` resource
-	CustomHttpsConfiguration *FrontdoorFrontendEndpointCustomHttpsConfiguration `pulumi:"customHttpsConfiguration"`
-	// Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
-	//
-	// Deprecated: Deprecated in favour of `azurerm_frontdoor_custom_https_configuration` resource
-	CustomHttpsProvisioningEnabled *bool `pulumi:"customHttpsProvisioningEnabled"`
 	// Specifies the host name of the `frontendEndpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
 	HostName string `pulumi:"hostName"`
 	// The ID of the FrontDoor.
@@ -1872,14 +1982,6 @@ type FrontdoorFrontendEndpointInput interface {
 }
 
 type FrontdoorFrontendEndpointArgs struct {
-	// A `customHttpsConfiguration` block as defined below.
-	//
-	// Deprecated: Deprecated in favour of `azurerm_frontdoor_custom_https_configuration` resource
-	CustomHttpsConfiguration FrontdoorFrontendEndpointCustomHttpsConfigurationPtrInput `pulumi:"customHttpsConfiguration"`
-	// Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
-	//
-	// Deprecated: Deprecated in favour of `azurerm_frontdoor_custom_https_configuration` resource
-	CustomHttpsProvisioningEnabled pulumi.BoolPtrInput `pulumi:"customHttpsProvisioningEnabled"`
 	// Specifies the host name of the `frontendEndpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
 	HostName pulumi.StringInput `pulumi:"hostName"`
 	// The ID of the FrontDoor.
@@ -1945,22 +2047,6 @@ func (o FrontdoorFrontendEndpointOutput) ToFrontdoorFrontendEndpointOutputWithCo
 	return o
 }
 
-// A `customHttpsConfiguration` block as defined below.
-//
-// Deprecated: Deprecated in favour of `azurerm_frontdoor_custom_https_configuration` resource
-func (o FrontdoorFrontendEndpointOutput) CustomHttpsConfiguration() FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput {
-	return o.ApplyT(func(v FrontdoorFrontendEndpoint) *FrontdoorFrontendEndpointCustomHttpsConfiguration {
-		return v.CustomHttpsConfiguration
-	}).(FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput)
-}
-
-// Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
-//
-// Deprecated: Deprecated in favour of `azurerm_frontdoor_custom_https_configuration` resource
-func (o FrontdoorFrontendEndpointOutput) CustomHttpsProvisioningEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v FrontdoorFrontendEndpoint) *bool { return v.CustomHttpsProvisioningEnabled }).(pulumi.BoolPtrOutput)
-}
-
 // Specifies the host name of the `frontendEndpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
 func (o FrontdoorFrontendEndpointOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorFrontendEndpoint) string { return v.HostName }).(pulumi.StringOutput)
@@ -2009,259 +2095,6 @@ func (o FrontdoorFrontendEndpointArrayOutput) Index(i pulumi.IntInput) Frontdoor
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorFrontendEndpoint {
 		return vs[0].([]FrontdoorFrontendEndpoint)[vs[1].(int)]
 	}).(FrontdoorFrontendEndpointOutput)
-}
-
-type FrontdoorFrontendEndpointCustomHttpsConfiguration struct {
-	// The name of the Key Vault secret representing the full certificate PFX.
-	AzureKeyVaultCertificateSecretName *string `pulumi:"azureKeyVaultCertificateSecretName"`
-	// The version of the Key Vault secret representing the full certificate PFX.
-	AzureKeyVaultCertificateSecretVersion *string `pulumi:"azureKeyVaultCertificateSecretVersion"`
-	// The ID of the Key Vault containing the SSL certificate.
-	AzureKeyVaultCertificateVaultId *string `pulumi:"azureKeyVaultCertificateVaultId"`
-	// Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
-	CertificateSource *string `pulumi:"certificateSource"`
-	// Minimum client TLS version supported.
-	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
-	// Provisioning state of the Front Door.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Provisioning substate of the Front Door
-	ProvisioningSubstate *string `pulumi:"provisioningSubstate"`
-}
-
-// FrontdoorFrontendEndpointCustomHttpsConfigurationInput is an input type that accepts FrontdoorFrontendEndpointCustomHttpsConfigurationArgs and FrontdoorFrontendEndpointCustomHttpsConfigurationOutput values.
-// You can construct a concrete instance of `FrontdoorFrontendEndpointCustomHttpsConfigurationInput` via:
-//
-//          FrontdoorFrontendEndpointCustomHttpsConfigurationArgs{...}
-type FrontdoorFrontendEndpointCustomHttpsConfigurationInput interface {
-	pulumi.Input
-
-	ToFrontdoorFrontendEndpointCustomHttpsConfigurationOutput() FrontdoorFrontendEndpointCustomHttpsConfigurationOutput
-	ToFrontdoorFrontendEndpointCustomHttpsConfigurationOutputWithContext(context.Context) FrontdoorFrontendEndpointCustomHttpsConfigurationOutput
-}
-
-type FrontdoorFrontendEndpointCustomHttpsConfigurationArgs struct {
-	// The name of the Key Vault secret representing the full certificate PFX.
-	AzureKeyVaultCertificateSecretName pulumi.StringPtrInput `pulumi:"azureKeyVaultCertificateSecretName"`
-	// The version of the Key Vault secret representing the full certificate PFX.
-	AzureKeyVaultCertificateSecretVersion pulumi.StringPtrInput `pulumi:"azureKeyVaultCertificateSecretVersion"`
-	// The ID of the Key Vault containing the SSL certificate.
-	AzureKeyVaultCertificateVaultId pulumi.StringPtrInput `pulumi:"azureKeyVaultCertificateVaultId"`
-	// Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
-	CertificateSource pulumi.StringPtrInput `pulumi:"certificateSource"`
-	// Minimum client TLS version supported.
-	MinimumTlsVersion pulumi.StringPtrInput `pulumi:"minimumTlsVersion"`
-	// Provisioning state of the Front Door.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Provisioning substate of the Front Door
-	ProvisioningSubstate pulumi.StringPtrInput `pulumi:"provisioningSubstate"`
-}
-
-func (FrontdoorFrontendEndpointCustomHttpsConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FrontdoorFrontendEndpointCustomHttpsConfiguration)(nil)).Elem()
-}
-
-func (i FrontdoorFrontendEndpointCustomHttpsConfigurationArgs) ToFrontdoorFrontendEndpointCustomHttpsConfigurationOutput() FrontdoorFrontendEndpointCustomHttpsConfigurationOutput {
-	return i.ToFrontdoorFrontendEndpointCustomHttpsConfigurationOutputWithContext(context.Background())
-}
-
-func (i FrontdoorFrontendEndpointCustomHttpsConfigurationArgs) ToFrontdoorFrontendEndpointCustomHttpsConfigurationOutputWithContext(ctx context.Context) FrontdoorFrontendEndpointCustomHttpsConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorFrontendEndpointCustomHttpsConfigurationOutput)
-}
-
-func (i FrontdoorFrontendEndpointCustomHttpsConfigurationArgs) ToFrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput() FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput {
-	return i.ToFrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i FrontdoorFrontendEndpointCustomHttpsConfigurationArgs) ToFrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutputWithContext(ctx context.Context) FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorFrontendEndpointCustomHttpsConfigurationOutput).ToFrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutputWithContext(ctx)
-}
-
-// FrontdoorFrontendEndpointCustomHttpsConfigurationPtrInput is an input type that accepts FrontdoorFrontendEndpointCustomHttpsConfigurationArgs, FrontdoorFrontendEndpointCustomHttpsConfigurationPtr and FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput values.
-// You can construct a concrete instance of `FrontdoorFrontendEndpointCustomHttpsConfigurationPtrInput` via:
-//
-//          FrontdoorFrontendEndpointCustomHttpsConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type FrontdoorFrontendEndpointCustomHttpsConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToFrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput() FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput
-	ToFrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutputWithContext(context.Context) FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput
-}
-
-type frontdoorFrontendEndpointCustomHttpsConfigurationPtrType FrontdoorFrontendEndpointCustomHttpsConfigurationArgs
-
-func FrontdoorFrontendEndpointCustomHttpsConfigurationPtr(v *FrontdoorFrontendEndpointCustomHttpsConfigurationArgs) FrontdoorFrontendEndpointCustomHttpsConfigurationPtrInput {
-	return (*frontdoorFrontendEndpointCustomHttpsConfigurationPtrType)(v)
-}
-
-func (*frontdoorFrontendEndpointCustomHttpsConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FrontdoorFrontendEndpointCustomHttpsConfiguration)(nil)).Elem()
-}
-
-func (i *frontdoorFrontendEndpointCustomHttpsConfigurationPtrType) ToFrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput() FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput {
-	return i.ToFrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *frontdoorFrontendEndpointCustomHttpsConfigurationPtrType) ToFrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutputWithContext(ctx context.Context) FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput)
-}
-
-type FrontdoorFrontendEndpointCustomHttpsConfigurationOutput struct{ *pulumi.OutputState }
-
-func (FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FrontdoorFrontendEndpointCustomHttpsConfiguration)(nil)).Elem()
-}
-
-func (o FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) ToFrontdoorFrontendEndpointCustomHttpsConfigurationOutput() FrontdoorFrontendEndpointCustomHttpsConfigurationOutput {
-	return o
-}
-
-func (o FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) ToFrontdoorFrontendEndpointCustomHttpsConfigurationOutputWithContext(ctx context.Context) FrontdoorFrontendEndpointCustomHttpsConfigurationOutput {
-	return o
-}
-
-func (o FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) ToFrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput() FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput {
-	return o.ToFrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) ToFrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutputWithContext(ctx context.Context) FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput {
-	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *FrontdoorFrontendEndpointCustomHttpsConfiguration {
-		return &v
-	}).(FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput)
-}
-
-// The name of the Key Vault secret representing the full certificate PFX.
-func (o FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) AzureKeyVaultCertificateSecretName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string {
-		return v.AzureKeyVaultCertificateSecretName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The version of the Key Vault secret representing the full certificate PFX.
-func (o FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) AzureKeyVaultCertificateSecretVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string {
-		return v.AzureKeyVaultCertificateSecretVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Key Vault containing the SSL certificate.
-func (o FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) AzureKeyVaultCertificateVaultId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string {
-		return v.AzureKeyVaultCertificateVaultId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
-func (o FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) CertificateSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.CertificateSource }).(pulumi.StringPtrOutput)
-}
-
-// Minimum client TLS version supported.
-func (o FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
-}
-
-// Provisioning state of the Front Door.
-func (o FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
-// Provisioning substate of the Front Door
-func (o FrontdoorFrontendEndpointCustomHttpsConfigurationOutput) ProvisioningSubstate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontdoorFrontendEndpointCustomHttpsConfiguration) *string { return v.ProvisioningSubstate }).(pulumi.StringPtrOutput)
-}
-
-type FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FrontdoorFrontendEndpointCustomHttpsConfiguration)(nil)).Elem()
-}
-
-func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) ToFrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput() FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput {
-	return o
-}
-
-func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) ToFrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutputWithContext(ctx context.Context) FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput {
-	return o
-}
-
-func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) Elem() FrontdoorFrontendEndpointCustomHttpsConfigurationOutput {
-	return o.ApplyT(func(v *FrontdoorFrontendEndpointCustomHttpsConfiguration) FrontdoorFrontendEndpointCustomHttpsConfiguration {
-		return *v
-	}).(FrontdoorFrontendEndpointCustomHttpsConfigurationOutput)
-}
-
-// The name of the Key Vault secret representing the full certificate PFX.
-func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) AzureKeyVaultCertificateSecretName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FrontdoorFrontendEndpointCustomHttpsConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AzureKeyVaultCertificateSecretName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The version of the Key Vault secret representing the full certificate PFX.
-func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) AzureKeyVaultCertificateSecretVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FrontdoorFrontendEndpointCustomHttpsConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AzureKeyVaultCertificateSecretVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Key Vault containing the SSL certificate.
-func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) AzureKeyVaultCertificateVaultId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FrontdoorFrontendEndpointCustomHttpsConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AzureKeyVaultCertificateVaultId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
-func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) CertificateSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FrontdoorFrontendEndpointCustomHttpsConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CertificateSource
-	}).(pulumi.StringPtrOutput)
-}
-
-// Minimum client TLS version supported.
-func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FrontdoorFrontendEndpointCustomHttpsConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MinimumTlsVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// Provisioning state of the Front Door.
-func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FrontdoorFrontendEndpointCustomHttpsConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Provisioning substate of the Front Door
-func (o FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput) ProvisioningSubstate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FrontdoorFrontendEndpointCustomHttpsConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningSubstate
-	}).(pulumi.StringPtrOutput)
 }
 
 type FrontdoorRoutingRule struct {
@@ -2913,10 +2746,10 @@ func init() {
 	pulumi.RegisterOutputType(FrontdoorBackendPoolHealthProbeArrayOutput{})
 	pulumi.RegisterOutputType(FrontdoorBackendPoolLoadBalancingOutput{})
 	pulumi.RegisterOutputType(FrontdoorBackendPoolLoadBalancingArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorExplicitResourceOrderOutput{})
+	pulumi.RegisterOutputType(FrontdoorExplicitResourceOrderArrayOutput{})
 	pulumi.RegisterOutputType(FrontdoorFrontendEndpointOutput{})
 	pulumi.RegisterOutputType(FrontdoorFrontendEndpointArrayOutput{})
-	pulumi.RegisterOutputType(FrontdoorFrontendEndpointCustomHttpsConfigurationOutput{})
-	pulumi.RegisterOutputType(FrontdoorFrontendEndpointCustomHttpsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FrontdoorRoutingRuleOutput{})
 	pulumi.RegisterOutputType(FrontdoorRoutingRuleArrayOutput{})
 	pulumi.RegisterOutputType(FrontdoorRoutingRuleForwardingConfigurationOutput{})

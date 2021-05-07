@@ -23,6 +23,8 @@ __all__ = [
     'AccountQueuePropertiesLogging',
     'AccountQueuePropertiesMinuteMetrics',
     'AccountStaticWebsite',
+    'BlobInventoryPolicyRule',
+    'BlobInventoryPolicyRuleFilter',
     'DataLakeGen2FilesystemAce',
     'DataLakeGen2PathAce',
     'ManagementPolicyRule',
@@ -905,6 +907,112 @@ class AccountStaticWebsite(dict):
         The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
         """
         return pulumi.get(self, "index_document")
+
+
+@pulumi.output_type
+class BlobInventoryPolicyRule(dict):
+    def __init__(__self__, *,
+                 filter: 'outputs.BlobInventoryPolicyRuleFilter',
+                 name: str):
+        """
+        :param 'BlobInventoryPolicyRuleFilterArgs' filter: A `filter` block as defined above.
+        :param str name: The name which should be used for this Blob Inventory Policy Rule.
+        """
+        pulumi.set(__self__, "filter", filter)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> 'outputs.BlobInventoryPolicyRuleFilter':
+        """
+        A `filter` block as defined above.
+        """
+        return pulumi.get(self, "filter")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this Blob Inventory Policy Rule.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class BlobInventoryPolicyRuleFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blobTypes":
+            suggest = "blob_types"
+        elif key == "includeBlobVersions":
+            suggest = "include_blob_versions"
+        elif key == "includeSnapshots":
+            suggest = "include_snapshots"
+        elif key == "prefixMatches":
+            suggest = "prefix_matches"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BlobInventoryPolicyRuleFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BlobInventoryPolicyRuleFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BlobInventoryPolicyRuleFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 blob_types: Sequence[str],
+                 include_blob_versions: Optional[bool] = None,
+                 include_snapshots: Optional[bool] = None,
+                 prefix_matches: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] blob_types: A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `is_hns_enabled` is `true` doesn't support `pageBlob`.
+        :param bool include_blob_versions: Includes blob versions in blob inventory or not? Defaults to `false`.
+        :param bool include_snapshots: Includes blob snapshots in blob inventory or not? Defaults to `false`.
+        :param Sequence[str] prefix_matches: A set of strings for blob prefixes to be matched.
+        """
+        pulumi.set(__self__, "blob_types", blob_types)
+        if include_blob_versions is not None:
+            pulumi.set(__self__, "include_blob_versions", include_blob_versions)
+        if include_snapshots is not None:
+            pulumi.set(__self__, "include_snapshots", include_snapshots)
+        if prefix_matches is not None:
+            pulumi.set(__self__, "prefix_matches", prefix_matches)
+
+    @property
+    @pulumi.getter(name="blobTypes")
+    def blob_types(self) -> Sequence[str]:
+        """
+        A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `is_hns_enabled` is `true` doesn't support `pageBlob`.
+        """
+        return pulumi.get(self, "blob_types")
+
+    @property
+    @pulumi.getter(name="includeBlobVersions")
+    def include_blob_versions(self) -> Optional[bool]:
+        """
+        Includes blob versions in blob inventory or not? Defaults to `false`.
+        """
+        return pulumi.get(self, "include_blob_versions")
+
+    @property
+    @pulumi.getter(name="includeSnapshots")
+    def include_snapshots(self) -> Optional[bool]:
+        """
+        Includes blob snapshots in blob inventory or not? Defaults to `false`.
+        """
+        return pulumi.get(self, "include_snapshots")
+
+    @property
+    @pulumi.getter(name="prefixMatches")
+    def prefix_matches(self) -> Optional[Sequence[str]]:
+        """
+        A set of strings for blob prefixes to be matched.
+        """
+        return pulumi.get(self, "prefix_matches")
 
 
 @pulumi.output_type

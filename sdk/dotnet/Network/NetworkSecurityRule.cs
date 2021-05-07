@@ -131,7 +131,7 @@ namespace Pulumi.Azure.Network
         public Output<int> Priority { get; private set; } = null!;
 
         /// <summary>
-        /// Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, or `*` (which matches all).
+        /// Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah` or `*` (which matches all).
         /// </summary>
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
@@ -297,7 +297,7 @@ namespace Pulumi.Azure.Network
         public Input<int> Priority { get; set; } = null!;
 
         /// <summary>
-        /// Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, or `*` (which matches all).
+        /// Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah` or `*` (which matches all).
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
@@ -436,7 +436,7 @@ namespace Pulumi.Azure.Network
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, or `*` (which matches all).
+        /// Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah` or `*` (which matches all).
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }

@@ -27,8 +27,6 @@ type CustomHttpsConfiguration struct {
 	CustomHttpsProvisioningEnabled pulumi.BoolOutput `pulumi:"customHttpsProvisioningEnabled"`
 	// The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
 	FrontendEndpointId pulumi.StringOutput `pulumi:"frontendEndpointId"`
-	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
-	ResourceGroupName pulumi.StringPtrOutput `pulumi:"resourceGroupName"`
 }
 
 // NewCustomHttpsConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -72,8 +70,6 @@ type customHttpsConfigurationState struct {
 	CustomHttpsProvisioningEnabled *bool `pulumi:"customHttpsProvisioningEnabled"`
 	// The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
 	FrontendEndpointId *string `pulumi:"frontendEndpointId"`
-	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
 type CustomHttpsConfigurationState struct {
@@ -83,8 +79,6 @@ type CustomHttpsConfigurationState struct {
 	CustomHttpsProvisioningEnabled pulumi.BoolPtrInput
 	// The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
 	FrontendEndpointId pulumi.StringPtrInput
-	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
-	ResourceGroupName pulumi.StringPtrInput
 }
 
 func (CustomHttpsConfigurationState) ElementType() reflect.Type {
@@ -98,8 +92,6 @@ type customHttpsConfigurationArgs struct {
 	CustomHttpsProvisioningEnabled bool `pulumi:"customHttpsProvisioningEnabled"`
 	// The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
 	FrontendEndpointId string `pulumi:"frontendEndpointId"`
-	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a CustomHttpsConfiguration resource.
@@ -110,8 +102,6 @@ type CustomHttpsConfigurationArgs struct {
 	CustomHttpsProvisioningEnabled pulumi.BoolInput
 	// The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
 	FrontendEndpointId pulumi.StringInput
-	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
-	ResourceGroupName pulumi.StringPtrInput
 }
 
 func (CustomHttpsConfigurationArgs) ElementType() reflect.Type {

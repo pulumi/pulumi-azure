@@ -14,6 +14,10 @@ namespace Pulumi.Azure.DataFactory.Outputs
     public sealed class FactoryIdentity
     {
         /// <summary>
+        /// Specifies the IDs of user assigned identities. Requiered if `UserAssigned` type is used.
+        /// </summary>
+        public readonly ImmutableArray<string> IdentityIds;
+        /// <summary>
         /// The ID of the Principal (Client) in Azure Active Directory
         /// </summary>
         public readonly string? PrincipalId;
@@ -22,18 +26,21 @@ namespace Pulumi.Azure.DataFactory.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// Specifies the identity type of the Data Factory. At this time the only allowed value is `SystemAssigned`.
+        /// Specifies the identity type of the Data Factory. Possible values are `SystemAssigned` and `UserAssigned`.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private FactoryIdentity(
+            ImmutableArray<string> identityIds,
+
             string? principalId,
 
             string? tenantId,
 
             string type)
         {
+            IdentityIds = identityIds;
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;

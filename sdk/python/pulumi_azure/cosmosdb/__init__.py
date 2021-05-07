@@ -11,9 +11,12 @@ from .gremlin_database import *
 from .gremlin_graph import *
 from .mongo_collection import *
 from .mongo_database import *
+from .notebook_workspace import *
 from .sql_container import *
 from .sql_database import *
+from .sql_function import *
 from .sql_stored_procedure import *
+from .sql_trigger import *
 from .table import *
 from ._inputs import *
 from . import outputs
@@ -44,12 +47,18 @@ def _register_module():
                 return MongoCollection(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:cosmosdb/mongoDatabase:MongoDatabase":
                 return MongoDatabase(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:cosmosdb/notebookWorkspace:NotebookWorkspace":
+                return NotebookWorkspace(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:cosmosdb/sqlContainer:SqlContainer":
                 return SqlContainer(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:cosmosdb/sqlDatabase:SqlDatabase":
                 return SqlDatabase(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:cosmosdb/sqlFunction:SqlFunction":
+                return SqlFunction(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:cosmosdb/sqlStoredProcedure:SqlStoredProcedure":
                 return SqlStoredProcedure(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:cosmosdb/sqlTrigger:SqlTrigger":
+                return SqlTrigger(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:cosmosdb/table:Table":
                 return Table(name, pulumi.ResourceOptions(urn=urn))
             else:
@@ -64,9 +73,12 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "cosmosdb/gremlinGraph", _module_instance)
     pulumi.runtime.register_resource_module("azure", "cosmosdb/mongoCollection", _module_instance)
     pulumi.runtime.register_resource_module("azure", "cosmosdb/mongoDatabase", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "cosmosdb/notebookWorkspace", _module_instance)
     pulumi.runtime.register_resource_module("azure", "cosmosdb/sqlContainer", _module_instance)
     pulumi.runtime.register_resource_module("azure", "cosmosdb/sqlDatabase", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "cosmosdb/sqlFunction", _module_instance)
     pulumi.runtime.register_resource_module("azure", "cosmosdb/sqlStoredProcedure", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "cosmosdb/sqlTrigger", _module_instance)
     pulumi.runtime.register_resource_module("azure", "cosmosdb/table", _module_instance)
 
 _register_module()

@@ -98,6 +98,8 @@ type Pipeline struct {
 	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Pipeline.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
+	Folder pulumi.StringPtrOutput `pulumi:"folder"`
 	// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Pipeline.
@@ -151,6 +153,8 @@ type pipelineState struct {
 	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Pipeline.
 	Description *string `pulumi:"description"`
+	// The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
+	Folder *string `pulumi:"folder"`
 	// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Pipeline.
@@ -170,6 +174,8 @@ type PipelineState struct {
 	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Pipeline.
 	Description pulumi.StringPtrInput
+	// The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
+	Folder pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Pipeline.
@@ -193,6 +199,8 @@ type pipelineArgs struct {
 	DataFactoryName string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Pipeline.
 	Description *string `pulumi:"description"`
+	// The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
+	Folder *string `pulumi:"folder"`
 	// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Pipeline.
@@ -213,6 +221,8 @@ type PipelineArgs struct {
 	DataFactoryName pulumi.StringInput
 	// The description for the Data Factory Pipeline.
 	Description pulumi.StringPtrInput
+	// The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
+	Folder pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Pipeline.

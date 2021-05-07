@@ -236,6 +236,7 @@ class _FrontdoorState:
                  backend_pools_send_receive_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  cname: Optional[pulumi.Input[str]] = None,
                  enforce_backend_pools_certificate_name_check: Optional[pulumi.Input[bool]] = None,
+                 explicit_resource_orders: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorExplicitResourceOrderArgs']]]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  frontend_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFrontendEndpointArgs']]]] = None,
                  frontend_endpoints_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -288,6 +289,8 @@ class _FrontdoorState:
             pulumi.set(__self__, "cname", cname)
         if enforce_backend_pools_certificate_name_check is not None:
             pulumi.set(__self__, "enforce_backend_pools_certificate_name_check", enforce_backend_pools_certificate_name_check)
+        if explicit_resource_orders is not None:
+            pulumi.set(__self__, "explicit_resource_orders", explicit_resource_orders)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
         if frontend_endpoints is not None:
@@ -421,6 +424,15 @@ class _FrontdoorState:
     @enforce_backend_pools_certificate_name_check.setter
     def enforce_backend_pools_certificate_name_check(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enforce_backend_pools_certificate_name_check", value)
+
+    @property
+    @pulumi.getter(name="explicitResourceOrders")
+    def explicit_resource_orders(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorExplicitResourceOrderArgs']]]]:
+        return pulumi.get(self, "explicit_resource_orders")
+
+    @explicit_resource_orders.setter
+    def explicit_resource_orders(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorExplicitResourceOrderArgs']]]]):
+        pulumi.set(self, "explicit_resource_orders", value)
 
     @property
     @pulumi.getter(name="friendlyName")
@@ -575,6 +587,62 @@ class Frontdoor(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        Manages an Azure Front Door instance.
+
+        Azure Front Door Service is Microsoft's highly available and scalable web application acceleration platform and global HTTP(s) load balancer. It provides built-in DDoS protection and application layer security and caching. Front Door enables you to build applications that maximize and automate high-availability and performance for your end-users. Use Front Door with Azure services including Web/Mobile Apps, Cloud Services and Virtual Machines – or combine it with on-premises services for hybrid deployments and smooth cloud migration.
+
+        Below are some of the key scenarios that Azure Front Door Service addresses:
+        * Use Front Door to improve application scale and availability with instant multi-region failover
+        * Use Front Door to improve application performance with SSL offload and routing requests to the fastest available application backend.
+        * Use Front Door for application layer security and DDoS protection for your application.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_frontdoor = azure.frontdoor.Frontdoor("exampleFrontdoor",
+            location="EastUS2",
+            resource_group_name=example_resource_group.name,
+            enforce_backend_pools_certificate_name_check=False,
+            routing_rules=[azure.frontdoor.FrontdoorRoutingRuleArgs(
+                name="exampleRoutingRule1",
+                accepted_protocols=[
+                    "Http",
+                    "Https",
+                ],
+                patterns_to_matches=["/*"],
+                frontend_endpoints=["exampleFrontendEndpoint1"],
+                forwarding_configuration=azure.frontdoor.FrontdoorRoutingRuleForwardingConfigurationArgs(
+                    forwarding_protocol="MatchRequest",
+                    backend_pool_name="exampleBackendBing",
+                ),
+            )],
+            backend_pool_load_balancings=[azure.frontdoor.FrontdoorBackendPoolLoadBalancingArgs(
+                name="exampleLoadBalancingSettings1",
+            )],
+            backend_pool_health_probes=[azure.frontdoor.FrontdoorBackendPoolHealthProbeArgs(
+                name="exampleHealthProbeSetting1",
+            )],
+            backend_pools=[azure.frontdoor.FrontdoorBackendPoolArgs(
+                name="exampleBackendBing",
+                backends=[azure.frontdoor.FrontdoorBackendPoolBackendArgs(
+                    host_header="www.bing.com",
+                    address="www.bing.com",
+                    http_port=80,
+                    https_port=443,
+                )],
+                load_balancing_name="exampleLoadBalancingSettings1",
+                health_probe_name="exampleHealthProbeSetting1",
+            )],
+            frontend_endpoints=[azure.frontdoor.FrontdoorFrontendEndpointArgs(
+                name="exampleFrontendEndpoint1",
+                host_name="example-FrontDoor.azurefd.net",
+            )])
+        ```
+
         ## Import
 
         Front Doors can be imported using the `resource id`, e.g.
@@ -606,6 +674,62 @@ class Frontdoor(pulumi.CustomResource):
                  args: FrontdoorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages an Azure Front Door instance.
+
+        Azure Front Door Service is Microsoft's highly available and scalable web application acceleration platform and global HTTP(s) load balancer. It provides built-in DDoS protection and application layer security and caching. Front Door enables you to build applications that maximize and automate high-availability and performance for your end-users. Use Front Door with Azure services including Web/Mobile Apps, Cloud Services and Virtual Machines – or combine it with on-premises services for hybrid deployments and smooth cloud migration.
+
+        Below are some of the key scenarios that Azure Front Door Service addresses:
+        * Use Front Door to improve application scale and availability with instant multi-region failover
+        * Use Front Door to improve application performance with SSL offload and routing requests to the fastest available application backend.
+        * Use Front Door for application layer security and DDoS protection for your application.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_frontdoor = azure.frontdoor.Frontdoor("exampleFrontdoor",
+            location="EastUS2",
+            resource_group_name=example_resource_group.name,
+            enforce_backend_pools_certificate_name_check=False,
+            routing_rules=[azure.frontdoor.FrontdoorRoutingRuleArgs(
+                name="exampleRoutingRule1",
+                accepted_protocols=[
+                    "Http",
+                    "Https",
+                ],
+                patterns_to_matches=["/*"],
+                frontend_endpoints=["exampleFrontendEndpoint1"],
+                forwarding_configuration=azure.frontdoor.FrontdoorRoutingRuleForwardingConfigurationArgs(
+                    forwarding_protocol="MatchRequest",
+                    backend_pool_name="exampleBackendBing",
+                ),
+            )],
+            backend_pool_load_balancings=[azure.frontdoor.FrontdoorBackendPoolLoadBalancingArgs(
+                name="exampleLoadBalancingSettings1",
+            )],
+            backend_pool_health_probes=[azure.frontdoor.FrontdoorBackendPoolHealthProbeArgs(
+                name="exampleHealthProbeSetting1",
+            )],
+            backend_pools=[azure.frontdoor.FrontdoorBackendPoolArgs(
+                name="exampleBackendBing",
+                backends=[azure.frontdoor.FrontdoorBackendPoolBackendArgs(
+                    host_header="www.bing.com",
+                    address="www.bing.com",
+                    http_port=80,
+                    https_port=443,
+                )],
+                load_balancing_name="exampleLoadBalancingSettings1",
+                health_probe_name="exampleHealthProbeSetting1",
+            )],
+            frontend_endpoints=[azure.frontdoor.FrontdoorFrontendEndpointArgs(
+                name="exampleFrontendEndpoint1",
+                host_name="example-FrontDoor.azurefd.net",
+            )])
+        ```
+
         ## Import
 
         Front Doors can be imported using the `resource id`, e.g.
@@ -688,6 +812,7 @@ class Frontdoor(pulumi.CustomResource):
             __props__.__dict__["backend_pool_load_balancing_settings_map"] = None
             __props__.__dict__["backend_pools_map"] = None
             __props__.__dict__["cname"] = None
+            __props__.__dict__["explicit_resource_orders"] = None
             __props__.__dict__["frontend_endpoints_map"] = None
             __props__.__dict__["header_frontdoor_id"] = None
             __props__.__dict__["routing_rules_map"] = None
@@ -710,6 +835,7 @@ class Frontdoor(pulumi.CustomResource):
             backend_pools_send_receive_timeout_seconds: Optional[pulumi.Input[int]] = None,
             cname: Optional[pulumi.Input[str]] = None,
             enforce_backend_pools_certificate_name_check: Optional[pulumi.Input[bool]] = None,
+            explicit_resource_orders: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorExplicitResourceOrderArgs']]]]] = None,
             friendly_name: Optional[pulumi.Input[str]] = None,
             frontend_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorFrontendEndpointArgs']]]]] = None,
             frontend_endpoints_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -762,6 +888,7 @@ class Frontdoor(pulumi.CustomResource):
         __props__.__dict__["backend_pools_send_receive_timeout_seconds"] = backend_pools_send_receive_timeout_seconds
         __props__.__dict__["cname"] = cname
         __props__.__dict__["enforce_backend_pools_certificate_name_check"] = enforce_backend_pools_certificate_name_check
+        __props__.__dict__["explicit_resource_orders"] = explicit_resource_orders
         __props__.__dict__["friendly_name"] = friendly_name
         __props__.__dict__["frontend_endpoints"] = frontend_endpoints
         __props__.__dict__["frontend_endpoints_map"] = frontend_endpoints_map
@@ -846,6 +973,11 @@ class Frontdoor(pulumi.CustomResource):
         Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
         """
         return pulumi.get(self, "enforce_backend_pools_certificate_name_check")
+
+    @property
+    @pulumi.getter(name="explicitResourceOrders")
+    def explicit_resource_orders(self) -> pulumi.Output[Sequence['outputs.FrontdoorExplicitResourceOrder']]:
+        return pulumi.get(self, "explicit_resource_orders")
 
     @property
     @pulumi.getter(name="friendlyName")

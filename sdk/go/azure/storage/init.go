@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AccountNetworkRules{}
 	case "azure:storage/blob:Blob":
 		r = &Blob{}
+	case "azure:storage/blobInventoryPolicy:BlobInventoryPolicy":
+		r = &BlobInventoryPolicy{}
 	case "azure:storage/container:Container":
 		r = &Container{}
 	case "azure:storage/customerManagedKey:CustomerManagedKey":
@@ -85,6 +87,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"storage/blob",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"storage/blobInventoryPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -4982,7 +4982,7 @@ class NetworkConnectionMonitorDestination(dict):
         """
         :param str address: The IP address or domain name of the Network Connection Monitor endpoint.
         :param int port: The port for the HTTP connection.
-        :param str virtual_machine_id: The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+        :param str virtual_machine_id: The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `target_resource_id`.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -5011,7 +5011,7 @@ class NetworkConnectionMonitorDestination(dict):
     @pulumi.getter(name="virtualMachineId")
     def virtual_machine_id(self) -> Optional[str]:
         """
-        The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+        The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `target_resource_id`.
         """
         return pulumi.get(self, "virtual_machine_id")
 
@@ -5021,7 +5021,17 @@ class NetworkConnectionMonitorEndpoint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "virtualMachineId":
+        if key == "coverageLevel":
+            suggest = "coverage_level"
+        elif key == "excludedIpAddresses":
+            suggest = "excluded_ip_addresses"
+        elif key == "includedIpAddresses":
+            suggest = "included_ip_addresses"
+        elif key == "targetResourceId":
+            suggest = "target_resource_id"
+        elif key == "targetResourceType":
+            suggest = "target_resource_type"
+        elif key == "virtualMachineId":
             suggest = "virtual_machine_id"
 
         if suggest:
@@ -5038,19 +5048,39 @@ class NetworkConnectionMonitorEndpoint(dict):
     def __init__(__self__, *,
                  name: str,
                  address: Optional[str] = None,
+                 coverage_level: Optional[str] = None,
+                 excluded_ip_addresses: Optional[Sequence[str]] = None,
                  filter: Optional['outputs.NetworkConnectionMonitorEndpointFilter'] = None,
+                 included_ip_addresses: Optional[Sequence[str]] = None,
+                 target_resource_id: Optional[str] = None,
+                 target_resource_type: Optional[str] = None,
                  virtual_machine_id: Optional[str] = None):
         """
         :param str name: The name of the endpoint for the Network Connection Monitor .
         :param str address: The IP address or domain name of the Network Connection Monitor endpoint.
+        :param str coverage_level: The test coverage for the Network Connection Monitor endpoint. Possible values are `AboveAverage`, `Average`, `BelowAverage`, `Default`, `Full` and `Low`.
+        :param Sequence[str] excluded_ip_addresses: A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be excluded to the Network Connection Monitor endpoint.
         :param 'NetworkConnectionMonitorEndpointFilterArgs' filter: A `filter` block as defined below.
-        :param str virtual_machine_id: The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+        :param Sequence[str] included_ip_addresses: A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be included to the Network Connection Monitor endpoint.
+        :param str target_resource_id: The resource ID which is used as the endpoint by the Network Connection Monitor.
+        :param str target_resource_type: The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
+        :param str virtual_machine_id: The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `target_resource_id`.
         """
         pulumi.set(__self__, "name", name)
         if address is not None:
             pulumi.set(__self__, "address", address)
+        if coverage_level is not None:
+            pulumi.set(__self__, "coverage_level", coverage_level)
+        if excluded_ip_addresses is not None:
+            pulumi.set(__self__, "excluded_ip_addresses", excluded_ip_addresses)
         if filter is not None:
             pulumi.set(__self__, "filter", filter)
+        if included_ip_addresses is not None:
+            pulumi.set(__self__, "included_ip_addresses", included_ip_addresses)
+        if target_resource_id is not None:
+            pulumi.set(__self__, "target_resource_id", target_resource_id)
+        if target_resource_type is not None:
+            pulumi.set(__self__, "target_resource_type", target_resource_type)
         if virtual_machine_id is not None:
             pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
 
@@ -5071,6 +5101,22 @@ class NetworkConnectionMonitorEndpoint(dict):
         return pulumi.get(self, "address")
 
     @property
+    @pulumi.getter(name="coverageLevel")
+    def coverage_level(self) -> Optional[str]:
+        """
+        The test coverage for the Network Connection Monitor endpoint. Possible values are `AboveAverage`, `Average`, `BelowAverage`, `Default`, `Full` and `Low`.
+        """
+        return pulumi.get(self, "coverage_level")
+
+    @property
+    @pulumi.getter(name="excludedIpAddresses")
+    def excluded_ip_addresses(self) -> Optional[Sequence[str]]:
+        """
+        A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be excluded to the Network Connection Monitor endpoint.
+        """
+        return pulumi.get(self, "excluded_ip_addresses")
+
+    @property
     @pulumi.getter
     def filter(self) -> Optional['outputs.NetworkConnectionMonitorEndpointFilter']:
         """
@@ -5079,10 +5125,34 @@ class NetworkConnectionMonitorEndpoint(dict):
         return pulumi.get(self, "filter")
 
     @property
+    @pulumi.getter(name="includedIpAddresses")
+    def included_ip_addresses(self) -> Optional[Sequence[str]]:
+        """
+        A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be included to the Network Connection Monitor endpoint.
+        """
+        return pulumi.get(self, "included_ip_addresses")
+
+    @property
+    @pulumi.getter(name="targetResourceId")
+    def target_resource_id(self) -> Optional[str]:
+        """
+        The resource ID which is used as the endpoint by the Network Connection Monitor.
+        """
+        return pulumi.get(self, "target_resource_id")
+
+    @property
+    @pulumi.getter(name="targetResourceType")
+    def target_resource_type(self) -> Optional[str]:
+        """
+        The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
+        """
+        return pulumi.get(self, "target_resource_type")
+
+    @property
     @pulumi.getter(name="virtualMachineId")
     def virtual_machine_id(self) -> Optional[str]:
         """
-        The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+        The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `target_resource_id`.
         """
         return pulumi.get(self, "virtual_machine_id")
 
@@ -5173,7 +5243,7 @@ class NetworkConnectionMonitorSource(dict):
                  virtual_machine_id: Optional[str] = None):
         """
         :param int port: The port for the HTTP connection.
-        :param str virtual_machine_id: The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+        :param str virtual_machine_id: The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `target_resource_id`.
         """
         if port is not None:
             pulumi.set(__self__, "port", port)
@@ -5192,7 +5262,7 @@ class NetworkConnectionMonitorSource(dict):
     @pulumi.getter(name="virtualMachineId")
     def virtual_machine_id(self) -> Optional[str]:
         """
-        The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+        The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `target_resource_id`.
         """
         return pulumi.get(self, "virtual_machine_id")
 

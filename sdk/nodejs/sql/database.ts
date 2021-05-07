@@ -6,49 +6,6 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Allows you to manage an Azure SQL Database
- *
- * > **NOTE:** The Database Extended Auditing Policy Can be set inline here as well as with the mssqlDatabaseExtendedAuditingPolicy resource resource. You can only use one or the other and using both will cause a conflict.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleSqlServer = new azure.sql.SqlServer("exampleSqlServer", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: "West US",
- *     version: "12.0",
- *     administratorLogin: "4dm1n157r470r",
- *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
- *     tags: {
- *         environment: "production",
- *     },
- * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- * });
- * const exampleDatabase = new azure.sql.Database("exampleDatabase", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: "West US",
- *     serverName: exampleSqlServer.name,
- *     extendedAuditingPolicy: {
- *         storageEndpoint: exampleAccount.primaryBlobEndpoint,
- *         storageAccountAccessKey: exampleAccount.primaryAccessKey,
- *         storageAccountAccessKeyIsSecondary: true,
- *         retentionInDays: 6,
- *     },
- *     tags: {
- *         environment: "production",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * SQL Databases can be imported using the `resource id`, e.g.
@@ -143,7 +100,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly requestedServiceObjectiveId!: pulumi.Output<string>;
     /**
-     * The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the cli: ```shell az sql db list-editions -l westus -o table ```. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/en-us/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions).
+     * The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the cli: `shell az sql db list-editions -l westus -o table`. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/en-us/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions).
      */
     public readonly requestedServiceObjectiveName!: pulumi.Output<string>;
     /**
@@ -318,7 +275,7 @@ export interface DatabaseState {
      */
     readonly requestedServiceObjectiveId?: pulumi.Input<string>;
     /**
-     * The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the cli: ```shell az sql db list-editions -l westus -o table ```. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/en-us/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions).
+     * The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the cli: `shell az sql db list-editions -l westus -o table`. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/en-us/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions).
      */
     readonly requestedServiceObjectiveName?: pulumi.Input<string>;
     /**
@@ -408,7 +365,7 @@ export interface DatabaseArgs {
      */
     readonly requestedServiceObjectiveId?: pulumi.Input<string>;
     /**
-     * The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the cli: ```shell az sql db list-editions -l westus -o table ```. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/en-us/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions).
+     * The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the cli: `shell az sql db list-editions -l westus -o table`. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/en-us/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions).
      */
     readonly requestedServiceObjectiveName?: pulumi.Input<string>;
     /**

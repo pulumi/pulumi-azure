@@ -851,7 +851,9 @@ class FactoryIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "principalId":
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
             suggest = "principal_id"
         elif key == "tenantId":
             suggest = "tenant_id"
@@ -869,14 +871,18 @@ class FactoryIdentity(dict):
 
     def __init__(__self__, *,
                  type: str,
+                 identity_ids: Optional[Sequence[str]] = None,
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: Specifies the identity type of the Data Factory. At this time the only allowed value is `SystemAssigned`.
+        :param str type: Specifies the identity type of the Data Factory. Possible values are `SystemAssigned` and `UserAssigned`.
+        :param Sequence[str] identity_ids: Specifies the IDs of user assigned identities. Requiered if `UserAssigned` type is used.
         :param str principal_id: The ID of the Principal (Client) in Azure Active Directory
         :param str tenant_id: Specifies the Tenant ID associated with the VSTS account.
         """
         pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
@@ -886,9 +892,17 @@ class FactoryIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the identity type of the Data Factory. At this time the only allowed value is `SystemAssigned`.
+        Specifies the identity type of the Data Factory. Possible values are `SystemAssigned` and `UserAssigned`.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[str]]:
+        """
+        Specifies the IDs of user assigned identities. Requiered if `UserAssigned` type is used.
+        """
+        return pulumi.get(self, "identity_ids")
 
     @property
     @pulumi.getter(name="principalId")
@@ -1977,6 +1991,7 @@ class GetFactoryGithubConfigurationResult(dict):
 @pulumi.output_type
 class GetFactoryIdentityResult(dict):
     def __init__(__self__, *,
+                 identity_ids: Sequence[str],
                  principal_id: str,
                  tenant_id: str,
                  type: str):
@@ -1985,9 +2000,15 @@ class GetFactoryIdentityResult(dict):
         :param str tenant_id: The Tenant ID associated with the VSTS account.
         :param str type: The identity type of the Data Factory.
         """
+        pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[str]:
+        return pulumi.get(self, "identity_ids")
 
     @property
     @pulumi.getter(name="principalId")

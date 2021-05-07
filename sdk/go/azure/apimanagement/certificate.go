@@ -13,6 +13,8 @@ import (
 
 // Manages an Certificate within an API Management Service.
 //
+// ## Example Usage
+//
 // ## Import
 //
 // API Management Certificates can be imported using the `resource id`, e.g.
@@ -26,9 +28,13 @@ type Certificate struct {
 	// The Name of the API Management Service where this Service should be created. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
 	// The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
-	Data pulumi.StringOutput `pulumi:"data"`
+	Data pulumi.StringPtrOutput `pulumi:"data"`
 	// The Expiration Date of this Certificate, formatted as an RFC3339 string.
 	Expiration pulumi.StringOutput `pulumi:"expiration"`
+	// The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+	KeyVaultIdentityClientId pulumi.StringPtrOutput `pulumi:"keyVaultIdentityClientId"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+	KeyVaultSecretId pulumi.StringPtrOutput `pulumi:"keyVaultSecretId"`
 	// The name of the API Management Certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The password used for this certificate. Changing this forces a new resource to be created.
@@ -50,9 +56,6 @@ func NewCertificate(ctx *pulumi.Context,
 
 	if args.ApiManagementName == nil {
 		return nil, errors.New("invalid value for required argument 'ApiManagementName'")
-	}
-	if args.Data == nil {
-		return nil, errors.New("invalid value for required argument 'Data'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
@@ -85,6 +88,10 @@ type certificateState struct {
 	Data *string `pulumi:"data"`
 	// The Expiration Date of this Certificate, formatted as an RFC3339 string.
 	Expiration *string `pulumi:"expiration"`
+	// The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+	KeyVaultIdentityClientId *string `pulumi:"keyVaultIdentityClientId"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
 	// The name of the API Management Certificate. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The password used for this certificate. Changing this forces a new resource to be created.
@@ -104,6 +111,10 @@ type CertificateState struct {
 	Data pulumi.StringPtrInput
 	// The Expiration Date of this Certificate, formatted as an RFC3339 string.
 	Expiration pulumi.StringPtrInput
+	// The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+	KeyVaultIdentityClientId pulumi.StringPtrInput
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+	KeyVaultSecretId pulumi.StringPtrInput
 	// The name of the API Management Certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The password used for this certificate. Changing this forces a new resource to be created.
@@ -124,7 +135,11 @@ type certificateArgs struct {
 	// The Name of the API Management Service where this Service should be created. Changing this forces a new resource to be created.
 	ApiManagementName string `pulumi:"apiManagementName"`
 	// The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
-	Data string `pulumi:"data"`
+	Data *string `pulumi:"data"`
+	// The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+	KeyVaultIdentityClientId *string `pulumi:"keyVaultIdentityClientId"`
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
 	// The name of the API Management Certificate. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The password used for this certificate. Changing this forces a new resource to be created.
@@ -138,7 +153,11 @@ type CertificateArgs struct {
 	// The Name of the API Management Service where this Service should be created. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringInput
 	// The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
-	Data pulumi.StringInput
+	Data pulumi.StringPtrInput
+	// The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+	KeyVaultIdentityClientId pulumi.StringPtrInput
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+	KeyVaultSecretId pulumi.StringPtrInput
 	// The name of the API Management Certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The password used for this certificate. Changing this forces a new resource to be created.

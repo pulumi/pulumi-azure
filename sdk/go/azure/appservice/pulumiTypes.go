@@ -5017,6 +5017,112 @@ func (o EnvironmentClusterSettingArrayOutput) Index(i pulumi.IntInput) Environme
 	}).(EnvironmentClusterSettingOutput)
 }
 
+type EnvironmentV3ClusterSetting struct {
+	// The name of the Cluster Setting.
+	Name string `pulumi:"name"`
+	// The value for the Cluster Setting.
+	Value string `pulumi:"value"`
+}
+
+// EnvironmentV3ClusterSettingInput is an input type that accepts EnvironmentV3ClusterSettingArgs and EnvironmentV3ClusterSettingOutput values.
+// You can construct a concrete instance of `EnvironmentV3ClusterSettingInput` via:
+//
+//          EnvironmentV3ClusterSettingArgs{...}
+type EnvironmentV3ClusterSettingInput interface {
+	pulumi.Input
+
+	ToEnvironmentV3ClusterSettingOutput() EnvironmentV3ClusterSettingOutput
+	ToEnvironmentV3ClusterSettingOutputWithContext(context.Context) EnvironmentV3ClusterSettingOutput
+}
+
+type EnvironmentV3ClusterSettingArgs struct {
+	// The name of the Cluster Setting.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value for the Cluster Setting.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EnvironmentV3ClusterSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentV3ClusterSetting)(nil)).Elem()
+}
+
+func (i EnvironmentV3ClusterSettingArgs) ToEnvironmentV3ClusterSettingOutput() EnvironmentV3ClusterSettingOutput {
+	return i.ToEnvironmentV3ClusterSettingOutputWithContext(context.Background())
+}
+
+func (i EnvironmentV3ClusterSettingArgs) ToEnvironmentV3ClusterSettingOutputWithContext(ctx context.Context) EnvironmentV3ClusterSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentV3ClusterSettingOutput)
+}
+
+// EnvironmentV3ClusterSettingArrayInput is an input type that accepts EnvironmentV3ClusterSettingArray and EnvironmentV3ClusterSettingArrayOutput values.
+// You can construct a concrete instance of `EnvironmentV3ClusterSettingArrayInput` via:
+//
+//          EnvironmentV3ClusterSettingArray{ EnvironmentV3ClusterSettingArgs{...} }
+type EnvironmentV3ClusterSettingArrayInput interface {
+	pulumi.Input
+
+	ToEnvironmentV3ClusterSettingArrayOutput() EnvironmentV3ClusterSettingArrayOutput
+	ToEnvironmentV3ClusterSettingArrayOutputWithContext(context.Context) EnvironmentV3ClusterSettingArrayOutput
+}
+
+type EnvironmentV3ClusterSettingArray []EnvironmentV3ClusterSettingInput
+
+func (EnvironmentV3ClusterSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentV3ClusterSetting)(nil)).Elem()
+}
+
+func (i EnvironmentV3ClusterSettingArray) ToEnvironmentV3ClusterSettingArrayOutput() EnvironmentV3ClusterSettingArrayOutput {
+	return i.ToEnvironmentV3ClusterSettingArrayOutputWithContext(context.Background())
+}
+
+func (i EnvironmentV3ClusterSettingArray) ToEnvironmentV3ClusterSettingArrayOutputWithContext(ctx context.Context) EnvironmentV3ClusterSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentV3ClusterSettingArrayOutput)
+}
+
+type EnvironmentV3ClusterSettingOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentV3ClusterSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentV3ClusterSetting)(nil)).Elem()
+}
+
+func (o EnvironmentV3ClusterSettingOutput) ToEnvironmentV3ClusterSettingOutput() EnvironmentV3ClusterSettingOutput {
+	return o
+}
+
+func (o EnvironmentV3ClusterSettingOutput) ToEnvironmentV3ClusterSettingOutputWithContext(ctx context.Context) EnvironmentV3ClusterSettingOutput {
+	return o
+}
+
+// The name of the Cluster Setting.
+func (o EnvironmentV3ClusterSettingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentV3ClusterSetting) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value for the Cluster Setting.
+func (o EnvironmentV3ClusterSettingOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EnvironmentV3ClusterSetting) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type EnvironmentV3ClusterSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentV3ClusterSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EnvironmentV3ClusterSetting)(nil)).Elem()
+}
+
+func (o EnvironmentV3ClusterSettingArrayOutput) ToEnvironmentV3ClusterSettingArrayOutput() EnvironmentV3ClusterSettingArrayOutput {
+	return o
+}
+
+func (o EnvironmentV3ClusterSettingArrayOutput) ToEnvironmentV3ClusterSettingArrayOutputWithContext(ctx context.Context) EnvironmentV3ClusterSettingArrayOutput {
+	return o
+}
+
+func (o EnvironmentV3ClusterSettingArrayOutput) Index(i pulumi.IntInput) EnvironmentV3ClusterSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentV3ClusterSetting {
+		return vs[0].([]EnvironmentV3ClusterSetting)[vs[1].(int)]
+	}).(EnvironmentV3ClusterSettingOutput)
+}
+
 type FunctionAppAuthSettings struct {
 	// A `activeDirectory` block as defined below.
 	ActiveDirectory *FunctionAppAuthSettingsActiveDirectory `pulumi:"activeDirectory"`
@@ -12400,8 +12506,10 @@ func (o SlotConnectionStringArrayOutput) Index(i pulumi.IntInput) SlotConnection
 type SlotIdentity struct {
 	// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
-	PrincipalId *string  `pulumi:"principalId"`
-	TenantId    *string  `pulumi:"tenantId"`
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
+	TenantId *string `pulumi:"tenantId"`
 	// Specifies the identity type of the App Service. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
 	Type string `pulumi:"type"`
 }
@@ -12420,8 +12528,10 @@ type SlotIdentityInput interface {
 type SlotIdentityArgs struct {
 	// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
-	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Specifies the identity type of the App Service. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -12508,10 +12618,12 @@ func (o SlotIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SlotIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
 func (o SlotIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
 func (o SlotIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlotIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -12549,6 +12661,7 @@ func (o SlotIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
 func (o SlotIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SlotIdentity) *string {
 		if v == nil {
@@ -12558,6 +12671,7 @@ func (o SlotIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
 func (o SlotIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SlotIdentity) *string {
 		if v == nil {
@@ -16453,6 +16567,112 @@ func (o GetCertificateOrderCertificateArrayOutput) Index(i pulumi.IntInput) GetC
 	}).(GetCertificateOrderCertificateOutput)
 }
 
+type GetEnvironmentV3ClusterSetting struct {
+	// The name of this v3 App Service Environment.
+	Name string `pulumi:"name"`
+	// The value for the Cluster Setting.
+	Value string `pulumi:"value"`
+}
+
+// GetEnvironmentV3ClusterSettingInput is an input type that accepts GetEnvironmentV3ClusterSettingArgs and GetEnvironmentV3ClusterSettingOutput values.
+// You can construct a concrete instance of `GetEnvironmentV3ClusterSettingInput` via:
+//
+//          GetEnvironmentV3ClusterSettingArgs{...}
+type GetEnvironmentV3ClusterSettingInput interface {
+	pulumi.Input
+
+	ToGetEnvironmentV3ClusterSettingOutput() GetEnvironmentV3ClusterSettingOutput
+	ToGetEnvironmentV3ClusterSettingOutputWithContext(context.Context) GetEnvironmentV3ClusterSettingOutput
+}
+
+type GetEnvironmentV3ClusterSettingArgs struct {
+	// The name of this v3 App Service Environment.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value for the Cluster Setting.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetEnvironmentV3ClusterSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEnvironmentV3ClusterSetting)(nil)).Elem()
+}
+
+func (i GetEnvironmentV3ClusterSettingArgs) ToGetEnvironmentV3ClusterSettingOutput() GetEnvironmentV3ClusterSettingOutput {
+	return i.ToGetEnvironmentV3ClusterSettingOutputWithContext(context.Background())
+}
+
+func (i GetEnvironmentV3ClusterSettingArgs) ToGetEnvironmentV3ClusterSettingOutputWithContext(ctx context.Context) GetEnvironmentV3ClusterSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEnvironmentV3ClusterSettingOutput)
+}
+
+// GetEnvironmentV3ClusterSettingArrayInput is an input type that accepts GetEnvironmentV3ClusterSettingArray and GetEnvironmentV3ClusterSettingArrayOutput values.
+// You can construct a concrete instance of `GetEnvironmentV3ClusterSettingArrayInput` via:
+//
+//          GetEnvironmentV3ClusterSettingArray{ GetEnvironmentV3ClusterSettingArgs{...} }
+type GetEnvironmentV3ClusterSettingArrayInput interface {
+	pulumi.Input
+
+	ToGetEnvironmentV3ClusterSettingArrayOutput() GetEnvironmentV3ClusterSettingArrayOutput
+	ToGetEnvironmentV3ClusterSettingArrayOutputWithContext(context.Context) GetEnvironmentV3ClusterSettingArrayOutput
+}
+
+type GetEnvironmentV3ClusterSettingArray []GetEnvironmentV3ClusterSettingInput
+
+func (GetEnvironmentV3ClusterSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEnvironmentV3ClusterSetting)(nil)).Elem()
+}
+
+func (i GetEnvironmentV3ClusterSettingArray) ToGetEnvironmentV3ClusterSettingArrayOutput() GetEnvironmentV3ClusterSettingArrayOutput {
+	return i.ToGetEnvironmentV3ClusterSettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetEnvironmentV3ClusterSettingArray) ToGetEnvironmentV3ClusterSettingArrayOutputWithContext(ctx context.Context) GetEnvironmentV3ClusterSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEnvironmentV3ClusterSettingArrayOutput)
+}
+
+type GetEnvironmentV3ClusterSettingOutput struct{ *pulumi.OutputState }
+
+func (GetEnvironmentV3ClusterSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEnvironmentV3ClusterSetting)(nil)).Elem()
+}
+
+func (o GetEnvironmentV3ClusterSettingOutput) ToGetEnvironmentV3ClusterSettingOutput() GetEnvironmentV3ClusterSettingOutput {
+	return o
+}
+
+func (o GetEnvironmentV3ClusterSettingOutput) ToGetEnvironmentV3ClusterSettingOutputWithContext(ctx context.Context) GetEnvironmentV3ClusterSettingOutput {
+	return o
+}
+
+// The name of this v3 App Service Environment.
+func (o GetEnvironmentV3ClusterSettingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEnvironmentV3ClusterSetting) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value for the Cluster Setting.
+func (o GetEnvironmentV3ClusterSettingOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEnvironmentV3ClusterSetting) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetEnvironmentV3ClusterSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEnvironmentV3ClusterSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEnvironmentV3ClusterSetting)(nil)).Elem()
+}
+
+func (o GetEnvironmentV3ClusterSettingArrayOutput) ToGetEnvironmentV3ClusterSettingArrayOutput() GetEnvironmentV3ClusterSettingArrayOutput {
+	return o
+}
+
+func (o GetEnvironmentV3ClusterSettingArrayOutput) ToGetEnvironmentV3ClusterSettingArrayOutputWithContext(ctx context.Context) GetEnvironmentV3ClusterSettingArrayOutput {
+	return o
+}
+
+func (o GetEnvironmentV3ClusterSettingArrayOutput) Index(i pulumi.IntInput) GetEnvironmentV3ClusterSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEnvironmentV3ClusterSetting {
+		return vs[0].([]GetEnvironmentV3ClusterSetting)[vs[1].(int)]
+	}).(GetEnvironmentV3ClusterSettingOutput)
+}
+
 type GetFunctionAppConnectionString struct {
 	// The name of the Function App resource.
 	Name string `pulumi:"name"`
@@ -17544,6 +17764,8 @@ func init() {
 	pulumi.RegisterOutputType(CertificateOrderCertificateArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentClusterSettingOutput{})
 	pulumi.RegisterOutputType(EnvironmentClusterSettingArrayOutput{})
+	pulumi.RegisterOutputType(EnvironmentV3ClusterSettingOutput{})
+	pulumi.RegisterOutputType(EnvironmentV3ClusterSettingArrayOutput{})
 	pulumi.RegisterOutputType(FunctionAppAuthSettingsOutput{})
 	pulumi.RegisterOutputType(FunctionAppAuthSettingsPtrOutput{})
 	pulumi.RegisterOutputType(FunctionAppAuthSettingsActiveDirectoryOutput{})
@@ -17669,6 +17891,8 @@ func init() {
 	pulumi.RegisterOutputType(GetAppServiceSourceControlArrayOutput{})
 	pulumi.RegisterOutputType(GetCertificateOrderCertificateOutput{})
 	pulumi.RegisterOutputType(GetCertificateOrderCertificateArrayOutput{})
+	pulumi.RegisterOutputType(GetEnvironmentV3ClusterSettingOutput{})
+	pulumi.RegisterOutputType(GetEnvironmentV3ClusterSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetFunctionAppConnectionStringOutput{})
 	pulumi.RegisterOutputType(GetFunctionAppConnectionStringArrayOutput{})
 	pulumi.RegisterOutputType(GetFunctionAppIdentityOutput{})

@@ -2384,11 +2384,13 @@ func (o FactoryGithubConfigurationPtrOutput) RootFolder() pulumi.StringPtrOutput
 }
 
 type FactoryIdentity struct {
+	// Specifies the IDs of user assigned identities. Requiered if `UserAssigned` type is used.
+	IdentityIds []string `pulumi:"identityIds"`
 	// The ID of the Principal (Client) in Azure Active Directory
 	PrincipalId *string `pulumi:"principalId"`
 	// Specifies the Tenant ID associated with the VSTS account.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the identity type of the Data Factory. At this time the only allowed value is `SystemAssigned`.
+	// Specifies the identity type of the Data Factory. Possible values are `SystemAssigned` and `UserAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -2404,11 +2406,13 @@ type FactoryIdentityInput interface {
 }
 
 type FactoryIdentityArgs struct {
+	// Specifies the IDs of user assigned identities. Requiered if `UserAssigned` type is used.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The ID of the Principal (Client) in Azure Active Directory
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// Specifies the Tenant ID associated with the VSTS account.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the identity type of the Data Factory. At this time the only allowed value is `SystemAssigned`.
+	// Specifies the identity type of the Data Factory. Possible values are `SystemAssigned` and `UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2489,6 +2493,11 @@ func (o FactoryIdentityOutput) ToFactoryIdentityPtrOutputWithContext(ctx context
 	}).(FactoryIdentityPtrOutput)
 }
 
+// Specifies the IDs of user assigned identities. Requiered if `UserAssigned` type is used.
+func (o FactoryIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FactoryIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
 // The ID of the Principal (Client) in Azure Active Directory
 func (o FactoryIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FactoryIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
@@ -2499,7 +2508,7 @@ func (o FactoryIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FactoryIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of the Data Factory. At this time the only allowed value is `SystemAssigned`.
+// Specifies the identity type of the Data Factory. Possible values are `SystemAssigned` and `UserAssigned`.
 func (o FactoryIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FactoryIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2522,6 +2531,16 @@ func (o FactoryIdentityPtrOutput) Elem() FactoryIdentityOutput {
 	return o.ApplyT(func(v *FactoryIdentity) FactoryIdentity { return *v }).(FactoryIdentityOutput)
 }
 
+// Specifies the IDs of user assigned identities. Requiered if `UserAssigned` type is used.
+func (o FactoryIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FactoryIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
 // The ID of the Principal (Client) in Azure Active Directory
 func (o FactoryIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FactoryIdentity) *string {
@@ -2542,7 +2561,7 @@ func (o FactoryIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of the Data Factory. At this time the only allowed value is `SystemAssigned`.
+// Specifies the identity type of the Data Factory. Possible values are `SystemAssigned` and `UserAssigned`.
 func (o FactoryIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FactoryIdentity) *string {
 		if v == nil {
@@ -5387,6 +5406,7 @@ func (o GetFactoryGithubConfigurationArrayOutput) Index(i pulumi.IntInput) GetFa
 }
 
 type GetFactoryIdentity struct {
+	IdentityIds []string `pulumi:"identityIds"`
 	// The ID of the Principal (Client) in Azure Active Directory.
 	PrincipalId string `pulumi:"principalId"`
 	// The Tenant ID associated with the VSTS account.
@@ -5407,6 +5427,7 @@ type GetFactoryIdentityInput interface {
 }
 
 type GetFactoryIdentityArgs struct {
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The ID of the Principal (Client) in Azure Active Directory.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 	// The Tenant ID associated with the VSTS account.
@@ -5464,6 +5485,10 @@ func (o GetFactoryIdentityOutput) ToGetFactoryIdentityOutput() GetFactoryIdentit
 
 func (o GetFactoryIdentityOutput) ToGetFactoryIdentityOutputWithContext(ctx context.Context) GetFactoryIdentityOutput {
 	return o
+}
+
+func (o GetFactoryIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFactoryIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
 // The ID of the Principal (Client) in Azure Active Directory.

@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 export * from "./account";
 export * from "./accountNetworkRules";
 export * from "./blob";
+export * from "./blobInventoryPolicy";
 export * from "./container";
 export * from "./customerManagedKey";
 export * from "./dataLakeGen2Filesystem";
@@ -22,6 +23,7 @@ export * from "./getPolicy";
 export * from "./getStorageContainer";
 export * from "./getSync";
 export * from "./getSyncGroup";
+export * from "./getTableEntity";
 export * from "./managementPolicy";
 export * from "./queue";
 export * from "./share";
@@ -39,6 +41,7 @@ export * from "./zipBlob";
 import { Account } from "./account";
 import { AccountNetworkRules } from "./accountNetworkRules";
 import { Blob } from "./blob";
+import { BlobInventoryPolicy } from "./blobInventoryPolicy";
 import { Container } from "./container";
 import { CustomerManagedKey } from "./customerManagedKey";
 import { DataLakeGen2Filesystem } from "./dataLakeGen2Filesystem";
@@ -66,6 +69,8 @@ const _module = {
                 return new AccountNetworkRules(name, <any>undefined, { urn })
             case "azure:storage/blob:Blob":
                 return new Blob(name, <any>undefined, { urn })
+            case "azure:storage/blobInventoryPolicy:BlobInventoryPolicy":
+                return new BlobInventoryPolicy(name, <any>undefined, { urn })
             case "azure:storage/container:Container":
                 return new Container(name, <any>undefined, { urn })
             case "azure:storage/customerManagedKey:CustomerManagedKey":
@@ -106,6 +111,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "storage/account", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/accountNetworkRules", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/blob", _module)
+pulumi.runtime.registerResourceModule("azure", "storage/blobInventoryPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/container", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/customerManagedKey", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/dataLakeGen2Filesystem", _module)

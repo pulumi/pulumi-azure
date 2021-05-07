@@ -2,7 +2,14 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to v2.58.0 of the AzureRM Terraform Provider  
+  **PLEASE NOTE:**  
+  There is a breaking change in this release due to a change in the upstream frontdoor resources.  
+  - `azure.frontdoor.Frontdoor` no longer has support for `customHttpsConfiguration` or `customHttpsProvisioningEnabled`
+  as part of `frontendEndpoints`. If you need to enable custom https functionality then it is suggested to use 
+  `azure.frontdoor.customHttpsConfiguration`
+  - `azure.frontdoor.customHttpsConfiguration` no longer has support for `resourceGroupName` as this is inherited 
+    from the corresponding frootdoor service
 
 ---
 

@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly int? Port;
         /// <summary>
-        /// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+        /// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `target_resource_id`.
         /// </summary>
         public readonly string? VirtualMachineId;
 

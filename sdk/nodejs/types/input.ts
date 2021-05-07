@@ -1889,6 +1889,17 @@ export namespace appservice {
         value: pulumi.Input<string>;
     }
 
+    export interface EnvironmentV3ClusterSetting {
+        /**
+         * The name of the Cluster Setting.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value for the Cluster Setting.
+         */
+        value: pulumi.Input<string>;
+    }
+
     export interface FunctionAppAuthSettings {
         /**
          * A `activeDirectory` block as defined below.
@@ -2747,7 +2758,13 @@ export namespace appservice {
          * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
+         */
         principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
+         */
         tenantId?: pulumi.Input<string>;
         /**
          * Specifies the identity type of the App Service. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
@@ -7860,6 +7877,10 @@ export namespace datafactory {
 
     export interface FactoryIdentity {
         /**
+         * Specifies the IDs of user assigned identities. Requiered if `UserAssigned` type is used.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * The ID of the Principal (Client) in Azure Active Directory
          */
         principalId?: pulumi.Input<string>;
@@ -7868,7 +7889,7 @@ export namespace datafactory {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the identity type of the Data Factory. At this time the only allowed value is `SystemAssigned`.
+         * Specifies the identity type of the Data Factory. Possible values are `SystemAssigned` and `UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -9908,19 +9929,15 @@ export namespace frontdoor {
         successfulSamplesRequired?: pulumi.Input<number>;
     }
 
+    export interface FrontdoorExplicitResourceOrder {
+        backendPoolHealthProbeIds?: pulumi.Input<pulumi.Input<string>[]>;
+        backendPoolIds?: pulumi.Input<pulumi.Input<string>[]>;
+        backendPoolLoadBalancingIds?: pulumi.Input<pulumi.Input<string>[]>;
+        frontendEndpointIds?: pulumi.Input<pulumi.Input<string>[]>;
+        routingRuleIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface FrontdoorFrontendEndpoint {
-        /**
-         * A `customHttpsConfiguration` block as defined below.
-         *
-         * @deprecated Deprecated in favour of `azurerm_frontdoor_custom_https_configuration` resource
-         */
-        customHttpsConfiguration?: pulumi.Input<inputs.frontdoor.FrontdoorFrontendEndpointCustomHttpsConfiguration>;
-        /**
-         * Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
-         *
-         * @deprecated Deprecated in favour of `azurerm_frontdoor_custom_https_configuration` resource
-         */
-        customHttpsProvisioningEnabled?: pulumi.Input<boolean>;
         /**
          * Specifies the host name of the `frontendEndpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
          */
@@ -9945,37 +9962,6 @@ export namespace frontdoor {
          * Defines the Web Application Firewall policy `ID` for each host.
          */
         webApplicationFirewallPolicyLinkId?: pulumi.Input<string>;
-    }
-
-    export interface FrontdoorFrontendEndpointCustomHttpsConfiguration {
-        /**
-         * The name of the Key Vault secret representing the full certificate PFX.
-         */
-        azureKeyVaultCertificateSecretName?: pulumi.Input<string>;
-        /**
-         * The version of the Key Vault secret representing the full certificate PFX.
-         */
-        azureKeyVaultCertificateSecretVersion?: pulumi.Input<string>;
-        /**
-         * The ID of the Key Vault containing the SSL certificate.
-         */
-        azureKeyVaultCertificateVaultId?: pulumi.Input<string>;
-        /**
-         * Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
-         */
-        certificateSource?: pulumi.Input<string>;
-        /**
-         * Minimum client TLS version supported.
-         */
-        minimumTlsVersion?: pulumi.Input<string>;
-        /**
-         * Provisioning state of the Front Door.
-         */
-        provisioningState?: pulumi.Input<string>;
-        /**
-         * Provisioning substate of the Front Door
-         */
-        provisioningSubstate?: pulumi.Input<string>;
     }
 
     export interface FrontdoorRoutingRule {
@@ -10220,6 +10206,10 @@ export namespace hdinsight {
 
     export interface HBaseClusterRolesWorkerNode {
         /**
+         * A `autoscale` block as defined below.
+         */
+        autoscale?: pulumi.Input<inputs.hdinsight.HBaseClusterRolesWorkerNodeAutoscale>;
+        /**
          * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
          *
          * @deprecated this has been deprecated from the API and will be removed in version 3.0 of the provider
@@ -10253,6 +10243,39 @@ export namespace hdinsight {
          * The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
          */
         vmSize: pulumi.Input<string>;
+    }
+
+    export interface HBaseClusterRolesWorkerNodeAutoscale {
+        /**
+         * A `recurrence` block as defined below.
+         */
+        recurrence?: pulumi.Input<inputs.hdinsight.HBaseClusterRolesWorkerNodeAutoscaleRecurrence>;
+    }
+
+    export interface HBaseClusterRolesWorkerNodeAutoscaleRecurrence {
+        /**
+         * A list of `schedule` blocks as defined below.
+         */
+        schedules: pulumi.Input<pulumi.Input<inputs.hdinsight.HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule>[]>;
+        /**
+         * The time zone for the autoscale schedule times.
+         */
+        timezone: pulumi.Input<string>;
+    }
+
+    export interface HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
+        /**
+         * The days of the week to perform autoscale.
+         */
+        days: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The number of worker nodes to autoscale at the specified time.
+         */
+        targetInstanceCount: pulumi.Input<number>;
+        /**
+         * The time of day to perform the autoscale in 24hour format.
+         */
+        time: pulumi.Input<string>;
     }
 
     export interface HBaseClusterRolesZookeeperNode {
@@ -10508,6 +10531,10 @@ export namespace hdinsight {
 
     export interface HadoopClusterRolesWorkerNode {
         /**
+         * A `autoscale` block as defined below.
+         */
+        autoscale?: pulumi.Input<inputs.hdinsight.HadoopClusterRolesWorkerNodeAutoscale>;
+        /**
          * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
          *
          * @deprecated this has been deprecated from the API and will be removed in version 3.0 of the provider
@@ -10541,6 +10568,54 @@ export namespace hdinsight {
          * The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
          */
         vmSize: pulumi.Input<string>;
+    }
+
+    export interface HadoopClusterRolesWorkerNodeAutoscale {
+        /**
+         * A `capacity` block as defined below.
+         */
+        capacity?: pulumi.Input<inputs.hdinsight.HadoopClusterRolesWorkerNodeAutoscaleCapacity>;
+        /**
+         * A `recurrence` block as defined below.
+         */
+        recurrence?: pulumi.Input<inputs.hdinsight.HadoopClusterRolesWorkerNodeAutoscaleRecurrence>;
+    }
+
+    export interface HadoopClusterRolesWorkerNodeAutoscaleCapacity {
+        /**
+         * The maximum number of worker nodes to autoscale to based on the cluster's activity.
+         */
+        maxInstanceCount: pulumi.Input<number>;
+        /**
+         * The minimum number of worker nodes to autoscale to based on the cluster's activity.
+         */
+        minInstanceCount: pulumi.Input<number>;
+    }
+
+    export interface HadoopClusterRolesWorkerNodeAutoscaleRecurrence {
+        /**
+         * A list of `schedule` blocks as defined below.
+         */
+        schedules: pulumi.Input<pulumi.Input<inputs.hdinsight.HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule>[]>;
+        /**
+         * The time zone for the autoscale schedule times.
+         */
+        timezone: pulumi.Input<string>;
+    }
+
+    export interface HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
+        /**
+         * The days of the week to perform autoscale.
+         */
+        days: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The number of worker nodes to autoscale at the specified time.
+         */
+        targetInstanceCount: pulumi.Input<number>;
+        /**
+         * The time of day to perform the autoscale in 24hour format.
+         */
+        time: pulumi.Input<string>;
     }
 
     export interface HadoopClusterRolesZookeeperNode {
@@ -10763,6 +10838,10 @@ export namespace hdinsight {
 
     export interface InteractiveQueryClusterRolesWorkerNode {
         /**
+         * A `autoscale` block as defined below.
+         */
+        autoscale?: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterRolesWorkerNodeAutoscale>;
+        /**
          * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
          *
          * @deprecated this has been deprecated from the API and will be removed in version 3.0 of the provider
@@ -10796,6 +10875,54 @@ export namespace hdinsight {
          * The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
          */
         vmSize: pulumi.Input<string>;
+    }
+
+    export interface InteractiveQueryClusterRolesWorkerNodeAutoscale {
+        /**
+         * A `capacity` block as defined below.
+         */
+        capacity?: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity>;
+        /**
+         * A `recurrence` block as defined below.
+         */
+        recurrence?: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence>;
+    }
+
+    export interface InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity {
+        /**
+         * The maximum number of worker nodes to autoscale to based on the cluster's activity.
+         */
+        maxInstanceCount: pulumi.Input<number>;
+        /**
+         * The minimum number of worker nodes to autoscale to based on the cluster's activity.
+         */
+        minInstanceCount: pulumi.Input<number>;
+    }
+
+    export interface InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence {
+        /**
+         * A list of `schedule` blocks as defined below.
+         */
+        schedules: pulumi.Input<pulumi.Input<inputs.hdinsight.InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule>[]>;
+        /**
+         * The time zone for the autoscale schedule times.
+         */
+        timezone: pulumi.Input<string>;
+    }
+
+    export interface InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
+        /**
+         * The days of the week to perform autoscale.
+         */
+        days: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The number of worker nodes to autoscale at the specified time.
+         */
+        targetInstanceCount: pulumi.Input<number>;
+        /**
+         * The time of day to perform the autoscale in 24hour format.
+         */
+        time: pulumi.Input<string>;
     }
 
     export interface InteractiveQueryClusterRolesZookeeperNode {
@@ -11648,6 +11775,10 @@ export namespace hdinsight {
 
     export interface SparkClusterRolesWorkerNode {
         /**
+         * A `autoscale` block as defined below.
+         */
+        autoscale?: pulumi.Input<inputs.hdinsight.SparkClusterRolesWorkerNodeAutoscale>;
+        /**
          * The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
          *
          * @deprecated this has been deprecated from the API and will be removed in version 3.0 of the provider
@@ -11681,6 +11812,54 @@ export namespace hdinsight {
          * The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
          */
         vmSize: pulumi.Input<string>;
+    }
+
+    export interface SparkClusterRolesWorkerNodeAutoscale {
+        /**
+         * A `capacity` block as defined below.
+         */
+        capacity?: pulumi.Input<inputs.hdinsight.SparkClusterRolesWorkerNodeAutoscaleCapacity>;
+        /**
+         * A `recurrence` block as defined below.
+         */
+        recurrence?: pulumi.Input<inputs.hdinsight.SparkClusterRolesWorkerNodeAutoscaleRecurrence>;
+    }
+
+    export interface SparkClusterRolesWorkerNodeAutoscaleCapacity {
+        /**
+         * The maximum number of worker nodes to autoscale to based on the cluster's activity.
+         */
+        maxInstanceCount: pulumi.Input<number>;
+        /**
+         * The minimum number of worker nodes to autoscale to based on the cluster's activity.
+         */
+        minInstanceCount: pulumi.Input<number>;
+    }
+
+    export interface SparkClusterRolesWorkerNodeAutoscaleRecurrence {
+        /**
+         * A list of `schedule` blocks as defined below.
+         */
+        schedules: pulumi.Input<pulumi.Input<inputs.hdinsight.SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule>[]>;
+        /**
+         * The time zone for the autoscale schedule times.
+         */
+        timezone: pulumi.Input<string>;
+    }
+
+    export interface SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
+        /**
+         * The days of the week to perform autoscale.
+         */
+        days: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The number of worker nodes to autoscale at the specified time.
+         */
+        targetInstanceCount: pulumi.Input<number>;
+        /**
+         * The time of day to perform the autoscale in 24hour format.
+         */
+        time: pulumi.Input<string>;
     }
 
     export interface SparkClusterRolesZookeeperNode {
@@ -16836,7 +17015,7 @@ export namespace network {
          */
         port?: pulumi.Input<number>;
         /**
-         * The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+         * The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `targetResourceId`.
          *
          * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
          */
@@ -16849,15 +17028,37 @@ export namespace network {
          */
         address?: pulumi.Input<string>;
         /**
+         * The test coverage for the Network Connection Monitor endpoint. Possible values are `AboveAverage`, `Average`, `BelowAverage`, `Default`, `Full` and `Low`.
+         */
+        coverageLevel?: pulumi.Input<string>;
+        /**
+         * A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be excluded to the Network Connection Monitor endpoint.
+         */
+        excludedIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * A `filter` block as defined below.
          */
         filter?: pulumi.Input<inputs.network.NetworkConnectionMonitorEndpointFilter>;
+        /**
+         * A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be included to the Network Connection Monitor endpoint.
+         */
+        includedIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The name of the endpoint for the Network Connection Monitor .
          */
         name: pulumi.Input<string>;
         /**
-         * The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+         * The resource ID which is used as the endpoint by the Network Connection Monitor.
+         */
+        targetResourceId?: pulumi.Input<string>;
+        /**
+         * The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
+         */
+        targetResourceType?: pulumi.Input<string>;
+        /**
+         * The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `targetResourceId`.
+         *
+         * @deprecated This property has been renamed to `target_resource_id` and will be removed in v3.0 of the provider.
          */
         virtualMachineId?: pulumi.Input<string>;
     }
@@ -16892,7 +17093,7 @@ export namespace network {
          */
         port?: pulumi.Input<number>;
         /**
-         * The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+         * The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `targetResourceId`.
          *
          * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
          */
@@ -19644,6 +19845,36 @@ export namespace storage {
          * The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
          */
         indexDocument?: pulumi.Input<string>;
+    }
+
+    export interface BlobInventoryPolicyRule {
+        /**
+         * A `filter` block as defined above.
+         */
+        filter: pulumi.Input<inputs.storage.BlobInventoryPolicyRuleFilter>;
+        /**
+         * The name which should be used for this Blob Inventory Policy Rule.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface BlobInventoryPolicyRuleFilter {
+        /**
+         * A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `isHnsEnabled` is `true` doesn't support `pageBlob`.
+         */
+        blobTypes: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Includes blob versions in blob inventory or not? Defaults to `false`.
+         */
+        includeBlobVersions?: pulumi.Input<boolean>;
+        /**
+         * Includes blob snapshots in blob inventory or not? Defaults to `false`.
+         */
+        includeSnapshots?: pulumi.Input<boolean>;
+        /**
+         * A set of strings for blob prefixes to be matched.
+         */
+        prefixMatches?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface DataLakeGen2FilesystemAce {

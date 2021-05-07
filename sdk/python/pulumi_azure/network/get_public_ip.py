@@ -19,7 +19,7 @@ class GetPublicIPResult:
     """
     A collection of values returned by getPublicIP.
     """
-    def __init__(__self__, allocation_method=None, domain_name_label=None, fqdn=None, id=None, idle_timeout_in_minutes=None, ip_address=None, ip_version=None, location=None, name=None, resource_group_name=None, reverse_fqdn=None, sku=None, tags=None, zones=None):
+    def __init__(__self__, allocation_method=None, domain_name_label=None, fqdn=None, id=None, idle_timeout_in_minutes=None, ip_address=None, ip_tags=None, ip_version=None, location=None, name=None, resource_group_name=None, reverse_fqdn=None, sku=None, tags=None, zones=None):
         if allocation_method and not isinstance(allocation_method, str):
             raise TypeError("Expected argument 'allocation_method' to be a str")
         pulumi.set(__self__, "allocation_method", allocation_method)
@@ -38,6 +38,9 @@ class GetPublicIPResult:
         if ip_address and not isinstance(ip_address, str):
             raise TypeError("Expected argument 'ip_address' to be a str")
         pulumi.set(__self__, "ip_address", ip_address)
+        if ip_tags and not isinstance(ip_tags, dict):
+            raise TypeError("Expected argument 'ip_tags' to be a dict")
+        pulumi.set(__self__, "ip_tags", ip_tags)
         if ip_version and not isinstance(ip_version, str):
             raise TypeError("Expected argument 'ip_version' to be a str")
         pulumi.set(__self__, "ip_version", ip_version)
@@ -109,6 +112,14 @@ class GetPublicIPResult:
         return pulumi.get(self, "ip_address")
 
     @property
+    @pulumi.getter(name="ipTags")
+    def ip_tags(self) -> Mapping[str, str]:
+        """
+        A mapping of tags to assigned to the resource.
+        """
+        return pulumi.get(self, "ip_tags")
+
+    @property
     @pulumi.getter(name="ipVersion")
     def ip_version(self) -> str:
         """
@@ -170,6 +181,7 @@ class AwaitableGetPublicIPResult(GetPublicIPResult):
             id=self.id,
             idle_timeout_in_minutes=self.idle_timeout_in_minutes,
             ip_address=self.ip_address,
+            ip_tags=self.ip_tags,
             ip_version=self.ip_version,
             location=self.location,
             name=self.name,
@@ -266,6 +278,7 @@ def get_public_ip(name: Optional[str] = None,
         id=__ret__.id,
         idle_timeout_in_minutes=__ret__.idle_timeout_in_minutes,
         ip_address=__ret__.ip_address,
+        ip_tags=__ret__.ip_tags,
         ip_version=__ret__.ip_version,
         location=__ret__.location,
         name=__ret__.name,

@@ -204,6 +204,10 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly string IpAddress;
         /// <summary>
+        /// A mapping of tags to assigned to the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> IpTags;
+        /// <summary>
         /// The IP version being used, for example `IPv4` or `IPv6`.
         /// </summary>
         public readonly string IpVersion;
@@ -235,6 +239,8 @@ namespace Pulumi.Azure.Network
 
             string ipAddress,
 
+            ImmutableDictionary<string, string> ipTags,
+
             string ipVersion,
 
             string location,
@@ -257,6 +263,7 @@ namespace Pulumi.Azure.Network
             Id = id;
             IdleTimeoutInMinutes = idleTimeoutInMinutes;
             IpAddress = ipAddress;
+            IpTags = ipTags;
             IpVersion = ipVersion;
             Location = location;
             Name = name;

@@ -91,6 +91,12 @@ namespace Pulumi.Azure.CosmosDB
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>
+        /// Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
+        /// </summary>
+        [Output("accessKeyMetadataWritesEnabled")]
+        public Output<bool?> AccessKeyMetadataWritesEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("analyticalStorageEnabled")]
@@ -175,10 +181,28 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("mongoServerVersion")]
+        public Output<string> MongoServerVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// If azure services can bypass ACLs. Defaults to `false`.
+        /// </summary>
+        [Output("networkAclBypassForAzureServices")]
+        public Output<bool?> NetworkAclBypassForAzureServices { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
+        /// </summary>
+        [Output("networkAclBypassIds")]
+        public Output<ImmutableArray<string>> NetworkAclBypassIds { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
@@ -305,6 +329,12 @@ namespace Pulumi.Azure.CosmosDB
     public sealed class AccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
+        /// </summary>
+        [Input("accessKeyMetadataWritesEnabled")]
+        public Input<bool>? AccessKeyMetadataWritesEnabled { get; set; }
+
+        /// <summary>
         /// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("analyticalStorageEnabled")]
@@ -389,10 +419,34 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("mongoServerVersion")]
+        public Input<string>? MongoServerVersion { get; set; }
+
+        /// <summary>
         /// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// If azure services can bypass ACLs. Defaults to `false`.
+        /// </summary>
+        [Input("networkAclBypassForAzureServices")]
+        public Input<bool>? NetworkAclBypassForAzureServices { get; set; }
+
+        [Input("networkAclBypassIds")]
+        private InputList<string>? _networkAclBypassIds;
+
+        /// <summary>
+        /// The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
+        /// </summary>
+        public InputList<string> NetworkAclBypassIds
+        {
+            get => _networkAclBypassIds ?? (_networkAclBypassIds = new InputList<string>());
+            set => _networkAclBypassIds = value;
+        }
 
         /// <summary>
         /// Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
@@ -443,6 +497,12 @@ namespace Pulumi.Azure.CosmosDB
 
     public sealed class AccountState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
+        /// </summary>
+        [Input("accessKeyMetadataWritesEnabled")]
+        public Input<bool>? AccessKeyMetadataWritesEnabled { get; set; }
+
         /// <summary>
         /// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
@@ -546,10 +606,34 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("mongoServerVersion")]
+        public Input<string>? MongoServerVersion { get; set; }
+
+        /// <summary>
         /// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// If azure services can bypass ACLs. Defaults to `false`.
+        /// </summary>
+        [Input("networkAclBypassForAzureServices")]
+        public Input<bool>? NetworkAclBypassForAzureServices { get; set; }
+
+        [Input("networkAclBypassIds")]
+        private InputList<string>? _networkAclBypassIds;
+
+        /// <summary>
+        /// The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
+        /// </summary>
+        public InputList<string> NetworkAclBypassIds
+        {
+            get => _networkAclBypassIds ?? (_networkAclBypassIds = new InputList<string>());
+            set => _networkAclBypassIds = value;
+        }
 
         /// <summary>
         /// Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.

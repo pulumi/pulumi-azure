@@ -264,7 +264,7 @@ namespace Pulumi.Azure.AppService
         public Output<Outputs.SlotSiteConfig> SiteConfig { get; private set; } = null!;
 
         /// <summary>
-        /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+        /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service slot.
         /// </summary>
         [Output("siteCredentials")]
         public Output<ImmutableArray<Outputs.SlotSiteCredential>> SiteCredentials { get; private set; } = null!;
@@ -542,7 +542,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.SlotSiteCredentialGetArgs>? _siteCredentials;
 
         /// <summary>
-        /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+        /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service slot.
         /// </summary>
         public InputList<Inputs.SlotSiteCredentialGetArgs> SiteCredentials
         {

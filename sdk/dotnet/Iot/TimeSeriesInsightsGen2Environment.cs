@@ -12,6 +12,48 @@ namespace Pulumi.Azure.Iot
     /// <summary>
     /// Manages an Azure IoT Time Series Insights Gen2 Environment.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var storage = new Azure.Storage.Account("storage", new Azure.Storage.AccountArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "LRS",
+    ///         });
+    ///         var exampleTimeSeriesInsightsGen2Environment = new Azure.Iot.TimeSeriesInsightsGen2Environment("exampleTimeSeriesInsightsGen2Environment", new Azure.Iot.TimeSeriesInsightsGen2EnvironmentArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             SkuName = "L1",
+    ///             WarmStoreDataRetentionTime = "P30D",
+    ///             IdProperties = 
+    ///             {
+    ///                 "id",
+    ///             },
+    ///             Storage = new Azure.Iot.Inputs.TimeSeriesInsightsGen2EnvironmentStorageArgs
+    ///             {
+    ///                 Name = storage.Name,
+    ///                 Key = storage.PrimaryAccessKey,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Azure IoT Time Series Insights Gen2 Environment can be imported using the `resource id`, e.g.
@@ -71,6 +113,9 @@ namespace Pulumi.Azure.Iot
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("warmStoreDataRetentionTime")]
         public Output<string?> WarmStoreDataRetentionTime { get; private set; } = null!;
 
@@ -174,6 +219,9 @@ namespace Pulumi.Azure.Iot
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("warmStoreDataRetentionTime")]
         public Input<string>? WarmStoreDataRetentionTime { get; set; }
 
@@ -244,6 +292,9 @@ namespace Pulumi.Azure.Iot
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("warmStoreDataRetentionTime")]
         public Input<string>? WarmStoreDataRetentionTime { get; set; }
 

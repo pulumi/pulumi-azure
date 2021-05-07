@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CustomHostnameBinding{}
 	case "azure:appservice/environment:Environment":
 		r = &Environment{}
+	case "azure:appservice/environmentV3:EnvironmentV3":
+		r = &EnvironmentV3{}
 	case "azure:appservice/functionApp:FunctionApp":
 		r = &FunctionApp{}
 	case "azure:appservice/functionAppSlot:FunctionAppSlot":
@@ -99,6 +101,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"appservice/environment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appservice/environmentV3",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

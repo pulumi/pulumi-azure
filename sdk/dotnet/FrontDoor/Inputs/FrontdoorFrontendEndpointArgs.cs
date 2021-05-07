@@ -13,18 +13,6 @@ namespace Pulumi.Azure.FrontDoor.Inputs
     public sealed class FrontdoorFrontendEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `custom_https_configuration` block as defined below.
-        /// </summary>
-        [Input("customHttpsConfiguration")]
-        public Input<Inputs.FrontdoorFrontendEndpointCustomHttpsConfigurationArgs>? CustomHttpsConfiguration { get; set; }
-
-        /// <summary>
-        /// Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
-        /// </summary>
-        [Input("customHttpsProvisioningEnabled")]
-        public Input<bool>? CustomHttpsProvisioningEnabled { get; set; }
-
-        /// <summary>
         /// Specifies the host name of the `frontend_endpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
         /// </summary>
         [Input("hostName", required: true)]

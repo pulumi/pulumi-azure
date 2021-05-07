@@ -22,8 +22,8 @@ __all__ = [
     'FrontdoorBackendPoolBackendArgs',
     'FrontdoorBackendPoolHealthProbeArgs',
     'FrontdoorBackendPoolLoadBalancingArgs',
+    'FrontdoorExplicitResourceOrderArgs',
     'FrontdoorFrontendEndpointArgs',
-    'FrontdoorFrontendEndpointCustomHttpsConfigurationArgs',
     'FrontdoorRoutingRuleArgs',
     'FrontdoorRoutingRuleForwardingConfigurationArgs',
     'FrontdoorRoutingRuleRedirectConfigurationArgs',
@@ -1123,12 +1123,75 @@ class FrontdoorBackendPoolLoadBalancingArgs:
 
 
 @pulumi.input_type
+class FrontdoorExplicitResourceOrderArgs:
+    def __init__(__self__, *,
+                 backend_pool_health_probe_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 backend_pool_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 backend_pool_load_balancing_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 frontend_endpoint_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 routing_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if backend_pool_health_probe_ids is not None:
+            pulumi.set(__self__, "backend_pool_health_probe_ids", backend_pool_health_probe_ids)
+        if backend_pool_ids is not None:
+            pulumi.set(__self__, "backend_pool_ids", backend_pool_ids)
+        if backend_pool_load_balancing_ids is not None:
+            pulumi.set(__self__, "backend_pool_load_balancing_ids", backend_pool_load_balancing_ids)
+        if frontend_endpoint_ids is not None:
+            pulumi.set(__self__, "frontend_endpoint_ids", frontend_endpoint_ids)
+        if routing_rule_ids is not None:
+            pulumi.set(__self__, "routing_rule_ids", routing_rule_ids)
+
+    @property
+    @pulumi.getter(name="backendPoolHealthProbeIds")
+    def backend_pool_health_probe_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "backend_pool_health_probe_ids")
+
+    @backend_pool_health_probe_ids.setter
+    def backend_pool_health_probe_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "backend_pool_health_probe_ids", value)
+
+    @property
+    @pulumi.getter(name="backendPoolIds")
+    def backend_pool_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "backend_pool_ids")
+
+    @backend_pool_ids.setter
+    def backend_pool_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "backend_pool_ids", value)
+
+    @property
+    @pulumi.getter(name="backendPoolLoadBalancingIds")
+    def backend_pool_load_balancing_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "backend_pool_load_balancing_ids")
+
+    @backend_pool_load_balancing_ids.setter
+    def backend_pool_load_balancing_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "backend_pool_load_balancing_ids", value)
+
+    @property
+    @pulumi.getter(name="frontendEndpointIds")
+    def frontend_endpoint_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "frontend_endpoint_ids")
+
+    @frontend_endpoint_ids.setter
+    def frontend_endpoint_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "frontend_endpoint_ids", value)
+
+    @property
+    @pulumi.getter(name="routingRuleIds")
+    def routing_rule_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "routing_rule_ids")
+
+    @routing_rule_ids.setter
+    def routing_rule_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "routing_rule_ids", value)
+
+
+@pulumi.input_type
 class FrontdoorFrontendEndpointArgs:
     def __init__(__self__, *,
                  host_name: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 custom_https_configuration: Optional[pulumi.Input['FrontdoorFrontendEndpointCustomHttpsConfigurationArgs']] = None,
-                 custom_https_provisioning_enabled: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  session_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  session_affinity_ttl_seconds: Optional[pulumi.Input[int]] = None,
@@ -1136,8 +1199,6 @@ class FrontdoorFrontendEndpointArgs:
         """
         :param pulumi.Input[str] host_name: Specifies the host name of the `frontend_endpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
         :param pulumi.Input[str] name: Specifies the name of the `frontend_endpoint`.
-        :param pulumi.Input['FrontdoorFrontendEndpointCustomHttpsConfigurationArgs'] custom_https_configuration: A `custom_https_configuration` block as defined below.
-        :param pulumi.Input[bool] custom_https_provisioning_enabled: Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
         :param pulumi.Input[str] id: The ID of the FrontDoor.
         :param pulumi.Input[bool] session_affinity_enabled: Whether to allow session affinity on this host. Valid options are `true` or `false` Defaults to `false`.
         :param pulumi.Input[int] session_affinity_ttl_seconds: The TTL to use in seconds for session affinity, if applicable. Defaults to `0`.
@@ -1145,16 +1206,6 @@ class FrontdoorFrontendEndpointArgs:
         """
         pulumi.set(__self__, "host_name", host_name)
         pulumi.set(__self__, "name", name)
-        if custom_https_configuration is not None:
-            warnings.warn("""Deprecated in favour of `azurerm_frontdoor_custom_https_configuration` resource""", DeprecationWarning)
-            pulumi.log.warn("""custom_https_configuration is deprecated: Deprecated in favour of `azurerm_frontdoor_custom_https_configuration` resource""")
-        if custom_https_configuration is not None:
-            pulumi.set(__self__, "custom_https_configuration", custom_https_configuration)
-        if custom_https_provisioning_enabled is not None:
-            warnings.warn("""Deprecated in favour of `azurerm_frontdoor_custom_https_configuration` resource""", DeprecationWarning)
-            pulumi.log.warn("""custom_https_provisioning_enabled is deprecated: Deprecated in favour of `azurerm_frontdoor_custom_https_configuration` resource""")
-        if custom_https_provisioning_enabled is not None:
-            pulumi.set(__self__, "custom_https_provisioning_enabled", custom_https_provisioning_enabled)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if session_affinity_enabled is not None:
@@ -1187,30 +1238,6 @@ class FrontdoorFrontendEndpointArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="customHttpsConfiguration")
-    def custom_https_configuration(self) -> Optional[pulumi.Input['FrontdoorFrontendEndpointCustomHttpsConfigurationArgs']]:
-        """
-        A `custom_https_configuration` block as defined below.
-        """
-        return pulumi.get(self, "custom_https_configuration")
-
-    @custom_https_configuration.setter
-    def custom_https_configuration(self, value: Optional[pulumi.Input['FrontdoorFrontendEndpointCustomHttpsConfigurationArgs']]):
-        pulumi.set(self, "custom_https_configuration", value)
-
-    @property
-    @pulumi.getter(name="customHttpsProvisioningEnabled")
-    def custom_https_provisioning_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
-        """
-        return pulumi.get(self, "custom_https_provisioning_enabled")
-
-    @custom_https_provisioning_enabled.setter
-    def custom_https_provisioning_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "custom_https_provisioning_enabled", value)
 
     @property
     @pulumi.getter
@@ -1259,125 +1286,6 @@ class FrontdoorFrontendEndpointArgs:
     @web_application_firewall_policy_link_id.setter
     def web_application_firewall_policy_link_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "web_application_firewall_policy_link_id", value)
-
-
-@pulumi.input_type
-class FrontdoorFrontendEndpointCustomHttpsConfigurationArgs:
-    def __init__(__self__, *,
-                 azure_key_vault_certificate_secret_name: Optional[pulumi.Input[str]] = None,
-                 azure_key_vault_certificate_secret_version: Optional[pulumi.Input[str]] = None,
-                 azure_key_vault_certificate_vault_id: Optional[pulumi.Input[str]] = None,
-                 certificate_source: Optional[pulumi.Input[str]] = None,
-                 minimum_tls_version: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
-                 provisioning_substate: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] azure_key_vault_certificate_secret_name: The name of the Key Vault secret representing the full certificate PFX.
-        :param pulumi.Input[str] azure_key_vault_certificate_secret_version: The version of the Key Vault secret representing the full certificate PFX.
-        :param pulumi.Input[str] azure_key_vault_certificate_vault_id: The ID of the Key Vault containing the SSL certificate.
-        :param pulumi.Input[str] certificate_source: Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
-        :param pulumi.Input[str] minimum_tls_version: Minimum client TLS version supported.
-        :param pulumi.Input[str] provisioning_state: Provisioning state of the Front Door.
-        :param pulumi.Input[str] provisioning_substate: Provisioning substate of the Front Door
-        """
-        if azure_key_vault_certificate_secret_name is not None:
-            pulumi.set(__self__, "azure_key_vault_certificate_secret_name", azure_key_vault_certificate_secret_name)
-        if azure_key_vault_certificate_secret_version is not None:
-            pulumi.set(__self__, "azure_key_vault_certificate_secret_version", azure_key_vault_certificate_secret_version)
-        if azure_key_vault_certificate_vault_id is not None:
-            pulumi.set(__self__, "azure_key_vault_certificate_vault_id", azure_key_vault_certificate_vault_id)
-        if certificate_source is not None:
-            pulumi.set(__self__, "certificate_source", certificate_source)
-        if minimum_tls_version is not None:
-            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if provisioning_substate is not None:
-            pulumi.set(__self__, "provisioning_substate", provisioning_substate)
-
-    @property
-    @pulumi.getter(name="azureKeyVaultCertificateSecretName")
-    def azure_key_vault_certificate_secret_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the Key Vault secret representing the full certificate PFX.
-        """
-        return pulumi.get(self, "azure_key_vault_certificate_secret_name")
-
-    @azure_key_vault_certificate_secret_name.setter
-    def azure_key_vault_certificate_secret_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "azure_key_vault_certificate_secret_name", value)
-
-    @property
-    @pulumi.getter(name="azureKeyVaultCertificateSecretVersion")
-    def azure_key_vault_certificate_secret_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        The version of the Key Vault secret representing the full certificate PFX.
-        """
-        return pulumi.get(self, "azure_key_vault_certificate_secret_version")
-
-    @azure_key_vault_certificate_secret_version.setter
-    def azure_key_vault_certificate_secret_version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "azure_key_vault_certificate_secret_version", value)
-
-    @property
-    @pulumi.getter(name="azureKeyVaultCertificateVaultId")
-    def azure_key_vault_certificate_vault_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the Key Vault containing the SSL certificate.
-        """
-        return pulumi.get(self, "azure_key_vault_certificate_vault_id")
-
-    @azure_key_vault_certificate_vault_id.setter
-    def azure_key_vault_certificate_vault_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "azure_key_vault_certificate_vault_id", value)
-
-    @property
-    @pulumi.getter(name="certificateSource")
-    def certificate_source(self) -> Optional[pulumi.Input[str]]:
-        """
-        Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
-        """
-        return pulumi.get(self, "certificate_source")
-
-    @certificate_source.setter
-    def certificate_source(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "certificate_source", value)
-
-    @property
-    @pulumi.getter(name="minimumTlsVersion")
-    def minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        Minimum client TLS version supported.
-        """
-        return pulumi.get(self, "minimum_tls_version")
-
-    @minimum_tls_version.setter
-    def minimum_tls_version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "minimum_tls_version", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        Provisioning state of the Front Door.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
-
-    @property
-    @pulumi.getter(name="provisioningSubstate")
-    def provisioning_substate(self) -> Optional[pulumi.Input[str]]:
-        """
-        Provisioning substate of the Front Door
-        """
-        return pulumi.get(self, "provisioning_substate")
-
-    @provisioning_substate.setter
-    def provisioning_substate(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_substate", value)
 
 
 @pulumi.input_type

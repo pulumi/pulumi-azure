@@ -12,6 +12,47 @@ namespace Pulumi.Azure.Storage
     /// <summary>
     /// Manages an Entity within a Table in an Azure Storage Account.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             AccountTier = "Standard",
+    ///             AccountReplicationType = "LRS",
+    ///         });
+    ///         var exampleTable = new Azure.Storage.Table("exampleTable", new Azure.Storage.TableArgs
+    ///         {
+    ///             StorageAccountName = exampleAccount.Name,
+    ///         });
+    ///         var exampleTableEntity = new Azure.Storage.TableEntity("exampleTableEntity", new Azure.Storage.TableEntityArgs
+    ///         {
+    ///             StorageAccountName = exampleAccount.Name,
+    ///             TableName = exampleTable.Name,
+    ///             PartitionKey = "examplepartition",
+    ///             RowKey = "examplerow",
+    ///             Entity = 
+    ///             {
+    ///                 { "example", "example" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Entities within a Table in an Azure Storage Account can be imported using the `resource id`, e.g.

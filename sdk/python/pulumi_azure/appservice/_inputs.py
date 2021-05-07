@@ -36,6 +36,7 @@ __all__ = [
     'AppServiceStorageAccountArgs',
     'CertificateOrderCertificateArgs',
     'EnvironmentClusterSettingArgs',
+    'EnvironmentV3ClusterSettingArgs',
     'FunctionAppAuthSettingsArgs',
     'FunctionAppAuthSettingsActiveDirectoryArgs',
     'FunctionAppAuthSettingsFacebookArgs',
@@ -2273,6 +2274,43 @@ class CertificateOrderCertificateArgs:
 
 @pulumi.input_type
 class EnvironmentClusterSettingArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the Cluster Setting.
+        :param pulumi.Input[str] value: The value for the Cluster Setting.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the Cluster Setting.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the Cluster Setting.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class EnvironmentV3ClusterSettingArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -5580,6 +5618,8 @@ class SlotIdentityArgs:
         """
         :param pulumi.Input[str] type: Specifies the identity type of the App Service. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+        :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
+        :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -5616,6 +5656,9 @@ class SlotIdentityArgs:
     @property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
+        """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
@@ -5625,6 +5668,9 @@ class SlotIdentityArgs:
     @property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
+        """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter

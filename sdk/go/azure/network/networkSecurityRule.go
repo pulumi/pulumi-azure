@@ -95,7 +95,7 @@ type NetworkSecurityRule struct {
 	NetworkSecurityGroupName pulumi.StringOutput `pulumi:"networkSecurityGroupName"`
 	// Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
 	Priority pulumi.IntOutput `pulumi:"priority"`
-	// Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, or `*` (which matches all).
+	// Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah` or `*` (which matches all).
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
 	// The name of the resource group in which to create the Network Security Rule. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -180,7 +180,7 @@ type networkSecurityRuleState struct {
 	NetworkSecurityGroupName *string `pulumi:"networkSecurityGroupName"`
 	// Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
 	Priority *int `pulumi:"priority"`
-	// Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, or `*` (which matches all).
+	// Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah` or `*` (which matches all).
 	Protocol *string `pulumi:"protocol"`
 	// The name of the resource group in which to create the Network Security Rule. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -219,7 +219,7 @@ type NetworkSecurityRuleState struct {
 	NetworkSecurityGroupName pulumi.StringPtrInput
 	// Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
 	Priority pulumi.IntPtrInput
-	// Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, or `*` (which matches all).
+	// Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah` or `*` (which matches all).
 	Protocol pulumi.StringPtrInput
 	// The name of the resource group in which to create the Network Security Rule. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -262,7 +262,7 @@ type networkSecurityRuleArgs struct {
 	NetworkSecurityGroupName string `pulumi:"networkSecurityGroupName"`
 	// Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
 	Priority int `pulumi:"priority"`
-	// Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, or `*` (which matches all).
+	// Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah` or `*` (which matches all).
 	Protocol string `pulumi:"protocol"`
 	// The name of the resource group in which to create the Network Security Rule. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -302,7 +302,7 @@ type NetworkSecurityRuleArgs struct {
 	NetworkSecurityGroupName pulumi.StringInput
 	// Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
 	Priority pulumi.IntInput
-	// Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, or `*` (which matches all).
+	// Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah` or `*` (which matches all).
 	Protocol pulumi.StringInput
 	// The name of the resource group in which to create the Network Security Rule. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput

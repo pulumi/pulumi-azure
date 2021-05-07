@@ -22,6 +22,8 @@ __all__ = [
     'AccountQueuePropertiesLoggingArgs',
     'AccountQueuePropertiesMinuteMetricsArgs',
     'AccountStaticWebsiteArgs',
+    'BlobInventoryPolicyRuleArgs',
+    'BlobInventoryPolicyRuleFilterArgs',
     'DataLakeGen2FilesystemAceArgs',
     'DataLakeGen2PathAceArgs',
     'ManagementPolicyRuleArgs',
@@ -851,6 +853,113 @@ class AccountStaticWebsiteArgs:
     @index_document.setter
     def index_document(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "index_document", value)
+
+
+@pulumi.input_type
+class BlobInventoryPolicyRuleArgs:
+    def __init__(__self__, *,
+                 filter: pulumi.Input['BlobInventoryPolicyRuleFilterArgs'],
+                 name: pulumi.Input[str]):
+        """
+        :param pulumi.Input['BlobInventoryPolicyRuleFilterArgs'] filter: A `filter` block as defined above.
+        :param pulumi.Input[str] name: The name which should be used for this Blob Inventory Policy Rule.
+        """
+        pulumi.set(__self__, "filter", filter)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> pulumi.Input['BlobInventoryPolicyRuleFilterArgs']:
+        """
+        A `filter` block as defined above.
+        """
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: pulumi.Input['BlobInventoryPolicyRuleFilterArgs']):
+        pulumi.set(self, "filter", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this Blob Inventory Policy Rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class BlobInventoryPolicyRuleFilterArgs:
+    def __init__(__self__, *,
+                 blob_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 include_blob_versions: Optional[pulumi.Input[bool]] = None,
+                 include_snapshots: Optional[pulumi.Input[bool]] = None,
+                 prefix_matches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] blob_types: A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `is_hns_enabled` is `true` doesn't support `pageBlob`.
+        :param pulumi.Input[bool] include_blob_versions: Includes blob versions in blob inventory or not? Defaults to `false`.
+        :param pulumi.Input[bool] include_snapshots: Includes blob snapshots in blob inventory or not? Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] prefix_matches: A set of strings for blob prefixes to be matched.
+        """
+        pulumi.set(__self__, "blob_types", blob_types)
+        if include_blob_versions is not None:
+            pulumi.set(__self__, "include_blob_versions", include_blob_versions)
+        if include_snapshots is not None:
+            pulumi.set(__self__, "include_snapshots", include_snapshots)
+        if prefix_matches is not None:
+            pulumi.set(__self__, "prefix_matches", prefix_matches)
+
+    @property
+    @pulumi.getter(name="blobTypes")
+    def blob_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `is_hns_enabled` is `true` doesn't support `pageBlob`.
+        """
+        return pulumi.get(self, "blob_types")
+
+    @blob_types.setter
+    def blob_types(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "blob_types", value)
+
+    @property
+    @pulumi.getter(name="includeBlobVersions")
+    def include_blob_versions(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Includes blob versions in blob inventory or not? Defaults to `false`.
+        """
+        return pulumi.get(self, "include_blob_versions")
+
+    @include_blob_versions.setter
+    def include_blob_versions(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_blob_versions", value)
+
+    @property
+    @pulumi.getter(name="includeSnapshots")
+    def include_snapshots(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Includes blob snapshots in blob inventory or not? Defaults to `false`.
+        """
+        return pulumi.get(self, "include_snapshots")
+
+    @include_snapshots.setter
+    def include_snapshots(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_snapshots", value)
+
+    @property
+    @pulumi.getter(name="prefixMatches")
+    def prefix_matches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A set of strings for blob prefixes to be matched.
+        """
+        return pulumi.get(self, "prefix_matches")
+
+    @prefix_matches.setter
+    def prefix_matches(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "prefix_matches", value)
 
 
 @pulumi.input_type

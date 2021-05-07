@@ -12,6 +12,7 @@ export * from "./certificateBinding";
 export * from "./certificateOrder";
 export * from "./customHostnameBinding";
 export * from "./environment";
+export * from "./environmentV3";
 export * from "./functionApp";
 export * from "./functionAppSlot";
 export * from "./getAppService";
@@ -19,6 +20,7 @@ export * from "./getAppServiceEnvironment";
 export * from "./getAppServicePlan";
 export * from "./getCertificate";
 export * from "./getCertificateOrder";
+export * from "./getEnvironmentV3";
 export * from "./getFunctionApp";
 export * from "./getFunctionAppHostKeys";
 export * from "./hybridConnection";
@@ -42,6 +44,7 @@ import { CertificateBinding } from "./certificateBinding";
 import { CertificateOrder } from "./certificateOrder";
 import { CustomHostnameBinding } from "./customHostnameBinding";
 import { Environment } from "./environment";
+import { EnvironmentV3 } from "./environmentV3";
 import { FunctionApp } from "./functionApp";
 import { FunctionAppSlot } from "./functionAppSlot";
 import { HybridConnection } from "./hybridConnection";
@@ -70,6 +73,8 @@ const _module = {
                 return new CustomHostnameBinding(name, <any>undefined, { urn })
             case "azure:appservice/environment:Environment":
                 return new Environment(name, <any>undefined, { urn })
+            case "azure:appservice/environmentV3:EnvironmentV3":
+                return new EnvironmentV3(name, <any>undefined, { urn })
             case "azure:appservice/functionApp:FunctionApp":
                 return new FunctionApp(name, <any>undefined, { urn })
             case "azure:appservice/functionAppSlot:FunctionAppSlot":
@@ -100,6 +105,7 @@ pulumi.runtime.registerResourceModule("azure", "appservice/certificateBinding", 
 pulumi.runtime.registerResourceModule("azure", "appservice/certificateOrder", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/customHostnameBinding", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/environment", _module)
+pulumi.runtime.registerResourceModule("azure", "appservice/environmentV3", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/functionApp", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/functionAppSlot", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/hybridConnection", _module)

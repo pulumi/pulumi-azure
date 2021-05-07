@@ -19,6 +19,7 @@ class AccountArgs:
                  geo_locations: pulumi.Input[Sequence[pulumi.Input['AccountGeoLocationArgs']]],
                  offer_type: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 access_key_metadata_writes_enabled: Optional[pulumi.Input[bool]] = None,
                  analytical_storage_enabled: Optional[pulumi.Input[bool]] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]] = None,
                  enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
@@ -29,7 +30,10 @@ class AccountArgs:
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 mongo_server_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_acl_bypass_for_azure_services: Optional[pulumi.Input[bool]] = None,
+                 network_acl_bypass_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]] = None):
@@ -39,6 +43,7 @@ class AccountArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AccountGeoLocationArgs']]] geo_locations: Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
         :param pulumi.Input[str] offer_type: Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] access_key_metadata_writes_enabled: Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
         :param pulumi.Input[bool] analytical_storage_enabled: Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
         :param pulumi.Input[bool] enable_automatic_failover: Enable automatic fail over for this Cosmos DB account.
@@ -49,7 +54,10 @@ class AccountArgs:
         :param pulumi.Input[str] key_vault_key_id: A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If azure services can bypass ACLs. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_ids: The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this CosmosDB account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]] virtual_network_rules: Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
@@ -58,6 +66,8 @@ class AccountArgs:
         pulumi.set(__self__, "geo_locations", geo_locations)
         pulumi.set(__self__, "offer_type", offer_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if access_key_metadata_writes_enabled is not None:
+            pulumi.set(__self__, "access_key_metadata_writes_enabled", access_key_metadata_writes_enabled)
         if analytical_storage_enabled is not None:
             pulumi.set(__self__, "analytical_storage_enabled", analytical_storage_enabled)
         if capabilities is not None:
@@ -78,8 +88,14 @@ class AccountArgs:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if mongo_server_version is not None:
+            pulumi.set(__self__, "mongo_server_version", mongo_server_version)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_acl_bypass_for_azure_services is not None:
+            pulumi.set(__self__, "network_acl_bypass_for_azure_services", network_acl_bypass_for_azure_services)
+        if network_acl_bypass_ids is not None:
+            pulumi.set(__self__, "network_acl_bypass_ids", network_acl_bypass_ids)
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if tags is not None:
@@ -134,6 +150,18 @@ class AccountArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="accessKeyMetadataWritesEnabled")
+    def access_key_metadata_writes_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "access_key_metadata_writes_enabled")
+
+    @access_key_metadata_writes_enabled.setter
+    def access_key_metadata_writes_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "access_key_metadata_writes_enabled", value)
 
     @property
     @pulumi.getter(name="analyticalStorageEnabled")
@@ -256,6 +284,18 @@ class AccountArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="mongoServerVersion")
+    def mongo_server_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "mongo_server_version")
+
+    @mongo_server_version.setter
+    def mongo_server_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mongo_server_version", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -266,6 +306,30 @@ class AccountArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="networkAclBypassForAzureServices")
+    def network_acl_bypass_for_azure_services(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If azure services can bypass ACLs. Defaults to `false`.
+        """
+        return pulumi.get(self, "network_acl_bypass_for_azure_services")
+
+    @network_acl_bypass_for_azure_services.setter
+    def network_acl_bypass_for_azure_services(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "network_acl_bypass_for_azure_services", value)
+
+    @property
+    @pulumi.getter(name="networkAclBypassIds")
+    def network_acl_bypass_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
+        """
+        return pulumi.get(self, "network_acl_bypass_ids")
+
+    @network_acl_bypass_ids.setter
+    def network_acl_bypass_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "network_acl_bypass_ids", value)
 
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
@@ -307,6 +371,7 @@ class AccountArgs:
 @pulumi.input_type
 class _AccountState:
     def __init__(__self__, *,
+                 access_key_metadata_writes_enabled: Optional[pulumi.Input[bool]] = None,
                  analytical_storage_enabled: Optional[pulumi.Input[bool]] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -321,7 +386,10 @@ class _AccountState:
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 mongo_server_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_acl_bypass_for_azure_services: Optional[pulumi.Input[bool]] = None,
+                 network_acl_bypass_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  offer_type: Optional[pulumi.Input[str]] = None,
                  primary_key: Optional[pulumi.Input[str]] = None,
                  primary_master_key: Optional[pulumi.Input[str]] = None,
@@ -339,6 +407,7 @@ class _AccountState:
                  write_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Account resources.
+        :param pulumi.Input[bool] access_key_metadata_writes_enabled: Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
         :param pulumi.Input[bool] analytical_storage_enabled: Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_strings: A list of connection strings available for this CosmosDB account.
@@ -353,7 +422,10 @@ class _AccountState:
         :param pulumi.Input[str] key_vault_key_id: A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If azure services can bypass ACLs. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_ids: The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
         :param pulumi.Input[str] offer_type: Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
         :param pulumi.Input[str] primary_key: The Primary master key for the CosmosDB Account.
         :param pulumi.Input[str] primary_readonly_key: The Primary read-only master Key for the CosmosDB Account.
@@ -366,6 +438,8 @@ class _AccountState:
         :param pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]] virtual_network_rules: Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] write_endpoints: A list of write endpoints available for this CosmosDB account.
         """
+        if access_key_metadata_writes_enabled is not None:
+            pulumi.set(__self__, "access_key_metadata_writes_enabled", access_key_metadata_writes_enabled)
         if analytical_storage_enabled is not None:
             pulumi.set(__self__, "analytical_storage_enabled", analytical_storage_enabled)
         if capabilities is not None:
@@ -394,8 +468,14 @@ class _AccountState:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if mongo_server_version is not None:
+            pulumi.set(__self__, "mongo_server_version", mongo_server_version)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_acl_bypass_for_azure_services is not None:
+            pulumi.set(__self__, "network_acl_bypass_for_azure_services", network_acl_bypass_for_azure_services)
+        if network_acl_bypass_ids is not None:
+            pulumi.set(__self__, "network_acl_bypass_ids", network_acl_bypass_ids)
         if offer_type is not None:
             pulumi.set(__self__, "offer_type", offer_type)
         if primary_key is not None:
@@ -438,6 +518,18 @@ class _AccountState:
             pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
         if write_endpoints is not None:
             pulumi.set(__self__, "write_endpoints", write_endpoints)
+
+    @property
+    @pulumi.getter(name="accessKeyMetadataWritesEnabled")
+    def access_key_metadata_writes_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "access_key_metadata_writes_enabled")
+
+    @access_key_metadata_writes_enabled.setter
+    def access_key_metadata_writes_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "access_key_metadata_writes_enabled", value)
 
     @property
     @pulumi.getter(name="analyticalStorageEnabled")
@@ -608,6 +700,18 @@ class _AccountState:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="mongoServerVersion")
+    def mongo_server_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "mongo_server_version")
+
+    @mongo_server_version.setter
+    def mongo_server_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mongo_server_version", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -618,6 +722,30 @@ class _AccountState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="networkAclBypassForAzureServices")
+    def network_acl_bypass_for_azure_services(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If azure services can bypass ACLs. Defaults to `false`.
+        """
+        return pulumi.get(self, "network_acl_bypass_for_azure_services")
+
+    @network_acl_bypass_for_azure_services.setter
+    def network_acl_bypass_for_azure_services(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "network_acl_bypass_for_azure_services", value)
+
+    @property
+    @pulumi.getter(name="networkAclBypassIds")
+    def network_acl_bypass_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
+        """
+        return pulumi.get(self, "network_acl_bypass_ids")
+
+    @network_acl_bypass_ids.setter
+    def network_acl_bypass_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "network_acl_bypass_ids", value)
 
     @property
     @pulumi.getter(name="offerType")
@@ -793,6 +921,7 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 access_key_metadata_writes_enabled: Optional[pulumi.Input[bool]] = None,
                  analytical_storage_enabled: Optional[pulumi.Input[bool]] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]]] = None,
                  consistency_policy: Optional[pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']]] = None,
@@ -805,7 +934,10 @@ class Account(pulumi.CustomResource):
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 mongo_server_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_acl_bypass_for_azure_services: Optional[pulumi.Input[bool]] = None,
+                 network_acl_bypass_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  offer_type: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -870,6 +1002,7 @@ class Account(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] access_key_metadata_writes_enabled: Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
         :param pulumi.Input[bool] analytical_storage_enabled: Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']] consistency_policy: Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
@@ -882,7 +1015,10 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] key_vault_key_id: A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If azure services can bypass ACLs. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_ids: The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
         :param pulumi.Input[str] offer_type: Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this CosmosDB account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
@@ -966,6 +1102,7 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 access_key_metadata_writes_enabled: Optional[pulumi.Input[bool]] = None,
                  analytical_storage_enabled: Optional[pulumi.Input[bool]] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]]] = None,
                  consistency_policy: Optional[pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']]] = None,
@@ -978,7 +1115,10 @@ class Account(pulumi.CustomResource):
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 mongo_server_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_acl_bypass_for_azure_services: Optional[pulumi.Input[bool]] = None,
+                 network_acl_bypass_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  offer_type: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -996,6 +1136,7 @@ class Account(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AccountArgs.__new__(AccountArgs)
 
+            __props__.__dict__["access_key_metadata_writes_enabled"] = access_key_metadata_writes_enabled
             __props__.__dict__["analytical_storage_enabled"] = analytical_storage_enabled
             __props__.__dict__["capabilities"] = capabilities
             if consistency_policy is None and not opts.urn:
@@ -1012,7 +1153,10 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["key_vault_key_id"] = key_vault_key_id
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
+            __props__.__dict__["mongo_server_version"] = mongo_server_version
             __props__.__dict__["name"] = name
+            __props__.__dict__["network_acl_bypass_for_azure_services"] = network_acl_bypass_for_azure_services
+            __props__.__dict__["network_acl_bypass_ids"] = network_acl_bypass_ids
             if offer_type is None and not opts.urn:
                 raise TypeError("Missing required property 'offer_type'")
             __props__.__dict__["offer_type"] = offer_type
@@ -1044,6 +1188,7 @@ class Account(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            access_key_metadata_writes_enabled: Optional[pulumi.Input[bool]] = None,
             analytical_storage_enabled: Optional[pulumi.Input[bool]] = None,
             capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]]] = None,
             connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1058,7 +1203,10 @@ class Account(pulumi.CustomResource):
             key_vault_key_id: Optional[pulumi.Input[str]] = None,
             kind: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
+            mongo_server_version: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            network_acl_bypass_for_azure_services: Optional[pulumi.Input[bool]] = None,
+            network_acl_bypass_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             offer_type: Optional[pulumi.Input[str]] = None,
             primary_key: Optional[pulumi.Input[str]] = None,
             primary_master_key: Optional[pulumi.Input[str]] = None,
@@ -1081,6 +1229,7 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] access_key_metadata_writes_enabled: Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
         :param pulumi.Input[bool] analytical_storage_enabled: Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_strings: A list of connection strings available for this CosmosDB account.
@@ -1095,7 +1244,10 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] key_vault_key_id: A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kind: Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] mongo_server_version: The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] network_acl_bypass_for_azure_services: If azure services can bypass ACLs. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_acl_bypass_ids: The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
         :param pulumi.Input[str] offer_type: Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
         :param pulumi.Input[str] primary_key: The Primary master key for the CosmosDB Account.
         :param pulumi.Input[str] primary_readonly_key: The Primary read-only master Key for the CosmosDB Account.
@@ -1112,6 +1264,7 @@ class Account(pulumi.CustomResource):
 
         __props__ = _AccountState.__new__(_AccountState)
 
+        __props__.__dict__["access_key_metadata_writes_enabled"] = access_key_metadata_writes_enabled
         __props__.__dict__["analytical_storage_enabled"] = analytical_storage_enabled
         __props__.__dict__["capabilities"] = capabilities
         __props__.__dict__["connection_strings"] = connection_strings
@@ -1126,7 +1279,10 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["key_vault_key_id"] = key_vault_key_id
         __props__.__dict__["kind"] = kind
         __props__.__dict__["location"] = location
+        __props__.__dict__["mongo_server_version"] = mongo_server_version
         __props__.__dict__["name"] = name
+        __props__.__dict__["network_acl_bypass_for_azure_services"] = network_acl_bypass_for_azure_services
+        __props__.__dict__["network_acl_bypass_ids"] = network_acl_bypass_ids
         __props__.__dict__["offer_type"] = offer_type
         __props__.__dict__["primary_key"] = primary_key
         __props__.__dict__["primary_master_key"] = primary_master_key
@@ -1143,6 +1299,14 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["virtual_network_rules"] = virtual_network_rules
         __props__.__dict__["write_endpoints"] = write_endpoints
         return Account(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="accessKeyMetadataWritesEnabled")
+    def access_key_metadata_writes_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "access_key_metadata_writes_enabled")
 
     @property
     @pulumi.getter(name="analyticalStorageEnabled")
@@ -1257,12 +1421,36 @@ class Account(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="mongoServerVersion")
+    def mongo_server_version(self) -> pulumi.Output[str]:
+        """
+        The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "mongo_server_version")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkAclBypassForAzureServices")
+    def network_acl_bypass_for_azure_services(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If azure services can bypass ACLs. Defaults to `false`.
+        """
+        return pulumi.get(self, "network_acl_bypass_for_azure_services")
+
+    @property
+    @pulumi.getter(name="networkAclBypassIds")
+    def network_acl_bypass_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
+        """
+        return pulumi.get(self, "network_acl_bypass_ids")
 
     @property
     @pulumi.getter(name="offerType")

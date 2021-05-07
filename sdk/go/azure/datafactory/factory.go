@@ -54,6 +54,8 @@ import (
 type Factory struct {
 	pulumi.CustomResourceState
 
+	// Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
+	CustomerManagedKeyId pulumi.StringPtrOutput `pulumi:"customerManagedKeyId"`
 	// A `githubConfiguration` block as defined below.
 	GithubConfiguration FactoryGithubConfigurationPtrOutput `pulumi:"githubConfiguration"`
 	// An `identity` block as defined below.
@@ -104,6 +106,8 @@ func GetFactory(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Factory resources.
 type factoryState struct {
+	// Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
+	CustomerManagedKeyId *string `pulumi:"customerManagedKeyId"`
 	// A `githubConfiguration` block as defined below.
 	GithubConfiguration *FactoryGithubConfiguration `pulumi:"githubConfiguration"`
 	// An `identity` block as defined below.
@@ -123,6 +127,8 @@ type factoryState struct {
 }
 
 type FactoryState struct {
+	// Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
+	CustomerManagedKeyId pulumi.StringPtrInput
 	// A `githubConfiguration` block as defined below.
 	GithubConfiguration FactoryGithubConfigurationPtrInput
 	// An `identity` block as defined below.
@@ -146,6 +152,8 @@ func (FactoryState) ElementType() reflect.Type {
 }
 
 type factoryArgs struct {
+	// Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
+	CustomerManagedKeyId *string `pulumi:"customerManagedKeyId"`
 	// A `githubConfiguration` block as defined below.
 	GithubConfiguration *FactoryGithubConfiguration `pulumi:"githubConfiguration"`
 	// An `identity` block as defined below.
@@ -166,6 +174,8 @@ type factoryArgs struct {
 
 // The set of arguments for constructing a Factory resource.
 type FactoryArgs struct {
+	// Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
+	CustomerManagedKeyId pulumi.StringPtrInput
 	// A `githubConfiguration` block as defined below.
 	GithubConfiguration FactoryGithubConfigurationPtrInput
 	// An `identity` block as defined below.

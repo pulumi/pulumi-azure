@@ -2210,6 +2210,191 @@ func (o AccountStaticWebsitePtrOutput) IndexDocument() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type BlobInventoryPolicyRule struct {
+	// A `filter` block as defined above.
+	Filter BlobInventoryPolicyRuleFilter `pulumi:"filter"`
+	// The name which should be used for this Blob Inventory Policy Rule.
+	Name string `pulumi:"name"`
+}
+
+// BlobInventoryPolicyRuleInput is an input type that accepts BlobInventoryPolicyRuleArgs and BlobInventoryPolicyRuleOutput values.
+// You can construct a concrete instance of `BlobInventoryPolicyRuleInput` via:
+//
+//          BlobInventoryPolicyRuleArgs{...}
+type BlobInventoryPolicyRuleInput interface {
+	pulumi.Input
+
+	ToBlobInventoryPolicyRuleOutput() BlobInventoryPolicyRuleOutput
+	ToBlobInventoryPolicyRuleOutputWithContext(context.Context) BlobInventoryPolicyRuleOutput
+}
+
+type BlobInventoryPolicyRuleArgs struct {
+	// A `filter` block as defined above.
+	Filter BlobInventoryPolicyRuleFilterInput `pulumi:"filter"`
+	// The name which should be used for this Blob Inventory Policy Rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (BlobInventoryPolicyRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobInventoryPolicyRule)(nil)).Elem()
+}
+
+func (i BlobInventoryPolicyRuleArgs) ToBlobInventoryPolicyRuleOutput() BlobInventoryPolicyRuleOutput {
+	return i.ToBlobInventoryPolicyRuleOutputWithContext(context.Background())
+}
+
+func (i BlobInventoryPolicyRuleArgs) ToBlobInventoryPolicyRuleOutputWithContext(ctx context.Context) BlobInventoryPolicyRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyRuleOutput)
+}
+
+// BlobInventoryPolicyRuleArrayInput is an input type that accepts BlobInventoryPolicyRuleArray and BlobInventoryPolicyRuleArrayOutput values.
+// You can construct a concrete instance of `BlobInventoryPolicyRuleArrayInput` via:
+//
+//          BlobInventoryPolicyRuleArray{ BlobInventoryPolicyRuleArgs{...} }
+type BlobInventoryPolicyRuleArrayInput interface {
+	pulumi.Input
+
+	ToBlobInventoryPolicyRuleArrayOutput() BlobInventoryPolicyRuleArrayOutput
+	ToBlobInventoryPolicyRuleArrayOutputWithContext(context.Context) BlobInventoryPolicyRuleArrayOutput
+}
+
+type BlobInventoryPolicyRuleArray []BlobInventoryPolicyRuleInput
+
+func (BlobInventoryPolicyRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BlobInventoryPolicyRule)(nil)).Elem()
+}
+
+func (i BlobInventoryPolicyRuleArray) ToBlobInventoryPolicyRuleArrayOutput() BlobInventoryPolicyRuleArrayOutput {
+	return i.ToBlobInventoryPolicyRuleArrayOutputWithContext(context.Background())
+}
+
+func (i BlobInventoryPolicyRuleArray) ToBlobInventoryPolicyRuleArrayOutputWithContext(ctx context.Context) BlobInventoryPolicyRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyRuleArrayOutput)
+}
+
+type BlobInventoryPolicyRuleOutput struct{ *pulumi.OutputState }
+
+func (BlobInventoryPolicyRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobInventoryPolicyRule)(nil)).Elem()
+}
+
+func (o BlobInventoryPolicyRuleOutput) ToBlobInventoryPolicyRuleOutput() BlobInventoryPolicyRuleOutput {
+	return o
+}
+
+func (o BlobInventoryPolicyRuleOutput) ToBlobInventoryPolicyRuleOutputWithContext(ctx context.Context) BlobInventoryPolicyRuleOutput {
+	return o
+}
+
+// A `filter` block as defined above.
+func (o BlobInventoryPolicyRuleOutput) Filter() BlobInventoryPolicyRuleFilterOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyRule) BlobInventoryPolicyRuleFilter { return v.Filter }).(BlobInventoryPolicyRuleFilterOutput)
+}
+
+// The name which should be used for this Blob Inventory Policy Rule.
+func (o BlobInventoryPolicyRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type BlobInventoryPolicyRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (BlobInventoryPolicyRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BlobInventoryPolicyRule)(nil)).Elem()
+}
+
+func (o BlobInventoryPolicyRuleArrayOutput) ToBlobInventoryPolicyRuleArrayOutput() BlobInventoryPolicyRuleArrayOutput {
+	return o
+}
+
+func (o BlobInventoryPolicyRuleArrayOutput) ToBlobInventoryPolicyRuleArrayOutputWithContext(ctx context.Context) BlobInventoryPolicyRuleArrayOutput {
+	return o
+}
+
+func (o BlobInventoryPolicyRuleArrayOutput) Index(i pulumi.IntInput) BlobInventoryPolicyRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BlobInventoryPolicyRule {
+		return vs[0].([]BlobInventoryPolicyRule)[vs[1].(int)]
+	}).(BlobInventoryPolicyRuleOutput)
+}
+
+type BlobInventoryPolicyRuleFilter struct {
+	// A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `isHnsEnabled` is `true` doesn't support `pageBlob`.
+	BlobTypes []string `pulumi:"blobTypes"`
+	// Includes blob versions in blob inventory or not? Defaults to `false`.
+	IncludeBlobVersions *bool `pulumi:"includeBlobVersions"`
+	// Includes blob snapshots in blob inventory or not? Defaults to `false`.
+	IncludeSnapshots *bool `pulumi:"includeSnapshots"`
+	// A set of strings for blob prefixes to be matched.
+	PrefixMatches []string `pulumi:"prefixMatches"`
+}
+
+// BlobInventoryPolicyRuleFilterInput is an input type that accepts BlobInventoryPolicyRuleFilterArgs and BlobInventoryPolicyRuleFilterOutput values.
+// You can construct a concrete instance of `BlobInventoryPolicyRuleFilterInput` via:
+//
+//          BlobInventoryPolicyRuleFilterArgs{...}
+type BlobInventoryPolicyRuleFilterInput interface {
+	pulumi.Input
+
+	ToBlobInventoryPolicyRuleFilterOutput() BlobInventoryPolicyRuleFilterOutput
+	ToBlobInventoryPolicyRuleFilterOutputWithContext(context.Context) BlobInventoryPolicyRuleFilterOutput
+}
+
+type BlobInventoryPolicyRuleFilterArgs struct {
+	// A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `isHnsEnabled` is `true` doesn't support `pageBlob`.
+	BlobTypes pulumi.StringArrayInput `pulumi:"blobTypes"`
+	// Includes blob versions in blob inventory or not? Defaults to `false`.
+	IncludeBlobVersions pulumi.BoolPtrInput `pulumi:"includeBlobVersions"`
+	// Includes blob snapshots in blob inventory or not? Defaults to `false`.
+	IncludeSnapshots pulumi.BoolPtrInput `pulumi:"includeSnapshots"`
+	// A set of strings for blob prefixes to be matched.
+	PrefixMatches pulumi.StringArrayInput `pulumi:"prefixMatches"`
+}
+
+func (BlobInventoryPolicyRuleFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobInventoryPolicyRuleFilter)(nil)).Elem()
+}
+
+func (i BlobInventoryPolicyRuleFilterArgs) ToBlobInventoryPolicyRuleFilterOutput() BlobInventoryPolicyRuleFilterOutput {
+	return i.ToBlobInventoryPolicyRuleFilterOutputWithContext(context.Background())
+}
+
+func (i BlobInventoryPolicyRuleFilterArgs) ToBlobInventoryPolicyRuleFilterOutputWithContext(ctx context.Context) BlobInventoryPolicyRuleFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyRuleFilterOutput)
+}
+
+type BlobInventoryPolicyRuleFilterOutput struct{ *pulumi.OutputState }
+
+func (BlobInventoryPolicyRuleFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobInventoryPolicyRuleFilter)(nil)).Elem()
+}
+
+func (o BlobInventoryPolicyRuleFilterOutput) ToBlobInventoryPolicyRuleFilterOutput() BlobInventoryPolicyRuleFilterOutput {
+	return o
+}
+
+func (o BlobInventoryPolicyRuleFilterOutput) ToBlobInventoryPolicyRuleFilterOutputWithContext(ctx context.Context) BlobInventoryPolicyRuleFilterOutput {
+	return o
+}
+
+// A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `isHnsEnabled` is `true` doesn't support `pageBlob`.
+func (o BlobInventoryPolicyRuleFilterOutput) BlobTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyRuleFilter) []string { return v.BlobTypes }).(pulumi.StringArrayOutput)
+}
+
+// Includes blob versions in blob inventory or not? Defaults to `false`.
+func (o BlobInventoryPolicyRuleFilterOutput) IncludeBlobVersions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyRuleFilter) *bool { return v.IncludeBlobVersions }).(pulumi.BoolPtrOutput)
+}
+
+// Includes blob snapshots in blob inventory or not? Defaults to `false`.
+func (o BlobInventoryPolicyRuleFilterOutput) IncludeSnapshots() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyRuleFilter) *bool { return v.IncludeSnapshots }).(pulumi.BoolPtrOutput)
+}
+
+// A set of strings for blob prefixes to be matched.
+func (o BlobInventoryPolicyRuleFilterOutput) PrefixMatches() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BlobInventoryPolicyRuleFilter) []string { return v.PrefixMatches }).(pulumi.StringArrayOutput)
+}
+
 type DataLakeGen2FilesystemAce struct {
 	// Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
 	Id *string `pulumi:"id"`
@@ -5193,6 +5378,9 @@ func init() {
 	pulumi.RegisterOutputType(AccountQueuePropertiesMinuteMetricsPtrOutput{})
 	pulumi.RegisterOutputType(AccountStaticWebsiteOutput{})
 	pulumi.RegisterOutputType(AccountStaticWebsitePtrOutput{})
+	pulumi.RegisterOutputType(BlobInventoryPolicyRuleOutput{})
+	pulumi.RegisterOutputType(BlobInventoryPolicyRuleArrayOutput{})
+	pulumi.RegisterOutputType(BlobInventoryPolicyRuleFilterOutput{})
 	pulumi.RegisterOutputType(DataLakeGen2FilesystemAceOutput{})
 	pulumi.RegisterOutputType(DataLakeGen2FilesystemAceArrayOutput{})
 	pulumi.RegisterOutputType(DataLakeGen2PathAceOutput{})

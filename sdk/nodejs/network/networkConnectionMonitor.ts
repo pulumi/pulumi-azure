@@ -85,7 +85,7 @@ import * as utilities from "../utilities";
  *     endpoints: [
  *         {
  *             name: "source",
- *             virtualMachineId: exampleVirtualMachine.id,
+ *             targetResourceId: exampleVirtualMachine.id,
  *             filter: {
  *                 items: [{
  *                     address: exampleVirtualMachine.id,

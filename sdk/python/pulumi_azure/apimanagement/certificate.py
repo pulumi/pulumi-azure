@@ -14,21 +14,30 @@ __all__ = ['CertificateArgs', 'Certificate']
 class CertificateArgs:
     def __init__(__self__, *,
                  api_management_name: pulumi.Input[str],
-                 data: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 data: Optional[pulumi.Input[str]] = None,
+                 key_vault_identity_client_id: Optional[pulumi.Input[str]] = None,
+                 key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Certificate resource.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this Service should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] data: The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] data: The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] key_vault_identity_client_id: The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+        :param pulumi.Input[str] key_vault_secret_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
         :param pulumi.Input[str] name: The name of the API Management Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The password used for this certificate. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "api_management_name", api_management_name)
-        pulumi.set(__self__, "data", data)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if data is not None:
+            pulumi.set(__self__, "data", data)
+        if key_vault_identity_client_id is not None:
+            pulumi.set(__self__, "key_vault_identity_client_id", key_vault_identity_client_id)
+        if key_vault_secret_id is not None:
+            pulumi.set(__self__, "key_vault_secret_id", key_vault_secret_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if password is not None:
@@ -47,18 +56,6 @@ class CertificateArgs:
         pulumi.set(self, "api_management_name", value)
 
     @property
-    @pulumi.getter
-    def data(self) -> pulumi.Input[str]:
-        """
-        The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "data")
-
-    @data.setter
-    def data(self, value: pulumi.Input[str]):
-        pulumi.set(self, "data", value)
-
-    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
@@ -69,6 +66,42 @@ class CertificateArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def data(self) -> Optional[pulumi.Input[str]]:
+        """
+        The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "data")
+
+    @data.setter
+    def data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data", value)
+
+    @property
+    @pulumi.getter(name="keyVaultIdentityClientId")
+    def key_vault_identity_client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+        """
+        return pulumi.get(self, "key_vault_identity_client_id")
+
+    @key_vault_identity_client_id.setter
+    def key_vault_identity_client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_identity_client_id", value)
+
+    @property
+    @pulumi.getter(name="keyVaultSecretId")
+    def key_vault_secret_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+        """
+        return pulumi.get(self, "key_vault_secret_id")
+
+    @key_vault_secret_id.setter
+    def key_vault_secret_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_secret_id", value)
 
     @property
     @pulumi.getter
@@ -101,6 +134,8 @@ class _CertificateState:
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  data: Optional[pulumi.Input[str]] = None,
                  expiration: Optional[pulumi.Input[str]] = None,
+                 key_vault_identity_client_id: Optional[pulumi.Input[str]] = None,
+                 key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -111,6 +146,8 @@ class _CertificateState:
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this Service should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] data: The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
         :param pulumi.Input[str] expiration: The Expiration Date of this Certificate, formatted as an RFC3339 string.
+        :param pulumi.Input[str] key_vault_identity_client_id: The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+        :param pulumi.Input[str] key_vault_secret_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
         :param pulumi.Input[str] name: The name of the API Management Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The password used for this certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
@@ -123,6 +160,10 @@ class _CertificateState:
             pulumi.set(__self__, "data", data)
         if expiration is not None:
             pulumi.set(__self__, "expiration", expiration)
+        if key_vault_identity_client_id is not None:
+            pulumi.set(__self__, "key_vault_identity_client_id", key_vault_identity_client_id)
+        if key_vault_secret_id is not None:
+            pulumi.set(__self__, "key_vault_secret_id", key_vault_secret_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if password is not None:
@@ -169,6 +210,30 @@ class _CertificateState:
     @expiration.setter
     def expiration(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "expiration", value)
+
+    @property
+    @pulumi.getter(name="keyVaultIdentityClientId")
+    def key_vault_identity_client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+        """
+        return pulumi.get(self, "key_vault_identity_client_id")
+
+    @key_vault_identity_client_id.setter
+    def key_vault_identity_client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_identity_client_id", value)
+
+    @property
+    @pulumi.getter(name="keyVaultSecretId")
+    def key_vault_secret_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+        """
+        return pulumi.get(self, "key_vault_secret_id")
+
+    @key_vault_secret_id.setter
+    def key_vault_secret_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_secret_id", value)
 
     @property
     @pulumi.getter
@@ -238,12 +303,16 @@ class Certificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  data: Optional[pulumi.Input[str]] = None,
+                 key_vault_identity_client_id: Optional[pulumi.Input[str]] = None,
+                 key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages an Certificate within an API Management Service.
+
+        ## Example Usage
 
         ## Import
 
@@ -257,6 +326,8 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this Service should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] data: The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] key_vault_identity_client_id: The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+        :param pulumi.Input[str] key_vault_secret_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
         :param pulumi.Input[str] name: The name of the API Management Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The password used for this certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
@@ -269,6 +340,8 @@ class Certificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Certificate within an API Management Service.
+
+        ## Example Usage
 
         ## Import
 
@@ -295,6 +368,8 @@ class Certificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  data: Optional[pulumi.Input[str]] = None,
+                 key_vault_identity_client_id: Optional[pulumi.Input[str]] = None,
+                 key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -313,9 +388,9 @@ class Certificate(pulumi.CustomResource):
             if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
             __props__.__dict__["api_management_name"] = api_management_name
-            if data is None and not opts.urn:
-                raise TypeError("Missing required property 'data'")
             __props__.__dict__["data"] = data
+            __props__.__dict__["key_vault_identity_client_id"] = key_vault_identity_client_id
+            __props__.__dict__["key_vault_secret_id"] = key_vault_secret_id
             __props__.__dict__["name"] = name
             __props__.__dict__["password"] = password
             if resource_group_name is None and not opts.urn:
@@ -337,6 +412,8 @@ class Certificate(pulumi.CustomResource):
             api_management_name: Optional[pulumi.Input[str]] = None,
             data: Optional[pulumi.Input[str]] = None,
             expiration: Optional[pulumi.Input[str]] = None,
+            key_vault_identity_client_id: Optional[pulumi.Input[str]] = None,
+            key_vault_secret_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             password: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -352,6 +429,8 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this Service should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] data: The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
         :param pulumi.Input[str] expiration: The Expiration Date of this Certificate, formatted as an RFC3339 string.
+        :param pulumi.Input[str] key_vault_identity_client_id: The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+        :param pulumi.Input[str] key_vault_secret_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
         :param pulumi.Input[str] name: The name of the API Management Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The password used for this certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
@@ -365,6 +444,8 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["api_management_name"] = api_management_name
         __props__.__dict__["data"] = data
         __props__.__dict__["expiration"] = expiration
+        __props__.__dict__["key_vault_identity_client_id"] = key_vault_identity_client_id
+        __props__.__dict__["key_vault_secret_id"] = key_vault_secret_id
         __props__.__dict__["name"] = name
         __props__.__dict__["password"] = password
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -382,7 +463,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def data(self) -> pulumi.Output[str]:
+    def data(self) -> pulumi.Output[Optional[str]]:
         """
         The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
         """
@@ -395,6 +476,22 @@ class Certificate(pulumi.CustomResource):
         The Expiration Date of this Certificate, formatted as an RFC3339 string.
         """
         return pulumi.get(self, "expiration")
+
+    @property
+    @pulumi.getter(name="keyVaultIdentityClientId")
+    def key_vault_identity_client_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+        """
+        return pulumi.get(self, "key_vault_identity_client_id")
+
+    @property
+    @pulumi.getter(name="keyVaultSecretId")
+    def key_vault_secret_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+        """
+        return pulumi.get(self, "key_vault_secret_id")
 
     @property
     @pulumi.getter

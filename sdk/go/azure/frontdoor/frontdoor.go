@@ -11,6 +11,97 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages an Azure Front Door instance.
+//
+// Azure Front Door Service is Microsoft's highly available and scalable web application acceleration platform and global HTTP(s) load balancer. It provides built-in DDoS protection and application layer security and caching. Front Door enables you to build applications that maximize and automate high-availability and performance for your end-users. Use Front Door with Azure services including Web/Mobile Apps, Cloud Services and Virtual Machines – or combine it with on-premises services for hybrid deployments and smooth cloud migration.
+//
+// Below are some of the key scenarios that Azure Front Door Service addresses:
+// * Use Front Door to improve application scale and availability with instant multi-region failover
+// * Use Front Door to improve application performance with SSL offload and routing requests to the fastest available application backend.
+// * Use Front Door for application layer security and DDoS protection for your application.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/frontdoor"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = frontdoor.NewFrontdoor(ctx, "exampleFrontdoor", &frontdoor.FrontdoorArgs{
+// 			Location:                                pulumi.String("EastUS2"),
+// 			ResourceGroupName:                       exampleResourceGroup.Name,
+// 			EnforceBackendPoolsCertificateNameCheck: pulumi.Bool(false),
+// 			RoutingRules: frontdoor.FrontdoorRoutingRuleArray{
+// 				&frontdoor.FrontdoorRoutingRuleArgs{
+// 					Name: pulumi.String("exampleRoutingRule1"),
+// 					AcceptedProtocols: pulumi.StringArray{
+// 						pulumi.String("Http"),
+// 						pulumi.String("Https"),
+// 					},
+// 					PatternsToMatches: pulumi.StringArray{
+// 						pulumi.String("/*"),
+// 					},
+// 					FrontendEndpoints: pulumi.StringArray{
+// 						pulumi.String("exampleFrontendEndpoint1"),
+// 					},
+// 					ForwardingConfiguration: &frontdoor.FrontdoorRoutingRuleForwardingConfigurationArgs{
+// 						ForwardingProtocol: pulumi.String("MatchRequest"),
+// 						BackendPoolName:    pulumi.String("exampleBackendBing"),
+// 					},
+// 				},
+// 			},
+// 			BackendPoolLoadBalancings: frontdoor.FrontdoorBackendPoolLoadBalancingArray{
+// 				&frontdoor.FrontdoorBackendPoolLoadBalancingArgs{
+// 					Name: pulumi.String("exampleLoadBalancingSettings1"),
+// 				},
+// 			},
+// 			BackendPoolHealthProbes: frontdoor.FrontdoorBackendPoolHealthProbeArray{
+// 				&frontdoor.FrontdoorBackendPoolHealthProbeArgs{
+// 					Name: pulumi.String("exampleHealthProbeSetting1"),
+// 				},
+// 			},
+// 			BackendPools: frontdoor.FrontdoorBackendPoolArray{
+// 				&frontdoor.FrontdoorBackendPoolArgs{
+// 					Name: pulumi.String("exampleBackendBing"),
+// 					Backends: frontdoor.FrontdoorBackendPoolBackendArray{
+// 						&frontdoor.FrontdoorBackendPoolBackendArgs{
+// 							HostHeader: pulumi.String("www.bing.com"),
+// 							Address:    pulumi.String("www.bing.com"),
+// 							HttpPort:   pulumi.Int(80),
+// 							HttpsPort:  pulumi.Int(443),
+// 						},
+// 					},
+// 					LoadBalancingName: pulumi.String("exampleLoadBalancingSettings1"),
+// 					HealthProbeName:   pulumi.String("exampleHealthProbeSetting1"),
+// 				},
+// 			},
+// 			FrontendEndpoints: frontdoor.FrontdoorFrontendEndpointArray{
+// 				&frontdoor.FrontdoorFrontendEndpointArgs{
+// 					Name:     pulumi.String("exampleFrontendEndpoint1"),
+// 					HostName: pulumi.String("example-FrontDoor.azurefd.net"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Front Doors can be imported using the `resource id`, e.g.
@@ -38,7 +129,8 @@ type Frontdoor struct {
 	// The host that each frontendEndpoint must CNAME to.
 	Cname pulumi.StringOutput `pulumi:"cname"`
 	// Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
-	EnforceBackendPoolsCertificateNameCheck pulumi.BoolOutput `pulumi:"enforceBackendPoolsCertificateNameCheck"`
+	EnforceBackendPoolsCertificateNameCheck pulumi.BoolOutput                         `pulumi:"enforceBackendPoolsCertificateNameCheck"`
+	ExplicitResourceOrders                  FrontdoorExplicitResourceOrderArrayOutput `pulumi:"explicitResourceOrders"`
 	// A friendly name for the Front Door service.
 	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
 	// A `frontendEndpoint` block as defined below.
@@ -132,7 +224,8 @@ type frontdoorState struct {
 	// The host that each frontendEndpoint must CNAME to.
 	Cname *string `pulumi:"cname"`
 	// Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
-	EnforceBackendPoolsCertificateNameCheck *bool `pulumi:"enforceBackendPoolsCertificateNameCheck"`
+	EnforceBackendPoolsCertificateNameCheck *bool                            `pulumi:"enforceBackendPoolsCertificateNameCheck"`
+	ExplicitResourceOrders                  []FrontdoorExplicitResourceOrder `pulumi:"explicitResourceOrders"`
 	// A friendly name for the Front Door service.
 	FriendlyName *string `pulumi:"friendlyName"`
 	// A `frontendEndpoint` block as defined below.
@@ -178,6 +271,7 @@ type FrontdoorState struct {
 	Cname pulumi.StringPtrInput
 	// Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
 	EnforceBackendPoolsCertificateNameCheck pulumi.BoolPtrInput
+	ExplicitResourceOrders                  FrontdoorExplicitResourceOrderArrayInput
 	// A friendly name for the Front Door service.
 	FriendlyName pulumi.StringPtrInput
 	// A `frontendEndpoint` block as defined below.

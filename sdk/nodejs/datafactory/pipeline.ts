@@ -104,6 +104,10 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
+     */
+    public readonly folder!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
     public readonly name!: pulumi.Output<string>;
@@ -137,6 +141,7 @@ export class Pipeline extends pulumi.CustomResource {
             inputs["annotations"] = state ? state.annotations : undefined;
             inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             inputs["description"] = state ? state.description : undefined;
+            inputs["folder"] = state ? state.folder : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["parameters"] = state ? state.parameters : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -153,6 +158,7 @@ export class Pipeline extends pulumi.CustomResource {
             inputs["annotations"] = args ? args.annotations : undefined;
             inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             inputs["description"] = args ? args.description : undefined;
+            inputs["folder"] = args ? args.folder : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -185,6 +191,10 @@ export interface PipelineState {
      * The description for the Data Factory Pipeline.
      */
     readonly description?: pulumi.Input<string>;
+    /**
+     * The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
+     */
+    readonly folder?: pulumi.Input<string>;
     /**
      * Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
@@ -223,6 +233,10 @@ export interface PipelineArgs {
      * The description for the Data Factory Pipeline.
      */
     readonly description?: pulumi.Input<string>;
+    /**
+     * The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
+     */
+    readonly folder?: pulumi.Input<string>;
     /**
      * Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */

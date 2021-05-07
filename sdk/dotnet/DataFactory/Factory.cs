@@ -48,6 +48,12 @@ namespace Pulumi.Azure.DataFactory
     public partial class Factory : Pulumi.CustomResource
     {
         /// <summary>
+        /// Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
+        /// </summary>
+        [Output("customerManagedKeyId")]
+        public Output<string?> CustomerManagedKeyId { get; private set; } = null!;
+
+        /// <summary>
         /// A `github_configuration` block as defined below.
         /// </summary>
         [Output("githubConfiguration")]
@@ -142,6 +148,12 @@ namespace Pulumi.Azure.DataFactory
     public sealed class FactoryArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
+        /// </summary>
+        [Input("customerManagedKeyId")]
+        public Input<string>? CustomerManagedKeyId { get; set; }
+
+        /// <summary>
         /// A `github_configuration` block as defined below.
         /// </summary>
         [Input("githubConfiguration")]
@@ -202,6 +214,12 @@ namespace Pulumi.Azure.DataFactory
 
     public sealed class FactoryState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
+        /// </summary>
+        [Input("customerManagedKeyId")]
+        public Input<string>? CustomerManagedKeyId { get; set; }
+
         /// <summary>
         /// A `github_configuration` block as defined below.
         /// </summary>
