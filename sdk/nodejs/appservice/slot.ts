@@ -209,7 +209,7 @@ export class Slot extends pulumi.CustomResource {
      */
     public readonly siteConfig!: pulumi.Output<outputs.appservice.SlotSiteConfig>;
     /**
-     * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+     * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service slot.
      */
     public /*out*/ readonly siteCredentials!: pulumi.Output<outputs.appservice.SlotSiteCredential[]>;
     /**
@@ -348,7 +348,7 @@ export interface SlotState {
      */
     readonly siteConfig?: pulumi.Input<inputs.appservice.SlotSiteConfig>;
     /**
-     * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+     * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service slot.
      */
     readonly siteCredentials?: pulumi.Input<pulumi.Input<inputs.appservice.SlotSiteCredential>[]>;
     /**

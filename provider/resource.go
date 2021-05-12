@@ -475,6 +475,7 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: azureResource(azureAppService, "SlotVirtualNetworkSwiftConnection"),
 			},
 			"azurerm_app_service_certificate_binding": {Tok: azureResource(azureAppService, "CertificateBinding")},
+			"azurerm_app_service_environment_v3":      {Tok: azureResource(azureAppService, "EnvironmentV3")},
 
 			// AppPlatform
 			"azurerm_spring_cloud_service":                  {Tok: azureResource(azureAppPlatform, "SpringCloudService")},
@@ -879,6 +880,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_iothub_dps_shared_access_policy":   {Tok: azureResource(azureIot, "DpsSharedAccessPolicy")},
 			"azurerm_iothub_enrichment":                 {Tok: azureResource(azureIot, "Enrichment")},
 			"azurerm_iot_security_solution":             {Tok: azureResource(azureIot, "SecuritySolution")},
+			"azurerm_iot_time_series_insights_event_source_iothub": {
+				Tok: azureResource(azureIot, "TimeSeriesInsightsEventSourceIothub"),
+			},
 			"azurerm_iot_time_series_insights_standard_environment": {
 				Tok: azureResource(azureIot, "TimeSeriesInsightsStandardEnvironment"),
 			},
@@ -1040,6 +1044,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_cosmosdb_sql_stored_procedure": {Tok: azureResource(azureCosmosDB, "SqlStoredProcedure")},
 			"azurerm_cosmosdb_cassandra_table":      {Tok: azureResource(azureCosmosDB, "CassandraTable")},
+			"azurerm_cosmosdb_notebook_workspace":   {Tok: azureResource(azureCosmosDB, "NotebookWorkspace")},
+			"azurerm_cosmosdb_sql_trigger":          {Tok: azureResource(azureCosmosDB, "SqlTrigger")},
+			"azurerm_cosmosdb_sql_function":         {Tok: azureResource(azureCosmosDB, "SqlFunction")},
 
 			// Cost Management
 			"azurerm_cost_management_export_resource_group": {
@@ -1522,6 +1529,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_storage_encryption_scope":             {Tok: azureResource(azureStorage, "EncryptionScope")},
 			"azurerm_storage_share_file":                   {Tok: azureResource(azureStorage, "ShareFile")},
 			"azurerm_storage_sync_cloud_endpoint":          {Tok: azureResource(azureStorage, "SyncCloudEndpoint")},
+			"azurerm_storage_blob_inventory_policy":        {Tok: azureResource(azureStorage, "BlobInventoryPolicy")},
 
 			//StreamAnalytics
 			"azurerm_stream_analytics_function_javascript_udf": {
@@ -2017,6 +2025,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_storage_sync":                {Tok: azureDataSource(azureStorage, "getSync")},
 			"azurerm_storage_sync_group":          {Tok: azureDataSource(azureStorage, "getSyncGroup")},
 			"azurerm_storage_blob":                {Tok: azureDataSource(azureStorage, "getBlob")},
+			"azurerm_storage_table_entity":        {Tok: azureDataSource(azureStorage, "getTableEntity")},
 			"azurerm_iothub_shared_access_policy": {Tok: azureDataSource(azureIot, "getSharedAccessPolicy")},
 			"azurerm_iothub_dps":                  {Tok: azureDataSource(azureIot, "getDps")},
 			"azurerm_eventgrid_topic":             {Tok: azureDataSource(azureEventGrid, "getTopic")},
@@ -2039,12 +2048,13 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_app_service_environment": {
 				Tok: azureDataSource(azureAppService, "getAppServiceEnvironment"),
 			},
+			"azurerm_app_service_environment_v3":      {Tok: azureDataSource(azureAppService, "getEnvironmentV3")},
 			"azurerm_iothub_dps_shared_access_policy": {Tok: azureDataSource(azureIot, "getDpsSharedAccessPolicy")},
-			"azurerm_iothub":                     {Tok: azureDataSource(azureIot, "getIotHub")},
-			"azurerm_recovery_services_vault":    {Tok: azureDataSource(azureRecoveryServices, "getVault")},
-			"azurerm_database_migration_project": {Tok: azureDataSource(azureDatabaseMigration, "getProject")},
-			"azurerm_database_migration_service": {Tok: azureDataSource(azureDatabaseMigration, "getService")},
-			"azurerm_kusto_cluster":              {Tok: azureDataSource(azureKusto, "getCluster")},
+			"azurerm_iothub":                          {Tok: azureDataSource(azureIot, "getIotHub")},
+			"azurerm_recovery_services_vault":         {Tok: azureDataSource(azureRecoveryServices, "getVault")},
+			"azurerm_database_migration_project":      {Tok: azureDataSource(azureDatabaseMigration, "getProject")},
+			"azurerm_database_migration_service":      {Tok: azureDataSource(azureDatabaseMigration, "getService")},
+			"azurerm_kusto_cluster":                   {Tok: azureDataSource(azureKusto, "getCluster")},
 			"azurerm_servicebus_topic_authorization_rule": {
 				Tok: azureDataSource(azureServiceBus, "getTopicAuthorizationRule"),
 			},

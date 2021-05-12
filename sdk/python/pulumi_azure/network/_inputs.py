@@ -5069,7 +5069,7 @@ class NetworkConnectionMonitorDestinationArgs:
         """
         :param pulumi.Input[str] address: The IP address or domain name of the Network Connection Monitor endpoint.
         :param pulumi.Input[int] port: The port for the HTTP connection.
-        :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+        :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `target_resource_id`.
         """
         if address is not None:
             warnings.warn("""The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""", DeprecationWarning)
@@ -5115,7 +5115,7 @@ class NetworkConnectionMonitorDestinationArgs:
     @pulumi.getter(name="virtualMachineId")
     def virtual_machine_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+        The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `target_resource_id`.
         """
         return pulumi.get(self, "virtual_machine_id")
 
@@ -5129,19 +5129,42 @@ class NetworkConnectionMonitorEndpointArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  address: Optional[pulumi.Input[str]] = None,
+                 coverage_level: Optional[pulumi.Input[str]] = None,
+                 excluded_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  filter: Optional[pulumi.Input['NetworkConnectionMonitorEndpointFilterArgs']] = None,
+                 included_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 target_resource_id: Optional[pulumi.Input[str]] = None,
+                 target_resource_type: Optional[pulumi.Input[str]] = None,
                  virtual_machine_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The name of the endpoint for the Network Connection Monitor .
         :param pulumi.Input[str] address: The IP address or domain name of the Network Connection Monitor endpoint.
+        :param pulumi.Input[str] coverage_level: The test coverage for the Network Connection Monitor endpoint. Possible values are `AboveAverage`, `Average`, `BelowAverage`, `Default`, `Full` and `Low`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_ip_addresses: A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be excluded to the Network Connection Monitor endpoint.
         :param pulumi.Input['NetworkConnectionMonitorEndpointFilterArgs'] filter: A `filter` block as defined below.
-        :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] included_ip_addresses: A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be included to the Network Connection Monitor endpoint.
+        :param pulumi.Input[str] target_resource_id: The resource ID which is used as the endpoint by the Network Connection Monitor.
+        :param pulumi.Input[str] target_resource_type: The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
+        :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `target_resource_id`.
         """
         pulumi.set(__self__, "name", name)
         if address is not None:
             pulumi.set(__self__, "address", address)
+        if coverage_level is not None:
+            pulumi.set(__self__, "coverage_level", coverage_level)
+        if excluded_ip_addresses is not None:
+            pulumi.set(__self__, "excluded_ip_addresses", excluded_ip_addresses)
         if filter is not None:
             pulumi.set(__self__, "filter", filter)
+        if included_ip_addresses is not None:
+            pulumi.set(__self__, "included_ip_addresses", included_ip_addresses)
+        if target_resource_id is not None:
+            pulumi.set(__self__, "target_resource_id", target_resource_id)
+        if target_resource_type is not None:
+            pulumi.set(__self__, "target_resource_type", target_resource_type)
+        if virtual_machine_id is not None:
+            warnings.warn("""This property has been renamed to `target_resource_id` and will be removed in v3.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""virtual_machine_id is deprecated: This property has been renamed to `target_resource_id` and will be removed in v3.0 of the provider.""")
         if virtual_machine_id is not None:
             pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
 
@@ -5170,6 +5193,30 @@ class NetworkConnectionMonitorEndpointArgs:
         pulumi.set(self, "address", value)
 
     @property
+    @pulumi.getter(name="coverageLevel")
+    def coverage_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        The test coverage for the Network Connection Monitor endpoint. Possible values are `AboveAverage`, `Average`, `BelowAverage`, `Default`, `Full` and `Low`.
+        """
+        return pulumi.get(self, "coverage_level")
+
+    @coverage_level.setter
+    def coverage_level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "coverage_level", value)
+
+    @property
+    @pulumi.getter(name="excludedIpAddresses")
+    def excluded_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be excluded to the Network Connection Monitor endpoint.
+        """
+        return pulumi.get(self, "excluded_ip_addresses")
+
+    @excluded_ip_addresses.setter
+    def excluded_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "excluded_ip_addresses", value)
+
+    @property
     @pulumi.getter
     def filter(self) -> Optional[pulumi.Input['NetworkConnectionMonitorEndpointFilterArgs']]:
         """
@@ -5182,10 +5229,46 @@ class NetworkConnectionMonitorEndpointArgs:
         pulumi.set(self, "filter", value)
 
     @property
+    @pulumi.getter(name="includedIpAddresses")
+    def included_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be included to the Network Connection Monitor endpoint.
+        """
+        return pulumi.get(self, "included_ip_addresses")
+
+    @included_ip_addresses.setter
+    def included_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "included_ip_addresses", value)
+
+    @property
+    @pulumi.getter(name="targetResourceId")
+    def target_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID which is used as the endpoint by the Network Connection Monitor.
+        """
+        return pulumi.get(self, "target_resource_id")
+
+    @target_resource_id.setter
+    def target_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_id", value)
+
+    @property
+    @pulumi.getter(name="targetResourceType")
+    def target_resource_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
+        """
+        return pulumi.get(self, "target_resource_type")
+
+    @target_resource_type.setter
+    def target_resource_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_resource_type", value)
+
+    @property
     @pulumi.getter(name="virtualMachineId")
     def virtual_machine_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+        The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `target_resource_id`.
         """
         return pulumi.get(self, "virtual_machine_id")
 
@@ -5279,7 +5362,7 @@ class NetworkConnectionMonitorSourceArgs:
                  virtual_machine_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] port: The port for the HTTP connection.
-        :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+        :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `target_resource_id`.
         """
         if port is not None:
             warnings.warn("""The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.""", DeprecationWarning)
@@ -5308,7 +5391,7 @@ class NetworkConnectionMonitorSourceArgs:
     @pulumi.getter(name="virtualMachineId")
     def virtual_machine_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+        The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `target_resource_id`.
         """
         return pulumi.get(self, "virtual_machine_id")
 

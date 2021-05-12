@@ -8813,7 +8813,7 @@ type NetworkConnectionMonitorDestination struct {
 	//
 	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 	Port *int `pulumi:"port"`
-	// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+	// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `targetResourceId`.
 	//
 	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 	VirtualMachineId *string `pulumi:"virtualMachineId"`
@@ -8839,7 +8839,7 @@ type NetworkConnectionMonitorDestinationArgs struct {
 	//
 	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 	Port pulumi.IntPtrInput `pulumi:"port"`
-	// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+	// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `targetResourceId`.
 	//
 	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
@@ -8936,7 +8936,7 @@ func (o NetworkConnectionMonitorDestinationOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NetworkConnectionMonitorDestination) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `targetResourceId`.
 //
 // Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 func (o NetworkConnectionMonitorDestinationOutput) VirtualMachineId() pulumi.StringPtrOutput {
@@ -8985,7 +8985,7 @@ func (o NetworkConnectionMonitorDestinationPtrOutput) Port() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `targetResourceId`.
 //
 // Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 func (o NetworkConnectionMonitorDestinationPtrOutput) VirtualMachineId() pulumi.StringPtrOutput {
@@ -9000,11 +9000,23 @@ func (o NetworkConnectionMonitorDestinationPtrOutput) VirtualMachineId() pulumi.
 type NetworkConnectionMonitorEndpoint struct {
 	// The IP address or domain name of the Network Connection Monitor endpoint.
 	Address *string `pulumi:"address"`
+	// The test coverage for the Network Connection Monitor endpoint. Possible values are `AboveAverage`, `Average`, `BelowAverage`, `Default`, `Full` and `Low`.
+	CoverageLevel *string `pulumi:"coverageLevel"`
+	// A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be excluded to the Network Connection Monitor endpoint.
+	ExcludedIpAddresses []string `pulumi:"excludedIpAddresses"`
 	// A `filter` block as defined below.
 	Filter *NetworkConnectionMonitorEndpointFilter `pulumi:"filter"`
+	// A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be included to the Network Connection Monitor endpoint.
+	IncludedIpAddresses []string `pulumi:"includedIpAddresses"`
 	// The name of the endpoint for the Network Connection Monitor .
 	Name string `pulumi:"name"`
-	// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+	// The resource ID which is used as the endpoint by the Network Connection Monitor.
+	TargetResourceId *string `pulumi:"targetResourceId"`
+	// The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
+	TargetResourceType *string `pulumi:"targetResourceType"`
+	// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `targetResourceId`.
+	//
+	// Deprecated: This property has been renamed to `target_resource_id` and will be removed in v3.0 of the provider.
 	VirtualMachineId *string `pulumi:"virtualMachineId"`
 }
 
@@ -9022,11 +9034,23 @@ type NetworkConnectionMonitorEndpointInput interface {
 type NetworkConnectionMonitorEndpointArgs struct {
 	// The IP address or domain name of the Network Connection Monitor endpoint.
 	Address pulumi.StringPtrInput `pulumi:"address"`
+	// The test coverage for the Network Connection Monitor endpoint. Possible values are `AboveAverage`, `Average`, `BelowAverage`, `Default`, `Full` and `Low`.
+	CoverageLevel pulumi.StringPtrInput `pulumi:"coverageLevel"`
+	// A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be excluded to the Network Connection Monitor endpoint.
+	ExcludedIpAddresses pulumi.StringArrayInput `pulumi:"excludedIpAddresses"`
 	// A `filter` block as defined below.
 	Filter NetworkConnectionMonitorEndpointFilterPtrInput `pulumi:"filter"`
+	// A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be included to the Network Connection Monitor endpoint.
+	IncludedIpAddresses pulumi.StringArrayInput `pulumi:"includedIpAddresses"`
 	// The name of the endpoint for the Network Connection Monitor .
 	Name pulumi.StringInput `pulumi:"name"`
-	// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+	// The resource ID which is used as the endpoint by the Network Connection Monitor.
+	TargetResourceId pulumi.StringPtrInput `pulumi:"targetResourceId"`
+	// The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
+	TargetResourceType pulumi.StringPtrInput `pulumi:"targetResourceType"`
+	// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `targetResourceId`.
+	//
+	// Deprecated: This property has been renamed to `target_resource_id` and will be removed in v3.0 of the provider.
 	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
 }
 
@@ -9086,9 +9110,24 @@ func (o NetworkConnectionMonitorEndpointOutput) Address() pulumi.StringPtrOutput
 	return o.ApplyT(func(v NetworkConnectionMonitorEndpoint) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
+// The test coverage for the Network Connection Monitor endpoint. Possible values are `AboveAverage`, `Average`, `BelowAverage`, `Default`, `Full` and `Low`.
+func (o NetworkConnectionMonitorEndpointOutput) CoverageLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorEndpoint) *string { return v.CoverageLevel }).(pulumi.StringPtrOutput)
+}
+
+// A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be excluded to the Network Connection Monitor endpoint.
+func (o NetworkConnectionMonitorEndpointOutput) ExcludedIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorEndpoint) []string { return v.ExcludedIpAddresses }).(pulumi.StringArrayOutput)
+}
+
 // A `filter` block as defined below.
 func (o NetworkConnectionMonitorEndpointOutput) Filter() NetworkConnectionMonitorEndpointFilterPtrOutput {
 	return o.ApplyT(func(v NetworkConnectionMonitorEndpoint) *NetworkConnectionMonitorEndpointFilter { return v.Filter }).(NetworkConnectionMonitorEndpointFilterPtrOutput)
+}
+
+// A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be included to the Network Connection Monitor endpoint.
+func (o NetworkConnectionMonitorEndpointOutput) IncludedIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorEndpoint) []string { return v.IncludedIpAddresses }).(pulumi.StringArrayOutput)
 }
 
 // The name of the endpoint for the Network Connection Monitor .
@@ -9096,7 +9135,19 @@ func (o NetworkConnectionMonitorEndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkConnectionMonitorEndpoint) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+// The resource ID which is used as the endpoint by the Network Connection Monitor.
+func (o NetworkConnectionMonitorEndpointOutput) TargetResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorEndpoint) *string { return v.TargetResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
+func (o NetworkConnectionMonitorEndpointOutput) TargetResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkConnectionMonitorEndpoint) *string { return v.TargetResourceType }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `targetResourceId`.
+//
+// Deprecated: This property has been renamed to `target_resource_id` and will be removed in v3.0 of the provider.
 func (o NetworkConnectionMonitorEndpointOutput) VirtualMachineId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkConnectionMonitorEndpoint) *string { return v.VirtualMachineId }).(pulumi.StringPtrOutput)
 }
@@ -9384,7 +9435,7 @@ type NetworkConnectionMonitorSource struct {
 	//
 	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 	Port *int `pulumi:"port"`
-	// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+	// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `targetResourceId`.
 	//
 	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 	VirtualMachineId *string `pulumi:"virtualMachineId"`
@@ -9406,7 +9457,7 @@ type NetworkConnectionMonitorSourceArgs struct {
 	//
 	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 	Port pulumi.IntPtrInput `pulumi:"port"`
-	// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+	// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `targetResourceId`.
 	//
 	// Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
@@ -9496,7 +9547,7 @@ func (o NetworkConnectionMonitorSourceOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NetworkConnectionMonitorSource) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `targetResourceId`.
 //
 // Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 func (o NetworkConnectionMonitorSourceOutput) VirtualMachineId() pulumi.StringPtrOutput {
@@ -9533,7 +9584,7 @@ func (o NetworkConnectionMonitorSourcePtrOutput) Port() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `targetResourceId`.
 //
 // Deprecated: The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
 func (o NetworkConnectionMonitorSourcePtrOutput) VirtualMachineId() pulumi.StringPtrOutput {

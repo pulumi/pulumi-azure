@@ -19,6 +19,9 @@ __all__ = [
     'HBaseClusterRolesArgs',
     'HBaseClusterRolesHeadNodeArgs',
     'HBaseClusterRolesWorkerNodeArgs',
+    'HBaseClusterRolesWorkerNodeAutoscaleArgs',
+    'HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs',
+    'HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs',
     'HBaseClusterRolesZookeeperNodeArgs',
     'HBaseClusterStorageAccountArgs',
     'HBaseClusterStorageAccountGen2Args',
@@ -35,6 +38,10 @@ __all__ = [
     'HadoopClusterRolesEdgeNodeInstallScriptActionArgs',
     'HadoopClusterRolesHeadNodeArgs',
     'HadoopClusterRolesWorkerNodeArgs',
+    'HadoopClusterRolesWorkerNodeAutoscaleArgs',
+    'HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs',
+    'HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs',
+    'HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs',
     'HadoopClusterRolesZookeeperNodeArgs',
     'HadoopClusterStorageAccountArgs',
     'HadoopClusterStorageAccountGen2Args',
@@ -49,6 +56,10 @@ __all__ = [
     'InteractiveQueryClusterRolesArgs',
     'InteractiveQueryClusterRolesHeadNodeArgs',
     'InteractiveQueryClusterRolesWorkerNodeArgs',
+    'InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs',
+    'InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs',
+    'InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs',
+    'InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs',
     'InteractiveQueryClusterRolesZookeeperNodeArgs',
     'InteractiveQueryClusterStorageAccountArgs',
     'InteractiveQueryClusterStorageAccountGen2Args',
@@ -92,6 +103,10 @@ __all__ = [
     'SparkClusterRolesArgs',
     'SparkClusterRolesHeadNodeArgs',
     'SparkClusterRolesWorkerNodeArgs',
+    'SparkClusterRolesWorkerNodeAutoscaleArgs',
+    'SparkClusterRolesWorkerNodeAutoscaleCapacityArgs',
+    'SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs',
+    'SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs',
     'SparkClusterRolesZookeeperNodeArgs',
     'SparkClusterStorageAccountArgs',
     'SparkClusterStorageAccountGen2Args',
@@ -639,6 +654,7 @@ class HBaseClusterRolesWorkerNodeArgs:
                  target_instance_count: pulumi.Input[int],
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
+                 autoscale: Optional[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleArgs']] = None,
                  min_instance_count: Optional[pulumi.Input[int]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -648,6 +664,7 @@ class HBaseClusterRolesWorkerNodeArgs:
         :param pulumi.Input[int] target_instance_count: The number of instances which should be run for the Worker Nodes.
         :param pulumi.Input[str] username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleArgs'] autoscale: A `autoscale` block as defined below.
         :param pulumi.Input[int] min_instance_count: The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
@@ -657,6 +674,8 @@ class HBaseClusterRolesWorkerNodeArgs:
         pulumi.set(__self__, "target_instance_count", target_instance_count)
         pulumi.set(__self__, "username", username)
         pulumi.set(__self__, "vm_size", vm_size)
+        if autoscale is not None:
+            pulumi.set(__self__, "autoscale", autoscale)
         if min_instance_count is not None:
             warnings.warn("""this has been deprecated from the API and will be removed in version 3.0 of the provider""", DeprecationWarning)
             pulumi.log.warn("""min_instance_count is deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider""")
@@ -706,6 +725,18 @@ class HBaseClusterRolesWorkerNodeArgs:
     @vm_size.setter
     def vm_size(self, value: pulumi.Input[str]):
         pulumi.set(self, "vm_size", value)
+
+    @property
+    @pulumi.getter
+    def autoscale(self) -> Optional[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleArgs']]:
+        """
+        A `autoscale` block as defined below.
+        """
+        return pulumi.get(self, "autoscale")
+
+    @autoscale.setter
+    def autoscale(self, value: Optional[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleArgs']]):
+        pulumi.set(self, "autoscale", value)
 
     @property
     @pulumi.getter(name="minInstanceCount")
@@ -766,6 +797,118 @@ class HBaseClusterRolesWorkerNodeArgs:
     @virtual_network_id.setter
     def virtual_network_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_network_id", value)
+
+
+@pulumi.input_type
+class HBaseClusterRolesWorkerNodeAutoscaleArgs:
+    def __init__(__self__, *,
+                 recurrence: Optional[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs']] = None):
+        """
+        :param pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs'] recurrence: A `recurrence` block as defined below.
+        """
+        if recurrence is not None:
+            pulumi.set(__self__, "recurrence", recurrence)
+
+    @property
+    @pulumi.getter
+    def recurrence(self) -> Optional[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]:
+        """
+        A `recurrence` block as defined below.
+        """
+        return pulumi.get(self, "recurrence")
+
+    @recurrence.setter
+    def recurrence(self, value: Optional[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]):
+        pulumi.set(self, "recurrence", value)
+
+
+@pulumi.input_type
+class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs:
+    def __init__(__self__, *,
+                 schedules: pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]],
+                 timezone: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]] schedules: A list of `schedule` blocks as defined below.
+        :param pulumi.Input[str] timezone: The time zone for the autoscale schedule times.
+        """
+        pulumi.set(__self__, "schedules", schedules)
+        pulumi.set(__self__, "timezone", timezone)
+
+    @property
+    @pulumi.getter
+    def schedules(self) -> pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]]:
+        """
+        A list of `schedule` blocks as defined below.
+        """
+        return pulumi.get(self, "schedules")
+
+    @schedules.setter
+    def schedules(self, value: pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]]):
+        pulumi.set(self, "schedules", value)
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> pulumi.Input[str]:
+        """
+        The time zone for the autoscale schedule times.
+        """
+        return pulumi.get(self, "timezone")
+
+    @timezone.setter
+    def timezone(self, value: pulumi.Input[str]):
+        pulumi.set(self, "timezone", value)
+
+
+@pulumi.input_type
+class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs:
+    def __init__(__self__, *,
+                 days: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 target_instance_count: pulumi.Input[int],
+                 time: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] days: The days of the week to perform autoscale.
+        :param pulumi.Input[int] target_instance_count: The number of worker nodes to autoscale at the specified time.
+        :param pulumi.Input[str] time: The time of day to perform the autoscale in 24hour format.
+        """
+        pulumi.set(__self__, "days", days)
+        pulumi.set(__self__, "target_instance_count", target_instance_count)
+        pulumi.set(__self__, "time", time)
+
+    @property
+    @pulumi.getter
+    def days(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The days of the week to perform autoscale.
+        """
+        return pulumi.get(self, "days")
+
+    @days.setter
+    def days(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "days", value)
+
+    @property
+    @pulumi.getter(name="targetInstanceCount")
+    def target_instance_count(self) -> pulumi.Input[int]:
+        """
+        The number of worker nodes to autoscale at the specified time.
+        """
+        return pulumi.get(self, "target_instance_count")
+
+    @target_instance_count.setter
+    def target_instance_count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "target_instance_count", value)
+
+    @property
+    @pulumi.getter
+    def time(self) -> pulumi.Input[str]:
+        """
+        The time of day to perform the autoscale in 24hour format.
+        """
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: pulumi.Input[str]):
+        pulumi.set(self, "time", value)
 
 
 @pulumi.input_type
@@ -1662,6 +1805,7 @@ class HadoopClusterRolesWorkerNodeArgs:
                  target_instance_count: pulumi.Input[int],
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
+                 autoscale: Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleArgs']] = None,
                  min_instance_count: Optional[pulumi.Input[int]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1671,6 +1815,7 @@ class HadoopClusterRolesWorkerNodeArgs:
         :param pulumi.Input[int] target_instance_count: The number of instances which should be run for the Worker Nodes.
         :param pulumi.Input[str] username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleArgs'] autoscale: A `autoscale` block as defined below.
         :param pulumi.Input[int] min_instance_count: The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
@@ -1680,6 +1825,8 @@ class HadoopClusterRolesWorkerNodeArgs:
         pulumi.set(__self__, "target_instance_count", target_instance_count)
         pulumi.set(__self__, "username", username)
         pulumi.set(__self__, "vm_size", vm_size)
+        if autoscale is not None:
+            pulumi.set(__self__, "autoscale", autoscale)
         if min_instance_count is not None:
             warnings.warn("""this has been deprecated from the API and will be removed in version 3.0 of the provider""", DeprecationWarning)
             pulumi.log.warn("""min_instance_count is deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider""")
@@ -1729,6 +1876,18 @@ class HadoopClusterRolesWorkerNodeArgs:
     @vm_size.setter
     def vm_size(self, value: pulumi.Input[str]):
         pulumi.set(self, "vm_size", value)
+
+    @property
+    @pulumi.getter
+    def autoscale(self) -> Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleArgs']]:
+        """
+        A `autoscale` block as defined below.
+        """
+        return pulumi.get(self, "autoscale")
+
+    @autoscale.setter
+    def autoscale(self, value: Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleArgs']]):
+        pulumi.set(self, "autoscale", value)
 
     @property
     @pulumi.getter(name="minInstanceCount")
@@ -1789,6 +1948,171 @@ class HadoopClusterRolesWorkerNodeArgs:
     @virtual_network_id.setter
     def virtual_network_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_network_id", value)
+
+
+@pulumi.input_type
+class HadoopClusterRolesWorkerNodeAutoscaleArgs:
+    def __init__(__self__, *,
+                 capacity: Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs']] = None,
+                 recurrence: Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs']] = None):
+        """
+        :param pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs'] capacity: A `capacity` block as defined below.
+        :param pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs'] recurrence: A `recurrence` block as defined below.
+        """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if recurrence is not None:
+            pulumi.set(__self__, "recurrence", recurrence)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs']]:
+        """
+        A `capacity` block as defined below.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs']]):
+        pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter
+    def recurrence(self) -> Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]:
+        """
+        A `recurrence` block as defined below.
+        """
+        return pulumi.get(self, "recurrence")
+
+    @recurrence.setter
+    def recurrence(self, value: Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]):
+        pulumi.set(self, "recurrence", value)
+
+
+@pulumi.input_type
+class HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs:
+    def __init__(__self__, *,
+                 max_instance_count: pulumi.Input[int],
+                 min_instance_count: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] max_instance_count: The maximum number of worker nodes to autoscale to based on the cluster's activity.
+        :param pulumi.Input[int] min_instance_count: The minimum number of worker nodes to autoscale to based on the cluster's activity.
+        """
+        pulumi.set(__self__, "max_instance_count", max_instance_count)
+        pulumi.set(__self__, "min_instance_count", min_instance_count)
+
+    @property
+    @pulumi.getter(name="maxInstanceCount")
+    def max_instance_count(self) -> pulumi.Input[int]:
+        """
+        The maximum number of worker nodes to autoscale to based on the cluster's activity.
+        """
+        return pulumi.get(self, "max_instance_count")
+
+    @max_instance_count.setter
+    def max_instance_count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_instance_count", value)
+
+    @property
+    @pulumi.getter(name="minInstanceCount")
+    def min_instance_count(self) -> pulumi.Input[int]:
+        """
+        The minimum number of worker nodes to autoscale to based on the cluster's activity.
+        """
+        return pulumi.get(self, "min_instance_count")
+
+    @min_instance_count.setter
+    def min_instance_count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "min_instance_count", value)
+
+
+@pulumi.input_type
+class HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs:
+    def __init__(__self__, *,
+                 schedules: pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]],
+                 timezone: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]] schedules: A list of `schedule` blocks as defined below.
+        :param pulumi.Input[str] timezone: The time zone for the autoscale schedule times.
+        """
+        pulumi.set(__self__, "schedules", schedules)
+        pulumi.set(__self__, "timezone", timezone)
+
+    @property
+    @pulumi.getter
+    def schedules(self) -> pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]]:
+        """
+        A list of `schedule` blocks as defined below.
+        """
+        return pulumi.get(self, "schedules")
+
+    @schedules.setter
+    def schedules(self, value: pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]]):
+        pulumi.set(self, "schedules", value)
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> pulumi.Input[str]:
+        """
+        The time zone for the autoscale schedule times.
+        """
+        return pulumi.get(self, "timezone")
+
+    @timezone.setter
+    def timezone(self, value: pulumi.Input[str]):
+        pulumi.set(self, "timezone", value)
+
+
+@pulumi.input_type
+class HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs:
+    def __init__(__self__, *,
+                 days: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 target_instance_count: pulumi.Input[int],
+                 time: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] days: The days of the week to perform autoscale.
+        :param pulumi.Input[int] target_instance_count: The number of worker nodes to autoscale at the specified time.
+        :param pulumi.Input[str] time: The time of day to perform the autoscale in 24hour format.
+        """
+        pulumi.set(__self__, "days", days)
+        pulumi.set(__self__, "target_instance_count", target_instance_count)
+        pulumi.set(__self__, "time", time)
+
+    @property
+    @pulumi.getter
+    def days(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The days of the week to perform autoscale.
+        """
+        return pulumi.get(self, "days")
+
+    @days.setter
+    def days(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "days", value)
+
+    @property
+    @pulumi.getter(name="targetInstanceCount")
+    def target_instance_count(self) -> pulumi.Input[int]:
+        """
+        The number of worker nodes to autoscale at the specified time.
+        """
+        return pulumi.get(self, "target_instance_count")
+
+    @target_instance_count.setter
+    def target_instance_count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "target_instance_count", value)
+
+    @property
+    @pulumi.getter
+    def time(self) -> pulumi.Input[str]:
+        """
+        The time of day to perform the autoscale in 24hour format.
+        """
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: pulumi.Input[str]):
+        pulumi.set(self, "time", value)
 
 
 @pulumi.input_type
@@ -2574,6 +2898,7 @@ class InteractiveQueryClusterRolesWorkerNodeArgs:
                  target_instance_count: pulumi.Input[int],
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
+                 autoscale: Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs']] = None,
                  min_instance_count: Optional[pulumi.Input[int]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2583,6 +2908,7 @@ class InteractiveQueryClusterRolesWorkerNodeArgs:
         :param pulumi.Input[int] target_instance_count: The number of instances which should be run for the Worker Nodes.
         :param pulumi.Input[str] username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs'] autoscale: A `autoscale` block as defined below.
         :param pulumi.Input[int] min_instance_count: The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
@@ -2592,6 +2918,8 @@ class InteractiveQueryClusterRolesWorkerNodeArgs:
         pulumi.set(__self__, "target_instance_count", target_instance_count)
         pulumi.set(__self__, "username", username)
         pulumi.set(__self__, "vm_size", vm_size)
+        if autoscale is not None:
+            pulumi.set(__self__, "autoscale", autoscale)
         if min_instance_count is not None:
             warnings.warn("""this has been deprecated from the API and will be removed in version 3.0 of the provider""", DeprecationWarning)
             pulumi.log.warn("""min_instance_count is deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider""")
@@ -2641,6 +2969,18 @@ class InteractiveQueryClusterRolesWorkerNodeArgs:
     @vm_size.setter
     def vm_size(self, value: pulumi.Input[str]):
         pulumi.set(self, "vm_size", value)
+
+    @property
+    @pulumi.getter
+    def autoscale(self) -> Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs']]:
+        """
+        A `autoscale` block as defined below.
+        """
+        return pulumi.get(self, "autoscale")
+
+    @autoscale.setter
+    def autoscale(self, value: Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs']]):
+        pulumi.set(self, "autoscale", value)
 
     @property
     @pulumi.getter(name="minInstanceCount")
@@ -2701,6 +3041,171 @@ class InteractiveQueryClusterRolesWorkerNodeArgs:
     @virtual_network_id.setter
     def virtual_network_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_network_id", value)
+
+
+@pulumi.input_type
+class InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs:
+    def __init__(__self__, *,
+                 capacity: Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs']] = None,
+                 recurrence: Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs']] = None):
+        """
+        :param pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs'] capacity: A `capacity` block as defined below.
+        :param pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs'] recurrence: A `recurrence` block as defined below.
+        """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if recurrence is not None:
+            pulumi.set(__self__, "recurrence", recurrence)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs']]:
+        """
+        A `capacity` block as defined below.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs']]):
+        pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter
+    def recurrence(self) -> Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]:
+        """
+        A `recurrence` block as defined below.
+        """
+        return pulumi.get(self, "recurrence")
+
+    @recurrence.setter
+    def recurrence(self, value: Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]):
+        pulumi.set(self, "recurrence", value)
+
+
+@pulumi.input_type
+class InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs:
+    def __init__(__self__, *,
+                 max_instance_count: pulumi.Input[int],
+                 min_instance_count: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] max_instance_count: The maximum number of worker nodes to autoscale to based on the cluster's activity.
+        :param pulumi.Input[int] min_instance_count: The minimum number of worker nodes to autoscale to based on the cluster's activity.
+        """
+        pulumi.set(__self__, "max_instance_count", max_instance_count)
+        pulumi.set(__self__, "min_instance_count", min_instance_count)
+
+    @property
+    @pulumi.getter(name="maxInstanceCount")
+    def max_instance_count(self) -> pulumi.Input[int]:
+        """
+        The maximum number of worker nodes to autoscale to based on the cluster's activity.
+        """
+        return pulumi.get(self, "max_instance_count")
+
+    @max_instance_count.setter
+    def max_instance_count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_instance_count", value)
+
+    @property
+    @pulumi.getter(name="minInstanceCount")
+    def min_instance_count(self) -> pulumi.Input[int]:
+        """
+        The minimum number of worker nodes to autoscale to based on the cluster's activity.
+        """
+        return pulumi.get(self, "min_instance_count")
+
+    @min_instance_count.setter
+    def min_instance_count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "min_instance_count", value)
+
+
+@pulumi.input_type
+class InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs:
+    def __init__(__self__, *,
+                 schedules: pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]],
+                 timezone: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]] schedules: A list of `schedule` blocks as defined below.
+        :param pulumi.Input[str] timezone: The time zone for the autoscale schedule times.
+        """
+        pulumi.set(__self__, "schedules", schedules)
+        pulumi.set(__self__, "timezone", timezone)
+
+    @property
+    @pulumi.getter
+    def schedules(self) -> pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]]:
+        """
+        A list of `schedule` blocks as defined below.
+        """
+        return pulumi.get(self, "schedules")
+
+    @schedules.setter
+    def schedules(self, value: pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]]):
+        pulumi.set(self, "schedules", value)
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> pulumi.Input[str]:
+        """
+        The time zone for the autoscale schedule times.
+        """
+        return pulumi.get(self, "timezone")
+
+    @timezone.setter
+    def timezone(self, value: pulumi.Input[str]):
+        pulumi.set(self, "timezone", value)
+
+
+@pulumi.input_type
+class InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs:
+    def __init__(__self__, *,
+                 days: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 target_instance_count: pulumi.Input[int],
+                 time: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] days: The days of the week to perform autoscale.
+        :param pulumi.Input[int] target_instance_count: The number of worker nodes to autoscale at the specified time.
+        :param pulumi.Input[str] time: The time of day to perform the autoscale in 24hour format.
+        """
+        pulumi.set(__self__, "days", days)
+        pulumi.set(__self__, "target_instance_count", target_instance_count)
+        pulumi.set(__self__, "time", time)
+
+    @property
+    @pulumi.getter
+    def days(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The days of the week to perform autoscale.
+        """
+        return pulumi.get(self, "days")
+
+    @days.setter
+    def days(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "days", value)
+
+    @property
+    @pulumi.getter(name="targetInstanceCount")
+    def target_instance_count(self) -> pulumi.Input[int]:
+        """
+        The number of worker nodes to autoscale at the specified time.
+        """
+        return pulumi.get(self, "target_instance_count")
+
+    @target_instance_count.setter
+    def target_instance_count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "target_instance_count", value)
+
+    @property
+    @pulumi.getter
+    def time(self) -> pulumi.Input[str]:
+        """
+        The time of day to perform the autoscale in 24hour format.
+        """
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: pulumi.Input[str]):
+        pulumi.set(self, "time", value)
 
 
 @pulumi.input_type
@@ -5751,6 +6256,7 @@ class SparkClusterRolesWorkerNodeArgs:
                  target_instance_count: pulumi.Input[int],
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
+                 autoscale: Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleArgs']] = None,
                  min_instance_count: Optional[pulumi.Input[int]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -5760,6 +6266,7 @@ class SparkClusterRolesWorkerNodeArgs:
         :param pulumi.Input[int] target_instance_count: The number of instances which should be run for the Worker Nodes.
         :param pulumi.Input[str] username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleArgs'] autoscale: A `autoscale` block as defined below.
         :param pulumi.Input[int] min_instance_count: The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
@@ -5769,6 +6276,8 @@ class SparkClusterRolesWorkerNodeArgs:
         pulumi.set(__self__, "target_instance_count", target_instance_count)
         pulumi.set(__self__, "username", username)
         pulumi.set(__self__, "vm_size", vm_size)
+        if autoscale is not None:
+            pulumi.set(__self__, "autoscale", autoscale)
         if min_instance_count is not None:
             warnings.warn("""this has been deprecated from the API and will be removed in version 3.0 of the provider""", DeprecationWarning)
             pulumi.log.warn("""min_instance_count is deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider""")
@@ -5818,6 +6327,18 @@ class SparkClusterRolesWorkerNodeArgs:
     @vm_size.setter
     def vm_size(self, value: pulumi.Input[str]):
         pulumi.set(self, "vm_size", value)
+
+    @property
+    @pulumi.getter
+    def autoscale(self) -> Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleArgs']]:
+        """
+        A `autoscale` block as defined below.
+        """
+        return pulumi.get(self, "autoscale")
+
+    @autoscale.setter
+    def autoscale(self, value: Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleArgs']]):
+        pulumi.set(self, "autoscale", value)
 
     @property
     @pulumi.getter(name="minInstanceCount")
@@ -5878,6 +6399,171 @@ class SparkClusterRolesWorkerNodeArgs:
     @virtual_network_id.setter
     def virtual_network_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_network_id", value)
+
+
+@pulumi.input_type
+class SparkClusterRolesWorkerNodeAutoscaleArgs:
+    def __init__(__self__, *,
+                 capacity: Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleCapacityArgs']] = None,
+                 recurrence: Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs']] = None):
+        """
+        :param pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleCapacityArgs'] capacity: A `capacity` block as defined below.
+        :param pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs'] recurrence: A `recurrence` block as defined below.
+        """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if recurrence is not None:
+            pulumi.set(__self__, "recurrence", recurrence)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleCapacityArgs']]:
+        """
+        A `capacity` block as defined below.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleCapacityArgs']]):
+        pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter
+    def recurrence(self) -> Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]:
+        """
+        A `recurrence` block as defined below.
+        """
+        return pulumi.get(self, "recurrence")
+
+    @recurrence.setter
+    def recurrence(self, value: Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]):
+        pulumi.set(self, "recurrence", value)
+
+
+@pulumi.input_type
+class SparkClusterRolesWorkerNodeAutoscaleCapacityArgs:
+    def __init__(__self__, *,
+                 max_instance_count: pulumi.Input[int],
+                 min_instance_count: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] max_instance_count: The maximum number of worker nodes to autoscale to based on the cluster's activity.
+        :param pulumi.Input[int] min_instance_count: The minimum number of worker nodes to autoscale to based on the cluster's activity.
+        """
+        pulumi.set(__self__, "max_instance_count", max_instance_count)
+        pulumi.set(__self__, "min_instance_count", min_instance_count)
+
+    @property
+    @pulumi.getter(name="maxInstanceCount")
+    def max_instance_count(self) -> pulumi.Input[int]:
+        """
+        The maximum number of worker nodes to autoscale to based on the cluster's activity.
+        """
+        return pulumi.get(self, "max_instance_count")
+
+    @max_instance_count.setter
+    def max_instance_count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_instance_count", value)
+
+    @property
+    @pulumi.getter(name="minInstanceCount")
+    def min_instance_count(self) -> pulumi.Input[int]:
+        """
+        The minimum number of worker nodes to autoscale to based on the cluster's activity.
+        """
+        return pulumi.get(self, "min_instance_count")
+
+    @min_instance_count.setter
+    def min_instance_count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "min_instance_count", value)
+
+
+@pulumi.input_type
+class SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs:
+    def __init__(__self__, *,
+                 schedules: pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]],
+                 timezone: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]] schedules: A list of `schedule` blocks as defined below.
+        :param pulumi.Input[str] timezone: The time zone for the autoscale schedule times.
+        """
+        pulumi.set(__self__, "schedules", schedules)
+        pulumi.set(__self__, "timezone", timezone)
+
+    @property
+    @pulumi.getter
+    def schedules(self) -> pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]]:
+        """
+        A list of `schedule` blocks as defined below.
+        """
+        return pulumi.get(self, "schedules")
+
+    @schedules.setter
+    def schedules(self, value: pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs']]]):
+        pulumi.set(self, "schedules", value)
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> pulumi.Input[str]:
+        """
+        The time zone for the autoscale schedule times.
+        """
+        return pulumi.get(self, "timezone")
+
+    @timezone.setter
+    def timezone(self, value: pulumi.Input[str]):
+        pulumi.set(self, "timezone", value)
+
+
+@pulumi.input_type
+class SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs:
+    def __init__(__self__, *,
+                 days: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 target_instance_count: pulumi.Input[int],
+                 time: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] days: The days of the week to perform autoscale.
+        :param pulumi.Input[int] target_instance_count: The number of worker nodes to autoscale at the specified time.
+        :param pulumi.Input[str] time: The time of day to perform the autoscale in 24hour format.
+        """
+        pulumi.set(__self__, "days", days)
+        pulumi.set(__self__, "target_instance_count", target_instance_count)
+        pulumi.set(__self__, "time", time)
+
+    @property
+    @pulumi.getter
+    def days(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The days of the week to perform autoscale.
+        """
+        return pulumi.get(self, "days")
+
+    @days.setter
+    def days(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "days", value)
+
+    @property
+    @pulumi.getter(name="targetInstanceCount")
+    def target_instance_count(self) -> pulumi.Input[int]:
+        """
+        The number of worker nodes to autoscale at the specified time.
+        """
+        return pulumi.get(self, "target_instance_count")
+
+    @target_instance_count.setter
+    def target_instance_count(self, value: pulumi.Input[int]):
+        pulumi.set(self, "target_instance_count", value)
+
+    @property
+    @pulumi.getter
+    def time(self) -> pulumi.Input[str]:
+        """
+        The time of day to perform the autoscale in 24hour format.
+        """
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: pulumi.Input[str]):
+        pulumi.set(self, "time", value)
 
 
 @pulumi.input_type

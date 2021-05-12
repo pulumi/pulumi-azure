@@ -18,15 +18,35 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? Address;
         /// <summary>
+        /// The test coverage for the Network Connection Monitor endpoint. Possible values are `AboveAverage`, `Average`, `BelowAverage`, `Default`, `Full` and `Low`.
+        /// </summary>
+        public readonly string? CoverageLevel;
+        /// <summary>
+        /// A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be excluded to the Network Connection Monitor endpoint.
+        /// </summary>
+        public readonly ImmutableArray<string> ExcludedIpAddresses;
+        /// <summary>
         /// A `filter` block as defined below.
         /// </summary>
         public readonly Outputs.NetworkConnectionMonitorEndpointFilter? Filter;
+        /// <summary>
+        /// A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be included to the Network Connection Monitor endpoint.
+        /// </summary>
+        public readonly ImmutableArray<string> IncludedIpAddresses;
         /// <summary>
         /// The name of the endpoint for the Network Connection Monitor .
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor.
+        /// The resource ID which is used as the endpoint by the Network Connection Monitor.
+        /// </summary>
+        public readonly string? TargetResourceId;
+        /// <summary>
+        /// The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
+        /// </summary>
+        public readonly string? TargetResourceType;
+        /// <summary>
+        /// The ID of the Virtual Machine which is used as the endpoint by the Network Connection Monitor. This property is deprecated in favour of `target_resource_id`.
         /// </summary>
         public readonly string? VirtualMachineId;
 
@@ -34,15 +54,30 @@ namespace Pulumi.Azure.Network.Outputs
         private NetworkConnectionMonitorEndpoint(
             string? address,
 
+            string? coverageLevel,
+
+            ImmutableArray<string> excludedIpAddresses,
+
             Outputs.NetworkConnectionMonitorEndpointFilter? filter,
 
+            ImmutableArray<string> includedIpAddresses,
+
             string name,
+
+            string? targetResourceId,
+
+            string? targetResourceType,
 
             string? virtualMachineId)
         {
             Address = address;
+            CoverageLevel = coverageLevel;
+            ExcludedIpAddresses = excludedIpAddresses;
             Filter = filter;
+            IncludedIpAddresses = includedIpAddresses;
             Name = name;
+            TargetResourceId = targetResourceId;
+            TargetResourceType = targetResourceType;
             VirtualMachineId = virtualMachineId;
         }
     }

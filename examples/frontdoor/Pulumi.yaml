@@ -1,0 +1,3 @@
+name: frontdoor
+runtime: nodejs
+description: A minimal TypeScript Pulumi program with the classic Azure provider

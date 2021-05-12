@@ -23,6 +23,7 @@ from .security_device_group import *
 from .security_solution import *
 from .shared_access_policy import *
 from .time_series_insights_access_policy import *
+from .time_series_insights_event_source_iothub import *
 from .time_series_insights_gen2_environment import *
 from .time_series_insights_reference_data_set import *
 from .time_series_insights_standard_environment import *
@@ -73,6 +74,8 @@ def _register_module():
                 return SharedAccessPolicy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:iot/timeSeriesInsightsAccessPolicy:TimeSeriesInsightsAccessPolicy":
                 return TimeSeriesInsightsAccessPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:iot/timeSeriesInsightsEventSourceIothub:TimeSeriesInsightsEventSourceIothub":
+                return TimeSeriesInsightsEventSourceIothub(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:iot/timeSeriesInsightsGen2Environment:TimeSeriesInsightsGen2Environment":
                 return TimeSeriesInsightsGen2Environment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:iot/timeSeriesInsightsReferenceDataSet:TimeSeriesInsightsReferenceDataSet":
@@ -100,6 +103,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "iot/securitySolution", _module_instance)
     pulumi.runtime.register_resource_module("azure", "iot/sharedAccessPolicy", _module_instance)
     pulumi.runtime.register_resource_module("azure", "iot/timeSeriesInsightsAccessPolicy", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "iot/timeSeriesInsightsEventSourceIothub", _module_instance)
     pulumi.runtime.register_resource_module("azure", "iot/timeSeriesInsightsGen2Environment", _module_instance)
     pulumi.runtime.register_resource_module("azure", "iot/timeSeriesInsightsReferenceDataSet", _module_instance)
     pulumi.runtime.register_resource_module("azure", "iot/timeSeriesInsightsStandardEnvironment", _module_instance)

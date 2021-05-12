@@ -39,9 +39,6 @@ namespace Pulumi.Azure.FrontDoor
         [Output("frontendEndpointId")]
         public Output<string> FrontendEndpointId { get; private set; } = null!;
 
-        [Output("resourceGroupName")]
-        public Output<string?> ResourceGroupName { get; private set; } = null!;
-
 
         /// <summary>
         /// Create a CustomHttpsConfiguration resource with the given unique name, arguments, and options.
@@ -106,9 +103,6 @@ namespace Pulumi.Azure.FrontDoor
         [Input("frontendEndpointId", required: true)]
         public Input<string> FrontendEndpointId { get; set; } = null!;
 
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
-
         public CustomHttpsConfigurationArgs()
         {
         }
@@ -133,9 +127,6 @@ namespace Pulumi.Azure.FrontDoor
         /// </summary>
         [Input("frontendEndpointId")]
         public Input<string>? FrontendEndpointId { get; set; }
-
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         public CustomHttpsConfigurationState()
         {

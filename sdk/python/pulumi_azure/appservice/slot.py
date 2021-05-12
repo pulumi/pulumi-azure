@@ -294,7 +294,7 @@ class _SlotState:
         :param pulumi.Input[str] name: Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Slot component.
         :param pulumi.Input['SlotSiteConfigArgs'] site_config: A `site_config` object as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['SlotSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+        :param pulumi.Input[Sequence[pulumi.Input['SlotSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service slot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if app_service_name is not None:
@@ -516,7 +516,7 @@ class _SlotState:
     @pulumi.getter(name="siteCredentials")
     def site_credentials(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SlotSiteCredentialArgs']]]]:
         """
-        A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+        A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service slot.
         """
         return pulumi.get(self, "site_credentials")
 
@@ -910,7 +910,7 @@ class Slot(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Slot component.
         :param pulumi.Input[pulumi.InputType['SlotSiteConfigArgs']] site_config: A `site_config` object as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotSiteCredentialArgs']]]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotSiteCredentialArgs']]]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service slot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1060,7 +1060,7 @@ class Slot(pulumi.CustomResource):
     @pulumi.getter(name="siteCredentials")
     def site_credentials(self) -> pulumi.Output[Sequence['outputs.SlotSiteCredential']]:
         """
-        A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+        A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service slot.
         """
         return pulumi.get(self, "site_credentials")
 

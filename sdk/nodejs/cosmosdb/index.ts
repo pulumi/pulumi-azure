@@ -13,9 +13,12 @@ export * from "./gremlinDatabase";
 export * from "./gremlinGraph";
 export * from "./mongoCollection";
 export * from "./mongoDatabase";
+export * from "./notebookWorkspace";
 export * from "./sqlContainer";
 export * from "./sqlDatabase";
+export * from "./sqlFunction";
 export * from "./sqlStoredProcedure";
+export * from "./sqlTrigger";
 export * from "./table";
 export * from "./zMixins";
 
@@ -27,9 +30,12 @@ import { GremlinDatabase } from "./gremlinDatabase";
 import { GremlinGraph } from "./gremlinGraph";
 import { MongoCollection } from "./mongoCollection";
 import { MongoDatabase } from "./mongoDatabase";
+import { NotebookWorkspace } from "./notebookWorkspace";
 import { SqlContainer } from "./sqlContainer";
 import { SqlDatabase } from "./sqlDatabase";
+import { SqlFunction } from "./sqlFunction";
 import { SqlStoredProcedure } from "./sqlStoredProcedure";
+import { SqlTrigger } from "./sqlTrigger";
 import { Table } from "./table";
 
 const _module = {
@@ -50,12 +56,18 @@ const _module = {
                 return new MongoCollection(name, <any>undefined, { urn })
             case "azure:cosmosdb/mongoDatabase:MongoDatabase":
                 return new MongoDatabase(name, <any>undefined, { urn })
+            case "azure:cosmosdb/notebookWorkspace:NotebookWorkspace":
+                return new NotebookWorkspace(name, <any>undefined, { urn })
             case "azure:cosmosdb/sqlContainer:SqlContainer":
                 return new SqlContainer(name, <any>undefined, { urn })
             case "azure:cosmosdb/sqlDatabase:SqlDatabase":
                 return new SqlDatabase(name, <any>undefined, { urn })
+            case "azure:cosmosdb/sqlFunction:SqlFunction":
+                return new SqlFunction(name, <any>undefined, { urn })
             case "azure:cosmosdb/sqlStoredProcedure:SqlStoredProcedure":
                 return new SqlStoredProcedure(name, <any>undefined, { urn })
+            case "azure:cosmosdb/sqlTrigger:SqlTrigger":
+                return new SqlTrigger(name, <any>undefined, { urn })
             case "azure:cosmosdb/table:Table":
                 return new Table(name, <any>undefined, { urn })
             default:
@@ -70,7 +82,10 @@ pulumi.runtime.registerResourceModule("azure", "cosmosdb/gremlinDatabase", _modu
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/gremlinGraph", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/mongoCollection", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/mongoDatabase", _module)
+pulumi.runtime.registerResourceModule("azure", "cosmosdb/notebookWorkspace", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/sqlContainer", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/sqlDatabase", _module)
+pulumi.runtime.registerResourceModule("azure", "cosmosdb/sqlFunction", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/sqlStoredProcedure", _module)
+pulumi.runtime.registerResourceModule("azure", "cosmosdb/sqlTrigger", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/table", _module)

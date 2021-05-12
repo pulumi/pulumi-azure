@@ -58,6 +58,10 @@ export class Factory extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
+     */
+    public readonly customerManagedKeyId!: pulumi.Output<string | undefined>;
+    /**
      * A `githubConfiguration` block as defined below.
      */
     public readonly githubConfiguration!: pulumi.Output<outputs.datafactory.FactoryGithubConfiguration | undefined>;
@@ -103,6 +107,7 @@ export class Factory extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FactoryState | undefined;
+            inputs["customerManagedKeyId"] = state ? state.customerManagedKeyId : undefined;
             inputs["githubConfiguration"] = state ? state.githubConfiguration : undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -116,6 +121,7 @@ export class Factory extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["customerManagedKeyId"] = args ? args.customerManagedKeyId : undefined;
             inputs["githubConfiguration"] = args ? args.githubConfiguration : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -136,6 +142,10 @@ export class Factory extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Factory resources.
  */
 export interface FactoryState {
+    /**
+     * Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
+     */
+    readonly customerManagedKeyId?: pulumi.Input<string>;
     /**
      * A `githubConfiguration` block as defined below.
      */
@@ -174,6 +184,10 @@ export interface FactoryState {
  * The set of arguments for constructing a Factory resource.
  */
 export interface FactoryArgs {
+    /**
+     * Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
+     */
+    readonly customerManagedKeyId?: pulumi.Input<string>;
     /**
      * A `githubConfiguration` block as defined below.
      */

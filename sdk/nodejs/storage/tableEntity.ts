@@ -20,10 +20,7 @@ import * as utilities from "../utilities";
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleTable = new azure.storage.Table("exampleTable", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     storageAccountName: exampleAccount.name,
- * });
+ * const exampleTable = new azure.storage.Table("exampleTable", {storageAccountName: exampleAccount.name});
  * const exampleTableEntity = new azure.storage.TableEntity("exampleTableEntity", {
  *     storageAccountName: exampleAccount.name,
  *     tableName: exampleTable.name,

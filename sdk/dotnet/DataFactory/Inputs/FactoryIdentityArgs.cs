@@ -12,6 +12,18 @@ namespace Pulumi.Azure.DataFactory.Inputs
 
     public sealed class FactoryIdentityArgs : Pulumi.ResourceArgs
     {
+        [Input("identityIds")]
+        private InputList<string>? _identityIds;
+
+        /// <summary>
+        /// Specifies the IDs of user assigned identities. Requiered if `UserAssigned` type is used.
+        /// </summary>
+        public InputList<string> IdentityIds
+        {
+            get => _identityIds ?? (_identityIds = new InputList<string>());
+            set => _identityIds = value;
+        }
+
         /// <summary>
         /// The ID of the Principal (Client) in Azure Active Directory
         /// </summary>
@@ -25,7 +37,7 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Specifies the identity type of the Data Factory. At this time the only allowed value is `SystemAssigned`.
+        /// Specifies the identity type of the Data Factory. Possible values are `SystemAssigned` and `UserAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

@@ -35,12 +35,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MongoCollection{}
 	case "azure:cosmosdb/mongoDatabase:MongoDatabase":
 		r = &MongoDatabase{}
+	case "azure:cosmosdb/notebookWorkspace:NotebookWorkspace":
+		r = &NotebookWorkspace{}
 	case "azure:cosmosdb/sqlContainer:SqlContainer":
 		r = &SqlContainer{}
 	case "azure:cosmosdb/sqlDatabase:SqlDatabase":
 		r = &SqlDatabase{}
+	case "azure:cosmosdb/sqlFunction:SqlFunction":
+		r = &SqlFunction{}
 	case "azure:cosmosdb/sqlStoredProcedure:SqlStoredProcedure":
 		r = &SqlStoredProcedure{}
+	case "azure:cosmosdb/sqlTrigger:SqlTrigger":
+		r = &SqlTrigger{}
 	case "azure:cosmosdb/table:Table":
 		r = &Table{}
 	default:
@@ -93,6 +99,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"cosmosdb/notebookWorkspace",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"cosmosdb/sqlContainer",
 		&module{version},
 	)
@@ -103,7 +114,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"cosmosdb/sqlFunction",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"cosmosdb/sqlStoredProcedure",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"cosmosdb/sqlTrigger",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

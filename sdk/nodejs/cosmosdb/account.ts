@@ -92,6 +92,10 @@ export class Account extends pulumi.CustomResource {
     }
 
     /**
+     * Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
+     */
+    public readonly accessKeyMetadataWritesEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
      */
     public readonly analyticalStorageEnabled!: pulumi.Output<boolean | undefined>;
@@ -148,9 +152,21 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
+     */
+    public readonly mongoServerVersion!: pulumi.Output<string>;
+    /**
      * Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * If azure services can bypass ACLs. Defaults to `false`.
+     */
+    public readonly networkAclBypassForAzureServices!: pulumi.Output<boolean | undefined>;
+    /**
+     * The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
+     */
+    public readonly networkAclBypassIds!: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
      */
@@ -225,6 +241,7 @@ export class Account extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountState | undefined;
+            inputs["accessKeyMetadataWritesEnabled"] = state ? state.accessKeyMetadataWritesEnabled : undefined;
             inputs["analyticalStorageEnabled"] = state ? state.analyticalStorageEnabled : undefined;
             inputs["capabilities"] = state ? state.capabilities : undefined;
             inputs["connectionStrings"] = state ? state.connectionStrings : undefined;
@@ -239,7 +256,10 @@ export class Account extends pulumi.CustomResource {
             inputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
             inputs["kind"] = state ? state.kind : undefined;
             inputs["location"] = state ? state.location : undefined;
+            inputs["mongoServerVersion"] = state ? state.mongoServerVersion : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["networkAclBypassForAzureServices"] = state ? state.networkAclBypassForAzureServices : undefined;
+            inputs["networkAclBypassIds"] = state ? state.networkAclBypassIds : undefined;
             inputs["offerType"] = state ? state.offerType : undefined;
             inputs["primaryKey"] = state ? state.primaryKey : undefined;
             inputs["primaryMasterKey"] = state ? state.primaryMasterKey : undefined;
@@ -269,6 +289,7 @@ export class Account extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["accessKeyMetadataWritesEnabled"] = args ? args.accessKeyMetadataWritesEnabled : undefined;
             inputs["analyticalStorageEnabled"] = args ? args.analyticalStorageEnabled : undefined;
             inputs["capabilities"] = args ? args.capabilities : undefined;
             inputs["consistencyPolicy"] = args ? args.consistencyPolicy : undefined;
@@ -281,7 +302,10 @@ export class Account extends pulumi.CustomResource {
             inputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["mongoServerVersion"] = args ? args.mongoServerVersion : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["networkAclBypassForAzureServices"] = args ? args.networkAclBypassForAzureServices : undefined;
+            inputs["networkAclBypassIds"] = args ? args.networkAclBypassIds : undefined;
             inputs["offerType"] = args ? args.offerType : undefined;
             inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -311,6 +335,10 @@ export class Account extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Account resources.
  */
 export interface AccountState {
+    /**
+     * Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
+     */
+    readonly accessKeyMetadataWritesEnabled?: pulumi.Input<boolean>;
     /**
      * Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
      */
@@ -368,9 +396,21 @@ export interface AccountState {
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
+     */
+    readonly mongoServerVersion?: pulumi.Input<string>;
+    /**
      * Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * If azure services can bypass ACLs. Defaults to `false`.
+     */
+    readonly networkAclBypassForAzureServices?: pulumi.Input<boolean>;
+    /**
+     * The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
+     */
+    readonly networkAclBypassIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
      */
@@ -438,6 +478,10 @@ export interface AccountState {
  */
 export interface AccountArgs {
     /**
+     * Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
+     */
+    readonly accessKeyMetadataWritesEnabled?: pulumi.Input<boolean>;
+    /**
      * Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
      */
     readonly analyticalStorageEnabled?: pulumi.Input<boolean>;
@@ -486,9 +530,21 @@ export interface AccountArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
+     */
+    readonly mongoServerVersion?: pulumi.Input<string>;
+    /**
      * Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * If azure services can bypass ACLs. Defaults to `false`.
+     */
+    readonly networkAclBypassForAzureServices?: pulumi.Input<boolean>;
+    /**
+     * The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
+     */
+    readonly networkAclBypassIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
      */

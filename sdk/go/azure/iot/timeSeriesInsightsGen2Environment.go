@@ -13,6 +13,56 @@ import (
 
 // Manages an Azure IoT Time Series Insights Gen2 Environment.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/iot"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/storage"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		storage, err := storage.NewAccount(ctx, "storage", &storage.AccountArgs{
+// 			Location:               exampleResourceGroup.Location,
+// 			ResourceGroupName:      exampleResourceGroup.Name,
+// 			AccountTier:            pulumi.String("Standard"),
+// 			AccountReplicationType: pulumi.String("LRS"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = iot.NewTimeSeriesInsightsGen2Environment(ctx, "exampleTimeSeriesInsightsGen2Environment", &iot.TimeSeriesInsightsGen2EnvironmentArgs{
+// 			Location:                   exampleResourceGroup.Location,
+// 			ResourceGroupName:          exampleResourceGroup.Name,
+// 			SkuName:                    pulumi.String("L1"),
+// 			WarmStoreDataRetentionTime: pulumi.String("P30D"),
+// 			IdProperties: pulumi.StringArray{
+// 				pulumi.String("id"),
+// 			},
+// 			Storage: &iot.TimeSeriesInsightsGen2EnvironmentStorageArgs{
+// 				Name: storage.Name,
+// 				Key:  storage.PrimaryAccessKey,
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Azure IoT Time Series Insights Gen2 Environment can be imported using the `resource id`, e.g.
@@ -38,7 +88,8 @@ type TimeSeriesInsightsGen2Environment struct {
 	// A `storage` block as defined below.
 	Storage TimeSeriesInsightsGen2EnvironmentStorageOutput `pulumi:"storage"`
 	// A mapping of tags to assign to the resource.
-	Tags                       pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
 	WarmStoreDataRetentionTime pulumi.StringPtrOutput `pulumi:"warmStoreDataRetentionTime"`
 }
 
@@ -98,8 +149,9 @@ type timeSeriesInsightsGen2EnvironmentState struct {
 	// A `storage` block as defined below.
 	Storage *TimeSeriesInsightsGen2EnvironmentStorage `pulumi:"storage"`
 	// A mapping of tags to assign to the resource.
-	Tags                       map[string]string `pulumi:"tags"`
-	WarmStoreDataRetentionTime *string           `pulumi:"warmStoreDataRetentionTime"`
+	Tags map[string]string `pulumi:"tags"`
+	// Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
+	WarmStoreDataRetentionTime *string `pulumi:"warmStoreDataRetentionTime"`
 }
 
 type TimeSeriesInsightsGen2EnvironmentState struct {
@@ -118,7 +170,8 @@ type TimeSeriesInsightsGen2EnvironmentState struct {
 	// A `storage` block as defined below.
 	Storage TimeSeriesInsightsGen2EnvironmentStoragePtrInput
 	// A mapping of tags to assign to the resource.
-	Tags                       pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
 	WarmStoreDataRetentionTime pulumi.StringPtrInput
 }
 
@@ -140,8 +193,9 @@ type timeSeriesInsightsGen2EnvironmentArgs struct {
 	// A `storage` block as defined below.
 	Storage TimeSeriesInsightsGen2EnvironmentStorage `pulumi:"storage"`
 	// A mapping of tags to assign to the resource.
-	Tags                       map[string]string `pulumi:"tags"`
-	WarmStoreDataRetentionTime *string           `pulumi:"warmStoreDataRetentionTime"`
+	Tags map[string]string `pulumi:"tags"`
+	// Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
+	WarmStoreDataRetentionTime *string `pulumi:"warmStoreDataRetentionTime"`
 }
 
 // The set of arguments for constructing a TimeSeriesInsightsGen2Environment resource.
@@ -159,7 +213,8 @@ type TimeSeriesInsightsGen2EnvironmentArgs struct {
 	// A `storage` block as defined below.
 	Storage TimeSeriesInsightsGen2EnvironmentStorageInput
 	// A mapping of tags to assign to the resource.
-	Tags                       pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
 	WarmStoreDataRetentionTime pulumi.StringPtrInput
 }
 

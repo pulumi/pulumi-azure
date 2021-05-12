@@ -12,6 +12,8 @@ namespace Pulumi.Azure.ApiManagement
     /// <summary>
     /// Manages an Certificate within an API Management Service.
     /// 
+    /// ## Example Usage
+    /// 
     /// ## Import
     /// 
     /// API Management Certificates can be imported using the `resource id`, e.g.
@@ -33,13 +35,25 @@ namespace Pulumi.Azure.ApiManagement
         /// The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
         /// </summary>
         [Output("data")]
-        public Output<string> Data { get; private set; } = null!;
+        public Output<string?> Data { get; private set; } = null!;
 
         /// <summary>
         /// The Expiration Date of this Certificate, formatted as an RFC3339 string.
         /// </summary>
         [Output("expiration")]
         public Output<string> Expiration { get; private set; } = null!;
+
+        /// <summary>
+        /// The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+        /// </summary>
+        [Output("keyVaultIdentityClientId")]
+        public Output<string?> KeyVaultIdentityClientId { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+        /// </summary>
+        [Output("keyVaultSecretId")]
+        public Output<string?> KeyVaultSecretId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the API Management Certificate. Changing this forces a new resource to be created.
@@ -126,8 +140,20 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("data", required: true)]
-        public Input<string> Data { get; set; } = null!;
+        [Input("data")]
+        public Input<string>? Data { get; set; }
+
+        /// <summary>
+        /// The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+        /// </summary>
+        [Input("keyVaultIdentityClientId")]
+        public Input<string>? KeyVaultIdentityClientId { get; set; }
+
+        /// <summary>
+        /// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+        /// </summary>
+        [Input("keyVaultSecretId")]
+        public Input<string>? KeyVaultSecretId { get; set; }
 
         /// <summary>
         /// The name of the API Management Certificate. Changing this forces a new resource to be created.
@@ -171,6 +197,18 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Input("expiration")]
         public Input<string>? Expiration { get; set; }
+
+        /// <summary>
+        /// The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+        /// </summary>
+        [Input("keyVaultIdentityClientId")]
+        public Input<string>? KeyVaultIdentityClientId { get; set; }
+
+        /// <summary>
+        /// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+        /// </summary>
+        [Input("keyVaultSecretId")]
+        public Input<string>? KeyVaultSecretId { get; set; }
 
         /// <summary>
         /// The name of the API Management Certificate. Changing this forces a new resource to be created.

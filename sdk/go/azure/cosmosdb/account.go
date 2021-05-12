@@ -91,6 +91,8 @@ import (
 type Account struct {
 	pulumi.CustomResourceState
 
+	// Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
+	AccessKeyMetadataWritesEnabled pulumi.BoolPtrOutput `pulumi:"accessKeyMetadataWritesEnabled"`
 	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
 	AnalyticalStorageEnabled pulumi.BoolPtrOutput `pulumi:"analyticalStorageEnabled"`
 	// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
@@ -119,8 +121,14 @@ type Account struct {
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
+	MongoServerVersion pulumi.StringOutput `pulumi:"mongoServerVersion"`
 	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// If azure services can bypass ACLs. Defaults to `false`.
+	NetworkAclBypassForAzureServices pulumi.BoolPtrOutput `pulumi:"networkAclBypassForAzureServices"`
+	// The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
+	NetworkAclBypassIds pulumi.StringArrayOutput `pulumi:"networkAclBypassIds"`
 	// Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
 	OfferType pulumi.StringOutput `pulumi:"offerType"`
 	// The Primary master key for the CosmosDB Account.
@@ -194,6 +202,8 @@ func GetAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Account resources.
 type accountState struct {
+	// Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
+	AccessKeyMetadataWritesEnabled *bool `pulumi:"accessKeyMetadataWritesEnabled"`
 	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
 	AnalyticalStorageEnabled *bool `pulumi:"analyticalStorageEnabled"`
 	// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
@@ -222,8 +232,14 @@ type accountState struct {
 	Kind *string `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
+	MongoServerVersion *string `pulumi:"mongoServerVersion"`
 	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// If azure services can bypass ACLs. Defaults to `false`.
+	NetworkAclBypassForAzureServices *bool `pulumi:"networkAclBypassForAzureServices"`
+	// The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
+	NetworkAclBypassIds []string `pulumi:"networkAclBypassIds"`
 	// Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
 	OfferType *string `pulumi:"offerType"`
 	// The Primary master key for the CosmosDB Account.
@@ -257,6 +273,8 @@ type accountState struct {
 }
 
 type AccountState struct {
+	// Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
+	AccessKeyMetadataWritesEnabled pulumi.BoolPtrInput
 	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
 	AnalyticalStorageEnabled pulumi.BoolPtrInput
 	// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
@@ -285,8 +303,14 @@ type AccountState struct {
 	Kind pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
+	MongoServerVersion pulumi.StringPtrInput
 	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// If azure services can bypass ACLs. Defaults to `false`.
+	NetworkAclBypassForAzureServices pulumi.BoolPtrInput
+	// The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
+	NetworkAclBypassIds pulumi.StringArrayInput
 	// Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
 	OfferType pulumi.StringPtrInput
 	// The Primary master key for the CosmosDB Account.
@@ -324,6 +348,8 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
+	// Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
+	AccessKeyMetadataWritesEnabled *bool `pulumi:"accessKeyMetadataWritesEnabled"`
 	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
 	AnalyticalStorageEnabled *bool `pulumi:"analyticalStorageEnabled"`
 	// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
@@ -348,8 +374,14 @@ type accountArgs struct {
 	Kind *string `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
+	MongoServerVersion *string `pulumi:"mongoServerVersion"`
 	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// If azure services can bypass ACLs. Defaults to `false`.
+	NetworkAclBypassForAzureServices *bool `pulumi:"networkAclBypassForAzureServices"`
+	// The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
+	NetworkAclBypassIds []string `pulumi:"networkAclBypassIds"`
 	// Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
 	OfferType string `pulumi:"offerType"`
 	// Whether or not public network access is allowed for this CosmosDB account.
@@ -364,6 +396,8 @@ type accountArgs struct {
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
+	// Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
+	AccessKeyMetadataWritesEnabled pulumi.BoolPtrInput
 	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
 	AnalyticalStorageEnabled pulumi.BoolPtrInput
 	// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
@@ -388,8 +422,14 @@ type AccountArgs struct {
 	Kind pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// The Server Version of a MongoDB account. Possible values are `4.0`, `3.6`, and `3.2`. Changing this forces a new resource to be created.
+	MongoServerVersion pulumi.StringPtrInput
 	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// If azure services can bypass ACLs. Defaults to `false`.
+	NetworkAclBypassForAzureServices pulumi.BoolPtrInput
+	// The list of resource Ids for Network Acl Bypass for this Cosmos DB account.
+	NetworkAclBypassIds pulumi.StringArrayInput
 	// Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
 	OfferType pulumi.StringInput
 	// Whether or not public network access is allowed for this CosmosDB account.

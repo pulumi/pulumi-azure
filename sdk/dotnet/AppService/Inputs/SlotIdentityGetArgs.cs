@@ -24,9 +24,15 @@ namespace Pulumi.Azure.AppService.Inputs
             set => _identityIds = value;
         }
 
+        /// <summary>
+        /// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
+        /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
+        /// <summary>
+        /// The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
+        /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 

@@ -13,6 +13,8 @@ import (
 
 // Manages a Microsoft SQL Azure Database Server.
 //
+// > **Note:** This resource provides usage of Microsoft SQL Azure Database server using an older `sku` based model. It is recommended going forward to use `mssql.Server` resource which provides support for `vcores`.
+//
 // ## Example Usage
 //
 // ```go

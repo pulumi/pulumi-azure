@@ -16,6 +16,7 @@ __all__ = ['FactoryArgs', 'Factory']
 class FactoryArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 customer_managed_key_id: Optional[pulumi.Input[str]] = None,
                  github_configuration: Optional[pulumi.Input['FactoryGithubConfigurationArgs']] = None,
                  identity: Optional[pulumi.Input['FactoryIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -26,6 +27,7 @@ class FactoryArgs:
         """
         The set of arguments for constructing a Factory resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory.
+        :param pulumi.Input[str] customer_managed_key_id: Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
         :param pulumi.Input['FactoryGithubConfigurationArgs'] github_configuration: A `github_configuration` block as defined below.
         :param pulumi.Input['FactoryIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -35,6 +37,8 @@ class FactoryArgs:
         :param pulumi.Input['FactoryVstsConfigurationArgs'] vsts_configuration: A `vsts_configuration` block as defined below.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if customer_managed_key_id is not None:
+            pulumi.set(__self__, "customer_managed_key_id", customer_managed_key_id)
         if github_configuration is not None:
             pulumi.set(__self__, "github_configuration", github_configuration)
         if identity is not None:
@@ -61,6 +65,18 @@ class FactoryArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="customerManagedKeyId")
+    def customer_managed_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
+        """
+        return pulumi.get(self, "customer_managed_key_id")
+
+    @customer_managed_key_id.setter
+    def customer_managed_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "customer_managed_key_id", value)
 
     @property
     @pulumi.getter(name="githubConfiguration")
@@ -150,6 +166,7 @@ class FactoryArgs:
 @pulumi.input_type
 class _FactoryState:
     def __init__(__self__, *,
+                 customer_managed_key_id: Optional[pulumi.Input[str]] = None,
                  github_configuration: Optional[pulumi.Input['FactoryGithubConfigurationArgs']] = None,
                  identity: Optional[pulumi.Input['FactoryIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -160,6 +177,7 @@ class _FactoryState:
                  vsts_configuration: Optional[pulumi.Input['FactoryVstsConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering Factory resources.
+        :param pulumi.Input[str] customer_managed_key_id: Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
         :param pulumi.Input['FactoryGithubConfigurationArgs'] github_configuration: A `github_configuration` block as defined below.
         :param pulumi.Input['FactoryIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -169,6 +187,8 @@ class _FactoryState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['FactoryVstsConfigurationArgs'] vsts_configuration: A `vsts_configuration` block as defined below.
         """
+        if customer_managed_key_id is not None:
+            pulumi.set(__self__, "customer_managed_key_id", customer_managed_key_id)
         if github_configuration is not None:
             pulumi.set(__self__, "github_configuration", github_configuration)
         if identity is not None:
@@ -185,6 +205,18 @@ class _FactoryState:
             pulumi.set(__self__, "tags", tags)
         if vsts_configuration is not None:
             pulumi.set(__self__, "vsts_configuration", vsts_configuration)
+
+    @property
+    @pulumi.getter(name="customerManagedKeyId")
+    def customer_managed_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
+        """
+        return pulumi.get(self, "customer_managed_key_id")
+
+    @customer_managed_key_id.setter
+    def customer_managed_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "customer_managed_key_id", value)
 
     @property
     @pulumi.getter(name="githubConfiguration")
@@ -288,6 +320,7 @@ class Factory(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 customer_managed_key_id: Optional[pulumi.Input[str]] = None,
                  github_configuration: Optional[pulumi.Input[pulumi.InputType['FactoryGithubConfigurationArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['FactoryIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -322,6 +355,7 @@ class Factory(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] customer_managed_key_id: Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
         :param pulumi.Input[pulumi.InputType['FactoryGithubConfigurationArgs']] github_configuration: A `github_configuration` block as defined below.
         :param pulumi.Input[pulumi.InputType['FactoryIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -375,6 +409,7 @@ class Factory(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 customer_managed_key_id: Optional[pulumi.Input[str]] = None,
                  github_configuration: Optional[pulumi.Input[pulumi.InputType['FactoryGithubConfigurationArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['FactoryIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -395,6 +430,7 @@ class Factory(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FactoryArgs.__new__(FactoryArgs)
 
+            __props__.__dict__["customer_managed_key_id"] = customer_managed_key_id
             __props__.__dict__["github_configuration"] = github_configuration
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
@@ -415,6 +451,7 @@ class Factory(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            customer_managed_key_id: Optional[pulumi.Input[str]] = None,
             github_configuration: Optional[pulumi.Input[pulumi.InputType['FactoryGithubConfigurationArgs']]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['FactoryIdentityArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -430,6 +467,7 @@ class Factory(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] customer_managed_key_id: Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
         :param pulumi.Input[pulumi.InputType['FactoryGithubConfigurationArgs']] github_configuration: A `github_configuration` block as defined below.
         :param pulumi.Input[pulumi.InputType['FactoryIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -443,6 +481,7 @@ class Factory(pulumi.CustomResource):
 
         __props__ = _FactoryState.__new__(_FactoryState)
 
+        __props__.__dict__["customer_managed_key_id"] = customer_managed_key_id
         __props__.__dict__["github_configuration"] = github_configuration
         __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
@@ -452,6 +491,14 @@ class Factory(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["vsts_configuration"] = vsts_configuration
         return Factory(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="customerManagedKeyId")
+    def customer_managed_key_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
+        """
+        return pulumi.get(self, "customer_managed_key_id")
 
     @property
     @pulumi.getter(name="githubConfiguration")

@@ -306,7 +306,17 @@ func TestAccLinuxVirtualMachines(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir:           filepath.Join(getCwd(t), "linux-virtual-machine"),
-			RunUpdateTest: false,
+			RunUpdateTest: true,
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
+func TestAccFrontdoor(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir:           filepath.Join(getCwd(t), "frontdoor"),
+			RunUpdateTest: true,
 		})
 
 	integration.ProgramTest(t, &test)

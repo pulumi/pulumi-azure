@@ -13,6 +13,12 @@ namespace Pulumi.Azure.HDInsight.Inputs
     public sealed class SparkClusterRolesWorkerNodeGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A `autoscale` block as defined below.
+        /// </summary>
+        [Input("autoscale")]
+        public Input<Inputs.SparkClusterRolesWorkerNodeAutoscaleGetArgs>? Autoscale { get; set; }
+
+        /// <summary>
         /// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
         /// </summary>
         [Input("minInstanceCount")]

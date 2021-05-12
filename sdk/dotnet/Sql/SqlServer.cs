@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Sql
     /// <summary>
     /// Manages a Microsoft SQL Azure Database Server.
     /// 
+    /// &gt; **Note:** This resource provides usage of Microsoft SQL Azure Database server using an older `sku` based model. It is recommended going forward to use `azure.mssql.Server` resource which provides support for `vcores`.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

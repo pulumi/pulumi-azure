@@ -113,6 +113,12 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
+        /// </summary>
+        [Output("folder")]
+        public Output<string?> Folder { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         /// </summary>
         [Output("name")]
@@ -213,6 +219,12 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
+        /// </summary>
+        [Input("folder")]
+        public Input<string>? Folder { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         /// </summary>
         [Input("name")]
@@ -284,6 +296,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
+        /// </summary>
+        [Input("folder")]
+        public Input<string>? Folder { get; set; }
 
         /// <summary>
         /// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.

@@ -25,10 +25,8 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     skuName: "L1",
- *     dataRetentionTime: "P30D",
- *     property: [{
- *         ids: ["id"],
- *     }],
+ *     warmStoreDataRetentionTime: "P30D",
+ *     idProperties: ["id"],
  *     storage: {
  *         name: storage.name,
  *         key: storage.primaryAccessKey,
@@ -104,6 +102,9 @@ export class TimeSeriesInsightsGen2Environment extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
+     */
     public readonly warmStoreDataRetentionTime!: pulumi.Output<string | undefined>;
 
     /**
@@ -195,6 +196,9 @@ export interface TimeSeriesInsightsGen2EnvironmentState {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
+     */
     readonly warmStoreDataRetentionTime?: pulumi.Input<string>;
 }
 
@@ -230,5 +234,8 @@ export interface TimeSeriesInsightsGen2EnvironmentArgs {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created.
+     */
     readonly warmStoreDataRetentionTime?: pulumi.Input<string>;
 }

@@ -14,6 +14,10 @@ namespace Pulumi.Azure.HDInsight.Outputs
     public sealed class HBaseClusterRolesWorkerNode
     {
         /// <summary>
+        /// A `autoscale` block as defined below.
+        /// </summary>
+        public readonly Outputs.HBaseClusterRolesWorkerNodeAutoscale? Autoscale;
+        /// <summary>
         /// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
         /// </summary>
         public readonly int? MinInstanceCount;
@@ -48,6 +52,8 @@ namespace Pulumi.Azure.HDInsight.Outputs
 
         [OutputConstructor]
         private HBaseClusterRolesWorkerNode(
+            Outputs.HBaseClusterRolesWorkerNodeAutoscale? autoscale,
+
             int? minInstanceCount,
 
             string? password,
@@ -64,6 +70,7 @@ namespace Pulumi.Azure.HDInsight.Outputs
 
             string vmSize)
         {
+            Autoscale = autoscale;
             MinInstanceCount = minInstanceCount;
             Password = password;
             SshKeys = sshKeys;

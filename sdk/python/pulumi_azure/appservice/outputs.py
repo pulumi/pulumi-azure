@@ -37,6 +37,7 @@ __all__ = [
     'AppServiceStorageAccount',
     'CertificateOrderCertificate',
     'EnvironmentClusterSetting',
+    'EnvironmentV3ClusterSetting',
     'FunctionAppAuthSettings',
     'FunctionAppAuthSettingsActiveDirectory',
     'FunctionAppAuthSettingsFacebook',
@@ -100,6 +101,7 @@ __all__ = [
     'GetAppServiceSiteCredentialResult',
     'GetAppServiceSourceControlResult',
     'GetCertificateOrderCertificateResult',
+    'GetEnvironmentV3ClusterSettingResult',
     'GetFunctionAppConnectionStringResult',
     'GetFunctionAppIdentityResult',
     'GetFunctionAppSiteConfigResult',
@@ -2340,6 +2342,35 @@ class CertificateOrderCertificate(dict):
 
 @pulumi.output_type
 class EnvironmentClusterSetting(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        :param str name: The name of the Cluster Setting.
+        :param str value: The value for the Cluster Setting.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Cluster Setting.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the Cluster Setting.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class EnvironmentV3ClusterSetting(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -5659,6 +5690,8 @@ class SlotIdentity(dict):
         """
         :param str type: Specifies the identity type of the App Service. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
         :param Sequence[str] identity_ids: Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+        :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
+        :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -5687,11 +5720,17 @@ class SlotIdentity(dict):
     @property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[str]:
+        """
+        The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
+        """
         return pulumi.get(self, "principal_id")
 
     @property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[str]:
+        """
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
+        """
         return pulumi.get(self, "tenant_id")
 
 
@@ -7590,6 +7629,35 @@ class GetCertificateOrderCertificateResult(dict):
         Status of the Key Vault secret.
         """
         return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
+class GetEnvironmentV3ClusterSettingResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        :param str name: The name of this v3 App Service Environment.
+        :param str value: The value for the Cluster Setting.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of this v3 App Service Environment.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the Cluster Setting.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

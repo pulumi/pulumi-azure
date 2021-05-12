@@ -6,6 +6,7 @@
 from .account import *
 from .account_network_rules import *
 from .blob import *
+from .blob_inventory_policy import *
 from .container import *
 from .customer_managed_key import *
 from .data_lake_gen2_filesystem import *
@@ -20,6 +21,7 @@ from .get_policy import *
 from .get_storage_container import *
 from .get_sync import *
 from .get_sync_group import *
+from .get_table_entity import *
 from .management_policy import *
 from .queue import *
 from .share import *
@@ -52,6 +54,8 @@ def _register_module():
                 return AccountNetworkRules(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:storage/blob:Blob":
                 return Blob(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:storage/blobInventoryPolicy:BlobInventoryPolicy":
+                return BlobInventoryPolicy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:storage/container:Container":
                 return Container(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:storage/customerManagedKey:CustomerManagedKey":
@@ -92,6 +96,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "storage/account", _module_instance)
     pulumi.runtime.register_resource_module("azure", "storage/accountNetworkRules", _module_instance)
     pulumi.runtime.register_resource_module("azure", "storage/blob", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "storage/blobInventoryPolicy", _module_instance)
     pulumi.runtime.register_resource_module("azure", "storage/container", _module_instance)
     pulumi.runtime.register_resource_module("azure", "storage/customerManagedKey", _module_instance)
     pulumi.runtime.register_resource_module("azure", "storage/dataLakeGen2Filesystem", _module_instance)

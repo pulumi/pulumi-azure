@@ -151,6 +151,8 @@ type GetPublicIPResult struct {
 	IdleTimeoutInMinutes int `pulumi:"idleTimeoutInMinutes"`
 	// The IP address value that was allocated.
 	IpAddress string `pulumi:"ipAddress"`
+	// A mapping of tags to assigned to the resource.
+	IpTags map[string]string `pulumi:"ipTags"`
 	// The IP version being used, for example `IPv4` or `IPv6`.
 	IpVersion         string `pulumi:"ipVersion"`
 	Location          string `pulumi:"location"`

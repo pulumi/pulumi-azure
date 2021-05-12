@@ -1597,6 +1597,8 @@ func (o HBaseClusterRolesHeadNodePtrOutput) VmSize() pulumi.StringPtrOutput {
 }
 
 type HBaseClusterRolesWorkerNode struct {
+	// A `autoscale` block as defined below.
+	Autoscale *HBaseClusterRolesWorkerNodeAutoscale `pulumi:"autoscale"`
 	// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
 	//
 	// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
@@ -1629,6 +1631,8 @@ type HBaseClusterRolesWorkerNodeInput interface {
 }
 
 type HBaseClusterRolesWorkerNodeArgs struct {
+	// A `autoscale` block as defined below.
+	Autoscale HBaseClusterRolesWorkerNodeAutoscalePtrInput `pulumi:"autoscale"`
 	// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
 	//
 	// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
@@ -1726,6 +1730,11 @@ func (o HBaseClusterRolesWorkerNodeOutput) ToHBaseClusterRolesWorkerNodePtrOutpu
 	}).(HBaseClusterRolesWorkerNodePtrOutput)
 }
 
+// A `autoscale` block as defined below.
+func (o HBaseClusterRolesWorkerNodeOutput) Autoscale() HBaseClusterRolesWorkerNodeAutoscalePtrOutput {
+	return o.ApplyT(func(v HBaseClusterRolesWorkerNode) *HBaseClusterRolesWorkerNodeAutoscale { return v.Autoscale }).(HBaseClusterRolesWorkerNodeAutoscalePtrOutput)
+}
+
 // The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
 //
 // Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
@@ -1784,6 +1793,16 @@ func (o HBaseClusterRolesWorkerNodePtrOutput) ToHBaseClusterRolesWorkerNodePtrOu
 
 func (o HBaseClusterRolesWorkerNodePtrOutput) Elem() HBaseClusterRolesWorkerNodeOutput {
 	return o.ApplyT(func(v *HBaseClusterRolesWorkerNode) HBaseClusterRolesWorkerNode { return *v }).(HBaseClusterRolesWorkerNodeOutput)
+}
+
+// A `autoscale` block as defined below.
+func (o HBaseClusterRolesWorkerNodePtrOutput) Autoscale() HBaseClusterRolesWorkerNodeAutoscalePtrOutput {
+	return o.ApplyT(func(v *HBaseClusterRolesWorkerNode) *HBaseClusterRolesWorkerNodeAutoscale {
+		if v == nil {
+			return nil
+		}
+		return v.Autoscale
+	}).(HBaseClusterRolesWorkerNodeAutoscalePtrOutput)
 }
 
 // The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
@@ -1866,6 +1885,408 @@ func (o HBaseClusterRolesWorkerNodePtrOutput) VmSize() pulumi.StringPtrOutput {
 		}
 		return &v.VmSize
 	}).(pulumi.StringPtrOutput)
+}
+
+type HBaseClusterRolesWorkerNodeAutoscale struct {
+	// A `recurrence` block as defined below.
+	Recurrence *HBaseClusterRolesWorkerNodeAutoscaleRecurrence `pulumi:"recurrence"`
+}
+
+// HBaseClusterRolesWorkerNodeAutoscaleInput is an input type that accepts HBaseClusterRolesWorkerNodeAutoscaleArgs and HBaseClusterRolesWorkerNodeAutoscaleOutput values.
+// You can construct a concrete instance of `HBaseClusterRolesWorkerNodeAutoscaleInput` via:
+//
+//          HBaseClusterRolesWorkerNodeAutoscaleArgs{...}
+type HBaseClusterRolesWorkerNodeAutoscaleInput interface {
+	pulumi.Input
+
+	ToHBaseClusterRolesWorkerNodeAutoscaleOutput() HBaseClusterRolesWorkerNodeAutoscaleOutput
+	ToHBaseClusterRolesWorkerNodeAutoscaleOutputWithContext(context.Context) HBaseClusterRolesWorkerNodeAutoscaleOutput
+}
+
+type HBaseClusterRolesWorkerNodeAutoscaleArgs struct {
+	// A `recurrence` block as defined below.
+	Recurrence HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrInput `pulumi:"recurrence"`
+}
+
+func (HBaseClusterRolesWorkerNodeAutoscaleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HBaseClusterRolesWorkerNodeAutoscale)(nil)).Elem()
+}
+
+func (i HBaseClusterRolesWorkerNodeAutoscaleArgs) ToHBaseClusterRolesWorkerNodeAutoscaleOutput() HBaseClusterRolesWorkerNodeAutoscaleOutput {
+	return i.ToHBaseClusterRolesWorkerNodeAutoscaleOutputWithContext(context.Background())
+}
+
+func (i HBaseClusterRolesWorkerNodeAutoscaleArgs) ToHBaseClusterRolesWorkerNodeAutoscaleOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodeAutoscaleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesWorkerNodeAutoscaleOutput)
+}
+
+func (i HBaseClusterRolesWorkerNodeAutoscaleArgs) ToHBaseClusterRolesWorkerNodeAutoscalePtrOutput() HBaseClusterRolesWorkerNodeAutoscalePtrOutput {
+	return i.ToHBaseClusterRolesWorkerNodeAutoscalePtrOutputWithContext(context.Background())
+}
+
+func (i HBaseClusterRolesWorkerNodeAutoscaleArgs) ToHBaseClusterRolesWorkerNodeAutoscalePtrOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodeAutoscalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesWorkerNodeAutoscaleOutput).ToHBaseClusterRolesWorkerNodeAutoscalePtrOutputWithContext(ctx)
+}
+
+// HBaseClusterRolesWorkerNodeAutoscalePtrInput is an input type that accepts HBaseClusterRolesWorkerNodeAutoscaleArgs, HBaseClusterRolesWorkerNodeAutoscalePtr and HBaseClusterRolesWorkerNodeAutoscalePtrOutput values.
+// You can construct a concrete instance of `HBaseClusterRolesWorkerNodeAutoscalePtrInput` via:
+//
+//          HBaseClusterRolesWorkerNodeAutoscaleArgs{...}
+//
+//  or:
+//
+//          nil
+type HBaseClusterRolesWorkerNodeAutoscalePtrInput interface {
+	pulumi.Input
+
+	ToHBaseClusterRolesWorkerNodeAutoscalePtrOutput() HBaseClusterRolesWorkerNodeAutoscalePtrOutput
+	ToHBaseClusterRolesWorkerNodeAutoscalePtrOutputWithContext(context.Context) HBaseClusterRolesWorkerNodeAutoscalePtrOutput
+}
+
+type hbaseClusterRolesWorkerNodeAutoscalePtrType HBaseClusterRolesWorkerNodeAutoscaleArgs
+
+func HBaseClusterRolesWorkerNodeAutoscalePtr(v *HBaseClusterRolesWorkerNodeAutoscaleArgs) HBaseClusterRolesWorkerNodeAutoscalePtrInput {
+	return (*hbaseClusterRolesWorkerNodeAutoscalePtrType)(v)
+}
+
+func (*hbaseClusterRolesWorkerNodeAutoscalePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HBaseClusterRolesWorkerNodeAutoscale)(nil)).Elem()
+}
+
+func (i *hbaseClusterRolesWorkerNodeAutoscalePtrType) ToHBaseClusterRolesWorkerNodeAutoscalePtrOutput() HBaseClusterRolesWorkerNodeAutoscalePtrOutput {
+	return i.ToHBaseClusterRolesWorkerNodeAutoscalePtrOutputWithContext(context.Background())
+}
+
+func (i *hbaseClusterRolesWorkerNodeAutoscalePtrType) ToHBaseClusterRolesWorkerNodeAutoscalePtrOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodeAutoscalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesWorkerNodeAutoscalePtrOutput)
+}
+
+type HBaseClusterRolesWorkerNodeAutoscaleOutput struct{ *pulumi.OutputState }
+
+func (HBaseClusterRolesWorkerNodeAutoscaleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HBaseClusterRolesWorkerNodeAutoscale)(nil)).Elem()
+}
+
+func (o HBaseClusterRolesWorkerNodeAutoscaleOutput) ToHBaseClusterRolesWorkerNodeAutoscaleOutput() HBaseClusterRolesWorkerNodeAutoscaleOutput {
+	return o
+}
+
+func (o HBaseClusterRolesWorkerNodeAutoscaleOutput) ToHBaseClusterRolesWorkerNodeAutoscaleOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodeAutoscaleOutput {
+	return o
+}
+
+func (o HBaseClusterRolesWorkerNodeAutoscaleOutput) ToHBaseClusterRolesWorkerNodeAutoscalePtrOutput() HBaseClusterRolesWorkerNodeAutoscalePtrOutput {
+	return o.ToHBaseClusterRolesWorkerNodeAutoscalePtrOutputWithContext(context.Background())
+}
+
+func (o HBaseClusterRolesWorkerNodeAutoscaleOutput) ToHBaseClusterRolesWorkerNodeAutoscalePtrOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodeAutoscalePtrOutput {
+	return o.ApplyT(func(v HBaseClusterRolesWorkerNodeAutoscale) *HBaseClusterRolesWorkerNodeAutoscale {
+		return &v
+	}).(HBaseClusterRolesWorkerNodeAutoscalePtrOutput)
+}
+
+// A `recurrence` block as defined below.
+func (o HBaseClusterRolesWorkerNodeAutoscaleOutput) Recurrence() HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return o.ApplyT(func(v HBaseClusterRolesWorkerNodeAutoscale) *HBaseClusterRolesWorkerNodeAutoscaleRecurrence {
+		return v.Recurrence
+	}).(HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput)
+}
+
+type HBaseClusterRolesWorkerNodeAutoscalePtrOutput struct{ *pulumi.OutputState }
+
+func (HBaseClusterRolesWorkerNodeAutoscalePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HBaseClusterRolesWorkerNodeAutoscale)(nil)).Elem()
+}
+
+func (o HBaseClusterRolesWorkerNodeAutoscalePtrOutput) ToHBaseClusterRolesWorkerNodeAutoscalePtrOutput() HBaseClusterRolesWorkerNodeAutoscalePtrOutput {
+	return o
+}
+
+func (o HBaseClusterRolesWorkerNodeAutoscalePtrOutput) ToHBaseClusterRolesWorkerNodeAutoscalePtrOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodeAutoscalePtrOutput {
+	return o
+}
+
+func (o HBaseClusterRolesWorkerNodeAutoscalePtrOutput) Elem() HBaseClusterRolesWorkerNodeAutoscaleOutput {
+	return o.ApplyT(func(v *HBaseClusterRolesWorkerNodeAutoscale) HBaseClusterRolesWorkerNodeAutoscale { return *v }).(HBaseClusterRolesWorkerNodeAutoscaleOutput)
+}
+
+// A `recurrence` block as defined below.
+func (o HBaseClusterRolesWorkerNodeAutoscalePtrOutput) Recurrence() HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return o.ApplyT(func(v *HBaseClusterRolesWorkerNodeAutoscale) *HBaseClusterRolesWorkerNodeAutoscaleRecurrence {
+		if v == nil {
+			return nil
+		}
+		return v.Recurrence
+	}).(HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput)
+}
+
+type HBaseClusterRolesWorkerNodeAutoscaleRecurrence struct {
+	// A list of `schedule` blocks as defined below.
+	Schedules []HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule `pulumi:"schedules"`
+	// The time zone for the autoscale schedule times.
+	Timezone string `pulumi:"timezone"`
+}
+
+// HBaseClusterRolesWorkerNodeAutoscaleRecurrenceInput is an input type that accepts HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs and HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput values.
+// You can construct a concrete instance of `HBaseClusterRolesWorkerNodeAutoscaleRecurrenceInput` via:
+//
+//          HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs{...}
+type HBaseClusterRolesWorkerNodeAutoscaleRecurrenceInput interface {
+	pulumi.Input
+
+	ToHBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput() HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput
+	ToHBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutputWithContext(context.Context) HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput
+}
+
+type HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs struct {
+	// A list of `schedule` blocks as defined below.
+	Schedules HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput `pulumi:"schedules"`
+	// The time zone for the autoscale schedule times.
+	Timezone pulumi.StringInput `pulumi:"timezone"`
+}
+
+func (HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HBaseClusterRolesWorkerNodeAutoscaleRecurrence)(nil)).Elem()
+}
+
+func (i HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ToHBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput() HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput {
+	return i.ToHBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutputWithContext(context.Background())
+}
+
+func (i HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ToHBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput)
+}
+
+func (i HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ToHBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput() HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return i.ToHBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (i HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ToHBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput).ToHBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(ctx)
+}
+
+// HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrInput is an input type that accepts HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs, HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtr and HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput values.
+// You can construct a concrete instance of `HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrInput` via:
+//
+//          HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs{...}
+//
+//  or:
+//
+//          nil
+type HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrInput interface {
+	pulumi.Input
+
+	ToHBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput() HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput
+	ToHBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(context.Context) HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput
+}
+
+type hbaseClusterRolesWorkerNodeAutoscaleRecurrencePtrType HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs
+
+func HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtr(v *HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs) HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrInput {
+	return (*hbaseClusterRolesWorkerNodeAutoscaleRecurrencePtrType)(v)
+}
+
+func (*hbaseClusterRolesWorkerNodeAutoscaleRecurrencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HBaseClusterRolesWorkerNodeAutoscaleRecurrence)(nil)).Elem()
+}
+
+func (i *hbaseClusterRolesWorkerNodeAutoscaleRecurrencePtrType) ToHBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput() HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return i.ToHBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (i *hbaseClusterRolesWorkerNodeAutoscaleRecurrencePtrType) ToHBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput)
+}
+
+type HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput struct{ *pulumi.OutputState }
+
+func (HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HBaseClusterRolesWorkerNodeAutoscaleRecurrence)(nil)).Elem()
+}
+
+func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToHBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput() HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput {
+	return o
+}
+
+func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToHBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput {
+	return o
+}
+
+func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToHBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput() HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return o.ToHBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToHBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return o.ApplyT(func(v HBaseClusterRolesWorkerNodeAutoscaleRecurrence) *HBaseClusterRolesWorkerNodeAutoscaleRecurrence {
+		return &v
+	}).(HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput)
+}
+
+// A list of `schedule` blocks as defined below.
+func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput) Schedules() HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput {
+	return o.ApplyT(func(v HBaseClusterRolesWorkerNodeAutoscaleRecurrence) []HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
+		return v.Schedules
+	}).(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput)
+}
+
+// The time zone for the autoscale schedule times.
+func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput) Timezone() pulumi.StringOutput {
+	return o.ApplyT(func(v HBaseClusterRolesWorkerNodeAutoscaleRecurrence) string { return v.Timezone }).(pulumi.StringOutput)
+}
+
+type HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput struct{ *pulumi.OutputState }
+
+func (HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HBaseClusterRolesWorkerNodeAutoscaleRecurrence)(nil)).Elem()
+}
+
+func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) ToHBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput() HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return o
+}
+
+func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) ToHBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return o
+}
+
+func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) Elem() HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput {
+	return o.ApplyT(func(v *HBaseClusterRolesWorkerNodeAutoscaleRecurrence) HBaseClusterRolesWorkerNodeAutoscaleRecurrence {
+		return *v
+	}).(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput)
+}
+
+// A list of `schedule` blocks as defined below.
+func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) Schedules() HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput {
+	return o.ApplyT(func(v *HBaseClusterRolesWorkerNodeAutoscaleRecurrence) []HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
+		if v == nil {
+			return nil
+		}
+		return v.Schedules
+	}).(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput)
+}
+
+// The time zone for the autoscale schedule times.
+func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HBaseClusterRolesWorkerNodeAutoscaleRecurrence) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Timezone
+	}).(pulumi.StringPtrOutput)
+}
+
+type HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule struct {
+	// The days of the week to perform autoscale.
+	Days []string `pulumi:"days"`
+	// The number of worker nodes to autoscale at the specified time.
+	TargetInstanceCount int `pulumi:"targetInstanceCount"`
+	// The time of day to perform the autoscale in 24hour format.
+	Time string `pulumi:"time"`
+}
+
+// HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput is an input type that accepts HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs and HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput values.
+// You can construct a concrete instance of `HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput` via:
+//
+//          HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{...}
+type HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput interface {
+	pulumi.Input
+
+	ToHBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput() HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput
+	ToHBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutputWithContext(context.Context) HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput
+}
+
+type HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs struct {
+	// The days of the week to perform autoscale.
+	Days pulumi.StringArrayInput `pulumi:"days"`
+	// The number of worker nodes to autoscale at the specified time.
+	TargetInstanceCount pulumi.IntInput `pulumi:"targetInstanceCount"`
+	// The time of day to perform the autoscale in 24hour format.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule)(nil)).Elem()
+}
+
+func (i HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs) ToHBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput() HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput {
+	return i.ToHBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutputWithContext(context.Background())
+}
+
+func (i HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs) ToHBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput)
+}
+
+// HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput is an input type that accepts HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray and HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput values.
+// You can construct a concrete instance of `HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput` via:
+//
+//          HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray{ HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{...} }
+type HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput interface {
+	pulumi.Input
+
+	ToHBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput() HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput
+	ToHBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutputWithContext(context.Context) HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput
+}
+
+type HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray []HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput
+
+func (HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule)(nil)).Elem()
+}
+
+func (i HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray) ToHBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput() HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput {
+	return i.ToHBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray) ToHBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput)
+}
+
+type HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput struct{ *pulumi.OutputState }
+
+func (HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule)(nil)).Elem()
+}
+
+func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) ToHBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput() HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput {
+	return o
+}
+
+func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) ToHBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput {
+	return o
+}
+
+// The days of the week to perform autoscale.
+func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) Days() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule) []string { return v.Days }).(pulumi.StringArrayOutput)
+}
+
+// The number of worker nodes to autoscale at the specified time.
+func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) TargetInstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule) int { return v.TargetInstanceCount }).(pulumi.IntOutput)
+}
+
+// The time of day to perform the autoscale in 24hour format.
+func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule) string { return v.Time }).(pulumi.StringOutput)
+}
+
+type HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule)(nil)).Elem()
+}
+
+func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) ToHBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput() HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput {
+	return o
+}
+
+func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) ToHBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput {
+	return o
+}
+
+func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) Index(i pulumi.IntInput) HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
+		return vs[0].([]HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule)[vs[1].(int)]
+	}).(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput)
 }
 
 type HBaseClusterRolesZookeeperNode struct {
@@ -4430,6 +4851,8 @@ func (o HadoopClusterRolesHeadNodePtrOutput) VmSize() pulumi.StringPtrOutput {
 }
 
 type HadoopClusterRolesWorkerNode struct {
+	// A `autoscale` block as defined below.
+	Autoscale *HadoopClusterRolesWorkerNodeAutoscale `pulumi:"autoscale"`
 	// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
 	//
 	// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
@@ -4462,6 +4885,8 @@ type HadoopClusterRolesWorkerNodeInput interface {
 }
 
 type HadoopClusterRolesWorkerNodeArgs struct {
+	// A `autoscale` block as defined below.
+	Autoscale HadoopClusterRolesWorkerNodeAutoscalePtrInput `pulumi:"autoscale"`
 	// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
 	//
 	// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
@@ -4559,6 +4984,11 @@ func (o HadoopClusterRolesWorkerNodeOutput) ToHadoopClusterRolesWorkerNodePtrOut
 	}).(HadoopClusterRolesWorkerNodePtrOutput)
 }
 
+// A `autoscale` block as defined below.
+func (o HadoopClusterRolesWorkerNodeOutput) Autoscale() HadoopClusterRolesWorkerNodeAutoscalePtrOutput {
+	return o.ApplyT(func(v HadoopClusterRolesWorkerNode) *HadoopClusterRolesWorkerNodeAutoscale { return v.Autoscale }).(HadoopClusterRolesWorkerNodeAutoscalePtrOutput)
+}
+
 // The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
 //
 // Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
@@ -4617,6 +5047,16 @@ func (o HadoopClusterRolesWorkerNodePtrOutput) ToHadoopClusterRolesWorkerNodePtr
 
 func (o HadoopClusterRolesWorkerNodePtrOutput) Elem() HadoopClusterRolesWorkerNodeOutput {
 	return o.ApplyT(func(v *HadoopClusterRolesWorkerNode) HadoopClusterRolesWorkerNode { return *v }).(HadoopClusterRolesWorkerNodeOutput)
+}
+
+// A `autoscale` block as defined below.
+func (o HadoopClusterRolesWorkerNodePtrOutput) Autoscale() HadoopClusterRolesWorkerNodeAutoscalePtrOutput {
+	return o.ApplyT(func(v *HadoopClusterRolesWorkerNode) *HadoopClusterRolesWorkerNodeAutoscale {
+		if v == nil {
+			return nil
+		}
+		return v.Autoscale
+	}).(HadoopClusterRolesWorkerNodeAutoscalePtrOutput)
 }
 
 // The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
@@ -4699,6 +5139,581 @@ func (o HadoopClusterRolesWorkerNodePtrOutput) VmSize() pulumi.StringPtrOutput {
 		}
 		return &v.VmSize
 	}).(pulumi.StringPtrOutput)
+}
+
+type HadoopClusterRolesWorkerNodeAutoscale struct {
+	// A `capacity` block as defined below.
+	Capacity *HadoopClusterRolesWorkerNodeAutoscaleCapacity `pulumi:"capacity"`
+	// A `recurrence` block as defined below.
+	Recurrence *HadoopClusterRolesWorkerNodeAutoscaleRecurrence `pulumi:"recurrence"`
+}
+
+// HadoopClusterRolesWorkerNodeAutoscaleInput is an input type that accepts HadoopClusterRolesWorkerNodeAutoscaleArgs and HadoopClusterRolesWorkerNodeAutoscaleOutput values.
+// You can construct a concrete instance of `HadoopClusterRolesWorkerNodeAutoscaleInput` via:
+//
+//          HadoopClusterRolesWorkerNodeAutoscaleArgs{...}
+type HadoopClusterRolesWorkerNodeAutoscaleInput interface {
+	pulumi.Input
+
+	ToHadoopClusterRolesWorkerNodeAutoscaleOutput() HadoopClusterRolesWorkerNodeAutoscaleOutput
+	ToHadoopClusterRolesWorkerNodeAutoscaleOutputWithContext(context.Context) HadoopClusterRolesWorkerNodeAutoscaleOutput
+}
+
+type HadoopClusterRolesWorkerNodeAutoscaleArgs struct {
+	// A `capacity` block as defined below.
+	Capacity HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrInput `pulumi:"capacity"`
+	// A `recurrence` block as defined below.
+	Recurrence HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrInput `pulumi:"recurrence"`
+}
+
+func (HadoopClusterRolesWorkerNodeAutoscaleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterRolesWorkerNodeAutoscale)(nil)).Elem()
+}
+
+func (i HadoopClusterRolesWorkerNodeAutoscaleArgs) ToHadoopClusterRolesWorkerNodeAutoscaleOutput() HadoopClusterRolesWorkerNodeAutoscaleOutput {
+	return i.ToHadoopClusterRolesWorkerNodeAutoscaleOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterRolesWorkerNodeAutoscaleArgs) ToHadoopClusterRolesWorkerNodeAutoscaleOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeAutoscaleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesWorkerNodeAutoscaleOutput)
+}
+
+func (i HadoopClusterRolesWorkerNodeAutoscaleArgs) ToHadoopClusterRolesWorkerNodeAutoscalePtrOutput() HadoopClusterRolesWorkerNodeAutoscalePtrOutput {
+	return i.ToHadoopClusterRolesWorkerNodeAutoscalePtrOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterRolesWorkerNodeAutoscaleArgs) ToHadoopClusterRolesWorkerNodeAutoscalePtrOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeAutoscalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesWorkerNodeAutoscaleOutput).ToHadoopClusterRolesWorkerNodeAutoscalePtrOutputWithContext(ctx)
+}
+
+// HadoopClusterRolesWorkerNodeAutoscalePtrInput is an input type that accepts HadoopClusterRolesWorkerNodeAutoscaleArgs, HadoopClusterRolesWorkerNodeAutoscalePtr and HadoopClusterRolesWorkerNodeAutoscalePtrOutput values.
+// You can construct a concrete instance of `HadoopClusterRolesWorkerNodeAutoscalePtrInput` via:
+//
+//          HadoopClusterRolesWorkerNodeAutoscaleArgs{...}
+//
+//  or:
+//
+//          nil
+type HadoopClusterRolesWorkerNodeAutoscalePtrInput interface {
+	pulumi.Input
+
+	ToHadoopClusterRolesWorkerNodeAutoscalePtrOutput() HadoopClusterRolesWorkerNodeAutoscalePtrOutput
+	ToHadoopClusterRolesWorkerNodeAutoscalePtrOutputWithContext(context.Context) HadoopClusterRolesWorkerNodeAutoscalePtrOutput
+}
+
+type hadoopClusterRolesWorkerNodeAutoscalePtrType HadoopClusterRolesWorkerNodeAutoscaleArgs
+
+func HadoopClusterRolesWorkerNodeAutoscalePtr(v *HadoopClusterRolesWorkerNodeAutoscaleArgs) HadoopClusterRolesWorkerNodeAutoscalePtrInput {
+	return (*hadoopClusterRolesWorkerNodeAutoscalePtrType)(v)
+}
+
+func (*hadoopClusterRolesWorkerNodeAutoscalePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HadoopClusterRolesWorkerNodeAutoscale)(nil)).Elem()
+}
+
+func (i *hadoopClusterRolesWorkerNodeAutoscalePtrType) ToHadoopClusterRolesWorkerNodeAutoscalePtrOutput() HadoopClusterRolesWorkerNodeAutoscalePtrOutput {
+	return i.ToHadoopClusterRolesWorkerNodeAutoscalePtrOutputWithContext(context.Background())
+}
+
+func (i *hadoopClusterRolesWorkerNodeAutoscalePtrType) ToHadoopClusterRolesWorkerNodeAutoscalePtrOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeAutoscalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesWorkerNodeAutoscalePtrOutput)
+}
+
+type HadoopClusterRolesWorkerNodeAutoscaleOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterRolesWorkerNodeAutoscaleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterRolesWorkerNodeAutoscale)(nil)).Elem()
+}
+
+func (o HadoopClusterRolesWorkerNodeAutoscaleOutput) ToHadoopClusterRolesWorkerNodeAutoscaleOutput() HadoopClusterRolesWorkerNodeAutoscaleOutput {
+	return o
+}
+
+func (o HadoopClusterRolesWorkerNodeAutoscaleOutput) ToHadoopClusterRolesWorkerNodeAutoscaleOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeAutoscaleOutput {
+	return o
+}
+
+func (o HadoopClusterRolesWorkerNodeAutoscaleOutput) ToHadoopClusterRolesWorkerNodeAutoscalePtrOutput() HadoopClusterRolesWorkerNodeAutoscalePtrOutput {
+	return o.ToHadoopClusterRolesWorkerNodeAutoscalePtrOutputWithContext(context.Background())
+}
+
+func (o HadoopClusterRolesWorkerNodeAutoscaleOutput) ToHadoopClusterRolesWorkerNodeAutoscalePtrOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeAutoscalePtrOutput {
+	return o.ApplyT(func(v HadoopClusterRolesWorkerNodeAutoscale) *HadoopClusterRolesWorkerNodeAutoscale {
+		return &v
+	}).(HadoopClusterRolesWorkerNodeAutoscalePtrOutput)
+}
+
+// A `capacity` block as defined below.
+func (o HadoopClusterRolesWorkerNodeAutoscaleOutput) Capacity() HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
+	return o.ApplyT(func(v HadoopClusterRolesWorkerNodeAutoscale) *HadoopClusterRolesWorkerNodeAutoscaleCapacity {
+		return v.Capacity
+	}).(HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput)
+}
+
+// A `recurrence` block as defined below.
+func (o HadoopClusterRolesWorkerNodeAutoscaleOutput) Recurrence() HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return o.ApplyT(func(v HadoopClusterRolesWorkerNodeAutoscale) *HadoopClusterRolesWorkerNodeAutoscaleRecurrence {
+		return v.Recurrence
+	}).(HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput)
+}
+
+type HadoopClusterRolesWorkerNodeAutoscalePtrOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterRolesWorkerNodeAutoscalePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HadoopClusterRolesWorkerNodeAutoscale)(nil)).Elem()
+}
+
+func (o HadoopClusterRolesWorkerNodeAutoscalePtrOutput) ToHadoopClusterRolesWorkerNodeAutoscalePtrOutput() HadoopClusterRolesWorkerNodeAutoscalePtrOutput {
+	return o
+}
+
+func (o HadoopClusterRolesWorkerNodeAutoscalePtrOutput) ToHadoopClusterRolesWorkerNodeAutoscalePtrOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeAutoscalePtrOutput {
+	return o
+}
+
+func (o HadoopClusterRolesWorkerNodeAutoscalePtrOutput) Elem() HadoopClusterRolesWorkerNodeAutoscaleOutput {
+	return o.ApplyT(func(v *HadoopClusterRolesWorkerNodeAutoscale) HadoopClusterRolesWorkerNodeAutoscale { return *v }).(HadoopClusterRolesWorkerNodeAutoscaleOutput)
+}
+
+// A `capacity` block as defined below.
+func (o HadoopClusterRolesWorkerNodeAutoscalePtrOutput) Capacity() HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterRolesWorkerNodeAutoscale) *HadoopClusterRolesWorkerNodeAutoscaleCapacity {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput)
+}
+
+// A `recurrence` block as defined below.
+func (o HadoopClusterRolesWorkerNodeAutoscalePtrOutput) Recurrence() HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return o.ApplyT(func(v *HadoopClusterRolesWorkerNodeAutoscale) *HadoopClusterRolesWorkerNodeAutoscaleRecurrence {
+		if v == nil {
+			return nil
+		}
+		return v.Recurrence
+	}).(HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput)
+}
+
+type HadoopClusterRolesWorkerNodeAutoscaleCapacity struct {
+	// The maximum number of worker nodes to autoscale to based on the cluster's activity.
+	MaxInstanceCount int `pulumi:"maxInstanceCount"`
+	// The minimum number of worker nodes to autoscale to based on the cluster's activity.
+	MinInstanceCount int `pulumi:"minInstanceCount"`
+}
+
+// HadoopClusterRolesWorkerNodeAutoscaleCapacityInput is an input type that accepts HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs and HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput values.
+// You can construct a concrete instance of `HadoopClusterRolesWorkerNodeAutoscaleCapacityInput` via:
+//
+//          HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs{...}
+type HadoopClusterRolesWorkerNodeAutoscaleCapacityInput interface {
+	pulumi.Input
+
+	ToHadoopClusterRolesWorkerNodeAutoscaleCapacityOutput() HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput
+	ToHadoopClusterRolesWorkerNodeAutoscaleCapacityOutputWithContext(context.Context) HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput
+}
+
+type HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs struct {
+	// The maximum number of worker nodes to autoscale to based on the cluster's activity.
+	MaxInstanceCount pulumi.IntInput `pulumi:"maxInstanceCount"`
+	// The minimum number of worker nodes to autoscale to based on the cluster's activity.
+	MinInstanceCount pulumi.IntInput `pulumi:"minInstanceCount"`
+}
+
+func (HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterRolesWorkerNodeAutoscaleCapacity)(nil)).Elem()
+}
+
+func (i HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs) ToHadoopClusterRolesWorkerNodeAutoscaleCapacityOutput() HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput {
+	return i.ToHadoopClusterRolesWorkerNodeAutoscaleCapacityOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs) ToHadoopClusterRolesWorkerNodeAutoscaleCapacityOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput)
+}
+
+func (i HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs) ToHadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput() HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
+	return i.ToHadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs) ToHadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput).ToHadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(ctx)
+}
+
+// HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrInput is an input type that accepts HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs, HadoopClusterRolesWorkerNodeAutoscaleCapacityPtr and HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput values.
+// You can construct a concrete instance of `HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrInput` via:
+//
+//          HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs{...}
+//
+//  or:
+//
+//          nil
+type HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrInput interface {
+	pulumi.Input
+
+	ToHadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput() HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput
+	ToHadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(context.Context) HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput
+}
+
+type hadoopClusterRolesWorkerNodeAutoscaleCapacityPtrType HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs
+
+func HadoopClusterRolesWorkerNodeAutoscaleCapacityPtr(v *HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs) HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrInput {
+	return (*hadoopClusterRolesWorkerNodeAutoscaleCapacityPtrType)(v)
+}
+
+func (*hadoopClusterRolesWorkerNodeAutoscaleCapacityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HadoopClusterRolesWorkerNodeAutoscaleCapacity)(nil)).Elem()
+}
+
+func (i *hadoopClusterRolesWorkerNodeAutoscaleCapacityPtrType) ToHadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput() HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
+	return i.ToHadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(context.Background())
+}
+
+func (i *hadoopClusterRolesWorkerNodeAutoscaleCapacityPtrType) ToHadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput)
+}
+
+type HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterRolesWorkerNodeAutoscaleCapacity)(nil)).Elem()
+}
+
+func (o HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput) ToHadoopClusterRolesWorkerNodeAutoscaleCapacityOutput() HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput {
+	return o
+}
+
+func (o HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput) ToHadoopClusterRolesWorkerNodeAutoscaleCapacityOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput {
+	return o
+}
+
+func (o HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput) ToHadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput() HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
+	return o.ToHadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(context.Background())
+}
+
+func (o HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput) ToHadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
+	return o.ApplyT(func(v HadoopClusterRolesWorkerNodeAutoscaleCapacity) *HadoopClusterRolesWorkerNodeAutoscaleCapacity {
+		return &v
+	}).(HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput)
+}
+
+// The maximum number of worker nodes to autoscale to based on the cluster's activity.
+func (o HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput) MaxInstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v HadoopClusterRolesWorkerNodeAutoscaleCapacity) int { return v.MaxInstanceCount }).(pulumi.IntOutput)
+}
+
+// The minimum number of worker nodes to autoscale to based on the cluster's activity.
+func (o HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput) MinInstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v HadoopClusterRolesWorkerNodeAutoscaleCapacity) int { return v.MinInstanceCount }).(pulumi.IntOutput)
+}
+
+type HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HadoopClusterRolesWorkerNodeAutoscaleCapacity)(nil)).Elem()
+}
+
+func (o HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) ToHadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput() HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
+	return o
+}
+
+func (o HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) ToHadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
+	return o
+}
+
+func (o HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) Elem() HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput {
+	return o.ApplyT(func(v *HadoopClusterRolesWorkerNodeAutoscaleCapacity) HadoopClusterRolesWorkerNodeAutoscaleCapacity {
+		return *v
+	}).(HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput)
+}
+
+// The maximum number of worker nodes to autoscale to based on the cluster's activity.
+func (o HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) MaxInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterRolesWorkerNodeAutoscaleCapacity) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxInstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of worker nodes to autoscale to based on the cluster's activity.
+func (o HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) MinInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterRolesWorkerNodeAutoscaleCapacity) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinInstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+type HadoopClusterRolesWorkerNodeAutoscaleRecurrence struct {
+	// A list of `schedule` blocks as defined below.
+	Schedules []HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule `pulumi:"schedules"`
+	// The time zone for the autoscale schedule times.
+	Timezone string `pulumi:"timezone"`
+}
+
+// HadoopClusterRolesWorkerNodeAutoscaleRecurrenceInput is an input type that accepts HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs and HadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput values.
+// You can construct a concrete instance of `HadoopClusterRolesWorkerNodeAutoscaleRecurrenceInput` via:
+//
+//          HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs{...}
+type HadoopClusterRolesWorkerNodeAutoscaleRecurrenceInput interface {
+	pulumi.Input
+
+	ToHadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput() HadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput
+	ToHadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutputWithContext(context.Context) HadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput
+}
+
+type HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs struct {
+	// A list of `schedule` blocks as defined below.
+	Schedules HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput `pulumi:"schedules"`
+	// The time zone for the autoscale schedule times.
+	Timezone pulumi.StringInput `pulumi:"timezone"`
+}
+
+func (HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterRolesWorkerNodeAutoscaleRecurrence)(nil)).Elem()
+}
+
+func (i HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ToHadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput() HadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput {
+	return i.ToHadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ToHadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput)
+}
+
+func (i HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ToHadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput() HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return i.ToHadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ToHadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput).ToHadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(ctx)
+}
+
+// HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrInput is an input type that accepts HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs, HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtr and HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput values.
+// You can construct a concrete instance of `HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrInput` via:
+//
+//          HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs{...}
+//
+//  or:
+//
+//          nil
+type HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrInput interface {
+	pulumi.Input
+
+	ToHadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput() HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput
+	ToHadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(context.Context) HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput
+}
+
+type hadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrType HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs
+
+func HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtr(v *HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs) HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrInput {
+	return (*hadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrType)(v)
+}
+
+func (*hadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HadoopClusterRolesWorkerNodeAutoscaleRecurrence)(nil)).Elem()
+}
+
+func (i *hadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrType) ToHadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput() HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return i.ToHadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (i *hadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrType) ToHadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput)
+}
+
+type HadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterRolesWorkerNodeAutoscaleRecurrence)(nil)).Elem()
+}
+
+func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToHadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput() HadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput {
+	return o
+}
+
+func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToHadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput {
+	return o
+}
+
+func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToHadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput() HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return o.ToHadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToHadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return o.ApplyT(func(v HadoopClusterRolesWorkerNodeAutoscaleRecurrence) *HadoopClusterRolesWorkerNodeAutoscaleRecurrence {
+		return &v
+	}).(HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput)
+}
+
+// A list of `schedule` blocks as defined below.
+func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput) Schedules() HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput {
+	return o.ApplyT(func(v HadoopClusterRolesWorkerNodeAutoscaleRecurrence) []HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
+		return v.Schedules
+	}).(HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput)
+}
+
+// The time zone for the autoscale schedule times.
+func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput) Timezone() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterRolesWorkerNodeAutoscaleRecurrence) string { return v.Timezone }).(pulumi.StringOutput)
+}
+
+type HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HadoopClusterRolesWorkerNodeAutoscaleRecurrence)(nil)).Elem()
+}
+
+func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) ToHadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput() HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return o
+}
+
+func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) ToHadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return o
+}
+
+func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) Elem() HadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput {
+	return o.ApplyT(func(v *HadoopClusterRolesWorkerNodeAutoscaleRecurrence) HadoopClusterRolesWorkerNodeAutoscaleRecurrence {
+		return *v
+	}).(HadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput)
+}
+
+// A list of `schedule` blocks as defined below.
+func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) Schedules() HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput {
+	return o.ApplyT(func(v *HadoopClusterRolesWorkerNodeAutoscaleRecurrence) []HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
+		if v == nil {
+			return nil
+		}
+		return v.Schedules
+	}).(HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput)
+}
+
+// The time zone for the autoscale schedule times.
+func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterRolesWorkerNodeAutoscaleRecurrence) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Timezone
+	}).(pulumi.StringPtrOutput)
+}
+
+type HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule struct {
+	// The days of the week to perform autoscale.
+	Days []string `pulumi:"days"`
+	// The number of worker nodes to autoscale at the specified time.
+	TargetInstanceCount int `pulumi:"targetInstanceCount"`
+	// The time of day to perform the autoscale in 24hour format.
+	Time string `pulumi:"time"`
+}
+
+// HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput is an input type that accepts HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs and HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput values.
+// You can construct a concrete instance of `HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput` via:
+//
+//          HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{...}
+type HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput interface {
+	pulumi.Input
+
+	ToHadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput() HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput
+	ToHadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutputWithContext(context.Context) HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput
+}
+
+type HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs struct {
+	// The days of the week to perform autoscale.
+	Days pulumi.StringArrayInput `pulumi:"days"`
+	// The number of worker nodes to autoscale at the specified time.
+	TargetInstanceCount pulumi.IntInput `pulumi:"targetInstanceCount"`
+	// The time of day to perform the autoscale in 24hour format.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule)(nil)).Elem()
+}
+
+func (i HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs) ToHadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput() HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput {
+	return i.ToHadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs) ToHadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput)
+}
+
+// HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput is an input type that accepts HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray and HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput values.
+// You can construct a concrete instance of `HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput` via:
+//
+//          HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray{ HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{...} }
+type HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput interface {
+	pulumi.Input
+
+	ToHadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput() HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput
+	ToHadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutputWithContext(context.Context) HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput
+}
+
+type HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray []HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput
+
+func (HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule)(nil)).Elem()
+}
+
+func (i HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray) ToHadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput() HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput {
+	return i.ToHadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray) ToHadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput)
+}
+
+type HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule)(nil)).Elem()
+}
+
+func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) ToHadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput() HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput {
+	return o
+}
+
+func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) ToHadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput {
+	return o
+}
+
+// The days of the week to perform autoscale.
+func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) Days() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule) []string { return v.Days }).(pulumi.StringArrayOutput)
+}
+
+// The number of worker nodes to autoscale at the specified time.
+func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) TargetInstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule) int { return v.TargetInstanceCount }).(pulumi.IntOutput)
+}
+
+// The time of day to perform the autoscale in 24hour format.
+func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule) string { return v.Time }).(pulumi.StringOutput)
+}
+
+type HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule)(nil)).Elem()
+}
+
+func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) ToHadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput() HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput {
+	return o
+}
+
+func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) ToHadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput {
+	return o
+}
+
+func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) Index(i pulumi.IntInput) HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
+		return vs[0].([]HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule)[vs[1].(int)]
+	}).(HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput)
 }
 
 type HadoopClusterRolesZookeeperNode struct {
@@ -6962,6 +7977,8 @@ func (o InteractiveQueryClusterRolesHeadNodePtrOutput) VmSize() pulumi.StringPtr
 }
 
 type InteractiveQueryClusterRolesWorkerNode struct {
+	// A `autoscale` block as defined below.
+	Autoscale *InteractiveQueryClusterRolesWorkerNodeAutoscale `pulumi:"autoscale"`
 	// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
 	//
 	// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
@@ -6994,6 +8011,8 @@ type InteractiveQueryClusterRolesWorkerNodeInput interface {
 }
 
 type InteractiveQueryClusterRolesWorkerNodeArgs struct {
+	// A `autoscale` block as defined below.
+	Autoscale InteractiveQueryClusterRolesWorkerNodeAutoscalePtrInput `pulumi:"autoscale"`
 	// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
 	//
 	// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
@@ -7091,6 +8110,13 @@ func (o InteractiveQueryClusterRolesWorkerNodeOutput) ToInteractiveQueryClusterR
 	}).(InteractiveQueryClusterRolesWorkerNodePtrOutput)
 }
 
+// A `autoscale` block as defined below.
+func (o InteractiveQueryClusterRolesWorkerNodeOutput) Autoscale() InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNode) *InteractiveQueryClusterRolesWorkerNodeAutoscale {
+		return v.Autoscale
+	}).(InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput)
+}
+
 // The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
 //
 // Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
@@ -7149,6 +8175,16 @@ func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) ToInteractiveQueryClust
 
 func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) Elem() InteractiveQueryClusterRolesWorkerNodeOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNode) InteractiveQueryClusterRolesWorkerNode { return *v }).(InteractiveQueryClusterRolesWorkerNodeOutput)
+}
+
+// A `autoscale` block as defined below.
+func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) Autoscale() InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNode) *InteractiveQueryClusterRolesWorkerNodeAutoscale {
+		if v == nil {
+			return nil
+		}
+		return v.Autoscale
+	}).(InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput)
 }
 
 // The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
@@ -7231,6 +8267,585 @@ func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) VmSize() pulumi.StringP
 		}
 		return &v.VmSize
 	}).(pulumi.StringPtrOutput)
+}
+
+type InteractiveQueryClusterRolesWorkerNodeAutoscale struct {
+	// A `capacity` block as defined below.
+	Capacity *InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity `pulumi:"capacity"`
+	// A `recurrence` block as defined below.
+	Recurrence *InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence `pulumi:"recurrence"`
+}
+
+// InteractiveQueryClusterRolesWorkerNodeAutoscaleInput is an input type that accepts InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs and InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput values.
+// You can construct a concrete instance of `InteractiveQueryClusterRolesWorkerNodeAutoscaleInput` via:
+//
+//          InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs{...}
+type InteractiveQueryClusterRolesWorkerNodeAutoscaleInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterRolesWorkerNodeAutoscaleOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput
+	ToInteractiveQueryClusterRolesWorkerNodeAutoscaleOutputWithContext(context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput
+}
+
+type InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs struct {
+	// A `capacity` block as defined below.
+	Capacity InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrInput `pulumi:"capacity"`
+	// A `recurrence` block as defined below.
+	Recurrence InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrInput `pulumi:"recurrence"`
+}
+
+func (InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodeAutoscale)(nil)).Elem()
+}
+
+func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput {
+	return i.ToInteractiveQueryClusterRolesWorkerNodeAutoscaleOutputWithContext(context.Background())
+}
+
+func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput)
+}
+
+func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs) ToInteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput() InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput {
+	return i.ToInteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutputWithContext(context.Background())
+}
+
+func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs) ToInteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput).ToInteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutputWithContext(ctx)
+}
+
+// InteractiveQueryClusterRolesWorkerNodeAutoscalePtrInput is an input type that accepts InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs, InteractiveQueryClusterRolesWorkerNodeAutoscalePtr and InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput values.
+// You can construct a concrete instance of `InteractiveQueryClusterRolesWorkerNodeAutoscalePtrInput` via:
+//
+//          InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs{...}
+//
+//  or:
+//
+//          nil
+type InteractiveQueryClusterRolesWorkerNodeAutoscalePtrInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput() InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput
+	ToInteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutputWithContext(context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput
+}
+
+type interactiveQueryClusterRolesWorkerNodeAutoscalePtrType InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs
+
+func InteractiveQueryClusterRolesWorkerNodeAutoscalePtr(v *InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs) InteractiveQueryClusterRolesWorkerNodeAutoscalePtrInput {
+	return (*interactiveQueryClusterRolesWorkerNodeAutoscalePtrType)(v)
+}
+
+func (*interactiveQueryClusterRolesWorkerNodeAutoscalePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InteractiveQueryClusterRolesWorkerNodeAutoscale)(nil)).Elem()
+}
+
+func (i *interactiveQueryClusterRolesWorkerNodeAutoscalePtrType) ToInteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput() InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput {
+	return i.ToInteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutputWithContext(context.Background())
+}
+
+func (i *interactiveQueryClusterRolesWorkerNodeAutoscalePtrType) ToInteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput)
+}
+
+type InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput struct{ *pulumi.OutputState }
+
+func (InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodeAutoscale)(nil)).Elem()
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput() InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput {
+	return o.ToInteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutputWithContext(context.Background())
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNodeAutoscale) *InteractiveQueryClusterRolesWorkerNodeAutoscale {
+		return &v
+	}).(InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput)
+}
+
+// A `capacity` block as defined below.
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput) Capacity() InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNodeAutoscale) *InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity {
+		return v.Capacity
+	}).(InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput)
+}
+
+// A `recurrence` block as defined below.
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput) Recurrence() InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNodeAutoscale) *InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence {
+		return v.Recurrence
+	}).(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput)
+}
+
+type InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput struct{ *pulumi.OutputState }
+
+func (InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InteractiveQueryClusterRolesWorkerNodeAutoscale)(nil)).Elem()
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput() InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput) Elem() InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNodeAutoscale) InteractiveQueryClusterRolesWorkerNodeAutoscale {
+		return *v
+	}).(InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput)
+}
+
+// A `capacity` block as defined below.
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput) Capacity() InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNodeAutoscale) *InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput)
+}
+
+// A `recurrence` block as defined below.
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput) Recurrence() InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNodeAutoscale) *InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence {
+		if v == nil {
+			return nil
+		}
+		return v.Recurrence
+	}).(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput)
+}
+
+type InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity struct {
+	// The maximum number of worker nodes to autoscale to based on the cluster's activity.
+	MaxInstanceCount int `pulumi:"maxInstanceCount"`
+	// The minimum number of worker nodes to autoscale to based on the cluster's activity.
+	MinInstanceCount int `pulumi:"minInstanceCount"`
+}
+
+// InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityInput is an input type that accepts InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs and InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput values.
+// You can construct a concrete instance of `InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityInput` via:
+//
+//          InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs{...}
+type InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput
+	ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutputWithContext(context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput
+}
+
+type InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs struct {
+	// The maximum number of worker nodes to autoscale to based on the cluster's activity.
+	MaxInstanceCount pulumi.IntInput `pulumi:"maxInstanceCount"`
+	// The minimum number of worker nodes to autoscale to based on the cluster's activity.
+	MinInstanceCount pulumi.IntInput `pulumi:"minInstanceCount"`
+}
+
+func (InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity)(nil)).Elem()
+}
+
+func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput {
+	return i.ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutputWithContext(context.Background())
+}
+
+func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput)
+}
+
+func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
+	return i.ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(context.Background())
+}
+
+func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput).ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(ctx)
+}
+
+// InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrInput is an input type that accepts InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs, InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtr and InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput values.
+// You can construct a concrete instance of `InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrInput` via:
+//
+//          InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs{...}
+//
+//  or:
+//
+//          nil
+type InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput
+	ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput
+}
+
+type interactiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrType InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs
+
+func InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtr(v *InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs) InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrInput {
+	return (*interactiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrType)(v)
+}
+
+func (*interactiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity)(nil)).Elem()
+}
+
+func (i *interactiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrType) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
+	return i.ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(context.Background())
+}
+
+func (i *interactiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrType) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput)
+}
+
+type InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput struct{ *pulumi.OutputState }
+
+func (InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity)(nil)).Elem()
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
+	return o.ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(context.Background())
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity) *InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity {
+		return &v
+	}).(InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput)
+}
+
+// The maximum number of worker nodes to autoscale to based on the cluster's activity.
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput) MaxInstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity) int { return v.MaxInstanceCount }).(pulumi.IntOutput)
+}
+
+// The minimum number of worker nodes to autoscale to based on the cluster's activity.
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput) MinInstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity) int { return v.MinInstanceCount }).(pulumi.IntOutput)
+}
+
+type InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput struct{ *pulumi.OutputState }
+
+func (InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity)(nil)).Elem()
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) Elem() InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity) InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity {
+		return *v
+	}).(InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput)
+}
+
+// The maximum number of worker nodes to autoscale to based on the cluster's activity.
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) MaxInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxInstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of worker nodes to autoscale to based on the cluster's activity.
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) MinInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinInstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+type InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence struct {
+	// A list of `schedule` blocks as defined below.
+	Schedules []InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule `pulumi:"schedules"`
+	// The time zone for the autoscale schedule times.
+	Timezone string `pulumi:"timezone"`
+}
+
+// InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceInput is an input type that accepts InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs and InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput values.
+// You can construct a concrete instance of `InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceInput` via:
+//
+//          InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs{...}
+type InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput
+	ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutputWithContext(context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput
+}
+
+type InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs struct {
+	// A list of `schedule` blocks as defined below.
+	Schedules InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput `pulumi:"schedules"`
+	// The time zone for the autoscale schedule times.
+	Timezone pulumi.StringInput `pulumi:"timezone"`
+}
+
+func (InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence)(nil)).Elem()
+}
+
+func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput {
+	return i.ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutputWithContext(context.Background())
+}
+
+func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput)
+}
+
+func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return i.ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput).ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(ctx)
+}
+
+// InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrInput is an input type that accepts InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs, InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtr and InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput values.
+// You can construct a concrete instance of `InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrInput` via:
+//
+//          InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs{...}
+//
+//  or:
+//
+//          nil
+type InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput
+	ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput
+}
+
+type interactiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrType InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs
+
+func InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtr(v *InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs) InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrInput {
+	return (*interactiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrType)(v)
+}
+
+func (*interactiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence)(nil)).Elem()
+}
+
+func (i *interactiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrType) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return i.ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (i *interactiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrType) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput)
+}
+
+type InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput struct{ *pulumi.OutputState }
+
+func (InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence)(nil)).Elem()
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return o.ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence) *InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence {
+		return &v
+	}).(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput)
+}
+
+// A list of `schedule` blocks as defined below.
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput) Schedules() InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence) []InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
+		return v.Schedules
+	}).(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput)
+}
+
+// The time zone for the autoscale schedule times.
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput) Timezone() pulumi.StringOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence) string { return v.Timezone }).(pulumi.StringOutput)
+}
+
+type InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput struct{ *pulumi.OutputState }
+
+func (InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence)(nil)).Elem()
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) Elem() InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence) InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence {
+		return *v
+	}).(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput)
+}
+
+// A list of `schedule` blocks as defined below.
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) Schedules() InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence) []InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
+		if v == nil {
+			return nil
+		}
+		return v.Schedules
+	}).(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput)
+}
+
+// The time zone for the autoscale schedule times.
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Timezone
+	}).(pulumi.StringPtrOutput)
+}
+
+type InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule struct {
+	// The days of the week to perform autoscale.
+	Days []string `pulumi:"days"`
+	// The number of worker nodes to autoscale at the specified time.
+	TargetInstanceCount int `pulumi:"targetInstanceCount"`
+	// The time of day to perform the autoscale in 24hour format.
+	Time string `pulumi:"time"`
+}
+
+// InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput is an input type that accepts InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs and InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput values.
+// You can construct a concrete instance of `InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput` via:
+//
+//          InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{...}
+type InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput
+	ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutputWithContext(context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput
+}
+
+type InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs struct {
+	// The days of the week to perform autoscale.
+	Days pulumi.StringArrayInput `pulumi:"days"`
+	// The number of worker nodes to autoscale at the specified time.
+	TargetInstanceCount pulumi.IntInput `pulumi:"targetInstanceCount"`
+	// The time of day to perform the autoscale in 24hour format.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule)(nil)).Elem()
+}
+
+func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput {
+	return i.ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutputWithContext(context.Background())
+}
+
+func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput)
+}
+
+// InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput is an input type that accepts InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray and InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput values.
+// You can construct a concrete instance of `InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput` via:
+//
+//          InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray{ InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{...} }
+type InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput
+	ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutputWithContext(context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput
+}
+
+type InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray []InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput
+
+func (InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule)(nil)).Elem()
+}
+
+func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput {
+	return i.ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput)
+}
+
+type InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput struct{ *pulumi.OutputState }
+
+func (InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule)(nil)).Elem()
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput {
+	return o
+}
+
+// The days of the week to perform autoscale.
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) Days() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule) []string { return v.Days }).(pulumi.StringArrayOutput)
+}
+
+// The number of worker nodes to autoscale at the specified time.
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) TargetInstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule) int {
+		return v.TargetInstanceCount
+	}).(pulumi.IntOutput)
+}
+
+// The time of day to perform the autoscale in 24hour format.
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule) string { return v.Time }).(pulumi.StringOutput)
+}
+
+type InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule)(nil)).Elem()
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) Index(i pulumi.IntInput) InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
+		return vs[0].([]InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule)[vs[1].(int)]
+	}).(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput)
 }
 
 type InteractiveQueryClusterRolesZookeeperNode struct {
@@ -15145,6 +16760,8 @@ func (o SparkClusterRolesHeadNodePtrOutput) VmSize() pulumi.StringPtrOutput {
 }
 
 type SparkClusterRolesWorkerNode struct {
+	// A `autoscale` block as defined below.
+	Autoscale *SparkClusterRolesWorkerNodeAutoscale `pulumi:"autoscale"`
 	// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
 	//
 	// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
@@ -15177,6 +16794,8 @@ type SparkClusterRolesWorkerNodeInput interface {
 }
 
 type SparkClusterRolesWorkerNodeArgs struct {
+	// A `autoscale` block as defined below.
+	Autoscale SparkClusterRolesWorkerNodeAutoscalePtrInput `pulumi:"autoscale"`
 	// The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
 	//
 	// Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
@@ -15274,6 +16893,11 @@ func (o SparkClusterRolesWorkerNodeOutput) ToSparkClusterRolesWorkerNodePtrOutpu
 	}).(SparkClusterRolesWorkerNodePtrOutput)
 }
 
+// A `autoscale` block as defined below.
+func (o SparkClusterRolesWorkerNodeOutput) Autoscale() SparkClusterRolesWorkerNodeAutoscalePtrOutput {
+	return o.ApplyT(func(v SparkClusterRolesWorkerNode) *SparkClusterRolesWorkerNodeAutoscale { return v.Autoscale }).(SparkClusterRolesWorkerNodeAutoscalePtrOutput)
+}
+
 // The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
 //
 // Deprecated: this has been deprecated from the API and will be removed in version 3.0 of the provider
@@ -15332,6 +16956,16 @@ func (o SparkClusterRolesWorkerNodePtrOutput) ToSparkClusterRolesWorkerNodePtrOu
 
 func (o SparkClusterRolesWorkerNodePtrOutput) Elem() SparkClusterRolesWorkerNodeOutput {
 	return o.ApplyT(func(v *SparkClusterRolesWorkerNode) SparkClusterRolesWorkerNode { return *v }).(SparkClusterRolesWorkerNodeOutput)
+}
+
+// A `autoscale` block as defined below.
+func (o SparkClusterRolesWorkerNodePtrOutput) Autoscale() SparkClusterRolesWorkerNodeAutoscalePtrOutput {
+	return o.ApplyT(func(v *SparkClusterRolesWorkerNode) *SparkClusterRolesWorkerNodeAutoscale {
+		if v == nil {
+			return nil
+		}
+		return v.Autoscale
+	}).(SparkClusterRolesWorkerNodeAutoscalePtrOutput)
 }
 
 // The minimum number of instances which should be run for the Worker Nodes. Changing this forces a new resource to be created.
@@ -15414,6 +17048,581 @@ func (o SparkClusterRolesWorkerNodePtrOutput) VmSize() pulumi.StringPtrOutput {
 		}
 		return &v.VmSize
 	}).(pulumi.StringPtrOutput)
+}
+
+type SparkClusterRolesWorkerNodeAutoscale struct {
+	// A `capacity` block as defined below.
+	Capacity *SparkClusterRolesWorkerNodeAutoscaleCapacity `pulumi:"capacity"`
+	// A `recurrence` block as defined below.
+	Recurrence *SparkClusterRolesWorkerNodeAutoscaleRecurrence `pulumi:"recurrence"`
+}
+
+// SparkClusterRolesWorkerNodeAutoscaleInput is an input type that accepts SparkClusterRolesWorkerNodeAutoscaleArgs and SparkClusterRolesWorkerNodeAutoscaleOutput values.
+// You can construct a concrete instance of `SparkClusterRolesWorkerNodeAutoscaleInput` via:
+//
+//          SparkClusterRolesWorkerNodeAutoscaleArgs{...}
+type SparkClusterRolesWorkerNodeAutoscaleInput interface {
+	pulumi.Input
+
+	ToSparkClusterRolesWorkerNodeAutoscaleOutput() SparkClusterRolesWorkerNodeAutoscaleOutput
+	ToSparkClusterRolesWorkerNodeAutoscaleOutputWithContext(context.Context) SparkClusterRolesWorkerNodeAutoscaleOutput
+}
+
+type SparkClusterRolesWorkerNodeAutoscaleArgs struct {
+	// A `capacity` block as defined below.
+	Capacity SparkClusterRolesWorkerNodeAutoscaleCapacityPtrInput `pulumi:"capacity"`
+	// A `recurrence` block as defined below.
+	Recurrence SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrInput `pulumi:"recurrence"`
+}
+
+func (SparkClusterRolesWorkerNodeAutoscaleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkClusterRolesWorkerNodeAutoscale)(nil)).Elem()
+}
+
+func (i SparkClusterRolesWorkerNodeAutoscaleArgs) ToSparkClusterRolesWorkerNodeAutoscaleOutput() SparkClusterRolesWorkerNodeAutoscaleOutput {
+	return i.ToSparkClusterRolesWorkerNodeAutoscaleOutputWithContext(context.Background())
+}
+
+func (i SparkClusterRolesWorkerNodeAutoscaleArgs) ToSparkClusterRolesWorkerNodeAutoscaleOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeAutoscaleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesWorkerNodeAutoscaleOutput)
+}
+
+func (i SparkClusterRolesWorkerNodeAutoscaleArgs) ToSparkClusterRolesWorkerNodeAutoscalePtrOutput() SparkClusterRolesWorkerNodeAutoscalePtrOutput {
+	return i.ToSparkClusterRolesWorkerNodeAutoscalePtrOutputWithContext(context.Background())
+}
+
+func (i SparkClusterRolesWorkerNodeAutoscaleArgs) ToSparkClusterRolesWorkerNodeAutoscalePtrOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeAutoscalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesWorkerNodeAutoscaleOutput).ToSparkClusterRolesWorkerNodeAutoscalePtrOutputWithContext(ctx)
+}
+
+// SparkClusterRolesWorkerNodeAutoscalePtrInput is an input type that accepts SparkClusterRolesWorkerNodeAutoscaleArgs, SparkClusterRolesWorkerNodeAutoscalePtr and SparkClusterRolesWorkerNodeAutoscalePtrOutput values.
+// You can construct a concrete instance of `SparkClusterRolesWorkerNodeAutoscalePtrInput` via:
+//
+//          SparkClusterRolesWorkerNodeAutoscaleArgs{...}
+//
+//  or:
+//
+//          nil
+type SparkClusterRolesWorkerNodeAutoscalePtrInput interface {
+	pulumi.Input
+
+	ToSparkClusterRolesWorkerNodeAutoscalePtrOutput() SparkClusterRolesWorkerNodeAutoscalePtrOutput
+	ToSparkClusterRolesWorkerNodeAutoscalePtrOutputWithContext(context.Context) SparkClusterRolesWorkerNodeAutoscalePtrOutput
+}
+
+type sparkClusterRolesWorkerNodeAutoscalePtrType SparkClusterRolesWorkerNodeAutoscaleArgs
+
+func SparkClusterRolesWorkerNodeAutoscalePtr(v *SparkClusterRolesWorkerNodeAutoscaleArgs) SparkClusterRolesWorkerNodeAutoscalePtrInput {
+	return (*sparkClusterRolesWorkerNodeAutoscalePtrType)(v)
+}
+
+func (*sparkClusterRolesWorkerNodeAutoscalePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkClusterRolesWorkerNodeAutoscale)(nil)).Elem()
+}
+
+func (i *sparkClusterRolesWorkerNodeAutoscalePtrType) ToSparkClusterRolesWorkerNodeAutoscalePtrOutput() SparkClusterRolesWorkerNodeAutoscalePtrOutput {
+	return i.ToSparkClusterRolesWorkerNodeAutoscalePtrOutputWithContext(context.Background())
+}
+
+func (i *sparkClusterRolesWorkerNodeAutoscalePtrType) ToSparkClusterRolesWorkerNodeAutoscalePtrOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeAutoscalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesWorkerNodeAutoscalePtrOutput)
+}
+
+type SparkClusterRolesWorkerNodeAutoscaleOutput struct{ *pulumi.OutputState }
+
+func (SparkClusterRolesWorkerNodeAutoscaleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkClusterRolesWorkerNodeAutoscale)(nil)).Elem()
+}
+
+func (o SparkClusterRolesWorkerNodeAutoscaleOutput) ToSparkClusterRolesWorkerNodeAutoscaleOutput() SparkClusterRolesWorkerNodeAutoscaleOutput {
+	return o
+}
+
+func (o SparkClusterRolesWorkerNodeAutoscaleOutput) ToSparkClusterRolesWorkerNodeAutoscaleOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeAutoscaleOutput {
+	return o
+}
+
+func (o SparkClusterRolesWorkerNodeAutoscaleOutput) ToSparkClusterRolesWorkerNodeAutoscalePtrOutput() SparkClusterRolesWorkerNodeAutoscalePtrOutput {
+	return o.ToSparkClusterRolesWorkerNodeAutoscalePtrOutputWithContext(context.Background())
+}
+
+func (o SparkClusterRolesWorkerNodeAutoscaleOutput) ToSparkClusterRolesWorkerNodeAutoscalePtrOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeAutoscalePtrOutput {
+	return o.ApplyT(func(v SparkClusterRolesWorkerNodeAutoscale) *SparkClusterRolesWorkerNodeAutoscale {
+		return &v
+	}).(SparkClusterRolesWorkerNodeAutoscalePtrOutput)
+}
+
+// A `capacity` block as defined below.
+func (o SparkClusterRolesWorkerNodeAutoscaleOutput) Capacity() SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
+	return o.ApplyT(func(v SparkClusterRolesWorkerNodeAutoscale) *SparkClusterRolesWorkerNodeAutoscaleCapacity {
+		return v.Capacity
+	}).(SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput)
+}
+
+// A `recurrence` block as defined below.
+func (o SparkClusterRolesWorkerNodeAutoscaleOutput) Recurrence() SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return o.ApplyT(func(v SparkClusterRolesWorkerNodeAutoscale) *SparkClusterRolesWorkerNodeAutoscaleRecurrence {
+		return v.Recurrence
+	}).(SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput)
+}
+
+type SparkClusterRolesWorkerNodeAutoscalePtrOutput struct{ *pulumi.OutputState }
+
+func (SparkClusterRolesWorkerNodeAutoscalePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkClusterRolesWorkerNodeAutoscale)(nil)).Elem()
+}
+
+func (o SparkClusterRolesWorkerNodeAutoscalePtrOutput) ToSparkClusterRolesWorkerNodeAutoscalePtrOutput() SparkClusterRolesWorkerNodeAutoscalePtrOutput {
+	return o
+}
+
+func (o SparkClusterRolesWorkerNodeAutoscalePtrOutput) ToSparkClusterRolesWorkerNodeAutoscalePtrOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeAutoscalePtrOutput {
+	return o
+}
+
+func (o SparkClusterRolesWorkerNodeAutoscalePtrOutput) Elem() SparkClusterRolesWorkerNodeAutoscaleOutput {
+	return o.ApplyT(func(v *SparkClusterRolesWorkerNodeAutoscale) SparkClusterRolesWorkerNodeAutoscale { return *v }).(SparkClusterRolesWorkerNodeAutoscaleOutput)
+}
+
+// A `capacity` block as defined below.
+func (o SparkClusterRolesWorkerNodeAutoscalePtrOutput) Capacity() SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
+	return o.ApplyT(func(v *SparkClusterRolesWorkerNodeAutoscale) *SparkClusterRolesWorkerNodeAutoscaleCapacity {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput)
+}
+
+// A `recurrence` block as defined below.
+func (o SparkClusterRolesWorkerNodeAutoscalePtrOutput) Recurrence() SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return o.ApplyT(func(v *SparkClusterRolesWorkerNodeAutoscale) *SparkClusterRolesWorkerNodeAutoscaleRecurrence {
+		if v == nil {
+			return nil
+		}
+		return v.Recurrence
+	}).(SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput)
+}
+
+type SparkClusterRolesWorkerNodeAutoscaleCapacity struct {
+	// The maximum number of worker nodes to autoscale to based on the cluster's activity.
+	MaxInstanceCount int `pulumi:"maxInstanceCount"`
+	// The minimum number of worker nodes to autoscale to based on the cluster's activity.
+	MinInstanceCount int `pulumi:"minInstanceCount"`
+}
+
+// SparkClusterRolesWorkerNodeAutoscaleCapacityInput is an input type that accepts SparkClusterRolesWorkerNodeAutoscaleCapacityArgs and SparkClusterRolesWorkerNodeAutoscaleCapacityOutput values.
+// You can construct a concrete instance of `SparkClusterRolesWorkerNodeAutoscaleCapacityInput` via:
+//
+//          SparkClusterRolesWorkerNodeAutoscaleCapacityArgs{...}
+type SparkClusterRolesWorkerNodeAutoscaleCapacityInput interface {
+	pulumi.Input
+
+	ToSparkClusterRolesWorkerNodeAutoscaleCapacityOutput() SparkClusterRolesWorkerNodeAutoscaleCapacityOutput
+	ToSparkClusterRolesWorkerNodeAutoscaleCapacityOutputWithContext(context.Context) SparkClusterRolesWorkerNodeAutoscaleCapacityOutput
+}
+
+type SparkClusterRolesWorkerNodeAutoscaleCapacityArgs struct {
+	// The maximum number of worker nodes to autoscale to based on the cluster's activity.
+	MaxInstanceCount pulumi.IntInput `pulumi:"maxInstanceCount"`
+	// The minimum number of worker nodes to autoscale to based on the cluster's activity.
+	MinInstanceCount pulumi.IntInput `pulumi:"minInstanceCount"`
+}
+
+func (SparkClusterRolesWorkerNodeAutoscaleCapacityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkClusterRolesWorkerNodeAutoscaleCapacity)(nil)).Elem()
+}
+
+func (i SparkClusterRolesWorkerNodeAutoscaleCapacityArgs) ToSparkClusterRolesWorkerNodeAutoscaleCapacityOutput() SparkClusterRolesWorkerNodeAutoscaleCapacityOutput {
+	return i.ToSparkClusterRolesWorkerNodeAutoscaleCapacityOutputWithContext(context.Background())
+}
+
+func (i SparkClusterRolesWorkerNodeAutoscaleCapacityArgs) ToSparkClusterRolesWorkerNodeAutoscaleCapacityOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeAutoscaleCapacityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesWorkerNodeAutoscaleCapacityOutput)
+}
+
+func (i SparkClusterRolesWorkerNodeAutoscaleCapacityArgs) ToSparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput() SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
+	return i.ToSparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(context.Background())
+}
+
+func (i SparkClusterRolesWorkerNodeAutoscaleCapacityArgs) ToSparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesWorkerNodeAutoscaleCapacityOutput).ToSparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(ctx)
+}
+
+// SparkClusterRolesWorkerNodeAutoscaleCapacityPtrInput is an input type that accepts SparkClusterRolesWorkerNodeAutoscaleCapacityArgs, SparkClusterRolesWorkerNodeAutoscaleCapacityPtr and SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput values.
+// You can construct a concrete instance of `SparkClusterRolesWorkerNodeAutoscaleCapacityPtrInput` via:
+//
+//          SparkClusterRolesWorkerNodeAutoscaleCapacityArgs{...}
+//
+//  or:
+//
+//          nil
+type SparkClusterRolesWorkerNodeAutoscaleCapacityPtrInput interface {
+	pulumi.Input
+
+	ToSparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput() SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput
+	ToSparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(context.Context) SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput
+}
+
+type sparkClusterRolesWorkerNodeAutoscaleCapacityPtrType SparkClusterRolesWorkerNodeAutoscaleCapacityArgs
+
+func SparkClusterRolesWorkerNodeAutoscaleCapacityPtr(v *SparkClusterRolesWorkerNodeAutoscaleCapacityArgs) SparkClusterRolesWorkerNodeAutoscaleCapacityPtrInput {
+	return (*sparkClusterRolesWorkerNodeAutoscaleCapacityPtrType)(v)
+}
+
+func (*sparkClusterRolesWorkerNodeAutoscaleCapacityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkClusterRolesWorkerNodeAutoscaleCapacity)(nil)).Elem()
+}
+
+func (i *sparkClusterRolesWorkerNodeAutoscaleCapacityPtrType) ToSparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput() SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
+	return i.ToSparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(context.Background())
+}
+
+func (i *sparkClusterRolesWorkerNodeAutoscaleCapacityPtrType) ToSparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput)
+}
+
+type SparkClusterRolesWorkerNodeAutoscaleCapacityOutput struct{ *pulumi.OutputState }
+
+func (SparkClusterRolesWorkerNodeAutoscaleCapacityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkClusterRolesWorkerNodeAutoscaleCapacity)(nil)).Elem()
+}
+
+func (o SparkClusterRolesWorkerNodeAutoscaleCapacityOutput) ToSparkClusterRolesWorkerNodeAutoscaleCapacityOutput() SparkClusterRolesWorkerNodeAutoscaleCapacityOutput {
+	return o
+}
+
+func (o SparkClusterRolesWorkerNodeAutoscaleCapacityOutput) ToSparkClusterRolesWorkerNodeAutoscaleCapacityOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeAutoscaleCapacityOutput {
+	return o
+}
+
+func (o SparkClusterRolesWorkerNodeAutoscaleCapacityOutput) ToSparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput() SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
+	return o.ToSparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(context.Background())
+}
+
+func (o SparkClusterRolesWorkerNodeAutoscaleCapacityOutput) ToSparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
+	return o.ApplyT(func(v SparkClusterRolesWorkerNodeAutoscaleCapacity) *SparkClusterRolesWorkerNodeAutoscaleCapacity {
+		return &v
+	}).(SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput)
+}
+
+// The maximum number of worker nodes to autoscale to based on the cluster's activity.
+func (o SparkClusterRolesWorkerNodeAutoscaleCapacityOutput) MaxInstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v SparkClusterRolesWorkerNodeAutoscaleCapacity) int { return v.MaxInstanceCount }).(pulumi.IntOutput)
+}
+
+// The minimum number of worker nodes to autoscale to based on the cluster's activity.
+func (o SparkClusterRolesWorkerNodeAutoscaleCapacityOutput) MinInstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v SparkClusterRolesWorkerNodeAutoscaleCapacity) int { return v.MinInstanceCount }).(pulumi.IntOutput)
+}
+
+type SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput struct{ *pulumi.OutputState }
+
+func (SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkClusterRolesWorkerNodeAutoscaleCapacity)(nil)).Elem()
+}
+
+func (o SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) ToSparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput() SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
+	return o
+}
+
+func (o SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) ToSparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
+	return o
+}
+
+func (o SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) Elem() SparkClusterRolesWorkerNodeAutoscaleCapacityOutput {
+	return o.ApplyT(func(v *SparkClusterRolesWorkerNodeAutoscaleCapacity) SparkClusterRolesWorkerNodeAutoscaleCapacity {
+		return *v
+	}).(SparkClusterRolesWorkerNodeAutoscaleCapacityOutput)
+}
+
+// The maximum number of worker nodes to autoscale to based on the cluster's activity.
+func (o SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) MaxInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SparkClusterRolesWorkerNodeAutoscaleCapacity) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxInstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of worker nodes to autoscale to based on the cluster's activity.
+func (o SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) MinInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SparkClusterRolesWorkerNodeAutoscaleCapacity) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinInstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+type SparkClusterRolesWorkerNodeAutoscaleRecurrence struct {
+	// A list of `schedule` blocks as defined below.
+	Schedules []SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule `pulumi:"schedules"`
+	// The time zone for the autoscale schedule times.
+	Timezone string `pulumi:"timezone"`
+}
+
+// SparkClusterRolesWorkerNodeAutoscaleRecurrenceInput is an input type that accepts SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs and SparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput values.
+// You can construct a concrete instance of `SparkClusterRolesWorkerNodeAutoscaleRecurrenceInput` via:
+//
+//          SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs{...}
+type SparkClusterRolesWorkerNodeAutoscaleRecurrenceInput interface {
+	pulumi.Input
+
+	ToSparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput() SparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput
+	ToSparkClusterRolesWorkerNodeAutoscaleRecurrenceOutputWithContext(context.Context) SparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput
+}
+
+type SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs struct {
+	// A list of `schedule` blocks as defined below.
+	Schedules SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput `pulumi:"schedules"`
+	// The time zone for the autoscale schedule times.
+	Timezone pulumi.StringInput `pulumi:"timezone"`
+}
+
+func (SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkClusterRolesWorkerNodeAutoscaleRecurrence)(nil)).Elem()
+}
+
+func (i SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ToSparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput() SparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput {
+	return i.ToSparkClusterRolesWorkerNodeAutoscaleRecurrenceOutputWithContext(context.Background())
+}
+
+func (i SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ToSparkClusterRolesWorkerNodeAutoscaleRecurrenceOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput)
+}
+
+func (i SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ToSparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput() SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return i.ToSparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (i SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ToSparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput).ToSparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(ctx)
+}
+
+// SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrInput is an input type that accepts SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs, SparkClusterRolesWorkerNodeAutoscaleRecurrencePtr and SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput values.
+// You can construct a concrete instance of `SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrInput` via:
+//
+//          SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs{...}
+//
+//  or:
+//
+//          nil
+type SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrInput interface {
+	pulumi.Input
+
+	ToSparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput() SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput
+	ToSparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(context.Context) SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput
+}
+
+type sparkClusterRolesWorkerNodeAutoscaleRecurrencePtrType SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs
+
+func SparkClusterRolesWorkerNodeAutoscaleRecurrencePtr(v *SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs) SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrInput {
+	return (*sparkClusterRolesWorkerNodeAutoscaleRecurrencePtrType)(v)
+}
+
+func (*sparkClusterRolesWorkerNodeAutoscaleRecurrencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkClusterRolesWorkerNodeAutoscaleRecurrence)(nil)).Elem()
+}
+
+func (i *sparkClusterRolesWorkerNodeAutoscaleRecurrencePtrType) ToSparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput() SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return i.ToSparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (i *sparkClusterRolesWorkerNodeAutoscaleRecurrencePtrType) ToSparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput)
+}
+
+type SparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput struct{ *pulumi.OutputState }
+
+func (SparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkClusterRolesWorkerNodeAutoscaleRecurrence)(nil)).Elem()
+}
+
+func (o SparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToSparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput() SparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput {
+	return o
+}
+
+func (o SparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToSparkClusterRolesWorkerNodeAutoscaleRecurrenceOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput {
+	return o
+}
+
+func (o SparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToSparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput() SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return o.ToSparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (o SparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToSparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return o.ApplyT(func(v SparkClusterRolesWorkerNodeAutoscaleRecurrence) *SparkClusterRolesWorkerNodeAutoscaleRecurrence {
+		return &v
+	}).(SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput)
+}
+
+// A list of `schedule` blocks as defined below.
+func (o SparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput) Schedules() SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput {
+	return o.ApplyT(func(v SparkClusterRolesWorkerNodeAutoscaleRecurrence) []SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
+		return v.Schedules
+	}).(SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput)
+}
+
+// The time zone for the autoscale schedule times.
+func (o SparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput) Timezone() pulumi.StringOutput {
+	return o.ApplyT(func(v SparkClusterRolesWorkerNodeAutoscaleRecurrence) string { return v.Timezone }).(pulumi.StringOutput)
+}
+
+type SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput struct{ *pulumi.OutputState }
+
+func (SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkClusterRolesWorkerNodeAutoscaleRecurrence)(nil)).Elem()
+}
+
+func (o SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) ToSparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput() SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return o
+}
+
+func (o SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) ToSparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
+	return o
+}
+
+func (o SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) Elem() SparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput {
+	return o.ApplyT(func(v *SparkClusterRolesWorkerNodeAutoscaleRecurrence) SparkClusterRolesWorkerNodeAutoscaleRecurrence {
+		return *v
+	}).(SparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput)
+}
+
+// A list of `schedule` blocks as defined below.
+func (o SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) Schedules() SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput {
+	return o.ApplyT(func(v *SparkClusterRolesWorkerNodeAutoscaleRecurrence) []SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
+		if v == nil {
+			return nil
+		}
+		return v.Schedules
+	}).(SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput)
+}
+
+// The time zone for the autoscale schedule times.
+func (o SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkClusterRolesWorkerNodeAutoscaleRecurrence) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Timezone
+	}).(pulumi.StringPtrOutput)
+}
+
+type SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule struct {
+	// The days of the week to perform autoscale.
+	Days []string `pulumi:"days"`
+	// The number of worker nodes to autoscale at the specified time.
+	TargetInstanceCount int `pulumi:"targetInstanceCount"`
+	// The time of day to perform the autoscale in 24hour format.
+	Time string `pulumi:"time"`
+}
+
+// SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput is an input type that accepts SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs and SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput values.
+// You can construct a concrete instance of `SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput` via:
+//
+//          SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{...}
+type SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput interface {
+	pulumi.Input
+
+	ToSparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput() SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput
+	ToSparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutputWithContext(context.Context) SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput
+}
+
+type SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs struct {
+	// The days of the week to perform autoscale.
+	Days pulumi.StringArrayInput `pulumi:"days"`
+	// The number of worker nodes to autoscale at the specified time.
+	TargetInstanceCount pulumi.IntInput `pulumi:"targetInstanceCount"`
+	// The time of day to perform the autoscale in 24hour format.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule)(nil)).Elem()
+}
+
+func (i SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs) ToSparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput() SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput {
+	return i.ToSparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutputWithContext(context.Background())
+}
+
+func (i SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs) ToSparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput)
+}
+
+// SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput is an input type that accepts SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray and SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput values.
+// You can construct a concrete instance of `SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput` via:
+//
+//          SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray{ SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs{...} }
+type SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput interface {
+	pulumi.Input
+
+	ToSparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput() SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput
+	ToSparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutputWithContext(context.Context) SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput
+}
+
+type SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray []SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput
+
+func (SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule)(nil)).Elem()
+}
+
+func (i SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray) ToSparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput() SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput {
+	return i.ToSparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray) ToSparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput)
+}
+
+type SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput struct{ *pulumi.OutputState }
+
+func (SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule)(nil)).Elem()
+}
+
+func (o SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) ToSparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput() SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput {
+	return o
+}
+
+func (o SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) ToSparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput {
+	return o
+}
+
+// The days of the week to perform autoscale.
+func (o SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) Days() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule) []string { return v.Days }).(pulumi.StringArrayOutput)
+}
+
+// The number of worker nodes to autoscale at the specified time.
+func (o SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) TargetInstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule) int { return v.TargetInstanceCount }).(pulumi.IntOutput)
+}
+
+// The time of day to perform the autoscale in 24hour format.
+func (o SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule) string { return v.Time }).(pulumi.StringOutput)
+}
+
+type SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule)(nil)).Elem()
+}
+
+func (o SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) ToSparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput() SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput {
+	return o
+}
+
+func (o SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) ToSparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput {
+	return o
+}
+
+func (o SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) Index(i pulumi.IntInput) SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
+		return vs[0].([]SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule)[vs[1].(int)]
+	}).(SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput)
 }
 
 type SparkClusterRolesZookeeperNode struct {
@@ -18280,6 +20489,12 @@ func init() {
 	pulumi.RegisterOutputType(HBaseClusterRolesHeadNodePtrOutput{})
 	pulumi.RegisterOutputType(HBaseClusterRolesWorkerNodeOutput{})
 	pulumi.RegisterOutputType(HBaseClusterRolesWorkerNodePtrOutput{})
+	pulumi.RegisterOutputType(HBaseClusterRolesWorkerNodeAutoscaleOutput{})
+	pulumi.RegisterOutputType(HBaseClusterRolesWorkerNodeAutoscalePtrOutput{})
+	pulumi.RegisterOutputType(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput{})
+	pulumi.RegisterOutputType(HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput{})
+	pulumi.RegisterOutputType(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput{})
+	pulumi.RegisterOutputType(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput{})
 	pulumi.RegisterOutputType(HBaseClusterRolesZookeeperNodeOutput{})
 	pulumi.RegisterOutputType(HBaseClusterRolesZookeeperNodePtrOutput{})
 	pulumi.RegisterOutputType(HBaseClusterStorageAccountOutput{})
@@ -18312,6 +20527,14 @@ func init() {
 	pulumi.RegisterOutputType(HadoopClusterRolesHeadNodePtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesWorkerNodeOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesWorkerNodePtrOutput{})
+	pulumi.RegisterOutputType(HadoopClusterRolesWorkerNodeAutoscaleOutput{})
+	pulumi.RegisterOutputType(HadoopClusterRolesWorkerNodeAutoscalePtrOutput{})
+	pulumi.RegisterOutputType(HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput{})
+	pulumi.RegisterOutputType(HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput{})
+	pulumi.RegisterOutputType(HadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput{})
+	pulumi.RegisterOutputType(HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput{})
+	pulumi.RegisterOutputType(HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput{})
+	pulumi.RegisterOutputType(HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesZookeeperNodeOutput{})
 	pulumi.RegisterOutputType(HadoopClusterRolesZookeeperNodePtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterStorageAccountOutput{})
@@ -18340,6 +20563,14 @@ func init() {
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesHeadNodePtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodeOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodePtrOutput{})
+	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput{})
+	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput{})
+	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput{})
+	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput{})
+	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput{})
+	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput{})
+	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput{})
+	pulumi.RegisterOutputType(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesZookeeperNodeOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterRolesZookeeperNodePtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterStorageAccountOutput{})
@@ -18426,6 +20657,14 @@ func init() {
 	pulumi.RegisterOutputType(SparkClusterRolesHeadNodePtrOutput{})
 	pulumi.RegisterOutputType(SparkClusterRolesWorkerNodeOutput{})
 	pulumi.RegisterOutputType(SparkClusterRolesWorkerNodePtrOutput{})
+	pulumi.RegisterOutputType(SparkClusterRolesWorkerNodeAutoscaleOutput{})
+	pulumi.RegisterOutputType(SparkClusterRolesWorkerNodeAutoscalePtrOutput{})
+	pulumi.RegisterOutputType(SparkClusterRolesWorkerNodeAutoscaleCapacityOutput{})
+	pulumi.RegisterOutputType(SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput{})
+	pulumi.RegisterOutputType(SparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput{})
+	pulumi.RegisterOutputType(SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput{})
+	pulumi.RegisterOutputType(SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput{})
+	pulumi.RegisterOutputType(SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput{})
 	pulumi.RegisterOutputType(SparkClusterRolesZookeeperNodeOutput{})
 	pulumi.RegisterOutputType(SparkClusterRolesZookeeperNodePtrOutput{})
 	pulumi.RegisterOutputType(SparkClusterStorageAccountOutput{})

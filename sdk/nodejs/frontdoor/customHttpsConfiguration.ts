@@ -54,10 +54,6 @@ export class CustomHttpsConfiguration extends pulumi.CustomResource {
      * The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
      */
     public readonly frontendEndpointId!: pulumi.Output<string>;
-    /**
-     * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
-     */
-    public readonly resourceGroupName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a CustomHttpsConfiguration resource with the given unique name, arguments, and options.
@@ -75,7 +71,6 @@ export class CustomHttpsConfiguration extends pulumi.CustomResource {
             inputs["customHttpsConfiguration"] = state ? state.customHttpsConfiguration : undefined;
             inputs["customHttpsProvisioningEnabled"] = state ? state.customHttpsProvisioningEnabled : undefined;
             inputs["frontendEndpointId"] = state ? state.frontendEndpointId : undefined;
-            inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
             const args = argsOrState as CustomHttpsConfigurationArgs | undefined;
             if ((!args || args.customHttpsProvisioningEnabled === undefined) && !opts.urn) {
@@ -87,7 +82,6 @@ export class CustomHttpsConfiguration extends pulumi.CustomResource {
             inputs["customHttpsConfiguration"] = args ? args.customHttpsConfiguration : undefined;
             inputs["customHttpsProvisioningEnabled"] = args ? args.customHttpsProvisioningEnabled : undefined;
             inputs["frontendEndpointId"] = args ? args.frontendEndpointId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -112,10 +106,6 @@ export interface CustomHttpsConfigurationState {
      * The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
      */
     readonly frontendEndpointId?: pulumi.Input<string>;
-    /**
-     * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
-     */
-    readonly resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -134,8 +124,4 @@ export interface CustomHttpsConfigurationArgs {
      * The ID of the FrontDoor Frontend Endpoint which this configuration refers to.
      */
     readonly frontendEndpointId: pulumi.Input<string>;
-    /**
-     * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
-     */
-    readonly resourceGroupName?: pulumi.Input<string>;
 }

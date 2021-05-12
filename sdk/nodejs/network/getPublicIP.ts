@@ -133,6 +133,10 @@ export interface GetPublicIPResult {
      */
     readonly ipAddress: string;
     /**
+     * A mapping of tags to assigned to the resource.
+     */
+    readonly ipTags: {[key: string]: string};
+    /**
      * The IP version being used, for example `IPv4` or `IPv6`.
      */
     readonly ipVersion: string;

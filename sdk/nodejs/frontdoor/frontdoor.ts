@@ -6,6 +6,63 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
+ * Manages an Azure Front Door instance.
+ *
+ * Azure Front Door Service is Microsoft's highly available and scalable web application acceleration platform and global HTTP(s) load balancer. It provides built-in DDoS protection and application layer security and caching. Front Door enables you to build applications that maximize and automate high-availability and performance for your end-users. Use Front Door with Azure services including Web/Mobile Apps, Cloud Services and Virtual Machines – or combine it with on-premises services for hybrid deployments and smooth cloud migration.
+ *
+ * Below are some of the key scenarios that Azure Front Door Service addresses:
+ * * Use Front Door to improve application scale and availability with instant multi-region failover
+ * * Use Front Door to improve application performance with SSL offload and routing requests to the fastest available application backend.
+ * * Use Front Door for application layer security and DDoS protection for your application.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleFrontdoor = new azure.frontdoor.Frontdoor("exampleFrontdoor", {
+ *     location: "EastUS2",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     enforceBackendPoolsCertificateNameCheck: false,
+ *     routingRules: [{
+ *         name: "exampleRoutingRule1",
+ *         acceptedProtocols: [
+ *             "Http",
+ *             "Https",
+ *         ],
+ *         patternsToMatches: ["/*"],
+ *         frontendEndpoints: ["exampleFrontendEndpoint1"],
+ *         forwardingConfiguration: {
+ *             forwardingProtocol: "MatchRequest",
+ *             backendPoolName: "exampleBackendBing",
+ *         },
+ *     }],
+ *     backendPoolLoadBalancings: [{
+ *         name: "exampleLoadBalancingSettings1",
+ *     }],
+ *     backendPoolHealthProbes: [{
+ *         name: "exampleHealthProbeSetting1",
+ *     }],
+ *     backendPools: [{
+ *         name: "exampleBackendBing",
+ *         backends: [{
+ *             hostHeader: "www.bing.com",
+ *             address: "www.bing.com",
+ *             httpPort: 80,
+ *             httpsPort: 443,
+ *         }],
+ *         loadBalancingName: "exampleLoadBalancingSettings1",
+ *         healthProbeName: "exampleHealthProbeSetting1",
+ *     }],
+ *     frontendEndpoints: [{
+ *         name: "exampleFrontendEndpoint1",
+ *         hostName: "example-FrontDoor.azurefd.net",
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Front Doors can be imported using the `resource id`, e.g.
@@ -78,6 +135,7 @@ export class Frontdoor extends pulumi.CustomResource {
      * Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
      */
     public readonly enforceBackendPoolsCertificateNameCheck!: pulumi.Output<boolean>;
+    public /*out*/ readonly explicitResourceOrders!: pulumi.Output<outputs.frontdoor.FrontdoorExplicitResourceOrder[]>;
     /**
      * A friendly name for the Front Door service.
      */
@@ -147,6 +205,7 @@ export class Frontdoor extends pulumi.CustomResource {
             inputs["backendPoolsSendReceiveTimeoutSeconds"] = state ? state.backendPoolsSendReceiveTimeoutSeconds : undefined;
             inputs["cname"] = state ? state.cname : undefined;
             inputs["enforceBackendPoolsCertificateNameCheck"] = state ? state.enforceBackendPoolsCertificateNameCheck : undefined;
+            inputs["explicitResourceOrders"] = state ? state.explicitResourceOrders : undefined;
             inputs["friendlyName"] = state ? state.friendlyName : undefined;
             inputs["frontendEndpoints"] = state ? state.frontendEndpoints : undefined;
             inputs["frontendEndpointsMap"] = state ? state.frontendEndpointsMap : undefined;
@@ -198,6 +257,7 @@ export class Frontdoor extends pulumi.CustomResource {
             inputs["backendPoolLoadBalancingSettingsMap"] = undefined /*out*/;
             inputs["backendPoolsMap"] = undefined /*out*/;
             inputs["cname"] = undefined /*out*/;
+            inputs["explicitResourceOrders"] = undefined /*out*/;
             inputs["frontendEndpointsMap"] = undefined /*out*/;
             inputs["headerFrontdoorId"] = undefined /*out*/;
             inputs["routingRulesMap"] = undefined /*out*/;
@@ -249,6 +309,7 @@ export interface FrontdoorState {
      * Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
      */
     readonly enforceBackendPoolsCertificateNameCheck?: pulumi.Input<boolean>;
+    readonly explicitResourceOrders?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorExplicitResourceOrder>[]>;
     /**
      * A friendly name for the Front Door service.
      */

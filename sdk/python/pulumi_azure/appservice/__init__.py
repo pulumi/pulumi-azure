@@ -10,6 +10,7 @@ from .certificate_binding import *
 from .certificate_order import *
 from .custom_hostname_binding import *
 from .environment import *
+from .environment_v3 import *
 from .function_app import *
 from .function_app_slot import *
 from .get_app_service import *
@@ -17,6 +18,7 @@ from .get_app_service_environment import *
 from .get_app_service_plan import *
 from .get_certificate import *
 from .get_certificate_order import *
+from .get_environment_v3 import *
 from .get_function_app import *
 from .get_function_app_host_keys import *
 from .hybrid_connection import *
@@ -55,6 +57,8 @@ def _register_module():
                 return CustomHostnameBinding(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:appservice/environment:Environment":
                 return Environment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:appservice/environmentV3:EnvironmentV3":
+                return EnvironmentV3(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:appservice/functionApp:FunctionApp":
                 return FunctionApp(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:appservice/functionAppSlot:FunctionAppSlot":
@@ -85,6 +89,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "appservice/certificateOrder", _module_instance)
     pulumi.runtime.register_resource_module("azure", "appservice/customHostnameBinding", _module_instance)
     pulumi.runtime.register_resource_module("azure", "appservice/environment", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "appservice/environmentV3", _module_instance)
     pulumi.runtime.register_resource_module("azure", "appservice/functionApp", _module_instance)
     pulumi.runtime.register_resource_module("azure", "appservice/functionAppSlot", _module_instance)
     pulumi.runtime.register_resource_module("azure", "appservice/hybridConnection", _module_instance)

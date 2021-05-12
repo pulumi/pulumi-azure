@@ -14,14 +14,6 @@ namespace Pulumi.Azure.FrontDoor.Outputs
     public sealed class FrontdoorFrontendEndpoint
     {
         /// <summary>
-        /// A `custom_https_configuration` block as defined below.
-        /// </summary>
-        public readonly Outputs.FrontdoorFrontendEndpointCustomHttpsConfiguration? CustomHttpsConfiguration;
-        /// <summary>
-        /// Should the HTTPS protocol be enabled for a custom domain associated with the Front Door?
-        /// </summary>
-        public readonly bool? CustomHttpsProvisioningEnabled;
-        /// <summary>
         /// Specifies the host name of the `frontend_endpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
         /// </summary>
         public readonly string HostName;
@@ -48,10 +40,6 @@ namespace Pulumi.Azure.FrontDoor.Outputs
 
         [OutputConstructor]
         private FrontdoorFrontendEndpoint(
-            Outputs.FrontdoorFrontendEndpointCustomHttpsConfiguration? customHttpsConfiguration,
-
-            bool? customHttpsProvisioningEnabled,
-
             string hostName,
 
             string? id,
@@ -64,8 +52,6 @@ namespace Pulumi.Azure.FrontDoor.Outputs
 
             string? webApplicationFirewallPolicyLinkId)
         {
-            CustomHttpsConfiguration = customHttpsConfiguration;
-            CustomHttpsProvisioningEnabled = customHttpsProvisioningEnabled;
             HostName = hostName;
             Id = id;
             Name = name;

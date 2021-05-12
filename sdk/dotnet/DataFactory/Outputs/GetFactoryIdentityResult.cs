@@ -13,6 +13,7 @@ namespace Pulumi.Azure.DataFactory.Outputs
     [OutputType]
     public sealed class GetFactoryIdentityResult
     {
+        public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
         /// The ID of the Principal (Client) in Azure Active Directory.
         /// </summary>
@@ -28,12 +29,15 @@ namespace Pulumi.Azure.DataFactory.Outputs
 
         [OutputConstructor]
         private GetFactoryIdentityResult(
+            ImmutableArray<string> identityIds,
+
             string principalId,
 
             string tenantId,
 
             string type)
         {
+            IdentityIds = identityIds;
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;

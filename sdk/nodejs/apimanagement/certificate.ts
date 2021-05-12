@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Manages an Certificate within an API Management Service.
  *
+ * ## Example Usage
+ *
  * ## Import
  *
  * API Management Certificates can be imported using the `resource id`, e.g.
@@ -50,11 +52,19 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
      */
-    public readonly data!: pulumi.Output<string>;
+    public readonly data!: pulumi.Output<string | undefined>;
     /**
      * The Expiration Date of this Certificate, formatted as an RFC3339 string.
      */
     public /*out*/ readonly expiration!: pulumi.Output<string>;
+    /**
+     * The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+     */
+    public readonly keyVaultIdentityClientId!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+     */
+    public readonly keyVaultSecretId!: pulumi.Output<string | undefined>;
     /**
      * The name of the API Management Certificate. Changing this forces a new resource to be created.
      */
@@ -92,6 +102,8 @@ export class Certificate extends pulumi.CustomResource {
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             inputs["data"] = state ? state.data : undefined;
             inputs["expiration"] = state ? state.expiration : undefined;
+            inputs["keyVaultIdentityClientId"] = state ? state.keyVaultIdentityClientId : undefined;
+            inputs["keyVaultSecretId"] = state ? state.keyVaultSecretId : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["password"] = state ? state.password : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -102,14 +114,13 @@ export class Certificate extends pulumi.CustomResource {
             if ((!args || args.apiManagementName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if ((!args || args.data === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'data'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
             inputs["data"] = args ? args.data : undefined;
+            inputs["keyVaultIdentityClientId"] = args ? args.keyVaultIdentityClientId : undefined;
+            inputs["keyVaultSecretId"] = args ? args.keyVaultSecretId : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["password"] = args ? args.password : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -140,6 +151,14 @@ export interface CertificateState {
      * The Expiration Date of this Certificate, formatted as an RFC3339 string.
      */
     readonly expiration?: pulumi.Input<string>;
+    /**
+     * The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+     */
+    readonly keyVaultIdentityClientId?: pulumi.Input<string>;
+    /**
+     * The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+     */
+    readonly keyVaultSecretId?: pulumi.Input<string>;
     /**
      * The name of the API Management Certificate. Changing this forces a new resource to be created.
      */
@@ -173,7 +192,15 @@ export interface CertificateArgs {
     /**
      * The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
      */
-    readonly data: pulumi.Input<string>;
+    readonly data?: pulumi.Input<string>;
+    /**
+     * The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
+     */
+    readonly keyVaultIdentityClientId?: pulumi.Input<string>;
+    /**
+     * The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+     */
+    readonly keyVaultSecretId?: pulumi.Input<string>;
     /**
      * The name of the API Management Certificate. Changing this forces a new resource to be created.
      */
