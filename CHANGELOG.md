@@ -2,6 +2,11 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 4.2.0 (2021-05-12)
 * Upgrade to v2.58.0 of the AzureRM Terraform Provider  
   **PLEASE NOTE:**  
   There is a breaking change in this release due to a change in the upstream frontdoor resources.  
@@ -10,8 +15,6 @@ CHANGELOG
   `azure.frontdoor.customHttpsConfiguration`
   - `azure.frontdoor.customHttpsConfiguration` no longer has support for `resourceGroupName` as this is inherited 
     from the corresponding frootdoor service
-
----
 
 ## 4.1.0 (2021-05-04)
 * Upgrade to v2.57.0 of the AzureRM Terraform Provider
