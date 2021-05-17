@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./aadDiagnosticSetting";
 export * from "./actionGroup";
 export * from "./actionRuleActionGroup";
 export * from "./actionRuleSuppression";
@@ -23,6 +24,7 @@ export * from "./scheduledQueryRulesLog";
 export * from "./smartDetectorAlertRule";
 
 // Import resources to register:
+import { AadDiagnosticSetting } from "./aadDiagnosticSetting";
 import { ActionGroup } from "./actionGroup";
 import { ActionRuleActionGroup } from "./actionRuleActionGroup";
 import { ActionRuleSuppression } from "./actionRuleSuppression";
@@ -39,6 +41,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting":
+                return new AadDiagnosticSetting(name, <any>undefined, { urn })
             case "azure:monitoring/actionGroup:ActionGroup":
                 return new ActionGroup(name, <any>undefined, { urn })
             case "azure:monitoring/actionRuleActionGroup:ActionRuleActionGroup":
@@ -66,6 +70,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "monitoring/aadDiagnosticSetting", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/actionGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/actionRuleActionGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/actionRuleSuppression", _module)

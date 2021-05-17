@@ -9,9 +9,12 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'AccountBackupArgs',
     'AccountCapabilityArgs',
     'AccountConsistencyPolicyArgs',
+    'AccountCorsRuleArgs',
     'AccountGeoLocationArgs',
+    'AccountIdentityArgs',
     'AccountVirtualNetworkRuleArgs',
     'CassandraKeyspaceAutoscaleSettingsArgs',
     'CassandraTableAutoscaleSettingsArgs',
@@ -39,6 +42,60 @@ __all__ = [
     'SqlDatabaseAutoscaleSettingsArgs',
     'TableAutoscaleSettingsArgs',
 ]
+
+@pulumi.input_type
+class AccountBackupArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 interval_in_minutes: Optional[pulumi.Input[int]] = None,
+                 retention_in_hours: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] type: The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`.
+        :param pulumi.Input[int] interval_in_minutes: The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
+        :param pulumi.Input[int] retention_in_hours: The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
+        """
+        pulumi.set(__self__, "type", type)
+        if interval_in_minutes is not None:
+            pulumi.set(__self__, "interval_in_minutes", interval_in_minutes)
+        if retention_in_hours is not None:
+            pulumi.set(__self__, "retention_in_hours", retention_in_hours)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="intervalInMinutes")
+    def interval_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
+        """
+        return pulumi.get(self, "interval_in_minutes")
+
+    @interval_in_minutes.setter
+    def interval_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval_in_minutes", value)
+
+    @property
+    @pulumi.getter(name="retentionInHours")
+    def retention_in_hours(self) -> Optional[pulumi.Input[int]]:
+        """
+        The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
+        """
+        return pulumi.get(self, "retention_in_hours")
+
+    @retention_in_hours.setter
+    def retention_in_hours(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_in_hours", value)
+
 
 @pulumi.input_type
 class AccountCapabilityArgs:
@@ -114,6 +171,88 @@ class AccountConsistencyPolicyArgs:
     @max_staleness_prefix.setter
     def max_staleness_prefix(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_staleness_prefix", value)
+
+
+@pulumi.input_type
+class AccountCorsRuleArgs:
+    def __init__(__self__, *,
+                 allowed_headers: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 allowed_methods: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 exposed_headers: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 max_age_in_seconds: pulumi.Input[int]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_headers: A list of headers that are allowed to be a part of the cross-origin request.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_methods: A list of http headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: A list of origin domains that will be allowed by CORS.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exposed_headers: A list of response headers that are exposed to CORS clients.
+        :param pulumi.Input[int] max_age_in_seconds: The number of seconds the client should cache a preflight response.
+        """
+        pulumi.set(__self__, "allowed_headers", allowed_headers)
+        pulumi.set(__self__, "allowed_methods", allowed_methods)
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        pulumi.set(__self__, "exposed_headers", exposed_headers)
+        pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
+
+    @property
+    @pulumi.getter(name="allowedHeaders")
+    def allowed_headers(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of headers that are allowed to be a part of the cross-origin request.
+        """
+        return pulumi.get(self, "allowed_headers")
+
+    @allowed_headers.setter
+    def allowed_headers(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "allowed_headers", value)
+
+    @property
+    @pulumi.getter(name="allowedMethods")
+    def allowed_methods(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of http headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+        """
+        return pulumi.get(self, "allowed_methods")
+
+    @allowed_methods.setter
+    def allowed_methods(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "allowed_methods", value)
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of origin domains that will be allowed by CORS.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @allowed_origins.setter
+    def allowed_origins(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "allowed_origins", value)
+
+    @property
+    @pulumi.getter(name="exposedHeaders")
+    def exposed_headers(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of response headers that are exposed to CORS clients.
+        """
+        return pulumi.get(self, "exposed_headers")
+
+    @exposed_headers.setter
+    def exposed_headers(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "exposed_headers", value)
+
+    @property
+    @pulumi.getter(name="maxAgeInSeconds")
+    def max_age_in_seconds(self) -> pulumi.Input[int]:
+        """
+        The number of seconds the client should cache a preflight response.
+        """
+        return pulumi.get(self, "max_age_in_seconds")
+
+    @max_age_in_seconds.setter
+    def max_age_in_seconds(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_age_in_seconds", value)
 
 
 @pulumi.input_type
@@ -202,6 +341,60 @@ class AccountGeoLocationArgs:
     @zone_redundant.setter
     def zone_redundant(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "zone_redundant", value)
+
+
+@pulumi.input_type
+class AccountIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. Possible value is only `SystemAssigned`.
+        :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
+        :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
+        """
+        pulumi.set(__self__, "type", type)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. Possible value is only `SystemAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
 
 
 @pulumi.input_type

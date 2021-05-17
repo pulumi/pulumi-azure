@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .aad_diagnostic_setting import *
 from .action_group import *
 from .action_rule_action_group import *
 from .action_rule_suppression import *
@@ -34,7 +35,9 @@ def _register_module():
             return Module._version
 
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
-            if typ == "azure:monitoring/actionGroup:ActionGroup":
+            if typ == "azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting":
+                return AadDiagnosticSetting(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:monitoring/actionGroup:ActionGroup":
                 return ActionGroup(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:monitoring/actionRuleActionGroup:ActionRuleActionGroup":
                 return ActionRuleActionGroup(name, pulumi.ResourceOptions(urn=urn))
@@ -61,6 +64,7 @@ def _register_module():
 
 
     _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure", "monitoring/aadDiagnosticSetting", _module_instance)
     pulumi.runtime.register_resource_module("azure", "monitoring/actionGroup", _module_instance)
     pulumi.runtime.register_resource_module("azure", "monitoring/actionRuleActionGroup", _module_instance)
     pulumi.runtime.register_resource_module("azure", "monitoring/actionRuleSuppression", _module_instance)

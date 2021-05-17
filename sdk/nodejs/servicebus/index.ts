@@ -14,6 +14,7 @@ export * from "./getTopic";
 export * from "./getTopicAuthorizationRule";
 export * from "./namespace";
 export * from "./namespaceAuthorizationRule";
+export * from "./namespaceDisasterRecoveryConfig";
 export * from "./namespaceNetworkRuleSet";
 export * from "./queue";
 export * from "./queueAuthorizationRule";
@@ -26,6 +27,7 @@ export * from "./zMixins";
 // Import resources to register:
 import { Namespace } from "./namespace";
 import { NamespaceAuthorizationRule } from "./namespaceAuthorizationRule";
+import { NamespaceDisasterRecoveryConfig } from "./namespaceDisasterRecoveryConfig";
 import { NamespaceNetworkRuleSet } from "./namespaceNetworkRuleSet";
 import { Queue } from "./queue";
 import { QueueAuthorizationRule } from "./queueAuthorizationRule";
@@ -42,6 +44,8 @@ const _module = {
                 return new Namespace(name, <any>undefined, { urn })
             case "azure:servicebus/namespaceAuthorizationRule:NamespaceAuthorizationRule":
                 return new NamespaceAuthorizationRule(name, <any>undefined, { urn })
+            case "azure:servicebus/namespaceDisasterRecoveryConfig:NamespaceDisasterRecoveryConfig":
+                return new NamespaceDisasterRecoveryConfig(name, <any>undefined, { urn })
             case "azure:servicebus/namespaceNetworkRuleSet:NamespaceNetworkRuleSet":
                 return new NamespaceNetworkRuleSet(name, <any>undefined, { urn })
             case "azure:servicebus/queue:Queue":
@@ -63,6 +67,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "servicebus/namespace", _module)
 pulumi.runtime.registerResourceModule("azure", "servicebus/namespaceAuthorizationRule", _module)
+pulumi.runtime.registerResourceModule("azure", "servicebus/namespaceDisasterRecoveryConfig", _module)
 pulumi.runtime.registerResourceModule("azure", "servicebus/namespaceNetworkRuleSet", _module)
 pulumi.runtime.registerResourceModule("azure", "servicebus/queue", _module)
 pulumi.runtime.registerResourceModule("azure", "servicebus/queueAuthorizationRule", _module)

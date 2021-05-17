@@ -9,6 +9,8 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'AccountAzureFilesAuthenticationArgs',
+    'AccountAzureFilesAuthenticationActiveDirectoryArgs',
     'AccountBlobPropertiesArgs',
     'AccountBlobPropertiesContainerDeleteRetentionPolicyArgs',
     'AccountBlobPropertiesCorsRuleArgs',
@@ -16,11 +18,14 @@ __all__ = [
     'AccountCustomDomainArgs',
     'AccountIdentityArgs',
     'AccountNetworkRulesArgs',
+    'AccountNetworkRulesPrivateLinkAccessArgs',
+    'AccountNetworkRulesPrivateLinkAccessRuleArgs',
     'AccountQueuePropertiesArgs',
     'AccountQueuePropertiesCorsRuleArgs',
     'AccountQueuePropertiesHourMetricsArgs',
     'AccountQueuePropertiesLoggingArgs',
     'AccountQueuePropertiesMinuteMetricsArgs',
+    'AccountRoutingArgs',
     'AccountStaticWebsiteArgs',
     'BlobInventoryPolicyRuleArgs',
     'BlobInventoryPolicyRuleFilterArgs',
@@ -44,8 +49,144 @@ __all__ = [
 ]
 
 @pulumi.input_type
+class AccountAzureFilesAuthenticationArgs:
+    def __init__(__self__, *,
+                 directory_type: pulumi.Input[str],
+                 active_directory: Optional[pulumi.Input['AccountAzureFilesAuthenticationActiveDirectoryArgs']] = None):
+        """
+        :param pulumi.Input[str] directory_type: Specifies the directory service used. Possible values are `AADDS` and `AD`.
+        :param pulumi.Input['AccountAzureFilesAuthenticationActiveDirectoryArgs'] active_directory: A `active_directory` block as defined below. Required when `directory_type` is `AD`.
+        """
+        pulumi.set(__self__, "directory_type", directory_type)
+        if active_directory is not None:
+            pulumi.set(__self__, "active_directory", active_directory)
+
+    @property
+    @pulumi.getter(name="directoryType")
+    def directory_type(self) -> pulumi.Input[str]:
+        """
+        Specifies the directory service used. Possible values are `AADDS` and `AD`.
+        """
+        return pulumi.get(self, "directory_type")
+
+    @directory_type.setter
+    def directory_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "directory_type", value)
+
+    @property
+    @pulumi.getter(name="activeDirectory")
+    def active_directory(self) -> Optional[pulumi.Input['AccountAzureFilesAuthenticationActiveDirectoryArgs']]:
+        """
+        A `active_directory` block as defined below. Required when `directory_type` is `AD`.
+        """
+        return pulumi.get(self, "active_directory")
+
+    @active_directory.setter
+    def active_directory(self, value: Optional[pulumi.Input['AccountAzureFilesAuthenticationActiveDirectoryArgs']]):
+        pulumi.set(self, "active_directory", value)
+
+
+@pulumi.input_type
+class AccountAzureFilesAuthenticationActiveDirectoryArgs:
+    def __init__(__self__, *,
+                 domain_guid: pulumi.Input[str],
+                 domain_name: pulumi.Input[str],
+                 domain_sid: pulumi.Input[str],
+                 forest_name: pulumi.Input[str],
+                 netbios_domain_name: pulumi.Input[str],
+                 storage_sid: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] domain_guid: Specifies the domain GUID.
+        :param pulumi.Input[str] domain_name: Specifies the primary domain that the AD DNS server is authoritative for.
+        :param pulumi.Input[str] domain_sid: Specifies the security identifier (SID).
+        :param pulumi.Input[str] forest_name: Specifies the Active Directory forest.
+        :param pulumi.Input[str] netbios_domain_name: Specifies the NetBIOS domain name.
+        :param pulumi.Input[str] storage_sid: Specifies the security identifier (SID) for Azure Storage.
+        """
+        pulumi.set(__self__, "domain_guid", domain_guid)
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "domain_sid", domain_sid)
+        pulumi.set(__self__, "forest_name", forest_name)
+        pulumi.set(__self__, "netbios_domain_name", netbios_domain_name)
+        pulumi.set(__self__, "storage_sid", storage_sid)
+
+    @property
+    @pulumi.getter(name="domainGuid")
+    def domain_guid(self) -> pulumi.Input[str]:
+        """
+        Specifies the domain GUID.
+        """
+        return pulumi.get(self, "domain_guid")
+
+    @domain_guid.setter
+    def domain_guid(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_guid", value)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the primary domain that the AD DNS server is authoritative for.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="domainSid")
+    def domain_sid(self) -> pulumi.Input[str]:
+        """
+        Specifies the security identifier (SID).
+        """
+        return pulumi.get(self, "domain_sid")
+
+    @domain_sid.setter
+    def domain_sid(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_sid", value)
+
+    @property
+    @pulumi.getter(name="forestName")
+    def forest_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the Active Directory forest.
+        """
+        return pulumi.get(self, "forest_name")
+
+    @forest_name.setter
+    def forest_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "forest_name", value)
+
+    @property
+    @pulumi.getter(name="netbiosDomainName")
+    def netbios_domain_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the NetBIOS domain name.
+        """
+        return pulumi.get(self, "netbios_domain_name")
+
+    @netbios_domain_name.setter
+    def netbios_domain_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "netbios_domain_name", value)
+
+    @property
+    @pulumi.getter(name="storageSid")
+    def storage_sid(self) -> pulumi.Input[str]:
+        """
+        Specifies the security identifier (SID) for Azure Storage.
+        """
+        return pulumi.get(self, "storage_sid")
+
+    @storage_sid.setter
+    def storage_sid(self, value: pulumi.Input[str]):
+        pulumi.set(self, "storage_sid", value)
+
+
+@pulumi.input_type
 class AccountBlobPropertiesArgs:
     def __init__(__self__, *,
+                 change_feed_enabled: Optional[pulumi.Input[bool]] = None,
                  container_delete_retention_policy: Optional[pulumi.Input['AccountBlobPropertiesContainerDeleteRetentionPolicyArgs']] = None,
                  cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountBlobPropertiesCorsRuleArgs']]]] = None,
                  default_service_version: Optional[pulumi.Input[str]] = None,
@@ -53,6 +194,7 @@ class AccountBlobPropertiesArgs:
                  last_access_time_enabled: Optional[pulumi.Input[bool]] = None,
                  versioning_enabled: Optional[pulumi.Input[bool]] = None):
         """
+        :param pulumi.Input[bool] change_feed_enabled: Is the blob service properties for change feed events enabled? Default to `false`.
         :param pulumi.Input['AccountBlobPropertiesContainerDeleteRetentionPolicyArgs'] container_delete_retention_policy: A `container_delete_retention_policy` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AccountBlobPropertiesCorsRuleArgs']]] cors_rules: A `cors_rule` block as defined below.
         :param pulumi.Input[str] default_service_version: The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version. Defaults to `2020-06-12`.
@@ -60,6 +202,8 @@ class AccountBlobPropertiesArgs:
         :param pulumi.Input[bool] last_access_time_enabled: Is the last access time based tracking enabled? Default to `false`.
         :param pulumi.Input[bool] versioning_enabled: Is versioning enabled? Default to `false`.
         """
+        if change_feed_enabled is not None:
+            pulumi.set(__self__, "change_feed_enabled", change_feed_enabled)
         if container_delete_retention_policy is not None:
             pulumi.set(__self__, "container_delete_retention_policy", container_delete_retention_policy)
         if cors_rules is not None:
@@ -72,6 +216,18 @@ class AccountBlobPropertiesArgs:
             pulumi.set(__self__, "last_access_time_enabled", last_access_time_enabled)
         if versioning_enabled is not None:
             pulumi.set(__self__, "versioning_enabled", versioning_enabled)
+
+    @property
+    @pulumi.getter(name="changeFeedEnabled")
+    def change_feed_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the blob service properties for change feed events enabled? Default to `false`.
+        """
+        return pulumi.get(self, "change_feed_enabled")
+
+    @change_feed_enabled.setter
+    def change_feed_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "change_feed_enabled", value)
 
     @property
     @pulumi.getter(name="containerDeleteRetentionPolicy")
@@ -374,12 +530,14 @@ class AccountNetworkRulesArgs:
                  default_action: pulumi.Input[str],
                  bypasses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 private_link_accesses: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessArgs']]]] = None,
                  virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] default_action: Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] bypasses: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
                any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_rules: List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessArgs']]] private_link_accesses: One or More `private_link_access` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: A list of resource ids for subnets.
         """
         pulumi.set(__self__, "default_action", default_action)
@@ -387,6 +545,8 @@ class AccountNetworkRulesArgs:
             pulumi.set(__self__, "bypasses", bypasses)
         if ip_rules is not None:
             pulumi.set(__self__, "ip_rules", ip_rules)
+        if private_link_accesses is not None:
+            pulumi.set(__self__, "private_link_accesses", private_link_accesses)
         if virtual_network_subnet_ids is not None:
             pulumi.set(__self__, "virtual_network_subnet_ids", virtual_network_subnet_ids)
 
@@ -428,6 +588,18 @@ class AccountNetworkRulesArgs:
         pulumi.set(self, "ip_rules", value)
 
     @property
+    @pulumi.getter(name="privateLinkAccesses")
+    def private_link_accesses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessArgs']]]]:
+        """
+        One or More `private_link_access` block as defined below.
+        """
+        return pulumi.get(self, "private_link_accesses")
+
+    @private_link_accesses.setter
+    def private_link_accesses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessArgs']]]]):
+        pulumi.set(self, "private_link_accesses", value)
+
+    @property
     @pulumi.getter(name="virtualNetworkSubnetIds")
     def virtual_network_subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -438,6 +610,82 @@ class AccountNetworkRulesArgs:
     @virtual_network_subnet_ids.setter
     def virtual_network_subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "virtual_network_subnet_ids", value)
+
+
+@pulumi.input_type
+class AccountNetworkRulesPrivateLinkAccessArgs:
+    def __init__(__self__, *,
+                 endpoint_resource_id: pulumi.Input[str],
+                 endpoint_tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] endpoint_resource_id: The resource id of the `privatelink.Endpoint` of the resource access rule.
+        :param pulumi.Input[str] endpoint_tenant_id: The tenant id of the `privatelink.Endpoint` of the resource access rule. Defaults to the current tenant id.
+        """
+        pulumi.set(__self__, "endpoint_resource_id", endpoint_resource_id)
+        if endpoint_tenant_id is not None:
+            pulumi.set(__self__, "endpoint_tenant_id", endpoint_tenant_id)
+
+    @property
+    @pulumi.getter(name="endpointResourceId")
+    def endpoint_resource_id(self) -> pulumi.Input[str]:
+        """
+        The resource id of the `privatelink.Endpoint` of the resource access rule.
+        """
+        return pulumi.get(self, "endpoint_resource_id")
+
+    @endpoint_resource_id.setter
+    def endpoint_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint_resource_id", value)
+
+    @property
+    @pulumi.getter(name="endpointTenantId")
+    def endpoint_tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tenant id of the `privatelink.Endpoint` of the resource access rule. Defaults to the current tenant id.
+        """
+        return pulumi.get(self, "endpoint_tenant_id")
+
+    @endpoint_tenant_id.setter
+    def endpoint_tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_tenant_id", value)
+
+
+@pulumi.input_type
+class AccountNetworkRulesPrivateLinkAccessRuleArgs:
+    def __init__(__self__, *,
+                 endpoint_resource_id: pulumi.Input[str],
+                 endpoint_tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] endpoint_resource_id: The resource id of the `privatelink.Endpoint` of the resource access rule.
+        :param pulumi.Input[str] endpoint_tenant_id: The tenant id of the `privatelink.Endpoint` of the resource access rule. Defaults to the current tenant id.
+        """
+        pulumi.set(__self__, "endpoint_resource_id", endpoint_resource_id)
+        if endpoint_tenant_id is not None:
+            pulumi.set(__self__, "endpoint_tenant_id", endpoint_tenant_id)
+
+    @property
+    @pulumi.getter(name="endpointResourceId")
+    def endpoint_resource_id(self) -> pulumi.Input[str]:
+        """
+        The resource id of the `privatelink.Endpoint` of the resource access rule.
+        """
+        return pulumi.get(self, "endpoint_resource_id")
+
+    @endpoint_resource_id.setter
+    def endpoint_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint_resource_id", value)
+
+    @property
+    @pulumi.getter(name="endpointTenantId")
+    def endpoint_tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tenant id of the `privatelink.Endpoint` of the resource access rule. Defaults to the current tenant id.
+        """
+        return pulumi.get(self, "endpoint_tenant_id")
+
+    @endpoint_tenant_id.setter
+    def endpoint_tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_tenant_id", value)
 
 
 @pulumi.input_type
@@ -814,6 +1062,61 @@ class AccountQueuePropertiesMinuteMetricsArgs:
     @retention_policy_days.setter
     def retention_policy_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retention_policy_days", value)
+
+
+@pulumi.input_type
+class AccountRoutingArgs:
+    def __init__(__self__, *,
+                 choice: Optional[pulumi.Input[str]] = None,
+                 publish_internet_endpoints: Optional[pulumi.Input[bool]] = None,
+                 publish_microsoft_endpoints: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] choice: Specifies the kind of network routing opted by the user. Possible values are `InternetRouting` and `MicrosoftRouting`. Defaults to `MicrosoftRouting`.
+        :param pulumi.Input[bool] publish_internet_endpoints: Should internet routing storage endpoints be published? Defaults to `false`.
+        :param pulumi.Input[bool] publish_microsoft_endpoints: Should microsoft routing storage endpoints be published? Defaults to `false`.
+        """
+        if choice is not None:
+            pulumi.set(__self__, "choice", choice)
+        if publish_internet_endpoints is not None:
+            pulumi.set(__self__, "publish_internet_endpoints", publish_internet_endpoints)
+        if publish_microsoft_endpoints is not None:
+            pulumi.set(__self__, "publish_microsoft_endpoints", publish_microsoft_endpoints)
+
+    @property
+    @pulumi.getter
+    def choice(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the kind of network routing opted by the user. Possible values are `InternetRouting` and `MicrosoftRouting`. Defaults to `MicrosoftRouting`.
+        """
+        return pulumi.get(self, "choice")
+
+    @choice.setter
+    def choice(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "choice", value)
+
+    @property
+    @pulumi.getter(name="publishInternetEndpoints")
+    def publish_internet_endpoints(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should internet routing storage endpoints be published? Defaults to `false`.
+        """
+        return pulumi.get(self, "publish_internet_endpoints")
+
+    @publish_internet_endpoints.setter
+    def publish_internet_endpoints(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "publish_internet_endpoints", value)
+
+    @property
+    @pulumi.getter(name="publishMicrosoftEndpoints")
+    def publish_microsoft_endpoints(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should microsoft routing storage endpoints be published? Defaults to `false`.
+        """
+        return pulumi.get(self, "publish_microsoft_endpoints")
+
+    @publish_microsoft_endpoints.setter
+    def publish_microsoft_endpoints(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "publish_microsoft_endpoints", value)
 
 
 @pulumi.input_type

@@ -21,7 +21,7 @@ import (
 // import (
 // 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
 // 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/cosmosdb"
-// 	"github.com/pulumi/pulumi-random/sdk/v2/go/random"
+// 	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -95,12 +95,16 @@ type Account struct {
 	AccessKeyMetadataWritesEnabled pulumi.BoolPtrOutput `pulumi:"accessKeyMetadataWritesEnabled"`
 	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
 	AnalyticalStorageEnabled pulumi.BoolPtrOutput `pulumi:"analyticalStorageEnabled"`
+	// A `backup` block as defined below.
+	Backup AccountBackupOutput `pulumi:"backup"`
 	// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
 	Capabilities AccountCapabilityArrayOutput `pulumi:"capabilities"`
 	// A list of connection strings available for this CosmosDB account.
 	ConnectionStrings pulumi.StringArrayOutput `pulumi:"connectionStrings"`
 	// Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
 	ConsistencyPolicy AccountConsistencyPolicyOutput `pulumi:"consistencyPolicy"`
+	// A `corsRule` block as defined below.
+	CorsRule AccountCorsRulePtrOutput `pulumi:"corsRule"`
 	// Enable automatic fail over for this Cosmos DB account.
 	EnableAutomaticFailover pulumi.BoolPtrOutput `pulumi:"enableAutomaticFailover"`
 	// Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
@@ -111,6 +115,8 @@ type Account struct {
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location. Value is a `geoLocation` block as defined below.
 	GeoLocations AccountGeoLocationArrayOutput `pulumi:"geoLocations"`
+	// An `identity` block as defined below.
+	Identity AccountIdentityPtrOutput `pulumi:"identity"`
 	// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
 	IpRangeFilter pulumi.StringPtrOutput `pulumi:"ipRangeFilter"`
 	// Enables virtual network filtering for this Cosmos DB account.
@@ -206,12 +212,16 @@ type accountState struct {
 	AccessKeyMetadataWritesEnabled *bool `pulumi:"accessKeyMetadataWritesEnabled"`
 	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
 	AnalyticalStorageEnabled *bool `pulumi:"analyticalStorageEnabled"`
+	// A `backup` block as defined below.
+	Backup *AccountBackup `pulumi:"backup"`
 	// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
 	Capabilities []AccountCapability `pulumi:"capabilities"`
 	// A list of connection strings available for this CosmosDB account.
 	ConnectionStrings []string `pulumi:"connectionStrings"`
 	// Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
 	ConsistencyPolicy *AccountConsistencyPolicy `pulumi:"consistencyPolicy"`
+	// A `corsRule` block as defined below.
+	CorsRule *AccountCorsRule `pulumi:"corsRule"`
 	// Enable automatic fail over for this Cosmos DB account.
 	EnableAutomaticFailover *bool `pulumi:"enableAutomaticFailover"`
 	// Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
@@ -222,6 +232,8 @@ type accountState struct {
 	Endpoint *string `pulumi:"endpoint"`
 	// Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location. Value is a `geoLocation` block as defined below.
 	GeoLocations []AccountGeoLocation `pulumi:"geoLocations"`
+	// An `identity` block as defined below.
+	Identity *AccountIdentity `pulumi:"identity"`
 	// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
 	IpRangeFilter *string `pulumi:"ipRangeFilter"`
 	// Enables virtual network filtering for this Cosmos DB account.
@@ -277,12 +289,16 @@ type AccountState struct {
 	AccessKeyMetadataWritesEnabled pulumi.BoolPtrInput
 	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
 	AnalyticalStorageEnabled pulumi.BoolPtrInput
+	// A `backup` block as defined below.
+	Backup AccountBackupPtrInput
 	// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
 	Capabilities AccountCapabilityArrayInput
 	// A list of connection strings available for this CosmosDB account.
 	ConnectionStrings pulumi.StringArrayInput
 	// Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
 	ConsistencyPolicy AccountConsistencyPolicyPtrInput
+	// A `corsRule` block as defined below.
+	CorsRule AccountCorsRulePtrInput
 	// Enable automatic fail over for this Cosmos DB account.
 	EnableAutomaticFailover pulumi.BoolPtrInput
 	// Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
@@ -293,6 +309,8 @@ type AccountState struct {
 	Endpoint pulumi.StringPtrInput
 	// Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location. Value is a `geoLocation` block as defined below.
 	GeoLocations AccountGeoLocationArrayInput
+	// An `identity` block as defined below.
+	Identity AccountIdentityPtrInput
 	// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
 	IpRangeFilter pulumi.StringPtrInput
 	// Enables virtual network filtering for this Cosmos DB account.
@@ -352,10 +370,14 @@ type accountArgs struct {
 	AccessKeyMetadataWritesEnabled *bool `pulumi:"accessKeyMetadataWritesEnabled"`
 	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
 	AnalyticalStorageEnabled *bool `pulumi:"analyticalStorageEnabled"`
+	// A `backup` block as defined below.
+	Backup *AccountBackup `pulumi:"backup"`
 	// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
 	Capabilities []AccountCapability `pulumi:"capabilities"`
 	// Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
 	ConsistencyPolicy AccountConsistencyPolicy `pulumi:"consistencyPolicy"`
+	// A `corsRule` block as defined below.
+	CorsRule *AccountCorsRule `pulumi:"corsRule"`
 	// Enable automatic fail over for this Cosmos DB account.
 	EnableAutomaticFailover *bool `pulumi:"enableAutomaticFailover"`
 	// Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
@@ -364,6 +386,8 @@ type accountArgs struct {
 	EnableMultipleWriteLocations *bool `pulumi:"enableMultipleWriteLocations"`
 	// Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location. Value is a `geoLocation` block as defined below.
 	GeoLocations []AccountGeoLocation `pulumi:"geoLocations"`
+	// An `identity` block as defined below.
+	Identity *AccountIdentity `pulumi:"identity"`
 	// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
 	IpRangeFilter *string `pulumi:"ipRangeFilter"`
 	// Enables virtual network filtering for this Cosmos DB account.
@@ -400,10 +424,14 @@ type AccountArgs struct {
 	AccessKeyMetadataWritesEnabled pulumi.BoolPtrInput
 	// Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
 	AnalyticalStorageEnabled pulumi.BoolPtrInput
+	// A `backup` block as defined below.
+	Backup AccountBackupPtrInput
 	// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
 	Capabilities AccountCapabilityArrayInput
 	// Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
 	ConsistencyPolicy AccountConsistencyPolicyInput
+	// A `corsRule` block as defined below.
+	CorsRule AccountCorsRulePtrInput
 	// Enable automatic fail over for this Cosmos DB account.
 	EnableAutomaticFailover pulumi.BoolPtrInput
 	// Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
@@ -412,6 +440,8 @@ type AccountArgs struct {
 	EnableMultipleWriteLocations pulumi.BoolPtrInput
 	// Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location. Value is a `geoLocation` block as defined below.
 	GeoLocations AccountGeoLocationArrayInput
+	// An `identity` block as defined below.
+	Identity AccountIdentityPtrInput
 	// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
 	IpRangeFilter pulumi.StringPtrInput
 	// Enables virtual network filtering for this Cosmos DB account.

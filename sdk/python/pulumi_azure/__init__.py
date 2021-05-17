@@ -30,6 +30,7 @@ from . import (
     communication,
     compute,
     config,
+    consumption,
     containerservice,
     core,
     cosmosdb,

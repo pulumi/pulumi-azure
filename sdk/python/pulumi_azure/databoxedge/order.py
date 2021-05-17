@@ -271,7 +271,7 @@ class Order(pulumi.CustomResource):
         example_device = azure.databoxedge.Device("exampleDevice",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            sku_name="Edge-Standard")
+            sku_name="EdgeP_Base-Standard")
         example_order = azure.databoxedge.Order("exampleOrder",
             resource_group_name=example_resource_group.name,
             device_name=example_device.name,
@@ -324,7 +324,7 @@ class Order(pulumi.CustomResource):
         example_device = azure.databoxedge.Device("exampleDevice",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            sku_name="Edge-Standard")
+            sku_name="EdgeP_Base-Standard")
         example_order = azure.databoxedge.Order("exampleOrder",
             resource_group_name=example_resource_group.name,
             device_name=example_device.name,

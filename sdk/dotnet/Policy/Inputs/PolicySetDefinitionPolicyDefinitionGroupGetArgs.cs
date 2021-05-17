@@ -12,6 +12,9 @@ namespace Pulumi.Azure.Policy.Inputs
 
     public sealed class PolicySetDefinitionPolicyDefinitionGroupGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of a resource that contains additional metadata about this policy definition group.
+        /// </summary>
         [Input("additionalMetadataResourceId")]
         public Input<string>? AdditionalMetadataResourceId { get; set; }
 

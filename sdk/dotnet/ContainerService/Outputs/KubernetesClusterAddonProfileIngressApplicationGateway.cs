@@ -13,6 +13,9 @@ namespace Pulumi.Azure.ContainerService.Outputs
     [OutputType]
     public sealed class KubernetesClusterAddonProfileIngressApplicationGateway
     {
+        /// <summary>
+        /// The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
+        /// </summary>
         public readonly string? EffectiveGatewayId;
         /// <summary>
         /// Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster?
@@ -22,6 +25,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
         /// </summary>
         public readonly string? GatewayId;
+        /// <summary>
+        /// An `ingress_application_gateway_identity` block is exported. The exported attributes are defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity> IngressApplicationGatewayIdentities;
         /// <summary>
         /// The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
         /// </summary>
@@ -39,6 +46,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             string? gatewayId,
 
+            ImmutableArray<Outputs.KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity> ingressApplicationGatewayIdentities,
+
             string? subnetCidr,
 
             string? subnetId)
@@ -46,6 +55,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             EffectiveGatewayId = effectiveGatewayId;
             Enabled = enabled;
             GatewayId = gatewayId;
+            IngressApplicationGatewayIdentities = ingressApplicationGatewayIdentities;
             SubnetCidr = subnetCidr;
             SubnetId = subnetId;
         }

@@ -10,9 +10,12 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AccountBackup',
     'AccountCapability',
     'AccountConsistencyPolicy',
+    'AccountCorsRule',
     'AccountGeoLocation',
+    'AccountIdentity',
     'AccountVirtualNetworkRule',
     'CassandraKeyspaceAutoscaleSettings',
     'CassandraTableAutoscaleSettings',
@@ -44,6 +47,67 @@ __all__ = [
     'GetAccountGeoLocationResult',
     'GetAccountVirtualNetworkRuleResult',
 ]
+
+@pulumi.output_type
+class AccountBackup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "intervalInMinutes":
+            suggest = "interval_in_minutes"
+        elif key == "retentionInHours":
+            suggest = "retention_in_hours"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountBackup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountBackup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountBackup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 interval_in_minutes: Optional[int] = None,
+                 retention_in_hours: Optional[int] = None):
+        """
+        :param str type: The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`.
+        :param int interval_in_minutes: The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
+        :param int retention_in_hours: The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
+        """
+        pulumi.set(__self__, "type", type)
+        if interval_in_minutes is not None:
+            pulumi.set(__self__, "interval_in_minutes", interval_in_minutes)
+        if retention_in_hours is not None:
+            pulumi.set(__self__, "retention_in_hours", retention_in_hours)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="intervalInMinutes")
+    def interval_in_minutes(self) -> Optional[int]:
+        """
+        The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
+        """
+        return pulumi.get(self, "interval_in_minutes")
+
+    @property
+    @pulumi.getter(name="retentionInHours")
+    def retention_in_hours(self) -> Optional[int]:
+        """
+        The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
+        """
+        return pulumi.get(self, "retention_in_hours")
+
 
 @pulumi.output_type
 class AccountCapability(dict):
@@ -124,6 +188,93 @@ class AccountConsistencyPolicy(dict):
         When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistency_level` is set to `BoundedStaleness`.
         """
         return pulumi.get(self, "max_staleness_prefix")
+
+
+@pulumi.output_type
+class AccountCorsRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedHeaders":
+            suggest = "allowed_headers"
+        elif key == "allowedMethods":
+            suggest = "allowed_methods"
+        elif key == "allowedOrigins":
+            suggest = "allowed_origins"
+        elif key == "exposedHeaders":
+            suggest = "exposed_headers"
+        elif key == "maxAgeInSeconds":
+            suggest = "max_age_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountCorsRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountCorsRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountCorsRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_headers: Sequence[str],
+                 allowed_methods: Sequence[str],
+                 allowed_origins: Sequence[str],
+                 exposed_headers: Sequence[str],
+                 max_age_in_seconds: int):
+        """
+        :param Sequence[str] allowed_headers: A list of headers that are allowed to be a part of the cross-origin request.
+        :param Sequence[str] allowed_methods: A list of http headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+        :param Sequence[str] allowed_origins: A list of origin domains that will be allowed by CORS.
+        :param Sequence[str] exposed_headers: A list of response headers that are exposed to CORS clients.
+        :param int max_age_in_seconds: The number of seconds the client should cache a preflight response.
+        """
+        pulumi.set(__self__, "allowed_headers", allowed_headers)
+        pulumi.set(__self__, "allowed_methods", allowed_methods)
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        pulumi.set(__self__, "exposed_headers", exposed_headers)
+        pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
+
+    @property
+    @pulumi.getter(name="allowedHeaders")
+    def allowed_headers(self) -> Sequence[str]:
+        """
+        A list of headers that are allowed to be a part of the cross-origin request.
+        """
+        return pulumi.get(self, "allowed_headers")
+
+    @property
+    @pulumi.getter(name="allowedMethods")
+    def allowed_methods(self) -> Sequence[str]:
+        """
+        A list of http headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+        """
+        return pulumi.get(self, "allowed_methods")
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> Sequence[str]:
+        """
+        A list of origin domains that will be allowed by CORS.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @property
+    @pulumi.getter(name="exposedHeaders")
+    def exposed_headers(self) -> Sequence[str]:
+        """
+        A list of response headers that are exposed to CORS clients.
+        """
+        return pulumi.get(self, "exposed_headers")
+
+    @property
+    @pulumi.getter(name="maxAgeInSeconds")
+    def max_age_in_seconds(self) -> int:
+        """
+        The number of seconds the client should cache a preflight response.
+        """
+        return pulumi.get(self, "max_age_in_seconds")
 
 
 @pulumi.output_type
@@ -208,6 +359,67 @@ class AccountGeoLocation(dict):
         Should zone redundancy be enabled for this region? Defaults to `false`.
         """
         return pulumi.get(self, "zone_redundant")
+
+
+@pulumi.output_type
+class AccountIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. Possible value is only `SystemAssigned`.
+        :param str principal_id: The Principal ID associated with this Managed Service Identity.
+        :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
+        """
+        pulumi.set(__self__, "type", type)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. Possible value is only `SystemAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type

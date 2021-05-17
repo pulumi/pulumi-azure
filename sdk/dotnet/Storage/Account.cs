@@ -148,6 +148,12 @@ namespace Pulumi.Azure.Storage
         public Output<bool?> AllowBlobPublicAccess { get; private set; } = null!;
 
         /// <summary>
+        /// A `azure_files_authentication` block as defined below.
+        /// </summary>
+        [Output("azureFilesAuthentication")]
+        public Output<Outputs.AccountAzureFilesAuthentication?> AzureFilesAuthentication { get; private set; } = null!;
+
+        /// <summary>
         /// A `blob_properties` block as defined below.
         /// </summary>
         [Output("blobProperties")]
@@ -321,6 +327,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// A `routing` block as defined below.
+        /// </summary>
+        [Output("routing")]
+        public Output<Outputs.AccountRouting> Routing { get; private set; } = null!;
 
         /// <summary>
         /// The secondary access key for the storage account.
@@ -507,6 +519,12 @@ namespace Pulumi.Azure.Storage
         public Input<bool>? AllowBlobPublicAccess { get; set; }
 
         /// <summary>
+        /// A `azure_files_authentication` block as defined below.
+        /// </summary>
+        [Input("azureFilesAuthentication")]
+        public Input<Inputs.AccountAzureFilesAuthenticationArgs>? AzureFilesAuthentication { get; set; }
+
+        /// <summary>
         /// A `blob_properties` block as defined below.
         /// </summary>
         [Input("blobProperties")]
@@ -586,6 +604,12 @@ namespace Pulumi.Azure.Storage
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// A `routing` block as defined below.
+        /// </summary>
+        [Input("routing")]
+        public Input<Inputs.AccountRoutingArgs>? Routing { get; set; }
+
+        /// <summary>
         /// A `static_website` block as defined below.
         /// </summary>
         [Input("staticWebsite")]
@@ -639,6 +663,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("allowBlobPublicAccess")]
         public Input<bool>? AllowBlobPublicAccess { get; set; }
+
+        /// <summary>
+        /// A `azure_files_authentication` block as defined below.
+        /// </summary>
+        [Input("azureFilesAuthentication")]
+        public Input<Inputs.AccountAzureFilesAuthenticationGetArgs>? AzureFilesAuthentication { get; set; }
 
         /// <summary>
         /// A `blob_properties` block as defined below.
@@ -814,6 +844,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// A `routing` block as defined below.
+        /// </summary>
+        [Input("routing")]
+        public Input<Inputs.AccountRoutingGetArgs>? Routing { get; set; }
 
         /// <summary>
         /// The secondary access key for the storage account.

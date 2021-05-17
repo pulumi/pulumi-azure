@@ -26,6 +26,36 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * ### Encryption)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const rg = new azure.core.ResourceGroup("rg", {location: "West Europe"});
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
+ *     resourceGroupName: azurerm_resource_group.example.name,
+ *     location: azurerm_resource_group.example.location,
+ * });
+ * const exampleKey = azure.keyvault.getKey({
+ *     name: "super-secret",
+ *     keyVaultId: data.azurerm_key_vault.existing.id,
+ * });
+ * const acr = new azure.containerservice.Registry("acr", {
+ *     resourceGroupName: rg.name,
+ *     location: rg.location,
+ *     sku: "Premium",
+ *     identity: {
+ *         type: "UserAssigned",
+ *         identityIds: [exampleUserAssignedIdentity.id],
+ *     },
+ *     encryption: {
+ *         enabled: true,
+ *         keyVaultKeyId: exampleKey.then(exampleKey => exampleKey.id),
+ *         identityClientId: exampleUserAssignedIdentity.clientId,
+ *     },
+ * });
+ * ```
  *
  * ## Import
  *
@@ -76,6 +106,10 @@ export class Registry extends pulumi.CustomResource {
      */
     public /*out*/ readonly adminUsername!: pulumi.Output<string>;
     /**
+     * An `encryption` block as documented below.
+     */
+    public readonly encryption!: pulumi.Output<outputs.containerservice.RegistryEncryption>;
+    /**
      * A list of Azure locations where the container registry should be geo-replicated.
      *
      * @deprecated Deprecated in favour of `georeplications`
@@ -85,6 +119,10 @@ export class Registry extends pulumi.CustomResource {
      * A `georeplications` block as documented below.
      */
     public readonly georeplications!: pulumi.Output<outputs.containerservice.RegistryGeoreplication[]>;
+    /**
+     * An `identity` block as documented below.
+     */
+    public readonly identity!: pulumi.Output<outputs.containerservice.RegistryIdentity>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -150,8 +188,10 @@ export class Registry extends pulumi.CustomResource {
             inputs["adminEnabled"] = state ? state.adminEnabled : undefined;
             inputs["adminPassword"] = state ? state.adminPassword : undefined;
             inputs["adminUsername"] = state ? state.adminUsername : undefined;
+            inputs["encryption"] = state ? state.encryption : undefined;
             inputs["georeplicationLocations"] = state ? state.georeplicationLocations : undefined;
             inputs["georeplications"] = state ? state.georeplications : undefined;
+            inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["loginServer"] = state ? state.loginServer : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -170,8 +210,10 @@ export class Registry extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["adminEnabled"] = args ? args.adminEnabled : undefined;
+            inputs["encryption"] = args ? args.encryption : undefined;
             inputs["georeplicationLocations"] = args ? args.georeplicationLocations : undefined;
             inputs["georeplications"] = args ? args.georeplications : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["networkRuleSet"] = args ? args.networkRuleSet : undefined;
@@ -211,6 +253,10 @@ export interface RegistryState {
      */
     readonly adminUsername?: pulumi.Input<string>;
     /**
+     * An `encryption` block as documented below.
+     */
+    readonly encryption?: pulumi.Input<inputs.containerservice.RegistryEncryption>;
+    /**
      * A list of Azure locations where the container registry should be geo-replicated.
      *
      * @deprecated Deprecated in favour of `georeplications`
@@ -220,6 +266,10 @@ export interface RegistryState {
      * A `georeplications` block as documented below.
      */
     readonly georeplications?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryGeoreplication>[]>;
+    /**
+     * An `identity` block as documented below.
+     */
+    readonly identity?: pulumi.Input<inputs.containerservice.RegistryIdentity>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -279,6 +329,10 @@ export interface RegistryArgs {
      */
     readonly adminEnabled?: pulumi.Input<boolean>;
     /**
+     * An `encryption` block as documented below.
+     */
+    readonly encryption?: pulumi.Input<inputs.containerservice.RegistryEncryption>;
+    /**
      * A list of Azure locations where the container registry should be geo-replicated.
      *
      * @deprecated Deprecated in favour of `georeplications`
@@ -288,6 +342,10 @@ export interface RegistryArgs {
      * A `georeplications` block as documented below.
      */
     readonly georeplications?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryGeoreplication>[]>;
+    /**
+     * An `identity` block as documented below.
+     */
+    readonly identity?: pulumi.Input<inputs.containerservice.RegistryIdentity>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

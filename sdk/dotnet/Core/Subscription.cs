@@ -108,11 +108,14 @@ namespace Pulumi.Azure.Core
         [Output("alias")]
         public Output<string> Alias { get; private set; } = null!;
 
+        /// <summary>
+        /// The Azure Billing Scope ID. Can be either a Microsoft Customer Account Billing Scope ID or an Enrollment Billing Scope ID.
+        /// </summary>
         [Output("billingScopeId")]
         public Output<string?> BillingScopeId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Subscription. Cannot be specified with `billing_account`, `billing_profile`, `enrollment_account`, or `invoice_section` Changing this forces a new Subscription to be created.
+        /// The ID of the Subscription. Changing this forces a new Subscription to be created.
         /// </summary>
         [Output("subscriptionId")]
         public Output<string> SubscriptionId { get; private set; } = null!;
@@ -190,11 +193,14 @@ namespace Pulumi.Azure.Core
         [Input("alias")]
         public Input<string>? Alias { get; set; }
 
+        /// <summary>
+        /// The Azure Billing Scope ID. Can be either a Microsoft Customer Account Billing Scope ID or an Enrollment Billing Scope ID.
+        /// </summary>
         [Input("billingScopeId")]
         public Input<string>? BillingScopeId { get; set; }
 
         /// <summary>
-        /// The ID of the Subscription. Cannot be specified with `billing_account`, `billing_profile`, `enrollment_account`, or `invoice_section` Changing this forces a new Subscription to be created.
+        /// The ID of the Subscription. Changing this forces a new Subscription to be created.
         /// </summary>
         [Input("subscriptionId")]
         public Input<string>? SubscriptionId { get; set; }
@@ -224,11 +230,14 @@ namespace Pulumi.Azure.Core
         [Input("alias")]
         public Input<string>? Alias { get; set; }
 
+        /// <summary>
+        /// The Azure Billing Scope ID. Can be either a Microsoft Customer Account Billing Scope ID or an Enrollment Billing Scope ID.
+        /// </summary>
         [Input("billingScopeId")]
         public Input<string>? BillingScopeId { get; set; }
 
         /// <summary>
-        /// The ID of the Subscription. Cannot be specified with `billing_account`, `billing_profile`, `enrollment_account`, or `invoice_section` Changing this forces a new Subscription to be created.
+        /// The ID of the Subscription. Changing this forces a new Subscription to be created.
         /// </summary>
         [Input("subscriptionId")]
         public Input<string>? SubscriptionId { get; set; }

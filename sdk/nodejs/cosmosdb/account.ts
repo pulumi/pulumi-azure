@@ -100,6 +100,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly analyticalStorageEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * A `backup` block as defined below.
+     */
+    public readonly backup!: pulumi.Output<outputs.cosmosdb.AccountBackup>;
+    /**
      * The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
      */
     public readonly capabilities!: pulumi.Output<outputs.cosmosdb.AccountCapability[] | undefined>;
@@ -111,6 +115,10 @@ export class Account extends pulumi.CustomResource {
      * Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
      */
     public readonly consistencyPolicy!: pulumi.Output<outputs.cosmosdb.AccountConsistencyPolicy>;
+    /**
+     * A `corsRule` block as defined below.
+     */
+    public readonly corsRule!: pulumi.Output<outputs.cosmosdb.AccountCorsRule | undefined>;
     /**
      * Enable automatic fail over for this Cosmos DB account.
      */
@@ -131,6 +139,10 @@ export class Account extends pulumi.CustomResource {
      * Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location. Value is a `geoLocation` block as defined below.
      */
     public readonly geoLocations!: pulumi.Output<outputs.cosmosdb.AccountGeoLocation[]>;
+    /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.cosmosdb.AccountIdentity | undefined>;
     /**
      * CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
      */
@@ -243,14 +255,17 @@ export class Account extends pulumi.CustomResource {
             const state = argsOrState as AccountState | undefined;
             inputs["accessKeyMetadataWritesEnabled"] = state ? state.accessKeyMetadataWritesEnabled : undefined;
             inputs["analyticalStorageEnabled"] = state ? state.analyticalStorageEnabled : undefined;
+            inputs["backup"] = state ? state.backup : undefined;
             inputs["capabilities"] = state ? state.capabilities : undefined;
             inputs["connectionStrings"] = state ? state.connectionStrings : undefined;
             inputs["consistencyPolicy"] = state ? state.consistencyPolicy : undefined;
+            inputs["corsRule"] = state ? state.corsRule : undefined;
             inputs["enableAutomaticFailover"] = state ? state.enableAutomaticFailover : undefined;
             inputs["enableFreeTier"] = state ? state.enableFreeTier : undefined;
             inputs["enableMultipleWriteLocations"] = state ? state.enableMultipleWriteLocations : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["geoLocations"] = state ? state.geoLocations : undefined;
+            inputs["identity"] = state ? state.identity : undefined;
             inputs["ipRangeFilter"] = state ? state.ipRangeFilter : undefined;
             inputs["isVirtualNetworkFilterEnabled"] = state ? state.isVirtualNetworkFilterEnabled : undefined;
             inputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
@@ -291,12 +306,15 @@ export class Account extends pulumi.CustomResource {
             }
             inputs["accessKeyMetadataWritesEnabled"] = args ? args.accessKeyMetadataWritesEnabled : undefined;
             inputs["analyticalStorageEnabled"] = args ? args.analyticalStorageEnabled : undefined;
+            inputs["backup"] = args ? args.backup : undefined;
             inputs["capabilities"] = args ? args.capabilities : undefined;
             inputs["consistencyPolicy"] = args ? args.consistencyPolicy : undefined;
+            inputs["corsRule"] = args ? args.corsRule : undefined;
             inputs["enableAutomaticFailover"] = args ? args.enableAutomaticFailover : undefined;
             inputs["enableFreeTier"] = args ? args.enableFreeTier : undefined;
             inputs["enableMultipleWriteLocations"] = args ? args.enableMultipleWriteLocations : undefined;
             inputs["geoLocations"] = args ? args.geoLocations : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["ipRangeFilter"] = args ? args.ipRangeFilter : undefined;
             inputs["isVirtualNetworkFilterEnabled"] = args ? args.isVirtualNetworkFilterEnabled : undefined;
             inputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
@@ -344,6 +362,10 @@ export interface AccountState {
      */
     readonly analyticalStorageEnabled?: pulumi.Input<boolean>;
     /**
+     * A `backup` block as defined below.
+     */
+    readonly backup?: pulumi.Input<inputs.cosmosdb.AccountBackup>;
+    /**
      * The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
      */
     readonly capabilities?: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountCapability>[]>;
@@ -355,6 +377,10 @@ export interface AccountState {
      * Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
      */
     readonly consistencyPolicy?: pulumi.Input<inputs.cosmosdb.AccountConsistencyPolicy>;
+    /**
+     * A `corsRule` block as defined below.
+     */
+    readonly corsRule?: pulumi.Input<inputs.cosmosdb.AccountCorsRule>;
     /**
      * Enable automatic fail over for this Cosmos DB account.
      */
@@ -375,6 +401,10 @@ export interface AccountState {
      * Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location. Value is a `geoLocation` block as defined below.
      */
     readonly geoLocations?: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountGeoLocation>[]>;
+    /**
+     * An `identity` block as defined below.
+     */
+    readonly identity?: pulumi.Input<inputs.cosmosdb.AccountIdentity>;
     /**
      * CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
      */
@@ -486,6 +516,10 @@ export interface AccountArgs {
      */
     readonly analyticalStorageEnabled?: pulumi.Input<boolean>;
     /**
+     * A `backup` block as defined below.
+     */
+    readonly backup?: pulumi.Input<inputs.cosmosdb.AccountBackup>;
+    /**
      * The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
      */
     readonly capabilities?: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountCapability>[]>;
@@ -493,6 +527,10 @@ export interface AccountArgs {
      * Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
      */
     readonly consistencyPolicy: pulumi.Input<inputs.cosmosdb.AccountConsistencyPolicy>;
+    /**
+     * A `corsRule` block as defined below.
+     */
+    readonly corsRule?: pulumi.Input<inputs.cosmosdb.AccountCorsRule>;
     /**
      * Enable automatic fail over for this Cosmos DB account.
      */
@@ -509,6 +547,10 @@ export interface AccountArgs {
      * Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location. Value is a `geoLocation` block as defined below.
      */
     readonly geoLocations: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountGeoLocation>[]>;
+    /**
+     * An `identity` block as defined below.
+     */
+    readonly identity?: pulumi.Input<inputs.cosmosdb.AccountIdentity>;
     /**
      * CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
      */

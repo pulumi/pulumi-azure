@@ -13,6 +13,9 @@ namespace Pulumi.Azure.Policy.Outputs
     [OutputType]
     public sealed class GetPolicySetDefinitionPolicyDefinitionGroupResult
     {
+        /// <summary>
+        /// The ID of a resource that contains additional metadata about this policy definition group.
+        /// </summary>
         public readonly string AdditionalMetadataResourceId;
         /// <summary>
         /// The category of this policy definition group.

@@ -27,6 +27,10 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly ImmutableArray<string> IpRules;
         /// <summary>
+        /// One or More `private_link_access` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AccountNetworkRulesPrivateLinkAccess> PrivateLinkAccesses;
+        /// <summary>
         /// A list of resource ids for subnets.
         /// </summary>
         public readonly ImmutableArray<string> VirtualNetworkSubnetIds;
@@ -39,11 +43,14 @@ namespace Pulumi.Azure.Storage.Outputs
 
             ImmutableArray<string> ipRules,
 
+            ImmutableArray<Outputs.AccountNetworkRulesPrivateLinkAccess> privateLinkAccesses,
+
             ImmutableArray<string> virtualNetworkSubnetIds)
         {
             Bypasses = bypasses;
             DefaultAction = defaultAction;
             IpRules = ipRules;
+            PrivateLinkAccesses = privateLinkAccesses;
             VirtualNetworkSubnetIds = virtualNetworkSubnetIds;
         }
     }

@@ -30,7 +30,7 @@ namespace Pulumi.Azure.DataboxEdge
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Location = exampleResourceGroup.Location,
-    ///             SkuName = "Edge-Standard",
+    ///             SkuName = "EdgeP_Base-Standard",
     ///         });
     ///         var exampleOrder = new Azure.DataboxEdge.Order("exampleOrder", new Azure.DataboxEdge.OrderArgs
     ///         {

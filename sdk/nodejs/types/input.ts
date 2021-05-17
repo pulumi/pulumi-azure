@@ -6175,6 +6175,256 @@ export namespace compute {
 export namespace config {
 }
 
+export namespace consumption {
+    export interface BudgetResourceGroupFilter {
+        /**
+         * One or more `dimension` blocks as defined below to filter the budget on.
+         */
+        dimensions?: pulumi.Input<pulumi.Input<inputs.consumption.BudgetResourceGroupFilterDimension>[]>;
+        /**
+         * A `not` block as defined below to filter the budget on.
+         */
+        not?: pulumi.Input<inputs.consumption.BudgetResourceGroupFilterNot>;
+        /**
+         * One or more `tag` blocks as defined below to filter the budget on.
+         */
+        tags?: pulumi.Input<pulumi.Input<inputs.consumption.BudgetResourceGroupFilterTag>[]>;
+    }
+
+    export interface BudgetResourceGroupFilterDimension {
+        /**
+         * The name of the column to use for the filter. The allowed values are
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The operator to use for comparison. The allowed values are `In`.
+         */
+        operator?: pulumi.Input<string>;
+        /**
+         * Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface BudgetResourceGroupFilterNot {
+        /**
+         * One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
+         */
+        dimension?: pulumi.Input<inputs.consumption.BudgetResourceGroupFilterNotDimension>;
+        /**
+         * One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
+         */
+        tag?: pulumi.Input<inputs.consumption.BudgetResourceGroupFilterNotTag>;
+    }
+
+    export interface BudgetResourceGroupFilterNotDimension {
+        /**
+         * The name of the column to use for the filter. The allowed values are
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The operator to use for comparison. The allowed values are `In`.
+         */
+        operator?: pulumi.Input<string>;
+        /**
+         * Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface BudgetResourceGroupFilterNotTag {
+        /**
+         * The name of the tag to use for the filter.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The operator to use for comparison. The allowed values are `In`.
+         */
+        operator?: pulumi.Input<string>;
+        /**
+         * Specifies a list of values for the tag.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface BudgetResourceGroupFilterTag {
+        /**
+         * The name of the tag to use for the filter.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The operator to use for comparison. The allowed values are `In`.
+         */
+        operator?: pulumi.Input<string>;
+        /**
+         * Specifies a list of values for the tag.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface BudgetResourceGroupNotification {
+        /**
+         * Specifies a list of email addresses to send the budget notification to when the threshold is exceeded.
+         */
+        contactEmails?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of Action Group IDs to send the budget notification to when the threshold is exceeded.
+         */
+        contactGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of contact roles to send the budget notification to when the threshold is exceeded.
+         */
+        contactRoles?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Should the notification be enabled?
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The comparison operator for the notification. Must be one of `EqualTo`, `GreaterThan`, or `GreaterThanOrEqualTo`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
+         */
+        threshold: pulumi.Input<number>;
+    }
+
+    export interface BudgetResourceGroupTimePeriod {
+        /**
+         * The end date for the budget. If not set this will be 10 years after the start date.
+         */
+        endDate?: pulumi.Input<string>;
+        /**
+         * The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new Resource Group Consumption Budget to be created.
+         */
+        startDate: pulumi.Input<string>;
+    }
+
+    export interface BudgetSubscriptionFilter {
+        /**
+         * One or more `dimension` blocks as defined below to filter the budget on.
+         */
+        dimensions?: pulumi.Input<pulumi.Input<inputs.consumption.BudgetSubscriptionFilterDimension>[]>;
+        /**
+         * A `not` block as defined below to filter the budget on.
+         */
+        not?: pulumi.Input<inputs.consumption.BudgetSubscriptionFilterNot>;
+        /**
+         * One or more `tag` blocks as defined below to filter the budget on.
+         */
+        tags?: pulumi.Input<pulumi.Input<inputs.consumption.BudgetSubscriptionFilterTag>[]>;
+    }
+
+    export interface BudgetSubscriptionFilterDimension {
+        /**
+         * The name of the column to use for the filter. The allowed values are
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The operator to use for comparison. The allowed values are `In`.
+         */
+        operator?: pulumi.Input<string>;
+        /**
+         * Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface BudgetSubscriptionFilterNot {
+        /**
+         * One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
+         */
+        dimension?: pulumi.Input<inputs.consumption.BudgetSubscriptionFilterNotDimension>;
+        /**
+         * One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
+         */
+        tag?: pulumi.Input<inputs.consumption.BudgetSubscriptionFilterNotTag>;
+    }
+
+    export interface BudgetSubscriptionFilterNotDimension {
+        /**
+         * The name of the column to use for the filter. The allowed values are
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The operator to use for comparison. The allowed values are `In`.
+         */
+        operator?: pulumi.Input<string>;
+        /**
+         * Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface BudgetSubscriptionFilterNotTag {
+        /**
+         * The name of the tag to use for the filter.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The operator to use for comparison. The allowed values are `In`.
+         */
+        operator?: pulumi.Input<string>;
+        /**
+         * Specifies a list of values for the tag.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface BudgetSubscriptionFilterTag {
+        /**
+         * The name of the tag to use for the filter.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The operator to use for comparison. The allowed values are `In`.
+         */
+        operator?: pulumi.Input<string>;
+        /**
+         * Specifies a list of values for the tag.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface BudgetSubscriptionNotification {
+        /**
+         * Specifies a list of email addresses to send the budget notification to when the threshold is exceeded.
+         */
+        contactEmails?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of Action Group IDs to send the budget notification to when the threshold is exceeded.
+         */
+        contactGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of contact roles to send the budget notification to when the threshold is exceeded.
+         */
+        contactRoles?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Should the notification be enabled?
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The comparison operator for the notification. Must be one of `EqualTo`, `GreaterThan`, or `GreaterThanOrEqualTo`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
+         */
+        threshold: pulumi.Input<number>;
+    }
+
+    export interface BudgetSubscriptionTimePeriod {
+        /**
+         * The end date for the budget. If not set this will be 10 years after the start date.
+         */
+        endDate?: pulumi.Input<string>;
+        /**
+         * The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new Subscription Consumption Budget to be created.
+         */
+        startDate: pulumi.Input<string>;
+    }
+}
+
 export namespace containerservice {
     export interface GroupContainer {
         /**
@@ -6531,6 +6781,9 @@ export namespace containerservice {
     }
 
     export interface KubernetesClusterAddonProfileIngressApplicationGateway {
+        /**
+         * The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
+         */
         effectiveGatewayId?: pulumi.Input<string>;
         /**
          * Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster?
@@ -6541,6 +6794,10 @@ export namespace containerservice {
          */
         gatewayId?: pulumi.Input<string>;
         /**
+         * An `ingressApplicationGatewayIdentity` block is exported. The exported attributes are defined below.
+         */
+        ingressApplicationGatewayIdentities?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity>[]>;
+        /**
          * The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
          */
         subnetCidr?: pulumi.Input<string>;
@@ -6548,6 +6805,21 @@ export namespace containerservice {
          * The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
          */
         subnetId?: pulumi.Input<string>;
+    }
+
+    export interface KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity {
+        /**
+         * The Client ID for the Service Principal.
+         */
+        clientId?: pulumi.Input<string>;
+        /**
+         * The Object ID of the user-defined Managed Identity used by the OMS Agents.
+         */
+        objectId?: pulumi.Input<string>;
+        /**
+         * The ID of a user assigned identity.
+         */
+        userAssignedIdentityId?: pulumi.Input<string>;
     }
 
     export interface KubernetesClusterAddonProfileKubeDashboard {
@@ -6993,6 +7265,21 @@ export namespace containerservice {
         adminUsername: pulumi.Input<string>;
     }
 
+    export interface RegistryEncryption {
+        /**
+         * Boolean value that indicates whether encryption is enabled.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The client ID of the managed identity associated with the encryption key.
+         */
+        identityClientId: pulumi.Input<string>;
+        /**
+         * The ID of the Key Vault Key.
+         */
+        keyVaultKeyId: pulumi.Input<string>;
+    }
+
     export interface RegistryGeoreplication {
         /**
          * A location where the container registry should be geo-replicated.
@@ -7002,6 +7289,18 @@ export namespace containerservice {
          * A mapping of tags to assign to this replication location.
          */
         tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface RegistryIdentity {
+        /**
+         * A list of User Managed Identity ID's which should be assigned to the Container Registry.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        principalId?: pulumi.Input<string>;
+        /**
+         * The type of Managed Identity which should be assigned to the Container Registry. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         */
+        type: pulumi.Input<string>;
     }
 
     export interface RegistryNetworkRuleSet {
@@ -7097,6 +7396,21 @@ export namespace core {
 }
 
 export namespace cosmosdb {
+    export interface AccountBackup {
+        /**
+         * The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
+         */
+        intervalInMinutes?: pulumi.Input<number>;
+        /**
+         * The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
+         */
+        retentionInHours?: pulumi.Input<number>;
+        /**
+         * The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface AccountCapability {
         /**
          * Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
@@ -7117,6 +7431,29 @@ export namespace cosmosdb {
          * When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistencyLevel` is set to `BoundedStaleness`.
          */
         maxStalenessPrefix?: pulumi.Input<number>;
+    }
+
+    export interface AccountCorsRule {
+        /**
+         * A list of headers that are allowed to be a part of the cross-origin request.
+         */
+        allowedHeaders: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of http headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+         */
+        allowedMethods: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of origin domains that will be allowed by CORS.
+         */
+        allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of response headers that are exposed to CORS clients.
+         */
+        exposedHeaders: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The number of seconds the client should cache a preflight response.
+         */
+        maxAgeInSeconds: pulumi.Input<number>;
     }
 
     export interface AccountGeoLocation {
@@ -7142,6 +7479,21 @@ export namespace cosmosdb {
          * Should zone redundancy be enabled for this region? Defaults to `false`.
          */
         zoneRedundant?: pulumi.Input<boolean>;
+    }
+
+    export interface AccountIdentity {
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. Possible value is only `SystemAssigned`.
+         */
+        type: pulumi.Input<string>;
     }
 
     export interface AccountVirtualNetworkRule {
@@ -14147,6 +14499,32 @@ export namespace mediaservices {
 }
 
 export namespace monitoring {
+    export interface AadDiagnosticSettingLog {
+        /**
+         * The log category for the Azure Active Directory Diagnostic. Possible values are `AuditLogs`, `SignInLogs`, `ADFSSignInLogs`, `ManagedIdentitySignInLogs`, `NonInteractiveUserSignInLogs`, `ProvisioningLogs`, `ServicePrincipalSignInLogs`.
+         */
+        category: pulumi.Input<string>;
+        /**
+         * Is this Diagnostic Log enabled? Defaults to `true`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * A `retentionPolicy` block as defined below.
+         */
+        retentionPolicy: pulumi.Input<inputs.monitoring.AadDiagnosticSettingLogRetentionPolicy>;
+    }
+
+    export interface AadDiagnosticSettingLogRetentionPolicy {
+        /**
+         * The number of days for which this Retention Policy should apply. Defaults to `0`.
+         */
+        days?: pulumi.Input<number>;
+        /**
+         * Is this Retention Policy enabled? Defaults to `false`.
+         */
+        enabled?: pulumi.Input<boolean>;
+    }
+
     export interface ActionGroupArmRoleReceiver {
         /**
          * The name of the ARM role receiver.
@@ -18385,6 +18763,9 @@ export namespace policy {
     }
 
     export interface PolicySetDefinitionPolicyDefinitionGroup {
+        /**
+         * The ID of a resource that contains additional metadata about this policy definition group.
+         */
         additionalMetadataResourceId?: pulumi.Input<string>;
         /**
          * The category of this policy definition group.
@@ -19621,7 +20002,49 @@ export namespace sql {
 }
 
 export namespace storage {
+    export interface AccountAzureFilesAuthentication {
+        /**
+         * A `activeDirectory` block as defined below. Required when `directoryType` is `AD`.
+         */
+        activeDirectory?: pulumi.Input<inputs.storage.AccountAzureFilesAuthenticationActiveDirectory>;
+        /**
+         * Specifies the directory service used. Possible values are `AADDS` and `AD`.
+         */
+        directoryType: pulumi.Input<string>;
+    }
+
+    export interface AccountAzureFilesAuthenticationActiveDirectory {
+        /**
+         * Specifies the domain GUID.
+         */
+        domainGuid: pulumi.Input<string>;
+        /**
+         * Specifies the primary domain that the AD DNS server is authoritative for.
+         */
+        domainName: pulumi.Input<string>;
+        /**
+         * Specifies the security identifier (SID).
+         */
+        domainSid: pulumi.Input<string>;
+        /**
+         * Specifies the Active Directory forest.
+         */
+        forestName: pulumi.Input<string>;
+        /**
+         * Specifies the NetBIOS domain name.
+         */
+        netbiosDomainName: pulumi.Input<string>;
+        /**
+         * Specifies the security identifier (SID) for Azure Storage.
+         */
+        storageSid: pulumi.Input<string>;
+    }
+
     export interface AccountBlobProperties {
+        /**
+         * Is the blob service properties for change feed events enabled? Default to `false`.
+         */
+        changeFeedEnabled?: pulumi.Input<boolean>;
         /**
          * A `containerDeleteRetentionPolicy` block as defined below.
          */
@@ -19727,9 +20150,35 @@ export namespace storage {
          */
         ipRules?: pulumi.Input<pulumi.Input<string>[]>;
         /**
+         * One or More `privateLinkAccess` block as defined below.
+         */
+        privateLinkAccesses?: pulumi.Input<pulumi.Input<inputs.storage.AccountNetworkRulesPrivateLinkAccess>[]>;
+        /**
          * A list of resource ids for subnets.
          */
         virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AccountNetworkRulesPrivateLinkAccess {
+        /**
+         * The resource id of the `azure.privatelink.Endpoint` of the resource access rule.
+         */
+        endpointResourceId: pulumi.Input<string>;
+        /**
+         * The tenant id of the `azure.privatelink.Endpoint` of the resource access rule. Defaults to the current tenant id.
+         */
+        endpointTenantId?: pulumi.Input<string>;
+    }
+
+    export interface AccountNetworkRulesPrivateLinkAccessRule {
+        /**
+         * The resource id of the `azure.privatelink.Endpoint` of the resource access rule.
+         */
+        endpointResourceId: pulumi.Input<string>;
+        /**
+         * The tenant id of the `azure.privatelink.Endpoint` of the resource access rule. Defaults to the current tenant id.
+         */
+        endpointTenantId?: pulumi.Input<string>;
     }
 
     export interface AccountQueueProperties {
@@ -19834,6 +20283,21 @@ export namespace storage {
          * The version of storage analytics to configure. Changing this forces a new resource.
          */
         version: pulumi.Input<string>;
+    }
+
+    export interface AccountRouting {
+        /**
+         * Specifies the kind of network routing opted by the user. Possible values are `InternetRouting` and `MicrosoftRouting`. Defaults to `MicrosoftRouting`.
+         */
+        choice?: pulumi.Input<string>;
+        /**
+         * Should internet routing storage endpoints be published? Defaults to `false`.
+         */
+        publishInternetEndpoints?: pulumi.Input<boolean>;
+        /**
+         * Should microsoft routing storage endpoints be published? Defaults to `false`.
+         */
+        publishMicrosoftEndpoints?: pulumi.Input<boolean>;
     }
 
     export interface AccountStaticWebsite {

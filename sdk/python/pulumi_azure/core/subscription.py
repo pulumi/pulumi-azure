@@ -22,7 +22,8 @@ class SubscriptionArgs:
         The set of arguments for constructing a Subscription resource.
         :param pulumi.Input[str] subscription_name: The Name of the Subscription. This is the Display Name in the portal.
         :param pulumi.Input[str] alias: The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
-        :param pulumi.Input[str] subscription_id: The ID of the Subscription. Cannot be specified with `billing_account`, `billing_profile`, `enrollment_account`, or `invoice_section` Changing this forces a new Subscription to be created.
+        :param pulumi.Input[str] billing_scope_id: The Azure Billing Scope ID. Can be either a Microsoft Customer Account Billing Scope ID or an Enrollment Billing Scope ID.
+        :param pulumi.Input[str] subscription_id: The ID of the Subscription. Changing this forces a new Subscription to be created.
         :param pulumi.Input[str] workload: The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
         """
         pulumi.set(__self__, "subscription_name", subscription_name)
@@ -62,6 +63,9 @@ class SubscriptionArgs:
     @property
     @pulumi.getter(name="billingScopeId")
     def billing_scope_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Billing Scope ID. Can be either a Microsoft Customer Account Billing Scope ID or an Enrollment Billing Scope ID.
+        """
         return pulumi.get(self, "billing_scope_id")
 
     @billing_scope_id.setter
@@ -72,7 +76,7 @@ class SubscriptionArgs:
     @pulumi.getter(name="subscriptionId")
     def subscription_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Subscription. Cannot be specified with `billing_account`, `billing_profile`, `enrollment_account`, or `invoice_section` Changing this forces a new Subscription to be created.
+        The ID of the Subscription. Changing this forces a new Subscription to be created.
         """
         return pulumi.get(self, "subscription_id")
 
@@ -106,7 +110,8 @@ class _SubscriptionState:
         """
         Input properties used for looking up and filtering Subscription resources.
         :param pulumi.Input[str] alias: The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
-        :param pulumi.Input[str] subscription_id: The ID of the Subscription. Cannot be specified with `billing_account`, `billing_profile`, `enrollment_account`, or `invoice_section` Changing this forces a new Subscription to be created.
+        :param pulumi.Input[str] billing_scope_id: The Azure Billing Scope ID. Can be either a Microsoft Customer Account Billing Scope ID or an Enrollment Billing Scope ID.
+        :param pulumi.Input[str] subscription_id: The ID of the Subscription. Changing this forces a new Subscription to be created.
         :param pulumi.Input[str] subscription_name: The Name of the Subscription. This is the Display Name in the portal.
         :param pulumi.Input[str] tenant_id: The ID of the Tenant to which the subscription belongs.
         :param pulumi.Input[str] workload: The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
@@ -141,6 +146,9 @@ class _SubscriptionState:
     @property
     @pulumi.getter(name="billingScopeId")
     def billing_scope_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Billing Scope ID. Can be either a Microsoft Customer Account Billing Scope ID or an Enrollment Billing Scope ID.
+        """
         return pulumi.get(self, "billing_scope_id")
 
     @billing_scope_id.setter
@@ -151,7 +159,7 @@ class _SubscriptionState:
     @pulumi.getter(name="subscriptionId")
     def subscription_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Subscription. Cannot be specified with `billing_account`, `billing_profile`, `enrollment_account`, or `invoice_section` Changing this forces a new Subscription to be created.
+        The ID of the Subscription. Changing this forces a new Subscription to be created.
         """
         return pulumi.get(self, "subscription_id")
 
@@ -276,7 +284,8 @@ class Subscription(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
-        :param pulumi.Input[str] subscription_id: The ID of the Subscription. Cannot be specified with `billing_account`, `billing_profile`, `enrollment_account`, or `invoice_section` Changing this forces a new Subscription to be created.
+        :param pulumi.Input[str] billing_scope_id: The Azure Billing Scope ID. Can be either a Microsoft Customer Account Billing Scope ID or an Enrollment Billing Scope ID.
+        :param pulumi.Input[str] subscription_id: The ID of the Subscription. Changing this forces a new Subscription to be created.
         :param pulumi.Input[str] subscription_name: The Name of the Subscription. This is the Display Name in the portal.
         :param pulumi.Input[str] workload: The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
         """
@@ -409,7 +418,8 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
-        :param pulumi.Input[str] subscription_id: The ID of the Subscription. Cannot be specified with `billing_account`, `billing_profile`, `enrollment_account`, or `invoice_section` Changing this forces a new Subscription to be created.
+        :param pulumi.Input[str] billing_scope_id: The Azure Billing Scope ID. Can be either a Microsoft Customer Account Billing Scope ID or an Enrollment Billing Scope ID.
+        :param pulumi.Input[str] subscription_id: The ID of the Subscription. Changing this forces a new Subscription to be created.
         :param pulumi.Input[str] subscription_name: The Name of the Subscription. This is the Display Name in the portal.
         :param pulumi.Input[str] tenant_id: The ID of the Tenant to which the subscription belongs.
         :param pulumi.Input[str] workload: The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
@@ -438,13 +448,16 @@ class Subscription(pulumi.CustomResource):
     @property
     @pulumi.getter(name="billingScopeId")
     def billing_scope_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Azure Billing Scope ID. Can be either a Microsoft Customer Account Billing Scope ID or an Enrollment Billing Scope ID.
+        """
         return pulumi.get(self, "billing_scope_id")
 
     @property
     @pulumi.getter(name="subscriptionId")
     def subscription_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Subscription. Cannot be specified with `billing_account`, `billing_profile`, `enrollment_account`, or `invoice_section` Changing this forces a new Subscription to be created.
+        The ID of the Subscription. Changing this forces a new Subscription to be created.
         """
         return pulumi.get(self, "subscription_id")
 

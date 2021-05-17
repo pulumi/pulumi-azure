@@ -12,6 +12,7 @@ from .get_topic import *
 from .get_topic_authorization_rule import *
 from .namespace import *
 from .namespace_authorization_rule import *
+from .namespace_disaster_recovery_config import *
 from .namespace_network_rule_set import *
 from .queue import *
 from .queue_authorization_rule import *
@@ -38,6 +39,8 @@ def _register_module():
                 return Namespace(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:servicebus/namespaceAuthorizationRule:NamespaceAuthorizationRule":
                 return NamespaceAuthorizationRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:servicebus/namespaceDisasterRecoveryConfig:NamespaceDisasterRecoveryConfig":
+                return NamespaceDisasterRecoveryConfig(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:servicebus/namespaceNetworkRuleSet:NamespaceNetworkRuleSet":
                 return NamespaceNetworkRuleSet(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:servicebus/queue:Queue":
@@ -59,6 +62,7 @@ def _register_module():
     _module_instance = Module()
     pulumi.runtime.register_resource_module("azure", "servicebus/namespace", _module_instance)
     pulumi.runtime.register_resource_module("azure", "servicebus/namespaceAuthorizationRule", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "servicebus/namespaceDisasterRecoveryConfig", _module_instance)
     pulumi.runtime.register_resource_module("azure", "servicebus/namespaceNetworkRuleSet", _module_instance)
     pulumi.runtime.register_resource_module("azure", "servicebus/queue", _module_instance)
     pulumi.runtime.register_resource_module("azure", "servicebus/queueAuthorizationRule", _module_instance)

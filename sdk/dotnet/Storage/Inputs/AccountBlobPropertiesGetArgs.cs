@@ -13,6 +13,12 @@ namespace Pulumi.Azure.Storage.Inputs
     public sealed class AccountBlobPropertiesGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Is the blob service properties for change feed events enabled? Default to `false`.
+        /// </summary>
+        [Input("changeFeedEnabled")]
+        public Input<bool>? ChangeFeedEnabled { get; set; }
+
+        /// <summary>
         /// A `container_delete_retention_policy` block as defined below.
         /// </summary>
         [Input("containerDeleteRetentionPolicy")]

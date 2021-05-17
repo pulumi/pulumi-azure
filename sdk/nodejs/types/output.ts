@@ -7563,6 +7563,256 @@ export namespace config {
     }
 }
 
+export namespace consumption {
+    export interface BudgetResourceGroupFilter {
+        /**
+         * One or more `dimension` blocks as defined below to filter the budget on.
+         */
+        dimensions?: outputs.consumption.BudgetResourceGroupFilterDimension[];
+        /**
+         * A `not` block as defined below to filter the budget on.
+         */
+        not?: outputs.consumption.BudgetResourceGroupFilterNot;
+        /**
+         * One or more `tag` blocks as defined below to filter the budget on.
+         */
+        tags?: outputs.consumption.BudgetResourceGroupFilterTag[];
+    }
+
+    export interface BudgetResourceGroupFilterDimension {
+        /**
+         * The name of the column to use for the filter. The allowed values are
+         */
+        name: string;
+        /**
+         * The operator to use for comparison. The allowed values are `In`.
+         */
+        operator?: string;
+        /**
+         * Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+         */
+        values: string[];
+    }
+
+    export interface BudgetResourceGroupFilterNot {
+        /**
+         * One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
+         */
+        dimension?: outputs.consumption.BudgetResourceGroupFilterNotDimension;
+        /**
+         * One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
+         */
+        tag?: outputs.consumption.BudgetResourceGroupFilterNotTag;
+    }
+
+    export interface BudgetResourceGroupFilterNotDimension {
+        /**
+         * The name of the column to use for the filter. The allowed values are
+         */
+        name: string;
+        /**
+         * The operator to use for comparison. The allowed values are `In`.
+         */
+        operator?: string;
+        /**
+         * Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+         */
+        values: string[];
+    }
+
+    export interface BudgetResourceGroupFilterNotTag {
+        /**
+         * The name of the tag to use for the filter.
+         */
+        name: string;
+        /**
+         * The operator to use for comparison. The allowed values are `In`.
+         */
+        operator?: string;
+        /**
+         * Specifies a list of values for the tag.
+         */
+        values: string[];
+    }
+
+    export interface BudgetResourceGroupFilterTag {
+        /**
+         * The name of the tag to use for the filter.
+         */
+        name: string;
+        /**
+         * The operator to use for comparison. The allowed values are `In`.
+         */
+        operator?: string;
+        /**
+         * Specifies a list of values for the tag.
+         */
+        values: string[];
+    }
+
+    export interface BudgetResourceGroupNotification {
+        /**
+         * Specifies a list of email addresses to send the budget notification to when the threshold is exceeded.
+         */
+        contactEmails?: string[];
+        /**
+         * Specifies a list of Action Group IDs to send the budget notification to when the threshold is exceeded.
+         */
+        contactGroups?: string[];
+        /**
+         * Specifies a list of contact roles to send the budget notification to when the threshold is exceeded.
+         */
+        contactRoles?: string[];
+        /**
+         * Should the notification be enabled?
+         */
+        enabled?: boolean;
+        /**
+         * The comparison operator for the notification. Must be one of `EqualTo`, `GreaterThan`, or `GreaterThanOrEqualTo`.
+         */
+        operator: string;
+        /**
+         * Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
+         */
+        threshold: number;
+    }
+
+    export interface BudgetResourceGroupTimePeriod {
+        /**
+         * The end date for the budget. If not set this will be 10 years after the start date.
+         */
+        endDate: string;
+        /**
+         * The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new Resource Group Consumption Budget to be created.
+         */
+        startDate: string;
+    }
+
+    export interface BudgetSubscriptionFilter {
+        /**
+         * One or more `dimension` blocks as defined below to filter the budget on.
+         */
+        dimensions?: outputs.consumption.BudgetSubscriptionFilterDimension[];
+        /**
+         * A `not` block as defined below to filter the budget on.
+         */
+        not?: outputs.consumption.BudgetSubscriptionFilterNot;
+        /**
+         * One or more `tag` blocks as defined below to filter the budget on.
+         */
+        tags?: outputs.consumption.BudgetSubscriptionFilterTag[];
+    }
+
+    export interface BudgetSubscriptionFilterDimension {
+        /**
+         * The name of the column to use for the filter. The allowed values are
+         */
+        name: string;
+        /**
+         * The operator to use for comparison. The allowed values are `In`.
+         */
+        operator?: string;
+        /**
+         * Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+         */
+        values: string[];
+    }
+
+    export interface BudgetSubscriptionFilterNot {
+        /**
+         * One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
+         */
+        dimension?: outputs.consumption.BudgetSubscriptionFilterNotDimension;
+        /**
+         * One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
+         */
+        tag?: outputs.consumption.BudgetSubscriptionFilterNotTag;
+    }
+
+    export interface BudgetSubscriptionFilterNotDimension {
+        /**
+         * The name of the column to use for the filter. The allowed values are
+         */
+        name: string;
+        /**
+         * The operator to use for comparison. The allowed values are `In`.
+         */
+        operator?: string;
+        /**
+         * Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+         */
+        values: string[];
+    }
+
+    export interface BudgetSubscriptionFilterNotTag {
+        /**
+         * The name of the tag to use for the filter.
+         */
+        name: string;
+        /**
+         * The operator to use for comparison. The allowed values are `In`.
+         */
+        operator?: string;
+        /**
+         * Specifies a list of values for the tag.
+         */
+        values: string[];
+    }
+
+    export interface BudgetSubscriptionFilterTag {
+        /**
+         * The name of the tag to use for the filter.
+         */
+        name: string;
+        /**
+         * The operator to use for comparison. The allowed values are `In`.
+         */
+        operator?: string;
+        /**
+         * Specifies a list of values for the tag.
+         */
+        values: string[];
+    }
+
+    export interface BudgetSubscriptionNotification {
+        /**
+         * Specifies a list of email addresses to send the budget notification to when the threshold is exceeded.
+         */
+        contactEmails?: string[];
+        /**
+         * Specifies a list of Action Group IDs to send the budget notification to when the threshold is exceeded.
+         */
+        contactGroups?: string[];
+        /**
+         * Specifies a list of contact roles to send the budget notification to when the threshold is exceeded.
+         */
+        contactRoles?: string[];
+        /**
+         * Should the notification be enabled?
+         */
+        enabled?: boolean;
+        /**
+         * The comparison operator for the notification. Must be one of `EqualTo`, `GreaterThan`, or `GreaterThanOrEqualTo`.
+         */
+        operator: string;
+        /**
+         * Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
+         */
+        threshold: number;
+    }
+
+    export interface BudgetSubscriptionTimePeriod {
+        /**
+         * The end date for the budget. If not set this will be 10 years after the start date.
+         */
+        endDate: string;
+        /**
+         * The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new Subscription Consumption Budget to be created.
+         */
+        startDate: string;
+    }
+}
+
 export namespace containerservice {
     export interface GetClusterNodePoolUpgradeSetting {
         /**
@@ -7626,6 +7876,10 @@ export namespace containerservice {
          */
         gatewayId: string;
         /**
+         * An `ingressApplicationGatewayIdentity` block as defined below.
+         */
+        ingressApplicationGatewayIdentities: outputs.containerservice.GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity[];
+        /**
          * The subnet CIDR used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnetCidr` is specified when configuring the `ingressApplicationGateway` addon.
          */
         subnetCidr: string;
@@ -7633,6 +7887,21 @@ export namespace containerservice {
          * The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnetId` is specified when configuring the `ingressApplicationGateway` addon.
          */
         subnetId: string;
+    }
+
+    export interface GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity {
+        /**
+         * The Client ID of the user-defined Managed Identity assigned to the Kubelets.
+         */
+        clientId: string;
+        /**
+         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+         */
+        objectId: string;
+        /**
+         * The ID of the User Assigned Identity assigned to the Kubelets.
+         */
+        userAssignedIdentityId: string;
     }
 
     export interface GetKubernetesClusterAddonProfileKubeDashboard {
@@ -8282,6 +8551,9 @@ export namespace containerservice {
     }
 
     export interface KubernetesClusterAddonProfileIngressApplicationGateway {
+        /**
+         * The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
+         */
         effectiveGatewayId: string;
         /**
          * Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster?
@@ -8292,6 +8564,10 @@ export namespace containerservice {
          */
         gatewayId?: string;
         /**
+         * An `ingressApplicationGatewayIdentity` block is exported. The exported attributes are defined below.
+         */
+        ingressApplicationGatewayIdentities: outputs.containerservice.KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity[];
+        /**
          * The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
          */
         subnetCidr?: string;
@@ -8299,6 +8575,21 @@ export namespace containerservice {
          * The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
          */
         subnetId?: string;
+    }
+
+    export interface KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity {
+        /**
+         * The Client ID for the Service Principal.
+         */
+        clientId: string;
+        /**
+         * The Object ID of the user-defined Managed Identity used by the OMS Agents.
+         */
+        objectId: string;
+        /**
+         * The ID of a user assigned identity.
+         */
+        userAssignedIdentityId: string;
     }
 
     export interface KubernetesClusterAddonProfileKubeDashboard {
@@ -8744,6 +9035,21 @@ export namespace containerservice {
         adminUsername: string;
     }
 
+    export interface RegistryEncryption {
+        /**
+         * Boolean value that indicates whether encryption is enabled.
+         */
+        enabled?: boolean;
+        /**
+         * The client ID of the managed identity associated with the encryption key.
+         */
+        identityClientId: string;
+        /**
+         * The ID of the Key Vault Key.
+         */
+        keyVaultKeyId: string;
+    }
+
     export interface RegistryGeoreplication {
         /**
          * A location where the container registry should be geo-replicated.
@@ -8753,6 +9059,18 @@ export namespace containerservice {
          * A mapping of tags to assign to this replication location.
          */
         tags?: {[key: string]: string};
+    }
+
+    export interface RegistryIdentity {
+        /**
+         * A list of User Managed Identity ID's which should be assigned to the Container Registry.
+         */
+        identityIds?: string[];
+        principalId: string;
+        /**
+         * The type of Managed Identity which should be assigned to the Container Registry. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         */
+        type: string;
     }
 
     export interface RegistryNetworkRuleSet {
@@ -8909,6 +9227,21 @@ export namespace core {
 }
 
 export namespace cosmosdb {
+    export interface AccountBackup {
+        /**
+         * The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
+         */
+        intervalInMinutes: number;
+        /**
+         * The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
+         */
+        retentionInHours: number;
+        /**
+         * The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`.
+         */
+        type: string;
+    }
+
     export interface AccountCapability {
         /**
          * Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
@@ -8929,6 +9262,29 @@ export namespace cosmosdb {
          * When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistencyLevel` is set to `BoundedStaleness`.
          */
         maxStalenessPrefix: number;
+    }
+
+    export interface AccountCorsRule {
+        /**
+         * A list of headers that are allowed to be a part of the cross-origin request.
+         */
+        allowedHeaders: string[];
+        /**
+         * A list of http headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+         */
+        allowedMethods: string[];
+        /**
+         * A list of origin domains that will be allowed by CORS.
+         */
+        allowedOrigins: string[];
+        /**
+         * A list of response headers that are exposed to CORS clients.
+         */
+        exposedHeaders: string[];
+        /**
+         * The number of seconds the client should cache a preflight response.
+         */
+        maxAgeInSeconds: number;
     }
 
     export interface AccountGeoLocation {
@@ -8954,6 +9310,21 @@ export namespace cosmosdb {
          * Should zone redundancy be enabled for this region? Defaults to `false`.
          */
         zoneRedundant?: boolean;
+    }
+
+    export interface AccountIdentity {
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. Possible value is only `SystemAssigned`.
+         */
+        type: string;
     }
 
     export interface AccountVirtualNetworkRule {
@@ -16462,6 +16833,32 @@ export namespace mediaservices {
 }
 
 export namespace monitoring {
+    export interface AadDiagnosticSettingLog {
+        /**
+         * The log category for the Azure Active Directory Diagnostic. Possible values are `AuditLogs`, `SignInLogs`, `ADFSSignInLogs`, `ManagedIdentitySignInLogs`, `NonInteractiveUserSignInLogs`, `ProvisioningLogs`, `ServicePrincipalSignInLogs`.
+         */
+        category: string;
+        /**
+         * Is this Diagnostic Log enabled? Defaults to `true`.
+         */
+        enabled?: boolean;
+        /**
+         * A `retentionPolicy` block as defined below.
+         */
+        retentionPolicy: outputs.monitoring.AadDiagnosticSettingLogRetentionPolicy;
+    }
+
+    export interface AadDiagnosticSettingLogRetentionPolicy {
+        /**
+         * The number of days for which this Retention Policy should apply. Defaults to `0`.
+         */
+        days?: number;
+        /**
+         * Is this Retention Policy enabled? Defaults to `false`.
+         */
+        enabled?: boolean;
+    }
+
     export interface ActionGroupArmRoleReceiver {
         /**
          * The name of the ARM role receiver.
@@ -21622,6 +22019,9 @@ export namespace policy {
     }
 
     export interface GetPolicySetDefinitionPolicyDefinitionGroup {
+        /**
+         * The ID of a resource that contains additional metadata about this policy definition group.
+         */
         additionalMetadataResourceId: string;
         /**
          * The category of this policy definition group.
@@ -21665,6 +22065,9 @@ export namespace policy {
     }
 
     export interface PolicySetDefinitionPolicyDefinitionGroup {
+        /**
+         * The ID of a resource that contains additional metadata about this policy definition group.
+         */
         additionalMetadataResourceId?: string;
         /**
          * The category of this policy definition group.
@@ -23139,7 +23542,49 @@ export namespace sql {
 }
 
 export namespace storage {
+    export interface AccountAzureFilesAuthentication {
+        /**
+         * A `activeDirectory` block as defined below. Required when `directoryType` is `AD`.
+         */
+        activeDirectory?: outputs.storage.AccountAzureFilesAuthenticationActiveDirectory;
+        /**
+         * Specifies the directory service used. Possible values are `AADDS` and `AD`.
+         */
+        directoryType: string;
+    }
+
+    export interface AccountAzureFilesAuthenticationActiveDirectory {
+        /**
+         * Specifies the domain GUID.
+         */
+        domainGuid: string;
+        /**
+         * Specifies the primary domain that the AD DNS server is authoritative for.
+         */
+        domainName: string;
+        /**
+         * Specifies the security identifier (SID).
+         */
+        domainSid: string;
+        /**
+         * Specifies the Active Directory forest.
+         */
+        forestName: string;
+        /**
+         * Specifies the NetBIOS domain name.
+         */
+        netbiosDomainName: string;
+        /**
+         * Specifies the security identifier (SID) for Azure Storage.
+         */
+        storageSid: string;
+    }
+
     export interface AccountBlobProperties {
+        /**
+         * Is the blob service properties for change feed events enabled? Default to `false`.
+         */
+        changeFeedEnabled?: boolean;
         /**
          * A `containerDeleteRetentionPolicy` block as defined below.
          */
@@ -23245,9 +23690,35 @@ export namespace storage {
          */
         ipRules: string[];
         /**
+         * One or More `privateLinkAccess` block as defined below.
+         */
+        privateLinkAccesses?: outputs.storage.AccountNetworkRulesPrivateLinkAccess[];
+        /**
          * A list of resource ids for subnets.
          */
         virtualNetworkSubnetIds: string[];
+    }
+
+    export interface AccountNetworkRulesPrivateLinkAccess {
+        /**
+         * The resource id of the `azure.privatelink.Endpoint` of the resource access rule.
+         */
+        endpointResourceId: string;
+        /**
+         * The tenant id of the `azure.privatelink.Endpoint` of the resource access rule. Defaults to the current tenant id.
+         */
+        endpointTenantId: string;
+    }
+
+    export interface AccountNetworkRulesPrivateLinkAccessRule {
+        /**
+         * The resource id of the `azure.privatelink.Endpoint` of the resource access rule.
+         */
+        endpointResourceId: string;
+        /**
+         * The tenant id of the `azure.privatelink.Endpoint` of the resource access rule. Defaults to the current tenant id.
+         */
+        endpointTenantId: string;
     }
 
     export interface AccountQueueProperties {
@@ -23352,6 +23823,21 @@ export namespace storage {
          * The version of storage analytics to configure. Changing this forces a new resource.
          */
         version: string;
+    }
+
+    export interface AccountRouting {
+        /**
+         * Specifies the kind of network routing opted by the user. Possible values are `InternetRouting` and `MicrosoftRouting`. Defaults to `MicrosoftRouting`.
+         */
+        choice?: string;
+        /**
+         * Should internet routing storage endpoints be published? Defaults to `false`.
+         */
+        publishInternetEndpoints?: boolean;
+        /**
+         * Should microsoft routing storage endpoints be published? Defaults to `false`.
+         */
+        publishMicrosoftEndpoints?: boolean;
     }
 
     export interface AccountStaticWebsite {

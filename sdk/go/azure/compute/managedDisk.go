@@ -147,6 +147,8 @@ type ManagedDisk struct {
 	StorageAccountType pulumi.StringOutput `pulumi:"storageAccountType"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
+	Tier pulumi.StringOutput `pulumi:"tier"`
 	// A collection containing the availability zone to allocate the Managed Disk in.
 	Zones pulumi.StringPtrOutput `pulumi:"zones"`
 }
@@ -225,6 +227,8 @@ type managedDiskState struct {
 	StorageAccountType *string `pulumi:"storageAccountType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
+	Tier *string `pulumi:"tier"`
 	// A collection containing the availability zone to allocate the Managed Disk in.
 	Zones *string `pulumi:"zones"`
 }
@@ -266,6 +270,8 @@ type ManagedDiskState struct {
 	StorageAccountType pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
+	Tier pulumi.StringPtrInput
 	// A collection containing the availability zone to allocate the Managed Disk in.
 	Zones pulumi.StringPtrInput
 }
@@ -311,6 +317,8 @@ type managedDiskArgs struct {
 	StorageAccountType string `pulumi:"storageAccountType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
+	Tier *string `pulumi:"tier"`
 	// A collection containing the availability zone to allocate the Managed Disk in.
 	Zones *string `pulumi:"zones"`
 }
@@ -353,6 +361,8 @@ type ManagedDiskArgs struct {
 	StorageAccountType pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
+	Tier pulumi.StringPtrInput
 	// A collection containing the availability zone to allocate the Managed Disk in.
 	Zones pulumi.StringPtrInput
 }

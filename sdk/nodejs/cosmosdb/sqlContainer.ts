@@ -85,6 +85,10 @@ export class SqlContainer extends pulumi.CustomResource {
      */
     public readonly accountName!: pulumi.Output<string>;
     /**
+     * The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+     */
+    public readonly analyticalStorageTtl!: pulumi.Output<number | undefined>;
+    /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
      */
     public readonly autoscaleSettings!: pulumi.Output<outputs.cosmosdb.SqlContainerAutoscaleSettings | undefined>;
@@ -143,6 +147,7 @@ export class SqlContainer extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SqlContainerState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
+            inputs["analyticalStorageTtl"] = state ? state.analyticalStorageTtl : undefined;
             inputs["autoscaleSettings"] = state ? state.autoscaleSettings : undefined;
             inputs["conflictResolutionPolicy"] = state ? state.conflictResolutionPolicy : undefined;
             inputs["databaseName"] = state ? state.databaseName : undefined;
@@ -169,6 +174,7 @@ export class SqlContainer extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["analyticalStorageTtl"] = args ? args.analyticalStorageTtl : undefined;
             inputs["autoscaleSettings"] = args ? args.autoscaleSettings : undefined;
             inputs["conflictResolutionPolicy"] = args ? args.conflictResolutionPolicy : undefined;
             inputs["databaseName"] = args ? args.databaseName : undefined;
@@ -196,6 +202,10 @@ export interface SqlContainerState {
      * The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
      */
     readonly accountName?: pulumi.Input<string>;
+    /**
+     * The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+     */
+    readonly analyticalStorageTtl?: pulumi.Input<number>;
     /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
      */
@@ -250,6 +260,10 @@ export interface SqlContainerArgs {
      * The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
      */
     readonly accountName: pulumi.Input<string>;
+    /**
+     * The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+     */
+    readonly analyticalStorageTtl?: pulumi.Input<number>;
     /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
      */

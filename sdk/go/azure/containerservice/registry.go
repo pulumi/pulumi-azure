@@ -49,6 +49,64 @@ import (
 // 	})
 // }
 // ```
+// ### Encryption)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/authorization"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/containerservice"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
+// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/keyvault"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		rg, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
+// 			Location: pulumi.String("West Europe"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
+// 			ResourceGroupName: pulumi.Any(azurerm_resource_group.Example.Name),
+// 			Location:          pulumi.Any(azurerm_resource_group.Example.Location),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleKey, err := keyvault.LookupKey(ctx, &keyvault.LookupKeyArgs{
+// 			Name:       "super-secret",
+// 			KeyVaultId: data.Azurerm_key_vault.Existing.Id,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = containerservice.NewRegistry(ctx, "acr", &containerservice.RegistryArgs{
+// 			ResourceGroupName: rg.Name,
+// 			Location:          rg.Location,
+// 			Sku:               pulumi.String("Premium"),
+// 			Identity: &containerservice.RegistryIdentityArgs{
+// 				Type: pulumi.String("UserAssigned"),
+// 				IdentityIds: pulumi.StringArray{
+// 					exampleUserAssignedIdentity.ID(),
+// 				},
+// 			},
+// 			Encryption: &containerservice.RegistryEncryptionArgs{
+// 				Enabled:          pulumi.Bool(true),
+// 				KeyVaultKeyId:    pulumi.String(exampleKey.Id),
+// 				IdentityClientId: exampleUserAssignedIdentity.ClientId,
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //
@@ -66,12 +124,16 @@ type Registry struct {
 	AdminPassword pulumi.StringOutput `pulumi:"adminPassword"`
 	// The Username associated with the Container Registry Admin account - if the admin account is enabled.
 	AdminUsername pulumi.StringOutput `pulumi:"adminUsername"`
+	// An `encryption` block as documented below.
+	Encryption RegistryEncryptionOutput `pulumi:"encryption"`
 	// A list of Azure locations where the container registry should be geo-replicated.
 	//
 	// Deprecated: Deprecated in favour of `georeplications`
 	GeoreplicationLocations pulumi.StringArrayOutput `pulumi:"georeplicationLocations"`
 	// A `georeplications` block as documented below.
 	Georeplications RegistryGeoreplicationArrayOutput `pulumi:"georeplications"`
+	// An `identity` block as documented below.
+	Identity RegistryIdentityOutput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The URL that can be used to log into the container registry.
@@ -136,12 +198,16 @@ type registryState struct {
 	AdminPassword *string `pulumi:"adminPassword"`
 	// The Username associated with the Container Registry Admin account - if the admin account is enabled.
 	AdminUsername *string `pulumi:"adminUsername"`
+	// An `encryption` block as documented below.
+	Encryption *RegistryEncryption `pulumi:"encryption"`
 	// A list of Azure locations where the container registry should be geo-replicated.
 	//
 	// Deprecated: Deprecated in favour of `georeplications`
 	GeoreplicationLocations []string `pulumi:"georeplicationLocations"`
 	// A `georeplications` block as documented below.
 	Georeplications []RegistryGeoreplication `pulumi:"georeplications"`
+	// An `identity` block as documented below.
+	Identity *RegistryIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The URL that can be used to log into the container registry.
@@ -175,12 +241,16 @@ type RegistryState struct {
 	AdminPassword pulumi.StringPtrInput
 	// The Username associated with the Container Registry Admin account - if the admin account is enabled.
 	AdminUsername pulumi.StringPtrInput
+	// An `encryption` block as documented below.
+	Encryption RegistryEncryptionPtrInput
 	// A list of Azure locations where the container registry should be geo-replicated.
 	//
 	// Deprecated: Deprecated in favour of `georeplications`
 	GeoreplicationLocations pulumi.StringArrayInput
 	// A `georeplications` block as documented below.
 	Georeplications RegistryGeoreplicationArrayInput
+	// An `identity` block as documented below.
+	Identity RegistryIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The URL that can be used to log into the container registry.
@@ -214,12 +284,16 @@ func (RegistryState) ElementType() reflect.Type {
 type registryArgs struct {
 	// Specifies whether the admin user is enabled. Defaults to `false`.
 	AdminEnabled *bool `pulumi:"adminEnabled"`
+	// An `encryption` block as documented below.
+	Encryption *RegistryEncryption `pulumi:"encryption"`
 	// A list of Azure locations where the container registry should be geo-replicated.
 	//
 	// Deprecated: Deprecated in favour of `georeplications`
 	GeoreplicationLocations []string `pulumi:"georeplicationLocations"`
 	// A `georeplications` block as documented below.
 	Georeplications []RegistryGeoreplication `pulumi:"georeplications"`
+	// An `identity` block as documented below.
+	Identity *RegistryIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Container Registry. Changing this forces a new resource to be created.
@@ -248,12 +322,16 @@ type registryArgs struct {
 type RegistryArgs struct {
 	// Specifies whether the admin user is enabled. Defaults to `false`.
 	AdminEnabled pulumi.BoolPtrInput
+	// An `encryption` block as documented below.
+	Encryption RegistryEncryptionPtrInput
 	// A list of Azure locations where the container registry should be geo-replicated.
 	//
 	// Deprecated: Deprecated in favour of `georeplications`
 	GeoreplicationLocations pulumi.StringArrayInput
 	// A `georeplications` block as documented below.
 	Georeplications RegistryGeoreplicationArrayInput
+	// An `identity` block as documented below.
+	Identity RegistryIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Container Registry. Changing this forces a new resource to be created.

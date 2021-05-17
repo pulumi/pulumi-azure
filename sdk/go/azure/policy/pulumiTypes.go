@@ -180,6 +180,7 @@ func (o AssignmentIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type PolicySetDefinitionPolicyDefinitionGroup struct {
+	// The ID of a resource that contains additional metadata about this policy definition group.
 	AdditionalMetadataResourceId *string `pulumi:"additionalMetadataResourceId"`
 	// The category of this policy definition group.
 	Category *string `pulumi:"category"`
@@ -203,6 +204,7 @@ type PolicySetDefinitionPolicyDefinitionGroupInput interface {
 }
 
 type PolicySetDefinitionPolicyDefinitionGroupArgs struct {
+	// The ID of a resource that contains additional metadata about this policy definition group.
 	AdditionalMetadataResourceId pulumi.StringPtrInput `pulumi:"additionalMetadataResourceId"`
 	// The category of this policy definition group.
 	Category pulumi.StringPtrInput `pulumi:"category"`
@@ -265,6 +267,7 @@ func (o PolicySetDefinitionPolicyDefinitionGroupOutput) ToPolicySetDefinitionPol
 	return o
 }
 
+// The ID of a resource that contains additional metadata about this policy definition group.
 func (o PolicySetDefinitionPolicyDefinitionGroupOutput) AdditionalMetadataResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicySetDefinitionPolicyDefinitionGroup) *string { return v.AdditionalMetadataResourceId }).(pulumi.StringPtrOutput)
 }
@@ -449,6 +452,7 @@ func (o PolicySetDefinitionPolicyDefinitionReferenceArrayOutput) Index(i pulumi.
 }
 
 type GetPolicySetDefinitionPolicyDefinitionGroup struct {
+	// The ID of a resource that contains additional metadata about this policy definition group.
 	AdditionalMetadataResourceId string `pulumi:"additionalMetadataResourceId"`
 	// The category of this policy definition group.
 	Category string `pulumi:"category"`
@@ -472,6 +476,7 @@ type GetPolicySetDefinitionPolicyDefinitionGroupInput interface {
 }
 
 type GetPolicySetDefinitionPolicyDefinitionGroupArgs struct {
+	// The ID of a resource that contains additional metadata about this policy definition group.
 	AdditionalMetadataResourceId pulumi.StringInput `pulumi:"additionalMetadataResourceId"`
 	// The category of this policy definition group.
 	Category pulumi.StringInput `pulumi:"category"`
@@ -534,6 +539,7 @@ func (o GetPolicySetDefinitionPolicyDefinitionGroupOutput) ToGetPolicySetDefinit
 	return o
 }
 
+// The ID of a resource that contains additional metadata about this policy definition group.
 func (o GetPolicySetDefinitionPolicyDefinitionGroupOutput) AdditionalMetadataResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPolicySetDefinitionPolicyDefinitionGroup) string { return v.AdditionalMetadataResourceId }).(pulumi.StringOutput)
 }
