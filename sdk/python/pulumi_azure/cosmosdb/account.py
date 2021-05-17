@@ -21,10 +21,13 @@ class AccountArgs:
                  resource_group_name: pulumi.Input[str],
                  access_key_metadata_writes_enabled: Optional[pulumi.Input[bool]] = None,
                  analytical_storage_enabled: Optional[pulumi.Input[bool]] = None,
+                 backup: Optional[pulumi.Input['AccountBackupArgs']] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]] = None,
+                 cors_rule: Optional[pulumi.Input['AccountCorsRuleArgs']] = None,
                  enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
                  enable_free_tier: Optional[pulumi.Input[bool]] = None,
                  enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
+                 identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
                  ip_range_filter: Optional[pulumi.Input[str]] = None,
                  is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
@@ -45,10 +48,13 @@ class AccountArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] access_key_metadata_writes_enabled: Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
         :param pulumi.Input[bool] analytical_storage_enabled: Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input['AccountBackupArgs'] backup: A `backup` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
+        :param pulumi.Input['AccountCorsRuleArgs'] cors_rule: A `cors_rule` block as defined below.
         :param pulumi.Input[bool] enable_automatic_failover: Enable automatic fail over for this Cosmos DB account.
         :param pulumi.Input[bool] enable_free_tier: Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_multiple_write_locations: Enable multi-master support for this Cosmos DB account.
+        :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] ip_range_filter: CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
         :param pulumi.Input[bool] is_virtual_network_filter_enabled: Enables virtual network filtering for this Cosmos DB account.
         :param pulumi.Input[str] key_vault_key_id: A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
@@ -70,14 +76,20 @@ class AccountArgs:
             pulumi.set(__self__, "access_key_metadata_writes_enabled", access_key_metadata_writes_enabled)
         if analytical_storage_enabled is not None:
             pulumi.set(__self__, "analytical_storage_enabled", analytical_storage_enabled)
+        if backup is not None:
+            pulumi.set(__self__, "backup", backup)
         if capabilities is not None:
             pulumi.set(__self__, "capabilities", capabilities)
+        if cors_rule is not None:
+            pulumi.set(__self__, "cors_rule", cors_rule)
         if enable_automatic_failover is not None:
             pulumi.set(__self__, "enable_automatic_failover", enable_automatic_failover)
         if enable_free_tier is not None:
             pulumi.set(__self__, "enable_free_tier", enable_free_tier)
         if enable_multiple_write_locations is not None:
             pulumi.set(__self__, "enable_multiple_write_locations", enable_multiple_write_locations)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if ip_range_filter is not None:
             pulumi.set(__self__, "ip_range_filter", ip_range_filter)
         if is_virtual_network_filter_enabled is not None:
@@ -177,6 +189,18 @@ class AccountArgs:
 
     @property
     @pulumi.getter
+    def backup(self) -> Optional[pulumi.Input['AccountBackupArgs']]:
+        """
+        A `backup` block as defined below.
+        """
+        return pulumi.get(self, "backup")
+
+    @backup.setter
+    def backup(self, value: Optional[pulumi.Input['AccountBackupArgs']]):
+        pulumi.set(self, "backup", value)
+
+    @property
+    @pulumi.getter
     def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]]:
         """
         The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
@@ -186,6 +210,18 @@ class AccountArgs:
     @capabilities.setter
     def capabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]]):
         pulumi.set(self, "capabilities", value)
+
+    @property
+    @pulumi.getter(name="corsRule")
+    def cors_rule(self) -> Optional[pulumi.Input['AccountCorsRuleArgs']]:
+        """
+        A `cors_rule` block as defined below.
+        """
+        return pulumi.get(self, "cors_rule")
+
+    @cors_rule.setter
+    def cors_rule(self, value: Optional[pulumi.Input['AccountCorsRuleArgs']]):
+        pulumi.set(self, "cors_rule", value)
 
     @property
     @pulumi.getter(name="enableAutomaticFailover")
@@ -222,6 +258,18 @@ class AccountArgs:
     @enable_multiple_write_locations.setter
     def enable_multiple_write_locations(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_multiple_write_locations", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['AccountIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['AccountIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="ipRangeFilter")
@@ -373,14 +421,17 @@ class _AccountState:
     def __init__(__self__, *,
                  access_key_metadata_writes_enabled: Optional[pulumi.Input[bool]] = None,
                  analytical_storage_enabled: Optional[pulumi.Input[bool]] = None,
+                 backup: Optional[pulumi.Input['AccountBackupArgs']] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  consistency_policy: Optional[pulumi.Input['AccountConsistencyPolicyArgs']] = None,
+                 cors_rule: Optional[pulumi.Input['AccountCorsRuleArgs']] = None,
                  enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
                  enable_free_tier: Optional[pulumi.Input[bool]] = None,
                  enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input['AccountGeoLocationArgs']]]] = None,
+                 identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
                  ip_range_filter: Optional[pulumi.Input[str]] = None,
                  is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
@@ -409,14 +460,17 @@ class _AccountState:
         Input properties used for looking up and filtering Account resources.
         :param pulumi.Input[bool] access_key_metadata_writes_enabled: Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
         :param pulumi.Input[bool] analytical_storage_enabled: Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input['AccountBackupArgs'] backup: A `backup` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_strings: A list of connection strings available for this CosmosDB account.
         :param pulumi.Input['AccountConsistencyPolicyArgs'] consistency_policy: Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
+        :param pulumi.Input['AccountCorsRuleArgs'] cors_rule: A `cors_rule` block as defined below.
         :param pulumi.Input[bool] enable_automatic_failover: Enable automatic fail over for this Cosmos DB account.
         :param pulumi.Input[bool] enable_free_tier: Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_multiple_write_locations: Enable multi-master support for this Cosmos DB account.
         :param pulumi.Input[str] endpoint: The endpoint used to connect to the CosmosDB account.
         :param pulumi.Input[Sequence[pulumi.Input['AccountGeoLocationArgs']]] geo_locations: Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
+        :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] ip_range_filter: CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
         :param pulumi.Input[bool] is_virtual_network_filter_enabled: Enables virtual network filtering for this Cosmos DB account.
         :param pulumi.Input[str] key_vault_key_id: A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
@@ -442,12 +496,16 @@ class _AccountState:
             pulumi.set(__self__, "access_key_metadata_writes_enabled", access_key_metadata_writes_enabled)
         if analytical_storage_enabled is not None:
             pulumi.set(__self__, "analytical_storage_enabled", analytical_storage_enabled)
+        if backup is not None:
+            pulumi.set(__self__, "backup", backup)
         if capabilities is not None:
             pulumi.set(__self__, "capabilities", capabilities)
         if connection_strings is not None:
             pulumi.set(__self__, "connection_strings", connection_strings)
         if consistency_policy is not None:
             pulumi.set(__self__, "consistency_policy", consistency_policy)
+        if cors_rule is not None:
+            pulumi.set(__self__, "cors_rule", cors_rule)
         if enable_automatic_failover is not None:
             pulumi.set(__self__, "enable_automatic_failover", enable_automatic_failover)
         if enable_free_tier is not None:
@@ -458,6 +516,8 @@ class _AccountState:
             pulumi.set(__self__, "endpoint", endpoint)
         if geo_locations is not None:
             pulumi.set(__self__, "geo_locations", geo_locations)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if ip_range_filter is not None:
             pulumi.set(__self__, "ip_range_filter", ip_range_filter)
         if is_virtual_network_filter_enabled is not None:
@@ -545,6 +605,18 @@ class _AccountState:
 
     @property
     @pulumi.getter
+    def backup(self) -> Optional[pulumi.Input['AccountBackupArgs']]:
+        """
+        A `backup` block as defined below.
+        """
+        return pulumi.get(self, "backup")
+
+    @backup.setter
+    def backup(self, value: Optional[pulumi.Input['AccountBackupArgs']]):
+        pulumi.set(self, "backup", value)
+
+    @property
+    @pulumi.getter
     def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]]]:
         """
         The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
@@ -578,6 +650,18 @@ class _AccountState:
     @consistency_policy.setter
     def consistency_policy(self, value: Optional[pulumi.Input['AccountConsistencyPolicyArgs']]):
         pulumi.set(self, "consistency_policy", value)
+
+    @property
+    @pulumi.getter(name="corsRule")
+    def cors_rule(self) -> Optional[pulumi.Input['AccountCorsRuleArgs']]:
+        """
+        A `cors_rule` block as defined below.
+        """
+        return pulumi.get(self, "cors_rule")
+
+    @cors_rule.setter
+    def cors_rule(self, value: Optional[pulumi.Input['AccountCorsRuleArgs']]):
+        pulumi.set(self, "cors_rule", value)
 
     @property
     @pulumi.getter(name="enableAutomaticFailover")
@@ -638,6 +722,18 @@ class _AccountState:
     @geo_locations.setter
     def geo_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountGeoLocationArgs']]]]):
         pulumi.set(self, "geo_locations", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['AccountIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['AccountIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="ipRangeFilter")
@@ -923,12 +1019,15 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_key_metadata_writes_enabled: Optional[pulumi.Input[bool]] = None,
                  analytical_storage_enabled: Optional[pulumi.Input[bool]] = None,
+                 backup: Optional[pulumi.Input[pulumi.InputType['AccountBackupArgs']]] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]]] = None,
                  consistency_policy: Optional[pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']]] = None,
+                 cors_rule: Optional[pulumi.Input[pulumi.InputType['AccountCorsRuleArgs']]] = None,
                  enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
                  enable_free_tier: Optional[pulumi.Input[bool]] = None,
                  enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
                  geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountGeoLocationArgs']]]]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
                  ip_range_filter: Optional[pulumi.Input[str]] = None,
                  is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
@@ -1004,12 +1103,15 @@ class Account(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] access_key_metadata_writes_enabled: Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
         :param pulumi.Input[bool] analytical_storage_enabled: Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['AccountBackupArgs']] backup: A `backup` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']] consistency_policy: Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
+        :param pulumi.Input[pulumi.InputType['AccountCorsRuleArgs']] cors_rule: A `cors_rule` block as defined below.
         :param pulumi.Input[bool] enable_automatic_failover: Enable automatic fail over for this Cosmos DB account.
         :param pulumi.Input[bool] enable_free_tier: Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_multiple_write_locations: Enable multi-master support for this Cosmos DB account.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountGeoLocationArgs']]]] geo_locations: Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] ip_range_filter: CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
         :param pulumi.Input[bool] is_virtual_network_filter_enabled: Enables virtual network filtering for this Cosmos DB account.
         :param pulumi.Input[str] key_vault_key_id: A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
@@ -1104,12 +1206,15 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_key_metadata_writes_enabled: Optional[pulumi.Input[bool]] = None,
                  analytical_storage_enabled: Optional[pulumi.Input[bool]] = None,
+                 backup: Optional[pulumi.Input[pulumi.InputType['AccountBackupArgs']]] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]]] = None,
                  consistency_policy: Optional[pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']]] = None,
+                 cors_rule: Optional[pulumi.Input[pulumi.InputType['AccountCorsRuleArgs']]] = None,
                  enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
                  enable_free_tier: Optional[pulumi.Input[bool]] = None,
                  enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
                  geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountGeoLocationArgs']]]]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
                  ip_range_filter: Optional[pulumi.Input[str]] = None,
                  is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
@@ -1138,16 +1243,19 @@ class Account(pulumi.CustomResource):
 
             __props__.__dict__["access_key_metadata_writes_enabled"] = access_key_metadata_writes_enabled
             __props__.__dict__["analytical_storage_enabled"] = analytical_storage_enabled
+            __props__.__dict__["backup"] = backup
             __props__.__dict__["capabilities"] = capabilities
             if consistency_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'consistency_policy'")
             __props__.__dict__["consistency_policy"] = consistency_policy
+            __props__.__dict__["cors_rule"] = cors_rule
             __props__.__dict__["enable_automatic_failover"] = enable_automatic_failover
             __props__.__dict__["enable_free_tier"] = enable_free_tier
             __props__.__dict__["enable_multiple_write_locations"] = enable_multiple_write_locations
             if geo_locations is None and not opts.urn:
                 raise TypeError("Missing required property 'geo_locations'")
             __props__.__dict__["geo_locations"] = geo_locations
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["ip_range_filter"] = ip_range_filter
             __props__.__dict__["is_virtual_network_filter_enabled"] = is_virtual_network_filter_enabled
             __props__.__dict__["key_vault_key_id"] = key_vault_key_id
@@ -1190,14 +1298,17 @@ class Account(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             access_key_metadata_writes_enabled: Optional[pulumi.Input[bool]] = None,
             analytical_storage_enabled: Optional[pulumi.Input[bool]] = None,
+            backup: Optional[pulumi.Input[pulumi.InputType['AccountBackupArgs']]] = None,
             capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]]] = None,
             connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             consistency_policy: Optional[pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']]] = None,
+            cors_rule: Optional[pulumi.Input[pulumi.InputType['AccountCorsRuleArgs']]] = None,
             enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
             enable_free_tier: Optional[pulumi.Input[bool]] = None,
             enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
             geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountGeoLocationArgs']]]]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
             ip_range_filter: Optional[pulumi.Input[str]] = None,
             is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
             key_vault_key_id: Optional[pulumi.Input[str]] = None,
@@ -1231,14 +1342,17 @@ class Account(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] access_key_metadata_writes_enabled: Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
         :param pulumi.Input[bool] analytical_storage_enabled: Enable Analytical Storage option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['AccountBackupArgs']] backup: A `backup` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_strings: A list of connection strings available for this CosmosDB account.
         :param pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']] consistency_policy: Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
+        :param pulumi.Input[pulumi.InputType['AccountCorsRuleArgs']] cors_rule: A `cors_rule` block as defined below.
         :param pulumi.Input[bool] enable_automatic_failover: Enable automatic fail over for this Cosmos DB account.
         :param pulumi.Input[bool] enable_free_tier: Enable Free Tier pricing option for this Cosmos DB account. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_multiple_write_locations: Enable multi-master support for this Cosmos DB account.
         :param pulumi.Input[str] endpoint: The endpoint used to connect to the CosmosDB account.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountGeoLocationArgs']]]] geo_locations: Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] ip_range_filter: CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
         :param pulumi.Input[bool] is_virtual_network_filter_enabled: Enables virtual network filtering for this Cosmos DB account.
         :param pulumi.Input[str] key_vault_key_id: A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created.
@@ -1266,14 +1380,17 @@ class Account(pulumi.CustomResource):
 
         __props__.__dict__["access_key_metadata_writes_enabled"] = access_key_metadata_writes_enabled
         __props__.__dict__["analytical_storage_enabled"] = analytical_storage_enabled
+        __props__.__dict__["backup"] = backup
         __props__.__dict__["capabilities"] = capabilities
         __props__.__dict__["connection_strings"] = connection_strings
         __props__.__dict__["consistency_policy"] = consistency_policy
+        __props__.__dict__["cors_rule"] = cors_rule
         __props__.__dict__["enable_automatic_failover"] = enable_automatic_failover
         __props__.__dict__["enable_free_tier"] = enable_free_tier
         __props__.__dict__["enable_multiple_write_locations"] = enable_multiple_write_locations
         __props__.__dict__["endpoint"] = endpoint
         __props__.__dict__["geo_locations"] = geo_locations
+        __props__.__dict__["identity"] = identity
         __props__.__dict__["ip_range_filter"] = ip_range_filter
         __props__.__dict__["is_virtual_network_filter_enabled"] = is_virtual_network_filter_enabled
         __props__.__dict__["key_vault_key_id"] = key_vault_key_id
@@ -1318,6 +1435,14 @@ class Account(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def backup(self) -> pulumi.Output['outputs.AccountBackup']:
+        """
+        A `backup` block as defined below.
+        """
+        return pulumi.get(self, "backup")
+
+    @property
+    @pulumi.getter
     def capabilities(self) -> pulumi.Output[Optional[Sequence['outputs.AccountCapability']]]:
         """
         The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
@@ -1339,6 +1464,14 @@ class Account(pulumi.CustomResource):
         Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
         """
         return pulumi.get(self, "consistency_policy")
+
+    @property
+    @pulumi.getter(name="corsRule")
+    def cors_rule(self) -> pulumi.Output[Optional['outputs.AccountCorsRule']]:
+        """
+        A `cors_rule` block as defined below.
+        """
+        return pulumi.get(self, "cors_rule")
 
     @property
     @pulumi.getter(name="enableAutomaticFailover")
@@ -1379,6 +1512,14 @@ class Account(pulumi.CustomResource):
         Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
         """
         return pulumi.get(self, "geo_locations")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.AccountIdentity']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="ipRangeFilter")

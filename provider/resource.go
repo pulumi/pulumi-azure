@@ -65,6 +65,7 @@ const (
 	azureCognitive             = "Cognitive"             // Cognitive
 	azureCommunication         = "Communication"         // Communication
 	azureCompute               = "Compute"               // Virtual Machines
+	azureConsumption           = "Consumption"           // Consumption
 	azureContainerService      = "ContainerService"      // Azure Container Service
 	azureCore                  = "Core"                  // Base Resources
 	azureCosmosDB              = "CosmosDB"              // Cosmos DB
@@ -1107,6 +1108,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_monitor_action_rule_action_group":    {Tok: azureResource(azureMonitoring, "ActionRuleActionGroup")},
 			"azurerm_monitor_action_rule_suppression":     {Tok: azureResource(azureMonitoring, "ActionRuleSuppression")},
 			"azurerm_monitor_smart_detector_alert_rule":   {Tok: azureResource(azureMonitoring, "SmartDetectorAlertRule")},
+			"azurerm_monitor_aad_diagnostic_setting":      {Tok: azureResource(azureMonitoring, "AadDiagnosticSetting")},
 
 			// MS SQL
 			"azurerm_mssql_elasticpool": {Tok: azureResource(azureMSSQL, "ElasticPool")},
@@ -1519,9 +1521,16 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_storage_table_entity": {
 				Tok: azureResource(azureStorage, "TableEntity"),
 			},
-			"azurerm_storage_data_lake_gen2_filesystem":    {Tok: azureResource(azureStorage, "DataLakeGen2Filesystem")},
-			"azurerm_storage_management_policy":            {Tok: azureResource(azureStorage, "ManagementPolicy")},
-			"azurerm_storage_account_network_rules":        {Tok: azureResource(azureStorage, "AccountNetworkRules")},
+			"azurerm_storage_data_lake_gen2_filesystem": {Tok: azureResource(azureStorage, "DataLakeGen2Filesystem")},
+			"azurerm_storage_management_policy":         {Tok: azureResource(azureStorage, "ManagementPolicy")},
+			"azurerm_storage_account_network_rules": {
+				Tok: azureResource(azureStorage, "AccountNetworkRules"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"private_link_access": {
+						Name: "privateLinkAccessRules",
+					},
+				},
+			},
 			"azurerm_storage_account_customer_managed_key": {Tok: azureResource(azureStorage, "CustomerManagedKey")},
 			"azurerm_storage_sync":                         {Tok: azureResource(azureStorage, "Sync")},
 			"azurerm_storage_sync_group":                   {Tok: azureResource(azureStorage, "SyncGroup")},
@@ -1704,6 +1713,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_servicebus_namespace_network_rule_set": {
 				Tok: azureResource(azureServiceBus, "NamespaceNetworkRuleSet"),
 			},
+			"azurerm_servicebus_namespace_disaster_recovery_config": {
+				Tok: azureResource(azureServiceBus, "NamespaceDisasterRecoveryConfig"),
+			},
 
 			// Sentinel
 			"azurerm_sentinel_alert_rule_ms_security_incident": {
@@ -1736,6 +1748,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_sentinel_data_connector_microsoft_defender_advanced_threat_protection": {
 				Tok: azureResource(azureSentinel, "DataConnectorMicrosoftDefenderAdvancedThreatProtection"),
+			},
+			"azurerm_sentinel_alert_rule_machine_learning_behavior_analytics": {
+				Tok: azureResource(azureSentinel, "AlertRuleMachineLearningBehaviorAnalytics"),
 			},
 
 			// Eventgrid
@@ -1792,6 +1807,10 @@ func Provider() tfbridge.ProviderInfo {
 
 			// communication
 			"azurerm_communication_service": {Tok: azureResource(azureCommunication, "Service")},
+
+			// consumption
+			"azurerm_consumption_budget_resource_group": {Tok: azureResource(azureConsumption, "BudgetResourceGroup")},
+			"azurerm_consumption_budget_subscription":   {Tok: azureResource(azureConsumption, "BudgetSubscription")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_application_insights": {Tok: azureDataSource(azureAppInsights, "getInsights")},

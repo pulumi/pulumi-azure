@@ -43,6 +43,18 @@ namespace Pulumi.Azure.Storage.Inputs
             set => _ipRules = value;
         }
 
+        [Input("privateLinkAccesses")]
+        private InputList<Inputs.AccountNetworkRulesPrivateLinkAccessArgs>? _privateLinkAccesses;
+
+        /// <summary>
+        /// One or More `private_link_access` block as defined below.
+        /// </summary>
+        public InputList<Inputs.AccountNetworkRulesPrivateLinkAccessArgs> PrivateLinkAccesses
+        {
+            get => _privateLinkAccesses ?? (_privateLinkAccesses = new InputList<Inputs.AccountNetworkRulesPrivateLinkAccessArgs>());
+            set => _privateLinkAccesses = value;
+        }
+
         [Input("virtualNetworkSubnetIds")]
         private InputList<string>? _virtualNetworkSubnetIds;
 

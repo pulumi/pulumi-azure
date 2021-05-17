@@ -30,6 +30,7 @@ __all__ = [
     'KubernetesClusterAddonProfileAzurePolicy',
     'KubernetesClusterAddonProfileHttpApplicationRouting',
     'KubernetesClusterAddonProfileIngressApplicationGateway',
+    'KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity',
     'KubernetesClusterAddonProfileKubeDashboard',
     'KubernetesClusterAddonProfileOmsAgent',
     'KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity',
@@ -49,7 +50,9 @@ __all__ = [
     'KubernetesClusterRoleBasedAccessControlAzureActiveDirectory',
     'KubernetesClusterServicePrincipal',
     'KubernetesClusterWindowsProfile',
+    'RegistryEncryption',
     'RegistryGeoreplication',
+    'RegistryIdentity',
     'RegistryNetworkRuleSet',
     'RegistryNetworkRuleSetIpRule',
     'RegistryNetworkRuleSetVirtualNetwork',
@@ -60,6 +63,7 @@ __all__ = [
     'GetKubernetesClusterAddonProfileAzurePolicyResult',
     'GetKubernetesClusterAddonProfileHttpApplicationRoutingResult',
     'GetKubernetesClusterAddonProfileIngressApplicationGatewayResult',
+    'GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityResult',
     'GetKubernetesClusterAddonProfileKubeDashboardResult',
     'GetKubernetesClusterAddonProfileOmsAgentResult',
     'GetKubernetesClusterAddonProfileOmsAgentOmsAgentIdentityResult',
@@ -1337,6 +1341,8 @@ class KubernetesClusterAddonProfileIngressApplicationGateway(dict):
             suggest = "effective_gateway_id"
         elif key == "gatewayId":
             suggest = "gateway_id"
+        elif key == "ingressApplicationGatewayIdentities":
+            suggest = "ingress_application_gateway_identities"
         elif key == "subnetCidr":
             suggest = "subnet_cidr"
         elif key == "subnetId":
@@ -1357,11 +1363,14 @@ class KubernetesClusterAddonProfileIngressApplicationGateway(dict):
                  enabled: bool,
                  effective_gateway_id: Optional[str] = None,
                  gateway_id: Optional[str] = None,
+                 ingress_application_gateway_identities: Optional[Sequence['outputs.KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity']] = None,
                  subnet_cidr: Optional[str] = None,
                  subnet_id: Optional[str] = None):
         """
         :param bool enabled: Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster?
+        :param str effective_gateway_id: The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
         :param str gateway_id: The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
+        :param Sequence['KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs'] ingress_application_gateway_identities: An `ingress_application_gateway_identity` block is exported. The exported attributes are defined below.
         :param str subnet_cidr: The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
         :param str subnet_id: The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
         """
@@ -1370,6 +1379,8 @@ class KubernetesClusterAddonProfileIngressApplicationGateway(dict):
             pulumi.set(__self__, "effective_gateway_id", effective_gateway_id)
         if gateway_id is not None:
             pulumi.set(__self__, "gateway_id", gateway_id)
+        if ingress_application_gateway_identities is not None:
+            pulumi.set(__self__, "ingress_application_gateway_identities", ingress_application_gateway_identities)
         if subnet_cidr is not None:
             pulumi.set(__self__, "subnet_cidr", subnet_cidr)
         if subnet_id is not None:
@@ -1386,6 +1397,9 @@ class KubernetesClusterAddonProfileIngressApplicationGateway(dict):
     @property
     @pulumi.getter(name="effectiveGatewayId")
     def effective_gateway_id(self) -> Optional[str]:
+        """
+        The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
+        """
         return pulumi.get(self, "effective_gateway_id")
 
     @property
@@ -1395,6 +1409,14 @@ class KubernetesClusterAddonProfileIngressApplicationGateway(dict):
         The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
         """
         return pulumi.get(self, "gateway_id")
+
+    @property
+    @pulumi.getter(name="ingressApplicationGatewayIdentities")
+    def ingress_application_gateway_identities(self) -> Optional[Sequence['outputs.KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity']]:
+        """
+        An `ingress_application_gateway_identity` block is exported. The exported attributes are defined below.
+        """
+        return pulumi.get(self, "ingress_application_gateway_identities")
 
     @property
     @pulumi.getter(name="subnetCidr")
@@ -1411,6 +1433,70 @@ class KubernetesClusterAddonProfileIngressApplicationGateway(dict):
         The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
         """
         return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "objectId":
+            suggest = "object_id"
+        elif key == "userAssignedIdentityId":
+            suggest = "user_assigned_identity_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: Optional[str] = None,
+                 object_id: Optional[str] = None,
+                 user_assigned_identity_id: Optional[str] = None):
+        """
+        :param str client_id: The Client ID for the Service Principal.
+        :param str object_id: The Object ID of the user-defined Managed Identity used by the OMS Agents.
+        :param str user_assigned_identity_id: The ID of a user assigned identity.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        The Client ID for the Service Principal.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[str]:
+        """
+        The Object ID of the user-defined Managed Identity used by the OMS Agents.
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[str]:
+        """
+        The ID of a user assigned identity.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
 
 
 @pulumi.output_type
@@ -3136,6 +3222,66 @@ class KubernetesClusterWindowsProfile(dict):
 
 
 @pulumi.output_type
+class RegistryEncryption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityClientId":
+            suggest = "identity_client_id"
+        elif key == "keyVaultKeyId":
+            suggest = "key_vault_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity_client_id: str,
+                 key_vault_key_id: str,
+                 enabled: Optional[bool] = None):
+        """
+        :param str identity_client_id: The client ID of the managed identity associated with the encryption key.
+        :param str key_vault_key_id: The ID of the Key Vault Key.
+        :param bool enabled: Boolean value that indicates whether encryption is enabled.
+        """
+        pulumi.set(__self__, "identity_client_id", identity_client_id)
+        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="identityClientId")
+    def identity_client_id(self) -> str:
+        """
+        The client ID of the managed identity associated with the encryption key.
+        """
+        return pulumi.get(self, "identity_client_id")
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> str:
+        """
+        The ID of the Key Vault Key.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Boolean value that indicates whether encryption is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
 class RegistryGeoreplication(dict):
     def __init__(__self__, *,
                  location: str,
@@ -3163,6 +3309,63 @@ class RegistryGeoreplication(dict):
         A mapping of tags to assign to this replication location.
         """
         return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class RegistryIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 identity_ids: Optional[Sequence[str]] = None,
+                 principal_id: Optional[str] = None):
+        """
+        :param str type: The type of Managed Identity which should be assigned to the Container Registry. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+        :param Sequence[str] identity_ids: A list of User Managed Identity ID's which should be assigned to the Container Registry.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of Managed Identity which should be assigned to the Container Registry. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of User Managed Identity ID's which should be assigned to the Container Registry.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type
@@ -3504,18 +3707,21 @@ class GetKubernetesClusterAddonProfileIngressApplicationGatewayResult(dict):
                  effective_gateway_id: str,
                  enabled: bool,
                  gateway_id: str,
+                 ingress_application_gateway_identities: Sequence['outputs.GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityResult'],
                  subnet_cidr: str,
                  subnet_id: str):
         """
         :param str effective_gateway_id: The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
         :param bool enabled: Is Role Based Access Control enabled?
         :param str gateway_id: The ID of the Application Gateway integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when gateway_id is specified when configuring the `ingress_application_gateway` addon.
+        :param Sequence['GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs'] ingress_application_gateway_identities: An `ingress_application_gateway_identity` block as defined below.
         :param str subnet_cidr: The subnet CIDR used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnet_cidr` is specified when configuring the `ingress_application_gateway` addon.
         :param str subnet_id: The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnet_id` is specified when configuring the `ingress_application_gateway` addon.
         """
         pulumi.set(__self__, "effective_gateway_id", effective_gateway_id)
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "gateway_id", gateway_id)
+        pulumi.set(__self__, "ingress_application_gateway_identities", ingress_application_gateway_identities)
         pulumi.set(__self__, "subnet_cidr", subnet_cidr)
         pulumi.set(__self__, "subnet_id", subnet_id)
 
@@ -3544,6 +3750,14 @@ class GetKubernetesClusterAddonProfileIngressApplicationGatewayResult(dict):
         return pulumi.get(self, "gateway_id")
 
     @property
+    @pulumi.getter(name="ingressApplicationGatewayIdentities")
+    def ingress_application_gateway_identities(self) -> Sequence['outputs.GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityResult']:
+        """
+        An `ingress_application_gateway_identity` block as defined below.
+        """
+        return pulumi.get(self, "ingress_application_gateway_identities")
+
+    @property
     @pulumi.getter(name="subnetCidr")
     def subnet_cidr(self) -> str:
         """
@@ -3558,6 +3772,46 @@ class GetKubernetesClusterAddonProfileIngressApplicationGatewayResult(dict):
         The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnet_id` is specified when configuring the `ingress_application_gateway` addon.
         """
         return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityResult(dict):
+    def __init__(__self__, *,
+                 client_id: str,
+                 object_id: str,
+                 user_assigned_identity_id: str):
+        """
+        :param str client_id: The Client ID of the user-defined Managed Identity assigned to the Kubelets.
+        :param str object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+        :param str user_assigned_identity_id: The ID of the User Assigned Identity assigned to the Kubelets.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "object_id", object_id)
+        pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The Client ID of the user-defined Managed Identity assigned to the Kubelets.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> str:
+        """
+        The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+        """
+        return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> str:
+        """
+        The ID of the User Assigned Identity assigned to the Kubelets.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
 
 
 @pulumi.output_type

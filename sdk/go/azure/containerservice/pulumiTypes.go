@@ -3066,11 +3066,14 @@ func (o KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput) HttpApplic
 }
 
 type KubernetesClusterAddonProfileIngressApplicationGateway struct {
+	// The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
 	EffectiveGatewayId *string `pulumi:"effectiveGatewayId"`
 	// Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster?
 	Enabled bool `pulumi:"enabled"`
 	// The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
 	GatewayId *string `pulumi:"gatewayId"`
+	// An `ingressApplicationGatewayIdentity` block is exported. The exported attributes are defined below.
+	IngressApplicationGatewayIdentities []KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity `pulumi:"ingressApplicationGatewayIdentities"`
 	// The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
 	SubnetCidr *string `pulumi:"subnetCidr"`
 	// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
@@ -3089,11 +3092,14 @@ type KubernetesClusterAddonProfileIngressApplicationGatewayInput interface {
 }
 
 type KubernetesClusterAddonProfileIngressApplicationGatewayArgs struct {
+	// The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
 	EffectiveGatewayId pulumi.StringPtrInput `pulumi:"effectiveGatewayId"`
 	// Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster?
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
 	GatewayId pulumi.StringPtrInput `pulumi:"gatewayId"`
+	// An `ingressApplicationGatewayIdentity` block is exported. The exported attributes are defined below.
+	IngressApplicationGatewayIdentities KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayInput `pulumi:"ingressApplicationGatewayIdentities"`
 	// The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
 	SubnetCidr pulumi.StringPtrInput `pulumi:"subnetCidr"`
 	// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
@@ -3176,6 +3182,8 @@ func (o KubernetesClusterAddonProfileIngressApplicationGatewayOutput) ToKubernet
 		return &v
 	}).(KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput)
 }
+
+// The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
 func (o KubernetesClusterAddonProfileIngressApplicationGatewayOutput) EffectiveGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAddonProfileIngressApplicationGateway) *string { return v.EffectiveGatewayId }).(pulumi.StringPtrOutput)
 }
@@ -3188,6 +3196,13 @@ func (o KubernetesClusterAddonProfileIngressApplicationGatewayOutput) Enabled() 
 // The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
 func (o KubernetesClusterAddonProfileIngressApplicationGatewayOutput) GatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAddonProfileIngressApplicationGateway) *string { return v.GatewayId }).(pulumi.StringPtrOutput)
+}
+
+// An `ingressApplicationGatewayIdentity` block is exported. The exported attributes are defined below.
+func (o KubernetesClusterAddonProfileIngressApplicationGatewayOutput) IngressApplicationGatewayIdentities() KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput {
+	return o.ApplyT(func(v KubernetesClusterAddonProfileIngressApplicationGateway) []KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity {
+		return v.IngressApplicationGatewayIdentities
+	}).(KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput)
 }
 
 // The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
@@ -3220,6 +3235,7 @@ func (o KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) Elem() 
 	}).(KubernetesClusterAddonProfileIngressApplicationGatewayOutput)
 }
 
+// The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
 func (o KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) EffectiveGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAddonProfileIngressApplicationGateway) *string {
 		if v == nil {
@@ -3249,6 +3265,16 @@ func (o KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) Gateway
 	}).(pulumi.StringPtrOutput)
 }
 
+// An `ingressApplicationGatewayIdentity` block is exported. The exported attributes are defined below.
+func (o KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) IngressApplicationGatewayIdentities() KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput {
+	return o.ApplyT(func(v *KubernetesClusterAddonProfileIngressApplicationGateway) []KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity {
+		if v == nil {
+			return nil
+		}
+		return v.IngressApplicationGatewayIdentities
+	}).(KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput)
+}
+
 // The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
 func (o KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) SubnetCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAddonProfileIngressApplicationGateway) *string {
@@ -3267,6 +3293,127 @@ func (o KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) SubnetI
 		}
 		return v.SubnetId
 	}).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity struct {
+	// The Client ID for the Service Principal.
+	ClientId *string `pulumi:"clientId"`
+	// The Object ID of the user-defined Managed Identity used by the OMS Agents.
+	ObjectId *string `pulumi:"objectId"`
+	// The ID of a user assigned identity.
+	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
+}
+
+// KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityInput is an input type that accepts KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs and KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput values.
+// You can construct a concrete instance of `KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityInput` via:
+//
+//          KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs{...}
+type KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput() KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput
+	ToKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutputWithContext(context.Context) KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput
+}
+
+type KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs struct {
+	// The Client ID for the Service Principal.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The Object ID of the user-defined Managed Identity used by the OMS Agents.
+	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
+	// The ID of a user assigned identity.
+	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
+}
+
+func (KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity)(nil)).Elem()
+}
+
+func (i KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs) ToKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput() KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput {
+	return i.ToKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs) ToKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput)
+}
+
+// KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayInput is an input type that accepts KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArray and KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput values.
+// You can construct a concrete instance of `KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayInput` via:
+//
+//          KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArray{ KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs{...} }
+type KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput() KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput
+	ToKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutputWithContext(context.Context) KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput
+}
+
+type KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArray []KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityInput
+
+func (KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity)(nil)).Elem()
+}
+
+func (i KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArray) ToKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput() KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput {
+	return i.ToKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArray) ToKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput)
+}
+
+type KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity)(nil)).Elem()
+}
+
+func (o KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) ToKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput() KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput {
+	return o
+}
+
+func (o KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) ToKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput {
+	return o
+}
+
+// The Client ID for the Service Principal.
+func (o KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity) *string {
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Object ID of the user-defined Managed Identity used by the OMS Agents.
+func (o KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity) *string {
+		return v.ObjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of a user assigned identity.
+func (o KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity) *string {
+		return v.UserAssignedIdentityId
+	}).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity)(nil)).Elem()
+}
+
+func (o KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput) ToKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput() KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput {
+	return o
+}
+
+func (o KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput) ToKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutputWithContext(ctx context.Context) KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput {
+	return o
+}
+
+func (o KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput) Index(i pulumi.IntInput) KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity {
+		return vs[0].([]KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity)[vs[1].(int)]
+	}).(KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput)
 }
 
 type KubernetesClusterAddonProfileKubeDashboard struct {
@@ -6993,6 +7140,175 @@ func (o KubernetesClusterWindowsProfilePtrOutput) AdminUsername() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+type RegistryEncryption struct {
+	// Boolean value that indicates whether encryption is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// The client ID of the managed identity associated with the encryption key.
+	IdentityClientId string `pulumi:"identityClientId"`
+	// The ID of the Key Vault Key.
+	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
+}
+
+// RegistryEncryptionInput is an input type that accepts RegistryEncryptionArgs and RegistryEncryptionOutput values.
+// You can construct a concrete instance of `RegistryEncryptionInput` via:
+//
+//          RegistryEncryptionArgs{...}
+type RegistryEncryptionInput interface {
+	pulumi.Input
+
+	ToRegistryEncryptionOutput() RegistryEncryptionOutput
+	ToRegistryEncryptionOutputWithContext(context.Context) RegistryEncryptionOutput
+}
+
+type RegistryEncryptionArgs struct {
+	// Boolean value that indicates whether encryption is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The client ID of the managed identity associated with the encryption key.
+	IdentityClientId pulumi.StringInput `pulumi:"identityClientId"`
+	// The ID of the Key Vault Key.
+	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
+}
+
+func (RegistryEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryEncryption)(nil)).Elem()
+}
+
+func (i RegistryEncryptionArgs) ToRegistryEncryptionOutput() RegistryEncryptionOutput {
+	return i.ToRegistryEncryptionOutputWithContext(context.Background())
+}
+
+func (i RegistryEncryptionArgs) ToRegistryEncryptionOutputWithContext(ctx context.Context) RegistryEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryEncryptionOutput)
+}
+
+func (i RegistryEncryptionArgs) ToRegistryEncryptionPtrOutput() RegistryEncryptionPtrOutput {
+	return i.ToRegistryEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i RegistryEncryptionArgs) ToRegistryEncryptionPtrOutputWithContext(ctx context.Context) RegistryEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryEncryptionOutput).ToRegistryEncryptionPtrOutputWithContext(ctx)
+}
+
+// RegistryEncryptionPtrInput is an input type that accepts RegistryEncryptionArgs, RegistryEncryptionPtr and RegistryEncryptionPtrOutput values.
+// You can construct a concrete instance of `RegistryEncryptionPtrInput` via:
+//
+//          RegistryEncryptionArgs{...}
+//
+//  or:
+//
+//          nil
+type RegistryEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToRegistryEncryptionPtrOutput() RegistryEncryptionPtrOutput
+	ToRegistryEncryptionPtrOutputWithContext(context.Context) RegistryEncryptionPtrOutput
+}
+
+type registryEncryptionPtrType RegistryEncryptionArgs
+
+func RegistryEncryptionPtr(v *RegistryEncryptionArgs) RegistryEncryptionPtrInput {
+	return (*registryEncryptionPtrType)(v)
+}
+
+func (*registryEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryEncryption)(nil)).Elem()
+}
+
+func (i *registryEncryptionPtrType) ToRegistryEncryptionPtrOutput() RegistryEncryptionPtrOutput {
+	return i.ToRegistryEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *registryEncryptionPtrType) ToRegistryEncryptionPtrOutputWithContext(ctx context.Context) RegistryEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryEncryptionPtrOutput)
+}
+
+type RegistryEncryptionOutput struct{ *pulumi.OutputState }
+
+func (RegistryEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryEncryption)(nil)).Elem()
+}
+
+func (o RegistryEncryptionOutput) ToRegistryEncryptionOutput() RegistryEncryptionOutput {
+	return o
+}
+
+func (o RegistryEncryptionOutput) ToRegistryEncryptionOutputWithContext(ctx context.Context) RegistryEncryptionOutput {
+	return o
+}
+
+func (o RegistryEncryptionOutput) ToRegistryEncryptionPtrOutput() RegistryEncryptionPtrOutput {
+	return o.ToRegistryEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryEncryptionOutput) ToRegistryEncryptionPtrOutputWithContext(ctx context.Context) RegistryEncryptionPtrOutput {
+	return o.ApplyT(func(v RegistryEncryption) *RegistryEncryption {
+		return &v
+	}).(RegistryEncryptionPtrOutput)
+}
+
+// Boolean value that indicates whether encryption is enabled.
+func (o RegistryEncryptionOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RegistryEncryption) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The client ID of the managed identity associated with the encryption key.
+func (o RegistryEncryptionOutput) IdentityClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryEncryption) string { return v.IdentityClientId }).(pulumi.StringOutput)
+}
+
+// The ID of the Key Vault Key.
+func (o RegistryEncryptionOutput) KeyVaultKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryEncryption) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
+}
+
+type RegistryEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryEncryption)(nil)).Elem()
+}
+
+func (o RegistryEncryptionPtrOutput) ToRegistryEncryptionPtrOutput() RegistryEncryptionPtrOutput {
+	return o
+}
+
+func (o RegistryEncryptionPtrOutput) ToRegistryEncryptionPtrOutputWithContext(ctx context.Context) RegistryEncryptionPtrOutput {
+	return o
+}
+
+func (o RegistryEncryptionPtrOutput) Elem() RegistryEncryptionOutput {
+	return o.ApplyT(func(v *RegistryEncryption) RegistryEncryption { return *v }).(RegistryEncryptionOutput)
+}
+
+// Boolean value that indicates whether encryption is enabled.
+func (o RegistryEncryptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RegistryEncryption) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The client ID of the managed identity associated with the encryption key.
+func (o RegistryEncryptionPtrOutput) IdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IdentityClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Key Vault Key.
+func (o RegistryEncryptionPtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVaultKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
 type RegistryGeoreplication struct {
 	// A location where the container registry should be geo-replicated.
 	Location string `pulumi:"location"`
@@ -7097,6 +7413,171 @@ func (o RegistryGeoreplicationArrayOutput) Index(i pulumi.IntInput) RegistryGeor
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegistryGeoreplication {
 		return vs[0].([]RegistryGeoreplication)[vs[1].(int)]
 	}).(RegistryGeoreplicationOutput)
+}
+
+type RegistryIdentity struct {
+	// A list of User Managed Identity ID's which should be assigned to the Container Registry.
+	IdentityIds []string `pulumi:"identityIds"`
+	PrincipalId *string  `pulumi:"principalId"`
+	// The type of Managed Identity which should be assigned to the Container Registry. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// RegistryIdentityInput is an input type that accepts RegistryIdentityArgs and RegistryIdentityOutput values.
+// You can construct a concrete instance of `RegistryIdentityInput` via:
+//
+//          RegistryIdentityArgs{...}
+type RegistryIdentityInput interface {
+	pulumi.Input
+
+	ToRegistryIdentityOutput() RegistryIdentityOutput
+	ToRegistryIdentityOutputWithContext(context.Context) RegistryIdentityOutput
+}
+
+type RegistryIdentityArgs struct {
+	// A list of User Managed Identity ID's which should be assigned to the Container Registry.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
+	// The type of Managed Identity which should be assigned to the Container Registry. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RegistryIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryIdentity)(nil)).Elem()
+}
+
+func (i RegistryIdentityArgs) ToRegistryIdentityOutput() RegistryIdentityOutput {
+	return i.ToRegistryIdentityOutputWithContext(context.Background())
+}
+
+func (i RegistryIdentityArgs) ToRegistryIdentityOutputWithContext(ctx context.Context) RegistryIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryIdentityOutput)
+}
+
+func (i RegistryIdentityArgs) ToRegistryIdentityPtrOutput() RegistryIdentityPtrOutput {
+	return i.ToRegistryIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i RegistryIdentityArgs) ToRegistryIdentityPtrOutputWithContext(ctx context.Context) RegistryIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryIdentityOutput).ToRegistryIdentityPtrOutputWithContext(ctx)
+}
+
+// RegistryIdentityPtrInput is an input type that accepts RegistryIdentityArgs, RegistryIdentityPtr and RegistryIdentityPtrOutput values.
+// You can construct a concrete instance of `RegistryIdentityPtrInput` via:
+//
+//          RegistryIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type RegistryIdentityPtrInput interface {
+	pulumi.Input
+
+	ToRegistryIdentityPtrOutput() RegistryIdentityPtrOutput
+	ToRegistryIdentityPtrOutputWithContext(context.Context) RegistryIdentityPtrOutput
+}
+
+type registryIdentityPtrType RegistryIdentityArgs
+
+func RegistryIdentityPtr(v *RegistryIdentityArgs) RegistryIdentityPtrInput {
+	return (*registryIdentityPtrType)(v)
+}
+
+func (*registryIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryIdentity)(nil)).Elem()
+}
+
+func (i *registryIdentityPtrType) ToRegistryIdentityPtrOutput() RegistryIdentityPtrOutput {
+	return i.ToRegistryIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *registryIdentityPtrType) ToRegistryIdentityPtrOutputWithContext(ctx context.Context) RegistryIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryIdentityPtrOutput)
+}
+
+type RegistryIdentityOutput struct{ *pulumi.OutputState }
+
+func (RegistryIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryIdentity)(nil)).Elem()
+}
+
+func (o RegistryIdentityOutput) ToRegistryIdentityOutput() RegistryIdentityOutput {
+	return o
+}
+
+func (o RegistryIdentityOutput) ToRegistryIdentityOutputWithContext(ctx context.Context) RegistryIdentityOutput {
+	return o
+}
+
+func (o RegistryIdentityOutput) ToRegistryIdentityPtrOutput() RegistryIdentityPtrOutput {
+	return o.ToRegistryIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryIdentityOutput) ToRegistryIdentityPtrOutputWithContext(ctx context.Context) RegistryIdentityPtrOutput {
+	return o.ApplyT(func(v RegistryIdentity) *RegistryIdentity {
+		return &v
+	}).(RegistryIdentityPtrOutput)
+}
+
+// A list of User Managed Identity ID's which should be assigned to the Container Registry.
+func (o RegistryIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RegistryIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+func (o RegistryIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The type of Managed Identity which should be assigned to the Container Registry. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+func (o RegistryIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type RegistryIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryIdentity)(nil)).Elem()
+}
+
+func (o RegistryIdentityPtrOutput) ToRegistryIdentityPtrOutput() RegistryIdentityPtrOutput {
+	return o
+}
+
+func (o RegistryIdentityPtrOutput) ToRegistryIdentityPtrOutputWithContext(ctx context.Context) RegistryIdentityPtrOutput {
+	return o
+}
+
+func (o RegistryIdentityPtrOutput) Elem() RegistryIdentityOutput {
+	return o.ApplyT(func(v *RegistryIdentity) RegistryIdentity { return *v }).(RegistryIdentityOutput)
+}
+
+// A list of User Managed Identity ID's which should be assigned to the Container Registry.
+func (o RegistryIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RegistryIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o RegistryIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of Managed Identity which should be assigned to the Container Registry. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+func (o RegistryIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type RegistryNetworkRuleSet struct {
@@ -8213,6 +8694,8 @@ type GetKubernetesClusterAddonProfileIngressApplicationGateway struct {
 	Enabled bool `pulumi:"enabled"`
 	// The ID of the Application Gateway integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when gatewayId is specified when configuring the `ingressApplicationGateway` addon.
 	GatewayId string `pulumi:"gatewayId"`
+	// An `ingressApplicationGatewayIdentity` block as defined below.
+	IngressApplicationGatewayIdentities []GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity `pulumi:"ingressApplicationGatewayIdentities"`
 	// The subnet CIDR used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnetCidr` is specified when configuring the `ingressApplicationGateway` addon.
 	SubnetCidr string `pulumi:"subnetCidr"`
 	// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnetId` is specified when configuring the `ingressApplicationGateway` addon.
@@ -8237,6 +8720,8 @@ type GetKubernetesClusterAddonProfileIngressApplicationGatewayArgs struct {
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The ID of the Application Gateway integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when gatewayId is specified when configuring the `ingressApplicationGateway` addon.
 	GatewayId pulumi.StringInput `pulumi:"gatewayId"`
+	// An `ingressApplicationGatewayIdentity` block as defined below.
+	IngressApplicationGatewayIdentities GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayInput `pulumi:"ingressApplicationGatewayIdentities"`
 	// The subnet CIDR used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnetCidr` is specified when configuring the `ingressApplicationGateway` addon.
 	SubnetCidr pulumi.StringInput `pulumi:"subnetCidr"`
 	// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnetId` is specified when configuring the `ingressApplicationGateway` addon.
@@ -8309,6 +8794,13 @@ func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput) Gateway
 	return o.ApplyT(func(v GetKubernetesClusterAddonProfileIngressApplicationGateway) string { return v.GatewayId }).(pulumi.StringOutput)
 }
 
+// An `ingressApplicationGatewayIdentity` block as defined below.
+func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput) IngressApplicationGatewayIdentities() GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileIngressApplicationGateway) []GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity {
+		return v.IngressApplicationGatewayIdentities
+	}).(GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput)
+}
+
 // The subnet CIDR used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnetCidr` is specified when configuring the `ingressApplicationGateway` addon.
 func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput) SubnetCidr() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKubernetesClusterAddonProfileIngressApplicationGateway) string { return v.SubnetCidr }).(pulumi.StringOutput)
@@ -8337,6 +8829,127 @@ func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput) In
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAddonProfileIngressApplicationGateway {
 		return vs[0].([]GetKubernetesClusterAddonProfileIngressApplicationGateway)[vs[1].(int)]
 	}).(GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput)
+}
+
+type GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity struct {
+	// The Client ID of the user-defined Managed Identity assigned to the Kubelets.
+	ClientId string `pulumi:"clientId"`
+	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+	ObjectId string `pulumi:"objectId"`
+	// The ID of the User Assigned Identity assigned to the Kubelets.
+	UserAssignedIdentityId string `pulumi:"userAssignedIdentityId"`
+}
+
+// GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityInput is an input type that accepts GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs and GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput values.
+// You can construct a concrete instance of `GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityInput` via:
+//
+//          GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs{...}
+type GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityInput interface {
+	pulumi.Input
+
+	ToGetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput() GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput
+	ToGetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutputWithContext(context.Context) GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput
+}
+
+type GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs struct {
+	// The Client ID of the user-defined Managed Identity assigned to the Kubelets.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+	ObjectId pulumi.StringInput `pulumi:"objectId"`
+	// The ID of the User Assigned Identity assigned to the Kubelets.
+	UserAssignedIdentityId pulumi.StringInput `pulumi:"userAssignedIdentityId"`
+}
+
+func (GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity)(nil)).Elem()
+}
+
+func (i GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs) ToGetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput() GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput {
+	return i.ToGetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutputWithContext(context.Background())
+}
+
+func (i GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs) ToGetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput)
+}
+
+// GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayInput is an input type that accepts GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArray and GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput values.
+// You can construct a concrete instance of `GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayInput` via:
+//
+//          GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArray{ GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs{...} }
+type GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput() GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput
+	ToGetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutputWithContext(context.Context) GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput
+}
+
+type GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArray []GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityInput
+
+func (GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity)(nil)).Elem()
+}
+
+func (i GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArray) ToGetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput() GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput {
+	return i.ToGetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArray) ToGetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput)
+}
+
+type GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity)(nil)).Elem()
+}
+
+func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) ToGetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput() GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput {
+	return o
+}
+
+func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) ToGetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput {
+	return o
+}
+
+// The Client ID of the user-defined Managed Identity assigned to the Kubelets.
+func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity) string {
+		return v.ClientId
+	}).(pulumi.StringOutput)
+}
+
+// The Object ID of the user-defined Managed Identity assigned to the Kubelets.
+func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity) string {
+		return v.ObjectId
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the User Assigned Identity assigned to the Kubelets.
+func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) UserAssignedIdentityId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity) string {
+		return v.UserAssignedIdentityId
+	}).(pulumi.StringOutput)
+}
+
+type GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity)(nil)).Elem()
+}
+
+func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput) ToGetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput() GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput {
+	return o
+}
+
+func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput) ToGetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutputWithContext(ctx context.Context) GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput {
+	return o
+}
+
+func (o GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity {
+		return vs[0].([]GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity)[vs[1].(int)]
+	}).(GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput)
 }
 
 type GetKubernetesClusterAddonProfileKubeDashboard struct {
@@ -10362,6 +10975,8 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterAddonProfileHttpApplicationRoutingPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAddonProfileIngressApplicationGatewayOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAddonProfileKubeDashboardOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAddonProfileKubeDashboardPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAddonProfileOmsAgentOutput{})
@@ -10400,8 +11015,12 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterServicePrincipalPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterWindowsProfileOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterWindowsProfilePtrOutput{})
+	pulumi.RegisterOutputType(RegistryEncryptionOutput{})
+	pulumi.RegisterOutputType(RegistryEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(RegistryGeoreplicationOutput{})
 	pulumi.RegisterOutputType(RegistryGeoreplicationArrayOutput{})
+	pulumi.RegisterOutputType(RegistryIdentityOutput{})
+	pulumi.RegisterOutputType(RegistryIdentityPtrOutput{})
 	pulumi.RegisterOutputType(RegistryNetworkRuleSetOutput{})
 	pulumi.RegisterOutputType(RegistryNetworkRuleSetPtrOutput{})
 	pulumi.RegisterOutputType(RegistryNetworkRuleSetIpRuleOutput{})
@@ -10422,6 +11041,8 @@ func init() {
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileHttpApplicationRoutingArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileIngressApplicationGatewayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileIngressApplicationGatewayArrayOutput{})
+	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput{})
+	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileKubeDashboardOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileKubeDashboardArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAddonProfileOmsAgentOutput{})

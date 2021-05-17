@@ -10,7 +10,389 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AccountAzureFilesAuthentication struct {
+	// A `activeDirectory` block as defined below. Required when `directoryType` is `AD`.
+	ActiveDirectory *AccountAzureFilesAuthenticationActiveDirectory `pulumi:"activeDirectory"`
+	// Specifies the directory service used. Possible values are `AADDS` and `AD`.
+	DirectoryType string `pulumi:"directoryType"`
+}
+
+// AccountAzureFilesAuthenticationInput is an input type that accepts AccountAzureFilesAuthenticationArgs and AccountAzureFilesAuthenticationOutput values.
+// You can construct a concrete instance of `AccountAzureFilesAuthenticationInput` via:
+//
+//          AccountAzureFilesAuthenticationArgs{...}
+type AccountAzureFilesAuthenticationInput interface {
+	pulumi.Input
+
+	ToAccountAzureFilesAuthenticationOutput() AccountAzureFilesAuthenticationOutput
+	ToAccountAzureFilesAuthenticationOutputWithContext(context.Context) AccountAzureFilesAuthenticationOutput
+}
+
+type AccountAzureFilesAuthenticationArgs struct {
+	// A `activeDirectory` block as defined below. Required when `directoryType` is `AD`.
+	ActiveDirectory AccountAzureFilesAuthenticationActiveDirectoryPtrInput `pulumi:"activeDirectory"`
+	// Specifies the directory service used. Possible values are `AADDS` and `AD`.
+	DirectoryType pulumi.StringInput `pulumi:"directoryType"`
+}
+
+func (AccountAzureFilesAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountAzureFilesAuthentication)(nil)).Elem()
+}
+
+func (i AccountAzureFilesAuthenticationArgs) ToAccountAzureFilesAuthenticationOutput() AccountAzureFilesAuthenticationOutput {
+	return i.ToAccountAzureFilesAuthenticationOutputWithContext(context.Background())
+}
+
+func (i AccountAzureFilesAuthenticationArgs) ToAccountAzureFilesAuthenticationOutputWithContext(ctx context.Context) AccountAzureFilesAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountAzureFilesAuthenticationOutput)
+}
+
+func (i AccountAzureFilesAuthenticationArgs) ToAccountAzureFilesAuthenticationPtrOutput() AccountAzureFilesAuthenticationPtrOutput {
+	return i.ToAccountAzureFilesAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i AccountAzureFilesAuthenticationArgs) ToAccountAzureFilesAuthenticationPtrOutputWithContext(ctx context.Context) AccountAzureFilesAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountAzureFilesAuthenticationOutput).ToAccountAzureFilesAuthenticationPtrOutputWithContext(ctx)
+}
+
+// AccountAzureFilesAuthenticationPtrInput is an input type that accepts AccountAzureFilesAuthenticationArgs, AccountAzureFilesAuthenticationPtr and AccountAzureFilesAuthenticationPtrOutput values.
+// You can construct a concrete instance of `AccountAzureFilesAuthenticationPtrInput` via:
+//
+//          AccountAzureFilesAuthenticationArgs{...}
+//
+//  or:
+//
+//          nil
+type AccountAzureFilesAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToAccountAzureFilesAuthenticationPtrOutput() AccountAzureFilesAuthenticationPtrOutput
+	ToAccountAzureFilesAuthenticationPtrOutputWithContext(context.Context) AccountAzureFilesAuthenticationPtrOutput
+}
+
+type accountAzureFilesAuthenticationPtrType AccountAzureFilesAuthenticationArgs
+
+func AccountAzureFilesAuthenticationPtr(v *AccountAzureFilesAuthenticationArgs) AccountAzureFilesAuthenticationPtrInput {
+	return (*accountAzureFilesAuthenticationPtrType)(v)
+}
+
+func (*accountAzureFilesAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountAzureFilesAuthentication)(nil)).Elem()
+}
+
+func (i *accountAzureFilesAuthenticationPtrType) ToAccountAzureFilesAuthenticationPtrOutput() AccountAzureFilesAuthenticationPtrOutput {
+	return i.ToAccountAzureFilesAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *accountAzureFilesAuthenticationPtrType) ToAccountAzureFilesAuthenticationPtrOutputWithContext(ctx context.Context) AccountAzureFilesAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountAzureFilesAuthenticationPtrOutput)
+}
+
+type AccountAzureFilesAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (AccountAzureFilesAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountAzureFilesAuthentication)(nil)).Elem()
+}
+
+func (o AccountAzureFilesAuthenticationOutput) ToAccountAzureFilesAuthenticationOutput() AccountAzureFilesAuthenticationOutput {
+	return o
+}
+
+func (o AccountAzureFilesAuthenticationOutput) ToAccountAzureFilesAuthenticationOutputWithContext(ctx context.Context) AccountAzureFilesAuthenticationOutput {
+	return o
+}
+
+func (o AccountAzureFilesAuthenticationOutput) ToAccountAzureFilesAuthenticationPtrOutput() AccountAzureFilesAuthenticationPtrOutput {
+	return o.ToAccountAzureFilesAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o AccountAzureFilesAuthenticationOutput) ToAccountAzureFilesAuthenticationPtrOutputWithContext(ctx context.Context) AccountAzureFilesAuthenticationPtrOutput {
+	return o.ApplyT(func(v AccountAzureFilesAuthentication) *AccountAzureFilesAuthentication {
+		return &v
+	}).(AccountAzureFilesAuthenticationPtrOutput)
+}
+
+// A `activeDirectory` block as defined below. Required when `directoryType` is `AD`.
+func (o AccountAzureFilesAuthenticationOutput) ActiveDirectory() AccountAzureFilesAuthenticationActiveDirectoryPtrOutput {
+	return o.ApplyT(func(v AccountAzureFilesAuthentication) *AccountAzureFilesAuthenticationActiveDirectory {
+		return v.ActiveDirectory
+	}).(AccountAzureFilesAuthenticationActiveDirectoryPtrOutput)
+}
+
+// Specifies the directory service used. Possible values are `AADDS` and `AD`.
+func (o AccountAzureFilesAuthenticationOutput) DirectoryType() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountAzureFilesAuthentication) string { return v.DirectoryType }).(pulumi.StringOutput)
+}
+
+type AccountAzureFilesAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountAzureFilesAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountAzureFilesAuthentication)(nil)).Elem()
+}
+
+func (o AccountAzureFilesAuthenticationPtrOutput) ToAccountAzureFilesAuthenticationPtrOutput() AccountAzureFilesAuthenticationPtrOutput {
+	return o
+}
+
+func (o AccountAzureFilesAuthenticationPtrOutput) ToAccountAzureFilesAuthenticationPtrOutputWithContext(ctx context.Context) AccountAzureFilesAuthenticationPtrOutput {
+	return o
+}
+
+func (o AccountAzureFilesAuthenticationPtrOutput) Elem() AccountAzureFilesAuthenticationOutput {
+	return o.ApplyT(func(v *AccountAzureFilesAuthentication) AccountAzureFilesAuthentication { return *v }).(AccountAzureFilesAuthenticationOutput)
+}
+
+// A `activeDirectory` block as defined below. Required when `directoryType` is `AD`.
+func (o AccountAzureFilesAuthenticationPtrOutput) ActiveDirectory() AccountAzureFilesAuthenticationActiveDirectoryPtrOutput {
+	return o.ApplyT(func(v *AccountAzureFilesAuthentication) *AccountAzureFilesAuthenticationActiveDirectory {
+		if v == nil {
+			return nil
+		}
+		return v.ActiveDirectory
+	}).(AccountAzureFilesAuthenticationActiveDirectoryPtrOutput)
+}
+
+// Specifies the directory service used. Possible values are `AADDS` and `AD`.
+func (o AccountAzureFilesAuthenticationPtrOutput) DirectoryType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountAzureFilesAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DirectoryType
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccountAzureFilesAuthenticationActiveDirectory struct {
+	// Specifies the domain GUID.
+	DomainGuid string `pulumi:"domainGuid"`
+	// Specifies the primary domain that the AD DNS server is authoritative for.
+	DomainName string `pulumi:"domainName"`
+	// Specifies the security identifier (SID).
+	DomainSid string `pulumi:"domainSid"`
+	// Specifies the Active Directory forest.
+	ForestName string `pulumi:"forestName"`
+	// Specifies the NetBIOS domain name.
+	NetbiosDomainName string `pulumi:"netbiosDomainName"`
+	// Specifies the security identifier (SID) for Azure Storage.
+	StorageSid string `pulumi:"storageSid"`
+}
+
+// AccountAzureFilesAuthenticationActiveDirectoryInput is an input type that accepts AccountAzureFilesAuthenticationActiveDirectoryArgs and AccountAzureFilesAuthenticationActiveDirectoryOutput values.
+// You can construct a concrete instance of `AccountAzureFilesAuthenticationActiveDirectoryInput` via:
+//
+//          AccountAzureFilesAuthenticationActiveDirectoryArgs{...}
+type AccountAzureFilesAuthenticationActiveDirectoryInput interface {
+	pulumi.Input
+
+	ToAccountAzureFilesAuthenticationActiveDirectoryOutput() AccountAzureFilesAuthenticationActiveDirectoryOutput
+	ToAccountAzureFilesAuthenticationActiveDirectoryOutputWithContext(context.Context) AccountAzureFilesAuthenticationActiveDirectoryOutput
+}
+
+type AccountAzureFilesAuthenticationActiveDirectoryArgs struct {
+	// Specifies the domain GUID.
+	DomainGuid pulumi.StringInput `pulumi:"domainGuid"`
+	// Specifies the primary domain that the AD DNS server is authoritative for.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// Specifies the security identifier (SID).
+	DomainSid pulumi.StringInput `pulumi:"domainSid"`
+	// Specifies the Active Directory forest.
+	ForestName pulumi.StringInput `pulumi:"forestName"`
+	// Specifies the NetBIOS domain name.
+	NetbiosDomainName pulumi.StringInput `pulumi:"netbiosDomainName"`
+	// Specifies the security identifier (SID) for Azure Storage.
+	StorageSid pulumi.StringInput `pulumi:"storageSid"`
+}
+
+func (AccountAzureFilesAuthenticationActiveDirectoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountAzureFilesAuthenticationActiveDirectory)(nil)).Elem()
+}
+
+func (i AccountAzureFilesAuthenticationActiveDirectoryArgs) ToAccountAzureFilesAuthenticationActiveDirectoryOutput() AccountAzureFilesAuthenticationActiveDirectoryOutput {
+	return i.ToAccountAzureFilesAuthenticationActiveDirectoryOutputWithContext(context.Background())
+}
+
+func (i AccountAzureFilesAuthenticationActiveDirectoryArgs) ToAccountAzureFilesAuthenticationActiveDirectoryOutputWithContext(ctx context.Context) AccountAzureFilesAuthenticationActiveDirectoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountAzureFilesAuthenticationActiveDirectoryOutput)
+}
+
+func (i AccountAzureFilesAuthenticationActiveDirectoryArgs) ToAccountAzureFilesAuthenticationActiveDirectoryPtrOutput() AccountAzureFilesAuthenticationActiveDirectoryPtrOutput {
+	return i.ToAccountAzureFilesAuthenticationActiveDirectoryPtrOutputWithContext(context.Background())
+}
+
+func (i AccountAzureFilesAuthenticationActiveDirectoryArgs) ToAccountAzureFilesAuthenticationActiveDirectoryPtrOutputWithContext(ctx context.Context) AccountAzureFilesAuthenticationActiveDirectoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountAzureFilesAuthenticationActiveDirectoryOutput).ToAccountAzureFilesAuthenticationActiveDirectoryPtrOutputWithContext(ctx)
+}
+
+// AccountAzureFilesAuthenticationActiveDirectoryPtrInput is an input type that accepts AccountAzureFilesAuthenticationActiveDirectoryArgs, AccountAzureFilesAuthenticationActiveDirectoryPtr and AccountAzureFilesAuthenticationActiveDirectoryPtrOutput values.
+// You can construct a concrete instance of `AccountAzureFilesAuthenticationActiveDirectoryPtrInput` via:
+//
+//          AccountAzureFilesAuthenticationActiveDirectoryArgs{...}
+//
+//  or:
+//
+//          nil
+type AccountAzureFilesAuthenticationActiveDirectoryPtrInput interface {
+	pulumi.Input
+
+	ToAccountAzureFilesAuthenticationActiveDirectoryPtrOutput() AccountAzureFilesAuthenticationActiveDirectoryPtrOutput
+	ToAccountAzureFilesAuthenticationActiveDirectoryPtrOutputWithContext(context.Context) AccountAzureFilesAuthenticationActiveDirectoryPtrOutput
+}
+
+type accountAzureFilesAuthenticationActiveDirectoryPtrType AccountAzureFilesAuthenticationActiveDirectoryArgs
+
+func AccountAzureFilesAuthenticationActiveDirectoryPtr(v *AccountAzureFilesAuthenticationActiveDirectoryArgs) AccountAzureFilesAuthenticationActiveDirectoryPtrInput {
+	return (*accountAzureFilesAuthenticationActiveDirectoryPtrType)(v)
+}
+
+func (*accountAzureFilesAuthenticationActiveDirectoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountAzureFilesAuthenticationActiveDirectory)(nil)).Elem()
+}
+
+func (i *accountAzureFilesAuthenticationActiveDirectoryPtrType) ToAccountAzureFilesAuthenticationActiveDirectoryPtrOutput() AccountAzureFilesAuthenticationActiveDirectoryPtrOutput {
+	return i.ToAccountAzureFilesAuthenticationActiveDirectoryPtrOutputWithContext(context.Background())
+}
+
+func (i *accountAzureFilesAuthenticationActiveDirectoryPtrType) ToAccountAzureFilesAuthenticationActiveDirectoryPtrOutputWithContext(ctx context.Context) AccountAzureFilesAuthenticationActiveDirectoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountAzureFilesAuthenticationActiveDirectoryPtrOutput)
+}
+
+type AccountAzureFilesAuthenticationActiveDirectoryOutput struct{ *pulumi.OutputState }
+
+func (AccountAzureFilesAuthenticationActiveDirectoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountAzureFilesAuthenticationActiveDirectory)(nil)).Elem()
+}
+
+func (o AccountAzureFilesAuthenticationActiveDirectoryOutput) ToAccountAzureFilesAuthenticationActiveDirectoryOutput() AccountAzureFilesAuthenticationActiveDirectoryOutput {
+	return o
+}
+
+func (o AccountAzureFilesAuthenticationActiveDirectoryOutput) ToAccountAzureFilesAuthenticationActiveDirectoryOutputWithContext(ctx context.Context) AccountAzureFilesAuthenticationActiveDirectoryOutput {
+	return o
+}
+
+func (o AccountAzureFilesAuthenticationActiveDirectoryOutput) ToAccountAzureFilesAuthenticationActiveDirectoryPtrOutput() AccountAzureFilesAuthenticationActiveDirectoryPtrOutput {
+	return o.ToAccountAzureFilesAuthenticationActiveDirectoryPtrOutputWithContext(context.Background())
+}
+
+func (o AccountAzureFilesAuthenticationActiveDirectoryOutput) ToAccountAzureFilesAuthenticationActiveDirectoryPtrOutputWithContext(ctx context.Context) AccountAzureFilesAuthenticationActiveDirectoryPtrOutput {
+	return o.ApplyT(func(v AccountAzureFilesAuthenticationActiveDirectory) *AccountAzureFilesAuthenticationActiveDirectory {
+		return &v
+	}).(AccountAzureFilesAuthenticationActiveDirectoryPtrOutput)
+}
+
+// Specifies the domain GUID.
+func (o AccountAzureFilesAuthenticationActiveDirectoryOutput) DomainGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountAzureFilesAuthenticationActiveDirectory) string { return v.DomainGuid }).(pulumi.StringOutput)
+}
+
+// Specifies the primary domain that the AD DNS server is authoritative for.
+func (o AccountAzureFilesAuthenticationActiveDirectoryOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountAzureFilesAuthenticationActiveDirectory) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// Specifies the security identifier (SID).
+func (o AccountAzureFilesAuthenticationActiveDirectoryOutput) DomainSid() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountAzureFilesAuthenticationActiveDirectory) string { return v.DomainSid }).(pulumi.StringOutput)
+}
+
+// Specifies the Active Directory forest.
+func (o AccountAzureFilesAuthenticationActiveDirectoryOutput) ForestName() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountAzureFilesAuthenticationActiveDirectory) string { return v.ForestName }).(pulumi.StringOutput)
+}
+
+// Specifies the NetBIOS domain name.
+func (o AccountAzureFilesAuthenticationActiveDirectoryOutput) NetbiosDomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountAzureFilesAuthenticationActiveDirectory) string { return v.NetbiosDomainName }).(pulumi.StringOutput)
+}
+
+// Specifies the security identifier (SID) for Azure Storage.
+func (o AccountAzureFilesAuthenticationActiveDirectoryOutput) StorageSid() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountAzureFilesAuthenticationActiveDirectory) string { return v.StorageSid }).(pulumi.StringOutput)
+}
+
+type AccountAzureFilesAuthenticationActiveDirectoryPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountAzureFilesAuthenticationActiveDirectoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountAzureFilesAuthenticationActiveDirectory)(nil)).Elem()
+}
+
+func (o AccountAzureFilesAuthenticationActiveDirectoryPtrOutput) ToAccountAzureFilesAuthenticationActiveDirectoryPtrOutput() AccountAzureFilesAuthenticationActiveDirectoryPtrOutput {
+	return o
+}
+
+func (o AccountAzureFilesAuthenticationActiveDirectoryPtrOutput) ToAccountAzureFilesAuthenticationActiveDirectoryPtrOutputWithContext(ctx context.Context) AccountAzureFilesAuthenticationActiveDirectoryPtrOutput {
+	return o
+}
+
+func (o AccountAzureFilesAuthenticationActiveDirectoryPtrOutput) Elem() AccountAzureFilesAuthenticationActiveDirectoryOutput {
+	return o.ApplyT(func(v *AccountAzureFilesAuthenticationActiveDirectory) AccountAzureFilesAuthenticationActiveDirectory {
+		return *v
+	}).(AccountAzureFilesAuthenticationActiveDirectoryOutput)
+}
+
+// Specifies the domain GUID.
+func (o AccountAzureFilesAuthenticationActiveDirectoryPtrOutput) DomainGuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountAzureFilesAuthenticationActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainGuid
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the primary domain that the AD DNS server is authoritative for.
+func (o AccountAzureFilesAuthenticationActiveDirectoryPtrOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountAzureFilesAuthenticationActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the security identifier (SID).
+func (o AccountAzureFilesAuthenticationActiveDirectoryPtrOutput) DomainSid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountAzureFilesAuthenticationActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainSid
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Active Directory forest.
+func (o AccountAzureFilesAuthenticationActiveDirectoryPtrOutput) ForestName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountAzureFilesAuthenticationActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ForestName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the NetBIOS domain name.
+func (o AccountAzureFilesAuthenticationActiveDirectoryPtrOutput) NetbiosDomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountAzureFilesAuthenticationActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NetbiosDomainName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the security identifier (SID) for Azure Storage.
+func (o AccountAzureFilesAuthenticationActiveDirectoryPtrOutput) StorageSid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountAzureFilesAuthenticationActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageSid
+	}).(pulumi.StringPtrOutput)
+}
+
 type AccountBlobProperties struct {
+	// Is the blob service properties for change feed events enabled? Default to `false`.
+	ChangeFeedEnabled *bool `pulumi:"changeFeedEnabled"`
 	// A `containerDeleteRetentionPolicy` block as defined below.
 	ContainerDeleteRetentionPolicy *AccountBlobPropertiesContainerDeleteRetentionPolicy `pulumi:"containerDeleteRetentionPolicy"`
 	// A `corsRule` block as defined below.
@@ -37,6 +419,8 @@ type AccountBlobPropertiesInput interface {
 }
 
 type AccountBlobPropertiesArgs struct {
+	// Is the blob service properties for change feed events enabled? Default to `false`.
+	ChangeFeedEnabled pulumi.BoolPtrInput `pulumi:"changeFeedEnabled"`
 	// A `containerDeleteRetentionPolicy` block as defined below.
 	ContainerDeleteRetentionPolicy AccountBlobPropertiesContainerDeleteRetentionPolicyPtrInput `pulumi:"containerDeleteRetentionPolicy"`
 	// A `corsRule` block as defined below.
@@ -128,6 +512,11 @@ func (o AccountBlobPropertiesOutput) ToAccountBlobPropertiesPtrOutputWithContext
 	}).(AccountBlobPropertiesPtrOutput)
 }
 
+// Is the blob service properties for change feed events enabled? Default to `false`.
+func (o AccountBlobPropertiesOutput) ChangeFeedEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccountBlobProperties) *bool { return v.ChangeFeedEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // A `containerDeleteRetentionPolicy` block as defined below.
 func (o AccountBlobPropertiesOutput) ContainerDeleteRetentionPolicy() AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput {
 	return o.ApplyT(func(v AccountBlobProperties) *AccountBlobPropertiesContainerDeleteRetentionPolicy {
@@ -178,6 +567,16 @@ func (o AccountBlobPropertiesPtrOutput) ToAccountBlobPropertiesPtrOutputWithCont
 
 func (o AccountBlobPropertiesPtrOutput) Elem() AccountBlobPropertiesOutput {
 	return o.ApplyT(func(v *AccountBlobProperties) AccountBlobProperties { return *v }).(AccountBlobPropertiesOutput)
+}
+
+// Is the blob service properties for change feed events enabled? Default to `false`.
+func (o AccountBlobPropertiesPtrOutput) ChangeFeedEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccountBlobProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ChangeFeedEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // A `containerDeleteRetentionPolicy` block as defined below.
@@ -969,6 +1368,8 @@ type AccountNetworkRulesType struct {
 	DefaultAction string `pulumi:"defaultAction"`
 	// List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
 	IpRules []string `pulumi:"ipRules"`
+	// One or More `privateLinkAccess` block as defined below.
+	PrivateLinkAccesses []AccountNetworkRulesPrivateLinkAccess `pulumi:"privateLinkAccesses"`
 	// A list of resource ids for subnets.
 	VirtualNetworkSubnetIds []string `pulumi:"virtualNetworkSubnetIds"`
 }
@@ -992,6 +1393,8 @@ type AccountNetworkRulesTypeArgs struct {
 	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
 	// List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
 	IpRules pulumi.StringArrayInput `pulumi:"ipRules"`
+	// One or More `privateLinkAccess` block as defined below.
+	PrivateLinkAccesses AccountNetworkRulesPrivateLinkAccessArrayInput `pulumi:"privateLinkAccesses"`
 	// A list of resource ids for subnets.
 	VirtualNetworkSubnetIds pulumi.StringArrayInput `pulumi:"virtualNetworkSubnetIds"`
 }
@@ -1089,6 +1492,11 @@ func (o AccountNetworkRulesTypeOutput) IpRules() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountNetworkRulesType) []string { return v.IpRules }).(pulumi.StringArrayOutput)
 }
 
+// One or More `privateLinkAccess` block as defined below.
+func (o AccountNetworkRulesTypeOutput) PrivateLinkAccesses() AccountNetworkRulesPrivateLinkAccessArrayOutput {
+	return o.ApplyT(func(v AccountNetworkRulesType) []AccountNetworkRulesPrivateLinkAccess { return v.PrivateLinkAccesses }).(AccountNetworkRulesPrivateLinkAccessArrayOutput)
+}
+
 // A list of resource ids for subnets.
 func (o AccountNetworkRulesTypeOutput) VirtualNetworkSubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountNetworkRulesType) []string { return v.VirtualNetworkSubnetIds }).(pulumi.StringArrayOutput)
@@ -1143,6 +1551,16 @@ func (o AccountNetworkRulesTypePtrOutput) IpRules() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// One or More `privateLinkAccess` block as defined below.
+func (o AccountNetworkRulesTypePtrOutput) PrivateLinkAccesses() AccountNetworkRulesPrivateLinkAccessArrayOutput {
+	return o.ApplyT(func(v *AccountNetworkRulesType) []AccountNetworkRulesPrivateLinkAccess {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateLinkAccesses
+	}).(AccountNetworkRulesPrivateLinkAccessArrayOutput)
+}
+
 // A list of resource ids for subnets.
 func (o AccountNetworkRulesTypePtrOutput) VirtualNetworkSubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountNetworkRulesType) []string {
@@ -1151,6 +1569,218 @@ func (o AccountNetworkRulesTypePtrOutput) VirtualNetworkSubnetIds() pulumi.Strin
 		}
 		return v.VirtualNetworkSubnetIds
 	}).(pulumi.StringArrayOutput)
+}
+
+type AccountNetworkRulesPrivateLinkAccess struct {
+	// The resource id of the `privatelink.Endpoint` of the resource access rule.
+	EndpointResourceId string `pulumi:"endpointResourceId"`
+	// The tenant id of the `privatelink.Endpoint` of the resource access rule. Defaults to the current tenant id.
+	EndpointTenantId *string `pulumi:"endpointTenantId"`
+}
+
+// AccountNetworkRulesPrivateLinkAccessInput is an input type that accepts AccountNetworkRulesPrivateLinkAccessArgs and AccountNetworkRulesPrivateLinkAccessOutput values.
+// You can construct a concrete instance of `AccountNetworkRulesPrivateLinkAccessInput` via:
+//
+//          AccountNetworkRulesPrivateLinkAccessArgs{...}
+type AccountNetworkRulesPrivateLinkAccessInput interface {
+	pulumi.Input
+
+	ToAccountNetworkRulesPrivateLinkAccessOutput() AccountNetworkRulesPrivateLinkAccessOutput
+	ToAccountNetworkRulesPrivateLinkAccessOutputWithContext(context.Context) AccountNetworkRulesPrivateLinkAccessOutput
+}
+
+type AccountNetworkRulesPrivateLinkAccessArgs struct {
+	// The resource id of the `privatelink.Endpoint` of the resource access rule.
+	EndpointResourceId pulumi.StringInput `pulumi:"endpointResourceId"`
+	// The tenant id of the `privatelink.Endpoint` of the resource access rule. Defaults to the current tenant id.
+	EndpointTenantId pulumi.StringPtrInput `pulumi:"endpointTenantId"`
+}
+
+func (AccountNetworkRulesPrivateLinkAccessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountNetworkRulesPrivateLinkAccess)(nil)).Elem()
+}
+
+func (i AccountNetworkRulesPrivateLinkAccessArgs) ToAccountNetworkRulesPrivateLinkAccessOutput() AccountNetworkRulesPrivateLinkAccessOutput {
+	return i.ToAccountNetworkRulesPrivateLinkAccessOutputWithContext(context.Background())
+}
+
+func (i AccountNetworkRulesPrivateLinkAccessArgs) ToAccountNetworkRulesPrivateLinkAccessOutputWithContext(ctx context.Context) AccountNetworkRulesPrivateLinkAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkRulesPrivateLinkAccessOutput)
+}
+
+// AccountNetworkRulesPrivateLinkAccessArrayInput is an input type that accepts AccountNetworkRulesPrivateLinkAccessArray and AccountNetworkRulesPrivateLinkAccessArrayOutput values.
+// You can construct a concrete instance of `AccountNetworkRulesPrivateLinkAccessArrayInput` via:
+//
+//          AccountNetworkRulesPrivateLinkAccessArray{ AccountNetworkRulesPrivateLinkAccessArgs{...} }
+type AccountNetworkRulesPrivateLinkAccessArrayInput interface {
+	pulumi.Input
+
+	ToAccountNetworkRulesPrivateLinkAccessArrayOutput() AccountNetworkRulesPrivateLinkAccessArrayOutput
+	ToAccountNetworkRulesPrivateLinkAccessArrayOutputWithContext(context.Context) AccountNetworkRulesPrivateLinkAccessArrayOutput
+}
+
+type AccountNetworkRulesPrivateLinkAccessArray []AccountNetworkRulesPrivateLinkAccessInput
+
+func (AccountNetworkRulesPrivateLinkAccessArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountNetworkRulesPrivateLinkAccess)(nil)).Elem()
+}
+
+func (i AccountNetworkRulesPrivateLinkAccessArray) ToAccountNetworkRulesPrivateLinkAccessArrayOutput() AccountNetworkRulesPrivateLinkAccessArrayOutput {
+	return i.ToAccountNetworkRulesPrivateLinkAccessArrayOutputWithContext(context.Background())
+}
+
+func (i AccountNetworkRulesPrivateLinkAccessArray) ToAccountNetworkRulesPrivateLinkAccessArrayOutputWithContext(ctx context.Context) AccountNetworkRulesPrivateLinkAccessArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkRulesPrivateLinkAccessArrayOutput)
+}
+
+type AccountNetworkRulesPrivateLinkAccessOutput struct{ *pulumi.OutputState }
+
+func (AccountNetworkRulesPrivateLinkAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountNetworkRulesPrivateLinkAccess)(nil)).Elem()
+}
+
+func (o AccountNetworkRulesPrivateLinkAccessOutput) ToAccountNetworkRulesPrivateLinkAccessOutput() AccountNetworkRulesPrivateLinkAccessOutput {
+	return o
+}
+
+func (o AccountNetworkRulesPrivateLinkAccessOutput) ToAccountNetworkRulesPrivateLinkAccessOutputWithContext(ctx context.Context) AccountNetworkRulesPrivateLinkAccessOutput {
+	return o
+}
+
+// The resource id of the `privatelink.Endpoint` of the resource access rule.
+func (o AccountNetworkRulesPrivateLinkAccessOutput) EndpointResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountNetworkRulesPrivateLinkAccess) string { return v.EndpointResourceId }).(pulumi.StringOutput)
+}
+
+// The tenant id of the `privatelink.Endpoint` of the resource access rule. Defaults to the current tenant id.
+func (o AccountNetworkRulesPrivateLinkAccessOutput) EndpointTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountNetworkRulesPrivateLinkAccess) *string { return v.EndpointTenantId }).(pulumi.StringPtrOutput)
+}
+
+type AccountNetworkRulesPrivateLinkAccessArrayOutput struct{ *pulumi.OutputState }
+
+func (AccountNetworkRulesPrivateLinkAccessArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountNetworkRulesPrivateLinkAccess)(nil)).Elem()
+}
+
+func (o AccountNetworkRulesPrivateLinkAccessArrayOutput) ToAccountNetworkRulesPrivateLinkAccessArrayOutput() AccountNetworkRulesPrivateLinkAccessArrayOutput {
+	return o
+}
+
+func (o AccountNetworkRulesPrivateLinkAccessArrayOutput) ToAccountNetworkRulesPrivateLinkAccessArrayOutputWithContext(ctx context.Context) AccountNetworkRulesPrivateLinkAccessArrayOutput {
+	return o
+}
+
+func (o AccountNetworkRulesPrivateLinkAccessArrayOutput) Index(i pulumi.IntInput) AccountNetworkRulesPrivateLinkAccessOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountNetworkRulesPrivateLinkAccess {
+		return vs[0].([]AccountNetworkRulesPrivateLinkAccess)[vs[1].(int)]
+	}).(AccountNetworkRulesPrivateLinkAccessOutput)
+}
+
+type AccountNetworkRulesPrivateLinkAccessRule struct {
+	// The resource id of the `privatelink.Endpoint` of the resource access rule.
+	EndpointResourceId string `pulumi:"endpointResourceId"`
+	// The tenant id of the `privatelink.Endpoint` of the resource access rule. Defaults to the current tenant id.
+	EndpointTenantId *string `pulumi:"endpointTenantId"`
+}
+
+// AccountNetworkRulesPrivateLinkAccessRuleInput is an input type that accepts AccountNetworkRulesPrivateLinkAccessRuleArgs and AccountNetworkRulesPrivateLinkAccessRuleOutput values.
+// You can construct a concrete instance of `AccountNetworkRulesPrivateLinkAccessRuleInput` via:
+//
+//          AccountNetworkRulesPrivateLinkAccessRuleArgs{...}
+type AccountNetworkRulesPrivateLinkAccessRuleInput interface {
+	pulumi.Input
+
+	ToAccountNetworkRulesPrivateLinkAccessRuleOutput() AccountNetworkRulesPrivateLinkAccessRuleOutput
+	ToAccountNetworkRulesPrivateLinkAccessRuleOutputWithContext(context.Context) AccountNetworkRulesPrivateLinkAccessRuleOutput
+}
+
+type AccountNetworkRulesPrivateLinkAccessRuleArgs struct {
+	// The resource id of the `privatelink.Endpoint` of the resource access rule.
+	EndpointResourceId pulumi.StringInput `pulumi:"endpointResourceId"`
+	// The tenant id of the `privatelink.Endpoint` of the resource access rule. Defaults to the current tenant id.
+	EndpointTenantId pulumi.StringPtrInput `pulumi:"endpointTenantId"`
+}
+
+func (AccountNetworkRulesPrivateLinkAccessRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountNetworkRulesPrivateLinkAccessRule)(nil)).Elem()
+}
+
+func (i AccountNetworkRulesPrivateLinkAccessRuleArgs) ToAccountNetworkRulesPrivateLinkAccessRuleOutput() AccountNetworkRulesPrivateLinkAccessRuleOutput {
+	return i.ToAccountNetworkRulesPrivateLinkAccessRuleOutputWithContext(context.Background())
+}
+
+func (i AccountNetworkRulesPrivateLinkAccessRuleArgs) ToAccountNetworkRulesPrivateLinkAccessRuleOutputWithContext(ctx context.Context) AccountNetworkRulesPrivateLinkAccessRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkRulesPrivateLinkAccessRuleOutput)
+}
+
+// AccountNetworkRulesPrivateLinkAccessRuleArrayInput is an input type that accepts AccountNetworkRulesPrivateLinkAccessRuleArray and AccountNetworkRulesPrivateLinkAccessRuleArrayOutput values.
+// You can construct a concrete instance of `AccountNetworkRulesPrivateLinkAccessRuleArrayInput` via:
+//
+//          AccountNetworkRulesPrivateLinkAccessRuleArray{ AccountNetworkRulesPrivateLinkAccessRuleArgs{...} }
+type AccountNetworkRulesPrivateLinkAccessRuleArrayInput interface {
+	pulumi.Input
+
+	ToAccountNetworkRulesPrivateLinkAccessRuleArrayOutput() AccountNetworkRulesPrivateLinkAccessRuleArrayOutput
+	ToAccountNetworkRulesPrivateLinkAccessRuleArrayOutputWithContext(context.Context) AccountNetworkRulesPrivateLinkAccessRuleArrayOutput
+}
+
+type AccountNetworkRulesPrivateLinkAccessRuleArray []AccountNetworkRulesPrivateLinkAccessRuleInput
+
+func (AccountNetworkRulesPrivateLinkAccessRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountNetworkRulesPrivateLinkAccessRule)(nil)).Elem()
+}
+
+func (i AccountNetworkRulesPrivateLinkAccessRuleArray) ToAccountNetworkRulesPrivateLinkAccessRuleArrayOutput() AccountNetworkRulesPrivateLinkAccessRuleArrayOutput {
+	return i.ToAccountNetworkRulesPrivateLinkAccessRuleArrayOutputWithContext(context.Background())
+}
+
+func (i AccountNetworkRulesPrivateLinkAccessRuleArray) ToAccountNetworkRulesPrivateLinkAccessRuleArrayOutputWithContext(ctx context.Context) AccountNetworkRulesPrivateLinkAccessRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkRulesPrivateLinkAccessRuleArrayOutput)
+}
+
+type AccountNetworkRulesPrivateLinkAccessRuleOutput struct{ *pulumi.OutputState }
+
+func (AccountNetworkRulesPrivateLinkAccessRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountNetworkRulesPrivateLinkAccessRule)(nil)).Elem()
+}
+
+func (o AccountNetworkRulesPrivateLinkAccessRuleOutput) ToAccountNetworkRulesPrivateLinkAccessRuleOutput() AccountNetworkRulesPrivateLinkAccessRuleOutput {
+	return o
+}
+
+func (o AccountNetworkRulesPrivateLinkAccessRuleOutput) ToAccountNetworkRulesPrivateLinkAccessRuleOutputWithContext(ctx context.Context) AccountNetworkRulesPrivateLinkAccessRuleOutput {
+	return o
+}
+
+// The resource id of the `privatelink.Endpoint` of the resource access rule.
+func (o AccountNetworkRulesPrivateLinkAccessRuleOutput) EndpointResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountNetworkRulesPrivateLinkAccessRule) string { return v.EndpointResourceId }).(pulumi.StringOutput)
+}
+
+// The tenant id of the `privatelink.Endpoint` of the resource access rule. Defaults to the current tenant id.
+func (o AccountNetworkRulesPrivateLinkAccessRuleOutput) EndpointTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountNetworkRulesPrivateLinkAccessRule) *string { return v.EndpointTenantId }).(pulumi.StringPtrOutput)
+}
+
+type AccountNetworkRulesPrivateLinkAccessRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (AccountNetworkRulesPrivateLinkAccessRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountNetworkRulesPrivateLinkAccessRule)(nil)).Elem()
+}
+
+func (o AccountNetworkRulesPrivateLinkAccessRuleArrayOutput) ToAccountNetworkRulesPrivateLinkAccessRuleArrayOutput() AccountNetworkRulesPrivateLinkAccessRuleArrayOutput {
+	return o
+}
+
+func (o AccountNetworkRulesPrivateLinkAccessRuleArrayOutput) ToAccountNetworkRulesPrivateLinkAccessRuleArrayOutputWithContext(ctx context.Context) AccountNetworkRulesPrivateLinkAccessRuleArrayOutput {
+	return o
+}
+
+func (o AccountNetworkRulesPrivateLinkAccessRuleArrayOutput) Index(i pulumi.IntInput) AccountNetworkRulesPrivateLinkAccessRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountNetworkRulesPrivateLinkAccessRule {
+		return vs[0].([]AccountNetworkRulesPrivateLinkAccessRule)[vs[1].(int)]
+	}).(AccountNetworkRulesPrivateLinkAccessRuleOutput)
 }
 
 type AccountQueueProperties struct {
@@ -2058,6 +2688,175 @@ func (o AccountQueuePropertiesMinuteMetricsPtrOutput) Version() pulumi.StringPtr
 		}
 		return &v.Version
 	}).(pulumi.StringPtrOutput)
+}
+
+type AccountRouting struct {
+	// Specifies the kind of network routing opted by the user. Possible values are `InternetRouting` and `MicrosoftRouting`. Defaults to `MicrosoftRouting`.
+	Choice *string `pulumi:"choice"`
+	// Should internet routing storage endpoints be published? Defaults to `false`.
+	PublishInternetEndpoints *bool `pulumi:"publishInternetEndpoints"`
+	// Should microsoft routing storage endpoints be published? Defaults to `false`.
+	PublishMicrosoftEndpoints *bool `pulumi:"publishMicrosoftEndpoints"`
+}
+
+// AccountRoutingInput is an input type that accepts AccountRoutingArgs and AccountRoutingOutput values.
+// You can construct a concrete instance of `AccountRoutingInput` via:
+//
+//          AccountRoutingArgs{...}
+type AccountRoutingInput interface {
+	pulumi.Input
+
+	ToAccountRoutingOutput() AccountRoutingOutput
+	ToAccountRoutingOutputWithContext(context.Context) AccountRoutingOutput
+}
+
+type AccountRoutingArgs struct {
+	// Specifies the kind of network routing opted by the user. Possible values are `InternetRouting` and `MicrosoftRouting`. Defaults to `MicrosoftRouting`.
+	Choice pulumi.StringPtrInput `pulumi:"choice"`
+	// Should internet routing storage endpoints be published? Defaults to `false`.
+	PublishInternetEndpoints pulumi.BoolPtrInput `pulumi:"publishInternetEndpoints"`
+	// Should microsoft routing storage endpoints be published? Defaults to `false`.
+	PublishMicrosoftEndpoints pulumi.BoolPtrInput `pulumi:"publishMicrosoftEndpoints"`
+}
+
+func (AccountRoutingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountRouting)(nil)).Elem()
+}
+
+func (i AccountRoutingArgs) ToAccountRoutingOutput() AccountRoutingOutput {
+	return i.ToAccountRoutingOutputWithContext(context.Background())
+}
+
+func (i AccountRoutingArgs) ToAccountRoutingOutputWithContext(ctx context.Context) AccountRoutingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountRoutingOutput)
+}
+
+func (i AccountRoutingArgs) ToAccountRoutingPtrOutput() AccountRoutingPtrOutput {
+	return i.ToAccountRoutingPtrOutputWithContext(context.Background())
+}
+
+func (i AccountRoutingArgs) ToAccountRoutingPtrOutputWithContext(ctx context.Context) AccountRoutingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountRoutingOutput).ToAccountRoutingPtrOutputWithContext(ctx)
+}
+
+// AccountRoutingPtrInput is an input type that accepts AccountRoutingArgs, AccountRoutingPtr and AccountRoutingPtrOutput values.
+// You can construct a concrete instance of `AccountRoutingPtrInput` via:
+//
+//          AccountRoutingArgs{...}
+//
+//  or:
+//
+//          nil
+type AccountRoutingPtrInput interface {
+	pulumi.Input
+
+	ToAccountRoutingPtrOutput() AccountRoutingPtrOutput
+	ToAccountRoutingPtrOutputWithContext(context.Context) AccountRoutingPtrOutput
+}
+
+type accountRoutingPtrType AccountRoutingArgs
+
+func AccountRoutingPtr(v *AccountRoutingArgs) AccountRoutingPtrInput {
+	return (*accountRoutingPtrType)(v)
+}
+
+func (*accountRoutingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountRouting)(nil)).Elem()
+}
+
+func (i *accountRoutingPtrType) ToAccountRoutingPtrOutput() AccountRoutingPtrOutput {
+	return i.ToAccountRoutingPtrOutputWithContext(context.Background())
+}
+
+func (i *accountRoutingPtrType) ToAccountRoutingPtrOutputWithContext(ctx context.Context) AccountRoutingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountRoutingPtrOutput)
+}
+
+type AccountRoutingOutput struct{ *pulumi.OutputState }
+
+func (AccountRoutingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountRouting)(nil)).Elem()
+}
+
+func (o AccountRoutingOutput) ToAccountRoutingOutput() AccountRoutingOutput {
+	return o
+}
+
+func (o AccountRoutingOutput) ToAccountRoutingOutputWithContext(ctx context.Context) AccountRoutingOutput {
+	return o
+}
+
+func (o AccountRoutingOutput) ToAccountRoutingPtrOutput() AccountRoutingPtrOutput {
+	return o.ToAccountRoutingPtrOutputWithContext(context.Background())
+}
+
+func (o AccountRoutingOutput) ToAccountRoutingPtrOutputWithContext(ctx context.Context) AccountRoutingPtrOutput {
+	return o.ApplyT(func(v AccountRouting) *AccountRouting {
+		return &v
+	}).(AccountRoutingPtrOutput)
+}
+
+// Specifies the kind of network routing opted by the user. Possible values are `InternetRouting` and `MicrosoftRouting`. Defaults to `MicrosoftRouting`.
+func (o AccountRoutingOutput) Choice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountRouting) *string { return v.Choice }).(pulumi.StringPtrOutput)
+}
+
+// Should internet routing storage endpoints be published? Defaults to `false`.
+func (o AccountRoutingOutput) PublishInternetEndpoints() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccountRouting) *bool { return v.PublishInternetEndpoints }).(pulumi.BoolPtrOutput)
+}
+
+// Should microsoft routing storage endpoints be published? Defaults to `false`.
+func (o AccountRoutingOutput) PublishMicrosoftEndpoints() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccountRouting) *bool { return v.PublishMicrosoftEndpoints }).(pulumi.BoolPtrOutput)
+}
+
+type AccountRoutingPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountRoutingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountRouting)(nil)).Elem()
+}
+
+func (o AccountRoutingPtrOutput) ToAccountRoutingPtrOutput() AccountRoutingPtrOutput {
+	return o
+}
+
+func (o AccountRoutingPtrOutput) ToAccountRoutingPtrOutputWithContext(ctx context.Context) AccountRoutingPtrOutput {
+	return o
+}
+
+func (o AccountRoutingPtrOutput) Elem() AccountRoutingOutput {
+	return o.ApplyT(func(v *AccountRouting) AccountRouting { return *v }).(AccountRoutingOutput)
+}
+
+// Specifies the kind of network routing opted by the user. Possible values are `InternetRouting` and `MicrosoftRouting`. Defaults to `MicrosoftRouting`.
+func (o AccountRoutingPtrOutput) Choice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountRouting) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Choice
+	}).(pulumi.StringPtrOutput)
+}
+
+// Should internet routing storage endpoints be published? Defaults to `false`.
+func (o AccountRoutingPtrOutput) PublishInternetEndpoints() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccountRouting) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PublishInternetEndpoints
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should microsoft routing storage endpoints be published? Defaults to `false`.
+func (o AccountRoutingPtrOutput) PublishMicrosoftEndpoints() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccountRouting) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PublishMicrosoftEndpoints
+	}).(pulumi.BoolPtrOutput)
 }
 
 type AccountStaticWebsite struct {
@@ -5352,6 +6151,10 @@ func (o GetPolicyRuleFilterMatchBlobIndexTagArrayOutput) Index(i pulumi.IntInput
 }
 
 func init() {
+	pulumi.RegisterOutputType(AccountAzureFilesAuthenticationOutput{})
+	pulumi.RegisterOutputType(AccountAzureFilesAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(AccountAzureFilesAuthenticationActiveDirectoryOutput{})
+	pulumi.RegisterOutputType(AccountAzureFilesAuthenticationActiveDirectoryPtrOutput{})
 	pulumi.RegisterOutputType(AccountBlobPropertiesOutput{})
 	pulumi.RegisterOutputType(AccountBlobPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AccountBlobPropertiesContainerDeleteRetentionPolicyOutput{})
@@ -5366,6 +6169,10 @@ func init() {
 	pulumi.RegisterOutputType(AccountIdentityPtrOutput{})
 	pulumi.RegisterOutputType(AccountNetworkRulesTypeOutput{})
 	pulumi.RegisterOutputType(AccountNetworkRulesTypePtrOutput{})
+	pulumi.RegisterOutputType(AccountNetworkRulesPrivateLinkAccessOutput{})
+	pulumi.RegisterOutputType(AccountNetworkRulesPrivateLinkAccessArrayOutput{})
+	pulumi.RegisterOutputType(AccountNetworkRulesPrivateLinkAccessRuleOutput{})
+	pulumi.RegisterOutputType(AccountNetworkRulesPrivateLinkAccessRuleArrayOutput{})
 	pulumi.RegisterOutputType(AccountQueuePropertiesOutput{})
 	pulumi.RegisterOutputType(AccountQueuePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AccountQueuePropertiesCorsRuleOutput{})
@@ -5376,6 +6183,8 @@ func init() {
 	pulumi.RegisterOutputType(AccountQueuePropertiesLoggingPtrOutput{})
 	pulumi.RegisterOutputType(AccountQueuePropertiesMinuteMetricsOutput{})
 	pulumi.RegisterOutputType(AccountQueuePropertiesMinuteMetricsPtrOutput{})
+	pulumi.RegisterOutputType(AccountRoutingOutput{})
+	pulumi.RegisterOutputType(AccountRoutingPtrOutput{})
 	pulumi.RegisterOutputType(AccountStaticWebsiteOutput{})
 	pulumi.RegisterOutputType(AccountStaticWebsitePtrOutput{})
 	pulumi.RegisterOutputType(BlobInventoryPolicyRuleOutput{})

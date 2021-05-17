@@ -35,6 +35,8 @@ type AccountNetworkRules struct {
 	DefaultAction pulumi.StringOutput `pulumi:"defaultAction"`
 	// List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
 	IpRules pulumi.StringArrayOutput `pulumi:"ipRules"`
+	// One or More `privateLinkAccess` block as defined below.
+	PrivateLinkAccessRules AccountNetworkRulesPrivateLinkAccessRuleArrayOutput `pulumi:"privateLinkAccessRules"`
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
@@ -87,6 +89,8 @@ type accountNetworkRulesState struct {
 	DefaultAction *string `pulumi:"defaultAction"`
 	// List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
 	IpRules []string `pulumi:"ipRules"`
+	// One or More `privateLinkAccess` block as defined below.
+	PrivateLinkAccessRules []AccountNetworkRulesPrivateLinkAccessRule `pulumi:"privateLinkAccessRules"`
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
@@ -102,6 +106,8 @@ type AccountNetworkRulesState struct {
 	DefaultAction pulumi.StringPtrInput
 	// List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
 	IpRules pulumi.StringArrayInput
+	// One or More `privateLinkAccess` block as defined below.
+	PrivateLinkAccessRules AccountNetworkRulesPrivateLinkAccessRuleArrayInput
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
@@ -121,6 +127,8 @@ type accountNetworkRulesArgs struct {
 	DefaultAction string `pulumi:"defaultAction"`
 	// List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
 	IpRules []string `pulumi:"ipRules"`
+	// One or More `privateLinkAccess` block as defined below.
+	PrivateLinkAccessRules []AccountNetworkRulesPrivateLinkAccessRule `pulumi:"privateLinkAccessRules"`
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
@@ -137,6 +145,8 @@ type AccountNetworkRulesArgs struct {
 	DefaultAction pulumi.StringInput
 	// List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
 	IpRules pulumi.StringArrayInput
+	// One or More `privateLinkAccess` block as defined below.
+	PrivateLinkAccessRules AccountNetworkRulesPrivateLinkAccessRuleArrayInput
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.

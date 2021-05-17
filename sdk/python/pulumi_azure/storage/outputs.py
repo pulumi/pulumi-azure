@@ -10,6 +10,8 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AccountAzureFilesAuthentication',
+    'AccountAzureFilesAuthenticationActiveDirectory',
     'AccountBlobProperties',
     'AccountBlobPropertiesContainerDeleteRetentionPolicy',
     'AccountBlobPropertiesCorsRule',
@@ -17,11 +19,14 @@ __all__ = [
     'AccountCustomDomain',
     'AccountIdentity',
     'AccountNetworkRules',
+    'AccountNetworkRulesPrivateLinkAccess',
+    'AccountNetworkRulesPrivateLinkAccessRule',
     'AccountQueueProperties',
     'AccountQueuePropertiesCorsRule',
     'AccountQueuePropertiesHourMetrics',
     'AccountQueuePropertiesLogging',
     'AccountQueuePropertiesMinuteMetrics',
+    'AccountRouting',
     'AccountStaticWebsite',
     'BlobInventoryPolicyRule',
     'BlobInventoryPolicyRuleFilter',
@@ -53,11 +58,162 @@ __all__ = [
 ]
 
 @pulumi.output_type
+class AccountAzureFilesAuthentication(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "directoryType":
+            suggest = "directory_type"
+        elif key == "activeDirectory":
+            suggest = "active_directory"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountAzureFilesAuthentication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountAzureFilesAuthentication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountAzureFilesAuthentication.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 directory_type: str,
+                 active_directory: Optional['outputs.AccountAzureFilesAuthenticationActiveDirectory'] = None):
+        """
+        :param str directory_type: Specifies the directory service used. Possible values are `AADDS` and `AD`.
+        :param 'AccountAzureFilesAuthenticationActiveDirectoryArgs' active_directory: A `active_directory` block as defined below. Required when `directory_type` is `AD`.
+        """
+        pulumi.set(__self__, "directory_type", directory_type)
+        if active_directory is not None:
+            pulumi.set(__self__, "active_directory", active_directory)
+
+    @property
+    @pulumi.getter(name="directoryType")
+    def directory_type(self) -> str:
+        """
+        Specifies the directory service used. Possible values are `AADDS` and `AD`.
+        """
+        return pulumi.get(self, "directory_type")
+
+    @property
+    @pulumi.getter(name="activeDirectory")
+    def active_directory(self) -> Optional['outputs.AccountAzureFilesAuthenticationActiveDirectory']:
+        """
+        A `active_directory` block as defined below. Required when `directory_type` is `AD`.
+        """
+        return pulumi.get(self, "active_directory")
+
+
+@pulumi.output_type
+class AccountAzureFilesAuthenticationActiveDirectory(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainGuid":
+            suggest = "domain_guid"
+        elif key == "domainName":
+            suggest = "domain_name"
+        elif key == "domainSid":
+            suggest = "domain_sid"
+        elif key == "forestName":
+            suggest = "forest_name"
+        elif key == "netbiosDomainName":
+            suggest = "netbios_domain_name"
+        elif key == "storageSid":
+            suggest = "storage_sid"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountAzureFilesAuthenticationActiveDirectory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountAzureFilesAuthenticationActiveDirectory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountAzureFilesAuthenticationActiveDirectory.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_guid: str,
+                 domain_name: str,
+                 domain_sid: str,
+                 forest_name: str,
+                 netbios_domain_name: str,
+                 storage_sid: str):
+        """
+        :param str domain_guid: Specifies the domain GUID.
+        :param str domain_name: Specifies the primary domain that the AD DNS server is authoritative for.
+        :param str domain_sid: Specifies the security identifier (SID).
+        :param str forest_name: Specifies the Active Directory forest.
+        :param str netbios_domain_name: Specifies the NetBIOS domain name.
+        :param str storage_sid: Specifies the security identifier (SID) for Azure Storage.
+        """
+        pulumi.set(__self__, "domain_guid", domain_guid)
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "domain_sid", domain_sid)
+        pulumi.set(__self__, "forest_name", forest_name)
+        pulumi.set(__self__, "netbios_domain_name", netbios_domain_name)
+        pulumi.set(__self__, "storage_sid", storage_sid)
+
+    @property
+    @pulumi.getter(name="domainGuid")
+    def domain_guid(self) -> str:
+        """
+        Specifies the domain GUID.
+        """
+        return pulumi.get(self, "domain_guid")
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> str:
+        """
+        Specifies the primary domain that the AD DNS server is authoritative for.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter(name="domainSid")
+    def domain_sid(self) -> str:
+        """
+        Specifies the security identifier (SID).
+        """
+        return pulumi.get(self, "domain_sid")
+
+    @property
+    @pulumi.getter(name="forestName")
+    def forest_name(self) -> str:
+        """
+        Specifies the Active Directory forest.
+        """
+        return pulumi.get(self, "forest_name")
+
+    @property
+    @pulumi.getter(name="netbiosDomainName")
+    def netbios_domain_name(self) -> str:
+        """
+        Specifies the NetBIOS domain name.
+        """
+        return pulumi.get(self, "netbios_domain_name")
+
+    @property
+    @pulumi.getter(name="storageSid")
+    def storage_sid(self) -> str:
+        """
+        Specifies the security identifier (SID) for Azure Storage.
+        """
+        return pulumi.get(self, "storage_sid")
+
+
+@pulumi.output_type
 class AccountBlobProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "containerDeleteRetentionPolicy":
+        if key == "changeFeedEnabled":
+            suggest = "change_feed_enabled"
+        elif key == "containerDeleteRetentionPolicy":
             suggest = "container_delete_retention_policy"
         elif key == "corsRules":
             suggest = "cors_rules"
@@ -82,6 +238,7 @@ class AccountBlobProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 change_feed_enabled: Optional[bool] = None,
                  container_delete_retention_policy: Optional['outputs.AccountBlobPropertiesContainerDeleteRetentionPolicy'] = None,
                  cors_rules: Optional[Sequence['outputs.AccountBlobPropertiesCorsRule']] = None,
                  default_service_version: Optional[str] = None,
@@ -89,6 +246,7 @@ class AccountBlobProperties(dict):
                  last_access_time_enabled: Optional[bool] = None,
                  versioning_enabled: Optional[bool] = None):
         """
+        :param bool change_feed_enabled: Is the blob service properties for change feed events enabled? Default to `false`.
         :param 'AccountBlobPropertiesContainerDeleteRetentionPolicyArgs' container_delete_retention_policy: A `container_delete_retention_policy` block as defined below.
         :param Sequence['AccountBlobPropertiesCorsRuleArgs'] cors_rules: A `cors_rule` block as defined below.
         :param str default_service_version: The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version. Defaults to `2020-06-12`.
@@ -96,6 +254,8 @@ class AccountBlobProperties(dict):
         :param bool last_access_time_enabled: Is the last access time based tracking enabled? Default to `false`.
         :param bool versioning_enabled: Is versioning enabled? Default to `false`.
         """
+        if change_feed_enabled is not None:
+            pulumi.set(__self__, "change_feed_enabled", change_feed_enabled)
         if container_delete_retention_policy is not None:
             pulumi.set(__self__, "container_delete_retention_policy", container_delete_retention_policy)
         if cors_rules is not None:
@@ -108,6 +268,14 @@ class AccountBlobProperties(dict):
             pulumi.set(__self__, "last_access_time_enabled", last_access_time_enabled)
         if versioning_enabled is not None:
             pulumi.set(__self__, "versioning_enabled", versioning_enabled)
+
+    @property
+    @pulumi.getter(name="changeFeedEnabled")
+    def change_feed_enabled(self) -> Optional[bool]:
+        """
+        Is the blob service properties for change feed events enabled? Default to `false`.
+        """
+        return pulumi.get(self, "change_feed_enabled")
 
     @property
     @pulumi.getter(name="containerDeleteRetentionPolicy")
@@ -402,6 +570,8 @@ class AccountNetworkRules(dict):
             suggest = "default_action"
         elif key == "ipRules":
             suggest = "ip_rules"
+        elif key == "privateLinkAccesses":
+            suggest = "private_link_accesses"
         elif key == "virtualNetworkSubnetIds":
             suggest = "virtual_network_subnet_ids"
 
@@ -420,12 +590,14 @@ class AccountNetworkRules(dict):
                  default_action: str,
                  bypasses: Optional[Sequence[str]] = None,
                  ip_rules: Optional[Sequence[str]] = None,
+                 private_link_accesses: Optional[Sequence['outputs.AccountNetworkRulesPrivateLinkAccess']] = None,
                  virtual_network_subnet_ids: Optional[Sequence[str]] = None):
         """
         :param str default_action: Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
         :param Sequence[str] bypasses: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
                any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
         :param Sequence[str] ip_rules: List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+        :param Sequence['AccountNetworkRulesPrivateLinkAccessArgs'] private_link_accesses: One or More `private_link_access` block as defined below.
         :param Sequence[str] virtual_network_subnet_ids: A list of resource ids for subnets.
         """
         pulumi.set(__self__, "default_action", default_action)
@@ -433,6 +605,8 @@ class AccountNetworkRules(dict):
             pulumi.set(__self__, "bypasses", bypasses)
         if ip_rules is not None:
             pulumi.set(__self__, "ip_rules", ip_rules)
+        if private_link_accesses is not None:
+            pulumi.set(__self__, "private_link_accesses", private_link_accesses)
         if virtual_network_subnet_ids is not None:
             pulumi.set(__self__, "virtual_network_subnet_ids", virtual_network_subnet_ids)
 
@@ -462,12 +636,118 @@ class AccountNetworkRules(dict):
         return pulumi.get(self, "ip_rules")
 
     @property
+    @pulumi.getter(name="privateLinkAccesses")
+    def private_link_accesses(self) -> Optional[Sequence['outputs.AccountNetworkRulesPrivateLinkAccess']]:
+        """
+        One or More `private_link_access` block as defined below.
+        """
+        return pulumi.get(self, "private_link_accesses")
+
+    @property
     @pulumi.getter(name="virtualNetworkSubnetIds")
     def virtual_network_subnet_ids(self) -> Optional[Sequence[str]]:
         """
         A list of resource ids for subnets.
         """
         return pulumi.get(self, "virtual_network_subnet_ids")
+
+
+@pulumi.output_type
+class AccountNetworkRulesPrivateLinkAccess(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointResourceId":
+            suggest = "endpoint_resource_id"
+        elif key == "endpointTenantId":
+            suggest = "endpoint_tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountNetworkRulesPrivateLinkAccess. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountNetworkRulesPrivateLinkAccess.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountNetworkRulesPrivateLinkAccess.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint_resource_id: str,
+                 endpoint_tenant_id: Optional[str] = None):
+        """
+        :param str endpoint_resource_id: The resource id of the `privatelink.Endpoint` of the resource access rule.
+        :param str endpoint_tenant_id: The tenant id of the `privatelink.Endpoint` of the resource access rule. Defaults to the current tenant id.
+        """
+        pulumi.set(__self__, "endpoint_resource_id", endpoint_resource_id)
+        if endpoint_tenant_id is not None:
+            pulumi.set(__self__, "endpoint_tenant_id", endpoint_tenant_id)
+
+    @property
+    @pulumi.getter(name="endpointResourceId")
+    def endpoint_resource_id(self) -> str:
+        """
+        The resource id of the `privatelink.Endpoint` of the resource access rule.
+        """
+        return pulumi.get(self, "endpoint_resource_id")
+
+    @property
+    @pulumi.getter(name="endpointTenantId")
+    def endpoint_tenant_id(self) -> Optional[str]:
+        """
+        The tenant id of the `privatelink.Endpoint` of the resource access rule. Defaults to the current tenant id.
+        """
+        return pulumi.get(self, "endpoint_tenant_id")
+
+
+@pulumi.output_type
+class AccountNetworkRulesPrivateLinkAccessRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointResourceId":
+            suggest = "endpoint_resource_id"
+        elif key == "endpointTenantId":
+            suggest = "endpoint_tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountNetworkRulesPrivateLinkAccessRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountNetworkRulesPrivateLinkAccessRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountNetworkRulesPrivateLinkAccessRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint_resource_id: str,
+                 endpoint_tenant_id: Optional[str] = None):
+        """
+        :param str endpoint_resource_id: The resource id of the `privatelink.Endpoint` of the resource access rule.
+        :param str endpoint_tenant_id: The tenant id of the `privatelink.Endpoint` of the resource access rule. Defaults to the current tenant id.
+        """
+        pulumi.set(__self__, "endpoint_resource_id", endpoint_resource_id)
+        if endpoint_tenant_id is not None:
+            pulumi.set(__self__, "endpoint_tenant_id", endpoint_tenant_id)
+
+    @property
+    @pulumi.getter(name="endpointResourceId")
+    def endpoint_resource_id(self) -> str:
+        """
+        The resource id of the `privatelink.Endpoint` of the resource access rule.
+        """
+        return pulumi.get(self, "endpoint_resource_id")
+
+    @property
+    @pulumi.getter(name="endpointTenantId")
+    def endpoint_tenant_id(self) -> Optional[str]:
+        """
+        The tenant id of the `privatelink.Endpoint` of the resource access rule. Defaults to the current tenant id.
+        """
+        return pulumi.get(self, "endpoint_tenant_id")
 
 
 @pulumi.output_type
@@ -857,6 +1137,68 @@ class AccountQueuePropertiesMinuteMetrics(dict):
         Specifies the number of days that logs will be retained. Changing this forces a new resource.
         """
         return pulumi.get(self, "retention_policy_days")
+
+
+@pulumi.output_type
+class AccountRouting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publishInternetEndpoints":
+            suggest = "publish_internet_endpoints"
+        elif key == "publishMicrosoftEndpoints":
+            suggest = "publish_microsoft_endpoints"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountRouting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountRouting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountRouting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 choice: Optional[str] = None,
+                 publish_internet_endpoints: Optional[bool] = None,
+                 publish_microsoft_endpoints: Optional[bool] = None):
+        """
+        :param str choice: Specifies the kind of network routing opted by the user. Possible values are `InternetRouting` and `MicrosoftRouting`. Defaults to `MicrosoftRouting`.
+        :param bool publish_internet_endpoints: Should internet routing storage endpoints be published? Defaults to `false`.
+        :param bool publish_microsoft_endpoints: Should microsoft routing storage endpoints be published? Defaults to `false`.
+        """
+        if choice is not None:
+            pulumi.set(__self__, "choice", choice)
+        if publish_internet_endpoints is not None:
+            pulumi.set(__self__, "publish_internet_endpoints", publish_internet_endpoints)
+        if publish_microsoft_endpoints is not None:
+            pulumi.set(__self__, "publish_microsoft_endpoints", publish_microsoft_endpoints)
+
+    @property
+    @pulumi.getter
+    def choice(self) -> Optional[str]:
+        """
+        Specifies the kind of network routing opted by the user. Possible values are `InternetRouting` and `MicrosoftRouting`. Defaults to `MicrosoftRouting`.
+        """
+        return pulumi.get(self, "choice")
+
+    @property
+    @pulumi.getter(name="publishInternetEndpoints")
+    def publish_internet_endpoints(self) -> Optional[bool]:
+        """
+        Should internet routing storage endpoints be published? Defaults to `false`.
+        """
+        return pulumi.get(self, "publish_internet_endpoints")
+
+    @property
+    @pulumi.getter(name="publishMicrosoftEndpoints")
+    def publish_microsoft_endpoints(self) -> Optional[bool]:
+        """
+        Should microsoft routing storage endpoints be published? Defaults to `false`.
+        """
+        return pulumi.get(self, "publish_microsoft_endpoints")
 
 
 @pulumi.output_type

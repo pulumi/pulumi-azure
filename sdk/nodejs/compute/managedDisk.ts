@@ -166,6 +166,10 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
+     */
+    public readonly tier!: pulumi.Output<string>;
+    /**
      * A collection containing the availability zone to allocate the Managed Disk in.
      */
     public readonly zones!: pulumi.Output<string | undefined>;
@@ -201,6 +205,7 @@ export class ManagedDisk extends pulumi.CustomResource {
             inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
             inputs["storageAccountType"] = state ? state.storageAccountType : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tier"] = state ? state.tier : undefined;
             inputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as ManagedDiskArgs | undefined;
@@ -231,6 +236,7 @@ export class ManagedDisk extends pulumi.CustomResource {
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             inputs["storageAccountType"] = args ? args.storageAccountType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tier"] = args ? args.tier : undefined;
             inputs["zones"] = args ? args.zones : undefined;
         }
         if (!opts.version) {
@@ -317,6 +323,10 @@ export interface ManagedDiskState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
+     */
+    readonly tier?: pulumi.Input<string>;
+    /**
      * A collection containing the availability zone to allocate the Managed Disk in.
      */
     readonly zones?: pulumi.Input<string>;
@@ -398,6 +408,10 @@ export interface ManagedDiskArgs {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
+     */
+    readonly tier?: pulumi.Input<string>;
     /**
      * A collection containing the availability zone to allocate the Managed Disk in.
      */

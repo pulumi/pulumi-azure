@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -99,6 +100,10 @@ export class AccountNetworkRules extends pulumi.CustomResource {
      */
     public readonly ipRules!: pulumi.Output<string[]>;
     /**
+     * One or More `privateLinkAccess` block as defined below.
+     */
+    public readonly privateLinkAccessRules!: pulumi.Output<outputs.storage.AccountNetworkRulesPrivateLinkAccessRule[] | undefined>;
+    /**
      * The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -127,6 +132,7 @@ export class AccountNetworkRules extends pulumi.CustomResource {
             inputs["bypasses"] = state ? state.bypasses : undefined;
             inputs["defaultAction"] = state ? state.defaultAction : undefined;
             inputs["ipRules"] = state ? state.ipRules : undefined;
+            inputs["privateLinkAccessRules"] = state ? state.privateLinkAccessRules : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["storageAccountName"] = state ? state.storageAccountName : undefined;
             inputs["virtualNetworkSubnetIds"] = state ? state.virtualNetworkSubnetIds : undefined;
@@ -144,6 +150,7 @@ export class AccountNetworkRules extends pulumi.CustomResource {
             inputs["bypasses"] = args ? args.bypasses : undefined;
             inputs["defaultAction"] = args ? args.defaultAction : undefined;
             inputs["ipRules"] = args ? args.ipRules : undefined;
+            inputs["privateLinkAccessRules"] = args ? args.privateLinkAccessRules : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
             inputs["virtualNetworkSubnetIds"] = args ? args.virtualNetworkSubnetIds : undefined;
@@ -171,6 +178,10 @@ export interface AccountNetworkRulesState {
      * List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
      */
     readonly ipRules?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * One or More `privateLinkAccess` block as defined below.
+     */
+    readonly privateLinkAccessRules?: pulumi.Input<pulumi.Input<inputs.storage.AccountNetworkRulesPrivateLinkAccessRule>[]>;
     /**
      * The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
      */
@@ -201,6 +212,10 @@ export interface AccountNetworkRulesArgs {
      * List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
      */
     readonly ipRules?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * One or More `privateLinkAccess` block as defined below.
+     */
+    readonly privateLinkAccessRules?: pulumi.Input<pulumi.Input<inputs.storage.AccountNetworkRulesPrivateLinkAccessRule>[]>;
     /**
      * The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
      */

@@ -31,6 +31,7 @@ import * as cognitive from "./cognitive";
 import * as communication from "./communication";
 import * as compute from "./compute";
 import * as config from "./config";
+import * as consumption from "./consumption";
 import * as containerservice from "./containerservice";
 import * as core from "./core";
 import * as cosmosdb from "./cosmosdb";
@@ -131,6 +132,7 @@ export {
     communication,
     compute,
     config,
+    consumption,
     containerservice,
     core,
     cosmosdb,

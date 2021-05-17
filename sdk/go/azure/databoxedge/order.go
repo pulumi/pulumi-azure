@@ -35,7 +35,7 @@ import (
 // 		exampleDevice, err := databoxedge.NewDevice(ctx, "exampleDevice", &databoxedge.DeviceArgs{
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Location:          exampleResourceGroup.Location,
-// 			SkuName:           pulumi.String("Edge-Standard"),
+// 			SkuName:           pulumi.String("EdgeP_Base-Standard"),
 // 		})
 // 		if err != nil {
 // 			return err

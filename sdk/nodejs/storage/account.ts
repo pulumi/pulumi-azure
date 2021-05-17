@@ -119,6 +119,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly allowBlobPublicAccess!: pulumi.Output<boolean | undefined>;
     /**
+     * A `azureFilesAuthentication` block as defined below.
+     */
+    public readonly azureFilesAuthentication!: pulumi.Output<outputs.storage.AccountAzureFilesAuthentication | undefined>;
+    /**
      * A `blobProperties` block as defined below.
      */
     public readonly blobProperties!: pulumi.Output<outputs.storage.AccountBlobProperties>;
@@ -236,6 +240,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * A `routing` block as defined below.
+     */
+    public readonly routing!: pulumi.Output<outputs.storage.AccountRouting>;
+    /**
      * The secondary access key for the storage account.
      */
     public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
@@ -326,6 +334,7 @@ export class Account extends pulumi.CustomResource {
             inputs["accountReplicationType"] = state ? state.accountReplicationType : undefined;
             inputs["accountTier"] = state ? state.accountTier : undefined;
             inputs["allowBlobPublicAccess"] = state ? state.allowBlobPublicAccess : undefined;
+            inputs["azureFilesAuthentication"] = state ? state.azureFilesAuthentication : undefined;
             inputs["blobProperties"] = state ? state.blobProperties : undefined;
             inputs["customDomain"] = state ? state.customDomain : undefined;
             inputs["enableHttpsTrafficOnly"] = state ? state.enableHttpsTrafficOnly : undefined;
@@ -355,6 +364,7 @@ export class Account extends pulumi.CustomResource {
             inputs["primaryWebHost"] = state ? state.primaryWebHost : undefined;
             inputs["queueProperties"] = state ? state.queueProperties : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["routing"] = state ? state.routing : undefined;
             inputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
             inputs["secondaryBlobConnectionString"] = state ? state.secondaryBlobConnectionString : undefined;
             inputs["secondaryBlobEndpoint"] = state ? state.secondaryBlobEndpoint : undefined;
@@ -389,6 +399,7 @@ export class Account extends pulumi.CustomResource {
             inputs["accountReplicationType"] = args ? args.accountReplicationType : undefined;
             inputs["accountTier"] = args ? args.accountTier : undefined;
             inputs["allowBlobPublicAccess"] = args ? args.allowBlobPublicAccess : undefined;
+            inputs["azureFilesAuthentication"] = args ? args.azureFilesAuthentication : undefined;
             inputs["blobProperties"] = args ? args.blobProperties : undefined;
             inputs["customDomain"] = args ? args.customDomain : undefined;
             inputs["enableHttpsTrafficOnly"] = args ? args.enableHttpsTrafficOnly : undefined;
@@ -402,6 +413,7 @@ export class Account extends pulumi.CustomResource {
             inputs["nfsv3Enabled"] = args ? args.nfsv3Enabled : undefined;
             inputs["queueProperties"] = args ? args.queueProperties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["routing"] = args ? args.routing : undefined;
             inputs["staticWebsite"] = args ? args.staticWebsite : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["primaryAccessKey"] = undefined /*out*/;
@@ -468,6 +480,10 @@ export interface AccountState {
      * Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
      */
     readonly allowBlobPublicAccess?: pulumi.Input<boolean>;
+    /**
+     * A `azureFilesAuthentication` block as defined below.
+     */
+    readonly azureFilesAuthentication?: pulumi.Input<inputs.storage.AccountAzureFilesAuthentication>;
     /**
      * A `blobProperties` block as defined below.
      */
@@ -586,6 +602,10 @@ export interface AccountState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
+     * A `routing` block as defined below.
+     */
+    readonly routing?: pulumi.Input<inputs.storage.AccountRouting>;
+    /**
      * The secondary access key for the storage account.
      */
     readonly secondaryAccessKey?: pulumi.Input<string>;
@@ -684,6 +704,10 @@ export interface AccountArgs {
      */
     readonly allowBlobPublicAccess?: pulumi.Input<boolean>;
     /**
+     * A `azureFilesAuthentication` block as defined below.
+     */
+    readonly azureFilesAuthentication?: pulumi.Input<inputs.storage.AccountAzureFilesAuthentication>;
+    /**
      * A `blobProperties` block as defined below.
      */
     readonly blobProperties?: pulumi.Input<inputs.storage.AccountBlobProperties>;
@@ -736,6 +760,10 @@ export interface AccountArgs {
      * The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * A `routing` block as defined below.
+     */
+    readonly routing?: pulumi.Input<inputs.storage.AccountRouting>;
     /**
      * A `staticWebsite` block as defined below.
      */

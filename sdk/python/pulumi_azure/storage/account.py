@@ -21,6 +21,7 @@ class AccountArgs:
                  access_tier: Optional[pulumi.Input[str]] = None,
                  account_kind: Optional[pulumi.Input[str]] = None,
                  allow_blob_public_access: Optional[pulumi.Input[bool]] = None,
+                 azure_files_authentication: Optional[pulumi.Input['AccountAzureFilesAuthenticationArgs']] = None,
                  blob_properties: Optional[pulumi.Input['AccountBlobPropertiesArgs']] = None,
                  custom_domain: Optional[pulumi.Input['AccountCustomDomainArgs']] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
@@ -33,6 +34,7 @@ class AccountArgs:
                  network_rules: Optional[pulumi.Input['AccountNetworkRulesArgs']] = None,
                  nfsv3_enabled: Optional[pulumi.Input[bool]] = None,
                  queue_properties: Optional[pulumi.Input['AccountQueuePropertiesArgs']] = None,
+                 routing: Optional[pulumi.Input['AccountRoutingArgs']] = None,
                  static_website: Optional[pulumi.Input['AccountStaticWebsiteArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -43,6 +45,7 @@ class AccountArgs:
         :param pulumi.Input[str] access_tier: Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
         :param pulumi.Input[str] account_kind: Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
         :param pulumi.Input[bool] allow_blob_public_access: Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
+        :param pulumi.Input['AccountAzureFilesAuthenticationArgs'] azure_files_authentication: A `azure_files_authentication` block as defined below.
         :param pulumi.Input['AccountBlobPropertiesArgs'] blob_properties: A `blob_properties` block as defined below.
         :param pulumi.Input['AccountCustomDomainArgs'] custom_domain: A `custom_domain` block as documented below.
         :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
@@ -56,6 +59,7 @@ class AccountArgs:
         :param pulumi.Input['AccountNetworkRulesArgs'] network_rules: A `network_rules` block as documented below.
         :param pulumi.Input[bool] nfsv3_enabled: Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input['AccountQueuePropertiesArgs'] queue_properties: A `queue_properties` block as defined below.
+        :param pulumi.Input['AccountRoutingArgs'] routing: A `routing` block as defined below.
         :param pulumi.Input['AccountStaticWebsiteArgs'] static_website: A `static_website` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -68,6 +72,8 @@ class AccountArgs:
             pulumi.set(__self__, "account_kind", account_kind)
         if allow_blob_public_access is not None:
             pulumi.set(__self__, "allow_blob_public_access", allow_blob_public_access)
+        if azure_files_authentication is not None:
+            pulumi.set(__self__, "azure_files_authentication", azure_files_authentication)
         if blob_properties is not None:
             pulumi.set(__self__, "blob_properties", blob_properties)
         if custom_domain is not None:
@@ -92,6 +98,8 @@ class AccountArgs:
             pulumi.set(__self__, "nfsv3_enabled", nfsv3_enabled)
         if queue_properties is not None:
             pulumi.set(__self__, "queue_properties", queue_properties)
+        if routing is not None:
+            pulumi.set(__self__, "routing", routing)
         if static_website is not None:
             pulumi.set(__self__, "static_website", static_website)
         if tags is not None:
@@ -168,6 +176,18 @@ class AccountArgs:
     @allow_blob_public_access.setter
     def allow_blob_public_access(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_blob_public_access", value)
+
+    @property
+    @pulumi.getter(name="azureFilesAuthentication")
+    def azure_files_authentication(self) -> Optional[pulumi.Input['AccountAzureFilesAuthenticationArgs']]:
+        """
+        A `azure_files_authentication` block as defined below.
+        """
+        return pulumi.get(self, "azure_files_authentication")
+
+    @azure_files_authentication.setter
+    def azure_files_authentication(self, value: Optional[pulumi.Input['AccountAzureFilesAuthenticationArgs']]):
+        pulumi.set(self, "azure_files_authentication", value)
 
     @property
     @pulumi.getter(name="blobProperties")
@@ -315,6 +335,18 @@ class AccountArgs:
         pulumi.set(self, "queue_properties", value)
 
     @property
+    @pulumi.getter
+    def routing(self) -> Optional[pulumi.Input['AccountRoutingArgs']]:
+        """
+        A `routing` block as defined below.
+        """
+        return pulumi.get(self, "routing")
+
+    @routing.setter
+    def routing(self, value: Optional[pulumi.Input['AccountRoutingArgs']]):
+        pulumi.set(self, "routing", value)
+
+    @property
     @pulumi.getter(name="staticWebsite")
     def static_website(self) -> Optional[pulumi.Input['AccountStaticWebsiteArgs']]:
         """
@@ -347,6 +379,7 @@ class _AccountState:
                  account_replication_type: Optional[pulumi.Input[str]] = None,
                  account_tier: Optional[pulumi.Input[str]] = None,
                  allow_blob_public_access: Optional[pulumi.Input[bool]] = None,
+                 azure_files_authentication: Optional[pulumi.Input['AccountAzureFilesAuthenticationArgs']] = None,
                  blob_properties: Optional[pulumi.Input['AccountBlobPropertiesArgs']] = None,
                  custom_domain: Optional[pulumi.Input['AccountCustomDomainArgs']] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
@@ -376,6 +409,7 @@ class _AccountState:
                  primary_web_host: Optional[pulumi.Input[str]] = None,
                  queue_properties: Optional[pulumi.Input['AccountQueuePropertiesArgs']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 routing: Optional[pulumi.Input['AccountRoutingArgs']] = None,
                  secondary_access_key: Optional[pulumi.Input[str]] = None,
                  secondary_blob_connection_string: Optional[pulumi.Input[str]] = None,
                  secondary_blob_endpoint: Optional[pulumi.Input[str]] = None,
@@ -401,6 +435,7 @@ class _AccountState:
         :param pulumi.Input[str] account_replication_type: Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
         :param pulumi.Input[str] account_tier: Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] allow_blob_public_access: Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
+        :param pulumi.Input['AccountAzureFilesAuthenticationArgs'] azure_files_authentication: A `azure_files_authentication` block as defined below.
         :param pulumi.Input['AccountBlobPropertiesArgs'] blob_properties: A `blob_properties` block as defined below.
         :param pulumi.Input['AccountCustomDomainArgs'] custom_domain: A `custom_domain` block as documented below.
         :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
@@ -431,6 +466,7 @@ class _AccountState:
         :param pulumi.Input[str] primary_web_host: The hostname with port if applicable for web storage in the primary location.
         :param pulumi.Input['AccountQueuePropertiesArgs'] queue_properties: A `queue_properties` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
+        :param pulumi.Input['AccountRoutingArgs'] routing: A `routing` block as defined below.
         :param pulumi.Input[str] secondary_access_key: The secondary access key for the storage account.
         :param pulumi.Input[str] secondary_blob_connection_string: The connection string associated with the secondary blob location.
         :param pulumi.Input[str] secondary_blob_endpoint: The endpoint URL for blob storage in the secondary location.
@@ -460,6 +496,8 @@ class _AccountState:
             pulumi.set(__self__, "account_tier", account_tier)
         if allow_blob_public_access is not None:
             pulumi.set(__self__, "allow_blob_public_access", allow_blob_public_access)
+        if azure_files_authentication is not None:
+            pulumi.set(__self__, "azure_files_authentication", azure_files_authentication)
         if blob_properties is not None:
             pulumi.set(__self__, "blob_properties", blob_properties)
         if custom_domain is not None:
@@ -518,6 +556,8 @@ class _AccountState:
             pulumi.set(__self__, "queue_properties", queue_properties)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if routing is not None:
+            pulumi.set(__self__, "routing", routing)
         if secondary_access_key is not None:
             pulumi.set(__self__, "secondary_access_key", secondary_access_key)
         if secondary_blob_connection_string is not None:
@@ -614,6 +654,18 @@ class _AccountState:
     @allow_blob_public_access.setter
     def allow_blob_public_access(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_blob_public_access", value)
+
+    @property
+    @pulumi.getter(name="azureFilesAuthentication")
+    def azure_files_authentication(self) -> Optional[pulumi.Input['AccountAzureFilesAuthenticationArgs']]:
+        """
+        A `azure_files_authentication` block as defined below.
+        """
+        return pulumi.get(self, "azure_files_authentication")
+
+    @azure_files_authentication.setter
+    def azure_files_authentication(self, value: Optional[pulumi.Input['AccountAzureFilesAuthenticationArgs']]):
+        pulumi.set(self, "azure_files_authentication", value)
 
     @property
     @pulumi.getter(name="blobProperties")
@@ -965,6 +1017,18 @@ class _AccountState:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter
+    def routing(self) -> Optional[pulumi.Input['AccountRoutingArgs']]:
+        """
+        A `routing` block as defined below.
+        """
+        return pulumi.get(self, "routing")
+
+    @routing.setter
+    def routing(self, value: Optional[pulumi.Input['AccountRoutingArgs']]):
+        pulumi.set(self, "routing", value)
+
+    @property
     @pulumi.getter(name="secondaryAccessKey")
     def secondary_access_key(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1191,6 +1255,7 @@ class Account(pulumi.CustomResource):
                  account_replication_type: Optional[pulumi.Input[str]] = None,
                  account_tier: Optional[pulumi.Input[str]] = None,
                  allow_blob_public_access: Optional[pulumi.Input[bool]] = None,
+                 azure_files_authentication: Optional[pulumi.Input[pulumi.InputType['AccountAzureFilesAuthenticationArgs']]] = None,
                  blob_properties: Optional[pulumi.Input[pulumi.InputType['AccountBlobPropertiesArgs']]] = None,
                  custom_domain: Optional[pulumi.Input[pulumi.InputType['AccountCustomDomainArgs']]] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
@@ -1204,6 +1269,7 @@ class Account(pulumi.CustomResource):
                  nfsv3_enabled: Optional[pulumi.Input[bool]] = None,
                  queue_properties: Optional[pulumi.Input[pulumi.InputType['AccountQueuePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 routing: Optional[pulumi.Input[pulumi.InputType['AccountRoutingArgs']]] = None,
                  static_website: Optional[pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -1275,6 +1341,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] account_replication_type: Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
         :param pulumi.Input[str] account_tier: Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] allow_blob_public_access: Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
+        :param pulumi.Input[pulumi.InputType['AccountAzureFilesAuthenticationArgs']] azure_files_authentication: A `azure_files_authentication` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountBlobPropertiesArgs']] blob_properties: A `blob_properties` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountCustomDomainArgs']] custom_domain: A `custom_domain` block as documented below.
         :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
@@ -1289,6 +1356,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[bool] nfsv3_enabled: Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['AccountQueuePropertiesArgs']] queue_properties: A `queue_properties` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['AccountRoutingArgs']] routing: A `routing` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']] static_website: A `static_website` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -1379,6 +1447,7 @@ class Account(pulumi.CustomResource):
                  account_replication_type: Optional[pulumi.Input[str]] = None,
                  account_tier: Optional[pulumi.Input[str]] = None,
                  allow_blob_public_access: Optional[pulumi.Input[bool]] = None,
+                 azure_files_authentication: Optional[pulumi.Input[pulumi.InputType['AccountAzureFilesAuthenticationArgs']]] = None,
                  blob_properties: Optional[pulumi.Input[pulumi.InputType['AccountBlobPropertiesArgs']]] = None,
                  custom_domain: Optional[pulumi.Input[pulumi.InputType['AccountCustomDomainArgs']]] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
@@ -1392,6 +1461,7 @@ class Account(pulumi.CustomResource):
                  nfsv3_enabled: Optional[pulumi.Input[bool]] = None,
                  queue_properties: Optional[pulumi.Input[pulumi.InputType['AccountQueuePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 routing: Optional[pulumi.Input[pulumi.InputType['AccountRoutingArgs']]] = None,
                  static_website: Optional[pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -1415,6 +1485,7 @@ class Account(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_tier'")
             __props__.__dict__["account_tier"] = account_tier
             __props__.__dict__["allow_blob_public_access"] = allow_blob_public_access
+            __props__.__dict__["azure_files_authentication"] = azure_files_authentication
             __props__.__dict__["blob_properties"] = blob_properties
             __props__.__dict__["custom_domain"] = custom_domain
             __props__.__dict__["enable_https_traffic_only"] = enable_https_traffic_only
@@ -1430,6 +1501,7 @@ class Account(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["routing"] = routing
             __props__.__dict__["static_website"] = static_website
             __props__.__dict__["tags"] = tags
             __props__.__dict__["primary_access_key"] = None
@@ -1479,6 +1551,7 @@ class Account(pulumi.CustomResource):
             account_replication_type: Optional[pulumi.Input[str]] = None,
             account_tier: Optional[pulumi.Input[str]] = None,
             allow_blob_public_access: Optional[pulumi.Input[bool]] = None,
+            azure_files_authentication: Optional[pulumi.Input[pulumi.InputType['AccountAzureFilesAuthenticationArgs']]] = None,
             blob_properties: Optional[pulumi.Input[pulumi.InputType['AccountBlobPropertiesArgs']]] = None,
             custom_domain: Optional[pulumi.Input[pulumi.InputType['AccountCustomDomainArgs']]] = None,
             enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
@@ -1508,6 +1581,7 @@ class Account(pulumi.CustomResource):
             primary_web_host: Optional[pulumi.Input[str]] = None,
             queue_properties: Optional[pulumi.Input[pulumi.InputType['AccountQueuePropertiesArgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            routing: Optional[pulumi.Input[pulumi.InputType['AccountRoutingArgs']]] = None,
             secondary_access_key: Optional[pulumi.Input[str]] = None,
             secondary_blob_connection_string: Optional[pulumi.Input[str]] = None,
             secondary_blob_endpoint: Optional[pulumi.Input[str]] = None,
@@ -1538,6 +1612,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] account_replication_type: Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
         :param pulumi.Input[str] account_tier: Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] allow_blob_public_access: Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
+        :param pulumi.Input[pulumi.InputType['AccountAzureFilesAuthenticationArgs']] azure_files_authentication: A `azure_files_authentication` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountBlobPropertiesArgs']] blob_properties: A `blob_properties` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountCustomDomainArgs']] custom_domain: A `custom_domain` block as documented below.
         :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
@@ -1568,6 +1643,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] primary_web_host: The hostname with port if applicable for web storage in the primary location.
         :param pulumi.Input[pulumi.InputType['AccountQueuePropertiesArgs']] queue_properties: A `queue_properties` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['AccountRoutingArgs']] routing: A `routing` block as defined below.
         :param pulumi.Input[str] secondary_access_key: The secondary access key for the storage account.
         :param pulumi.Input[str] secondary_blob_connection_string: The connection string associated with the secondary blob location.
         :param pulumi.Input[str] secondary_blob_endpoint: The endpoint URL for blob storage in the secondary location.
@@ -1596,6 +1672,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["account_replication_type"] = account_replication_type
         __props__.__dict__["account_tier"] = account_tier
         __props__.__dict__["allow_blob_public_access"] = allow_blob_public_access
+        __props__.__dict__["azure_files_authentication"] = azure_files_authentication
         __props__.__dict__["blob_properties"] = blob_properties
         __props__.__dict__["custom_domain"] = custom_domain
         __props__.__dict__["enable_https_traffic_only"] = enable_https_traffic_only
@@ -1625,6 +1702,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["primary_web_host"] = primary_web_host
         __props__.__dict__["queue_properties"] = queue_properties
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["routing"] = routing
         __props__.__dict__["secondary_access_key"] = secondary_access_key
         __props__.__dict__["secondary_blob_connection_string"] = secondary_blob_connection_string
         __props__.__dict__["secondary_blob_endpoint"] = secondary_blob_endpoint
@@ -1684,6 +1762,14 @@ class Account(pulumi.CustomResource):
         Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
         """
         return pulumi.get(self, "allow_blob_public_access")
+
+    @property
+    @pulumi.getter(name="azureFilesAuthentication")
+    def azure_files_authentication(self) -> pulumi.Output[Optional['outputs.AccountAzureFilesAuthentication']]:
+        """
+        A `azure_files_authentication` block as defined below.
+        """
+        return pulumi.get(self, "azure_files_authentication")
 
     @property
     @pulumi.getter(name="blobProperties")
@@ -1917,6 +2003,14 @@ class Account(pulumi.CustomResource):
         The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter
+    def routing(self) -> pulumi.Output['outputs.AccountRouting']:
+        """
+        A `routing` block as defined below.
+        """
+        return pulumi.get(self, "routing")
 
     @property
     @pulumi.getter(name="secondaryAccessKey")

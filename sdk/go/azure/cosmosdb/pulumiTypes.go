@@ -10,6 +10,175 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AccountBackup struct {
+	// The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
+	IntervalInMinutes *int `pulumi:"intervalInMinutes"`
+	// The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
+	RetentionInHours *int `pulumi:"retentionInHours"`
+	// The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`.
+	Type string `pulumi:"type"`
+}
+
+// AccountBackupInput is an input type that accepts AccountBackupArgs and AccountBackupOutput values.
+// You can construct a concrete instance of `AccountBackupInput` via:
+//
+//          AccountBackupArgs{...}
+type AccountBackupInput interface {
+	pulumi.Input
+
+	ToAccountBackupOutput() AccountBackupOutput
+	ToAccountBackupOutputWithContext(context.Context) AccountBackupOutput
+}
+
+type AccountBackupArgs struct {
+	// The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
+	IntervalInMinutes pulumi.IntPtrInput `pulumi:"intervalInMinutes"`
+	// The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
+	RetentionInHours pulumi.IntPtrInput `pulumi:"retentionInHours"`
+	// The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AccountBackupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountBackup)(nil)).Elem()
+}
+
+func (i AccountBackupArgs) ToAccountBackupOutput() AccountBackupOutput {
+	return i.ToAccountBackupOutputWithContext(context.Background())
+}
+
+func (i AccountBackupArgs) ToAccountBackupOutputWithContext(ctx context.Context) AccountBackupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountBackupOutput)
+}
+
+func (i AccountBackupArgs) ToAccountBackupPtrOutput() AccountBackupPtrOutput {
+	return i.ToAccountBackupPtrOutputWithContext(context.Background())
+}
+
+func (i AccountBackupArgs) ToAccountBackupPtrOutputWithContext(ctx context.Context) AccountBackupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountBackupOutput).ToAccountBackupPtrOutputWithContext(ctx)
+}
+
+// AccountBackupPtrInput is an input type that accepts AccountBackupArgs, AccountBackupPtr and AccountBackupPtrOutput values.
+// You can construct a concrete instance of `AccountBackupPtrInput` via:
+//
+//          AccountBackupArgs{...}
+//
+//  or:
+//
+//          nil
+type AccountBackupPtrInput interface {
+	pulumi.Input
+
+	ToAccountBackupPtrOutput() AccountBackupPtrOutput
+	ToAccountBackupPtrOutputWithContext(context.Context) AccountBackupPtrOutput
+}
+
+type accountBackupPtrType AccountBackupArgs
+
+func AccountBackupPtr(v *AccountBackupArgs) AccountBackupPtrInput {
+	return (*accountBackupPtrType)(v)
+}
+
+func (*accountBackupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountBackup)(nil)).Elem()
+}
+
+func (i *accountBackupPtrType) ToAccountBackupPtrOutput() AccountBackupPtrOutput {
+	return i.ToAccountBackupPtrOutputWithContext(context.Background())
+}
+
+func (i *accountBackupPtrType) ToAccountBackupPtrOutputWithContext(ctx context.Context) AccountBackupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountBackupPtrOutput)
+}
+
+type AccountBackupOutput struct{ *pulumi.OutputState }
+
+func (AccountBackupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountBackup)(nil)).Elem()
+}
+
+func (o AccountBackupOutput) ToAccountBackupOutput() AccountBackupOutput {
+	return o
+}
+
+func (o AccountBackupOutput) ToAccountBackupOutputWithContext(ctx context.Context) AccountBackupOutput {
+	return o
+}
+
+func (o AccountBackupOutput) ToAccountBackupPtrOutput() AccountBackupPtrOutput {
+	return o.ToAccountBackupPtrOutputWithContext(context.Background())
+}
+
+func (o AccountBackupOutput) ToAccountBackupPtrOutputWithContext(ctx context.Context) AccountBackupPtrOutput {
+	return o.ApplyT(func(v AccountBackup) *AccountBackup {
+		return &v
+	}).(AccountBackupPtrOutput)
+}
+
+// The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
+func (o AccountBackupOutput) IntervalInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AccountBackup) *int { return v.IntervalInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
+func (o AccountBackupOutput) RetentionInHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AccountBackup) *int { return v.RetentionInHours }).(pulumi.IntPtrOutput)
+}
+
+// The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`.
+func (o AccountBackupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountBackup) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AccountBackupPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountBackupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountBackup)(nil)).Elem()
+}
+
+func (o AccountBackupPtrOutput) ToAccountBackupPtrOutput() AccountBackupPtrOutput {
+	return o
+}
+
+func (o AccountBackupPtrOutput) ToAccountBackupPtrOutputWithContext(ctx context.Context) AccountBackupPtrOutput {
+	return o
+}
+
+func (o AccountBackupPtrOutput) Elem() AccountBackupOutput {
+	return o.ApplyT(func(v *AccountBackup) AccountBackup { return *v }).(AccountBackupOutput)
+}
+
+// The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
+func (o AccountBackupPtrOutput) IntervalInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AccountBackup) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IntervalInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
+func (o AccountBackupPtrOutput) RetentionInHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AccountBackup) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionInHours
+	}).(pulumi.IntPtrOutput)
+}
+
+// The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`.
+func (o AccountBackupPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountBackup) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type AccountCapability struct {
 	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
@@ -276,6 +445,213 @@ func (o AccountConsistencyPolicyPtrOutput) MaxStalenessPrefix() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
+type AccountCorsRule struct {
+	// A list of headers that are allowed to be a part of the cross-origin request.
+	AllowedHeaders []string `pulumi:"allowedHeaders"`
+	// A list of http headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+	AllowedMethods []string `pulumi:"allowedMethods"`
+	// A list of origin domains that will be allowed by CORS.
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+	// A list of response headers that are exposed to CORS clients.
+	ExposedHeaders []string `pulumi:"exposedHeaders"`
+	// The number of seconds the client should cache a preflight response.
+	MaxAgeInSeconds int `pulumi:"maxAgeInSeconds"`
+}
+
+// AccountCorsRuleInput is an input type that accepts AccountCorsRuleArgs and AccountCorsRuleOutput values.
+// You can construct a concrete instance of `AccountCorsRuleInput` via:
+//
+//          AccountCorsRuleArgs{...}
+type AccountCorsRuleInput interface {
+	pulumi.Input
+
+	ToAccountCorsRuleOutput() AccountCorsRuleOutput
+	ToAccountCorsRuleOutputWithContext(context.Context) AccountCorsRuleOutput
+}
+
+type AccountCorsRuleArgs struct {
+	// A list of headers that are allowed to be a part of the cross-origin request.
+	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
+	// A list of http headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
+	// A list of origin domains that will be allowed by CORS.
+	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	// A list of response headers that are exposed to CORS clients.
+	ExposedHeaders pulumi.StringArrayInput `pulumi:"exposedHeaders"`
+	// The number of seconds the client should cache a preflight response.
+	MaxAgeInSeconds pulumi.IntInput `pulumi:"maxAgeInSeconds"`
+}
+
+func (AccountCorsRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountCorsRule)(nil)).Elem()
+}
+
+func (i AccountCorsRuleArgs) ToAccountCorsRuleOutput() AccountCorsRuleOutput {
+	return i.ToAccountCorsRuleOutputWithContext(context.Background())
+}
+
+func (i AccountCorsRuleArgs) ToAccountCorsRuleOutputWithContext(ctx context.Context) AccountCorsRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountCorsRuleOutput)
+}
+
+func (i AccountCorsRuleArgs) ToAccountCorsRulePtrOutput() AccountCorsRulePtrOutput {
+	return i.ToAccountCorsRulePtrOutputWithContext(context.Background())
+}
+
+func (i AccountCorsRuleArgs) ToAccountCorsRulePtrOutputWithContext(ctx context.Context) AccountCorsRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountCorsRuleOutput).ToAccountCorsRulePtrOutputWithContext(ctx)
+}
+
+// AccountCorsRulePtrInput is an input type that accepts AccountCorsRuleArgs, AccountCorsRulePtr and AccountCorsRulePtrOutput values.
+// You can construct a concrete instance of `AccountCorsRulePtrInput` via:
+//
+//          AccountCorsRuleArgs{...}
+//
+//  or:
+//
+//          nil
+type AccountCorsRulePtrInput interface {
+	pulumi.Input
+
+	ToAccountCorsRulePtrOutput() AccountCorsRulePtrOutput
+	ToAccountCorsRulePtrOutputWithContext(context.Context) AccountCorsRulePtrOutput
+}
+
+type accountCorsRulePtrType AccountCorsRuleArgs
+
+func AccountCorsRulePtr(v *AccountCorsRuleArgs) AccountCorsRulePtrInput {
+	return (*accountCorsRulePtrType)(v)
+}
+
+func (*accountCorsRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountCorsRule)(nil)).Elem()
+}
+
+func (i *accountCorsRulePtrType) ToAccountCorsRulePtrOutput() AccountCorsRulePtrOutput {
+	return i.ToAccountCorsRulePtrOutputWithContext(context.Background())
+}
+
+func (i *accountCorsRulePtrType) ToAccountCorsRulePtrOutputWithContext(ctx context.Context) AccountCorsRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountCorsRulePtrOutput)
+}
+
+type AccountCorsRuleOutput struct{ *pulumi.OutputState }
+
+func (AccountCorsRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountCorsRule)(nil)).Elem()
+}
+
+func (o AccountCorsRuleOutput) ToAccountCorsRuleOutput() AccountCorsRuleOutput {
+	return o
+}
+
+func (o AccountCorsRuleOutput) ToAccountCorsRuleOutputWithContext(ctx context.Context) AccountCorsRuleOutput {
+	return o
+}
+
+func (o AccountCorsRuleOutput) ToAccountCorsRulePtrOutput() AccountCorsRulePtrOutput {
+	return o.ToAccountCorsRulePtrOutputWithContext(context.Background())
+}
+
+func (o AccountCorsRuleOutput) ToAccountCorsRulePtrOutputWithContext(ctx context.Context) AccountCorsRulePtrOutput {
+	return o.ApplyT(func(v AccountCorsRule) *AccountCorsRule {
+		return &v
+	}).(AccountCorsRulePtrOutput)
+}
+
+// A list of headers that are allowed to be a part of the cross-origin request.
+func (o AccountCorsRuleOutput) AllowedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccountCorsRule) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
+}
+
+// A list of http headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+func (o AccountCorsRuleOutput) AllowedMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccountCorsRule) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
+}
+
+// A list of origin domains that will be allowed by CORS.
+func (o AccountCorsRuleOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccountCorsRule) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
+}
+
+// A list of response headers that are exposed to CORS clients.
+func (o AccountCorsRuleOutput) ExposedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccountCorsRule) []string { return v.ExposedHeaders }).(pulumi.StringArrayOutput)
+}
+
+// The number of seconds the client should cache a preflight response.
+func (o AccountCorsRuleOutput) MaxAgeInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v AccountCorsRule) int { return v.MaxAgeInSeconds }).(pulumi.IntOutput)
+}
+
+type AccountCorsRulePtrOutput struct{ *pulumi.OutputState }
+
+func (AccountCorsRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountCorsRule)(nil)).Elem()
+}
+
+func (o AccountCorsRulePtrOutput) ToAccountCorsRulePtrOutput() AccountCorsRulePtrOutput {
+	return o
+}
+
+func (o AccountCorsRulePtrOutput) ToAccountCorsRulePtrOutputWithContext(ctx context.Context) AccountCorsRulePtrOutput {
+	return o
+}
+
+func (o AccountCorsRulePtrOutput) Elem() AccountCorsRuleOutput {
+	return o.ApplyT(func(v *AccountCorsRule) AccountCorsRule { return *v }).(AccountCorsRuleOutput)
+}
+
+// A list of headers that are allowed to be a part of the cross-origin request.
+func (o AccountCorsRulePtrOutput) AllowedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccountCorsRule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedHeaders
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of http headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+func (o AccountCorsRulePtrOutput) AllowedMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccountCorsRule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedMethods
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of origin domains that will be allowed by CORS.
+func (o AccountCorsRulePtrOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccountCorsRule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedOrigins
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of response headers that are exposed to CORS clients.
+func (o AccountCorsRulePtrOutput) ExposedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccountCorsRule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExposedHeaders
+	}).(pulumi.StringArrayOutput)
+}
+
+// The number of seconds the client should cache a preflight response.
+func (o AccountCorsRulePtrOutput) MaxAgeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AccountCorsRule) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxAgeInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
 type AccountGeoLocation struct {
 	// The failover priority of the region. A failover priority of `0` indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority `0`.
 	FailoverPriority int `pulumi:"failoverPriority"`
@@ -413,6 +789,175 @@ func (o AccountGeoLocationArrayOutput) Index(i pulumi.IntInput) AccountGeoLocati
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountGeoLocation {
 		return vs[0].([]AccountGeoLocation)[vs[1].(int)]
 	}).(AccountGeoLocationOutput)
+}
+
+type AccountIdentity struct {
+	// The Principal ID associated with this Managed Service Identity.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId *string `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. Possible value is only `SystemAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// AccountIdentityInput is an input type that accepts AccountIdentityArgs and AccountIdentityOutput values.
+// You can construct a concrete instance of `AccountIdentityInput` via:
+//
+//          AccountIdentityArgs{...}
+type AccountIdentityInput interface {
+	pulumi.Input
+
+	ToAccountIdentityOutput() AccountIdentityOutput
+	ToAccountIdentityOutputWithContext(context.Context) AccountIdentityOutput
+}
+
+type AccountIdentityArgs struct {
+	// The Principal ID associated with this Managed Service Identity.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. Possible value is only `SystemAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AccountIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountIdentity)(nil)).Elem()
+}
+
+func (i AccountIdentityArgs) ToAccountIdentityOutput() AccountIdentityOutput {
+	return i.ToAccountIdentityOutputWithContext(context.Background())
+}
+
+func (i AccountIdentityArgs) ToAccountIdentityOutputWithContext(ctx context.Context) AccountIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityOutput)
+}
+
+func (i AccountIdentityArgs) ToAccountIdentityPtrOutput() AccountIdentityPtrOutput {
+	return i.ToAccountIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i AccountIdentityArgs) ToAccountIdentityPtrOutputWithContext(ctx context.Context) AccountIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityOutput).ToAccountIdentityPtrOutputWithContext(ctx)
+}
+
+// AccountIdentityPtrInput is an input type that accepts AccountIdentityArgs, AccountIdentityPtr and AccountIdentityPtrOutput values.
+// You can construct a concrete instance of `AccountIdentityPtrInput` via:
+//
+//          AccountIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type AccountIdentityPtrInput interface {
+	pulumi.Input
+
+	ToAccountIdentityPtrOutput() AccountIdentityPtrOutput
+	ToAccountIdentityPtrOutputWithContext(context.Context) AccountIdentityPtrOutput
+}
+
+type accountIdentityPtrType AccountIdentityArgs
+
+func AccountIdentityPtr(v *AccountIdentityArgs) AccountIdentityPtrInput {
+	return (*accountIdentityPtrType)(v)
+}
+
+func (*accountIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountIdentity)(nil)).Elem()
+}
+
+func (i *accountIdentityPtrType) ToAccountIdentityPtrOutput() AccountIdentityPtrOutput {
+	return i.ToAccountIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *accountIdentityPtrType) ToAccountIdentityPtrOutputWithContext(ctx context.Context) AccountIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityPtrOutput)
+}
+
+type AccountIdentityOutput struct{ *pulumi.OutputState }
+
+func (AccountIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountIdentity)(nil)).Elem()
+}
+
+func (o AccountIdentityOutput) ToAccountIdentityOutput() AccountIdentityOutput {
+	return o
+}
+
+func (o AccountIdentityOutput) ToAccountIdentityOutputWithContext(ctx context.Context) AccountIdentityOutput {
+	return o
+}
+
+func (o AccountIdentityOutput) ToAccountIdentityPtrOutput() AccountIdentityPtrOutput {
+	return o.ToAccountIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context.Context) AccountIdentityPtrOutput {
+	return o.ApplyT(func(v AccountIdentity) *AccountIdentity {
+		return &v
+	}).(AccountIdentityPtrOutput)
+}
+
+// The Principal ID associated with this Managed Service Identity.
+func (o AccountIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID associated with this Managed Service Identity.
+func (o AccountIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. Possible value is only `SystemAssigned`.
+func (o AccountIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AccountIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountIdentity)(nil)).Elem()
+}
+
+func (o AccountIdentityPtrOutput) ToAccountIdentityPtrOutput() AccountIdentityPtrOutput {
+	return o
+}
+
+func (o AccountIdentityPtrOutput) ToAccountIdentityPtrOutputWithContext(ctx context.Context) AccountIdentityPtrOutput {
+	return o
+}
+
+func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
+	return o.ApplyT(func(v *AccountIdentity) AccountIdentity { return *v }).(AccountIdentityOutput)
+}
+
+// The Principal ID associated with this Managed Service Identity.
+func (o AccountIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID associated with this Managed Service Identity.
+func (o AccountIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. Possible value is only `SystemAssigned`.
+func (o AccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type AccountVirtualNetworkRule struct {
@@ -4003,12 +4548,18 @@ func (o GetAccountVirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) GetAcc
 }
 
 func init() {
+	pulumi.RegisterOutputType(AccountBackupOutput{})
+	pulumi.RegisterOutputType(AccountBackupPtrOutput{})
 	pulumi.RegisterOutputType(AccountCapabilityOutput{})
 	pulumi.RegisterOutputType(AccountCapabilityArrayOutput{})
 	pulumi.RegisterOutputType(AccountConsistencyPolicyOutput{})
 	pulumi.RegisterOutputType(AccountConsistencyPolicyPtrOutput{})
+	pulumi.RegisterOutputType(AccountCorsRuleOutput{})
+	pulumi.RegisterOutputType(AccountCorsRulePtrOutput{})
 	pulumi.RegisterOutputType(AccountGeoLocationOutput{})
 	pulumi.RegisterOutputType(AccountGeoLocationArrayOutput{})
+	pulumi.RegisterOutputType(AccountIdentityOutput{})
+	pulumi.RegisterOutputType(AccountIdentityPtrOutput{})
 	pulumi.RegisterOutputType(AccountVirtualNetworkRuleOutput{})
 	pulumi.RegisterOutputType(AccountVirtualNetworkRuleArrayOutput{})
 	pulumi.RegisterOutputType(CassandraKeyspaceAutoscaleSettingsOutput{})

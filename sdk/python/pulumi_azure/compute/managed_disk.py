@@ -33,6 +33,7 @@ class ManagedDiskArgs:
                  source_uri: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tier: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ManagedDisk resource.
@@ -54,6 +55,7 @@ class ManagedDiskArgs:
         :param pulumi.Input[str] source_uri: URI to a valid VHD file to be used when `create_option` is `Import`.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] tier: The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
         :param pulumi.Input[str] zones: A collection containing the availability zone to allocate the Managed Disk in.
         """
         pulumi.set(__self__, "create_option", create_option)
@@ -89,6 +91,8 @@ class ManagedDiskArgs:
             pulumi.set(__self__, "storage_account_id", storage_account_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
 
@@ -310,6 +314,18 @@ class ManagedDiskArgs:
 
     @property
     @pulumi.getter
+    def tier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tier", value)
+
+    @property
+    @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[str]]:
         """
         A collection containing the availability zone to allocate the Managed Disk in.
@@ -342,6 +358,7 @@ class _ManagedDiskState:
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  storage_account_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tier: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ManagedDisk resources.
@@ -363,6 +380,7 @@ class _ManagedDiskState:
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_type: The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] tier: The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
         :param pulumi.Input[str] zones: A collection containing the availability zone to allocate the Managed Disk in.
         """
         if create_option is not None:
@@ -401,6 +419,8 @@ class _ManagedDiskState:
             pulumi.set(__self__, "storage_account_type", storage_account_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
 
@@ -622,6 +642,18 @@ class _ManagedDiskState:
 
     @property
     @pulumi.getter
+    def tier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tier", value)
+
+    @property
+    @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[str]]:
         """
         A collection containing the availability zone to allocate the Managed Disk in.
@@ -656,6 +688,7 @@ class ManagedDisk(pulumi.CustomResource):
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  storage_account_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tier: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -735,6 +768,7 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_type: The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] tier: The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
         :param pulumi.Input[str] zones: A collection containing the availability zone to allocate the Managed Disk in.
         """
         ...
@@ -833,6 +867,7 @@ class ManagedDisk(pulumi.CustomResource):
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  storage_account_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tier: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -870,6 +905,7 @@ class ManagedDisk(pulumi.CustomResource):
                 raise TypeError("Missing required property 'storage_account_type'")
             __props__.__dict__["storage_account_type"] = storage_account_type
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tier"] = tier
             __props__.__dict__["zones"] = zones
         super(ManagedDisk, __self__).__init__(
             'azure:compute/managedDisk:ManagedDisk',
@@ -899,6 +935,7 @@ class ManagedDisk(pulumi.CustomResource):
             storage_account_id: Optional[pulumi.Input[str]] = None,
             storage_account_type: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tier: Optional[pulumi.Input[str]] = None,
             zones: Optional[pulumi.Input[str]] = None) -> 'ManagedDisk':
         """
         Get an existing ManagedDisk resource's state with the given name, id, and optional extra
@@ -925,6 +962,7 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import`.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_type: The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] tier: The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
         :param pulumi.Input[str] zones: A collection containing the availability zone to allocate the Managed Disk in.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -949,6 +987,7 @@ class ManagedDisk(pulumi.CustomResource):
         __props__.__dict__["storage_account_id"] = storage_account_id
         __props__.__dict__["storage_account_type"] = storage_account_type
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["tier"] = tier
         __props__.__dict__["zones"] = zones
         return ManagedDisk(resource_name, opts=opts, __props__=__props__)
 
@@ -1095,6 +1134,14 @@ class ManagedDisk(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> pulumi.Output[str]:
+        """
+        The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
+        """
+        return pulumi.get(self, "tier")
 
     @property
     @pulumi.getter

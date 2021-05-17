@@ -107,6 +107,7 @@ class PolicySetDefinitionPolicyDefinitionGroup(dict):
                  display_name: Optional[str] = None):
         """
         :param str name: The name of this policy definition group.
+        :param str additional_metadata_resource_id: The ID of a resource that contains additional metadata about this policy definition group.
         :param str category: The category of this policy definition group.
         :param str description: The description of this policy definition group.
         :param str display_name: The display name of this policy definition group.
@@ -132,6 +133,9 @@ class PolicySetDefinitionPolicyDefinitionGroup(dict):
     @property
     @pulumi.getter(name="additionalMetadataResourceId")
     def additional_metadata_resource_id(self) -> Optional[str]:
+        """
+        The ID of a resource that contains additional metadata about this policy definition group.
+        """
         return pulumi.get(self, "additional_metadata_resource_id")
 
     @property
@@ -257,6 +261,7 @@ class GetPolicySetDefinitionPolicyDefinitionGroupResult(dict):
                  display_name: str,
                  name: str):
         """
+        :param str additional_metadata_resource_id: The ID of a resource that contains additional metadata about this policy definition group.
         :param str category: The category of this policy definition group.
         :param str description: The description of this policy definition group.
         :param str display_name: Specifies the display name of the Policy Set Definition. Conflicts with `name`.
@@ -271,6 +276,9 @@ class GetPolicySetDefinitionPolicyDefinitionGroupResult(dict):
     @property
     @pulumi.getter(name="additionalMetadataResourceId")
     def additional_metadata_resource_id(self) -> str:
+        """
+        The ID of a resource that contains additional metadata about this policy definition group.
+        """
         return pulumi.get(self, "additional_metadata_resource_id")
 
     @property

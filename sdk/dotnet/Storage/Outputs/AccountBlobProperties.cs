@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class AccountBlobProperties
     {
         /// <summary>
+        /// Is the blob service properties for change feed events enabled? Default to `false`.
+        /// </summary>
+        public readonly bool? ChangeFeedEnabled;
+        /// <summary>
         /// A `container_delete_retention_policy` block as defined below.
         /// </summary>
         public readonly Outputs.AccountBlobPropertiesContainerDeleteRetentionPolicy? ContainerDeleteRetentionPolicy;
@@ -40,6 +44,8 @@ namespace Pulumi.Azure.Storage.Outputs
 
         [OutputConstructor]
         private AccountBlobProperties(
+            bool? changeFeedEnabled,
+
             Outputs.AccountBlobPropertiesContainerDeleteRetentionPolicy? containerDeleteRetentionPolicy,
 
             ImmutableArray<Outputs.AccountBlobPropertiesCorsRule> corsRules,
@@ -52,6 +58,7 @@ namespace Pulumi.Azure.Storage.Outputs
 
             bool? versioningEnabled)
         {
+            ChangeFeedEnabled = changeFeedEnabled;
             ContainerDeleteRetentionPolicy = containerDeleteRetentionPolicy;
             CorsRules = corsRules;
             DefaultServiceVersion = defaultServiceVersion;

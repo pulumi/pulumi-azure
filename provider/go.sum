@@ -74,6 +74,8 @@ github.com/Azure/azure-sdk-for-go v52.6.0+incompatible h1:F/feBa+/Oxbu+Zprnsiq0b
 github.com/Azure/azure-sdk-for-go v52.6.0+incompatible/go.mod h1:9XXNKU+eRnpl9moKnB4QOLf1HestfXbmab5FXxiDBjc=
 github.com/Azure/azure-sdk-for-go v53.4.0+incompatible h1:ky9S0JoJOvO39ncwrYAVMEBiIjFB/WkbZsWkg/nbYx0=
 github.com/Azure/azure-sdk-for-go v53.4.0+incompatible/go.mod h1:9XXNKU+eRnpl9moKnB4QOLf1HestfXbmab5FXxiDBjc=
+github.com/Azure/azure-sdk-for-go v54.0.0+incompatible h1:Bq3L9LF0DHCexlT0fccwxgrOMfjHx8LGz+d+L7gGQv4=
+github.com/Azure/azure-sdk-for-go v54.0.0+incompatible/go.mod h1:9XXNKU+eRnpl9moKnB4QOLf1HestfXbmab5FXxiDBjc=
 github.com/Azure/azure-service-bus-go v0.10.7 h1:fB1FeQYkDJN0m1FF3WWta1zUf0pOCN93UXsGnKtdqWQ=
 github.com/Azure/azure-service-bus-go v0.10.7/go.mod h1:o5z/3lDG1iT/T/G7vgIwIqVDTx9Qa2wndf5OdzSzpF8=
 github.com/Azure/azure-storage-blob-go v0.13.0 h1:lgWHvFh+UYBNVQLFHXkvul2f6yOPA9PIH82RTG2cSwc=
@@ -822,6 +824,8 @@ github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210430113326-344ec0f95e
 github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210430113326-344ec0f95ef2/go.mod h1:BJDOClLheZefHW1XgtO9YODM87RRXOIpPy3UVuEzuo4=
 github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210507103139-700a35147ba6 h1:y4ROBHyHRfpuIS/JHFIjxrlZ/gnmAAXeSD9hh6VvnhY=
 github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210507103139-700a35147ba6/go.mod h1:BJDOClLheZefHW1XgtO9YODM87RRXOIpPy3UVuEzuo4=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210514085507-8408757253b4 h1:6Udvk8F+Y/PfymuPT9nywRoC3ujyXkJEB1iTHX7mzJQ=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210514085507-8408757253b4/go.mod h1:2DEQC5QvFIVRUWgJ5SMg0SdhC+vw7vKNPojNzuopPfg=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9 h1:czJCcoUR3FMpHnRQow2E84H/0CPrX1fMAGn9HugzyI4=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9/go.mod h1:L8WrssTzvgYw34/Ppa0JpJfI7KKXZ2cVGI6Djt0brUU=
 github.com/rickb777/plural v1.2.0 h1:5tvEc7UBCZ7l8h/2UeybSkt/uu1DQsZFOFdNevmUhlE=
@@ -845,6 +849,8 @@ github.com/sergi/go-diff v1.1.0 h1:we8PVUC3FE2uYfodKH/nBHMSetSfHDR6scGdBi+erh0=
 github.com/sergi/go-diff v1.1.0/go.mod h1:STckp+ISIX8hZLjrqAeVduY0gWCT9IjLuqbuNXdaHfM=
 github.com/sergi/go-diff v1.2.0 h1:XU+rvMAioB0UC3q1MFrIQy4Vo5/4VsRDQQXHsEya6xQ=
 github.com/sergi/go-diff v1.2.0/go.mod h1:STckp+ISIX8hZLjrqAeVduY0gWCT9IjLuqbuNXdaHfM=
+github.com/shopspring/decimal v1.2.0 h1:abSATXmQEYyShuxI4/vyW3tV1MrKAJzCZ/0zLUXYbsQ=
+github.com/shopspring/decimal v1.2.0/go.mod h1:DKyhrW/HYNuLGql+MJL6WCR6knT2jwCFRcu2hWCYk4o=
 github.com/shurcooL/httpfs v0.0.0-20190707220628-8d4bc4ba7749 h1:bUGsEnyNbVPw06Bs80sCeARAlK8lhwqGyi6UT8ymuGk=
 github.com/shurcooL/httpfs v0.0.0-20190707220628-8d4bc4ba7749/go.mod h1:ZY1cvUeJuFPAdZ/B6v7RHavJWZn2YPVFQ1OSXhCGOkg=
 github.com/shurcooL/sanitized_anchor_name v1.0.0 h1:PdmoCO6wvbs+7yrJyMORt4/BmY5IYyJwS/kOiWx8mHo=

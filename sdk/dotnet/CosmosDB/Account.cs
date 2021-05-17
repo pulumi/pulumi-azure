@@ -103,6 +103,12 @@ namespace Pulumi.Azure.CosmosDB
         public Output<bool?> AnalyticalStorageEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// A `backup` block as defined below.
+        /// </summary>
+        [Output("backup")]
+        public Output<Outputs.AccountBackup> Backup { get; private set; } = null!;
+
+        /// <summary>
         /// The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
         /// </summary>
         [Output("capabilities")]
@@ -119,6 +125,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Output("consistencyPolicy")]
         public Output<Outputs.AccountConsistencyPolicy> ConsistencyPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// A `cors_rule` block as defined below.
+        /// </summary>
+        [Output("corsRule")]
+        public Output<Outputs.AccountCorsRule?> CorsRule { get; private set; } = null!;
 
         /// <summary>
         /// Enable automatic fail over for this Cosmos DB account.
@@ -149,6 +161,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Output("geoLocations")]
         public Output<ImmutableArray<Outputs.AccountGeoLocation>> GeoLocations { get; private set; } = null!;
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.AccountIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
@@ -340,6 +358,12 @@ namespace Pulumi.Azure.CosmosDB
         [Input("analyticalStorageEnabled")]
         public Input<bool>? AnalyticalStorageEnabled { get; set; }
 
+        /// <summary>
+        /// A `backup` block as defined below.
+        /// </summary>
+        [Input("backup")]
+        public Input<Inputs.AccountBackupArgs>? Backup { get; set; }
+
         [Input("capabilities")]
         private InputList<Inputs.AccountCapabilityArgs>? _capabilities;
 
@@ -357,6 +381,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("consistencyPolicy", required: true)]
         public Input<Inputs.AccountConsistencyPolicyArgs> ConsistencyPolicy { get; set; } = null!;
+
+        /// <summary>
+        /// A `cors_rule` block as defined below.
+        /// </summary>
+        [Input("corsRule")]
+        public Input<Inputs.AccountCorsRuleArgs>? CorsRule { get; set; }
 
         /// <summary>
         /// Enable automatic fail over for this Cosmos DB account.
@@ -387,6 +417,12 @@ namespace Pulumi.Azure.CosmosDB
             get => _geoLocations ?? (_geoLocations = new InputList<Inputs.AccountGeoLocationArgs>());
             set => _geoLocations = value;
         }
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.AccountIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
@@ -509,6 +545,12 @@ namespace Pulumi.Azure.CosmosDB
         [Input("analyticalStorageEnabled")]
         public Input<bool>? AnalyticalStorageEnabled { get; set; }
 
+        /// <summary>
+        /// A `backup` block as defined below.
+        /// </summary>
+        [Input("backup")]
+        public Input<Inputs.AccountBackupGetArgs>? Backup { get; set; }
+
         [Input("capabilities")]
         private InputList<Inputs.AccountCapabilityGetArgs>? _capabilities;
 
@@ -538,6 +580,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("consistencyPolicy")]
         public Input<Inputs.AccountConsistencyPolicyGetArgs>? ConsistencyPolicy { get; set; }
+
+        /// <summary>
+        /// A `cors_rule` block as defined below.
+        /// </summary>
+        [Input("corsRule")]
+        public Input<Inputs.AccountCorsRuleGetArgs>? CorsRule { get; set; }
 
         /// <summary>
         /// Enable automatic fail over for this Cosmos DB account.
@@ -574,6 +622,12 @@ namespace Pulumi.Azure.CosmosDB
             get => _geoLocations ?? (_geoLocations = new InputList<Inputs.AccountGeoLocationGetArgs>());
             set => _geoLocations = value;
         }
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.AccountIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.

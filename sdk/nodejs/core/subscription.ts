@@ -100,9 +100,12 @@ export class Subscription extends pulumi.CustomResource {
      * The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
      */
     public readonly alias!: pulumi.Output<string>;
+    /**
+     * The Azure Billing Scope ID. Can be either a Microsoft Customer Account Billing Scope ID or an Enrollment Billing Scope ID.
+     */
     public readonly billingScopeId!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the Subscription. Cannot be specified with `billingAccount`, `billingProfile`, `enrollmentAccount`, or `invoiceSection` Changing this forces a new Subscription to be created.
+     * The ID of the Subscription. Changing this forces a new Subscription to be created.
      */
     public readonly subscriptionId!: pulumi.Output<string>;
     /**
@@ -167,9 +170,12 @@ export interface SubscriptionState {
      * The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
      */
     readonly alias?: pulumi.Input<string>;
+    /**
+     * The Azure Billing Scope ID. Can be either a Microsoft Customer Account Billing Scope ID or an Enrollment Billing Scope ID.
+     */
     readonly billingScopeId?: pulumi.Input<string>;
     /**
-     * The ID of the Subscription. Cannot be specified with `billingAccount`, `billingProfile`, `enrollmentAccount`, or `invoiceSection` Changing this forces a new Subscription to be created.
+     * The ID of the Subscription. Changing this forces a new Subscription to be created.
      */
     readonly subscriptionId?: pulumi.Input<string>;
     /**
@@ -195,9 +201,12 @@ export interface SubscriptionArgs {
      * The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
      */
     readonly alias?: pulumi.Input<string>;
+    /**
+     * The Azure Billing Scope ID. Can be either a Microsoft Customer Account Billing Scope ID or an Enrollment Billing Scope ID.
+     */
     readonly billingScopeId?: pulumi.Input<string>;
     /**
-     * The ID of the Subscription. Cannot be specified with `billingAccount`, `billingProfile`, `enrollmentAccount`, or `invoiceSection` Changing this forces a new Subscription to be created.
+     * The ID of the Subscription. Changing this forces a new Subscription to be created.
      */
     readonly subscriptionId?: pulumi.Input<string>;
     /**

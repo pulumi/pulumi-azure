@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./alertRuleFusion";
+export * from "./alertRuleMachineLearningBehaviorAnalytics";
 export * from "./alertRuleMsSecurityIncident";
 export * from "./alertRuleScheduled";
 export * from "./dataConnectorAwsCloudTrail";
@@ -21,6 +22,7 @@ export * from "./getAlertRuleTemplate";
 
 // Import resources to register:
 import { AlertRuleFusion } from "./alertRuleFusion";
+import { AlertRuleMachineLearningBehaviorAnalytics } from "./alertRuleMachineLearningBehaviorAnalytics";
 import { AlertRuleMsSecurityIncident } from "./alertRuleMsSecurityIncident";
 import { AlertRuleScheduled } from "./alertRuleScheduled";
 import { DataConnectorAwsCloudTrail } from "./dataConnectorAwsCloudTrail";
@@ -38,6 +40,8 @@ const _module = {
         switch (type) {
             case "azure:sentinel/alertRuleFusion:AlertRuleFusion":
                 return new AlertRuleFusion(name, <any>undefined, { urn })
+            case "azure:sentinel/alertRuleMachineLearningBehaviorAnalytics:AlertRuleMachineLearningBehaviorAnalytics":
+                return new AlertRuleMachineLearningBehaviorAnalytics(name, <any>undefined, { urn })
             case "azure:sentinel/alertRuleMsSecurityIncident:AlertRuleMsSecurityIncident":
                 return new AlertRuleMsSecurityIncident(name, <any>undefined, { urn })
             case "azure:sentinel/alertRuleScheduled:AlertRuleScheduled":
@@ -64,6 +68,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleFusion", _module)
+pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleMachineLearningBehaviorAnalytics", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleMsSecurityIncident", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleScheduled", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/dataConnectorAwsCloudTrail", _module)

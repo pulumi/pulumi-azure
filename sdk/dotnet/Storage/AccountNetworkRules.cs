@@ -118,6 +118,12 @@ namespace Pulumi.Azure.Storage
         public Output<ImmutableArray<string>> IpRules { get; private set; } = null!;
 
         /// <summary>
+        /// One or More `private_link_access` block as defined below.
+        /// </summary>
+        [Output("privateLinkAccessRules")]
+        public Output<ImmutableArray<Outputs.AccountNetworkRulesPrivateLinkAccessRule>> PrivateLinkAccessRules { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -211,6 +217,18 @@ namespace Pulumi.Azure.Storage
             set => _ipRules = value;
         }
 
+        [Input("privateLinkAccessRules")]
+        private InputList<Inputs.AccountNetworkRulesPrivateLinkAccessRuleArgs>? _privateLinkAccessRules;
+
+        /// <summary>
+        /// One or More `private_link_access` block as defined below.
+        /// </summary>
+        public InputList<Inputs.AccountNetworkRulesPrivateLinkAccessRuleArgs> PrivateLinkAccessRules
+        {
+            get => _privateLinkAccessRules ?? (_privateLinkAccessRules = new InputList<Inputs.AccountNetworkRulesPrivateLinkAccessRuleArgs>());
+            set => _privateLinkAccessRules = value;
+        }
+
         /// <summary>
         /// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
         /// </summary>
@@ -270,6 +288,18 @@ namespace Pulumi.Azure.Storage
         {
             get => _ipRules ?? (_ipRules = new InputList<string>());
             set => _ipRules = value;
+        }
+
+        [Input("privateLinkAccessRules")]
+        private InputList<Inputs.AccountNetworkRulesPrivateLinkAccessRuleGetArgs>? _privateLinkAccessRules;
+
+        /// <summary>
+        /// One or More `private_link_access` block as defined below.
+        /// </summary>
+        public InputList<Inputs.AccountNetworkRulesPrivateLinkAccessRuleGetArgs> PrivateLinkAccessRules
+        {
+            get => _privateLinkAccessRules ?? (_privateLinkAccessRules = new InputList<Inputs.AccountNetworkRulesPrivateLinkAccessRuleGetArgs>());
+            set => _privateLinkAccessRules = value;
         }
 
         /// <summary>

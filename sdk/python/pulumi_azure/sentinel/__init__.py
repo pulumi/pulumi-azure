@@ -4,6 +4,7 @@
 
 # Export this package's modules as members:
 from .alert_rule_fusion import *
+from .alert_rule_machine_learning_behavior_analytics import *
 from .alert_rule_ms_security_incident import *
 from .alert_rule_scheduled import *
 from .data_connector_aws_cloud_trail import *
@@ -33,6 +34,8 @@ def _register_module():
         def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
             if typ == "azure:sentinel/alertRuleFusion:AlertRuleFusion":
                 return AlertRuleFusion(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:sentinel/alertRuleMachineLearningBehaviorAnalytics:AlertRuleMachineLearningBehaviorAnalytics":
+                return AlertRuleMachineLearningBehaviorAnalytics(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:sentinel/alertRuleMsSecurityIncident:AlertRuleMsSecurityIncident":
                 return AlertRuleMsSecurityIncident(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:sentinel/alertRuleScheduled:AlertRuleScheduled":
@@ -59,6 +62,7 @@ def _register_module():
 
     _module_instance = Module()
     pulumi.runtime.register_resource_module("azure", "sentinel/alertRuleFusion", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "sentinel/alertRuleMachineLearningBehaviorAnalytics", _module_instance)
     pulumi.runtime.register_resource_module("azure", "sentinel/alertRuleMsSecurityIncident", _module_instance)
     pulumi.runtime.register_resource_module("azure", "sentinel/alertRuleScheduled", _module_instance)
     pulumi.runtime.register_resource_module("azure", "sentinel/dataConnectorAwsCloudTrail", _module_instance)

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * const exampleDevice = new azure.databoxedge.Device("exampleDevice", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
- *     skuName: "Edge-Standard",
+ *     skuName: "EdgeP_Base-Standard",
  * });
  * const exampleOrder = new azure.databoxedge.Order("exampleOrder", {
  *     resourceGroupName: exampleResourceGroup.name,

@@ -12,6 +12,9 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
     public sealed class KubernetesClusterAddonProfileIngressApplicationGatewayGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
+        /// </summary>
         [Input("effectiveGatewayId")]
         public Input<string>? EffectiveGatewayId { get; set; }
 
@@ -26,6 +29,18 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// </summary>
         [Input("gatewayId")]
         public Input<string>? GatewayId { get; set; }
+
+        [Input("ingressApplicationGatewayIdentities")]
+        private InputList<Inputs.KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityGetArgs>? _ingressApplicationGatewayIdentities;
+
+        /// <summary>
+        /// An `ingress_application_gateway_identity` block is exported. The exported attributes are defined below.
+        /// </summary>
+        public InputList<Inputs.KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityGetArgs> IngressApplicationGatewayIdentities
+        {
+            get => _ingressApplicationGatewayIdentities ?? (_ingressApplicationGatewayIdentities = new InputList<Inputs.KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityGetArgs>());
+            set => _ingressApplicationGatewayIdentities = value;
+        }
 
         /// <summary>
         /// The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.

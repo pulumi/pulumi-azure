@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting":
+		r = &AadDiagnosticSetting{}
 	case "azure:monitoring/actionGroup:ActionGroup":
 		r = &ActionGroup{}
 	case "azure:monitoring/actionRuleActionGroup:ActionRuleActionGroup":
@@ -56,6 +58,11 @@ func init() {
 	if err != nil {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
+	pulumi.RegisterResourceModule(
+		"azure",
+		"monitoring/aadDiagnosticSetting",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"azure",
 		"monitoring/actionGroup",

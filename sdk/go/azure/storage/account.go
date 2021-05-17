@@ -138,6 +138,8 @@ type Account struct {
 	AccountTier pulumi.StringOutput `pulumi:"accountTier"`
 	// Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
 	AllowBlobPublicAccess pulumi.BoolPtrOutput `pulumi:"allowBlobPublicAccess"`
+	// A `azureFilesAuthentication` block as defined below.
+	AzureFilesAuthentication AccountAzureFilesAuthenticationPtrOutput `pulumi:"azureFilesAuthentication"`
 	// A `blobProperties` block as defined below.
 	BlobProperties AccountBlobPropertiesOutput `pulumi:"blobProperties"`
 	// A `customDomain` block as documented below.
@@ -197,6 +199,8 @@ type Account struct {
 	QueueProperties AccountQueuePropertiesOutput `pulumi:"queueProperties"`
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// A `routing` block as defined below.
+	Routing AccountRoutingOutput `pulumi:"routing"`
 	// The secondary access key for the storage account.
 	SecondaryAccessKey pulumi.StringOutput `pulumi:"secondaryAccessKey"`
 	// The connection string associated with the secondary blob location.
@@ -283,6 +287,8 @@ type accountState struct {
 	AccountTier *string `pulumi:"accountTier"`
 	// Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
 	AllowBlobPublicAccess *bool `pulumi:"allowBlobPublicAccess"`
+	// A `azureFilesAuthentication` block as defined below.
+	AzureFilesAuthentication *AccountAzureFilesAuthentication `pulumi:"azureFilesAuthentication"`
 	// A `blobProperties` block as defined below.
 	BlobProperties *AccountBlobProperties `pulumi:"blobProperties"`
 	// A `customDomain` block as documented below.
@@ -342,6 +348,8 @@ type accountState struct {
 	QueueProperties *AccountQueueProperties `pulumi:"queueProperties"`
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// A `routing` block as defined below.
+	Routing *AccountRouting `pulumi:"routing"`
 	// The secondary access key for the storage account.
 	SecondaryAccessKey *string `pulumi:"secondaryAccessKey"`
 	// The connection string associated with the secondary blob location.
@@ -391,6 +399,8 @@ type AccountState struct {
 	AccountTier pulumi.StringPtrInput
 	// Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
 	AllowBlobPublicAccess pulumi.BoolPtrInput
+	// A `azureFilesAuthentication` block as defined below.
+	AzureFilesAuthentication AccountAzureFilesAuthenticationPtrInput
 	// A `blobProperties` block as defined below.
 	BlobProperties AccountBlobPropertiesPtrInput
 	// A `customDomain` block as documented below.
@@ -450,6 +460,8 @@ type AccountState struct {
 	QueueProperties AccountQueuePropertiesPtrInput
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// A `routing` block as defined below.
+	Routing AccountRoutingPtrInput
 	// The secondary access key for the storage account.
 	SecondaryAccessKey pulumi.StringPtrInput
 	// The connection string associated with the secondary blob location.
@@ -503,6 +515,8 @@ type accountArgs struct {
 	AccountTier string `pulumi:"accountTier"`
 	// Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
 	AllowBlobPublicAccess *bool `pulumi:"allowBlobPublicAccess"`
+	// A `azureFilesAuthentication` block as defined below.
+	AzureFilesAuthentication *AccountAzureFilesAuthentication `pulumi:"azureFilesAuthentication"`
 	// A `blobProperties` block as defined below.
 	BlobProperties *AccountBlobProperties `pulumi:"blobProperties"`
 	// A `customDomain` block as documented below.
@@ -530,6 +544,8 @@ type accountArgs struct {
 	QueueProperties *AccountQueueProperties `pulumi:"queueProperties"`
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A `routing` block as defined below.
+	Routing *AccountRouting `pulumi:"routing"`
 	// A `staticWebsite` block as defined below.
 	StaticWebsite *AccountStaticWebsite `pulumi:"staticWebsite"`
 	// A mapping of tags to assign to the resource.
@@ -548,6 +564,8 @@ type AccountArgs struct {
 	AccountTier pulumi.StringInput
 	// Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
 	AllowBlobPublicAccess pulumi.BoolPtrInput
+	// A `azureFilesAuthentication` block as defined below.
+	AzureFilesAuthentication AccountAzureFilesAuthenticationPtrInput
 	// A `blobProperties` block as defined below.
 	BlobProperties AccountBlobPropertiesPtrInput
 	// A `customDomain` block as documented below.
@@ -575,6 +593,8 @@ type AccountArgs struct {
 	QueueProperties AccountQueuePropertiesPtrInput
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// A `routing` block as defined below.
+	Routing AccountRoutingPtrInput
 	// A `staticWebsite` block as defined below.
 	StaticWebsite AccountStaticWebsitePtrInput
 	// A mapping of tags to assign to the resource.

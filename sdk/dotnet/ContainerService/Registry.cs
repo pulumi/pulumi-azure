@@ -42,6 +42,54 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// }
     /// ```
+    /// ### Encryption)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var rg = new Azure.Core.ResourceGroup("rg", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new Azure.Authorization.UserAssignedIdentityArgs
+    ///         {
+    ///             ResourceGroupName = azurerm_resource_group.Example.Name,
+    ///             Location = azurerm_resource_group.Example.Location,
+    ///         });
+    ///         var exampleKey = Output.Create(Azure.KeyVault.GetKey.InvokeAsync(new Azure.KeyVault.GetKeyArgs
+    ///         {
+    ///             Name = "super-secret",
+    ///             KeyVaultId = data.Azurerm_key_vault.Existing.Id,
+    ///         }));
+    ///         var acr = new Azure.ContainerService.Registry("acr", new Azure.ContainerService.RegistryArgs
+    ///         {
+    ///             ResourceGroupName = rg.Name,
+    ///             Location = rg.Location,
+    ///             Sku = "Premium",
+    ///             Identity = new Azure.ContainerService.Inputs.RegistryIdentityArgs
+    ///             {
+    ///                 Type = "UserAssigned",
+    ///                 IdentityIds = 
+    ///                 {
+    ///                     exampleUserAssignedIdentity.Id,
+    ///                 },
+    ///             },
+    ///             Encryption = new Azure.ContainerService.Inputs.RegistryEncryptionArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 KeyVaultKeyId = exampleKey.Apply(exampleKey =&gt; exampleKey.Id),
+    ///                 IdentityClientId = exampleUserAssignedIdentity.ClientId,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -73,6 +121,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> AdminUsername { get; private set; } = null!;
 
         /// <summary>
+        /// An `encryption` block as documented below.
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.RegistryEncryption> Encryption { get; private set; } = null!;
+
+        /// <summary>
         /// A list of Azure locations where the container registry should be geo-replicated.
         /// </summary>
         [Output("georeplicationLocations")]
@@ -83,6 +137,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Output("georeplications")]
         public Output<ImmutableArray<Outputs.RegistryGeoreplication>> Georeplications { get; private set; } = null!;
+
+        /// <summary>
+        /// An `identity` block as documented below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.RegistryIdentity> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -208,6 +268,12 @@ namespace Pulumi.Azure.ContainerService
         [Input("adminEnabled")]
         public Input<bool>? AdminEnabled { get; set; }
 
+        /// <summary>
+        /// An `encryption` block as documented below.
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.RegistryEncryptionArgs>? Encryption { get; set; }
+
         [Input("georeplicationLocations")]
         private InputList<string>? _georeplicationLocations;
 
@@ -232,6 +298,12 @@ namespace Pulumi.Azure.ContainerService
             get => _georeplications ?? (_georeplications = new InputList<Inputs.RegistryGeoreplicationArgs>());
             set => _georeplications = value;
         }
+
+        /// <summary>
+        /// An `identity` block as documented below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.RegistryIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -330,6 +402,12 @@ namespace Pulumi.Azure.ContainerService
         [Input("adminUsername")]
         public Input<string>? AdminUsername { get; set; }
 
+        /// <summary>
+        /// An `encryption` block as documented below.
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.RegistryEncryptionGetArgs>? Encryption { get; set; }
+
         [Input("georeplicationLocations")]
         private InputList<string>? _georeplicationLocations;
 
@@ -354,6 +432,12 @@ namespace Pulumi.Azure.ContainerService
             get => _georeplications ?? (_georeplications = new InputList<Inputs.RegistryGeoreplicationGetArgs>());
             set => _georeplications = value;
         }
+
+        /// <summary>
+        /// An `identity` block as documented below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.RegistryIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
