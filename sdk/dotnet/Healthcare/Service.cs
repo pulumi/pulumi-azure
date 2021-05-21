@@ -126,6 +126,12 @@ namespace Pulumi.Azure.Healthcare
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Whether public network access is enabled or disabled for this service instance.
+        /// </summary>
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Resource Group in which to create the Service.
         /// </summary>
         [Output("resourceGroupName")]
@@ -234,6 +240,12 @@ namespace Pulumi.Azure.Healthcare
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Whether public network access is enabled or disabled for this service instance.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
+        /// <summary>
         /// The name of the Resource Group in which to create the Service.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -307,6 +319,12 @@ namespace Pulumi.Azure.Healthcare
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Whether public network access is enabled or disabled for this service instance.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// The name of the Resource Group in which to create the Service.

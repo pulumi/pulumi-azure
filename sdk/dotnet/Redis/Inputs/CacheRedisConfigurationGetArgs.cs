@@ -12,12 +12,21 @@ namespace Pulumi.Azure.Redis.Inputs
 
     public sealed class CacheRedisConfigurationGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enable or disable AOF persistence for this Redis Cache.
+        /// </summary>
         [Input("aofBackupEnabled")]
         public Input<bool>? AofBackupEnabled { get; set; }
 
+        /// <summary>
+        /// First Storage Account connection string for AOF persistence.
+        /// </summary>
         [Input("aofStorageConnectionString0")]
         public Input<string>? AofStorageConnectionString0 { get; set; }
 
+        /// <summary>
+        /// Second Storage Account connection string for AOF persistence.
+        /// </summary>
         [Input("aofStorageConnectionString1")]
         public Input<string>? AofStorageConnectionString1 { get; set; }
 

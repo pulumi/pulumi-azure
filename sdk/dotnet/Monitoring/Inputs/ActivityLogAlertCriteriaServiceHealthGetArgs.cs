@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         private InputList<string>? _events;
 
         /// <summary>
-        /// Events this alert will monitor Possible values are `Incident`, `Maintenance`, `Informational`, and `ActionRequired`.
+        /// Events this alert will monitor Possible values are `Incident`, `Maintenance`, `Informational`, `ActionRequired` and `Security`.
         /// </summary>
         public InputList<string> Events
         {

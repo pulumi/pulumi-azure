@@ -13,8 +13,17 @@ namespace Pulumi.Azure.Redis.Outputs
     [OutputType]
     public sealed class CacheRedisConfiguration
     {
+        /// <summary>
+        /// Enable or disable AOF persistence for this Redis Cache.
+        /// </summary>
         public readonly bool? AofBackupEnabled;
+        /// <summary>
+        /// First Storage Account connection string for AOF persistence.
+        /// </summary>
         public readonly string? AofStorageConnectionString0;
+        /// <summary>
+        /// Second Storage Account connection string for AOF persistence.
+        /// </summary>
         public readonly string? AofStorageConnectionString1;
         /// <summary>
         /// If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.

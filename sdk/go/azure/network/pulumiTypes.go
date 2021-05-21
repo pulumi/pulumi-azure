@@ -1008,7 +1008,7 @@ type ApplicationGatewayFrontendIpConfiguration struct {
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
 	PrivateIpAddressAllocation *string `pulumi:"privateIpAddressAllocation"`
-	// The ID of a Public IP Address which the Application Gateway should use.
+	// The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/en-us/azure/virtual-network/public-ip-addresses#application-gateways) for details.
 	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
 	// The ID of the Subnet.
 	SubnetId *string `pulumi:"subnetId"`
@@ -1034,7 +1034,7 @@ type ApplicationGatewayFrontendIpConfigurationArgs struct {
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
 	// The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
 	PrivateIpAddressAllocation pulumi.StringPtrInput `pulumi:"privateIpAddressAllocation"`
-	// The ID of a Public IP Address which the Application Gateway should use.
+	// The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/en-us/azure/virtual-network/public-ip-addresses#application-gateways) for details.
 	PublicIpAddressId pulumi.StringPtrInput `pulumi:"publicIpAddressId"`
 	// The ID of the Subnet.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
@@ -1111,7 +1111,7 @@ func (o ApplicationGatewayFrontendIpConfigurationOutput) PrivateIpAddressAllocat
 	return o.ApplyT(func(v ApplicationGatewayFrontendIpConfiguration) *string { return v.PrivateIpAddressAllocation }).(pulumi.StringPtrOutput)
 }
 
-// The ID of a Public IP Address which the Application Gateway should use.
+// The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/en-us/azure/virtual-network/public-ip-addresses#application-gateways) for details.
 func (o ApplicationGatewayFrontendIpConfigurationOutput) PublicIpAddressId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayFrontendIpConfiguration) *string { return v.PublicIpAddressId }).(pulumi.StringPtrOutput)
 }

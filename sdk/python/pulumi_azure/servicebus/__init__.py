@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from .get_namespace import *
 from .get_namespace_authorization_rule import *
+from .get_namespace_disaster_recovery_config import *
 from .get_queue import *
 from .get_queue_authorization_rule import *
 from .get_subscription import *

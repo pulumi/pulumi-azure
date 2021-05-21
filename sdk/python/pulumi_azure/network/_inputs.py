@@ -683,7 +683,7 @@ class ApplicationGatewayFrontendIpConfigurationArgs:
         :param pulumi.Input[str] id: The ID of the Rewrite Rule Set
         :param pulumi.Input[str] private_ip_address: The Private IP Address to use for the Application Gateway.
         :param pulumi.Input[str] private_ip_address_allocation: The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
-        :param pulumi.Input[str] public_ip_address_id: The ID of a Public IP Address which the Application Gateway should use.
+        :param pulumi.Input[str] public_ip_address_id: The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/en-us/azure/virtual-network/public-ip-addresses#application-gateways) for details.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet.
         """
         pulumi.set(__self__, "name", name)
@@ -750,7 +750,7 @@ class ApplicationGatewayFrontendIpConfigurationArgs:
     @pulumi.getter(name="publicIpAddressId")
     def public_ip_address_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of a Public IP Address which the Application Gateway should use.
+        The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/en-us/azure/virtual-network/public-ip-addresses#application-gateways) for details.
         """
         return pulumi.get(self, "public_ip_address_id")
 

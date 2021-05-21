@@ -23,7 +23,6 @@ import (
 // import (
 // 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/core"
 // 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/mssql"
-// 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/sql"
 // 	"github.com/pulumi/pulumi-azure/sdk/v4/go/azure/storage"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -45,7 +44,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		exampleSqlServer, err := sql.NewSqlServer(ctx, "exampleSqlServer", &sql.SqlServerArgs{
+// 		exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
 // 			ResourceGroupName:          exampleResourceGroup.Name,
 // 			Location:                   exampleResourceGroup.Location,
 // 			Version:                    pulumi.String("12.0"),
@@ -56,7 +55,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = mssql.NewDatabase(ctx, "test", &mssql.DatabaseArgs{
-// 			ServerId:      exampleSqlServer.ID(),
+// 			ServerId:      exampleServer.ID(),
 // 			Collation:     pulumi.String("SQL_Latin1_General_CP1_CI_AS"),
 // 			LicenseType:   pulumi.String("LicenseIncluded"),
 // 			MaxSizeGb:     pulumi.Int(4),

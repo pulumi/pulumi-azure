@@ -94,6 +94,8 @@ type Service struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the service instance. Used for service endpoint, must be unique within the audience.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Whether public network access is enabled or disabled for this service instance.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group in which to create the Service.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
@@ -147,6 +149,8 @@ type serviceState struct {
 	Location *string `pulumi:"location"`
 	// The name of the service instance. Used for service endpoint, must be unique within the audience.
 	Name *string `pulumi:"name"`
+	// Whether public network access is enabled or disabled for this service instance.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group in which to create the Service.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
@@ -169,6 +173,8 @@ type ServiceState struct {
 	Location pulumi.StringPtrInput
 	// The name of the service instance. Used for service endpoint, must be unique within the audience.
 	Name pulumi.StringPtrInput
+	// Whether public network access is enabled or disabled for this service instance.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group in which to create the Service.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
@@ -195,6 +201,8 @@ type serviceArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the service instance. Used for service endpoint, must be unique within the audience.
 	Name *string `pulumi:"name"`
+	// Whether public network access is enabled or disabled for this service instance.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group in which to create the Service.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
@@ -218,6 +226,8 @@ type ServiceArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the service instance. Used for service endpoint, must be unique within the audience.
 	Name pulumi.StringPtrInput
+	// Whether public network access is enabled or disabled for this service instance.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group in which to create the Service.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.

@@ -70,6 +70,12 @@ namespace Pulumi.Azure.NetApp
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// Volume security style
+        /// </summary>
+        [Input("securityStyle")]
+        public string? SecurityStyle { get; set; }
+
         public GetVolumeArgs()
         {
         }
@@ -81,7 +87,8 @@ namespace Pulumi.Azure.NetApp
     {
         public readonly string AccountName;
         /// <summary>
-        /// A `data_protection_replication` block as defined below.
+        /// Volume data protection block
+        /// *
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVolumeDataProtectionReplicationResult> DataProtectionReplications;
         /// <summary>
@@ -99,10 +106,14 @@ namespace Pulumi.Azure.NetApp
         public readonly string Name;
         public readonly string PoolName;
         /// <summary>
-        /// A list of protocol types.
+        /// A list of protocol types enabled on volume.
         /// </summary>
         public readonly ImmutableArray<string> Protocols;
         public readonly string ResourceGroupName;
+        /// <summary>
+        /// Volume security style
+        /// </summary>
+        public readonly string? SecurityStyle;
         /// <summary>
         /// The service level of the file system.
         /// </summary>
@@ -140,6 +151,8 @@ namespace Pulumi.Azure.NetApp
 
             string resourceGroupName,
 
+            string? securityStyle,
+
             string serviceLevel,
 
             int storageQuotaInGb,
@@ -157,6 +170,7 @@ namespace Pulumi.Azure.NetApp
             PoolName = poolName;
             Protocols = protocols;
             ResourceGroupName = resourceGroupName;
+            SecurityStyle = securityStyle;
             ServiceLevel = serviceLevel;
             StorageQuotaInGb = storageQuotaInGb;
             SubnetId = subnetId;

@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Media.Inputs
 
     public sealed class AssetFilterTrackSelectionArgs : Pulumi.ResourceArgs
     {
-        [Input("conditions")]
+        [Input("conditions", required: true)]
         private InputList<Inputs.AssetFilterTrackSelectionConditionArgs>? _conditions;
 
         /// <summary>

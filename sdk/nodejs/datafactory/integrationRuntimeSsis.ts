@@ -84,7 +84,7 @@ export class IntegrationRuntimeSsis extends pulumi.CustomResource {
      */
     public readonly edition!: pulumi.Output<string | undefined>;
     /**
-     * The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
+     * The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
      */
     public readonly licenseType!: pulumi.Output<string | undefined>;
     /**
@@ -199,7 +199,7 @@ export interface IntegrationRuntimeSsisState {
      */
     readonly edition?: pulumi.Input<string>;
     /**
-     * The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
+     * The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
      */
     readonly licenseType?: pulumi.Input<string>;
     /**
@@ -257,7 +257,7 @@ export interface IntegrationRuntimeSsisArgs {
      */
     readonly edition?: pulumi.Input<string>;
     /**
-     * The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
+     * The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
      */
     readonly licenseType?: pulumi.Input<string>;
     /**

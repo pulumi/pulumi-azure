@@ -47,8 +47,8 @@ export class Provider extends pulumi.ProviderResource {
             inputs["disableTerraformPartnerId"] = pulumi.output(args ? args.disableTerraformPartnerId : undefined).apply(JSON.stringify);
             inputs["environment"] = (args ? args.environment : undefined) ?? (utilities.getEnv("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT") || "public");
             inputs["features"] = pulumi.output(args ? args.features : undefined).apply(JSON.stringify);
-            inputs["metadataHost"] = (args ? args.metadataHost : undefined) ?? (utilities.getEnv("ARM_METADATA_HOSTNAME") || "");
-            inputs["metadataUrl"] = (args ? args.metadataUrl : undefined) ?? (utilities.getEnv("ARM_METADATA_URL") || "");
+            inputs["metadataHost"] = (args ? args.metadataHost : undefined) ?? utilities.getEnv("ARM_METADATA_HOSTNAME");
+            inputs["metadataUrl"] = (args ? args.metadataUrl : undefined) ?? utilities.getEnv("ARM_METADATA_URL");
             inputs["msiEndpoint"] = args ? args.msiEndpoint : undefined;
             inputs["partnerId"] = args ? args.partnerId : undefined;
             inputs["skipCredentialsValidation"] = pulumi.output(args ? args.skipCredentialsValidation : undefined).apply(JSON.stringify);

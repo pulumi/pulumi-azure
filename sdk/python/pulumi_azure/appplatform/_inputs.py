@@ -18,6 +18,7 @@ __all__ = [
     'SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs',
     'SpringCloudServiceConfigServerGitSettingSshAuthArgs',
     'SpringCloudServiceNetworkArgs',
+    'SpringCloudServiceRequiredNetworkTrafficRuleArgs',
     'SpringCloudServiceTraceArgs',
 ]
 
@@ -629,6 +630,89 @@ class SpringCloudServiceNetworkArgs:
     @service_runtime_network_resource_group.setter
     def service_runtime_network_resource_group(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service_runtime_network_resource_group", value)
+
+
+@pulumi.input_type
+class SpringCloudServiceRequiredNetworkTrafficRuleArgs:
+    def __init__(__self__, *,
+                 direction: Optional[pulumi.Input[str]] = None,
+                 fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] direction: The direction of required traffic. Possible values are `Inbound`, `Outbound`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: The FQDN list of required traffic.
+        :param pulumi.Input[int] port: The port of required traffic.
+        :param pulumi.Input[str] protocol: The protocol of required traffic.
+        """
+        if direction is not None:
+            pulumi.set(__self__, "direction", direction)
+        if fqdns is not None:
+            pulumi.set(__self__, "fqdns", fqdns)
+        if ip_addresses is not None:
+            pulumi.set(__self__, "ip_addresses", ip_addresses)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter
+    def direction(self) -> Optional[pulumi.Input[str]]:
+        """
+        The direction of required traffic. Possible values are `Inbound`, `Outbound`.
+        """
+        return pulumi.get(self, "direction")
+
+    @direction.setter
+    def direction(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "direction", value)
+
+    @property
+    @pulumi.getter
+    def fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The FQDN list of required traffic.
+        """
+        return pulumi.get(self, "fqdns")
+
+    @fqdns.setter
+    def fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "fqdns", value)
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "ip_addresses")
+
+    @ip_addresses.setter
+    def ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ip_addresses", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port of required traffic.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        The protocol of required traffic.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
 
 
 @pulumi.input_type

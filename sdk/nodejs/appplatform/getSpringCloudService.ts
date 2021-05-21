@@ -73,6 +73,10 @@ export interface GetSpringCloudServiceResult {
      * A list of the outbound Public IP Addresses used by this Spring Cloud Service.
      */
     readonly outboundPublicIpAddresses: string[];
+    /**
+     * A list of `requiredNetworkTrafficRules` blocks as defined below.
+     */
+    readonly requiredNetworkTrafficRules: outputs.appplatform.GetSpringCloudServiceRequiredNetworkTrafficRule[];
     readonly resourceGroupName: string;
     /**
      * A mapping of tags assigned to Spring Cloud Service.

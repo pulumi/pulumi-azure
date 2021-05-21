@@ -89,6 +89,8 @@ type SpringCloudService struct {
 	Network SpringCloudServiceNetworkPtrOutput `pulumi:"network"`
 	// A list of the outbound Public IP Addresses used by this Spring Cloud Service.
 	OutboundPublicIpAddresses pulumi.StringArrayOutput `pulumi:"outboundPublicIpAddresses"`
+	// A list of `requiredNetworkTrafficRules` blocks as defined below.
+	RequiredNetworkTrafficRules SpringCloudServiceRequiredNetworkTrafficRuleArrayOutput `pulumi:"requiredNetworkTrafficRules"`
 	// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
@@ -141,6 +143,8 @@ type springCloudServiceState struct {
 	Network *SpringCloudServiceNetwork `pulumi:"network"`
 	// A list of the outbound Public IP Addresses used by this Spring Cloud Service.
 	OutboundPublicIpAddresses []string `pulumi:"outboundPublicIpAddresses"`
+	// A list of `requiredNetworkTrafficRules` blocks as defined below.
+	RequiredNetworkTrafficRules []SpringCloudServiceRequiredNetworkTrafficRule `pulumi:"requiredNetworkTrafficRules"`
 	// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
@@ -162,6 +166,8 @@ type SpringCloudServiceState struct {
 	Network SpringCloudServiceNetworkPtrInput
 	// A list of the outbound Public IP Addresses used by this Spring Cloud Service.
 	OutboundPublicIpAddresses pulumi.StringArrayInput
+	// A list of `requiredNetworkTrafficRules` blocks as defined below.
+	RequiredNetworkTrafficRules SpringCloudServiceRequiredNetworkTrafficRuleArrayInput
 	// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.

@@ -86,6 +86,7 @@ namespace Pulumi.Azure.NetApp
     ///             {
     ///                 "NFSv4.1",
     ///             },
+    ///             SecurityStyle = "Unix",
     ///             StorageQuotaInGb = 100,
     ///             CreateFromSnapshotResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1/snapshots/snapshot1",
     ///             DataProtectionReplication = new Azure.NetApp.Inputs.VolumeDataProtectionReplicationArgs
@@ -171,6 +172,12 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
+        /// </summary>
+        [Output("securityStyle")]
+        public Output<string> SecurityStyle { get; private set; } = null!;
 
         /// <summary>
         /// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
@@ -315,6 +322,12 @@ namespace Pulumi.Azure.NetApp
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
+        /// </summary>
+        [Input("securityStyle")]
+        public Input<string>? SecurityStyle { get; set; }
+
+        /// <summary>
         /// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
         /// </summary>
         [Input("serviceLevel", required: true)]
@@ -434,6 +447,12 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
+        /// </summary>
+        [Input("securityStyle")]
+        public Input<string>? SecurityStyle { get; set; }
 
         /// <summary>
         /// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.

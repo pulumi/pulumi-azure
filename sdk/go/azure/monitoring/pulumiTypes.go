@@ -5339,7 +5339,7 @@ func (o ActivityLogAlertCriteriaPtrOutput) SubStatus() pulumi.StringPtrOutput {
 }
 
 type ActivityLogAlertCriteriaServiceHealth struct {
-	// Events this alert will monitor Possible values are `Incident`, `Maintenance`, `Informational`, and `ActionRequired`.
+	// Events this alert will monitor Possible values are `Incident`, `Maintenance`, `Informational`, `ActionRequired` and `Security`.
 	Events []string `pulumi:"events"`
 	// Locations this alert will monitor. For example, `West Europe`. Defaults to `Global`.
 	Locations []string `pulumi:"locations"`
@@ -5359,7 +5359,7 @@ type ActivityLogAlertCriteriaServiceHealthInput interface {
 }
 
 type ActivityLogAlertCriteriaServiceHealthArgs struct {
-	// Events this alert will monitor Possible values are `Incident`, `Maintenance`, `Informational`, and `ActionRequired`.
+	// Events this alert will monitor Possible values are `Incident`, `Maintenance`, `Informational`, `ActionRequired` and `Security`.
 	Events pulumi.StringArrayInput `pulumi:"events"`
 	// Locations this alert will monitor. For example, `West Europe`. Defaults to `Global`.
 	Locations pulumi.StringArrayInput `pulumi:"locations"`
@@ -5418,7 +5418,7 @@ func (o ActivityLogAlertCriteriaServiceHealthOutput) ToActivityLogAlertCriteriaS
 	return o
 }
 
-// Events this alert will monitor Possible values are `Incident`, `Maintenance`, `Informational`, and `ActionRequired`.
+// Events this alert will monitor Possible values are `Incident`, `Maintenance`, `Informational`, `ActionRequired` and `Security`.
 func (o ActivityLogAlertCriteriaServiceHealthOutput) Events() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ActivityLogAlertCriteriaServiceHealth) []string { return v.Events }).(pulumi.StringArrayOutput)
 }

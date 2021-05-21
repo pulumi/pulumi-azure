@@ -122,7 +122,7 @@ type VirtualNetwork struct {
 	Subnets VirtualNetworkSubnetArrayOutput `pulumi:"subnets"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
+	// Deprecated: This is deprecated in favor of `ddos_protection_plan`
 	VmProtectionEnabled pulumi.BoolPtrOutput `pulumi:"vmProtectionEnabled"`
 }
 
@@ -181,7 +181,7 @@ type virtualNetworkState struct {
 	Subnets []VirtualNetworkSubnet `pulumi:"subnets"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
+	// Deprecated: This is deprecated in favor of `ddos_protection_plan`
 	VmProtectionEnabled *bool `pulumi:"vmProtectionEnabled"`
 }
 
@@ -206,7 +206,7 @@ type VirtualNetworkState struct {
 	Subnets VirtualNetworkSubnetArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
+	// Deprecated: This is deprecated in favor of `ddos_protection_plan`
 	VmProtectionEnabled pulumi.BoolPtrInput
 }
 
@@ -233,7 +233,7 @@ type virtualNetworkArgs struct {
 	Subnets []VirtualNetworkSubnet `pulumi:"subnets"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
+	// Deprecated: This is deprecated in favor of `ddos_protection_plan`
 	VmProtectionEnabled *bool `pulumi:"vmProtectionEnabled"`
 }
 
@@ -257,7 +257,7 @@ type VirtualNetworkArgs struct {
 	Subnets VirtualNetworkSubnetArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
+	// Deprecated: This is deprecated in favor of `ddos_protection_plan`
 	VmProtectionEnabled pulumi.BoolPtrInput
 }
 

@@ -18,6 +18,7 @@ class AccountArgs:
                  resource_group_name: pulumi.Input[str],
                  storage_accounts: pulumi.Input[Sequence[pulumi.Input['AccountStorageAccountArgs']]],
                  identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
+                 key_delivery_access_control: Optional[pulumi.Input['AccountKeyDeliveryAccessControlArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  storage_authentication_type: Optional[pulumi.Input[str]] = None,
@@ -27,17 +28,19 @@ class AccountArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['AccountStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block is documented below.
+        :param pulumi.Input['AccountKeyDeliveryAccessControlArgs'] key_delivery_access_control: An `key_delivery_access_control` block is documented below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_authentication_type: Specifies the storage authentication type. 
                Possible value is  `ManagedIdentity` or `System`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
-               ---
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "storage_accounts", storage_accounts)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if key_delivery_access_control is not None:
+            pulumi.set(__self__, "key_delivery_access_control", key_delivery_access_control)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -84,6 +87,18 @@ class AccountArgs:
         pulumi.set(self, "identity", value)
 
     @property
+    @pulumi.getter(name="keyDeliveryAccessControl")
+    def key_delivery_access_control(self) -> Optional[pulumi.Input['AccountKeyDeliveryAccessControlArgs']]:
+        """
+        An `key_delivery_access_control` block is documented below.
+        """
+        return pulumi.get(self, "key_delivery_access_control")
+
+    @key_delivery_access_control.setter
+    def key_delivery_access_control(self, value: Optional[pulumi.Input['AccountKeyDeliveryAccessControlArgs']]):
+        pulumi.set(self, "key_delivery_access_control", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -125,7 +140,6 @@ class AccountArgs:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A mapping of tags assigned to the resource.
-        ---
         """
         return pulumi.get(self, "tags")
 
@@ -138,6 +152,7 @@ class AccountArgs:
 class _AccountState:
     def __init__(__self__, *,
                  identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
+                 key_delivery_access_control: Optional[pulumi.Input['AccountKeyDeliveryAccessControlArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -147,6 +162,7 @@ class _AccountState:
         """
         Input properties used for looking up and filtering Account resources.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block is documented below.
+        :param pulumi.Input['AccountKeyDeliveryAccessControlArgs'] key_delivery_access_control: An `key_delivery_access_control` block is documented below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
@@ -154,10 +170,11 @@ class _AccountState:
         :param pulumi.Input[str] storage_authentication_type: Specifies the storage authentication type. 
                Possible value is  `ManagedIdentity` or `System`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
-               ---
         """
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if key_delivery_access_control is not None:
+            pulumi.set(__self__, "key_delivery_access_control", key_delivery_access_control)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -182,6 +199,18 @@ class _AccountState:
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['AccountIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="keyDeliveryAccessControl")
+    def key_delivery_access_control(self) -> Optional[pulumi.Input['AccountKeyDeliveryAccessControlArgs']]:
+        """
+        An `key_delivery_access_control` block is documented below.
+        """
+        return pulumi.get(self, "key_delivery_access_control")
+
+    @key_delivery_access_control.setter
+    def key_delivery_access_control(self, value: Optional[pulumi.Input['AccountKeyDeliveryAccessControlArgs']]):
+        pulumi.set(self, "key_delivery_access_control", value)
 
     @property
     @pulumi.getter
@@ -249,7 +278,6 @@ class _AccountState:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A mapping of tags assigned to the resource.
-        ---
         """
         return pulumi.get(self, "tags")
 
@@ -269,6 +297,7 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
+                 key_delivery_access_control: Optional[pulumi.Input[pulumi.InputType['AccountKeyDeliveryAccessControlArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -311,6 +340,7 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block is documented below.
+        :param pulumi.Input[pulumi.InputType['AccountKeyDeliveryAccessControlArgs']] key_delivery_access_control: An `key_delivery_access_control` block is documented below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
@@ -318,7 +348,6 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] storage_authentication_type: Specifies the storage authentication type. 
                Possible value is  `ManagedIdentity` or `System`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
-               ---
         """
         ...
     @overload
@@ -374,6 +403,7 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
+                 key_delivery_access_control: Optional[pulumi.Input[pulumi.InputType['AccountKeyDeliveryAccessControlArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -394,6 +424,7 @@ class Account(pulumi.CustomResource):
             __props__ = AccountArgs.__new__(AccountArgs)
 
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["key_delivery_access_control"] = key_delivery_access_control
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
@@ -415,6 +446,7 @@ class Account(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
+            key_delivery_access_control: Optional[pulumi.Input[pulumi.InputType['AccountKeyDeliveryAccessControlArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -429,6 +461,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block is documented below.
+        :param pulumi.Input[pulumi.InputType['AccountKeyDeliveryAccessControlArgs']] key_delivery_access_control: An `key_delivery_access_control` block is documented below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
@@ -436,13 +469,13 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] storage_authentication_type: Specifies the storage authentication type. 
                Possible value is  `ManagedIdentity` or `System`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
-               ---
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _AccountState.__new__(_AccountState)
 
         __props__.__dict__["identity"] = identity
+        __props__.__dict__["key_delivery_access_control"] = key_delivery_access_control
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -458,6 +491,14 @@ class Account(pulumi.CustomResource):
         An `identity` block is documented below.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="keyDeliveryAccessControl")
+    def key_delivery_access_control(self) -> pulumi.Output['outputs.AccountKeyDeliveryAccessControl']:
+        """
+        An `key_delivery_access_control` block is documented below.
+        """
+        return pulumi.get(self, "key_delivery_access_control")
 
     @property
     @pulumi.getter
@@ -505,7 +546,6 @@ class Account(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags assigned to the resource.
-        ---
         """
         return pulumi.get(self, "tags")
 

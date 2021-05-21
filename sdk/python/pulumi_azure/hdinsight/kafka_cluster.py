@@ -21,6 +21,7 @@ class KafkaClusterArgs:
                  resource_group_name: pulumi.Input[str],
                  roles: pulumi.Input['KafkaClusterRolesArgs'],
                  tier: pulumi.Input[str],
+                 encryption_in_transit_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metastores: Optional[pulumi.Input['KafkaClusterMetastoresArgs']] = None,
                  monitor: Optional[pulumi.Input['KafkaClusterMonitorArgs']] = None,
@@ -38,6 +39,7 @@ class KafkaClusterArgs:
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['KafkaClusterRolesArgs'] roles: A `roles` block as defined below.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Kafka Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] encryption_in_transit_enabled: Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['KafkaClusterMetastoresArgs'] metastores: A `metastores` block as defined below.
         :param pulumi.Input['KafkaClusterMonitorArgs'] monitor: A `monitor` block as defined below.
@@ -53,6 +55,8 @@ class KafkaClusterArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "roles", roles)
         pulumi.set(__self__, "tier", tier)
+        if encryption_in_transit_enabled is not None:
+            pulumi.set(__self__, "encryption_in_transit_enabled", encryption_in_transit_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if metastores is not None:
@@ -143,6 +147,18 @@ class KafkaClusterArgs:
     @tier.setter
     def tier(self, value: pulumi.Input[str]):
         pulumi.set(self, "tier", value)
+
+    @property
+    @pulumi.getter(name="encryptionInTransitEnabled")
+    def encryption_in_transit_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "encryption_in_transit_enabled")
+
+    @encryption_in_transit_enabled.setter
+    def encryption_in_transit_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "encryption_in_transit_enabled", value)
 
     @property
     @pulumi.getter
@@ -255,6 +271,7 @@ class _KafkaClusterState:
     def __init__(__self__, *,
                  cluster_version: Optional[pulumi.Input[str]] = None,
                  component_version: Optional[pulumi.Input['KafkaClusterComponentVersionArgs']] = None,
+                 encryption_in_transit_enabled: Optional[pulumi.Input[bool]] = None,
                  gateway: Optional[pulumi.Input['KafkaClusterGatewayArgs']] = None,
                  https_endpoint: Optional[pulumi.Input[str]] = None,
                  kafka_rest_proxy_endpoint: Optional[pulumi.Input[str]] = None,
@@ -275,6 +292,7 @@ class _KafkaClusterState:
         Input properties used for looking up and filtering KafkaCluster resources.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['KafkaClusterComponentVersionArgs'] component_version: A `component_version` block as defined below.
+        :param pulumi.Input[bool] encryption_in_transit_enabled: Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['KafkaClusterGatewayArgs'] gateway: A `gateway` block as defined below.
         :param pulumi.Input[str] https_endpoint: The HTTPS Connectivity Endpoint for this HDInsight Kafka Cluster.
         :param pulumi.Input[str] kafka_rest_proxy_endpoint: The Kafka Rest Proxy Endpoint for this HDInsight Kafka Cluster.
@@ -295,6 +313,8 @@ class _KafkaClusterState:
             pulumi.set(__self__, "cluster_version", cluster_version)
         if component_version is not None:
             pulumi.set(__self__, "component_version", component_version)
+        if encryption_in_transit_enabled is not None:
+            pulumi.set(__self__, "encryption_in_transit_enabled", encryption_in_transit_enabled)
         if gateway is not None:
             pulumi.set(__self__, "gateway", gateway)
         if https_endpoint is not None:
@@ -351,6 +371,18 @@ class _KafkaClusterState:
     @component_version.setter
     def component_version(self, value: Optional[pulumi.Input['KafkaClusterComponentVersionArgs']]):
         pulumi.set(self, "component_version", value)
+
+    @property
+    @pulumi.getter(name="encryptionInTransitEnabled")
+    def encryption_in_transit_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "encryption_in_transit_enabled")
+
+    @encryption_in_transit_enabled.setter
+    def encryption_in_transit_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "encryption_in_transit_enabled", value)
 
     @property
     @pulumi.getter
@@ -549,6 +581,7 @@ class KafkaCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
                  component_version: Optional[pulumi.Input[pulumi.InputType['KafkaClusterComponentVersionArgs']]] = None,
+                 encryption_in_transit_enabled: Optional[pulumi.Input[bool]] = None,
                  gateway: Optional[pulumi.Input[pulumi.InputType['KafkaClusterGatewayArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metastores: Optional[pulumi.Input[pulumi.InputType['KafkaClusterMetastoresArgs']]] = None,
@@ -632,6 +665,7 @@ class KafkaCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KafkaClusterComponentVersionArgs']] component_version: A `component_version` block as defined below.
+        :param pulumi.Input[bool] encryption_in_transit_enabled: Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KafkaClusterGatewayArgs']] gateway: A `gateway` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KafkaClusterMetastoresArgs']] metastores: A `metastores` block as defined below.
@@ -733,6 +767,7 @@ class KafkaCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
                  component_version: Optional[pulumi.Input[pulumi.InputType['KafkaClusterComponentVersionArgs']]] = None,
+                 encryption_in_transit_enabled: Optional[pulumi.Input[bool]] = None,
                  gateway: Optional[pulumi.Input[pulumi.InputType['KafkaClusterGatewayArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metastores: Optional[pulumi.Input[pulumi.InputType['KafkaClusterMetastoresArgs']]] = None,
@@ -764,6 +799,7 @@ class KafkaCluster(pulumi.CustomResource):
             if component_version is None and not opts.urn:
                 raise TypeError("Missing required property 'component_version'")
             __props__.__dict__["component_version"] = component_version
+            __props__.__dict__["encryption_in_transit_enabled"] = encryption_in_transit_enabled
             if gateway is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway'")
             __props__.__dict__["gateway"] = gateway
@@ -800,6 +836,7 @@ class KafkaCluster(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cluster_version: Optional[pulumi.Input[str]] = None,
             component_version: Optional[pulumi.Input[pulumi.InputType['KafkaClusterComponentVersionArgs']]] = None,
+            encryption_in_transit_enabled: Optional[pulumi.Input[bool]] = None,
             gateway: Optional[pulumi.Input[pulumi.InputType['KafkaClusterGatewayArgs']]] = None,
             https_endpoint: Optional[pulumi.Input[str]] = None,
             kafka_rest_proxy_endpoint: Optional[pulumi.Input[str]] = None,
@@ -825,6 +862,7 @@ class KafkaCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KafkaClusterComponentVersionArgs']] component_version: A `component_version` block as defined below.
+        :param pulumi.Input[bool] encryption_in_transit_enabled: Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KafkaClusterGatewayArgs']] gateway: A `gateway` block as defined below.
         :param pulumi.Input[str] https_endpoint: The HTTPS Connectivity Endpoint for this HDInsight Kafka Cluster.
         :param pulumi.Input[str] kafka_rest_proxy_endpoint: The Kafka Rest Proxy Endpoint for this HDInsight Kafka Cluster.
@@ -847,6 +885,7 @@ class KafkaCluster(pulumi.CustomResource):
 
         __props__.__dict__["cluster_version"] = cluster_version
         __props__.__dict__["component_version"] = component_version
+        __props__.__dict__["encryption_in_transit_enabled"] = encryption_in_transit_enabled
         __props__.__dict__["gateway"] = gateway
         __props__.__dict__["https_endpoint"] = https_endpoint
         __props__.__dict__["kafka_rest_proxy_endpoint"] = kafka_rest_proxy_endpoint
@@ -880,6 +919,14 @@ class KafkaCluster(pulumi.CustomResource):
         A `component_version` block as defined below.
         """
         return pulumi.get(self, "component_version")
+
+    @property
+    @pulumi.getter(name="encryptionInTransitEnabled")
+    def encryption_in_transit_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "encryption_in_transit_enabled")
 
     @property
     @pulumi.getter

@@ -104,6 +104,12 @@ namespace Pulumi.Azure.AppPlatform
         public Output<ImmutableArray<string>> OutboundPublicIpAddresses { get; private set; } = null!;
 
         /// <summary>
+        /// A list of `required_network_traffic_rules` blocks as defined below.
+        /// </summary>
+        [Output("requiredNetworkTrafficRules")]
+        public Output<ImmutableArray<Outputs.SpringCloudServiceRequiredNetworkTrafficRule>> RequiredNetworkTrafficRules { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -268,6 +274,18 @@ namespace Pulumi.Azure.AppPlatform
         {
             get => _outboundPublicIpAddresses ?? (_outboundPublicIpAddresses = new InputList<string>());
             set => _outboundPublicIpAddresses = value;
+        }
+
+        [Input("requiredNetworkTrafficRules")]
+        private InputList<Inputs.SpringCloudServiceRequiredNetworkTrafficRuleGetArgs>? _requiredNetworkTrafficRules;
+
+        /// <summary>
+        /// A list of `required_network_traffic_rules` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.SpringCloudServiceRequiredNetworkTrafficRuleGetArgs> RequiredNetworkTrafficRules
+        {
+            get => _requiredNetworkTrafficRules ?? (_requiredNetworkTrafficRules = new InputList<Inputs.SpringCloudServiceRequiredNetworkTrafficRuleGetArgs>());
+            set => _requiredNetworkTrafficRules = value;
         }
 
         /// <summary>

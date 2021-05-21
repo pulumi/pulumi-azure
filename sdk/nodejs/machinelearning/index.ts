@@ -6,15 +6,19 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./getWorkspace";
+export * from "./inferenceCluster";
 export * from "./workspace";
 
 // Import resources to register:
+import { InferenceCluster } from "./inferenceCluster";
 import { Workspace } from "./workspace";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:machinelearning/inferenceCluster:InferenceCluster":
+                return new InferenceCluster(name, <any>undefined, { urn })
             case "azure:machinelearning/workspace:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
             default:
@@ -22,4 +26,5 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "machinelearning/inferenceCluster", _module)
 pulumi.runtime.registerResourceModule("azure", "machinelearning/workspace", _module)

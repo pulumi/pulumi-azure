@@ -18,6 +18,7 @@ export * from "./eventHubNamespaceAuthorizationRule";
 export * from "./eventSubscription";
 export * from "./eventhubNamespaceDisasterRecoveryConfig";
 export * from "./getAuthorizationRule";
+export * from "./getCluster";
 export * from "./getConsumeGroup";
 export * from "./getEventHub";
 export * from "./getEventhubNamespace";

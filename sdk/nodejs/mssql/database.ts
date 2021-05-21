@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleSqlServer = new azure.sql.SqlServer("exampleSqlServer", {
+ * const exampleServer = new azure.mssql.Server("exampleServer", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     version: "12.0",
@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
  * });
  * const test = new azure.mssql.Database("test", {
- *     serverId: exampleSqlServer.id,
+ *     serverId: exampleServer.id,
  *     collation: "SQL_Latin1_General_CP1_CI_AS",
  *     licenseType: "LicenseIncluded",
  *     maxSizeGb: 4,

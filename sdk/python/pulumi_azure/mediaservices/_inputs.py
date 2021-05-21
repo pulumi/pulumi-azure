@@ -10,6 +10,7 @@ from .. import _utilities
 
 __all__ = [
     'AccountIdentityArgs',
+    'AccountKeyDeliveryAccessControlArgs',
     'AccountStorageAccountArgs',
 ]
 
@@ -66,6 +67,45 @@ class AccountIdentityArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class AccountKeyDeliveryAccessControlArgs:
+    def __init__(__self__, *,
+                 default_action: Optional[pulumi.Input[str]] = None,
+                 ip_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] default_action: The Default Action to use when no rules match from `ip_allow_list`. Possible values are `Allow` and `Deny`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_allow_lists: One or more IP Addresses, or CIDR Blocks which should be able to access the Key Delivery.
+        """
+        if default_action is not None:
+            pulumi.set(__self__, "default_action", default_action)
+        if ip_allow_lists is not None:
+            pulumi.set(__self__, "ip_allow_lists", ip_allow_lists)
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Default Action to use when no rules match from `ip_allow_list`. Possible values are `Allow` and `Deny`.
+        """
+        return pulumi.get(self, "default_action")
+
+    @default_action.setter
+    def default_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_action", value)
+
+    @property
+    @pulumi.getter(name="ipAllowLists")
+    def ip_allow_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more IP Addresses, or CIDR Blocks which should be able to access the Key Delivery.
+        """
+        return pulumi.get(self, "ip_allow_lists")
+
+    @ip_allow_lists.setter
+    def ip_allow_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ip_allow_lists", value)
 
 
 @pulumi.input_type

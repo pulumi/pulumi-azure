@@ -89,6 +89,10 @@ namespace Pulumi.Azure.AppPlatform
         /// A list of the outbound Public IP Addresses used by this Spring Cloud Service.
         /// </summary>
         public readonly ImmutableArray<string> OutboundPublicIpAddresses;
+        /// <summary>
+        /// A list of `required_network_traffic_rules` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetSpringCloudServiceRequiredNetworkTrafficRuleResult> RequiredNetworkTrafficRules;
         public readonly string ResourceGroupName;
         /// <summary>
         /// A mapping of tags assigned to Spring Cloud Service.
@@ -107,6 +111,8 @@ namespace Pulumi.Azure.AppPlatform
 
             ImmutableArray<string> outboundPublicIpAddresses,
 
+            ImmutableArray<Outputs.GetSpringCloudServiceRequiredNetworkTrafficRuleResult> requiredNetworkTrafficRules,
+
             string resourceGroupName,
 
             ImmutableDictionary<string, string> tags)
@@ -116,6 +122,7 @@ namespace Pulumi.Azure.AppPlatform
             Location = location;
             Name = name;
             OutboundPublicIpAddresses = outboundPublicIpAddresses;
+            RequiredNetworkTrafficRules = requiredNetworkTrafficRules;
             ResourceGroupName = resourceGroupName;
             Tags = tags;
         }

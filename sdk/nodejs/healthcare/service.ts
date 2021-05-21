@@ -114,6 +114,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Whether public network access is enabled or disabled for this service instance.
+     */
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the Resource Group in which to create the Service.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -143,6 +147,7 @@ export class Service extends pulumi.CustomResource {
             inputs["kind"] = state ? state.kind : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -158,6 +163,7 @@ export class Service extends pulumi.CustomResource {
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
@@ -202,6 +208,10 @@ export interface ServiceState {
      */
     readonly name?: pulumi.Input<string>;
     /**
+     * Whether public network access is enabled or disabled for this service instance.
+     */
+    readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    /**
      * The name of the Resource Group in which to create the Service.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
@@ -244,6 +254,10 @@ export interface ServiceArgs {
      * The name of the service instance. Used for service endpoint, must be unique within the audience.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Whether public network access is enabled or disabled for this service instance.
+     */
+    readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Resource Group in which to create the Service.
      */

@@ -55,6 +55,7 @@ import * as utilities from "../utilities";
  *     serviceLevel: "Premium",
  *     subnetId: exampleSubnet.id,
  *     protocols: ["NFSv4.1"],
+ *     securityStyle: "Unix",
  *     storageQuotaInGb: 100,
  *     createFromSnapshotResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1/snapshots/snapshot1",
  *     dataProtectionReplication: {
@@ -143,6 +144,10 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
+     */
+    public readonly securityStyle!: pulumi.Output<string>;
+    /**
      * The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
      */
     public readonly serviceLevel!: pulumi.Output<string>;
@@ -186,6 +191,7 @@ export class Volume extends pulumi.CustomResource {
             inputs["poolName"] = state ? state.poolName : undefined;
             inputs["protocols"] = state ? state.protocols : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["securityStyle"] = state ? state.securityStyle : undefined;
             inputs["serviceLevel"] = state ? state.serviceLevel : undefined;
             inputs["storageQuotaInGb"] = state ? state.storageQuotaInGb : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
@@ -223,6 +229,7 @@ export class Volume extends pulumi.CustomResource {
             inputs["poolName"] = args ? args.poolName : undefined;
             inputs["protocols"] = args ? args.protocols : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["securityStyle"] = args ? args.securityStyle : undefined;
             inputs["serviceLevel"] = args ? args.serviceLevel : undefined;
             inputs["storageQuotaInGb"] = args ? args.storageQuotaInGb : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
@@ -281,6 +288,10 @@ export interface VolumeState {
      * The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
+    /**
+     * Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
+     */
+    readonly securityStyle?: pulumi.Input<string>;
     /**
      * The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
      */
@@ -343,6 +354,10 @@ export interface VolumeArgs {
      * The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
+     */
+    readonly securityStyle?: pulumi.Input<string>;
     /**
      * The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
      */

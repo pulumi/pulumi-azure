@@ -166,8 +166,8 @@ namespace Pulumi.Azure
         public ProviderArgs()
         {
             Environment = Utilities.GetEnv("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT") ?? "public";
-            MetadataHost = Utilities.GetEnv("ARM_METADATA_HOSTNAME") ?? "";
-            MetadataUrl = Utilities.GetEnv("ARM_METADATA_URL") ?? "";
+            MetadataHost = Utilities.GetEnv("ARM_METADATA_HOSTNAME");
+            MetadataUrl = Utilities.GetEnv("ARM_METADATA_URL");
             SkipProviderRegistration = Utilities.GetEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") ?? false;
             StorageUseAzuread = Utilities.GetEnvBoolean("ARM_STORAGE_USE_AZUREAD") ?? false;
             SubscriptionId = Utilities.GetEnv("ARM_SUBSCRIPTION_ID") ?? "";

@@ -20,7 +20,7 @@ class GetVolumeResult:
     """
     A collection of values returned by getVolume.
     """
-    def __init__(__self__, account_name=None, data_protection_replications=None, id=None, location=None, mount_ip_addresses=None, name=None, pool_name=None, protocols=None, resource_group_name=None, service_level=None, storage_quota_in_gb=None, subnet_id=None, volume_path=None):
+    def __init__(__self__, account_name=None, data_protection_replications=None, id=None, location=None, mount_ip_addresses=None, name=None, pool_name=None, protocols=None, resource_group_name=None, security_style=None, service_level=None, storage_quota_in_gb=None, subnet_id=None, volume_path=None):
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         pulumi.set(__self__, "account_name", account_name)
@@ -48,6 +48,9 @@ class GetVolumeResult:
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if security_style and not isinstance(security_style, str):
+            raise TypeError("Expected argument 'security_style' to be a str")
+        pulumi.set(__self__, "security_style", security_style)
         if service_level and not isinstance(service_level, str):
             raise TypeError("Expected argument 'service_level' to be a str")
         pulumi.set(__self__, "service_level", service_level)
@@ -70,7 +73,8 @@ class GetVolumeResult:
     @pulumi.getter(name="dataProtectionReplications")
     def data_protection_replications(self) -> Sequence['outputs.GetVolumeDataProtectionReplicationResult']:
         """
-        A `data_protection_replication` block as defined below.
+        Volume data protection block
+        *
         """
         return pulumi.get(self, "data_protection_replications")
 
@@ -112,7 +116,7 @@ class GetVolumeResult:
     @pulumi.getter
     def protocols(self) -> Sequence[str]:
         """
-        A list of protocol types.
+        A list of protocol types enabled on volume.
         """
         return pulumi.get(self, "protocols")
 
@@ -120,6 +124,14 @@ class GetVolumeResult:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> str:
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="securityStyle")
+    def security_style(self) -> Optional[str]:
+        """
+        Volume security style
+        """
+        return pulumi.get(self, "security_style")
 
     @property
     @pulumi.getter(name="serviceLevel")
@@ -169,6 +181,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             pool_name=self.pool_name,
             protocols=self.protocols,
             resource_group_name=self.resource_group_name,
+            security_style=self.security_style,
             service_level=self.service_level,
             storage_quota_in_gb=self.storage_quota_in_gb,
             subnet_id=self.subnet_id,
@@ -179,6 +192,7 @@ def get_volume(account_name: Optional[str] = None,
                name: Optional[str] = None,
                pool_name: Optional[str] = None,
                resource_group_name: Optional[str] = None,
+               security_style: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeResult:
     """
     Uses this data source to access information about an existing NetApp Volume.
@@ -201,12 +215,14 @@ def get_volume(account_name: Optional[str] = None,
     :param str name: The name of the NetApp Volume.
     :param str pool_name: The name of the NetApp pool where the NetApp volume exists.
     :param str resource_group_name: The Name of the Resource Group where the NetApp Volume exists.
+    :param str security_style: Volume security style
     """
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['name'] = name
     __args__['poolName'] = pool_name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['securityStyle'] = security_style
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -223,6 +239,7 @@ def get_volume(account_name: Optional[str] = None,
         pool_name=__ret__.pool_name,
         protocols=__ret__.protocols,
         resource_group_name=__ret__.resource_group_name,
+        security_style=__ret__.security_style,
         service_level=__ret__.service_level,
         storage_quota_in_gb=__ret__.storage_quota_in_gb,
         subnet_id=__ret__.subnet_id,

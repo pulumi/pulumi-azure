@@ -36,6 +36,7 @@ export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Pro
         "name": args.name,
         "poolName": args.poolName,
         "resourceGroupName": args.resourceGroupName,
+        "securityStyle": args.securityStyle,
     }, opts);
 }
 
@@ -59,6 +60,10 @@ export interface GetVolumeArgs {
      * The Name of the Resource Group where the NetApp Volume exists.
      */
     readonly resourceGroupName: string;
+    /**
+     * Volume security style
+     */
+    readonly securityStyle?: string;
 }
 
 /**
@@ -67,7 +72,8 @@ export interface GetVolumeArgs {
 export interface GetVolumeResult {
     readonly accountName: string;
     /**
-     * A `dataProtectionReplication` block as defined below.
+     * Volume data protection block
+     * *
      */
     readonly dataProtectionReplications: outputs.netapp.GetVolumeDataProtectionReplication[];
     /**
@@ -85,10 +91,14 @@ export interface GetVolumeResult {
     readonly name: string;
     readonly poolName: string;
     /**
-     * A list of protocol types.
+     * A list of protocol types enabled on volume.
      */
     readonly protocols: string[];
     readonly resourceGroupName: string;
+    /**
+     * Volume security style
+     */
+    readonly securityStyle?: string;
     /**
      * The service level of the file system.
      */

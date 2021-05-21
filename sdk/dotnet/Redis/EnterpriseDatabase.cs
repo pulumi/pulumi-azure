@@ -96,10 +96,22 @@ namespace Pulumi.Azure.Redis
         public Output<int?> Port { get; private set; } = null!;
 
         /// <summary>
+        /// The Primary Access Key for the Redis Enterprise Database Instance.
+        /// </summary>
+        [Output("primaryAccessKey")]
+        public Output<string> PrimaryAccessKey { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// The Secondary Access Key for the Redis Enterprise Database Instance.
+        /// </summary>
+        [Output("secondaryAccessKey")]
+        public Output<string> SecondaryAccessKey { get; private set; } = null!;
 
 
         /// <summary>
@@ -257,10 +269,22 @@ namespace Pulumi.Azure.Redis
         public Input<int>? Port { get; set; }
 
         /// <summary>
+        /// The Primary Access Key for the Redis Enterprise Database Instance.
+        /// </summary>
+        [Input("primaryAccessKey")]
+        public Input<string>? PrimaryAccessKey { get; set; }
+
+        /// <summary>
         /// The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// The Secondary Access Key for the Redis Enterprise Database Instance.
+        /// </summary>
+        [Input("secondaryAccessKey")]
+        public Input<string>? SecondaryAccessKey { get; set; }
 
         public EnterpriseDatabaseState()
         {

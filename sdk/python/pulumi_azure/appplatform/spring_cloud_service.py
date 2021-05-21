@@ -155,6 +155,7 @@ class _SpringCloudServiceState:
                  name: Optional[pulumi.Input[str]] = None,
                  network: Optional[pulumi.Input['SpringCloudServiceNetworkArgs']] = None,
                  outbound_public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 required_network_traffic_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceRequiredNetworkTrafficRuleArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -166,6 +167,7 @@ class _SpringCloudServiceState:
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input['SpringCloudServiceNetworkArgs'] network: A `network` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_public_ip_addresses: A list of the outbound Public IP Addresses used by this Spring Cloud Service.
+        :param pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceRequiredNetworkTrafficRuleArgs']]] required_network_traffic_rules: A list of `required_network_traffic_rules` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -181,6 +183,8 @@ class _SpringCloudServiceState:
             pulumi.set(__self__, "network", network)
         if outbound_public_ip_addresses is not None:
             pulumi.set(__self__, "outbound_public_ip_addresses", outbound_public_ip_addresses)
+        if required_network_traffic_rules is not None:
+            pulumi.set(__self__, "required_network_traffic_rules", required_network_traffic_rules)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku_name is not None:
@@ -249,6 +253,18 @@ class _SpringCloudServiceState:
     @outbound_public_ip_addresses.setter
     def outbound_public_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "outbound_public_ip_addresses", value)
+
+    @property
+    @pulumi.getter(name="requiredNetworkTrafficRules")
+    def required_network_traffic_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceRequiredNetworkTrafficRuleArgs']]]]:
+        """
+        A list of `required_network_traffic_rules` blocks as defined below.
+        """
+        return pulumi.get(self, "required_network_traffic_rules")
+
+    @required_network_traffic_rules.setter
+    def required_network_traffic_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceRequiredNetworkTrafficRuleArgs']]]]):
+        pulumi.set(self, "required_network_traffic_rules", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -462,6 +478,7 @@ class SpringCloudService(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["trace"] = trace
             __props__.__dict__["outbound_public_ip_addresses"] = None
+            __props__.__dict__["required_network_traffic_rules"] = None
         super(SpringCloudService, __self__).__init__(
             'azure:appplatform/springCloudService:SpringCloudService',
             resource_name,
@@ -477,6 +494,7 @@ class SpringCloudService(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             network: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceNetworkArgs']]] = None,
             outbound_public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            required_network_traffic_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudServiceRequiredNetworkTrafficRuleArgs']]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -493,6 +511,7 @@ class SpringCloudService(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SpringCloudServiceNetworkArgs']] network: A `network` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_public_ip_addresses: A list of the outbound Public IP Addresses used by this Spring Cloud Service.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudServiceRequiredNetworkTrafficRuleArgs']]]] required_network_traffic_rules: A list of `required_network_traffic_rules` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -507,6 +526,7 @@ class SpringCloudService(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["network"] = network
         __props__.__dict__["outbound_public_ip_addresses"] = outbound_public_ip_addresses
+        __props__.__dict__["required_network_traffic_rules"] = required_network_traffic_rules
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku_name"] = sku_name
         __props__.__dict__["tags"] = tags
@@ -552,6 +572,14 @@ class SpringCloudService(pulumi.CustomResource):
         A list of the outbound Public IP Addresses used by this Spring Cloud Service.
         """
         return pulumi.get(self, "outbound_public_ip_addresses")
+
+    @property
+    @pulumi.getter(name="requiredNetworkTrafficRules")
+    def required_network_traffic_rules(self) -> pulumi.Output[Sequence['outputs.SpringCloudServiceRequiredNetworkTrafficRule']]:
+        """
+        A list of `required_network_traffic_rules` blocks as defined below.
+        """
+        return pulumi.get(self, "required_network_traffic_rules")
 
     @property
     @pulumi.getter(name="resourceGroupName")

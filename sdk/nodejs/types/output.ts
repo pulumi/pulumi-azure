@@ -1512,6 +1512,26 @@ export namespace appplatform {
         strictHostKeyCheckingEnabled: boolean;
     }
 
+    export interface GetSpringCloudServiceRequiredNetworkTrafficRule {
+        /**
+         * The direction of required traffic. Possible values are `Inbound`, `Outbound`.
+         */
+        direction: string;
+        /**
+         * The FQDN list of required traffic.
+         */
+        fqdns: string[];
+        ipAddresses: string[];
+        /**
+         * The port of required traffic.
+         */
+        port: number;
+        /**
+         * The protocol of required traffic.
+         */
+        protocol: string;
+    }
+
     export interface SpringCloudAppIdentity {
         /**
          * The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
@@ -1677,6 +1697,26 @@ export namespace appplatform {
          * Specifies the ID of the Subnet where the Service Runtime components of the Spring Cloud Service will exist. Changing this forces a new resource to be created.
          */
         serviceRuntimeSubnetId: string;
+    }
+
+    export interface SpringCloudServiceRequiredNetworkTrafficRule {
+        /**
+         * The direction of required traffic. Possible values are `Inbound`, `Outbound`.
+         */
+        direction: string;
+        /**
+         * The FQDN list of required traffic.
+         */
+        fqdns: string[];
+        ipAddresses: string[];
+        /**
+         * The port of required traffic.
+         */
+        port: number;
+        /**
+         * The protocol of required traffic.
+         */
+        protocol: string;
     }
 
     export interface SpringCloudServiceTrace {
@@ -5694,7 +5734,7 @@ export namespace compute {
          * If this ipConfiguration is the primary one.
          */
         primary: boolean;
-        publicIpAddresses?: outputs.compute.GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress[];
+        publicIpAddresses: outputs.compute.GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress[];
         /**
          * The the identifier of the subnet.
          */
@@ -16007,6 +16047,21 @@ export namespace machinelearning {
         type: string;
     }
 
+    export interface InferenceClusterSsl {
+        /**
+         * The certificate for the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+         */
+        cert?: string;
+        /**
+         * The cname of the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+         */
+        cname?: string;
+        /**
+         * The key content for the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+         */
+        key?: string;
+    }
+
     export interface WorkspaceIdentity {
         /**
          * The (Client) ID of the Service Principal.
@@ -16137,7 +16192,7 @@ export namespace media {
         /**
          * One or more `condition` blocks as defined above.
          */
-        conditions?: outputs.media.AssetFilterTrackSelectionCondition[];
+        conditions: outputs.media.AssetFilterTrackSelectionCondition[];
     }
 
     export interface AssetFilterTrackSelectionCondition {
@@ -16515,6 +16570,17 @@ export namespace media {
         type?: string;
     }
 
+    export interface ServiceAccountKeyDeliveryAccessControl {
+        /**
+         * The Default Action to use when no rules match from `ipAllowList`. Possible values are `Allow` and `Deny`.
+         */
+        defaultAction?: string;
+        /**
+         * One or more IP Addresses, or CIDR Blocks which should be able to access the Key Delivery.
+         */
+        ipAllowLists?: string[];
+    }
+
     export interface ServiceAccountStorageAccount {
         /**
          * Specifies the ID of the Storage Account that will be associated with the Media Services instance.
@@ -16818,6 +16884,17 @@ export namespace mediaservices {
          * Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible value is  `SystemAssigned`.
          */
         type?: string;
+    }
+
+    export interface AccountKeyDeliveryAccessControl {
+        /**
+         * The Default Action to use when no rules match from `ipAllowList`. Possible values are `Allow` and `Deny`.
+         */
+        defaultAction?: string;
+        /**
+         * One or more IP Addresses, or CIDR Blocks which should be able to access the Key Delivery.
+         */
+        ipAllowLists?: string[];
     }
 
     export interface AccountStorageAccount {
@@ -17400,7 +17477,7 @@ export namespace monitoring {
 
     export interface ActivityLogAlertCriteriaServiceHealth {
         /**
-         * Events this alert will monitor Possible values are `Incident`, `Maintenance`, `Informational`, and `ActionRequired`.
+         * Events this alert will monitor Possible values are `Incident`, `Maintenance`, `Informational`, `ActionRequired` and `Security`.
          */
         events?: string[];
         /**
@@ -18901,7 +18978,7 @@ export namespace network {
          */
         privateIpAddressAllocation: string;
         /**
-         * The ID of a Public IP Address which the Application Gateway should use.
+         * The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/en-us/azure/virtual-network/public-ip-addresses#application-gateways) for details.
          */
         publicIpAddressId: string;
         /**
@@ -22533,8 +22610,17 @@ export namespace redis {
     }
 
     export interface CacheRedisConfiguration {
+        /**
+         * Enable or disable AOF persistence for this Redis Cache.
+         */
         aofBackupEnabled?: boolean;
+        /**
+         * First Storage Account connection string for AOF persistence.
+         */
         aofStorageConnectionString0?: string;
+        /**
+         * Second Storage Account connection string for AOF persistence.
+         */
         aofStorageConnectionString1?: string;
         /**
          * If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.

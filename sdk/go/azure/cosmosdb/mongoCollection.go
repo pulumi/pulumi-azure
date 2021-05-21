@@ -66,6 +66,8 @@ type MongoCollection struct {
 	pulumi.CustomResourceState
 
 	AccountName pulumi.StringOutput `pulumi:"accountName"`
+	// The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+	AnalyticalStorageTtl pulumi.IntPtrOutput `pulumi:"analyticalStorageTtl"`
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `shardKey` to be set.
 	AutoscaleSettings MongoCollectionAutoscaleSettingsPtrOutput `pulumi:"autoscaleSettings"`
 	// The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
@@ -125,6 +127,8 @@ func GetMongoCollection(ctx *pulumi.Context,
 // Input properties used for looking up and filtering MongoCollection resources.
 type mongoCollectionState struct {
 	AccountName *string `pulumi:"accountName"`
+	// The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+	AnalyticalStorageTtl *int `pulumi:"analyticalStorageTtl"`
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `shardKey` to be set.
 	AutoscaleSettings *MongoCollectionAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
@@ -147,6 +151,8 @@ type mongoCollectionState struct {
 
 type MongoCollectionState struct {
 	AccountName pulumi.StringPtrInput
+	// The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+	AnalyticalStorageTtl pulumi.IntPtrInput
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `shardKey` to be set.
 	AutoscaleSettings MongoCollectionAutoscaleSettingsPtrInput
 	// The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
@@ -173,6 +179,8 @@ func (MongoCollectionState) ElementType() reflect.Type {
 
 type mongoCollectionArgs struct {
 	AccountName string `pulumi:"accountName"`
+	// The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+	AnalyticalStorageTtl *int `pulumi:"analyticalStorageTtl"`
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `shardKey` to be set.
 	AutoscaleSettings *MongoCollectionAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
@@ -194,6 +202,8 @@ type mongoCollectionArgs struct {
 // The set of arguments for constructing a MongoCollection resource.
 type MongoCollectionArgs struct {
 	AccountName pulumi.StringInput
+	// The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+	AnalyticalStorageTtl pulumi.IntPtrInput
 	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `shardKey` to be set.
 	AutoscaleSettings MongoCollectionAutoscaleSettingsPtrInput
 	// The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.

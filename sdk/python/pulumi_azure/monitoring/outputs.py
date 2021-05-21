@@ -2071,7 +2071,7 @@ class ActivityLogAlertCriteriaServiceHealth(dict):
                  locations: Optional[Sequence[str]] = None,
                  services: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] events: Events this alert will monitor Possible values are `Incident`, `Maintenance`, `Informational`, and `ActionRequired`.
+        :param Sequence[str] events: Events this alert will monitor Possible values are `Incident`, `Maintenance`, `Informational`, `ActionRequired` and `Security`.
         :param Sequence[str] locations: Locations this alert will monitor. For example, `West Europe`. Defaults to `Global`.
         :param Sequence[str] services: Services this alert will monitor. For example, `Activity Logs & Alerts`, `Action Groups`. Defaults to all Services.
         """
@@ -2086,7 +2086,7 @@ class ActivityLogAlertCriteriaServiceHealth(dict):
     @pulumi.getter
     def events(self) -> Optional[Sequence[str]]:
         """
-        Events this alert will monitor Possible values are `Incident`, `Maintenance`, `Informational`, and `ActionRequired`.
+        Events this alert will monitor Possible values are `Incident`, `Maintenance`, `Informational`, `ActionRequired` and `Security`.
         """
         return pulumi.get(self, "events")
 

@@ -62,7 +62,9 @@ type LookupSpringCloudServiceResult struct {
 	Name string `pulumi:"name"`
 	// A list of the outbound Public IP Addresses used by this Spring Cloud Service.
 	OutboundPublicIpAddresses []string `pulumi:"outboundPublicIpAddresses"`
-	ResourceGroupName         string   `pulumi:"resourceGroupName"`
+	// A list of `requiredNetworkTrafficRules` blocks as defined below.
+	RequiredNetworkTrafficRules []GetSpringCloudServiceRequiredNetworkTrafficRule `pulumi:"requiredNetworkTrafficRules"`
+	ResourceGroupName           string                                            `pulumi:"resourceGroupName"`
 	// A mapping of tags assigned to Spring Cloud Service.
 	Tags map[string]string `pulumi:"tags"`
 }

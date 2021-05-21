@@ -272,13 +272,11 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"metadata_url": {
 				Default: &tfbridge.DefaultInfo{
-					Value:   "",
 					EnvVars: []string{"ARM_METADATA_URL"},
 				},
 			},
 			"metadata_host": {
 				Default: &tfbridge.DefaultInfo{
-					Value:   "",
 					EnvVars: []string{"ARM_METADATA_HOSTNAME"},
 				},
 			},
@@ -477,6 +475,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_app_service_certificate_binding": {Tok: azureResource(azureAppService, "CertificateBinding")},
 			"azurerm_app_service_environment_v3":      {Tok: azureResource(azureAppService, "EnvironmentV3")},
+			"azurerm_static_site":                     {Tok: azureResource(azureAppService, "StaticSite")},
 
 			// AppPlatform
 			"azurerm_spring_cloud_service":                  {Tok: azureResource(azureAppPlatform, "SpringCloudService")},
@@ -1694,7 +1693,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_powerbi_embedded": {Tok: azureResource(azurePowerBi, "Embedded")},
 
 			// Machine Learning
-			"azurerm_machine_learning_workspace": {Tok: azureResource(azureMachineLearning, "Workspace")},
+			"azurerm_machine_learning_workspace":         {Tok: azureResource(azureMachineLearning, "Workspace")},
+			"azurerm_machine_learning_inference_cluster": {Tok: azureResource(azureMachineLearning, "InferenceCluster")},
 
 			// Managed Applications
 			"azurerm_managed_application":            {Tok: azureResource(azureManagedApplication, "Application")},
@@ -1975,6 +1975,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_public_ip_prefix":             {Tok: azureDataSource(azureNetwork, "getPublicIpPrefix")},
 			"azurerm_application_security_group":   {Tok: azureDataSource(azureNetwork, "getApplicationSecurityGroup")},
 			"azurerm_redis_cache":                  {Tok: azureDataSource(azureRedis, "getCache")},
+			"azurerm_redis_enterprise_database":    {Tok: azureDataSource(azureRedis, "getEnterpriseDatabase")},
 			"azurerm_resource_group":               {Tok: azureDataSource(azureCore, "getResourceGroup")},
 			"azurerm_snapshot":                     {Tok: azureDataSource(azureCompute, "getSnapshot")},
 			"azurerm_subnet":                       {Tok: azureDataSource(azureNetwork, "getSubnet")},
@@ -2082,6 +2083,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_servicebus_queue": {Tok: azureDataSource(azureServiceBus, "getQueue")},
 			"azurerm_servicebus_topic": {Tok: azureDataSource(azureServiceBus, "getTopic")},
+			"azurerm_servicebus_namespace_disaster_recovery_config": {
+				Tok: azureDataSource(azureServiceBus, "getNamespaceDisasterRecoveryConfig"),
+			},
 			"azurerm_app_configuration": {
 				Tok: azureDataSource(azureAppConfiguration, "getConfigurationStore"),
 			},
@@ -2108,6 +2112,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_vmware_private_cloud":             {Tok: azureDataSource(azureAvs, "getPrivateCloud")},
 			"azurerm_billing_enrollment_account_scope": {Tok: azureDataSource(azureBilling, "getEnrollmentAccountScope")},
 			"azurerm_billing_mca_account_scope":        {Tok: azureDataSource(azureBilling, "getMcaAccountScope")},
+			"azurerm_eventhub_cluster":                 {Tok: azureDataSource(azureEventHub, "getCluster")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{

@@ -159,9 +159,6 @@ namespace Pulumi.Azure.Network
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
-        /// </summary>
         [Output("vmProtectionEnabled")]
         public Output<bool?> VmProtectionEnabled { get; private set; } = null!;
 
@@ -289,9 +286,6 @@ namespace Pulumi.Azure.Network
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
-        /// </summary>
         [Input("vmProtectionEnabled")]
         public Input<bool>? VmProtectionEnabled { get; set; }
 
@@ -386,9 +380,6 @@ namespace Pulumi.Azure.Network
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
-        /// </summary>
         [Input("vmProtectionEnabled")]
         public Input<bool>? VmProtectionEnabled { get; set; }
 

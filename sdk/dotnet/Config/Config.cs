@@ -55,12 +55,12 @@ namespace Pulumi.Azure
         /// <summary>
         /// The Hostname which should be used for the Azure Metadata Service.
         /// </summary>
-        public static string? MetadataHost { get; set; } = __config.Get("metadataHost") ?? Utilities.GetEnv("ARM_METADATA_HOSTNAME") ?? "";
+        public static string? MetadataHost { get; set; } = __config.Get("metadataHost") ?? Utilities.GetEnv("ARM_METADATA_HOSTNAME");
 
         /// <summary>
         /// Deprecated - replaced by `metadata_host`.
         /// </summary>
-        public static string? MetadataUrl { get; set; } = __config.Get("metadataUrl") ?? Utilities.GetEnv("ARM_METADATA_URL") ?? "";
+        public static string? MetadataUrl { get; set; } = __config.Get("metadataUrl") ?? Utilities.GetEnv("ARM_METADATA_URL");
 
         /// <summary>
         /// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected

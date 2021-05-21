@@ -93,11 +93,18 @@ export class CassandraTable extends pulumi.CustomResource {
         return obj['__pulumiType'] === CassandraTable.__pulumiType;
     }
 
+    /**
+     * Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+     */
+    public readonly analyticalStorageTtl!: pulumi.Output<number | undefined>;
     public readonly autoscaleSettings!: pulumi.Output<outputs.cosmosdb.CassandraTableAutoscaleSettings | undefined>;
     /**
      * The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
      */
     public readonly cassandraKeyspaceId!: pulumi.Output<string>;
+    /**
+     * Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
+     */
     public readonly defaultTtl!: pulumi.Output<number>;
     /**
      * Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
@@ -122,6 +129,7 @@ export class CassandraTable extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CassandraTableState | undefined;
+            inputs["analyticalStorageTtl"] = state ? state.analyticalStorageTtl : undefined;
             inputs["autoscaleSettings"] = state ? state.autoscaleSettings : undefined;
             inputs["cassandraKeyspaceId"] = state ? state.cassandraKeyspaceId : undefined;
             inputs["defaultTtl"] = state ? state.defaultTtl : undefined;
@@ -136,6 +144,7 @@ export class CassandraTable extends pulumi.CustomResource {
             if ((!args || args.schema === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
+            inputs["analyticalStorageTtl"] = args ? args.analyticalStorageTtl : undefined;
             inputs["autoscaleSettings"] = args ? args.autoscaleSettings : undefined;
             inputs["cassandraKeyspaceId"] = args ? args.cassandraKeyspaceId : undefined;
             inputs["defaultTtl"] = args ? args.defaultTtl : undefined;
@@ -154,11 +163,18 @@ export class CassandraTable extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CassandraTable resources.
  */
 export interface CassandraTableState {
+    /**
+     * Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+     */
+    readonly analyticalStorageTtl?: pulumi.Input<number>;
     readonly autoscaleSettings?: pulumi.Input<inputs.cosmosdb.CassandraTableAutoscaleSettings>;
     /**
      * The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
      */
     readonly cassandraKeyspaceId?: pulumi.Input<string>;
+    /**
+     * Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
+     */
     readonly defaultTtl?: pulumi.Input<number>;
     /**
      * Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
@@ -175,11 +191,18 @@ export interface CassandraTableState {
  * The set of arguments for constructing a CassandraTable resource.
  */
 export interface CassandraTableArgs {
+    /**
+     * Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+     */
+    readonly analyticalStorageTtl?: pulumi.Input<number>;
     readonly autoscaleSettings?: pulumi.Input<inputs.cosmosdb.CassandraTableAutoscaleSettings>;
     /**
      * The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
      */
     readonly cassandraKeyspaceId: pulumi.Input<string>;
+    /**
+     * Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
+     */
     readonly defaultTtl?: pulumi.Input<number>;
     /**
      * Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.

@@ -10,6 +10,175 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type InferenceClusterSsl struct {
+	// The certificate for the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+	Cert *string `pulumi:"cert"`
+	// The cname of the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+	Cname *string `pulumi:"cname"`
+	// The key content for the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+	Key *string `pulumi:"key"`
+}
+
+// InferenceClusterSslInput is an input type that accepts InferenceClusterSslArgs and InferenceClusterSslOutput values.
+// You can construct a concrete instance of `InferenceClusterSslInput` via:
+//
+//          InferenceClusterSslArgs{...}
+type InferenceClusterSslInput interface {
+	pulumi.Input
+
+	ToInferenceClusterSslOutput() InferenceClusterSslOutput
+	ToInferenceClusterSslOutputWithContext(context.Context) InferenceClusterSslOutput
+}
+
+type InferenceClusterSslArgs struct {
+	// The certificate for the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+	Cert pulumi.StringPtrInput `pulumi:"cert"`
+	// The cname of the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+	Cname pulumi.StringPtrInput `pulumi:"cname"`
+	// The key content for the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+}
+
+func (InferenceClusterSslArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceClusterSsl)(nil)).Elem()
+}
+
+func (i InferenceClusterSslArgs) ToInferenceClusterSslOutput() InferenceClusterSslOutput {
+	return i.ToInferenceClusterSslOutputWithContext(context.Background())
+}
+
+func (i InferenceClusterSslArgs) ToInferenceClusterSslOutputWithContext(ctx context.Context) InferenceClusterSslOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceClusterSslOutput)
+}
+
+func (i InferenceClusterSslArgs) ToInferenceClusterSslPtrOutput() InferenceClusterSslPtrOutput {
+	return i.ToInferenceClusterSslPtrOutputWithContext(context.Background())
+}
+
+func (i InferenceClusterSslArgs) ToInferenceClusterSslPtrOutputWithContext(ctx context.Context) InferenceClusterSslPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceClusterSslOutput).ToInferenceClusterSslPtrOutputWithContext(ctx)
+}
+
+// InferenceClusterSslPtrInput is an input type that accepts InferenceClusterSslArgs, InferenceClusterSslPtr and InferenceClusterSslPtrOutput values.
+// You can construct a concrete instance of `InferenceClusterSslPtrInput` via:
+//
+//          InferenceClusterSslArgs{...}
+//
+//  or:
+//
+//          nil
+type InferenceClusterSslPtrInput interface {
+	pulumi.Input
+
+	ToInferenceClusterSslPtrOutput() InferenceClusterSslPtrOutput
+	ToInferenceClusterSslPtrOutputWithContext(context.Context) InferenceClusterSslPtrOutput
+}
+
+type inferenceClusterSslPtrType InferenceClusterSslArgs
+
+func InferenceClusterSslPtr(v *InferenceClusterSslArgs) InferenceClusterSslPtrInput {
+	return (*inferenceClusterSslPtrType)(v)
+}
+
+func (*inferenceClusterSslPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceClusterSsl)(nil)).Elem()
+}
+
+func (i *inferenceClusterSslPtrType) ToInferenceClusterSslPtrOutput() InferenceClusterSslPtrOutput {
+	return i.ToInferenceClusterSslPtrOutputWithContext(context.Background())
+}
+
+func (i *inferenceClusterSslPtrType) ToInferenceClusterSslPtrOutputWithContext(ctx context.Context) InferenceClusterSslPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceClusterSslPtrOutput)
+}
+
+type InferenceClusterSslOutput struct{ *pulumi.OutputState }
+
+func (InferenceClusterSslOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceClusterSsl)(nil)).Elem()
+}
+
+func (o InferenceClusterSslOutput) ToInferenceClusterSslOutput() InferenceClusterSslOutput {
+	return o
+}
+
+func (o InferenceClusterSslOutput) ToInferenceClusterSslOutputWithContext(ctx context.Context) InferenceClusterSslOutput {
+	return o
+}
+
+func (o InferenceClusterSslOutput) ToInferenceClusterSslPtrOutput() InferenceClusterSslPtrOutput {
+	return o.ToInferenceClusterSslPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceClusterSslOutput) ToInferenceClusterSslPtrOutputWithContext(ctx context.Context) InferenceClusterSslPtrOutput {
+	return o.ApplyT(func(v InferenceClusterSsl) *InferenceClusterSsl {
+		return &v
+	}).(InferenceClusterSslPtrOutput)
+}
+
+// The certificate for the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+func (o InferenceClusterSslOutput) Cert() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InferenceClusterSsl) *string { return v.Cert }).(pulumi.StringPtrOutput)
+}
+
+// The cname of the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+func (o InferenceClusterSslOutput) Cname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InferenceClusterSsl) *string { return v.Cname }).(pulumi.StringPtrOutput)
+}
+
+// The key content for the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+func (o InferenceClusterSslOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InferenceClusterSsl) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+type InferenceClusterSslPtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceClusterSslPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceClusterSsl)(nil)).Elem()
+}
+
+func (o InferenceClusterSslPtrOutput) ToInferenceClusterSslPtrOutput() InferenceClusterSslPtrOutput {
+	return o
+}
+
+func (o InferenceClusterSslPtrOutput) ToInferenceClusterSslPtrOutputWithContext(ctx context.Context) InferenceClusterSslPtrOutput {
+	return o
+}
+
+func (o InferenceClusterSslPtrOutput) Elem() InferenceClusterSslOutput {
+	return o.ApplyT(func(v *InferenceClusterSsl) InferenceClusterSsl { return *v }).(InferenceClusterSslOutput)
+}
+
+// The certificate for the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+func (o InferenceClusterSslPtrOutput) Cert() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceClusterSsl) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Cert
+	}).(pulumi.StringPtrOutput)
+}
+
+// The cname of the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+func (o InferenceClusterSslPtrOutput) Cname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceClusterSsl) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Cname
+	}).(pulumi.StringPtrOutput)
+}
+
+// The key content for the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+func (o InferenceClusterSslPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceClusterSsl) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
 type WorkspaceIdentity struct {
 	// The (Client) ID of the Service Principal.
 	PrincipalId *string `pulumi:"principalId"`
@@ -286,6 +455,8 @@ func (o GetWorkspaceIdentityArrayOutput) Index(i pulumi.IntInput) GetWorkspaceId
 }
 
 func init() {
+	pulumi.RegisterOutputType(InferenceClusterSslOutput{})
+	pulumi.RegisterOutputType(InferenceClusterSslPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceIdentityOutput{})
 	pulumi.RegisterOutputType(WorkspaceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(GetWorkspaceIdentityOutput{})

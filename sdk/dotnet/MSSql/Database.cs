@@ -35,7 +35,7 @@ namespace Pulumi.Azure.MSSql
     ///             AccountTier = "Standard",
     ///             AccountReplicationType = "LRS",
     ///         });
-    ///         var exampleSqlServer = new Azure.Sql.SqlServer("exampleSqlServer", new Azure.Sql.SqlServerArgs
+    ///         var exampleServer = new Azure.MSSql.Server("exampleServer", new Azure.MSSql.ServerArgs
     ///         {
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             Location = exampleResourceGroup.Location,
@@ -45,7 +45,7 @@ namespace Pulumi.Azure.MSSql
     ///         });
     ///         var test = new Azure.MSSql.Database("test", new Azure.MSSql.DatabaseArgs
     ///         {
-    ///             ServerId = exampleSqlServer.Id,
+    ///             ServerId = exampleServer.Id,
     ///             Collation = "SQL_Latin1_General_CP1_CI_AS",
     ///             LicenseType = "LicenseIncluded",
     ///             MaxSizeGb = 4,

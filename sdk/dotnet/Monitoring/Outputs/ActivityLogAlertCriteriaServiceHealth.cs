@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
     public sealed class ActivityLogAlertCriteriaServiceHealth
     {
         /// <summary>
-        /// Events this alert will monitor Possible values are `Incident`, `Maintenance`, `Informational`, and `ActionRequired`.
+        /// Events this alert will monitor Possible values are `Incident`, `Maintenance`, `Informational`, `ActionRequired` and `Security`.
         /// </summary>
         public readonly ImmutableArray<string> Events;
         /// <summary>

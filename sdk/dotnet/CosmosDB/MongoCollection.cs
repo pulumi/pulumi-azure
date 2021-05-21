@@ -61,6 +61,12 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> AccountName { get; private set; } = null!;
 
         /// <summary>
+        /// The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+        /// </summary>
+        [Output("analyticalStorageTtl")]
+        public Output<int?> AnalyticalStorageTtl { get; private set; } = null!;
+
+        /// <summary>
         /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `shard_key` to be set.
         /// </summary>
         [Output("autoscaleSettings")]
@@ -164,6 +170,12 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
+        /// The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+        /// </summary>
+        [Input("analyticalStorageTtl")]
+        public Input<int>? AnalyticalStorageTtl { get; set; }
+
+        /// <summary>
         /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `shard_key` to be set.
         /// </summary>
         [Input("autoscaleSettings")]
@@ -226,6 +238,12 @@ namespace Pulumi.Azure.CosmosDB
     {
         [Input("accountName")]
         public Input<string>? AccountName { get; set; }
+
+        /// <summary>
+        /// The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+        /// </summary>
+        [Input("analyticalStorageTtl")]
+        public Input<int>? AnalyticalStorageTtl { get; set; }
 
         /// <summary>
         /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `shard_key` to be set.
