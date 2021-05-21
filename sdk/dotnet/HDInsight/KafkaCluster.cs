@@ -116,6 +116,12 @@ namespace Pulumi.Azure.HDInsight
         public Output<Outputs.KafkaClusterComponentVersion> ComponentVersion { get; private set; } = null!;
 
         /// <summary>
+        /// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("encryptionInTransitEnabled")]
+        public Output<bool?> EncryptionInTransitEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// A `gateway` block as defined below.
         /// </summary>
         [Output("gateway")]
@@ -267,6 +273,12 @@ namespace Pulumi.Azure.HDInsight
         public Input<Inputs.KafkaClusterComponentVersionArgs> ComponentVersion { get; set; } = null!;
 
         /// <summary>
+        /// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("encryptionInTransitEnabled")]
+        public Input<bool>? EncryptionInTransitEnabled { get; set; }
+
+        /// <summary>
         /// A `gateway` block as defined below.
         /// </summary>
         [Input("gateway", required: true)]
@@ -371,6 +383,12 @@ namespace Pulumi.Azure.HDInsight
         /// </summary>
         [Input("componentVersion")]
         public Input<Inputs.KafkaClusterComponentVersionGetArgs>? ComponentVersion { get; set; }
+
+        /// <summary>
+        /// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("encryptionInTransitEnabled")]
+        public Input<bool>? EncryptionInTransitEnabled { get; set; }
 
         /// <summary>
         /// A `gateway` block as defined below.

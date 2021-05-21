@@ -1287,6 +1287,26 @@ export namespace appplatform {
         serviceRuntimeSubnetId: pulumi.Input<string>;
     }
 
+    export interface SpringCloudServiceRequiredNetworkTrafficRule {
+        /**
+         * The direction of required traffic. Possible values are `Inbound`, `Outbound`.
+         */
+        direction?: pulumi.Input<string>;
+        /**
+         * The FQDN list of required traffic.
+         */
+        fqdns?: pulumi.Input<pulumi.Input<string>[]>;
+        ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The port of required traffic.
+         */
+        port?: pulumi.Input<number>;
+        /**
+         * The protocol of required traffic.
+         */
+        protocol?: pulumi.Input<string>;
+    }
+
     export interface SpringCloudServiceTrace {
         /**
          * The Instrumentation Key used for Application Insights.
@@ -13692,6 +13712,21 @@ export namespace logicapps {
 }
 
 export namespace machinelearning {
+    export interface InferenceClusterSsl {
+        /**
+         * The certificate for the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+         */
+        cert?: pulumi.Input<string>;
+        /**
+         * The cname of the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+         */
+        cname?: pulumi.Input<string>;
+        /**
+         * The key content for the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+         */
+        key?: pulumi.Input<string>;
+    }
+
     export interface WorkspaceIdentity {
         /**
          * The (Client) ID of the Service Principal.
@@ -13803,7 +13838,7 @@ export namespace media {
         /**
          * One or more `condition` blocks as defined above.
          */
-        conditions?: pulumi.Input<pulumi.Input<inputs.media.AssetFilterTrackSelectionCondition>[]>;
+        conditions: pulumi.Input<pulumi.Input<inputs.media.AssetFilterTrackSelectionCondition>[]>;
     }
 
     export interface AssetFilterTrackSelectionCondition {
@@ -14181,6 +14216,17 @@ export namespace media {
         type?: pulumi.Input<string>;
     }
 
+    export interface ServiceAccountKeyDeliveryAccessControl {
+        /**
+         * The Default Action to use when no rules match from `ipAllowList`. Possible values are `Allow` and `Deny`.
+         */
+        defaultAction?: pulumi.Input<string>;
+        /**
+         * One or more IP Addresses, or CIDR Blocks which should be able to access the Key Delivery.
+         */
+        ipAllowLists?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface ServiceAccountStorageAccount {
         /**
          * Specifies the ID of the Storage Account that will be associated with the Media Services instance.
@@ -14484,6 +14530,17 @@ export namespace mediaservices {
          * Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible value is  `SystemAssigned`.
          */
         type?: pulumi.Input<string>;
+    }
+
+    export interface AccountKeyDeliveryAccessControl {
+        /**
+         * The Default Action to use when no rules match from `ipAllowList`. Possible values are `Allow` and `Deny`.
+         */
+        defaultAction?: pulumi.Input<string>;
+        /**
+         * One or more IP Addresses, or CIDR Blocks which should be able to access the Key Delivery.
+         */
+        ipAllowLists?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface AccountStorageAccount {
@@ -15066,7 +15123,7 @@ export namespace monitoring {
 
     export interface ActivityLogAlertCriteriaServiceHealth {
         /**
-         * Events this alert will monitor Possible values are `Incident`, `Maintenance`, `Informational`, and `ActionRequired`.
+         * Events this alert will monitor Possible values are `Incident`, `Maintenance`, `Informational`, `ActionRequired` and `Security`.
          */
         events?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -16216,7 +16273,7 @@ export namespace network {
          */
         privateIpAddressAllocation?: pulumi.Input<string>;
         /**
-         * The ID of a Public IP Address which the Application Gateway should use.
+         * The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/en-us/azure/virtual-network/public-ip-addresses#application-gateways) for details.
          */
         publicIpAddressId?: pulumi.Input<string>;
         /**
@@ -19139,8 +19196,17 @@ export namespace redis {
     }
 
     export interface CacheRedisConfiguration {
+        /**
+         * Enable or disable AOF persistence for this Redis Cache.
+         */
         aofBackupEnabled?: pulumi.Input<boolean>;
+        /**
+         * First Storage Account connection string for AOF persistence.
+         */
         aofStorageConnectionString0?: pulumi.Input<string>;
+        /**
+         * Second Storage Account connection string for AOF persistence.
+         */
         aofStorageConnectionString1?: pulumi.Input<string>;
         /**
          * If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.

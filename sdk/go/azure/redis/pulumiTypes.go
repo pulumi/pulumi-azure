@@ -111,8 +111,11 @@ func (o CachePatchScheduleArrayOutput) Index(i pulumi.IntInput) CachePatchSchedu
 }
 
 type CacheRedisConfiguration struct {
-	AofBackupEnabled            *bool   `pulumi:"aofBackupEnabled"`
+	// Enable or disable AOF persistence for this Redis Cache.
+	AofBackupEnabled *bool `pulumi:"aofBackupEnabled"`
+	// First Storage Account connection string for AOF persistence.
 	AofStorageConnectionString0 *string `pulumi:"aofStorageConnectionString0"`
+	// Second Storage Account connection string for AOF persistence.
 	AofStorageConnectionString1 *string `pulumi:"aofStorageConnectionString1"`
 	// If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
 	EnableAuthentication *bool `pulumi:"enableAuthentication"`
@@ -150,8 +153,11 @@ type CacheRedisConfigurationInput interface {
 }
 
 type CacheRedisConfigurationArgs struct {
-	AofBackupEnabled            pulumi.BoolPtrInput   `pulumi:"aofBackupEnabled"`
+	// Enable or disable AOF persistence for this Redis Cache.
+	AofBackupEnabled pulumi.BoolPtrInput `pulumi:"aofBackupEnabled"`
+	// First Storage Account connection string for AOF persistence.
 	AofStorageConnectionString0 pulumi.StringPtrInput `pulumi:"aofStorageConnectionString0"`
+	// Second Storage Account connection string for AOF persistence.
 	AofStorageConnectionString1 pulumi.StringPtrInput `pulumi:"aofStorageConnectionString1"`
 	// If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
 	EnableAuthentication pulumi.BoolPtrInput `pulumi:"enableAuthentication"`
@@ -253,14 +259,18 @@ func (o CacheRedisConfigurationOutput) ToCacheRedisConfigurationPtrOutputWithCon
 		return &v
 	}).(CacheRedisConfigurationPtrOutput)
 }
+
+// Enable or disable AOF persistence for this Redis Cache.
 func (o CacheRedisConfigurationOutput) AofBackupEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *bool { return v.AofBackupEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// First Storage Account connection string for AOF persistence.
 func (o CacheRedisConfigurationOutput) AofStorageConnectionString0() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.AofStorageConnectionString0 }).(pulumi.StringPtrOutput)
 }
 
+// Second Storage Account connection string for AOF persistence.
 func (o CacheRedisConfigurationOutput) AofStorageConnectionString1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.AofStorageConnectionString1 }).(pulumi.StringPtrOutput)
 }
@@ -338,6 +348,7 @@ func (o CacheRedisConfigurationPtrOutput) Elem() CacheRedisConfigurationOutput {
 	return o.ApplyT(func(v *CacheRedisConfiguration) CacheRedisConfiguration { return *v }).(CacheRedisConfigurationOutput)
 }
 
+// Enable or disable AOF persistence for this Redis Cache.
 func (o CacheRedisConfigurationPtrOutput) AofBackupEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CacheRedisConfiguration) *bool {
 		if v == nil {
@@ -347,6 +358,7 @@ func (o CacheRedisConfigurationPtrOutput) AofBackupEnabled() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// First Storage Account connection string for AOF persistence.
 func (o CacheRedisConfigurationPtrOutput) AofStorageConnectionString0() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheRedisConfiguration) *string {
 		if v == nil {
@@ -356,6 +368,7 @@ func (o CacheRedisConfigurationPtrOutput) AofStorageConnectionString0() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// Second Storage Account connection string for AOF persistence.
 func (o CacheRedisConfigurationPtrOutput) AofStorageConnectionString1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheRedisConfiguration) *string {
 		if v == nil {

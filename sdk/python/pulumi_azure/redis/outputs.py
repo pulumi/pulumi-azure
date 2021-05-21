@@ -114,6 +114,9 @@ class CacheRedisConfiguration(dict):
                  rdb_backup_max_snapshot_count: Optional[int] = None,
                  rdb_storage_connection_string: Optional[str] = None):
         """
+        :param bool aof_backup_enabled: Enable or disable AOF persistence for this Redis Cache.
+        :param str aof_storage_connection_string0: First Storage Account connection string for AOF persistence.
+        :param str aof_storage_connection_string1: Second Storage Account connection string for AOF persistence.
         :param bool enable_authentication: If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
         :param int maxclients: Returns the max number of connected clients at the same time.
         :param int maxfragmentationmemory_reserved: Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below.
@@ -158,16 +161,25 @@ class CacheRedisConfiguration(dict):
     @property
     @pulumi.getter(name="aofBackupEnabled")
     def aof_backup_enabled(self) -> Optional[bool]:
+        """
+        Enable or disable AOF persistence for this Redis Cache.
+        """
         return pulumi.get(self, "aof_backup_enabled")
 
     @property
     @pulumi.getter(name="aofStorageConnectionString0")
     def aof_storage_connection_string0(self) -> Optional[str]:
+        """
+        First Storage Account connection string for AOF persistence.
+        """
         return pulumi.get(self, "aof_storage_connection_string0")
 
     @property
     @pulumi.getter(name="aofStorageConnectionString1")
     def aof_storage_connection_string1(self) -> Optional[str]:
+        """
+        Second Storage Account connection string for AOF persistence.
+        """
         return pulumi.get(self, "aof_storage_connection_string1")
 
     @property

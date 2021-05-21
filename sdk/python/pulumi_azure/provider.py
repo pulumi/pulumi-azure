@@ -79,11 +79,11 @@ class ProviderArgs:
         if features is not None:
             pulumi.set(__self__, "features", features)
         if metadata_host is None:
-            metadata_host = (_utilities.get_env('ARM_METADATA_HOSTNAME') or '')
+            metadata_host = _utilities.get_env('ARM_METADATA_HOSTNAME')
         if metadata_host is not None:
             pulumi.set(__self__, "metadata_host", metadata_host)
         if metadata_url is None:
-            metadata_url = (_utilities.get_env('ARM_METADATA_URL') or '')
+            metadata_url = _utilities.get_env('ARM_METADATA_URL')
         if metadata_url is not None:
             warnings.warn("""use `metadata_host` instead""", DeprecationWarning)
             pulumi.log.warn("""metadata_url is deprecated: use `metadata_host` instead""")
@@ -469,10 +469,10 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["environment"] = environment
             __props__.__dict__["features"] = pulumi.Output.from_input(features).apply(pulumi.runtime.to_json) if features is not None else None
             if metadata_host is None:
-                metadata_host = (_utilities.get_env('ARM_METADATA_HOSTNAME') or '')
+                metadata_host = _utilities.get_env('ARM_METADATA_HOSTNAME')
             __props__.__dict__["metadata_host"] = metadata_host
             if metadata_url is None:
-                metadata_url = (_utilities.get_env('ARM_METADATA_URL') or '')
+                metadata_url = _utilities.get_env('ARM_METADATA_URL')
             if metadata_url is not None and not opts.urn:
                 warnings.warn("""use `metadata_host` instead""", DeprecationWarning)
                 pulumi.log.warn("""metadata_url is deprecated: use `metadata_host` instead""")

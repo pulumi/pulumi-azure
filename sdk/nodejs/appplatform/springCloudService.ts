@@ -99,6 +99,10 @@ export class SpringCloudService extends pulumi.CustomResource {
      */
     public /*out*/ readonly outboundPublicIpAddresses!: pulumi.Output<string[]>;
     /**
+     * A list of `requiredNetworkTrafficRules` blocks as defined below.
+     */
+    public /*out*/ readonly requiredNetworkTrafficRules!: pulumi.Output<outputs.appplatform.SpringCloudServiceRequiredNetworkTrafficRule[]>;
+    /**
      * Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -133,6 +137,7 @@ export class SpringCloudService extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["network"] = state ? state.network : undefined;
             inputs["outboundPublicIpAddresses"] = state ? state.outboundPublicIpAddresses : undefined;
+            inputs["requiredNetworkTrafficRules"] = state ? state.requiredNetworkTrafficRules : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["skuName"] = state ? state.skuName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -151,6 +156,7 @@ export class SpringCloudService extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["trace"] = args ? args.trace : undefined;
             inputs["outboundPublicIpAddresses"] = undefined /*out*/;
+            inputs["requiredNetworkTrafficRules"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -183,6 +189,10 @@ export interface SpringCloudServiceState {
      * A list of the outbound Public IP Addresses used by this Spring Cloud Service.
      */
     readonly outboundPublicIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of `requiredNetworkTrafficRules` blocks as defined below.
+     */
+    readonly requiredNetworkTrafficRules?: pulumi.Input<pulumi.Input<inputs.appplatform.SpringCloudServiceRequiredNetworkTrafficRule>[]>;
     /**
      * Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
      */

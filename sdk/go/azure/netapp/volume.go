@@ -93,6 +93,7 @@ import (
 // 			Protocols: pulumi.StringArray{
 // 				pulumi.String("NFSv4.1"),
 // 			},
+// 			SecurityStyle:                pulumi.String("Unix"),
 // 			StorageQuotaInGb:             pulumi.Int(100),
 // 			CreateFromSnapshotResourceId: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1/snapshots/snapshot1"),
 // 			DataProtectionReplication: &netapp.VolumeDataProtectionReplicationArgs{
@@ -140,6 +141,8 @@ type Volume struct {
 	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
 	// The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
+	SecurityStyle pulumi.StringOutput `pulumi:"securityStyle"`
 	// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
 	ServiceLevel pulumi.StringOutput `pulumi:"serviceLevel"`
 	// The maximum Storage Quota allowed for a file system in Gigabytes.
@@ -222,6 +225,8 @@ type volumeState struct {
 	Protocols []string `pulumi:"protocols"`
 	// The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
+	SecurityStyle *string `pulumi:"securityStyle"`
 	// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
 	ServiceLevel *string `pulumi:"serviceLevel"`
 	// The maximum Storage Quota allowed for a file system in Gigabytes.
@@ -255,6 +260,8 @@ type VolumeState struct {
 	Protocols pulumi.StringArrayInput
 	// The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
+	SecurityStyle pulumi.StringPtrInput
 	// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
 	ServiceLevel pulumi.StringPtrInput
 	// The maximum Storage Quota allowed for a file system in Gigabytes.
@@ -290,6 +297,8 @@ type volumeArgs struct {
 	Protocols []string `pulumi:"protocols"`
 	// The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
+	SecurityStyle *string `pulumi:"securityStyle"`
 	// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
 	ServiceLevel string `pulumi:"serviceLevel"`
 	// The maximum Storage Quota allowed for a file system in Gigabytes.
@@ -322,6 +331,8 @@ type VolumeArgs struct {
 	Protocols pulumi.StringArrayInput
 	// The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
+	SecurityStyle pulumi.StringPtrInput
 	// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
 	ServiceLevel pulumi.StringInput
 	// The maximum Storage Quota allowed for a file system in Gigabytes.

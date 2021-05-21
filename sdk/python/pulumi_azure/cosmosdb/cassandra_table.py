@@ -17,6 +17,7 @@ class CassandraTableArgs:
     def __init__(__self__, *,
                  cassandra_keyspace_id: pulumi.Input[str],
                  schema: pulumi.Input['CassandraTableSchemaArgs'],
+                 analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
                  autoscale_settings: Optional[pulumi.Input['CassandraTableAutoscaleSettingsArgs']] = None,
                  default_ttl: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -25,10 +26,14 @@ class CassandraTableArgs:
         The set of arguments for constructing a CassandraTable resource.
         :param pulumi.Input[str] cassandra_keyspace_id: The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
         :param pulumi.Input['CassandraTableSchemaArgs'] schema: A `schema` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] analytical_storage_ttl: Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] default_ttl: Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "cassandra_keyspace_id", cassandra_keyspace_id)
         pulumi.set(__self__, "schema", schema)
+        if analytical_storage_ttl is not None:
+            pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
         if autoscale_settings is not None:
             pulumi.set(__self__, "autoscale_settings", autoscale_settings)
         if default_ttl is not None:
@@ -63,6 +68,18 @@ class CassandraTableArgs:
         pulumi.set(self, "schema", value)
 
     @property
+    @pulumi.getter(name="analyticalStorageTtl")
+    def analytical_storage_ttl(self) -> Optional[pulumi.Input[int]]:
+        """
+        Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "analytical_storage_ttl")
+
+    @analytical_storage_ttl.setter
+    def analytical_storage_ttl(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "analytical_storage_ttl", value)
+
+    @property
     @pulumi.getter(name="autoscaleSettings")
     def autoscale_settings(self) -> Optional[pulumi.Input['CassandraTableAutoscaleSettingsArgs']]:
         return pulumi.get(self, "autoscale_settings")
@@ -74,6 +91,9 @@ class CassandraTableArgs:
     @property
     @pulumi.getter(name="defaultTtl")
     def default_ttl(self) -> Optional[pulumi.Input[int]]:
+        """
+        Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
+        """
         return pulumi.get(self, "default_ttl")
 
     @default_ttl.setter
@@ -105,6 +125,7 @@ class CassandraTableArgs:
 @pulumi.input_type
 class _CassandraTableState:
     def __init__(__self__, *,
+                 analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
                  autoscale_settings: Optional[pulumi.Input['CassandraTableAutoscaleSettingsArgs']] = None,
                  cassandra_keyspace_id: Optional[pulumi.Input[str]] = None,
                  default_ttl: Optional[pulumi.Input[int]] = None,
@@ -113,10 +134,14 @@ class _CassandraTableState:
                  throughput: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering CassandraTable resources.
+        :param pulumi.Input[int] analytical_storage_ttl: Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
         :param pulumi.Input[str] cassandra_keyspace_id: The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] default_ttl: Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
         :param pulumi.Input['CassandraTableSchemaArgs'] schema: A `schema` block as defined below. Changing this forces a new resource to be created.
         """
+        if analytical_storage_ttl is not None:
+            pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
         if autoscale_settings is not None:
             pulumi.set(__self__, "autoscale_settings", autoscale_settings)
         if cassandra_keyspace_id is not None:
@@ -129,6 +154,18 @@ class _CassandraTableState:
             pulumi.set(__self__, "schema", schema)
         if throughput is not None:
             pulumi.set(__self__, "throughput", throughput)
+
+    @property
+    @pulumi.getter(name="analyticalStorageTtl")
+    def analytical_storage_ttl(self) -> Optional[pulumi.Input[int]]:
+        """
+        Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "analytical_storage_ttl")
+
+    @analytical_storage_ttl.setter
+    def analytical_storage_ttl(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "analytical_storage_ttl", value)
 
     @property
     @pulumi.getter(name="autoscaleSettings")
@@ -154,6 +191,9 @@ class _CassandraTableState:
     @property
     @pulumi.getter(name="defaultTtl")
     def default_ttl(self) -> Optional[pulumi.Input[int]]:
+        """
+        Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
+        """
         return pulumi.get(self, "default_ttl")
 
     @default_ttl.setter
@@ -199,6 +239,7 @@ class CassandraTable(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
                  autoscale_settings: Optional[pulumi.Input[pulumi.InputType['CassandraTableAutoscaleSettingsArgs']]] = None,
                  cassandra_keyspace_id: Optional[pulumi.Input[str]] = None,
                  default_ttl: Optional[pulumi.Input[int]] = None,
@@ -263,7 +304,9 @@ class CassandraTable(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] analytical_storage_ttl: Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
         :param pulumi.Input[str] cassandra_keyspace_id: The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] default_ttl: Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['CassandraTableSchemaArgs']] schema: A `schema` block as defined below. Changing this forces a new resource to be created.
         """
@@ -343,6 +386,7 @@ class CassandraTable(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
                  autoscale_settings: Optional[pulumi.Input[pulumi.InputType['CassandraTableAutoscaleSettingsArgs']]] = None,
                  cassandra_keyspace_id: Optional[pulumi.Input[str]] = None,
                  default_ttl: Optional[pulumi.Input[int]] = None,
@@ -361,6 +405,7 @@ class CassandraTable(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CassandraTableArgs.__new__(CassandraTableArgs)
 
+            __props__.__dict__["analytical_storage_ttl"] = analytical_storage_ttl
             __props__.__dict__["autoscale_settings"] = autoscale_settings
             if cassandra_keyspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cassandra_keyspace_id'")
@@ -381,6 +426,7 @@ class CassandraTable(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
             autoscale_settings: Optional[pulumi.Input[pulumi.InputType['CassandraTableAutoscaleSettingsArgs']]] = None,
             cassandra_keyspace_id: Optional[pulumi.Input[str]] = None,
             default_ttl: Optional[pulumi.Input[int]] = None,
@@ -394,7 +440,9 @@ class CassandraTable(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] analytical_storage_ttl: Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
         :param pulumi.Input[str] cassandra_keyspace_id: The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] default_ttl: Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['CassandraTableSchemaArgs']] schema: A `schema` block as defined below. Changing this forces a new resource to be created.
         """
@@ -402,6 +450,7 @@ class CassandraTable(pulumi.CustomResource):
 
         __props__ = _CassandraTableState.__new__(_CassandraTableState)
 
+        __props__.__dict__["analytical_storage_ttl"] = analytical_storage_ttl
         __props__.__dict__["autoscale_settings"] = autoscale_settings
         __props__.__dict__["cassandra_keyspace_id"] = cassandra_keyspace_id
         __props__.__dict__["default_ttl"] = default_ttl
@@ -409,6 +458,14 @@ class CassandraTable(pulumi.CustomResource):
         __props__.__dict__["schema"] = schema
         __props__.__dict__["throughput"] = throughput
         return CassandraTable(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="analyticalStorageTtl")
+    def analytical_storage_ttl(self) -> pulumi.Output[Optional[int]]:
+        """
+        Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "analytical_storage_ttl")
 
     @property
     @pulumi.getter(name="autoscaleSettings")
@@ -426,6 +483,9 @@ class CassandraTable(pulumi.CustomResource):
     @property
     @pulumi.getter(name="defaultTtl")
     def default_ttl(self) -> pulumi.Output[int]:
+        """
+        Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
+        """
         return pulumi.get(self, "default_ttl")
 
     @property

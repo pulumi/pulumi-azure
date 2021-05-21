@@ -100,10 +100,13 @@ import (
 type CassandraTable struct {
 	pulumi.CustomResourceState
 
-	AutoscaleSettings CassandraTableAutoscaleSettingsPtrOutput `pulumi:"autoscaleSettings"`
+	// Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+	AnalyticalStorageTtl pulumi.IntPtrOutput                      `pulumi:"analyticalStorageTtl"`
+	AutoscaleSettings    CassandraTableAutoscaleSettingsPtrOutput `pulumi:"autoscaleSettings"`
 	// The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
 	CassandraKeyspaceId pulumi.StringOutput `pulumi:"cassandraKeyspaceId"`
-	DefaultTtl          pulumi.IntOutput    `pulumi:"defaultTtl"`
+	// Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
+	DefaultTtl pulumi.IntOutput `pulumi:"defaultTtl"`
 	// Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `schema` block as defined below. Changing this forces a new resource to be created.
@@ -146,10 +149,13 @@ func GetCassandraTable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CassandraTable resources.
 type cassandraTableState struct {
-	AutoscaleSettings *CassandraTableAutoscaleSettings `pulumi:"autoscaleSettings"`
+	// Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+	AnalyticalStorageTtl *int                             `pulumi:"analyticalStorageTtl"`
+	AutoscaleSettings    *CassandraTableAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
 	CassandraKeyspaceId *string `pulumi:"cassandraKeyspaceId"`
-	DefaultTtl          *int    `pulumi:"defaultTtl"`
+	// Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
+	DefaultTtl *int `pulumi:"defaultTtl"`
 	// Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A `schema` block as defined below. Changing this forces a new resource to be created.
@@ -158,10 +164,13 @@ type cassandraTableState struct {
 }
 
 type CassandraTableState struct {
-	AutoscaleSettings CassandraTableAutoscaleSettingsPtrInput
+	// Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+	AnalyticalStorageTtl pulumi.IntPtrInput
+	AutoscaleSettings    CassandraTableAutoscaleSettingsPtrInput
 	// The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
 	CassandraKeyspaceId pulumi.StringPtrInput
-	DefaultTtl          pulumi.IntPtrInput
+	// Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
+	DefaultTtl pulumi.IntPtrInput
 	// Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A `schema` block as defined below. Changing this forces a new resource to be created.
@@ -174,10 +183,13 @@ func (CassandraTableState) ElementType() reflect.Type {
 }
 
 type cassandraTableArgs struct {
-	AutoscaleSettings *CassandraTableAutoscaleSettings `pulumi:"autoscaleSettings"`
+	// Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+	AnalyticalStorageTtl *int                             `pulumi:"analyticalStorageTtl"`
+	AutoscaleSettings    *CassandraTableAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
 	CassandraKeyspaceId string `pulumi:"cassandraKeyspaceId"`
-	DefaultTtl          *int   `pulumi:"defaultTtl"`
+	// Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
+	DefaultTtl *int `pulumi:"defaultTtl"`
 	// Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A `schema` block as defined below. Changing this forces a new resource to be created.
@@ -187,10 +199,13 @@ type cassandraTableArgs struct {
 
 // The set of arguments for constructing a CassandraTable resource.
 type CassandraTableArgs struct {
-	AutoscaleSettings CassandraTableAutoscaleSettingsPtrInput
+	// Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+	AnalyticalStorageTtl pulumi.IntPtrInput
+	AutoscaleSettings    CassandraTableAutoscaleSettingsPtrInput
 	// The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
 	CassandraKeyspaceId pulumi.StringInput
-	DefaultTtl          pulumi.IntPtrInput
+	// Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
+	DefaultTtl pulumi.IntPtrInput
 	// Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A `schema` block as defined below. Changing this forces a new resource to be created.

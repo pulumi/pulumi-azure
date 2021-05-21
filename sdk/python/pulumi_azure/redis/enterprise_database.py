@@ -156,7 +156,9 @@ class _EnterpriseDatabaseState:
                  modules: Optional[pulumi.Input[Sequence[pulumi.Input['EnterpriseDatabaseModuleArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
-                 resource_group_name: Optional[pulumi.Input[str]] = None):
+                 primary_access_key: Optional[pulumi.Input[str]] = None,
+                 resource_group_name: Optional[pulumi.Input[str]] = None,
+                 secondary_access_key: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EnterpriseDatabase resources.
         :param pulumi.Input[str] client_protocol: Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
@@ -166,7 +168,9 @@ class _EnterpriseDatabaseState:
         :param pulumi.Input[Sequence[pulumi.Input['EnterpriseDatabaseModuleArgs']]] modules: A `module` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
         :param pulumi.Input[int] port: TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
+        :param pulumi.Input[str] primary_access_key: The Primary Access Key for the Redis Enterprise Database Instance.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
+        :param pulumi.Input[str] secondary_access_key: The Secondary Access Key for the Redis Enterprise Database Instance.
         """
         if client_protocol is not None:
             pulumi.set(__self__, "client_protocol", client_protocol)
@@ -182,8 +186,12 @@ class _EnterpriseDatabaseState:
             pulumi.set(__self__, "name", name)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if primary_access_key is not None:
+            pulumi.set(__self__, "primary_access_key", primary_access_key)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if secondary_access_key is not None:
+            pulumi.set(__self__, "secondary_access_key", secondary_access_key)
 
     @property
     @pulumi.getter(name="clientProtocol")
@@ -270,6 +278,18 @@ class _EnterpriseDatabaseState:
         pulumi.set(self, "port", value)
 
     @property
+    @pulumi.getter(name="primaryAccessKey")
+    def primary_access_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Primary Access Key for the Redis Enterprise Database Instance.
+        """
+        return pulumi.get(self, "primary_access_key")
+
+    @primary_access_key.setter
+    def primary_access_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_access_key", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -280,6 +300,18 @@ class _EnterpriseDatabaseState:
     @resource_group_name.setter
     def resource_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="secondaryAccessKey")
+    def secondary_access_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Secondary Access Key for the Redis Enterprise Database Instance.
+        """
+        return pulumi.get(self, "secondary_access_key")
+
+    @secondary_access_key.setter
+    def secondary_access_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_access_key", value)
 
 
 class EnterpriseDatabase(pulumi.CustomResource):
@@ -414,6 +446,8 @@ class EnterpriseDatabase(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["primary_access_key"] = None
+            __props__.__dict__["secondary_access_key"] = None
         super(EnterpriseDatabase, __self__).__init__(
             'azure:redis/enterpriseDatabase:EnterpriseDatabase',
             resource_name,
@@ -431,7 +465,9 @@ class EnterpriseDatabase(pulumi.CustomResource):
             modules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnterpriseDatabaseModuleArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             port: Optional[pulumi.Input[int]] = None,
-            resource_group_name: Optional[pulumi.Input[str]] = None) -> 'EnterpriseDatabase':
+            primary_access_key: Optional[pulumi.Input[str]] = None,
+            resource_group_name: Optional[pulumi.Input[str]] = None,
+            secondary_access_key: Optional[pulumi.Input[str]] = None) -> 'EnterpriseDatabase':
         """
         Get an existing EnterpriseDatabase resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -446,7 +482,9 @@ class EnterpriseDatabase(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnterpriseDatabaseModuleArgs']]]] modules: A `module` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
         :param pulumi.Input[int] port: TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
+        :param pulumi.Input[str] primary_access_key: The Primary Access Key for the Redis Enterprise Database Instance.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
+        :param pulumi.Input[str] secondary_access_key: The Secondary Access Key for the Redis Enterprise Database Instance.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -459,7 +497,9 @@ class EnterpriseDatabase(pulumi.CustomResource):
         __props__.__dict__["modules"] = modules
         __props__.__dict__["name"] = name
         __props__.__dict__["port"] = port
+        __props__.__dict__["primary_access_key"] = primary_access_key
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["secondary_access_key"] = secondary_access_key
         return EnterpriseDatabase(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -519,10 +559,26 @@ class EnterpriseDatabase(pulumi.CustomResource):
         return pulumi.get(self, "port")
 
     @property
+    @pulumi.getter(name="primaryAccessKey")
+    def primary_access_key(self) -> pulumi.Output[str]:
+        """
+        The Primary Access Key for the Redis Enterprise Database Instance.
+        """
+        return pulumi.get(self, "primary_access_key")
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="secondaryAccessKey")
+    def secondary_access_key(self) -> pulumi.Output[str]:
+        """
+        The Secondary Access Key for the Redis Enterprise Database Instance.
+        """
+        return pulumi.get(self, "secondary_access_key")
 

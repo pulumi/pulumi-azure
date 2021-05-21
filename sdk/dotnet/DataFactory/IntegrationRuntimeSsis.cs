@@ -85,7 +85,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> Edition { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
+        /// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
         /// </summary>
         [Output("licenseType")]
         public Output<string?> LicenseType { get; private set; } = null!;
@@ -209,7 +209,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Edition { get; set; }
 
         /// <summary>
-        /// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
+        /// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
         /// </summary>
         [Input("licenseType")]
         public Input<string>? LicenseType { get; set; }
@@ -294,7 +294,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Edition { get; set; }
 
         /// <summary>
-        /// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
+        /// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
         /// </summary>
         [Input("licenseType")]
         public Input<string>? LicenseType { get; set; }

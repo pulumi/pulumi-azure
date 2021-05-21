@@ -44,11 +44,11 @@ export let location: string | undefined = __config.get("location") || utilities.
 /**
  * The Hostname which should be used for the Azure Metadata Service.
  */
-export let metadataHost: string | undefined = __config.get("metadataHost") || (utilities.getEnv("ARM_METADATA_HOSTNAME") || "");
+export let metadataHost: string | undefined = __config.get("metadataHost") || utilities.getEnv("ARM_METADATA_HOSTNAME");
 /**
  * Deprecated - replaced by `metadata_host`.
  */
-export let metadataUrl: string | undefined = __config.get("metadataUrl") || (utilities.getEnv("ARM_METADATA_URL") || "");
+export let metadataUrl: string | undefined = __config.get("metadataUrl") || utilities.getEnv("ARM_METADATA_URL");
 /**
  * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
  * automatically.

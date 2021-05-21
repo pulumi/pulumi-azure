@@ -91,9 +91,17 @@ export class EnterpriseDatabase extends pulumi.CustomResource {
      */
     public readonly port!: pulumi.Output<number | undefined>;
     /**
+     * The Primary Access Key for the Redis Enterprise Database Instance.
+     */
+    public /*out*/ readonly primaryAccessKey!: pulumi.Output<string>;
+    /**
      * The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * The Secondary Access Key for the Redis Enterprise Database Instance.
+     */
+    public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
 
     /**
      * Create a EnterpriseDatabase resource with the given unique name, arguments, and options.
@@ -115,7 +123,9 @@ export class EnterpriseDatabase extends pulumi.CustomResource {
             inputs["modules"] = state ? state.modules : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["port"] = state ? state.port : undefined;
+            inputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
         } else {
             const args = argsOrState as EnterpriseDatabaseArgs | undefined;
             if ((!args || args.clusterId === undefined) && !opts.urn) {
@@ -132,6 +142,8 @@ export class EnterpriseDatabase extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["port"] = args ? args.port : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["primaryAccessKey"] = undefined /*out*/;
+            inputs["secondaryAccessKey"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -173,9 +185,17 @@ export interface EnterpriseDatabaseState {
      */
     readonly port?: pulumi.Input<number>;
     /**
+     * The Primary Access Key for the Redis Enterprise Database Instance.
+     */
+    readonly primaryAccessKey?: pulumi.Input<string>;
+    /**
      * The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
+    /**
+     * The Secondary Access Key for the Redis Enterprise Database Instance.
+     */
+    readonly secondaryAccessKey?: pulumi.Input<string>;
 }
 
 /**

@@ -27,6 +27,7 @@ from .plan import *
 from .slot import *
 from .slot_virtual_network_swift_connection import *
 from .source_code_token import *
+from .static_site import *
 from .virtual_network_swift_connection import *
 from ._inputs import *
 from . import outputs
@@ -75,6 +76,8 @@ def _register_module():
                 return SlotVirtualNetworkSwiftConnection(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:appservice/sourceCodeToken:SourceCodeToken":
                 return SourceCodeToken(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure:appservice/staticSite:StaticSite":
+                return StaticSite(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection":
                 return VirtualNetworkSwiftConnection(name, pulumi.ResourceOptions(urn=urn))
             else:
@@ -98,6 +101,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("azure", "appservice/slot", _module_instance)
     pulumi.runtime.register_resource_module("azure", "appservice/slotVirtualNetworkSwiftConnection", _module_instance)
     pulumi.runtime.register_resource_module("azure", "appservice/sourceCodeToken", _module_instance)
+    pulumi.runtime.register_resource_module("azure", "appservice/staticSite", _module_instance)
     pulumi.runtime.register_resource_module("azure", "appservice/virtualNetworkSwiftConnection", _module_instance)
 
 _register_module()

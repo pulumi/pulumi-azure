@@ -100,6 +100,12 @@ namespace Pulumi.Azure.CosmosDB
     [AzureResourceType("azure:cosmosdb/cassandraTable:CassandraTable")]
     public partial class CassandraTable : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("analyticalStorageTtl")]
+        public Output<int?> AnalyticalStorageTtl { get; private set; } = null!;
+
         [Output("autoscaleSettings")]
         public Output<Outputs.CassandraTableAutoscaleSettings?> AutoscaleSettings { get; private set; } = null!;
 
@@ -109,6 +115,9 @@ namespace Pulumi.Azure.CosmosDB
         [Output("cassandraKeyspaceId")]
         public Output<string> CassandraKeyspaceId { get; private set; } = null!;
 
+        /// <summary>
+        /// Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
+        /// </summary>
         [Output("defaultTtl")]
         public Output<int> DefaultTtl { get; private set; } = null!;
 
@@ -173,6 +182,12 @@ namespace Pulumi.Azure.CosmosDB
 
     public sealed class CassandraTableArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("analyticalStorageTtl")]
+        public Input<int>? AnalyticalStorageTtl { get; set; }
+
         [Input("autoscaleSettings")]
         public Input<Inputs.CassandraTableAutoscaleSettingsArgs>? AutoscaleSettings { get; set; }
 
@@ -182,6 +197,9 @@ namespace Pulumi.Azure.CosmosDB
         [Input("cassandraKeyspaceId", required: true)]
         public Input<string> CassandraKeyspaceId { get; set; } = null!;
 
+        /// <summary>
+        /// Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
+        /// </summary>
         [Input("defaultTtl")]
         public Input<int>? DefaultTtl { get; set; }
 
@@ -207,6 +225,12 @@ namespace Pulumi.Azure.CosmosDB
 
     public sealed class CassandraTableState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("analyticalStorageTtl")]
+        public Input<int>? AnalyticalStorageTtl { get; set; }
+
         [Input("autoscaleSettings")]
         public Input<Inputs.CassandraTableAutoscaleSettingsGetArgs>? AutoscaleSettings { get; set; }
 
@@ -216,6 +240,9 @@ namespace Pulumi.Azure.CosmosDB
         [Input("cassandraKeyspaceId")]
         public Input<string>? CassandraKeyspaceId { get; set; }
 
+        /// <summary>
+        /// Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
+        /// </summary>
         [Input("defaultTtl")]
         public Input<int>? DefaultTtl { get; set; }
 

@@ -30,6 +30,7 @@ export * from "./plan";
 export * from "./slot";
 export * from "./slotVirtualNetworkSwiftConnection";
 export * from "./sourceCodeToken";
+export * from "./staticSite";
 export * from "./virtualNetworkSwiftConnection";
 export * from "./zMixins";
 export * from "./zMixins_durable";
@@ -53,6 +54,7 @@ import { Plan } from "./plan";
 import { Slot } from "./slot";
 import { SlotVirtualNetworkSwiftConnection } from "./slotVirtualNetworkSwiftConnection";
 import { SourceCodeToken } from "./sourceCodeToken";
+import { StaticSite } from "./staticSite";
 import { VirtualNetworkSwiftConnection } from "./virtualNetworkSwiftConnection";
 
 const _module = {
@@ -91,6 +93,8 @@ const _module = {
                 return new SlotVirtualNetworkSwiftConnection(name, <any>undefined, { urn })
             case "azure:appservice/sourceCodeToken:SourceCodeToken":
                 return new SourceCodeToken(name, <any>undefined, { urn })
+            case "azure:appservice/staticSite:StaticSite":
+                return new StaticSite(name, <any>undefined, { urn })
             case "azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection":
                 return new VirtualNetworkSwiftConnection(name, <any>undefined, { urn })
             default:
@@ -114,4 +118,5 @@ pulumi.runtime.registerResourceModule("azure", "appservice/plan", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/slot", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/slotVirtualNetworkSwiftConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/sourceCodeToken", _module)
+pulumi.runtime.registerResourceModule("azure", "appservice/staticSite", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/virtualNetworkSwiftConnection", _module)

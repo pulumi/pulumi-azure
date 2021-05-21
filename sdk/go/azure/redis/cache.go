@@ -117,6 +117,8 @@ type Cache struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
 	RedisConfiguration CacheRedisConfigurationOutput `pulumi:"redisConfiguration"`
+	// Amount of replicas to create per master for this Redis Cache.
+	ReplicasPerMaster pulumi.IntPtrOutput `pulumi:"replicasPerMaster"`
 	// The name of the resource group in which to
 	// create the Redis instance.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -208,6 +210,8 @@ type cacheState struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
 	RedisConfiguration *CacheRedisConfiguration `pulumi:"redisConfiguration"`
+	// Amount of replicas to create per master for this Redis Cache.
+	ReplicasPerMaster *int `pulumi:"replicasPerMaster"`
 	// The name of the resource group in which to
 	// create the Redis instance.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -259,6 +263,8 @@ type CacheState struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
 	RedisConfiguration CacheRedisConfigurationPtrInput
+	// Amount of replicas to create per master for this Redis Cache.
+	ReplicasPerMaster pulumi.IntPtrInput
 	// The name of the resource group in which to
 	// create the Redis instance.
 	ResourceGroupName pulumi.StringPtrInput
@@ -306,6 +312,8 @@ type cacheArgs struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
 	RedisConfiguration *CacheRedisConfiguration `pulumi:"redisConfiguration"`
+	// Amount of replicas to create per master for this Redis Cache.
+	ReplicasPerMaster *int `pulumi:"replicasPerMaster"`
 	// The name of the resource group in which to
 	// create the Redis instance.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -344,6 +352,8 @@ type CacheArgs struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
 	RedisConfiguration CacheRedisConfigurationPtrInput
+	// Amount of replicas to create per master for this Redis Cache.
+	ReplicasPerMaster pulumi.IntPtrInput
 	// The name of the resource group in which to
 	// create the Redis instance.
 	ResourceGroupName pulumi.StringInput

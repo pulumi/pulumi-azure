@@ -150,6 +150,10 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly redisConfiguration!: pulumi.Output<outputs.redis.CacheRedisConfiguration>;
     /**
+     * Amount of replicas to create per master for this Redis Cache.
+     */
+    public readonly replicasPerMaster!: pulumi.Output<number | undefined>;
+    /**
      * The name of the resource group in which to
      * create the Redis instance.
      */
@@ -214,6 +218,7 @@ export class Cache extends pulumi.CustomResource {
             inputs["privateStaticIpAddress"] = state ? state.privateStaticIpAddress : undefined;
             inputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             inputs["redisConfiguration"] = state ? state.redisConfiguration : undefined;
+            inputs["replicasPerMaster"] = state ? state.replicasPerMaster : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
             inputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
@@ -247,6 +252,7 @@ export class Cache extends pulumi.CustomResource {
             inputs["privateStaticIpAddress"] = args ? args.privateStaticIpAddress : undefined;
             inputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             inputs["redisConfiguration"] = args ? args.redisConfiguration : undefined;
+            inputs["replicasPerMaster"] = args ? args.replicasPerMaster : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["shardCount"] = args ? args.shardCount : undefined;
             inputs["skuName"] = args ? args.skuName : undefined;
@@ -329,6 +335,10 @@ export interface CacheState {
      * A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
      */
     readonly redisConfiguration?: pulumi.Input<inputs.redis.CacheRedisConfiguration>;
+    /**
+     * Amount of replicas to create per master for this Redis Cache.
+     */
+    readonly replicasPerMaster?: pulumi.Input<number>;
     /**
      * The name of the resource group in which to
      * create the Redis instance.
@@ -413,6 +423,10 @@ export interface CacheArgs {
      * A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
      */
     readonly redisConfiguration?: pulumi.Input<inputs.redis.CacheRedisConfiguration>;
+    /**
+     * Amount of replicas to create per master for this Redis Cache.
+     */
+    readonly replicasPerMaster?: pulumi.Input<number>;
     /**
      * The name of the resource group in which to
      * create the Redis instance.

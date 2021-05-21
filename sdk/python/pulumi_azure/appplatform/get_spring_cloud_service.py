@@ -20,7 +20,7 @@ class GetSpringCloudServiceResult:
     """
     A collection of values returned by getSpringCloudService.
     """
-    def __init__(__self__, config_server_git_settings=None, id=None, location=None, name=None, outbound_public_ip_addresses=None, resource_group_name=None, tags=None):
+    def __init__(__self__, config_server_git_settings=None, id=None, location=None, name=None, outbound_public_ip_addresses=None, required_network_traffic_rules=None, resource_group_name=None, tags=None):
         if config_server_git_settings and not isinstance(config_server_git_settings, list):
             raise TypeError("Expected argument 'config_server_git_settings' to be a list")
         pulumi.set(__self__, "config_server_git_settings", config_server_git_settings)
@@ -36,6 +36,9 @@ class GetSpringCloudServiceResult:
         if outbound_public_ip_addresses and not isinstance(outbound_public_ip_addresses, list):
             raise TypeError("Expected argument 'outbound_public_ip_addresses' to be a list")
         pulumi.set(__self__, "outbound_public_ip_addresses", outbound_public_ip_addresses)
+        if required_network_traffic_rules and not isinstance(required_network_traffic_rules, list):
+            raise TypeError("Expected argument 'required_network_traffic_rules' to be a list")
+        pulumi.set(__self__, "required_network_traffic_rules", required_network_traffic_rules)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -84,6 +87,14 @@ class GetSpringCloudServiceResult:
         return pulumi.get(self, "outbound_public_ip_addresses")
 
     @property
+    @pulumi.getter(name="requiredNetworkTrafficRules")
+    def required_network_traffic_rules(self) -> Sequence['outputs.GetSpringCloudServiceRequiredNetworkTrafficRuleResult']:
+        """
+        A list of `required_network_traffic_rules` blocks as defined below.
+        """
+        return pulumi.get(self, "required_network_traffic_rules")
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> str:
         return pulumi.get(self, "resource_group_name")
@@ -108,6 +119,7 @@ class AwaitableGetSpringCloudServiceResult(GetSpringCloudServiceResult):
             location=self.location,
             name=self.name,
             outbound_public_ip_addresses=self.outbound_public_ip_addresses,
+            required_network_traffic_rules=self.required_network_traffic_rules,
             resource_group_name=self.resource_group_name,
             tags=self.tags)
 
@@ -148,5 +160,6 @@ def get_spring_cloud_service(name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         outbound_public_ip_addresses=__ret__.outbound_public_ip_addresses,
+        required_network_traffic_rules=__ret__.required_network_traffic_rules,
         resource_group_name=__ret__.resource_group_name,
         tags=__ret__.tags)

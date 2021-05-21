@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./getNamespace";
 export * from "./getNamespaceAuthorizationRule";
+export * from "./getNamespaceDisasterRecoveryConfig";
 export * from "./getQueue";
 export * from "./getQueueAuthorizationRule";
 export * from "./getSubscription";

@@ -53,6 +53,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SlotVirtualNetworkSwiftConnection{}
 	case "azure:appservice/sourceCodeToken:SourceCodeToken":
 		r = &SourceCodeToken{}
+	case "azure:appservice/staticSite:StaticSite":
+		r = &StaticSite{}
 	case "azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection":
 		r = &VirtualNetworkSwiftConnection{}
 	default:
@@ -146,6 +148,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"appservice/sourceCodeToken",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appservice/staticSite",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -9,8 +9,64 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'InferenceClusterSslArgs',
     'WorkspaceIdentityArgs',
 ]
+
+@pulumi.input_type
+class InferenceClusterSslArgs:
+    def __init__(__self__, *,
+                 cert: Optional[pulumi.Input[str]] = None,
+                 cname: Optional[pulumi.Input[str]] = None,
+                 key: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] cert: The certificate for the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+        :param pulumi.Input[str] cname: The cname of the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+        :param pulumi.Input[str] key: The key content for the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+        """
+        if cert is not None:
+            pulumi.set(__self__, "cert", cert)
+        if cname is not None:
+            pulumi.set(__self__, "cname", cname)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def cert(self) -> Optional[pulumi.Input[str]]:
+        """
+        The certificate for the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+        """
+        return pulumi.get(self, "cert")
+
+    @cert.setter
+    def cert(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cert", value)
+
+    @property
+    @pulumi.getter
+    def cname(self) -> Optional[pulumi.Input[str]]:
+        """
+        The cname of the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+        """
+        return pulumi.get(self, "cname")
+
+    @cname.setter
+    def cname(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cname", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The key content for the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
 
 @pulumi.input_type
 class WorkspaceIdentityArgs:

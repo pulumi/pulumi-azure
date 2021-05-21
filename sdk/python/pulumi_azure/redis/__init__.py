@@ -8,6 +8,7 @@ from .enterprise_cluster import *
 from .enterprise_database import *
 from .firewall_rule import *
 from .get_cache import *
+from .get_enterprise_database import *
 from .linked_server import *
 from ._inputs import *
 from . import outputs

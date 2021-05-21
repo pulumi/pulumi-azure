@@ -70,6 +70,10 @@ export class MongoCollection extends pulumi.CustomResource {
 
     public readonly accountName!: pulumi.Output<string>;
     /**
+     * The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+     */
+    public readonly analyticalStorageTtl!: pulumi.Output<number | undefined>;
+    /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `shardKey` to be set.
      */
     public readonly autoscaleSettings!: pulumi.Output<outputs.cosmosdb.MongoCollectionAutoscaleSettings | undefined>;
@@ -120,6 +124,7 @@ export class MongoCollection extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as MongoCollectionState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
+            inputs["analyticalStorageTtl"] = state ? state.analyticalStorageTtl : undefined;
             inputs["autoscaleSettings"] = state ? state.autoscaleSettings : undefined;
             inputs["databaseName"] = state ? state.databaseName : undefined;
             inputs["defaultTtlSeconds"] = state ? state.defaultTtlSeconds : undefined;
@@ -141,6 +146,7 @@ export class MongoCollection extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["analyticalStorageTtl"] = args ? args.analyticalStorageTtl : undefined;
             inputs["autoscaleSettings"] = args ? args.autoscaleSettings : undefined;
             inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["defaultTtlSeconds"] = args ? args.defaultTtlSeconds : undefined;
@@ -163,6 +169,10 @@ export class MongoCollection extends pulumi.CustomResource {
  */
 export interface MongoCollectionState {
     readonly accountName?: pulumi.Input<string>;
+    /**
+     * The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+     */
+    readonly analyticalStorageTtl?: pulumi.Input<number>;
     /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `shardKey` to be set.
      */
@@ -206,6 +216,10 @@ export interface MongoCollectionState {
  */
 export interface MongoCollectionArgs {
     readonly accountName: pulumi.Input<string>;
+    /**
+     * The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+     */
+    readonly analyticalStorageTtl?: pulumi.Input<number>;
     /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `shardKey` to be set.
      */

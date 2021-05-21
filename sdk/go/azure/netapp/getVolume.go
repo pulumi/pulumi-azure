@@ -54,12 +54,15 @@ type LookupVolumeArgs struct {
 	PoolName string `pulumi:"poolName"`
 	// The Name of the Resource Group where the NetApp Volume exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Volume security style
+	SecurityStyle *string `pulumi:"securityStyle"`
 }
 
 // A collection of values returned by getVolume.
 type LookupVolumeResult struct {
 	AccountName string `pulumi:"accountName"`
-	// A `dataProtectionReplication` block as defined below.
+	// Volume data protection block
+	// *
 	DataProtectionReplications []GetVolumeDataProtectionReplication `pulumi:"dataProtectionReplications"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -69,9 +72,11 @@ type LookupVolumeResult struct {
 	MountIpAddresses []string `pulumi:"mountIpAddresses"`
 	Name             string   `pulumi:"name"`
 	PoolName         string   `pulumi:"poolName"`
-	// A list of protocol types.
+	// A list of protocol types enabled on volume.
 	Protocols         []string `pulumi:"protocols"`
 	ResourceGroupName string   `pulumi:"resourceGroupName"`
+	// Volume security style
+	SecurityStyle *string `pulumi:"securityStyle"`
 	// The service level of the file system.
 	ServiceLevel string `pulumi:"serviceLevel"`
 	// The maximum Storage Quota in Gigabytes allowed for a file system.

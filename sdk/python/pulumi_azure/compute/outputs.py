@@ -7807,9 +7807,9 @@ class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult(dict):
                  load_balancer_inbound_nat_rules_ids: Sequence[str],
                  name: str,
                  primary: bool,
+                 public_ip_addresses: Sequence['outputs.GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressResult'],
                  subnet_id: str,
-                 version: str,
-                 public_ip_addresses: Optional[Sequence['outputs.GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressResult']] = None):
+                 version: str):
         """
         :param Sequence[str] application_gateway_backend_address_pool_ids: An array of references to backend address pools of application gateways.
         :param Sequence[str] application_security_group_ids: The application security group IDs to use.
@@ -7825,10 +7825,9 @@ class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult(dict):
         pulumi.set(__self__, "load_balancer_inbound_nat_rules_ids", load_balancer_inbound_nat_rules_ids)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "primary", primary)
+        pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
         pulumi.set(__self__, "subnet_id", subnet_id)
         pulumi.set(__self__, "version", version)
-        if public_ip_addresses is not None:
-            pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
 
     @property
     @pulumi.getter(name="applicationGatewayBackendAddressPoolIds")
@@ -7879,6 +7878,11 @@ class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult(dict):
         return pulumi.get(self, "primary")
 
     @property
+    @pulumi.getter(name="publicIpAddresses")
+    def public_ip_addresses(self) -> Sequence['outputs.GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressResult']:
+        return pulumi.get(self, "public_ip_addresses")
+
+    @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> str:
         """
@@ -7890,11 +7894,6 @@ class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult(dict):
     @pulumi.getter
     def version(self) -> str:
         return pulumi.get(self, "version")
-
-    @property
-    @pulumi.getter(name="publicIpAddresses")
-    def public_ip_addresses(self) -> Optional[Sequence['outputs.GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressResult']]:
-        return pulumi.get(self, "public_ip_addresses")
 
 
 @pulumi.output_type

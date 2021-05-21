@@ -75,6 +75,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.mediaservices.AccountIdentity>;
     /**
+     * An `keyDeliveryAccessControl` block is documented below.
+     */
+    public readonly keyDeliveryAccessControl!: pulumi.Output<outputs.mediaservices.AccountKeyDeliveryAccessControl>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -97,7 +101,6 @@ export class Account extends pulumi.CustomResource {
     public readonly storageAuthenticationType!: pulumi.Output<string>;
     /**
      * A mapping of tags assigned to the resource.
-     * ---
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -118,6 +121,7 @@ export class Account extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as AccountState | undefined;
             inputs["identity"] = state ? state.identity : undefined;
+            inputs["keyDeliveryAccessControl"] = state ? state.keyDeliveryAccessControl : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -133,6 +137,7 @@ export class Account extends pulumi.CustomResource {
                 throw new Error("Missing required property 'storageAccounts'");
             }
             inputs["identity"] = args ? args.identity : undefined;
+            inputs["keyDeliveryAccessControl"] = args ? args.keyDeliveryAccessControl : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -156,6 +161,10 @@ export interface AccountState {
      */
     readonly identity?: pulumi.Input<inputs.mediaservices.AccountIdentity>;
     /**
+     * An `keyDeliveryAccessControl` block is documented below.
+     */
+    readonly keyDeliveryAccessControl?: pulumi.Input<inputs.mediaservices.AccountKeyDeliveryAccessControl>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
@@ -178,7 +187,6 @@ export interface AccountState {
     readonly storageAuthenticationType?: pulumi.Input<string>;
     /**
      * A mapping of tags assigned to the resource.
-     * ---
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -191,6 +199,10 @@ export interface AccountArgs {
      * An `identity` block is documented below.
      */
     readonly identity?: pulumi.Input<inputs.mediaservices.AccountIdentity>;
+    /**
+     * An `keyDeliveryAccessControl` block is documented below.
+     */
+    readonly keyDeliveryAccessControl?: pulumi.Input<inputs.mediaservices.AccountKeyDeliveryAccessControl>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -214,7 +226,6 @@ export interface AccountArgs {
     readonly storageAuthenticationType?: pulumi.Input<string>;
     /**
      * A mapping of tags assigned to the resource.
-     * ---
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

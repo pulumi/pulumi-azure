@@ -76,8 +76,12 @@ type EnterpriseDatabase struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
+	// The Primary Access Key for the Redis Enterprise Database Instance.
+	PrimaryAccessKey pulumi.StringOutput `pulumi:"primaryAccessKey"`
 	// The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// The Secondary Access Key for the Redis Enterprise Database Instance.
+	SecondaryAccessKey pulumi.StringOutput `pulumi:"secondaryAccessKey"`
 }
 
 // NewEnterpriseDatabase registers a new resource with the given unique name, arguments, and options.
@@ -129,8 +133,12 @@ type enterpriseDatabaseState struct {
 	Name *string `pulumi:"name"`
 	// TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
 	Port *int `pulumi:"port"`
+	// The Primary Access Key for the Redis Enterprise Database Instance.
+	PrimaryAccessKey *string `pulumi:"primaryAccessKey"`
 	// The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The Secondary Access Key for the Redis Enterprise Database Instance.
+	SecondaryAccessKey *string `pulumi:"secondaryAccessKey"`
 }
 
 type EnterpriseDatabaseState struct {
@@ -148,8 +156,12 @@ type EnterpriseDatabaseState struct {
 	Name pulumi.StringPtrInput
 	// TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created.
 	Port pulumi.IntPtrInput
+	// The Primary Access Key for the Redis Enterprise Database Instance.
+	PrimaryAccessKey pulumi.StringPtrInput
 	// The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// The Secondary Access Key for the Redis Enterprise Database Instance.
+	SecondaryAccessKey pulumi.StringPtrInput
 }
 
 func (EnterpriseDatabaseState) ElementType() reflect.Type {

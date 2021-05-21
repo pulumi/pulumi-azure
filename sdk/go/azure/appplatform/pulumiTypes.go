@@ -1609,6 +1609,136 @@ func (o SpringCloudServiceNetworkPtrOutput) ServiceRuntimeSubnetId() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+type SpringCloudServiceRequiredNetworkTrafficRule struct {
+	// The direction of required traffic. Possible values are `Inbound`, `Outbound`.
+	Direction *string `pulumi:"direction"`
+	// The FQDN list of required traffic.
+	Fqdns       []string `pulumi:"fqdns"`
+	IpAddresses []string `pulumi:"ipAddresses"`
+	// The port of required traffic.
+	Port *int `pulumi:"port"`
+	// The protocol of required traffic.
+	Protocol *string `pulumi:"protocol"`
+}
+
+// SpringCloudServiceRequiredNetworkTrafficRuleInput is an input type that accepts SpringCloudServiceRequiredNetworkTrafficRuleArgs and SpringCloudServiceRequiredNetworkTrafficRuleOutput values.
+// You can construct a concrete instance of `SpringCloudServiceRequiredNetworkTrafficRuleInput` via:
+//
+//          SpringCloudServiceRequiredNetworkTrafficRuleArgs{...}
+type SpringCloudServiceRequiredNetworkTrafficRuleInput interface {
+	pulumi.Input
+
+	ToSpringCloudServiceRequiredNetworkTrafficRuleOutput() SpringCloudServiceRequiredNetworkTrafficRuleOutput
+	ToSpringCloudServiceRequiredNetworkTrafficRuleOutputWithContext(context.Context) SpringCloudServiceRequiredNetworkTrafficRuleOutput
+}
+
+type SpringCloudServiceRequiredNetworkTrafficRuleArgs struct {
+	// The direction of required traffic. Possible values are `Inbound`, `Outbound`.
+	Direction pulumi.StringPtrInput `pulumi:"direction"`
+	// The FQDN list of required traffic.
+	Fqdns       pulumi.StringArrayInput `pulumi:"fqdns"`
+	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
+	// The port of required traffic.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// The protocol of required traffic.
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+}
+
+func (SpringCloudServiceRequiredNetworkTrafficRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudServiceRequiredNetworkTrafficRule)(nil)).Elem()
+}
+
+func (i SpringCloudServiceRequiredNetworkTrafficRuleArgs) ToSpringCloudServiceRequiredNetworkTrafficRuleOutput() SpringCloudServiceRequiredNetworkTrafficRuleOutput {
+	return i.ToSpringCloudServiceRequiredNetworkTrafficRuleOutputWithContext(context.Background())
+}
+
+func (i SpringCloudServiceRequiredNetworkTrafficRuleArgs) ToSpringCloudServiceRequiredNetworkTrafficRuleOutputWithContext(ctx context.Context) SpringCloudServiceRequiredNetworkTrafficRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceRequiredNetworkTrafficRuleOutput)
+}
+
+// SpringCloudServiceRequiredNetworkTrafficRuleArrayInput is an input type that accepts SpringCloudServiceRequiredNetworkTrafficRuleArray and SpringCloudServiceRequiredNetworkTrafficRuleArrayOutput values.
+// You can construct a concrete instance of `SpringCloudServiceRequiredNetworkTrafficRuleArrayInput` via:
+//
+//          SpringCloudServiceRequiredNetworkTrafficRuleArray{ SpringCloudServiceRequiredNetworkTrafficRuleArgs{...} }
+type SpringCloudServiceRequiredNetworkTrafficRuleArrayInput interface {
+	pulumi.Input
+
+	ToSpringCloudServiceRequiredNetworkTrafficRuleArrayOutput() SpringCloudServiceRequiredNetworkTrafficRuleArrayOutput
+	ToSpringCloudServiceRequiredNetworkTrafficRuleArrayOutputWithContext(context.Context) SpringCloudServiceRequiredNetworkTrafficRuleArrayOutput
+}
+
+type SpringCloudServiceRequiredNetworkTrafficRuleArray []SpringCloudServiceRequiredNetworkTrafficRuleInput
+
+func (SpringCloudServiceRequiredNetworkTrafficRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpringCloudServiceRequiredNetworkTrafficRule)(nil)).Elem()
+}
+
+func (i SpringCloudServiceRequiredNetworkTrafficRuleArray) ToSpringCloudServiceRequiredNetworkTrafficRuleArrayOutput() SpringCloudServiceRequiredNetworkTrafficRuleArrayOutput {
+	return i.ToSpringCloudServiceRequiredNetworkTrafficRuleArrayOutputWithContext(context.Background())
+}
+
+func (i SpringCloudServiceRequiredNetworkTrafficRuleArray) ToSpringCloudServiceRequiredNetworkTrafficRuleArrayOutputWithContext(ctx context.Context) SpringCloudServiceRequiredNetworkTrafficRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudServiceRequiredNetworkTrafficRuleArrayOutput)
+}
+
+type SpringCloudServiceRequiredNetworkTrafficRuleOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudServiceRequiredNetworkTrafficRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudServiceRequiredNetworkTrafficRule)(nil)).Elem()
+}
+
+func (o SpringCloudServiceRequiredNetworkTrafficRuleOutput) ToSpringCloudServiceRequiredNetworkTrafficRuleOutput() SpringCloudServiceRequiredNetworkTrafficRuleOutput {
+	return o
+}
+
+func (o SpringCloudServiceRequiredNetworkTrafficRuleOutput) ToSpringCloudServiceRequiredNetworkTrafficRuleOutputWithContext(ctx context.Context) SpringCloudServiceRequiredNetworkTrafficRuleOutput {
+	return o
+}
+
+// The direction of required traffic. Possible values are `Inbound`, `Outbound`.
+func (o SpringCloudServiceRequiredNetworkTrafficRuleOutput) Direction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudServiceRequiredNetworkTrafficRule) *string { return v.Direction }).(pulumi.StringPtrOutput)
+}
+
+// The FQDN list of required traffic.
+func (o SpringCloudServiceRequiredNetworkTrafficRuleOutput) Fqdns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SpringCloudServiceRequiredNetworkTrafficRule) []string { return v.Fqdns }).(pulumi.StringArrayOutput)
+}
+
+func (o SpringCloudServiceRequiredNetworkTrafficRuleOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SpringCloudServiceRequiredNetworkTrafficRule) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// The port of required traffic.
+func (o SpringCloudServiceRequiredNetworkTrafficRuleOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpringCloudServiceRequiredNetworkTrafficRule) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// The protocol of required traffic.
+func (o SpringCloudServiceRequiredNetworkTrafficRuleOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudServiceRequiredNetworkTrafficRule) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+type SpringCloudServiceRequiredNetworkTrafficRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudServiceRequiredNetworkTrafficRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpringCloudServiceRequiredNetworkTrafficRule)(nil)).Elem()
+}
+
+func (o SpringCloudServiceRequiredNetworkTrafficRuleArrayOutput) ToSpringCloudServiceRequiredNetworkTrafficRuleArrayOutput() SpringCloudServiceRequiredNetworkTrafficRuleArrayOutput {
+	return o
+}
+
+func (o SpringCloudServiceRequiredNetworkTrafficRuleArrayOutput) ToSpringCloudServiceRequiredNetworkTrafficRuleArrayOutputWithContext(ctx context.Context) SpringCloudServiceRequiredNetworkTrafficRuleArrayOutput {
+	return o
+}
+
+func (o SpringCloudServiceRequiredNetworkTrafficRuleArrayOutput) Index(i pulumi.IntInput) SpringCloudServiceRequiredNetworkTrafficRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpringCloudServiceRequiredNetworkTrafficRule {
+		return vs[0].([]SpringCloudServiceRequiredNetworkTrafficRule)[vs[1].(int)]
+	}).(SpringCloudServiceRequiredNetworkTrafficRuleOutput)
+}
+
 type SpringCloudServiceTrace struct {
 	// The Instrumentation Key used for Application Insights.
 	InstrumentationKey string `pulumi:"instrumentationKey"`
@@ -2745,6 +2875,136 @@ func (o GetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutput) Index(i p
 	}).(GetSpringCloudServiceConfigServerGitSettingSshAuthOutput)
 }
 
+type GetSpringCloudServiceRequiredNetworkTrafficRule struct {
+	// The direction of required traffic. Possible values are `Inbound`, `Outbound`.
+	Direction string `pulumi:"direction"`
+	// The FQDN list of required traffic.
+	Fqdns       []string `pulumi:"fqdns"`
+	IpAddresses []string `pulumi:"ipAddresses"`
+	// The port of required traffic.
+	Port int `pulumi:"port"`
+	// The protocol of required traffic.
+	Protocol string `pulumi:"protocol"`
+}
+
+// GetSpringCloudServiceRequiredNetworkTrafficRuleInput is an input type that accepts GetSpringCloudServiceRequiredNetworkTrafficRuleArgs and GetSpringCloudServiceRequiredNetworkTrafficRuleOutput values.
+// You can construct a concrete instance of `GetSpringCloudServiceRequiredNetworkTrafficRuleInput` via:
+//
+//          GetSpringCloudServiceRequiredNetworkTrafficRuleArgs{...}
+type GetSpringCloudServiceRequiredNetworkTrafficRuleInput interface {
+	pulumi.Input
+
+	ToGetSpringCloudServiceRequiredNetworkTrafficRuleOutput() GetSpringCloudServiceRequiredNetworkTrafficRuleOutput
+	ToGetSpringCloudServiceRequiredNetworkTrafficRuleOutputWithContext(context.Context) GetSpringCloudServiceRequiredNetworkTrafficRuleOutput
+}
+
+type GetSpringCloudServiceRequiredNetworkTrafficRuleArgs struct {
+	// The direction of required traffic. Possible values are `Inbound`, `Outbound`.
+	Direction pulumi.StringInput `pulumi:"direction"`
+	// The FQDN list of required traffic.
+	Fqdns       pulumi.StringArrayInput `pulumi:"fqdns"`
+	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
+	// The port of required traffic.
+	Port pulumi.IntInput `pulumi:"port"`
+	// The protocol of required traffic.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+}
+
+func (GetSpringCloudServiceRequiredNetworkTrafficRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSpringCloudServiceRequiredNetworkTrafficRule)(nil)).Elem()
+}
+
+func (i GetSpringCloudServiceRequiredNetworkTrafficRuleArgs) ToGetSpringCloudServiceRequiredNetworkTrafficRuleOutput() GetSpringCloudServiceRequiredNetworkTrafficRuleOutput {
+	return i.ToGetSpringCloudServiceRequiredNetworkTrafficRuleOutputWithContext(context.Background())
+}
+
+func (i GetSpringCloudServiceRequiredNetworkTrafficRuleArgs) ToGetSpringCloudServiceRequiredNetworkTrafficRuleOutputWithContext(ctx context.Context) GetSpringCloudServiceRequiredNetworkTrafficRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudServiceRequiredNetworkTrafficRuleOutput)
+}
+
+// GetSpringCloudServiceRequiredNetworkTrafficRuleArrayInput is an input type that accepts GetSpringCloudServiceRequiredNetworkTrafficRuleArray and GetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutput values.
+// You can construct a concrete instance of `GetSpringCloudServiceRequiredNetworkTrafficRuleArrayInput` via:
+//
+//          GetSpringCloudServiceRequiredNetworkTrafficRuleArray{ GetSpringCloudServiceRequiredNetworkTrafficRuleArgs{...} }
+type GetSpringCloudServiceRequiredNetworkTrafficRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutput() GetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutput
+	ToGetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutputWithContext(context.Context) GetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutput
+}
+
+type GetSpringCloudServiceRequiredNetworkTrafficRuleArray []GetSpringCloudServiceRequiredNetworkTrafficRuleInput
+
+func (GetSpringCloudServiceRequiredNetworkTrafficRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSpringCloudServiceRequiredNetworkTrafficRule)(nil)).Elem()
+}
+
+func (i GetSpringCloudServiceRequiredNetworkTrafficRuleArray) ToGetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutput() GetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutput {
+	return i.ToGetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetSpringCloudServiceRequiredNetworkTrafficRuleArray) ToGetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutputWithContext(ctx context.Context) GetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutput)
+}
+
+type GetSpringCloudServiceRequiredNetworkTrafficRuleOutput struct{ *pulumi.OutputState }
+
+func (GetSpringCloudServiceRequiredNetworkTrafficRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSpringCloudServiceRequiredNetworkTrafficRule)(nil)).Elem()
+}
+
+func (o GetSpringCloudServiceRequiredNetworkTrafficRuleOutput) ToGetSpringCloudServiceRequiredNetworkTrafficRuleOutput() GetSpringCloudServiceRequiredNetworkTrafficRuleOutput {
+	return o
+}
+
+func (o GetSpringCloudServiceRequiredNetworkTrafficRuleOutput) ToGetSpringCloudServiceRequiredNetworkTrafficRuleOutputWithContext(ctx context.Context) GetSpringCloudServiceRequiredNetworkTrafficRuleOutput {
+	return o
+}
+
+// The direction of required traffic. Possible values are `Inbound`, `Outbound`.
+func (o GetSpringCloudServiceRequiredNetworkTrafficRuleOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSpringCloudServiceRequiredNetworkTrafficRule) string { return v.Direction }).(pulumi.StringOutput)
+}
+
+// The FQDN list of required traffic.
+func (o GetSpringCloudServiceRequiredNetworkTrafficRuleOutput) Fqdns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSpringCloudServiceRequiredNetworkTrafficRule) []string { return v.Fqdns }).(pulumi.StringArrayOutput)
+}
+
+func (o GetSpringCloudServiceRequiredNetworkTrafficRuleOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSpringCloudServiceRequiredNetworkTrafficRule) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// The port of required traffic.
+func (o GetSpringCloudServiceRequiredNetworkTrafficRuleOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSpringCloudServiceRequiredNetworkTrafficRule) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// The protocol of required traffic.
+func (o GetSpringCloudServiceRequiredNetworkTrafficRuleOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSpringCloudServiceRequiredNetworkTrafficRule) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+type GetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSpringCloudServiceRequiredNetworkTrafficRule)(nil)).Elem()
+}
+
+func (o GetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutput) ToGetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutput() GetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutput {
+	return o
+}
+
+func (o GetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutput) ToGetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutputWithContext(ctx context.Context) GetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutput {
+	return o
+}
+
+func (o GetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutput) Index(i pulumi.IntInput) GetSpringCloudServiceRequiredNetworkTrafficRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSpringCloudServiceRequiredNetworkTrafficRule {
+		return vs[0].([]GetSpringCloudServiceRequiredNetworkTrafficRule)[vs[1].(int)]
+	}).(GetSpringCloudServiceRequiredNetworkTrafficRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SpringCloudAppIdentityOutput{})
 	pulumi.RegisterOutputType(SpringCloudAppIdentityPtrOutput{})
@@ -2764,6 +3024,8 @@ func init() {
 	pulumi.RegisterOutputType(SpringCloudServiceConfigServerGitSettingSshAuthPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceNetworkOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceNetworkPtrOutput{})
+	pulumi.RegisterOutputType(SpringCloudServiceRequiredNetworkTrafficRuleOutput{})
+	pulumi.RegisterOutputType(SpringCloudServiceRequiredNetworkTrafficRuleArrayOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceTraceOutput{})
 	pulumi.RegisterOutputType(SpringCloudServiceTracePtrOutput{})
 	pulumi.RegisterOutputType(GetSpringCloudAppIdentityOutput{})
@@ -2782,4 +3044,6 @@ func init() {
 	pulumi.RegisterOutputType(GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArrayOutput{})
 	pulumi.RegisterOutputType(GetSpringCloudServiceConfigServerGitSettingSshAuthOutput{})
 	pulumi.RegisterOutputType(GetSpringCloudServiceConfigServerGitSettingSshAuthArrayOutput{})
+	pulumi.RegisterOutputType(GetSpringCloudServiceRequiredNetworkTrafficRuleOutput{})
+	pulumi.RegisterOutputType(GetSpringCloudServiceRequiredNetworkTrafficRuleArrayOutput{})
 }

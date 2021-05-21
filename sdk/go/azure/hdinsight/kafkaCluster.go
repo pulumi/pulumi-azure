@@ -111,6 +111,8 @@ type KafkaCluster struct {
 	ClusterVersion pulumi.StringOutput `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
 	ComponentVersion KafkaClusterComponentVersionOutput `pulumi:"componentVersion"`
+	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+	EncryptionInTransitEnabled pulumi.BoolPtrOutput `pulumi:"encryptionInTransitEnabled"`
 	// A `gateway` block as defined below.
 	Gateway KafkaClusterGatewayOutput `pulumi:"gateway"`
 	// The HTTPS Connectivity Endpoint for this HDInsight Kafka Cluster.
@@ -195,6 +197,8 @@ type kafkaClusterState struct {
 	ClusterVersion *string `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
 	ComponentVersion *KafkaClusterComponentVersion `pulumi:"componentVersion"`
+	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+	EncryptionInTransitEnabled *bool `pulumi:"encryptionInTransitEnabled"`
 	// A `gateway` block as defined below.
 	Gateway *KafkaClusterGateway `pulumi:"gateway"`
 	// The HTTPS Connectivity Endpoint for this HDInsight Kafka Cluster.
@@ -233,6 +237,8 @@ type KafkaClusterState struct {
 	ClusterVersion pulumi.StringPtrInput
 	// A `componentVersion` block as defined below.
 	ComponentVersion KafkaClusterComponentVersionPtrInput
+	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+	EncryptionInTransitEnabled pulumi.BoolPtrInput
 	// A `gateway` block as defined below.
 	Gateway KafkaClusterGatewayPtrInput
 	// The HTTPS Connectivity Endpoint for this HDInsight Kafka Cluster.
@@ -275,6 +281,8 @@ type kafkaClusterArgs struct {
 	ClusterVersion string `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
 	ComponentVersion KafkaClusterComponentVersion `pulumi:"componentVersion"`
+	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+	EncryptionInTransitEnabled *bool `pulumi:"encryptionInTransitEnabled"`
 	// A `gateway` block as defined below.
 	Gateway KafkaClusterGateway `pulumi:"gateway"`
 	// Specifies the Azure Region which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
@@ -308,6 +316,8 @@ type KafkaClusterArgs struct {
 	ClusterVersion pulumi.StringInput
 	// A `componentVersion` block as defined below.
 	ComponentVersion KafkaClusterComponentVersionInput
+	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+	EncryptionInTransitEnabled pulumi.BoolPtrInput
 	// A `gateway` block as defined below.
 	Gateway KafkaClusterGatewayInput
 	// Specifies the Azure Region which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.

@@ -18,6 +18,7 @@ class MongoCollectionArgs:
                  account_name: pulumi.Input[str],
                  database_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
                  autoscale_settings: Optional[pulumi.Input['MongoCollectionAutoscaleSettingsArgs']] = None,
                  default_ttl_seconds: Optional[pulumi.Input[int]] = None,
                  indices: Optional[pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArgs']]]] = None,
@@ -28,6 +29,7 @@ class MongoCollectionArgs:
         The set of arguments for constructing a MongoCollection resource.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] analytical_storage_ttl: The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         :param pulumi.Input['MongoCollectionAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `shard_key` to be set.
         :param pulumi.Input[int] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1` or `0`, items are not automatically expired.
         :param pulumi.Input[Sequence[pulumi.Input['MongoCollectionIndexArgs']]] indices: One or more `index` blocks as defined below.
@@ -38,6 +40,8 @@ class MongoCollectionArgs:
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if analytical_storage_ttl is not None:
+            pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
         if autoscale_settings is not None:
             pulumi.set(__self__, "autoscale_settings", autoscale_settings)
         if default_ttl_seconds is not None:
@@ -83,6 +87,18 @@ class MongoCollectionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="analyticalStorageTtl")
+    def analytical_storage_ttl(self) -> Optional[pulumi.Input[int]]:
+        """
+        The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+        """
+        return pulumi.get(self, "analytical_storage_ttl")
+
+    @analytical_storage_ttl.setter
+    def analytical_storage_ttl(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "analytical_storage_ttl", value)
 
     @property
     @pulumi.getter(name="autoscaleSettings")
@@ -161,6 +177,7 @@ class MongoCollectionArgs:
 class _MongoCollectionState:
     def __init__(__self__, *,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
                  autoscale_settings: Optional[pulumi.Input['MongoCollectionAutoscaleSettingsArgs']] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  default_ttl_seconds: Optional[pulumi.Input[int]] = None,
@@ -172,6 +189,7 @@ class _MongoCollectionState:
                  throughput: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering MongoCollection resources.
+        :param pulumi.Input[int] analytical_storage_ttl: The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         :param pulumi.Input['MongoCollectionAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `shard_key` to be set.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1` or `0`, items are not automatically expired.
@@ -184,6 +202,8 @@ class _MongoCollectionState:
         """
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
+        if analytical_storage_ttl is not None:
+            pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
         if autoscale_settings is not None:
             pulumi.set(__self__, "autoscale_settings", autoscale_settings)
         if database_name is not None:
@@ -211,6 +231,18 @@ class _MongoCollectionState:
     @account_name.setter
     def account_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="analyticalStorageTtl")
+    def analytical_storage_ttl(self) -> Optional[pulumi.Input[int]]:
+        """
+        The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+        """
+        return pulumi.get(self, "analytical_storage_ttl")
+
+    @analytical_storage_ttl.setter
+    def analytical_storage_ttl(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "analytical_storage_ttl", value)
 
     @property
     @pulumi.getter(name="autoscaleSettings")
@@ -327,6 +359,7 @@ class MongoCollection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
                  autoscale_settings: Optional[pulumi.Input[pulumi.InputType['MongoCollectionAutoscaleSettingsArgs']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  default_ttl_seconds: Optional[pulumi.Input[int]] = None,
@@ -369,6 +402,7 @@ class MongoCollection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] analytical_storage_ttl: The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         :param pulumi.Input[pulumi.InputType['MongoCollectionAutoscaleSettingsArgs']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `shard_key` to be set.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1` or `0`, items are not automatically expired.
@@ -431,6 +465,7 @@ class MongoCollection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
                  autoscale_settings: Optional[pulumi.Input[pulumi.InputType['MongoCollectionAutoscaleSettingsArgs']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  default_ttl_seconds: Optional[pulumi.Input[int]] = None,
@@ -454,6 +489,7 @@ class MongoCollection(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["analytical_storage_ttl"] = analytical_storage_ttl
             __props__.__dict__["autoscale_settings"] = autoscale_settings
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
@@ -478,6 +514,7 @@ class MongoCollection(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_name: Optional[pulumi.Input[str]] = None,
+            analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
             autoscale_settings: Optional[pulumi.Input[pulumi.InputType['MongoCollectionAutoscaleSettingsArgs']]] = None,
             database_name: Optional[pulumi.Input[str]] = None,
             default_ttl_seconds: Optional[pulumi.Input[int]] = None,
@@ -494,6 +531,7 @@ class MongoCollection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] analytical_storage_ttl: The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         :param pulumi.Input[pulumi.InputType['MongoCollectionAutoscaleSettingsArgs']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply. Requires `shard_key` to be set.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1` or `0`, items are not automatically expired.
@@ -509,6 +547,7 @@ class MongoCollection(pulumi.CustomResource):
         __props__ = _MongoCollectionState.__new__(_MongoCollectionState)
 
         __props__.__dict__["account_name"] = account_name
+        __props__.__dict__["analytical_storage_ttl"] = analytical_storage_ttl
         __props__.__dict__["autoscale_settings"] = autoscale_settings
         __props__.__dict__["database_name"] = database_name
         __props__.__dict__["default_ttl_seconds"] = default_ttl_seconds
@@ -524,6 +563,14 @@ class MongoCollection(pulumi.CustomResource):
     @pulumi.getter(name="accountName")
     def account_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="analyticalStorageTtl")
+    def analytical_storage_ttl(self) -> pulumi.Output[Optional[int]]:
+        """
+        The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
+        """
+        return pulumi.get(self, "analytical_storage_ttl")
 
     @property
     @pulumi.getter(name="autoscaleSettings")

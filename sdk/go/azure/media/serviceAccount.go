@@ -72,6 +72,8 @@ type ServiceAccount struct {
 
 	// An `identity` block is documented below.
 	Identity ServiceAccountIdentityOutput `pulumi:"identity"`
+	// An `keyDeliveryAccessControl` block is documented below.
+	KeyDeliveryAccessControl ServiceAccountKeyDeliveryAccessControlOutput `pulumi:"keyDeliveryAccessControl"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
@@ -84,7 +86,6 @@ type ServiceAccount struct {
 	// Possible value is  `ManagedIdentity` or `System`.
 	StorageAuthenticationType pulumi.StringOutput `pulumi:"storageAuthenticationType"`
 	// A mapping of tags assigned to the resource.
-	// ---
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -131,6 +132,8 @@ func GetServiceAccount(ctx *pulumi.Context,
 type serviceAccountState struct {
 	// An `identity` block is documented below.
 	Identity *ServiceAccountIdentity `pulumi:"identity"`
+	// An `keyDeliveryAccessControl` block is documented below.
+	KeyDeliveryAccessControl *ServiceAccountKeyDeliveryAccessControl `pulumi:"keyDeliveryAccessControl"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
@@ -143,13 +146,14 @@ type serviceAccountState struct {
 	// Possible value is  `ManagedIdentity` or `System`.
 	StorageAuthenticationType *string `pulumi:"storageAuthenticationType"`
 	// A mapping of tags assigned to the resource.
-	// ---
 	Tags map[string]string `pulumi:"tags"`
 }
 
 type ServiceAccountState struct {
 	// An `identity` block is documented below.
 	Identity ServiceAccountIdentityPtrInput
+	// An `keyDeliveryAccessControl` block is documented below.
+	KeyDeliveryAccessControl ServiceAccountKeyDeliveryAccessControlPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
@@ -162,7 +166,6 @@ type ServiceAccountState struct {
 	// Possible value is  `ManagedIdentity` or `System`.
 	StorageAuthenticationType pulumi.StringPtrInput
 	// A mapping of tags assigned to the resource.
-	// ---
 	Tags pulumi.StringMapInput
 }
 
@@ -173,6 +176,8 @@ func (ServiceAccountState) ElementType() reflect.Type {
 type serviceAccountArgs struct {
 	// An `identity` block is documented below.
 	Identity *ServiceAccountIdentity `pulumi:"identity"`
+	// An `keyDeliveryAccessControl` block is documented below.
+	KeyDeliveryAccessControl *ServiceAccountKeyDeliveryAccessControl `pulumi:"keyDeliveryAccessControl"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
@@ -185,7 +190,6 @@ type serviceAccountArgs struct {
 	// Possible value is  `ManagedIdentity` or `System`.
 	StorageAuthenticationType *string `pulumi:"storageAuthenticationType"`
 	// A mapping of tags assigned to the resource.
-	// ---
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -193,6 +197,8 @@ type serviceAccountArgs struct {
 type ServiceAccountArgs struct {
 	// An `identity` block is documented below.
 	Identity ServiceAccountIdentityPtrInput
+	// An `keyDeliveryAccessControl` block is documented below.
+	KeyDeliveryAccessControl ServiceAccountKeyDeliveryAccessControlPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
@@ -205,7 +211,6 @@ type ServiceAccountArgs struct {
 	// Possible value is  `ManagedIdentity` or `System`.
 	StorageAuthenticationType pulumi.StringPtrInput
 	// A mapping of tags assigned to the resource.
-	// ---
 	Tags pulumi.StringMapInput
 }
 

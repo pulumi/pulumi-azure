@@ -138,7 +138,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
+     * @deprecated This is deprecated in favor of `ddos_protection_plan`
      */
     public readonly vmProtectionEnabled!: pulumi.Output<boolean | undefined>;
 
@@ -238,7 +238,7 @@ export interface VirtualNetworkState {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
+     * @deprecated This is deprecated in favor of `ddos_protection_plan`
      */
     readonly vmProtectionEnabled?: pulumi.Input<boolean>;
 }
@@ -284,7 +284,7 @@ export interface VirtualNetworkArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
+     * @deprecated This is deprecated in favor of `ddos_protection_plan`
      */
     readonly vmProtectionEnabled?: pulumi.Input<boolean>;
 }

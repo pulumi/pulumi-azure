@@ -70,6 +70,12 @@ namespace Pulumi.Azure.MediaServices
         public Output<Outputs.AccountIdentity> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// An `key_delivery_access_control` block is documented below.
+        /// </summary>
+        [Output("keyDeliveryAccessControl")]
+        public Output<Outputs.AccountKeyDeliveryAccessControl> KeyDeliveryAccessControl { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -102,7 +108,6 @@ namespace Pulumi.Azure.MediaServices
 
         /// <summary>
         /// A mapping of tags assigned to the resource.
-        /// ---
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -160,6 +165,12 @@ namespace Pulumi.Azure.MediaServices
         public Input<Inputs.AccountIdentityArgs>? Identity { get; set; }
 
         /// <summary>
+        /// An `key_delivery_access_control` block is documented below.
+        /// </summary>
+        [Input("keyDeliveryAccessControl")]
+        public Input<Inputs.AccountKeyDeliveryAccessControlArgs>? KeyDeliveryAccessControl { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -201,7 +212,6 @@ namespace Pulumi.Azure.MediaServices
 
         /// <summary>
         /// A mapping of tags assigned to the resource.
-        /// ---
         /// </summary>
         public InputMap<string> Tags
         {
@@ -221,6 +231,12 @@ namespace Pulumi.Azure.MediaServices
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AccountIdentityGetArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// An `key_delivery_access_control` block is documented below.
+        /// </summary>
+        [Input("keyDeliveryAccessControl")]
+        public Input<Inputs.AccountKeyDeliveryAccessControlGetArgs>? KeyDeliveryAccessControl { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -264,7 +280,6 @@ namespace Pulumi.Azure.MediaServices
 
         /// <summary>
         /// A mapping of tags assigned to the resource.
-        /// ---
         /// </summary>
         public InputMap<string> Tags
         {

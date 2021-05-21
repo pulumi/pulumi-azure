@@ -3531,6 +3531,156 @@ func (o ServiceAccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ServiceAccountKeyDeliveryAccessControl struct {
+	// The Default Action to use when no rules match from `ipAllowList`. Possible values are `Allow` and `Deny`.
+	DefaultAction *string `pulumi:"defaultAction"`
+	// One or more IP Addresses, or CIDR Blocks which should be able to access the Key Delivery.
+	IpAllowLists []string `pulumi:"ipAllowLists"`
+}
+
+// ServiceAccountKeyDeliveryAccessControlInput is an input type that accepts ServiceAccountKeyDeliveryAccessControlArgs and ServiceAccountKeyDeliveryAccessControlOutput values.
+// You can construct a concrete instance of `ServiceAccountKeyDeliveryAccessControlInput` via:
+//
+//          ServiceAccountKeyDeliveryAccessControlArgs{...}
+type ServiceAccountKeyDeliveryAccessControlInput interface {
+	pulumi.Input
+
+	ToServiceAccountKeyDeliveryAccessControlOutput() ServiceAccountKeyDeliveryAccessControlOutput
+	ToServiceAccountKeyDeliveryAccessControlOutputWithContext(context.Context) ServiceAccountKeyDeliveryAccessControlOutput
+}
+
+type ServiceAccountKeyDeliveryAccessControlArgs struct {
+	// The Default Action to use when no rules match from `ipAllowList`. Possible values are `Allow` and `Deny`.
+	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
+	// One or more IP Addresses, or CIDR Blocks which should be able to access the Key Delivery.
+	IpAllowLists pulumi.StringArrayInput `pulumi:"ipAllowLists"`
+}
+
+func (ServiceAccountKeyDeliveryAccessControlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAccountKeyDeliveryAccessControl)(nil)).Elem()
+}
+
+func (i ServiceAccountKeyDeliveryAccessControlArgs) ToServiceAccountKeyDeliveryAccessControlOutput() ServiceAccountKeyDeliveryAccessControlOutput {
+	return i.ToServiceAccountKeyDeliveryAccessControlOutputWithContext(context.Background())
+}
+
+func (i ServiceAccountKeyDeliveryAccessControlArgs) ToServiceAccountKeyDeliveryAccessControlOutputWithContext(ctx context.Context) ServiceAccountKeyDeliveryAccessControlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccountKeyDeliveryAccessControlOutput)
+}
+
+func (i ServiceAccountKeyDeliveryAccessControlArgs) ToServiceAccountKeyDeliveryAccessControlPtrOutput() ServiceAccountKeyDeliveryAccessControlPtrOutput {
+	return i.ToServiceAccountKeyDeliveryAccessControlPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceAccountKeyDeliveryAccessControlArgs) ToServiceAccountKeyDeliveryAccessControlPtrOutputWithContext(ctx context.Context) ServiceAccountKeyDeliveryAccessControlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccountKeyDeliveryAccessControlOutput).ToServiceAccountKeyDeliveryAccessControlPtrOutputWithContext(ctx)
+}
+
+// ServiceAccountKeyDeliveryAccessControlPtrInput is an input type that accepts ServiceAccountKeyDeliveryAccessControlArgs, ServiceAccountKeyDeliveryAccessControlPtr and ServiceAccountKeyDeliveryAccessControlPtrOutput values.
+// You can construct a concrete instance of `ServiceAccountKeyDeliveryAccessControlPtrInput` via:
+//
+//          ServiceAccountKeyDeliveryAccessControlArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceAccountKeyDeliveryAccessControlPtrInput interface {
+	pulumi.Input
+
+	ToServiceAccountKeyDeliveryAccessControlPtrOutput() ServiceAccountKeyDeliveryAccessControlPtrOutput
+	ToServiceAccountKeyDeliveryAccessControlPtrOutputWithContext(context.Context) ServiceAccountKeyDeliveryAccessControlPtrOutput
+}
+
+type serviceAccountKeyDeliveryAccessControlPtrType ServiceAccountKeyDeliveryAccessControlArgs
+
+func ServiceAccountKeyDeliveryAccessControlPtr(v *ServiceAccountKeyDeliveryAccessControlArgs) ServiceAccountKeyDeliveryAccessControlPtrInput {
+	return (*serviceAccountKeyDeliveryAccessControlPtrType)(v)
+}
+
+func (*serviceAccountKeyDeliveryAccessControlPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceAccountKeyDeliveryAccessControl)(nil)).Elem()
+}
+
+func (i *serviceAccountKeyDeliveryAccessControlPtrType) ToServiceAccountKeyDeliveryAccessControlPtrOutput() ServiceAccountKeyDeliveryAccessControlPtrOutput {
+	return i.ToServiceAccountKeyDeliveryAccessControlPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceAccountKeyDeliveryAccessControlPtrType) ToServiceAccountKeyDeliveryAccessControlPtrOutputWithContext(ctx context.Context) ServiceAccountKeyDeliveryAccessControlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccountKeyDeliveryAccessControlPtrOutput)
+}
+
+type ServiceAccountKeyDeliveryAccessControlOutput struct{ *pulumi.OutputState }
+
+func (ServiceAccountKeyDeliveryAccessControlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAccountKeyDeliveryAccessControl)(nil)).Elem()
+}
+
+func (o ServiceAccountKeyDeliveryAccessControlOutput) ToServiceAccountKeyDeliveryAccessControlOutput() ServiceAccountKeyDeliveryAccessControlOutput {
+	return o
+}
+
+func (o ServiceAccountKeyDeliveryAccessControlOutput) ToServiceAccountKeyDeliveryAccessControlOutputWithContext(ctx context.Context) ServiceAccountKeyDeliveryAccessControlOutput {
+	return o
+}
+
+func (o ServiceAccountKeyDeliveryAccessControlOutput) ToServiceAccountKeyDeliveryAccessControlPtrOutput() ServiceAccountKeyDeliveryAccessControlPtrOutput {
+	return o.ToServiceAccountKeyDeliveryAccessControlPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceAccountKeyDeliveryAccessControlOutput) ToServiceAccountKeyDeliveryAccessControlPtrOutputWithContext(ctx context.Context) ServiceAccountKeyDeliveryAccessControlPtrOutput {
+	return o.ApplyT(func(v ServiceAccountKeyDeliveryAccessControl) *ServiceAccountKeyDeliveryAccessControl {
+		return &v
+	}).(ServiceAccountKeyDeliveryAccessControlPtrOutput)
+}
+
+// The Default Action to use when no rules match from `ipAllowList`. Possible values are `Allow` and `Deny`.
+func (o ServiceAccountKeyDeliveryAccessControlOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceAccountKeyDeliveryAccessControl) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
+}
+
+// One or more IP Addresses, or CIDR Blocks which should be able to access the Key Delivery.
+func (o ServiceAccountKeyDeliveryAccessControlOutput) IpAllowLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceAccountKeyDeliveryAccessControl) []string { return v.IpAllowLists }).(pulumi.StringArrayOutput)
+}
+
+type ServiceAccountKeyDeliveryAccessControlPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceAccountKeyDeliveryAccessControlPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceAccountKeyDeliveryAccessControl)(nil)).Elem()
+}
+
+func (o ServiceAccountKeyDeliveryAccessControlPtrOutput) ToServiceAccountKeyDeliveryAccessControlPtrOutput() ServiceAccountKeyDeliveryAccessControlPtrOutput {
+	return o
+}
+
+func (o ServiceAccountKeyDeliveryAccessControlPtrOutput) ToServiceAccountKeyDeliveryAccessControlPtrOutputWithContext(ctx context.Context) ServiceAccountKeyDeliveryAccessControlPtrOutput {
+	return o
+}
+
+func (o ServiceAccountKeyDeliveryAccessControlPtrOutput) Elem() ServiceAccountKeyDeliveryAccessControlOutput {
+	return o.ApplyT(func(v *ServiceAccountKeyDeliveryAccessControl) ServiceAccountKeyDeliveryAccessControl { return *v }).(ServiceAccountKeyDeliveryAccessControlOutput)
+}
+
+// The Default Action to use when no rules match from `ipAllowList`. Possible values are `Allow` and `Deny`.
+func (o ServiceAccountKeyDeliveryAccessControlPtrOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceAccountKeyDeliveryAccessControl) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultAction
+	}).(pulumi.StringPtrOutput)
+}
+
+// One or more IP Addresses, or CIDR Blocks which should be able to access the Key Delivery.
+func (o ServiceAccountKeyDeliveryAccessControlPtrOutput) IpAllowLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServiceAccountKeyDeliveryAccessControl) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IpAllowLists
+	}).(pulumi.StringArrayOutput)
+}
+
 type ServiceAccountStorageAccount struct {
 	// Specifies the ID of the Storage Account that will be associated with the Media Services instance.
 	Id string `pulumi:"id"`
@@ -6627,6 +6777,8 @@ func init() {
 	pulumi.RegisterOutputType(LiveEventPreviewIpAccessControlAllowArrayOutput{})
 	pulumi.RegisterOutputType(ServiceAccountIdentityOutput{})
 	pulumi.RegisterOutputType(ServiceAccountIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ServiceAccountKeyDeliveryAccessControlOutput{})
+	pulumi.RegisterOutputType(ServiceAccountKeyDeliveryAccessControlPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAccountStorageAccountOutput{})
 	pulumi.RegisterOutputType(ServiceAccountStorageAccountArrayOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointAccessControlOutput{})

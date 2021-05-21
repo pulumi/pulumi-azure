@@ -78,12 +78,12 @@ features = __config__.get('features')
 
 location = __config__.get('location') or _utilities.get_env('ARM_LOCATION')
 
-metadata_host = __config__.get('metadataHost') or (_utilities.get_env('ARM_METADATA_HOSTNAME') or '')
+metadata_host = __config__.get('metadataHost') or _utilities.get_env('ARM_METADATA_HOSTNAME')
 """
 The Hostname which should be used for the Azure Metadata Service.
 """
 
-metadata_url = __config__.get('metadataUrl') or (_utilities.get_env('ARM_METADATA_URL') or '')
+metadata_url = __config__.get('metadataUrl') or _utilities.get_env('ARM_METADATA_URL')
 """
 Deprecated - replaced by `metadata_host`.
 """

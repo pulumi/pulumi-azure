@@ -168,6 +168,12 @@ namespace Pulumi.Azure.Redis
         public Output<Outputs.CacheRedisConfiguration> RedisConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// Amount of replicas to create per master for this Redis Cache.
+        /// </summary>
+        [Output("replicasPerMaster")]
+        public Output<int?> ReplicasPerMaster { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource group in which to
         /// create the Redis instance.
         /// </summary>
@@ -336,6 +342,12 @@ namespace Pulumi.Azure.Redis
         public Input<Inputs.CacheRedisConfigurationArgs>? RedisConfiguration { get; set; }
 
         /// <summary>
+        /// Amount of replicas to create per master for this Redis Cache.
+        /// </summary>
+        [Input("replicasPerMaster")]
+        public Input<int>? ReplicasPerMaster { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which to
         /// create the Redis instance.
         /// </summary>
@@ -481,6 +493,12 @@ namespace Pulumi.Azure.Redis
         /// </summary>
         [Input("redisConfiguration")]
         public Input<Inputs.CacheRedisConfigurationGetArgs>? RedisConfiguration { get; set; }
+
+        /// <summary>
+        /// Amount of replicas to create per master for this Redis Cache.
+        /// </summary>
+        [Input("replicasPerMaster")]
+        public Input<int>? ReplicasPerMaster { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to

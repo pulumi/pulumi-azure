@@ -36,7 +36,6 @@ class VirtualNetworkArgs:
         :param pulumi.Input[str] name: The name of the virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetArgs']]] subnets: Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] vm_protection_enabled: Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
         """
         pulumi.set(__self__, "address_spaces", address_spaces)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -54,6 +53,9 @@ class VirtualNetworkArgs:
             pulumi.set(__self__, "subnets", subnets)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if vm_protection_enabled is not None:
+            warnings.warn("""This is deprecated in favor of `ddos_protection_plan`""", DeprecationWarning)
+            pulumi.log.warn("""vm_protection_enabled is deprecated: This is deprecated in favor of `ddos_protection_plan`""")
         if vm_protection_enabled is not None:
             pulumi.set(__self__, "vm_protection_enabled", vm_protection_enabled)
 
@@ -168,9 +170,6 @@ class VirtualNetworkArgs:
     @property
     @pulumi.getter(name="vmProtectionEnabled")
     def vm_protection_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
-        """
         return pulumi.get(self, "vm_protection_enabled")
 
     @vm_protection_enabled.setter
@@ -204,7 +203,6 @@ class _VirtualNetworkState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual network.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetArgs']]] subnets: Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] vm_protection_enabled: Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
         """
         if address_spaces is not None:
             pulumi.set(__self__, "address_spaces", address_spaces)
@@ -226,6 +224,9 @@ class _VirtualNetworkState:
             pulumi.set(__self__, "subnets", subnets)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if vm_protection_enabled is not None:
+            warnings.warn("""This is deprecated in favor of `ddos_protection_plan`""", DeprecationWarning)
+            pulumi.log.warn("""vm_protection_enabled is deprecated: This is deprecated in favor of `ddos_protection_plan`""")
         if vm_protection_enabled is not None:
             pulumi.set(__self__, "vm_protection_enabled", vm_protection_enabled)
 
@@ -352,9 +353,6 @@ class _VirtualNetworkState:
     @property
     @pulumi.getter(name="vmProtectionEnabled")
     def vm_protection_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
-        """
         return pulumi.get(self, "vm_protection_enabled")
 
     @vm_protection_enabled.setter
@@ -450,7 +448,6 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual network.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkSubnetArgs']]]] subnets: Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] vm_protection_enabled: Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
         """
         ...
     @overload
@@ -569,6 +566,9 @@ class VirtualNetwork(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["subnets"] = subnets
             __props__.__dict__["tags"] = tags
+            if vm_protection_enabled is not None and not opts.urn:
+                warnings.warn("""This is deprecated in favor of `ddos_protection_plan`""", DeprecationWarning)
+                pulumi.log.warn("""vm_protection_enabled is deprecated: This is deprecated in favor of `ddos_protection_plan`""")
             __props__.__dict__["vm_protection_enabled"] = vm_protection_enabled
             __props__.__dict__["guid"] = None
         super(VirtualNetwork, __self__).__init__(
@@ -609,7 +609,6 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual network.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkSubnetArgs']]]] subnets: Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[bool] vm_protection_enabled: Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -711,8 +710,5 @@ class VirtualNetwork(pulumi.CustomResource):
     @property
     @pulumi.getter(name="vmProtectionEnabled")
     def vm_protection_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Whether to enable VM protection for all the subnets in this Virtual Network. Defaults to `false`.
-        """
         return pulumi.get(self, "vm_protection_enabled")
 

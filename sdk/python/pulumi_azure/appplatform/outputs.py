@@ -19,6 +19,7 @@ __all__ = [
     'SpringCloudServiceConfigServerGitSettingRepositorySshAuth',
     'SpringCloudServiceConfigServerGitSettingSshAuth',
     'SpringCloudServiceNetwork',
+    'SpringCloudServiceRequiredNetworkTrafficRule',
     'SpringCloudServiceTrace',
     'GetSpringCloudAppIdentityResult',
     'GetSpringCloudAppPersistentDiskResult',
@@ -28,6 +29,7 @@ __all__ = [
     'GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthResult',
     'GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthResult',
     'GetSpringCloudServiceConfigServerGitSettingSshAuthResult',
+    'GetSpringCloudServiceRequiredNetworkTrafficRuleResult',
 ]
 
 @pulumi.output_type
@@ -652,6 +654,86 @@ class SpringCloudServiceNetwork(dict):
 
 
 @pulumi.output_type
+class SpringCloudServiceRequiredNetworkTrafficRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddresses":
+            suggest = "ip_addresses"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpringCloudServiceRequiredNetworkTrafficRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpringCloudServiceRequiredNetworkTrafficRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpringCloudServiceRequiredNetworkTrafficRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 direction: Optional[str] = None,
+                 fqdns: Optional[Sequence[str]] = None,
+                 ip_addresses: Optional[Sequence[str]] = None,
+                 port: Optional[int] = None,
+                 protocol: Optional[str] = None):
+        """
+        :param str direction: The direction of required traffic. Possible values are `Inbound`, `Outbound`.
+        :param Sequence[str] fqdns: The FQDN list of required traffic.
+        :param int port: The port of required traffic.
+        :param str protocol: The protocol of required traffic.
+        """
+        if direction is not None:
+            pulumi.set(__self__, "direction", direction)
+        if fqdns is not None:
+            pulumi.set(__self__, "fqdns", fqdns)
+        if ip_addresses is not None:
+            pulumi.set(__self__, "ip_addresses", ip_addresses)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter
+    def direction(self) -> Optional[str]:
+        """
+        The direction of required traffic. Possible values are `Inbound`, `Outbound`.
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter
+    def fqdns(self) -> Optional[Sequence[str]]:
+        """
+        The FQDN list of required traffic.
+        """
+        return pulumi.get(self, "fqdns")
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "ip_addresses")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        The port of required traffic.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        """
+        The protocol of required traffic.
+        """
+        return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
 class SpringCloudServiceTrace(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1084,5 +1166,63 @@ class GetSpringCloudServiceConfigServerGitSettingSshAuthResult(dict):
         Indicates whether the Config Server instance will fail to start if the host_key does not match.
         """
         return pulumi.get(self, "strict_host_key_checking_enabled")
+
+
+@pulumi.output_type
+class GetSpringCloudServiceRequiredNetworkTrafficRuleResult(dict):
+    def __init__(__self__, *,
+                 direction: str,
+                 fqdns: Sequence[str],
+                 ip_addresses: Sequence[str],
+                 port: int,
+                 protocol: str):
+        """
+        :param str direction: The direction of required traffic. Possible values are `Inbound`, `Outbound`.
+        :param Sequence[str] fqdns: The FQDN list of required traffic.
+        :param int port: The port of required traffic.
+        :param str protocol: The protocol of required traffic.
+        """
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "fqdns", fqdns)
+        pulumi.set(__self__, "ip_addresses", ip_addresses)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter
+    def direction(self) -> str:
+        """
+        The direction of required traffic. Possible values are `Inbound`, `Outbound`.
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter
+    def fqdns(self) -> Sequence[str]:
+        """
+        The FQDN list of required traffic.
+        """
+        return pulumi.get(self, "fqdns")
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Sequence[str]:
+        return pulumi.get(self, "ip_addresses")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        The port of required traffic.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        """
+        The protocol of required traffic.
+        """
+        return pulumi.get(self, "protocol")
 
 

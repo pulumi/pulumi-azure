@@ -60,6 +60,9 @@ class CacheRedisConfigurationArgs:
                  rdb_backup_max_snapshot_count: Optional[pulumi.Input[int]] = None,
                  rdb_storage_connection_string: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[bool] aof_backup_enabled: Enable or disable AOF persistence for this Redis Cache.
+        :param pulumi.Input[str] aof_storage_connection_string0: First Storage Account connection string for AOF persistence.
+        :param pulumi.Input[str] aof_storage_connection_string1: Second Storage Account connection string for AOF persistence.
         :param pulumi.Input[bool] enable_authentication: If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
         :param pulumi.Input[int] maxclients: Returns the max number of connected clients at the same time.
         :param pulumi.Input[int] maxfragmentationmemory_reserved: Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below.
@@ -104,6 +107,9 @@ class CacheRedisConfigurationArgs:
     @property
     @pulumi.getter(name="aofBackupEnabled")
     def aof_backup_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or disable AOF persistence for this Redis Cache.
+        """
         return pulumi.get(self, "aof_backup_enabled")
 
     @aof_backup_enabled.setter
@@ -113,6 +119,9 @@ class CacheRedisConfigurationArgs:
     @property
     @pulumi.getter(name="aofStorageConnectionString0")
     def aof_storage_connection_string0(self) -> Optional[pulumi.Input[str]]:
+        """
+        First Storage Account connection string for AOF persistence.
+        """
         return pulumi.get(self, "aof_storage_connection_string0")
 
     @aof_storage_connection_string0.setter
@@ -122,6 +131,9 @@ class CacheRedisConfigurationArgs:
     @property
     @pulumi.getter(name="aofStorageConnectionString1")
     def aof_storage_connection_string1(self) -> Optional[pulumi.Input[str]]:
+        """
+        Second Storage Account connection string for AOF persistence.
+        """
         return pulumi.get(self, "aof_storage_connection_string1")
 
     @aof_storage_connection_string1.setter
