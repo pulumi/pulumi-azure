@@ -48,7 +48,7 @@ class EndpointArgs:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] optimization_type: What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
-        :param pulumi.Input[str] origin_host_header: The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
+        :param pulumi.Input[str] origin_host_header: The host header CDN provider will send along with content requests to origins.
         :param pulumi.Input[str] origin_path: The path used at for origin requests.
         :param pulumi.Input[str] probe_path: the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
         :param pulumi.Input[str] querystring_caching_behaviour: Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
@@ -248,7 +248,7 @@ class EndpointArgs:
     @pulumi.getter(name="originHostHeader")
     def origin_host_header(self) -> Optional[pulumi.Input[str]]:
         """
-        The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
+        The host header CDN provider will send along with content requests to origins.
         """
         return pulumi.get(self, "origin_host_header")
 
@@ -340,7 +340,7 @@ class _EndpointState:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] optimization_type: What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
-        :param pulumi.Input[str] origin_host_header: The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
+        :param pulumi.Input[str] origin_host_header: The host header CDN provider will send along with content requests to origins.
         :param pulumi.Input[str] origin_path: The path used at for origin requests.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointOriginArgs']]] origins: The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
         :param pulumi.Input[str] probe_path: the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
@@ -524,7 +524,7 @@ class _EndpointState:
     @pulumi.getter(name="originHostHeader")
     def origin_host_header(self) -> Optional[pulumi.Input[str]]:
         """
-        The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
+        The host header CDN provider will send along with content requests to origins.
         """
         return pulumi.get(self, "origin_host_header")
 
@@ -662,7 +662,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] optimization_type: What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
-        :param pulumi.Input[str] origin_host_header: The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
+        :param pulumi.Input[str] origin_host_header: The host header CDN provider will send along with content requests to origins.
         :param pulumi.Input[str] origin_path: The path used at for origin requests.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointOriginArgs']]]] origins: The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
         :param pulumi.Input[str] probe_path: the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
@@ -803,7 +803,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] optimization_type: What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
-        :param pulumi.Input[str] origin_host_header: The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
+        :param pulumi.Input[str] origin_host_header: The host header CDN provider will send along with content requests to origins.
         :param pulumi.Input[str] origin_path: The path used at for origin requests.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointOriginArgs']]]] origins: The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
         :param pulumi.Input[str] probe_path: the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
@@ -929,7 +929,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="originHostHeader")
     def origin_host_header(self) -> pulumi.Output[Optional[str]]:
         """
-        The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
+        The host header CDN provider will send along with content requests to origins.
         """
         return pulumi.get(self, "origin_host_header")
 

@@ -1045,8 +1045,8 @@ class LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy(dict):
                  disable_automatic_rollback: bool,
                  enable_automatic_os_upgrade: bool):
         """
-        :param bool disable_automatic_rollback: Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
-        :param bool enable_automatic_os_upgrade: Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? Changing this forces a new resource to be created.
+        :param bool disable_automatic_rollback: Should automatic rollbacks be disabled?
+        :param bool enable_automatic_os_upgrade: Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
         """
         pulumi.set(__self__, "disable_automatic_rollback", disable_automatic_rollback)
         pulumi.set(__self__, "enable_automatic_os_upgrade", enable_automatic_os_upgrade)
@@ -1055,7 +1055,7 @@ class LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy(dict):
     @pulumi.getter(name="disableAutomaticRollback")
     def disable_automatic_rollback(self) -> bool:
         """
-        Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
+        Should automatic rollbacks be disabled?
         """
         return pulumi.get(self, "disable_automatic_rollback")
 
@@ -1063,7 +1063,7 @@ class LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy(dict):
     @pulumi.getter(name="enableAutomaticOsUpgrade")
     def enable_automatic_os_upgrade(self) -> bool:
         """
-        Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? Changing this forces a new resource to be created.
+        Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
         """
         return pulumi.get(self, "enable_automatic_os_upgrade")
 
@@ -5662,8 +5662,8 @@ class WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy(dict):
                  disable_automatic_rollback: bool,
                  enable_automatic_os_upgrade: bool):
         """
-        :param bool disable_automatic_rollback: Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
-        :param bool enable_automatic_os_upgrade: Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? Changing this forces a new resource to be created.
+        :param bool disable_automatic_rollback: Should automatic rollbacks be disabled?
+        :param bool enable_automatic_os_upgrade: Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
         """
         pulumi.set(__self__, "disable_automatic_rollback", disable_automatic_rollback)
         pulumi.set(__self__, "enable_automatic_os_upgrade", enable_automatic_os_upgrade)
@@ -5672,7 +5672,7 @@ class WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy(dict):
     @pulumi.getter(name="disableAutomaticRollback")
     def disable_automatic_rollback(self) -> bool:
         """
-        Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
+        Should automatic rollbacks be disabled?
         """
         return pulumi.get(self, "disable_automatic_rollback")
 
@@ -5680,7 +5680,7 @@ class WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy(dict):
     @pulumi.getter(name="enableAutomaticOsUpgrade")
     def enable_automatic_os_upgrade(self) -> bool:
         """
-        Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? Changing this forces a new resource to be created.
+        Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
         """
         return pulumi.get(self, "enable_automatic_os_upgrade")
 

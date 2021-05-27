@@ -2485,9 +2485,9 @@ func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) GracePeriod
 }
 
 type LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy struct {
-	// Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
+	// Should automatic rollbacks be disabled?
 	DisableAutomaticRollback bool `pulumi:"disableAutomaticRollback"`
-	// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? Changing this forces a new resource to be created.
+	// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
 	EnableAutomaticOsUpgrade bool `pulumi:"enableAutomaticOsUpgrade"`
 }
 
@@ -2503,9 +2503,9 @@ type LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyInput interface {
 }
 
 type LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs struct {
-	// Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
+	// Should automatic rollbacks be disabled?
 	DisableAutomaticRollback pulumi.BoolInput `pulumi:"disableAutomaticRollback"`
-	// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? Changing this forces a new resource to be created.
+	// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
 	EnableAutomaticOsUpgrade pulumi.BoolInput `pulumi:"enableAutomaticOsUpgrade"`
 }
 
@@ -2586,12 +2586,12 @@ func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) ToLinuxVirtua
 	}).(LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput)
 }
 
-// Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
+// Should automatic rollbacks be disabled?
 func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) DisableAutomaticRollback() pulumi.BoolOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.DisableAutomaticRollback }).(pulumi.BoolOutput)
 }
 
-// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? Changing this forces a new resource to be created.
+// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
 func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) EnableAutomaticOsUpgrade() pulumi.BoolOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.EnableAutomaticOsUpgrade }).(pulumi.BoolOutput)
 }
@@ -2616,7 +2616,7 @@ func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) Elem() Lin
 	}).(LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput)
 }
 
-// Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
+// Should automatic rollbacks be disabled?
 func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) DisableAutomaticRollback() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy) *bool {
 		if v == nil {
@@ -2626,7 +2626,7 @@ func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) DisableAut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? Changing this forces a new resource to be created.
+// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
 func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) EnableAutomaticOsUpgrade() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy) *bool {
 		if v == nil {
@@ -14067,9 +14067,9 @@ func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) GracePeri
 }
 
 type WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy struct {
-	// Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
+	// Should automatic rollbacks be disabled?
 	DisableAutomaticRollback bool `pulumi:"disableAutomaticRollback"`
-	// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? Changing this forces a new resource to be created.
+	// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
 	EnableAutomaticOsUpgrade bool `pulumi:"enableAutomaticOsUpgrade"`
 }
 
@@ -14085,9 +14085,9 @@ type WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyInput interface {
 }
 
 type WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs struct {
-	// Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
+	// Should automatic rollbacks be disabled?
 	DisableAutomaticRollback pulumi.BoolInput `pulumi:"disableAutomaticRollback"`
-	// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? Changing this forces a new resource to be created.
+	// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
 	EnableAutomaticOsUpgrade pulumi.BoolInput `pulumi:"enableAutomaticOsUpgrade"`
 }
 
@@ -14168,12 +14168,12 @@ func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) ToWindowsVi
 	}).(WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput)
 }
 
-// Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
+// Should automatic rollbacks be disabled?
 func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) DisableAutomaticRollback() pulumi.BoolOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.DisableAutomaticRollback }).(pulumi.BoolOutput)
 }
 
-// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? Changing this forces a new resource to be created.
+// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
 func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput) EnableAutomaticOsUpgrade() pulumi.BoolOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy) bool { return v.EnableAutomaticOsUpgrade }).(pulumi.BoolOutput)
 }
@@ -14198,7 +14198,7 @@ func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) Elem() W
 	}).(WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput)
 }
 
-// Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
+// Should automatic rollbacks be disabled?
 func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) DisableAutomaticRollback() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy) *bool {
 		if v == nil {
@@ -14208,7 +14208,7 @@ func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) DisableA
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? Changing this forces a new resource to be created.
+// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
 func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) EnableAutomaticOsUpgrade() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy) *bool {
 		if v == nil {

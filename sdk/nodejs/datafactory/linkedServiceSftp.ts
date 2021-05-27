@@ -90,6 +90,10 @@ export class LinkedServiceSftp extends pulumi.CustomResource {
      */
     public readonly host!: pulumi.Output<string>;
     /**
+     * The host key fingerprint of the SFTP server.
+     */
+    public readonly hostKeyFingerprint!: pulumi.Output<string | undefined>;
+    /**
      * The integration runtime reference to associate with the Data Factory Linked Service.
      */
     public readonly integrationRuntimeName!: pulumi.Output<string | undefined>;
@@ -115,6 +119,10 @@ export class LinkedServiceSftp extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * Whether to validate host key fingerprint while connecting. If set to `false`, `hostKeyFingerprint` must also be set.
+     */
+    public readonly skipHostKeyValidation!: pulumi.Output<boolean | undefined>;
+    /**
      * The username used to log on to the SFTP server.
      */
     public readonly username!: pulumi.Output<string>;
@@ -138,12 +146,14 @@ export class LinkedServiceSftp extends pulumi.CustomResource {
             inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["host"] = state ? state.host : undefined;
+            inputs["hostKeyFingerprint"] = state ? state.hostKeyFingerprint : undefined;
             inputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["parameters"] = state ? state.parameters : undefined;
             inputs["password"] = state ? state.password : undefined;
             inputs["port"] = state ? state.port : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["skipHostKeyValidation"] = state ? state.skipHostKeyValidation : undefined;
             inputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as LinkedServiceSftpArgs | undefined;
@@ -174,12 +184,14 @@ export class LinkedServiceSftp extends pulumi.CustomResource {
             inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["host"] = args ? args.host : undefined;
+            inputs["hostKeyFingerprint"] = args ? args.hostKeyFingerprint : undefined;
             inputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["password"] = args ? args.password : undefined;
             inputs["port"] = args ? args.port : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["skipHostKeyValidation"] = args ? args.skipHostKeyValidation : undefined;
             inputs["username"] = args ? args.username : undefined;
         }
         if (!opts.version) {
@@ -218,6 +230,10 @@ export interface LinkedServiceSftpState {
      */
     host?: pulumi.Input<string>;
     /**
+     * The host key fingerprint of the SFTP server.
+     */
+    hostKeyFingerprint?: pulumi.Input<string>;
+    /**
      * The integration runtime reference to associate with the Data Factory Linked Service.
      */
     integrationRuntimeName?: pulumi.Input<string>;
@@ -242,6 +258,10 @@ export interface LinkedServiceSftpState {
      * The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * Whether to validate host key fingerprint while connecting. If set to `false`, `hostKeyFingerprint` must also be set.
+     */
+    skipHostKeyValidation?: pulumi.Input<boolean>;
     /**
      * The username used to log on to the SFTP server.
      */
@@ -277,6 +297,10 @@ export interface LinkedServiceSftpArgs {
      */
     host: pulumi.Input<string>;
     /**
+     * The host key fingerprint of the SFTP server.
+     */
+    hostKeyFingerprint?: pulumi.Input<string>;
+    /**
      * The integration runtime reference to associate with the Data Factory Linked Service.
      */
     integrationRuntimeName?: pulumi.Input<string>;
@@ -301,6 +325,10 @@ export interface LinkedServiceSftpArgs {
      * The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Whether to validate host key fingerprint while connecting. If set to `false`, `hostKeyFingerprint` must also be set.
+     */
+    skipHostKeyValidation?: pulumi.Input<boolean>;
     /**
      * The username used to log on to the SFTP server.
      */

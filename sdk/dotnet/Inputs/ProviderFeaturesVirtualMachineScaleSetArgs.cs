@@ -12,6 +12,9 @@ namespace Pulumi.Azure.Inputs
 
     public sealed class ProviderFeaturesVirtualMachineScaleSetArgs : Pulumi.ResourceArgs
     {
+        [Input("forceDelete")]
+        public Input<bool>? ForceDelete { get; set; }
+
         [Input("rollInstancesWhenRequired", required: true)]
         public Input<bool> RollInstancesWhenRequired { get; set; } = null!;
 

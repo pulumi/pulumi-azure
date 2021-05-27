@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
+        /// Should automatic rollbacks be disabled?
         /// </summary>
         [Input("disableAutomaticRollback", required: true)]
         public Input<bool> DisableAutomaticRollback { get; set; } = null!;
 
         /// <summary>
-        /// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? Changing this forces a new resource to be created.
+        /// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
         /// </summary>
         [Input("enableAutomaticOsUpgrade", required: true)]
         public Input<bool> EnableAutomaticOsUpgrade { get; set; } = null!;

@@ -95,7 +95,7 @@ type Server struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// When `createMode` is `PointInTimeRestore` the point in time to restore from `creationSourceServerId`.
 	RestorePointInTime pulumi.StringPtrOutput `pulumi:"restorePointInTime"`
-	// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
+	// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/singleserver/servers/create#sku).
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// Deprecated: this has been renamed to the boolean `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.
 	SslEnforcement pulumi.StringOutput `pulumi:"sslEnforcement"`
@@ -183,7 +183,7 @@ type serverState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// When `createMode` is `PointInTimeRestore` the point in time to restore from `creationSourceServerId`.
 	RestorePointInTime *string `pulumi:"restorePointInTime"`
-	// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
+	// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/singleserver/servers/create#sku).
 	SkuName *string `pulumi:"skuName"`
 	// Deprecated: this has been renamed to the boolean `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.
 	SslEnforcement *string `pulumi:"sslEnforcement"`
@@ -234,7 +234,7 @@ type ServerState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// When `createMode` is `PointInTimeRestore` the point in time to restore from `creationSourceServerId`.
 	RestorePointInTime pulumi.StringPtrInput
-	// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
+	// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/singleserver/servers/create#sku).
 	SkuName pulumi.StringPtrInput
 	// Deprecated: this has been renamed to the boolean `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.
 	SslEnforcement pulumi.StringPtrInput
@@ -287,7 +287,7 @@ type serverArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// When `createMode` is `PointInTimeRestore` the point in time to restore from `creationSourceServerId`.
 	RestorePointInTime *string `pulumi:"restorePointInTime"`
-	// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
+	// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/singleserver/servers/create#sku).
 	SkuName string `pulumi:"skuName"`
 	// Deprecated: this has been renamed to the boolean `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.
 	SslEnforcement *string `pulumi:"sslEnforcement"`
@@ -337,7 +337,7 @@ type ServerArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// When `createMode` is `PointInTimeRestore` the point in time to restore from `creationSourceServerId`.
 	RestorePointInTime pulumi.StringPtrInput
-	// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
+	// Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/singleserver/servers/create#sku).
 	SkuName pulumi.StringInput
 	// Deprecated: this has been renamed to the boolean `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.
 	SslEnforcement pulumi.StringPtrInput

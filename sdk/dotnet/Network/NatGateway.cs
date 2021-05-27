@@ -212,7 +212,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
         /// </summary>
-        [Obsolete(@"Inline Public IP Address ID Deprecations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` resource. This field will be removed in the next major version of the Azure Provider.")]
+        [Obsolete(@"Inline Public IP Address ID Deprecations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` pluginsdk. This field will be removed in the next major version of the Azure Provider.")]
         public InputList<string> PublicIpAddressIds
         {
             get => _publicIpAddressIds ?? (_publicIpAddressIds = new InputList<string>());
@@ -298,7 +298,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
         /// </summary>
-        [Obsolete(@"Inline Public IP Address ID Deprecations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` resource. This field will be removed in the next major version of the Azure Provider.")]
+        [Obsolete(@"Inline Public IP Address ID Deprecations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` pluginsdk. This field will be removed in the next major version of the Azure Provider.")]
         public InputList<string> PublicIpAddressIds
         {
             get => _publicIpAddressIds ?? (_publicIpAddressIds = new InputList<string>());

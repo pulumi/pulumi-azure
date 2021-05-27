@@ -133,11 +133,14 @@ class ProviderFeaturesTemplateDeployment(dict):
 class ProviderFeaturesVirtualMachine(dict):
     def __init__(__self__, *,
                  delete_os_disk_on_deletion: Optional[bool] = None,
-                 graceful_shutdown: Optional[bool] = None):
+                 graceful_shutdown: Optional[bool] = None,
+                 skip_shutdown_and_force_delete: Optional[bool] = None):
         if delete_os_disk_on_deletion is not None:
             pulumi.set(__self__, "delete_os_disk_on_deletion", delete_os_disk_on_deletion)
         if graceful_shutdown is not None:
             pulumi.set(__self__, "graceful_shutdown", graceful_shutdown)
+        if skip_shutdown_and_force_delete is not None:
+            pulumi.set(__self__, "skip_shutdown_and_force_delete", skip_shutdown_and_force_delete)
 
     @property
     @pulumi.getter(name="deleteOsDiskOnDeletion")
@@ -149,16 +152,29 @@ class ProviderFeaturesVirtualMachine(dict):
     def graceful_shutdown(self) -> Optional[bool]:
         return pulumi.get(self, "graceful_shutdown")
 
+    @property
+    @pulumi.getter(name="skipShutdownAndForceDelete")
+    def skip_shutdown_and_force_delete(self) -> Optional[bool]:
+        return pulumi.get(self, "skip_shutdown_and_force_delete")
+
 
 @pulumi.output_type
 class ProviderFeaturesVirtualMachineScaleSet(dict):
     def __init__(__self__, *,
-                 roll_instances_when_required: bool):
+                 roll_instances_when_required: bool,
+                 force_delete: Optional[bool] = None):
         pulumi.set(__self__, "roll_instances_when_required", roll_instances_when_required)
+        if force_delete is not None:
+            pulumi.set(__self__, "force_delete", force_delete)
 
     @property
     @pulumi.getter(name="rollInstancesWhenRequired")
     def roll_instances_when_required(self) -> bool:
         return pulumi.get(self, "roll_instances_when_required")
+
+    @property
+    @pulumi.getter(name="forceDelete")
+    def force_delete(self) -> Optional[bool]:
+        return pulumi.get(self, "force_delete")
 
 

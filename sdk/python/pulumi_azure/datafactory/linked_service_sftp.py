@@ -23,9 +23,11 @@ class LinkedServiceSftpArgs:
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 host_key_fingerprint: Optional[pulumi.Input[str]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 skip_host_key_validation: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a LinkedServiceSftp resource.
         :param pulumi.Input[str] authentication_type: The type of authentication used to connect to the web table source. Valid options are `Anonymous`, `Basic` and `ClientCertificate`.
@@ -38,10 +40,12 @@ class LinkedServiceSftpArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
+        :param pulumi.Input[str] host_key_fingerprint: The host key fingerprint of the SFTP server.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
                factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
+        :param pulumi.Input[bool] skip_host_key_validation: Whether to validate host key fingerprint while connecting. If set to `false`, `host_key_fingerprint` must also be set.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "data_factory_name", data_factory_name)
@@ -56,12 +60,16 @@ class LinkedServiceSftpArgs:
             pulumi.set(__self__, "annotations", annotations)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if host_key_fingerprint is not None:
+            pulumi.set(__self__, "host_key_fingerprint", host_key_fingerprint)
         if integration_runtime_name is not None:
             pulumi.set(__self__, "integration_runtime_name", integration_runtime_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if skip_host_key_validation is not None:
+            pulumi.set(__self__, "skip_host_key_validation", skip_host_key_validation)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -184,6 +192,18 @@ class LinkedServiceSftpArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="hostKeyFingerprint")
+    def host_key_fingerprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The host key fingerprint of the SFTP server.
+        """
+        return pulumi.get(self, "host_key_fingerprint")
+
+    @host_key_fingerprint.setter
+    def host_key_fingerprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_key_fingerprint", value)
+
+    @property
     @pulumi.getter(name="integrationRuntimeName")
     def integration_runtime_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -220,6 +240,18 @@ class LinkedServiceSftpArgs:
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "parameters", value)
 
+    @property
+    @pulumi.getter(name="skipHostKeyValidation")
+    def skip_host_key_validation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to validate host key fingerprint while connecting. If set to `false`, `host_key_fingerprint` must also be set.
+        """
+        return pulumi.get(self, "skip_host_key_validation")
+
+    @skip_host_key_validation.setter
+    def skip_host_key_validation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_host_key_validation", value)
+
 
 @pulumi.input_type
 class _LinkedServiceSftpState:
@@ -230,12 +262,14 @@ class _LinkedServiceSftpState:
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  host: Optional[pulumi.Input[str]] = None,
+                 host_key_fingerprint: Optional[pulumi.Input[str]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 skip_host_key_validation: Optional[pulumi.Input[bool]] = None,
                  username: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LinkedServiceSftp resources.
@@ -245,6 +279,7 @@ class _LinkedServiceSftpState:
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[str] host: The SFTP server hostname.
+        :param pulumi.Input[str] host_key_fingerprint: The host key fingerprint of the SFTP server.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
                factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
@@ -252,6 +287,7 @@ class _LinkedServiceSftpState:
         :param pulumi.Input[str] password: Password to logon to the SFTP Server for Basic Authentication.
         :param pulumi.Input[int] port: The TCP port number that the SFTP server uses to lsiten for client connection. Default value is 22.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
+        :param pulumi.Input[bool] skip_host_key_validation: Whether to validate host key fingerprint while connecting. If set to `false`, `host_key_fingerprint` must also be set.
         :param pulumi.Input[str] username: The username used to log on to the SFTP server.
         """
         if additional_properties is not None:
@@ -266,6 +302,8 @@ class _LinkedServiceSftpState:
             pulumi.set(__self__, "description", description)
         if host is not None:
             pulumi.set(__self__, "host", host)
+        if host_key_fingerprint is not None:
+            pulumi.set(__self__, "host_key_fingerprint", host_key_fingerprint)
         if integration_runtime_name is not None:
             pulumi.set(__self__, "integration_runtime_name", integration_runtime_name)
         if name is not None:
@@ -278,6 +316,8 @@ class _LinkedServiceSftpState:
             pulumi.set(__self__, "port", port)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if skip_host_key_validation is not None:
+            pulumi.set(__self__, "skip_host_key_validation", skip_host_key_validation)
         if username is not None:
             pulumi.set(__self__, "username", username)
 
@@ -354,6 +394,18 @@ class _LinkedServiceSftpState:
         pulumi.set(self, "host", value)
 
     @property
+    @pulumi.getter(name="hostKeyFingerprint")
+    def host_key_fingerprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The host key fingerprint of the SFTP server.
+        """
+        return pulumi.get(self, "host_key_fingerprint")
+
+    @host_key_fingerprint.setter
+    def host_key_fingerprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_key_fingerprint", value)
+
+    @property
     @pulumi.getter(name="integrationRuntimeName")
     def integration_runtime_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -427,6 +479,18 @@ class _LinkedServiceSftpState:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="skipHostKeyValidation")
+    def skip_host_key_validation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to validate host key fingerprint while connecting. If set to `false`, `host_key_fingerprint` must also be set.
+        """
+        return pulumi.get(self, "skip_host_key_validation")
+
+    @skip_host_key_validation.setter
+    def skip_host_key_validation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_host_key_validation", value)
+
+    @property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
         """
@@ -450,12 +514,14 @@ class LinkedServiceSftp(pulumi.CustomResource):
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  host: Optional[pulumi.Input[str]] = None,
+                 host_key_fingerprint: Optional[pulumi.Input[str]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 skip_host_key_validation: Optional[pulumi.Input[bool]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -497,6 +563,7 @@ class LinkedServiceSftp(pulumi.CustomResource):
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[str] host: The SFTP server hostname.
+        :param pulumi.Input[str] host_key_fingerprint: The host key fingerprint of the SFTP server.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
                factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
@@ -504,6 +571,7 @@ class LinkedServiceSftp(pulumi.CustomResource):
         :param pulumi.Input[str] password: Password to logon to the SFTP Server for Basic Authentication.
         :param pulumi.Input[int] port: The TCP port number that the SFTP server uses to lsiten for client connection. Default value is 22.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
+        :param pulumi.Input[bool] skip_host_key_validation: Whether to validate host key fingerprint while connecting. If set to `false`, `host_key_fingerprint` must also be set.
         :param pulumi.Input[str] username: The username used to log on to the SFTP server.
         """
         ...
@@ -564,12 +632,14 @@ class LinkedServiceSftp(pulumi.CustomResource):
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  host: Optional[pulumi.Input[str]] = None,
+                 host_key_fingerprint: Optional[pulumi.Input[str]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 skip_host_key_validation: Optional[pulumi.Input[bool]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -595,6 +665,7 @@ class LinkedServiceSftp(pulumi.CustomResource):
             if host is None and not opts.urn:
                 raise TypeError("Missing required property 'host'")
             __props__.__dict__["host"] = host
+            __props__.__dict__["host_key_fingerprint"] = host_key_fingerprint
             __props__.__dict__["integration_runtime_name"] = integration_runtime_name
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
@@ -607,6 +678,7 @@ class LinkedServiceSftp(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["skip_host_key_validation"] = skip_host_key_validation
             if username is None and not opts.urn:
                 raise TypeError("Missing required property 'username'")
             __props__.__dict__["username"] = username
@@ -626,12 +698,14 @@ class LinkedServiceSftp(pulumi.CustomResource):
             data_factory_name: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             host: Optional[pulumi.Input[str]] = None,
+            host_key_fingerprint: Optional[pulumi.Input[str]] = None,
             integration_runtime_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             password: Optional[pulumi.Input[str]] = None,
             port: Optional[pulumi.Input[int]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            skip_host_key_validation: Optional[pulumi.Input[bool]] = None,
             username: Optional[pulumi.Input[str]] = None) -> 'LinkedServiceSftp':
         """
         Get an existing LinkedServiceSftp resource's state with the given name, id, and optional extra
@@ -646,6 +720,7 @@ class LinkedServiceSftp(pulumi.CustomResource):
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[str] host: The SFTP server hostname.
+        :param pulumi.Input[str] host_key_fingerprint: The host key fingerprint of the SFTP server.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
                factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
@@ -653,6 +728,7 @@ class LinkedServiceSftp(pulumi.CustomResource):
         :param pulumi.Input[str] password: Password to logon to the SFTP Server for Basic Authentication.
         :param pulumi.Input[int] port: The TCP port number that the SFTP server uses to lsiten for client connection. Default value is 22.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
+        :param pulumi.Input[bool] skip_host_key_validation: Whether to validate host key fingerprint while connecting. If set to `false`, `host_key_fingerprint` must also be set.
         :param pulumi.Input[str] username: The username used to log on to the SFTP server.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -665,12 +741,14 @@ class LinkedServiceSftp(pulumi.CustomResource):
         __props__.__dict__["data_factory_name"] = data_factory_name
         __props__.__dict__["description"] = description
         __props__.__dict__["host"] = host
+        __props__.__dict__["host_key_fingerprint"] = host_key_fingerprint
         __props__.__dict__["integration_runtime_name"] = integration_runtime_name
         __props__.__dict__["name"] = name
         __props__.__dict__["parameters"] = parameters
         __props__.__dict__["password"] = password
         __props__.__dict__["port"] = port
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["skip_host_key_validation"] = skip_host_key_validation
         __props__.__dict__["username"] = username
         return LinkedServiceSftp(resource_name, opts=opts, __props__=__props__)
 
@@ -723,6 +801,14 @@ class LinkedServiceSftp(pulumi.CustomResource):
         return pulumi.get(self, "host")
 
     @property
+    @pulumi.getter(name="hostKeyFingerprint")
+    def host_key_fingerprint(self) -> pulumi.Output[Optional[str]]:
+        """
+        The host key fingerprint of the SFTP server.
+        """
+        return pulumi.get(self, "host_key_fingerprint")
+
+    @property
     @pulumi.getter(name="integrationRuntimeName")
     def integration_runtime_name(self) -> pulumi.Output[Optional[str]]:
         """
@@ -770,6 +856,14 @@ class LinkedServiceSftp(pulumi.CustomResource):
         The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="skipHostKeyValidation")
+    def skip_host_key_validation(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to validate host key fingerprint while connecting. If set to `false`, `host_key_fingerprint` must also be set.
+        """
+        return pulumi.get(self, "skip_host_key_validation")
 
     @property
     @pulumi.getter

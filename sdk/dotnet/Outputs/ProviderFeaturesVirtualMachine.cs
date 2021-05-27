@@ -15,15 +15,19 @@ namespace Pulumi.Azure.Outputs
     {
         public readonly bool? DeleteOsDiskOnDeletion;
         public readonly bool? GracefulShutdown;
+        public readonly bool? SkipShutdownAndForceDelete;
 
         [OutputConstructor]
         private ProviderFeaturesVirtualMachine(
             bool? deleteOsDiskOnDeletion,
 
-            bool? gracefulShutdown)
+            bool? gracefulShutdown,
+
+            bool? skipShutdownAndForceDelete)
         {
             DeleteOsDiskOnDeletion = deleteOsDiskOnDeletion;
             GracefulShutdown = gracefulShutdown;
+            SkipShutdownAndForceDelete = skipShutdownAndForceDelete;
         }
     }
 }

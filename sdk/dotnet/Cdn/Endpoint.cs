@@ -88,7 +88,7 @@ namespace Pulumi.Azure.Cdn
         public Output<string?> OptimizationType { get; private set; } = null!;
 
         /// <summary>
-        /// The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
+        /// The host header CDN provider will send along with content requests to origins.
         /// </summary>
         [Output("originHostHeader")]
         public Output<string?> OriginHostHeader { get; private set; } = null!;
@@ -260,7 +260,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? OptimizationType { get; set; }
 
         /// <summary>
-        /// The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
+        /// The host header CDN provider will send along with content requests to origins.
         /// </summary>
         [Input("originHostHeader")]
         public Input<string>? OriginHostHeader { get; set; }
@@ -411,7 +411,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? OptimizationType { get; set; }
 
         /// <summary>
-        /// The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
+        /// The host header CDN provider will send along with content requests to origins.
         /// </summary>
         [Input("originHostHeader")]
         public Input<string>? OriginHostHeader { get; set; }

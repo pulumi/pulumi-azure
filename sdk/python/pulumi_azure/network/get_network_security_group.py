@@ -112,7 +112,7 @@ def get_network_security_group(name: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.network.get_network_security_group(name=azurerm_network_security_group["example"]["name"],
+    example = azure.network.get_network_security_group(name="example",
         resource_group_name=azurerm_resource_group["example"]["name"])
     pulumi.export("location", example.location)
     ```

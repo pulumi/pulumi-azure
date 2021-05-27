@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Network
         ///     {
         ///         var example = Output.Create(Azure.Network.GetNetworkSecurityGroup.InvokeAsync(new Azure.Network.GetNetworkSecurityGroupArgs
         ///         {
-        ///             Name = azurerm_network_security_group.Example.Name,
+        ///             Name = "example",
         ///             ResourceGroupName = azurerm_resource_group.Example.Name,
         ///         }));
         ///         this.Location = example.Apply(example =&gt; example.Location);

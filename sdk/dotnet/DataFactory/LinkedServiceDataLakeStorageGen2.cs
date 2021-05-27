@@ -107,13 +107,13 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account. Required if `use_managed_identity` is true.
+        /// The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account.
         /// </summary>
         [Output("servicePrincipalId")]
         public Output<string?> ServicePrincipalId { get; private set; } = null!;
 
         /// <summary>
-        /// The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.  Required if `use_managed_identity` is true.
+        /// The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
         /// </summary>
         [Output("servicePrincipalKey")]
         public Output<string?> ServicePrincipalKey { get; private set; } = null!;
@@ -250,13 +250,13 @@ namespace Pulumi.Azure.DataFactory
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account. Required if `use_managed_identity` is true.
+        /// The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account.
         /// </summary>
         [Input("servicePrincipalId")]
         public Input<string>? ServicePrincipalId { get; set; }
 
         /// <summary>
-        /// The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.  Required if `use_managed_identity` is true.
+        /// The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
         /// </summary>
         [Input("servicePrincipalKey")]
         public Input<string>? ServicePrincipalKey { get; set; }
@@ -354,13 +354,13 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account. Required if `use_managed_identity` is true.
+        /// The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account.
         /// </summary>
         [Input("servicePrincipalId")]
         public Input<string>? ServicePrincipalId { get; set; }
 
         /// <summary>
-        /// The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.  Required if `use_managed_identity` is true.
+        /// The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
         /// </summary>
         [Input("servicePrincipalKey")]
         public Input<string>? ServicePrincipalKey { get; set; }

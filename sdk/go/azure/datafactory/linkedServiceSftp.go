@@ -78,6 +78,8 @@ type LinkedServiceSftp struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The SFTP server hostname.
 	Host pulumi.StringOutput `pulumi:"host"`
+	// The host key fingerprint of the SFTP server.
+	HostKeyFingerprint pulumi.StringPtrOutput `pulumi:"hostKeyFingerprint"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName pulumi.StringPtrOutput `pulumi:"integrationRuntimeName"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
@@ -91,6 +93,8 @@ type LinkedServiceSftp struct {
 	Port pulumi.IntOutput `pulumi:"port"`
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// Whether to validate host key fingerprint while connecting. If set to `false`, `hostKeyFingerprint` must also be set.
+	SkipHostKeyValidation pulumi.BoolPtrOutput `pulumi:"skipHostKeyValidation"`
 	// The username used to log on to the SFTP server.
 	Username pulumi.StringOutput `pulumi:"username"`
 }
@@ -157,6 +161,8 @@ type linkedServiceSftpState struct {
 	Description *string `pulumi:"description"`
 	// The SFTP server hostname.
 	Host *string `pulumi:"host"`
+	// The host key fingerprint of the SFTP server.
+	HostKeyFingerprint *string `pulumi:"hostKeyFingerprint"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
@@ -170,6 +176,8 @@ type linkedServiceSftpState struct {
 	Port *int `pulumi:"port"`
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// Whether to validate host key fingerprint while connecting. If set to `false`, `hostKeyFingerprint` must also be set.
+	SkipHostKeyValidation *bool `pulumi:"skipHostKeyValidation"`
 	// The username used to log on to the SFTP server.
 	Username *string `pulumi:"username"`
 }
@@ -187,6 +195,8 @@ type LinkedServiceSftpState struct {
 	Description pulumi.StringPtrInput
 	// The SFTP server hostname.
 	Host pulumi.StringPtrInput
+	// The host key fingerprint of the SFTP server.
+	HostKeyFingerprint pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
@@ -200,6 +210,8 @@ type LinkedServiceSftpState struct {
 	Port pulumi.IntPtrInput
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
 	ResourceGroupName pulumi.StringPtrInput
+	// Whether to validate host key fingerprint while connecting. If set to `false`, `hostKeyFingerprint` must also be set.
+	SkipHostKeyValidation pulumi.BoolPtrInput
 	// The username used to log on to the SFTP server.
 	Username pulumi.StringPtrInput
 }
@@ -221,6 +233,8 @@ type linkedServiceSftpArgs struct {
 	Description *string `pulumi:"description"`
 	// The SFTP server hostname.
 	Host string `pulumi:"host"`
+	// The host key fingerprint of the SFTP server.
+	HostKeyFingerprint *string `pulumi:"hostKeyFingerprint"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
@@ -234,6 +248,8 @@ type linkedServiceSftpArgs struct {
 	Port int `pulumi:"port"`
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Whether to validate host key fingerprint while connecting. If set to `false`, `hostKeyFingerprint` must also be set.
+	SkipHostKeyValidation *bool `pulumi:"skipHostKeyValidation"`
 	// The username used to log on to the SFTP server.
 	Username string `pulumi:"username"`
 }
@@ -252,6 +268,8 @@ type LinkedServiceSftpArgs struct {
 	Description pulumi.StringPtrInput
 	// The SFTP server hostname.
 	Host pulumi.StringInput
+	// The host key fingerprint of the SFTP server.
+	HostKeyFingerprint pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
@@ -265,6 +283,8 @@ type LinkedServiceSftpArgs struct {
 	Port pulumi.IntInput
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
 	ResourceGroupName pulumi.StringInput
+	// Whether to validate host key fingerprint while connecting. If set to `false`, `hostKeyFingerprint` must also be set.
+	SkipHostKeyValidation pulumi.BoolPtrInput
 	// The username used to log on to the SFTP server.
 	Username pulumi.StringInput
 }

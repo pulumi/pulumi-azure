@@ -87,7 +87,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly optimizationType!: pulumi.Output<string | undefined>;
     /**
-     * The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
+     * The host header CDN provider will send along with content requests to origins.
      */
     public readonly originHostHeader!: pulumi.Output<string | undefined>;
     /**
@@ -238,7 +238,7 @@ export interface EndpointState {
      */
     optimizationType?: pulumi.Input<string>;
     /**
-     * The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
+     * The host header CDN provider will send along with content requests to origins.
      */
     originHostHeader?: pulumi.Input<string>;
     /**
@@ -316,7 +316,7 @@ export interface EndpointArgs {
      */
     optimizationType?: pulumi.Input<string>;
     /**
-     * The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
+     * The host header CDN provider will send along with content requests to origins.
      */
     originHostHeader?: pulumi.Input<string>;
     /**

@@ -19,7 +19,10 @@ class GetCertificateDataResult:
     """
     A collection of values returned by getCertificateData.
     """
-    def __init__(__self__, expires=None, hex=None, id=None, key=None, key_vault_id=None, name=None, pem=None, tags=None, version=None):
+    def __init__(__self__, certificates_count=None, expires=None, hex=None, id=None, key=None, key_vault_id=None, name=None, pem=None, tags=None, version=None):
+        if certificates_count and not isinstance(certificates_count, int):
+            raise TypeError("Expected argument 'certificates_count' to be a int")
+        pulumi.set(__self__, "certificates_count", certificates_count)
         if expires and not isinstance(expires, str):
             raise TypeError("Expected argument 'expires' to be a str")
         pulumi.set(__self__, "expires", expires)
@@ -47,6 +50,14 @@ class GetCertificateDataResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="certificatesCount")
+    def certificates_count(self) -> int:
+        """
+        Amount of certificates in the chain in case Key Vault Certificate is a bundle (e.g. has an intermediate certificate).
+        """
+        return pulumi.get(self, "certificates_count")
 
     @property
     @pulumi.getter
@@ -118,6 +129,7 @@ class AwaitableGetCertificateDataResult(GetCertificateDataResult):
         if False:
             yield self
         return GetCertificateDataResult(
+            certificates_count=self.certificates_count,
             expires=self.expires,
             hex=self.hex,
             id=self.id,
@@ -167,6 +179,7 @@ def get_certificate_data(key_vault_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:keyvault/getCertificateData:getCertificateData', __args__, opts=opts, typ=GetCertificateDataResult).value
 
     return AwaitableGetCertificateDataResult(
+        certificates_count=__ret__.certificates_count,
         expires=__ret__.expires,
         hex=__ret__.hex,
         id=__ret__.id,

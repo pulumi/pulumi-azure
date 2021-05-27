@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class RouteTableRoute
     {
         /// <summary>
-        /// The destination CIDR to which the route applies, such as 10.1.0.0/16
+        /// The destination CIDR to which the route applies, such as 10.1.0.0/16. Tags such as `VirtualNetwork`, `AzureLoadBalancer` or `Internet` can also be used.
         /// </summary>
         public readonly string AddressPrefix;
         /// <summary>

@@ -176,11 +176,14 @@ class ProviderFeaturesTemplateDeploymentArgs:
 class ProviderFeaturesVirtualMachineArgs:
     def __init__(__self__, *,
                  delete_os_disk_on_deletion: Optional[pulumi.Input[bool]] = None,
-                 graceful_shutdown: Optional[pulumi.Input[bool]] = None):
+                 graceful_shutdown: Optional[pulumi.Input[bool]] = None,
+                 skip_shutdown_and_force_delete: Optional[pulumi.Input[bool]] = None):
         if delete_os_disk_on_deletion is not None:
             pulumi.set(__self__, "delete_os_disk_on_deletion", delete_os_disk_on_deletion)
         if graceful_shutdown is not None:
             pulumi.set(__self__, "graceful_shutdown", graceful_shutdown)
+        if skip_shutdown_and_force_delete is not None:
+            pulumi.set(__self__, "skip_shutdown_and_force_delete", skip_shutdown_and_force_delete)
 
     @property
     @pulumi.getter(name="deleteOsDiskOnDeletion")
@@ -200,12 +203,24 @@ class ProviderFeaturesVirtualMachineArgs:
     def graceful_shutdown(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "graceful_shutdown", value)
 
+    @property
+    @pulumi.getter(name="skipShutdownAndForceDelete")
+    def skip_shutdown_and_force_delete(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "skip_shutdown_and_force_delete")
+
+    @skip_shutdown_and_force_delete.setter
+    def skip_shutdown_and_force_delete(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_shutdown_and_force_delete", value)
+
 
 @pulumi.input_type
 class ProviderFeaturesVirtualMachineScaleSetArgs:
     def __init__(__self__, *,
-                 roll_instances_when_required: pulumi.Input[bool]):
+                 roll_instances_when_required: pulumi.Input[bool],
+                 force_delete: Optional[pulumi.Input[bool]] = None):
         pulumi.set(__self__, "roll_instances_when_required", roll_instances_when_required)
+        if force_delete is not None:
+            pulumi.set(__self__, "force_delete", force_delete)
 
     @property
     @pulumi.getter(name="rollInstancesWhenRequired")
@@ -215,5 +230,14 @@ class ProviderFeaturesVirtualMachineScaleSetArgs:
     @roll_instances_when_required.setter
     def roll_instances_when_required(self, value: pulumi.Input[bool]):
         pulumi.set(self, "roll_instances_when_required", value)
+
+    @property
+    @pulumi.getter(name="forceDelete")
+    def force_delete(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "force_delete")
+
+    @force_delete.setter
+    def force_delete(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_delete", value)
 
 

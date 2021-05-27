@@ -22,7 +22,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		example, err := network.LookupNetworkSecurityGroup(ctx, &network.LookupNetworkSecurityGroupArgs{
-// 			Name:              azurerm_network_security_group.Example.Name,
+// 			Name:              "example",
 // 			ResourceGroupName: azurerm_resource_group.Example.Name,
 // 		}, nil)
 // 		if err != nil {

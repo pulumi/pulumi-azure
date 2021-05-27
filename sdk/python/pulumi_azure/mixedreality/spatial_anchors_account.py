@@ -84,17 +84,25 @@ class SpatialAnchorsAccountArgs:
 @pulumi.input_type
 class _SpatialAnchorsAccountState:
     def __init__(__self__, *,
+                 account_domain: Optional[pulumi.Input[str]] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering SpatialAnchorsAccount resources.
+        :param pulumi.Input[str] account_domain: The domain of the Spatial Anchors Account.
+        :param pulumi.Input[str] account_id: The account ID of the Spatial Anchors Account.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Spatial Anchors Account. Changing this forces a new resource to be created. Must be globally unique.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Spatial Anchors Account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        if account_domain is not None:
+            pulumi.set(__self__, "account_domain", account_domain)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -103,6 +111,30 @@ class _SpatialAnchorsAccountState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="accountDomain")
+    def account_domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        The domain of the Spatial Anchors Account.
+        """
+        return pulumi.get(self, "account_domain")
+
+    @account_domain.setter
+    def account_domain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_domain", value)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The account ID of the Spatial Anchors Account.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_id", value)
 
     @property
     @pulumi.getter
@@ -259,6 +291,8 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["account_domain"] = None
+            __props__.__dict__["account_id"] = None
         super(SpatialAnchorsAccount, __self__).__init__(
             'azure:mixedreality/spatialAnchorsAccount:SpatialAnchorsAccount',
             resource_name,
@@ -269,6 +303,8 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            account_domain: Optional[pulumi.Input[str]] = None,
+            account_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -280,6 +316,8 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account_domain: The domain of the Spatial Anchors Account.
+        :param pulumi.Input[str] account_id: The account ID of the Spatial Anchors Account.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Spatial Anchors Account. Changing this forces a new resource to be created. Must be globally unique.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Spatial Anchors Account.
@@ -289,11 +327,29 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
 
         __props__ = _SpatialAnchorsAccountState.__new__(_SpatialAnchorsAccountState)
 
+        __props__.__dict__["account_domain"] = account_domain
+        __props__.__dict__["account_id"] = account_id
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["tags"] = tags
         return SpatialAnchorsAccount(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="accountDomain")
+    def account_domain(self) -> pulumi.Output[str]:
+        """
+        The domain of the Spatial Anchors Account.
+        """
+        return pulumi.get(self, "account_domain")
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> pulumi.Output[str]:
+        """
+        The account ID of the Spatial Anchors Account.
+        """
+        return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter
