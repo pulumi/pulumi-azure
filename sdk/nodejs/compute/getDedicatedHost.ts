@@ -44,15 +44,15 @@ export interface GetDedicatedHostArgs {
     /**
      * Specifies the name of the Dedicated Host Group the Dedicated Host is located in.
      */
-    readonly dedicatedHostGroupName: string;
+    dedicatedHostGroupName: string;
     /**
      * Specifies the name of the Dedicated Host.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the name of the resource group the Dedicated Host is located in.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

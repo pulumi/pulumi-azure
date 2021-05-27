@@ -42,11 +42,11 @@ export interface GetClusterArgs {
     /**
      * Specifies the name of this HDInsight Cluster.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the name of the Resource Group in which this HDInsight Cluster exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

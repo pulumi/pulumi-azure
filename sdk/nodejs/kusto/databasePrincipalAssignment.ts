@@ -186,40 +186,40 @@ export interface DatabasePrincipalAssignmentState {
     /**
      * The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
      */
-    readonly clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     /**
      * The name of the database in which to create the resource. Changing this forces a new resource to be created.
      */
-    readonly databaseName?: pulumi.Input<string>;
-    readonly name?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The object id of the principal. Changing this forces a new resource to be created.
      */
-    readonly principalId?: pulumi.Input<string>;
+    principalId?: pulumi.Input<string>;
     /**
      * The name of the principal.
      */
-    readonly principalName?: pulumi.Input<string>;
+    principalName?: pulumi.Input<string>;
     /**
      * The type of the principal. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.
      */
-    readonly principalType?: pulumi.Input<string>;
+    principalType?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewers`, `User` and `Viewer`. Changing this forces a new resource to be created.
      */
-    readonly role?: pulumi.Input<string>;
+    role?: pulumi.Input<string>;
     /**
      * The tenant id in which the principal resides. Changing this forces a new resource to be created.
      */
-    readonly tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string>;
     /**
      * The name of the tenant.
      */
-    readonly tenantName?: pulumi.Input<string>;
+    tenantName?: pulumi.Input<string>;
 }
 
 /**
@@ -229,30 +229,30 @@ export interface DatabasePrincipalAssignmentArgs {
     /**
      * The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
      */
-    readonly clusterName: pulumi.Input<string>;
+    clusterName: pulumi.Input<string>;
     /**
      * The name of the database in which to create the resource. Changing this forces a new resource to be created.
      */
-    readonly databaseName: pulumi.Input<string>;
-    readonly name?: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The object id of the principal. Changing this forces a new resource to be created.
      */
-    readonly principalId: pulumi.Input<string>;
+    principalId: pulumi.Input<string>;
     /**
      * The type of the principal. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.
      */
-    readonly principalType: pulumi.Input<string>;
+    principalType: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewers`, `User` and `Viewer`. Changing this forces a new resource to be created.
      */
-    readonly role: pulumi.Input<string>;
+    role: pulumi.Input<string>;
     /**
      * The tenant id in which the principal resides. Changing this forces a new resource to be created.
      */
-    readonly tenantId: pulumi.Input<string>;
+    tenantId: pulumi.Input<string>;
 }

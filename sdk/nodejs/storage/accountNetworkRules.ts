@@ -169,31 +169,31 @@ export interface AccountNetworkRulesState {
     /**
      * Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
      */
-    readonly bypasses?: pulumi.Input<pulumi.Input<string>[]>;
+    bypasses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
      */
-    readonly defaultAction?: pulumi.Input<string>;
+    defaultAction?: pulumi.Input<string>;
     /**
      * List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
      */
-    readonly ipRules?: pulumi.Input<pulumi.Input<string>[]>;
+    ipRules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * One or More `privateLinkAccess` block as defined below.
      */
-    readonly privateLinkAccessRules?: pulumi.Input<pulumi.Input<inputs.storage.AccountNetworkRulesPrivateLinkAccessRule>[]>;
+    privateLinkAccessRules?: pulumi.Input<pulumi.Input<inputs.storage.AccountNetworkRulesPrivateLinkAccessRule>[]>;
     /**
      * The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
      */
-    readonly storageAccountName?: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string>;
     /**
      * A list of virtual network subnet ids to to secure the storage account.
      */
-    readonly virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -203,29 +203,29 @@ export interface AccountNetworkRulesArgs {
     /**
      * Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
      */
-    readonly bypasses?: pulumi.Input<pulumi.Input<string>[]>;
+    bypasses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
      */
-    readonly defaultAction: pulumi.Input<string>;
+    defaultAction: pulumi.Input<string>;
     /**
      * List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
      */
-    readonly ipRules?: pulumi.Input<pulumi.Input<string>[]>;
+    ipRules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * One or More `privateLinkAccess` block as defined below.
      */
-    readonly privateLinkAccessRules?: pulumi.Input<pulumi.Input<inputs.storage.AccountNetworkRulesPrivateLinkAccessRule>[]>;
+    privateLinkAccessRules?: pulumi.Input<pulumi.Input<inputs.storage.AccountNetworkRulesPrivateLinkAccessRule>[]>;
     /**
      * The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
      */
-    readonly storageAccountName: pulumi.Input<string>;
+    storageAccountName: pulumi.Input<string>;
     /**
      * A list of virtual network subnet ids to to secure the storage account.
      */
-    readonly virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

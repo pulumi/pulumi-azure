@@ -42,7 +42,7 @@ export interface GetAccessPolicyArgs {
      * `Secret Management`, `Certificate Management`, `Key & Secret Management`, `Key & Certificate Management`,
      * `Secret & Certificate Management`,  `Key, Secret, & Certificate Management`
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

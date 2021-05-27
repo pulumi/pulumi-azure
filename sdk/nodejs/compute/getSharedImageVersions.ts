@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     galleryName: "my-image-gallery",
  *     imageName: "my-image",
  *     resourceGroupName: "example-resources",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getSharedImageVersions(args: GetSharedImageVersionsArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedImageVersionsResult> {
@@ -44,19 +44,19 @@ export interface GetSharedImageVersionsArgs {
     /**
      * The name of the Shared Image in which the Shared Image exists.
      */
-    readonly galleryName: string;
+    galleryName: string;
     /**
      * The name of the Shared Image in which this Version exists.
      */
-    readonly imageName: string;
+    imageName: string;
     /**
      * The name of the Resource Group in which the Shared Image Gallery exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * A mapping of tags to filter the list of images against.
      */
-    readonly tagsFilter?: {[key: string]: string};
+    tagsFilter?: {[key: string]: string};
 }
 
 /**

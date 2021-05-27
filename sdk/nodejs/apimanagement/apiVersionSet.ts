@@ -156,35 +156,35 @@ export interface ApiVersionSetState {
     /**
      * The name of the API Management Service in which the API Version Set should exist. Changing this forces a new resource to be created.
      */
-    readonly apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string>;
     /**
      * The description of API Version Set.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The display name of this API Version Set.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The name of the API Version Set. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the parent API Management Service exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The name of the Header which should be read from Inbound Requests which defines the API Version.
      */
-    readonly versionHeaderName?: pulumi.Input<string>;
+    versionHeaderName?: pulumi.Input<string>;
     /**
      * The name of the Query String which should be read from Inbound Requests which defines the API Version.
      */
-    readonly versionQueryName?: pulumi.Input<string>;
+    versionQueryName?: pulumi.Input<string>;
     /**
      * Specifies where in an Inbound HTTP Request that the API Version should be read from. Possible values are `Header`, `Query` and `Segment`.
      */
-    readonly versioningScheme?: pulumi.Input<string>;
+    versioningScheme?: pulumi.Input<string>;
 }
 
 /**
@@ -194,33 +194,33 @@ export interface ApiVersionSetArgs {
     /**
      * The name of the API Management Service in which the API Version Set should exist. Changing this forces a new resource to be created.
      */
-    readonly apiManagementName: pulumi.Input<string>;
+    apiManagementName: pulumi.Input<string>;
     /**
      * The description of API Version Set.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The display name of this API Version Set.
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * The name of the API Version Set. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the parent API Management Service exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Header which should be read from Inbound Requests which defines the API Version.
      */
-    readonly versionHeaderName?: pulumi.Input<string>;
+    versionHeaderName?: pulumi.Input<string>;
     /**
      * The name of the Query String which should be read from Inbound Requests which defines the API Version.
      */
-    readonly versionQueryName?: pulumi.Input<string>;
+    versionQueryName?: pulumi.Input<string>;
     /**
      * Specifies where in an Inbound HTTP Request that the API Version should be read from. Possible values are `Header`, `Query` and `Segment`.
      */
-    readonly versioningScheme: pulumi.Input<string>;
+    versioningScheme: pulumi.Input<string>;
 }

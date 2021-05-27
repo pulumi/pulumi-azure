@@ -134,19 +134,19 @@ export interface BackendAddressPoolAddressState {
     /**
      * The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
      */
-    readonly backendAddressPoolId?: pulumi.Input<string>;
+    backendAddressPoolId?: pulumi.Input<string>;
     /**
      * The Static IP Address which should be allocated to this Backend Address Pool.
      */
-    readonly ipAddress?: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string>;
     /**
      * The name which should be used for this Backend Address Pool Address. Changing this forces a new Backend Address Pool Address to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the Virtual Network within which the Backend Address Pool should exist.
      */
-    readonly virtualNetworkId?: pulumi.Input<string>;
+    virtualNetworkId?: pulumi.Input<string>;
 }
 
 /**
@@ -156,17 +156,17 @@ export interface BackendAddressPoolAddressArgs {
     /**
      * The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
      */
-    readonly backendAddressPoolId: pulumi.Input<string>;
+    backendAddressPoolId: pulumi.Input<string>;
     /**
      * The Static IP Address which should be allocated to this Backend Address Pool.
      */
-    readonly ipAddress: pulumi.Input<string>;
+    ipAddress: pulumi.Input<string>;
     /**
      * The name which should be used for this Backend Address Pool Address. Changing this forces a new Backend Address Pool Address to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the Virtual Network within which the Backend Address Pool should exist.
      */
-    readonly virtualNetworkId: pulumi.Input<string>;
+    virtualNetworkId: pulumi.Input<string>;
 }

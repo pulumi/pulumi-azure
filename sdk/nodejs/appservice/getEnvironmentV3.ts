@@ -42,11 +42,11 @@ export interface GetEnvironmentV3Args {
     /**
      * The name of this v3 App Service Environment.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group where the v3 App Service Environment exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

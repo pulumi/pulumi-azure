@@ -177,27 +177,27 @@ export interface CacheBlobTargetState {
     /**
      * The name of the access policy applied to this target. Defaults to `default`.
      */
-    readonly accessPolicyName?: pulumi.Input<string>;
+    accessPolicyName?: pulumi.Input<string>;
     /**
      * The name HPC Cache, which the HPC Cache Blob Target will be added to. Changing this forces a new resource to be created.
      */
-    readonly cacheName?: pulumi.Input<string>;
+    cacheName?: pulumi.Input<string>;
     /**
      * The name of the HPC Cache Blob Target. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The client-facing file path of the HPC Cache Blob Target.
      */
-    readonly namespacePath?: pulumi.Input<string>;
+    namespacePath?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which to create the HPC Cache Blob Target. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The Resource Manager ID of the Storage Container used as the HPC Cache Blob Target. Changing this forces a new resource to be created.
      */
-    readonly storageContainerId?: pulumi.Input<string>;
+    storageContainerId?: pulumi.Input<string>;
 }
 
 /**
@@ -207,25 +207,25 @@ export interface CacheBlobTargetArgs {
     /**
      * The name of the access policy applied to this target. Defaults to `default`.
      */
-    readonly accessPolicyName?: pulumi.Input<string>;
+    accessPolicyName?: pulumi.Input<string>;
     /**
      * The name HPC Cache, which the HPC Cache Blob Target will be added to. Changing this forces a new resource to be created.
      */
-    readonly cacheName: pulumi.Input<string>;
+    cacheName: pulumi.Input<string>;
     /**
      * The name of the HPC Cache Blob Target. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The client-facing file path of the HPC Cache Blob Target.
      */
-    readonly namespacePath: pulumi.Input<string>;
+    namespacePath: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which to create the HPC Cache Blob Target. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The Resource Manager ID of the Storage Container used as the HPC Cache Blob Target. Changing this forces a new resource to be created.
      */
-    readonly storageContainerId: pulumi.Input<string>;
+    storageContainerId: pulumi.Input<string>;
 }

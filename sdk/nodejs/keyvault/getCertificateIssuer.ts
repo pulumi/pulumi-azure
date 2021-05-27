@@ -46,11 +46,11 @@ export interface GetCertificateIssuerArgs {
     /**
      * The ID of the Key Vault in which to locate the Certificate Issuer.
      */
-    readonly keyVaultId: string;
+    keyVaultId: string;
     /**
      * The name of the Key Vault Certificate Issuer.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

@@ -45,19 +45,19 @@ export interface GetDatabaseArgs {
     /**
      * The name of the SQL Database.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the name of the Resource Group where the Azure SQL Database exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the SQL Server.
      */
-    readonly serverName: string;
+    serverName: string;
     /**
      * A mapping of tags assigned to the resource.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

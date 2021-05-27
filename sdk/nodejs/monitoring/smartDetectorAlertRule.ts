@@ -187,47 +187,47 @@ export interface SmartDetectorAlertRuleState {
     /**
      * An `actionGroup` block as defined below.
      */
-    readonly actionGroup?: pulumi.Input<inputs.monitoring.SmartDetectorAlertRuleActionGroup>;
+    actionGroup?: pulumi.Input<inputs.monitoring.SmartDetectorAlertRuleActionGroup>;
     /**
      * Specifies a description for the Smart Detector Alert Rule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible value is `FailureAnomaliesDetector`.
      */
-    readonly detectorType?: pulumi.Input<string>;
+    detectorType?: pulumi.Input<string>;
     /**
      * Is the Smart Detector Alert Rule enabled? Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Specifies the frequency of this Smart Detector Alert Rule in ISO8601 format.
      */
-    readonly frequency?: pulumi.Input<string>;
+    frequency?: pulumi.Input<string>;
     /**
      * Specifies the name of the Monitor Smart Detector Alert Rule. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the resource group in which the Monitor Smart Detector Alert Rule should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Specifies the scopes of this Smart Detector Alert Rule.
      */
-    readonly scopeResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    scopeResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the severity of this Smart Detector Alert Rule. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3` or `Sev4`.
      */
-    readonly severity?: pulumi.Input<string>;
+    severity?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the duration (in ISO8601 format) to wait before notifying on the alert rule again.
      */
-    readonly throttlingDuration?: pulumi.Input<string>;
+    throttlingDuration?: pulumi.Input<string>;
 }
 
 /**
@@ -237,45 +237,45 @@ export interface SmartDetectorAlertRuleArgs {
     /**
      * An `actionGroup` block as defined below.
      */
-    readonly actionGroup: pulumi.Input<inputs.monitoring.SmartDetectorAlertRuleActionGroup>;
+    actionGroup: pulumi.Input<inputs.monitoring.SmartDetectorAlertRuleActionGroup>;
     /**
      * Specifies a description for the Smart Detector Alert Rule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible value is `FailureAnomaliesDetector`.
      */
-    readonly detectorType: pulumi.Input<string>;
+    detectorType: pulumi.Input<string>;
     /**
      * Is the Smart Detector Alert Rule enabled? Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Specifies the frequency of this Smart Detector Alert Rule in ISO8601 format.
      */
-    readonly frequency: pulumi.Input<string>;
+    frequency: pulumi.Input<string>;
     /**
      * Specifies the name of the Monitor Smart Detector Alert Rule. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the resource group in which the Monitor Smart Detector Alert Rule should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies the scopes of this Smart Detector Alert Rule.
      */
-    readonly scopeResourceIds: pulumi.Input<pulumi.Input<string>[]>;
+    scopeResourceIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the severity of this Smart Detector Alert Rule. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3` or `Sev4`.
      */
-    readonly severity: pulumi.Input<string>;
+    severity: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the duration (in ISO8601 format) to wait before notifying on the alert rule again.
      */
-    readonly throttlingDuration?: pulumi.Input<string>;
+    throttlingDuration?: pulumi.Input<string>;
 }

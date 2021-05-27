@@ -153,31 +153,31 @@ export interface SrvRecordState {
     /**
      * The FQDN of the DNS SRV Record.
      */
-    readonly fqdn?: pulumi.Input<string>;
+    fqdn?: pulumi.Input<string>;
     /**
      * The name of the DNS SRV Record.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A list of values that make up the SRV record. Each `record` block supports fields documented below.
      */
-    readonly records?: pulumi.Input<pulumi.Input<inputs.dns.SrvRecordRecord>[]>;
+    records?: pulumi.Input<pulumi.Input<inputs.dns.SrvRecordRecord>[]>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Time To Live (TTL) of the DNS record in seconds.
      */
-    readonly ttl?: pulumi.Input<number>;
+    ttl?: pulumi.Input<number>;
     /**
      * Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
      */
-    readonly zoneName?: pulumi.Input<string>;
+    zoneName?: pulumi.Input<string>;
 }
 
 /**
@@ -187,25 +187,25 @@ export interface SrvRecordArgs {
     /**
      * The name of the DNS SRV Record.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A list of values that make up the SRV record. Each `record` block supports fields documented below.
      */
-    readonly records: pulumi.Input<pulumi.Input<inputs.dns.SrvRecordRecord>[]>;
+    records: pulumi.Input<pulumi.Input<inputs.dns.SrvRecordRecord>[]>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Time To Live (TTL) of the DNS record in seconds.
      */
-    readonly ttl: pulumi.Input<number>;
+    ttl: pulumi.Input<number>;
     /**
      * Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
      */
-    readonly zoneName: pulumi.Input<string>;
+    zoneName: pulumi.Input<string>;
 }

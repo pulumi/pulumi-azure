@@ -170,19 +170,19 @@ export interface AssessmentState {
     /**
      * A map of additional data to associate with the assessment.
      */
-    readonly additionalData?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalData?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the security Assessment policy to apply to this resource. Changing this forces a new security Assessment to be created.
      */
-    readonly assessmentPolicyId?: pulumi.Input<string>;
+    assessmentPolicyId?: pulumi.Input<string>;
     /**
      * A `status` block as defined below.
      */
-    readonly status?: pulumi.Input<inputs.securitycenter.AssessmentStatus>;
+    status?: pulumi.Input<inputs.securitycenter.AssessmentStatus>;
     /**
      * The ID of the target resource. Changing this forces a new security Assessment to be created.
      */
-    readonly targetResourceId?: pulumi.Input<string>;
+    targetResourceId?: pulumi.Input<string>;
 }
 
 /**
@@ -192,17 +192,17 @@ export interface AssessmentArgs {
     /**
      * A map of additional data to associate with the assessment.
      */
-    readonly additionalData?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalData?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the security Assessment policy to apply to this resource. Changing this forces a new security Assessment to be created.
      */
-    readonly assessmentPolicyId: pulumi.Input<string>;
+    assessmentPolicyId: pulumi.Input<string>;
     /**
      * A `status` block as defined below.
      */
-    readonly status: pulumi.Input<inputs.securitycenter.AssessmentStatus>;
+    status: pulumi.Input<inputs.securitycenter.AssessmentStatus>;
     /**
      * The ID of the target resource. Changing this forces a new security Assessment to be created.
      */
-    readonly targetResourceId: pulumi.Input<string>;
+    targetResourceId: pulumi.Input<string>;
 }

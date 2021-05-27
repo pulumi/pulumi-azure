@@ -42,11 +42,11 @@ export interface GetLabArgs {
     /**
      * The name of the Dev Test Lab.
      */
-    readonly name: string;
+    name: string;
     /**
      * The Name of the Resource Group where the Dev Test Lab exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -145,35 +145,35 @@ export interface VirtualHubState {
     /**
      * The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
      */
-    readonly addressPrefix?: pulumi.Input<string>;
+    addressPrefix?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Virtual Hub. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the Resource Group where the Virtual Hub should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * One or more `route` blocks as defined below.
      */
-    readonly routes?: pulumi.Input<pulumi.Input<inputs.network.VirtualHubRoute>[]>;
+    routes?: pulumi.Input<pulumi.Input<inputs.network.VirtualHubRoute>[]>;
     /**
      * The sku of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
      */
-    readonly sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the Virtual Hub.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
      */
-    readonly virtualWanId?: pulumi.Input<string>;
+    virtualWanId?: pulumi.Input<string>;
 }
 
 /**
@@ -183,33 +183,33 @@ export interface VirtualHubArgs {
     /**
      * The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
      */
-    readonly addressPrefix?: pulumi.Input<string>;
+    addressPrefix?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Virtual Hub. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the Resource Group where the Virtual Hub should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * One or more `route` blocks as defined below.
      */
-    readonly routes?: pulumi.Input<pulumi.Input<inputs.network.VirtualHubRoute>[]>;
+    routes?: pulumi.Input<pulumi.Input<inputs.network.VirtualHubRoute>[]>;
     /**
      * The sku of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
      */
-    readonly sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the Virtual Hub.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
      */
-    readonly virtualWanId?: pulumi.Input<string>;
+    virtualWanId?: pulumi.Input<string>;
 }

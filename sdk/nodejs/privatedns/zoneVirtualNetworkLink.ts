@@ -134,27 +134,27 @@ export interface ZoneVirtualNetworkLinkState {
     /**
      * The name of the Private DNS Zone Virtual Network Link. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
      */
-    readonly privateDnsZoneName?: pulumi.Input<string>;
+    privateDnsZoneName?: pulumi.Input<string>;
     /**
      * Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
      */
-    readonly registrationEnabled?: pulumi.Input<boolean>;
+    registrationEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
      */
-    readonly virtualNetworkId?: pulumi.Input<string>;
+    virtualNetworkId?: pulumi.Input<string>;
 }
 
 /**
@@ -164,25 +164,25 @@ export interface ZoneVirtualNetworkLinkArgs {
     /**
      * The name of the Private DNS Zone Virtual Network Link. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
      */
-    readonly privateDnsZoneName: pulumi.Input<string>;
+    privateDnsZoneName: pulumi.Input<string>;
     /**
      * Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
      */
-    readonly registrationEnabled?: pulumi.Input<boolean>;
+    registrationEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
      */
-    readonly virtualNetworkId: pulumi.Input<string>;
+    virtualNetworkId: pulumi.Input<string>;
 }

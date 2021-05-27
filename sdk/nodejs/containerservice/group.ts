@@ -225,71 +225,71 @@ export interface GroupState {
     /**
      * The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
      */
-    readonly containers?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupContainer>[]>;
+    containers?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupContainer>[]>;
     /**
      * A `diagnostics` block as documented below.
      */
-    readonly diagnostics?: pulumi.Input<inputs.containerservice.GroupDiagnostics>;
+    diagnostics?: pulumi.Input<inputs.containerservice.GroupDiagnostics>;
     /**
      * A `dnsConfig` block as documented below.
      */
-    readonly dnsConfig?: pulumi.Input<inputs.containerservice.GroupDnsConfig>;
+    dnsConfig?: pulumi.Input<inputs.containerservice.GroupDnsConfig>;
     /**
      * The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
      */
-    readonly dnsNameLabel?: pulumi.Input<string>;
+    dnsNameLabel?: pulumi.Input<string>;
     /**
      * Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
      */
-    readonly exposedPorts?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupExposedPort>[]>;
+    exposedPorts?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupExposedPort>[]>;
     /**
      * The FQDN of the container group derived from `dnsNameLabel`.
      */
-    readonly fqdn?: pulumi.Input<string>;
+    fqdn?: pulumi.Input<string>;
     /**
      * An `identity` block as defined below.
      */
-    readonly identity?: pulumi.Input<inputs.containerservice.GroupIdentity>;
+    identity?: pulumi.Input<inputs.containerservice.GroupIdentity>;
     /**
      * A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
      */
-    readonly imageRegistryCredentials?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupImageRegistryCredential>[]>;
+    imageRegistryCredentials?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupImageRegistryCredential>[]>;
     /**
      * The IP address allocated to the container group.
      */
-    readonly ipAddress?: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string>;
     /**
      * Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
      */
-    readonly ipAddressType?: pulumi.Input<string>;
+    ipAddressType?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Container Group. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Network profile ID for deploying to virtual network.
      */
-    readonly networkProfileId?: pulumi.Input<string>;
+    networkProfileId?: pulumi.Input<string>;
     /**
      * The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
      */
-    readonly osType?: pulumi.Input<string>;
+    osType?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
      */
-    readonly restartPolicy?: pulumi.Input<string>;
+    restartPolicy?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -299,61 +299,61 @@ export interface GroupArgs {
     /**
      * The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
      */
-    readonly containers: pulumi.Input<pulumi.Input<inputs.containerservice.GroupContainer>[]>;
+    containers: pulumi.Input<pulumi.Input<inputs.containerservice.GroupContainer>[]>;
     /**
      * A `diagnostics` block as documented below.
      */
-    readonly diagnostics?: pulumi.Input<inputs.containerservice.GroupDiagnostics>;
+    diagnostics?: pulumi.Input<inputs.containerservice.GroupDiagnostics>;
     /**
      * A `dnsConfig` block as documented below.
      */
-    readonly dnsConfig?: pulumi.Input<inputs.containerservice.GroupDnsConfig>;
+    dnsConfig?: pulumi.Input<inputs.containerservice.GroupDnsConfig>;
     /**
      * The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
      */
-    readonly dnsNameLabel?: pulumi.Input<string>;
+    dnsNameLabel?: pulumi.Input<string>;
     /**
      * Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
      */
-    readonly exposedPorts?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupExposedPort>[]>;
+    exposedPorts?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupExposedPort>[]>;
     /**
      * An `identity` block as defined below.
      */
-    readonly identity?: pulumi.Input<inputs.containerservice.GroupIdentity>;
+    identity?: pulumi.Input<inputs.containerservice.GroupIdentity>;
     /**
      * A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
      */
-    readonly imageRegistryCredentials?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupImageRegistryCredential>[]>;
+    imageRegistryCredentials?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupImageRegistryCredential>[]>;
     /**
      * Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
      */
-    readonly ipAddressType?: pulumi.Input<string>;
+    ipAddressType?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Container Group. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Network profile ID for deploying to virtual network.
      */
-    readonly networkProfileId?: pulumi.Input<string>;
+    networkProfileId?: pulumi.Input<string>;
     /**
      * The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
      */
-    readonly osType: pulumi.Input<string>;
+    osType: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
      */
-    readonly restartPolicy?: pulumi.Input<string>;
+    restartPolicy?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

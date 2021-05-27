@@ -113,16 +113,16 @@ export interface TableState {
     /**
      * One or more `acl` blocks as defined below.
      */
-    readonly acls?: pulumi.Input<pulumi.Input<inputs.storage.TableAcl>[]>;
+    acls?: pulumi.Input<pulumi.Input<inputs.storage.TableAcl>[]>;
     /**
      * The name of the storage table. Must be unique within the storage account the table is located.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the storage account in which to create the storage table.
      * Changing this forces a new resource to be created.
      */
-    readonly storageAccountName?: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string>;
 }
 
 /**
@@ -132,14 +132,14 @@ export interface TableArgs {
     /**
      * One or more `acl` blocks as defined below.
      */
-    readonly acls?: pulumi.Input<pulumi.Input<inputs.storage.TableAcl>[]>;
+    acls?: pulumi.Input<pulumi.Input<inputs.storage.TableAcl>[]>;
     /**
      * The name of the storage table. Must be unique within the storage account the table is located.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the storage account in which to create the storage table.
      * Changing this forces a new resource to be created.
      */
-    readonly storageAccountName: pulumi.Input<string>;
+    storageAccountName: pulumi.Input<string>;
 }

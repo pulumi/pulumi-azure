@@ -107,19 +107,19 @@ export interface CustomerManagedKeyState {
     /**
      * The name of Key Vault Key.
      */
-    readonly keyName?: pulumi.Input<string>;
+    keyName?: pulumi.Input<string>;
     /**
      * The ID of the Key Vault. Changing this forces a new resource to be created.
      */
-    readonly keyVaultId?: pulumi.Input<string>;
+    keyVaultId?: pulumi.Input<string>;
     /**
      * The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
      */
-    readonly keyVersion?: pulumi.Input<string>;
+    keyVersion?: pulumi.Input<string>;
     /**
      * The ID of the Storage Account. Changing this forces a new resource to be created.
      */
-    readonly storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string>;
 }
 
 /**
@@ -129,17 +129,17 @@ export interface CustomerManagedKeyArgs {
     /**
      * The name of Key Vault Key.
      */
-    readonly keyName: pulumi.Input<string>;
+    keyName: pulumi.Input<string>;
     /**
      * The ID of the Key Vault. Changing this forces a new resource to be created.
      */
-    readonly keyVaultId: pulumi.Input<string>;
+    keyVaultId: pulumi.Input<string>;
     /**
      * The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
      */
-    readonly keyVersion?: pulumi.Input<string>;
+    keyVersion?: pulumi.Input<string>;
     /**
      * The ID of the Storage Account. Changing this forces a new resource to be created.
      */
-    readonly storageAccountId: pulumi.Input<string>;
+    storageAccountId: pulumi.Input<string>;
 }

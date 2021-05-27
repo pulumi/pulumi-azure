@@ -190,28 +190,28 @@ export interface GlobalVMShutdownScheduleState {
     /**
      * The time each day when the schedule takes effect. Must match the format HHmm where HH is 00-23 and mm is 00-59 (e.g. 0930, 2300, etc.)
      */
-    readonly dailyRecurrenceTime?: pulumi.Input<string>;
+    dailyRecurrenceTime?: pulumi.Input<string>;
     /**
      * Whether to enable the schedule. Possible values are `true` and `false`. Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The location where the schedule is created. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
-    readonly notificationSettings?: pulumi.Input<inputs.devtest.GlobalVMShutdownScheduleNotificationSettings>;
+    location?: pulumi.Input<string>;
+    notificationSettings?: pulumi.Input<inputs.devtest.GlobalVMShutdownScheduleNotificationSettings>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The time zone ID (e.g. Pacific Standard time). Refer to this guide for a [full list of accepted time zone names](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
      */
-    readonly timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string>;
     /**
      * The resource ID of the target ARM-based Virtual Machine. Changing this forces a new resource to be created.
      */
-    readonly virtualMachineId?: pulumi.Input<string>;
+    virtualMachineId?: pulumi.Input<string>;
 }
 
 /**
@@ -221,26 +221,26 @@ export interface GlobalVMShutdownScheduleArgs {
     /**
      * The time each day when the schedule takes effect. Must match the format HHmm where HH is 00-23 and mm is 00-59 (e.g. 0930, 2300, etc.)
      */
-    readonly dailyRecurrenceTime: pulumi.Input<string>;
+    dailyRecurrenceTime: pulumi.Input<string>;
     /**
      * Whether to enable the schedule. Possible values are `true` and `false`. Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The location where the schedule is created. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
-    readonly notificationSettings: pulumi.Input<inputs.devtest.GlobalVMShutdownScheduleNotificationSettings>;
+    location?: pulumi.Input<string>;
+    notificationSettings: pulumi.Input<inputs.devtest.GlobalVMShutdownScheduleNotificationSettings>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The time zone ID (e.g. Pacific Standard time). Refer to this guide for a [full list of accepted time zone names](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
      */
-    readonly timezone: pulumi.Input<string>;
+    timezone: pulumi.Input<string>;
     /**
      * The resource ID of the target ARM-based Virtual Machine. Changing this forces a new resource to be created.
      */
-    readonly virtualMachineId: pulumi.Input<string>;
+    virtualMachineId: pulumi.Input<string>;
 }

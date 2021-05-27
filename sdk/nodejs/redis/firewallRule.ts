@@ -152,23 +152,23 @@ export interface FirewallRuleState {
     /**
      * The highest IP address included in the range.
      */
-    readonly endIp?: pulumi.Input<string>;
+    endIp?: pulumi.Input<string>;
     /**
      * The name of the Firewall Rule. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Redis Cache. Changing this forces a new resource to be created.
      */
-    readonly redisCacheName?: pulumi.Input<string>;
+    redisCacheName?: pulumi.Input<string>;
     /**
      * The name of the resource group in which this Redis Cache exists.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The lowest IP address included in the range
      */
-    readonly startIp?: pulumi.Input<string>;
+    startIp?: pulumi.Input<string>;
 }
 
 /**
@@ -178,21 +178,21 @@ export interface FirewallRuleArgs {
     /**
      * The highest IP address included in the range.
      */
-    readonly endIp: pulumi.Input<string>;
+    endIp: pulumi.Input<string>;
     /**
      * The name of the Firewall Rule. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Redis Cache. Changing this forces a new resource to be created.
      */
-    readonly redisCacheName: pulumi.Input<string>;
+    redisCacheName: pulumi.Input<string>;
     /**
      * The name of the resource group in which this Redis Cache exists.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The lowest IP address included in the range
      */
-    readonly startIp: pulumi.Input<string>;
+    startIp: pulumi.Input<string>;
 }

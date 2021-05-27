@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const example = pulumi.output(azure.signalr.getService({
  *     name: "test-signalr",
  *     resourceGroupName: "signalr-resource-group",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
@@ -41,11 +41,11 @@ export interface GetServiceArgs {
     /**
      * Specifies the name of the SignalR service.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the name of the resource group the SignalR service is located in.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

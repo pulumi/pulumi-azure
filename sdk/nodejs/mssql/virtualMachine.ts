@@ -181,51 +181,51 @@ export interface VirtualMachineState {
     /**
      * An `autoBackup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
      */
-    readonly autoBackup?: pulumi.Input<inputs.mssql.VirtualMachineAutoBackup>;
+    autoBackup?: pulumi.Input<inputs.mssql.VirtualMachineAutoBackup>;
     /**
      * An `autoPatching` block as defined below.
      */
-    readonly autoPatching?: pulumi.Input<inputs.mssql.VirtualMachineAutoPatching>;
+    autoPatching?: pulumi.Input<inputs.mssql.VirtualMachineAutoPatching>;
     /**
      * (Optional) An `keyVaultCredential` block as defined below.
      */
-    readonly keyVaultCredential?: pulumi.Input<inputs.mssql.VirtualMachineKeyVaultCredential>;
+    keyVaultCredential?: pulumi.Input<inputs.mssql.VirtualMachineKeyVaultCredential>;
     /**
      * Should R Services be enabled?
      */
-    readonly rServicesEnabled?: pulumi.Input<boolean>;
+    rServicesEnabled?: pulumi.Input<boolean>;
     /**
      * The SQL Server port. Defaults to `1433`.
      */
-    readonly sqlConnectivityPort?: pulumi.Input<number>;
+    sqlConnectivityPort?: pulumi.Input<number>;
     /**
      * The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
      */
-    readonly sqlConnectivityType?: pulumi.Input<string>;
+    sqlConnectivityType?: pulumi.Input<string>;
     /**
      * The SQL Server sysadmin login password.
      */
-    readonly sqlConnectivityUpdatePassword?: pulumi.Input<string>;
+    sqlConnectivityUpdatePassword?: pulumi.Input<string>;
     /**
      * The SQL Server sysadmin login to create.
      */
-    readonly sqlConnectivityUpdateUsername?: pulumi.Input<string>;
+    sqlConnectivityUpdateUsername?: pulumi.Input<string>;
     /**
      * The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit) and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
      */
-    readonly sqlLicenseType?: pulumi.Input<string>;
+    sqlLicenseType?: pulumi.Input<string>;
     /**
      * An `storageConfiguration` block as defined below.
      */
-    readonly storageConfiguration?: pulumi.Input<inputs.mssql.VirtualMachineStorageConfiguration>;
+    storageConfiguration?: pulumi.Input<inputs.mssql.VirtualMachineStorageConfiguration>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Virtual Machine. Changing this forces a new resource to be created.
      */
-    readonly virtualMachineId?: pulumi.Input<string>;
+    virtualMachineId?: pulumi.Input<string>;
 }
 
 /**
@@ -235,49 +235,49 @@ export interface VirtualMachineArgs {
     /**
      * An `autoBackup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
      */
-    readonly autoBackup?: pulumi.Input<inputs.mssql.VirtualMachineAutoBackup>;
+    autoBackup?: pulumi.Input<inputs.mssql.VirtualMachineAutoBackup>;
     /**
      * An `autoPatching` block as defined below.
      */
-    readonly autoPatching?: pulumi.Input<inputs.mssql.VirtualMachineAutoPatching>;
+    autoPatching?: pulumi.Input<inputs.mssql.VirtualMachineAutoPatching>;
     /**
      * (Optional) An `keyVaultCredential` block as defined below.
      */
-    readonly keyVaultCredential?: pulumi.Input<inputs.mssql.VirtualMachineKeyVaultCredential>;
+    keyVaultCredential?: pulumi.Input<inputs.mssql.VirtualMachineKeyVaultCredential>;
     /**
      * Should R Services be enabled?
      */
-    readonly rServicesEnabled?: pulumi.Input<boolean>;
+    rServicesEnabled?: pulumi.Input<boolean>;
     /**
      * The SQL Server port. Defaults to `1433`.
      */
-    readonly sqlConnectivityPort?: pulumi.Input<number>;
+    sqlConnectivityPort?: pulumi.Input<number>;
     /**
      * The connectivity type used for this SQL Server. Defaults to `PRIVATE`.
      */
-    readonly sqlConnectivityType?: pulumi.Input<string>;
+    sqlConnectivityType?: pulumi.Input<string>;
     /**
      * The SQL Server sysadmin login password.
      */
-    readonly sqlConnectivityUpdatePassword?: pulumi.Input<string>;
+    sqlConnectivityUpdatePassword?: pulumi.Input<string>;
     /**
      * The SQL Server sysadmin login to create.
      */
-    readonly sqlConnectivityUpdateUsername?: pulumi.Input<string>;
+    sqlConnectivityUpdateUsername?: pulumi.Input<string>;
     /**
      * The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit) and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
      */
-    readonly sqlLicenseType: pulumi.Input<string>;
+    sqlLicenseType: pulumi.Input<string>;
     /**
      * An `storageConfiguration` block as defined below.
      */
-    readonly storageConfiguration?: pulumi.Input<inputs.mssql.VirtualMachineStorageConfiguration>;
+    storageConfiguration?: pulumi.Input<inputs.mssql.VirtualMachineStorageConfiguration>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Virtual Machine. Changing this forces a new resource to be created.
      */
-    readonly virtualMachineId: pulumi.Input<string>;
+    virtualMachineId: pulumi.Input<string>;
 }

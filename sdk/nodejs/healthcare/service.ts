@@ -178,92 +178,92 @@ export class Service extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Service resources.
  */
 export interface ServiceState {
-    readonly accessPolicyObjectIds?: pulumi.Input<pulumi.Input<string>[]>;
+    accessPolicyObjectIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * An `authenticationConfiguration` block as defined below.
      */
-    readonly authenticationConfiguration?: pulumi.Input<inputs.healthcare.ServiceAuthenticationConfiguration>;
+    authenticationConfiguration?: pulumi.Input<inputs.healthcare.ServiceAuthenticationConfiguration>;
     /**
      * A `corsConfiguration` block as defined below.
      */
-    readonly corsConfiguration?: pulumi.Input<inputs.healthcare.ServiceCorsConfiguration>;
+    corsConfiguration?: pulumi.Input<inputs.healthcare.ServiceCorsConfiguration>;
     /**
      * A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
      */
-    readonly cosmosdbKeyVaultKeyVersionlessId?: pulumi.Input<string>;
+    cosmosdbKeyVaultKeyVersionlessId?: pulumi.Input<string>;
     /**
      * The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
      */
-    readonly cosmosdbThroughput?: pulumi.Input<number>;
+    cosmosdbThroughput?: pulumi.Input<number>;
     /**
      * The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure Region where the Service should be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the service instance. Used for service endpoint, must be unique within the audience.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Whether public network access is enabled or disabled for this service instance.
      */
-    readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Resource Group in which to create the Service.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
  * The set of arguments for constructing a Service resource.
  */
 export interface ServiceArgs {
-    readonly accessPolicyObjectIds?: pulumi.Input<pulumi.Input<string>[]>;
+    accessPolicyObjectIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * An `authenticationConfiguration` block as defined below.
      */
-    readonly authenticationConfiguration?: pulumi.Input<inputs.healthcare.ServiceAuthenticationConfiguration>;
+    authenticationConfiguration?: pulumi.Input<inputs.healthcare.ServiceAuthenticationConfiguration>;
     /**
      * A `corsConfiguration` block as defined below.
      */
-    readonly corsConfiguration?: pulumi.Input<inputs.healthcare.ServiceCorsConfiguration>;
+    corsConfiguration?: pulumi.Input<inputs.healthcare.ServiceCorsConfiguration>;
     /**
      * A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
      */
-    readonly cosmosdbKeyVaultKeyVersionlessId?: pulumi.Input<string>;
+    cosmosdbKeyVaultKeyVersionlessId?: pulumi.Input<string>;
     /**
      * The provisioned throughput for the backing database. Range of `400`-`1000`. Defaults to `400`.
      */
-    readonly cosmosdbThroughput?: pulumi.Input<number>;
+    cosmosdbThroughput?: pulumi.Input<number>;
     /**
      * The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure Region where the Service should be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the service instance. Used for service endpoint, must be unique within the audience.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Whether public network access is enabled or disabled for this service instance.
      */
-    readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Resource Group in which to create the Service.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

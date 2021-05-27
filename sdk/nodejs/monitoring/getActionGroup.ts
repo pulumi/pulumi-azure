@@ -42,11 +42,11 @@ export interface GetActionGroupArgs {
     /**
      * Specifies the name of the Action Group.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the name of the resource group the Action Group is located in.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

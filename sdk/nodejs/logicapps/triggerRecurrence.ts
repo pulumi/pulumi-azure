@@ -144,31 +144,31 @@ export interface TriggerRecurrenceState {
     /**
      * Specifies the Frequency at which this Trigger should be run. Possible values include `Month`, `Week`, `Day`, `Hour`, `Minute` and `Second`.
      */
-    readonly frequency?: pulumi.Input<string>;
+    frequency?: pulumi.Input<string>;
     /**
      * Specifies interval used for the Frequency, for example a value of `4` for `interval` and `hour` for `frequency` would run the Trigger every 4 hours.
      */
-    readonly interval?: pulumi.Input<number>;
+    interval?: pulumi.Input<number>;
     /**
      * Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
      */
-    readonly logicAppId?: pulumi.Input<string>;
+    logicAppId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `schedule` block as specified below.
      */
-    readonly schedule?: pulumi.Input<inputs.logicapps.TriggerRecurrenceSchedule>;
+    schedule?: pulumi.Input<inputs.logicapps.TriggerRecurrenceSchedule>;
     /**
      * Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
      */
-    readonly startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string>;
     /**
      * Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
      */
-    readonly timeZone?: pulumi.Input<string>;
+    timeZone?: pulumi.Input<string>;
 }
 
 /**
@@ -178,29 +178,29 @@ export interface TriggerRecurrenceArgs {
     /**
      * Specifies the Frequency at which this Trigger should be run. Possible values include `Month`, `Week`, `Day`, `Hour`, `Minute` and `Second`.
      */
-    readonly frequency: pulumi.Input<string>;
+    frequency: pulumi.Input<string>;
     /**
      * Specifies interval used for the Frequency, for example a value of `4` for `interval` and `hour` for `frequency` would run the Trigger every 4 hours.
      */
-    readonly interval: pulumi.Input<number>;
+    interval: pulumi.Input<number>;
     /**
      * Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
      */
-    readonly logicAppId: pulumi.Input<string>;
+    logicAppId: pulumi.Input<string>;
     /**
      * Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `schedule` block as specified below.
      */
-    readonly schedule?: pulumi.Input<inputs.logicapps.TriggerRecurrenceSchedule>;
+    schedule?: pulumi.Input<inputs.logicapps.TriggerRecurrenceSchedule>;
     /**
      * Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
      */
-    readonly startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string>;
     /**
      * Specifies the time zone for this trigger.  Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
      */
-    readonly timeZone?: pulumi.Input<string>;
+    timeZone?: pulumi.Input<string>;
 }

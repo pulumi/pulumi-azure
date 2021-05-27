@@ -21,31 +21,6 @@ __all__ = [
 
 @pulumi.output_type
 class Features(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "keyVault":
-            suggest = "key_vault"
-        elif key == "logAnalyticsWorkspace":
-            suggest = "log_analytics_workspace"
-        elif key == "templateDeployment":
-            suggest = "template_deployment"
-        elif key == "virtualMachine":
-            suggest = "virtual_machine"
-        elif key == "virtualMachineScaleSet":
-            suggest = "virtual_machine_scale_set"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in Features. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        Features.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        Features.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  key_vault: Optional['outputs.FeaturesKeyVault'] = None,
                  log_analytics_workspace: Optional['outputs.FeaturesLogAnalyticsWorkspace'] = None,
@@ -99,25 +74,6 @@ class Features(dict):
 
 @pulumi.output_type
 class FeaturesKeyVault(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "purgeSoftDeleteOnDestroy":
-            suggest = "purge_soft_delete_on_destroy"
-        elif key == "recoverSoftDeletedKeyVaults":
-            suggest = "recover_soft_deleted_key_vaults"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FeaturesKeyVault. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FeaturesKeyVault.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FeaturesKeyVault.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  purge_soft_delete_on_destroy: Optional[bool] = None,
                  recover_soft_deleted_key_vaults: Optional[bool] = None):
@@ -139,23 +95,6 @@ class FeaturesKeyVault(dict):
 
 @pulumi.output_type
 class FeaturesLogAnalyticsWorkspace(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "permanentlyDeleteOnDestroy":
-            suggest = "permanently_delete_on_destroy"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FeaturesLogAnalyticsWorkspace. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FeaturesLogAnalyticsWorkspace.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FeaturesLogAnalyticsWorkspace.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  permanently_delete_on_destroy: bool):
         pulumi.set(__self__, "permanently_delete_on_destroy", permanently_delete_on_destroy)
@@ -168,23 +107,6 @@ class FeaturesLogAnalyticsWorkspace(dict):
 
 @pulumi.output_type
 class FeaturesNetwork(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "relaxedLocking":
-            suggest = "relaxed_locking"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FeaturesNetwork. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FeaturesNetwork.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FeaturesNetwork.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  relaxed_locking: bool):
         pulumi.set(__self__, "relaxed_locking", relaxed_locking)
@@ -197,23 +119,6 @@ class FeaturesNetwork(dict):
 
 @pulumi.output_type
 class FeaturesTemplateDeployment(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "deleteNestedItemsDuringDeletion":
-            suggest = "delete_nested_items_during_deletion"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FeaturesTemplateDeployment. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FeaturesTemplateDeployment.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FeaturesTemplateDeployment.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  delete_nested_items_during_deletion: bool):
         pulumi.set(__self__, "delete_nested_items_during_deletion", delete_nested_items_during_deletion)
@@ -226,25 +131,6 @@ class FeaturesTemplateDeployment(dict):
 
 @pulumi.output_type
 class FeaturesVirtualMachine(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "deleteOsDiskOnDeletion":
-            suggest = "delete_os_disk_on_deletion"
-        elif key == "gracefulShutdown":
-            suggest = "graceful_shutdown"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FeaturesVirtualMachine. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FeaturesVirtualMachine.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FeaturesVirtualMachine.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  delete_os_disk_on_deletion: Optional[bool] = None,
                  graceful_shutdown: Optional[bool] = None):
@@ -266,23 +152,6 @@ class FeaturesVirtualMachine(dict):
 
 @pulumi.output_type
 class FeaturesVirtualMachineScaleSet(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "rollInstancesWhenRequired":
-            suggest = "roll_instances_when_required"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FeaturesVirtualMachineScaleSet. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FeaturesVirtualMachineScaleSet.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FeaturesVirtualMachineScaleSet.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  roll_instances_when_required: bool):
         pulumi.set(__self__, "roll_instances_when_required", roll_instances_when_required)

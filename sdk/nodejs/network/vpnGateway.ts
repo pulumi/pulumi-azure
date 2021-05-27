@@ -152,31 +152,31 @@ export interface VpnGatewayState {
     /**
      * A `bgpSettings` block as defined below.
      */
-    readonly bgpSettings?: pulumi.Input<inputs.network.VpnGatewayBgpSettings>;
+    bgpSettings?: pulumi.Input<inputs.network.VpnGatewayBgpSettings>;
     /**
      * The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The Name which should be used for this VPN Gateway. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The Name of the Resource Group in which this VPN Gateway should be created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The Scale Unit for this VPN Gateway. Defaults to `1`.
      */
-    readonly scaleUnit?: pulumi.Input<number>;
+    scaleUnit?: pulumi.Input<number>;
     /**
      * A mapping of tags to assign to the VPN Gateway.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Virtual Hub within which this VPN Gateway should be created. Changing this forces a new resource to be created.
      */
-    readonly virtualHubId?: pulumi.Input<string>;
+    virtualHubId?: pulumi.Input<string>;
 }
 
 /**
@@ -186,29 +186,29 @@ export interface VpnGatewayArgs {
     /**
      * A `bgpSettings` block as defined below.
      */
-    readonly bgpSettings?: pulumi.Input<inputs.network.VpnGatewayBgpSettings>;
+    bgpSettings?: pulumi.Input<inputs.network.VpnGatewayBgpSettings>;
     /**
      * The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The Name which should be used for this VPN Gateway. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The Name of the Resource Group in which this VPN Gateway should be created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The Scale Unit for this VPN Gateway. Defaults to `1`.
      */
-    readonly scaleUnit?: pulumi.Input<number>;
+    scaleUnit?: pulumi.Input<number>;
     /**
      * A mapping of tags to assign to the VPN Gateway.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Virtual Hub within which this VPN Gateway should be created. Changing this forces a new resource to be created.
      */
-    readonly virtualHubId: pulumi.Input<string>;
+    virtualHubId: pulumi.Input<string>;
 }

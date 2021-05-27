@@ -48,23 +48,23 @@ export interface GetSnapshotArgs {
     /**
      * The name of the NetApp Account where the NetApp Pool exists.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The name of the NetApp Snapshot.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the NetApp Pool where the NetApp Volume exists.
      */
-    readonly poolName: string;
+    poolName: string;
     /**
      * The Name of the Resource Group where the NetApp Snapshot exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the NetApp Volume where the NetApp Snapshot exists.
      */
-    readonly volumeName: string;
+    volumeName: string;
 }
 
 /**

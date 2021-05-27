@@ -44,15 +44,15 @@ export interface GetRegistryTokenArgs {
     /**
      * The Name of the Container Registry where the token exists.
      */
-    readonly containerRegistryName: string;
+    containerRegistryName: string;
     /**
      * The name of the Container Registry token.
      */
-    readonly name: string;
+    name: string;
     /**
      * The Name of the Resource Group where this Container Registry token exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

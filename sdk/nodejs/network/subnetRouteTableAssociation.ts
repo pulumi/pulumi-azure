@@ -125,11 +125,11 @@ export interface SubnetRouteTableAssociationState {
     /**
      * The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
      */
-    readonly routeTableId?: pulumi.Input<string>;
+    routeTableId?: pulumi.Input<string>;
     /**
      * The ID of the Subnet. Changing this forces a new resource to be created.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string>;
 }
 
 /**
@@ -139,9 +139,9 @@ export interface SubnetRouteTableAssociationArgs {
     /**
      * The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
      */
-    readonly routeTableId: pulumi.Input<string>;
+    routeTableId: pulumi.Input<string>;
     /**
      * The ID of the Subnet. Changing this forces a new resource to be created.
      */
-    readonly subnetId: pulumi.Input<string>;
+    subnetId: pulumi.Input<string>;
 }

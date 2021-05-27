@@ -211,60 +211,60 @@ export interface RuleState {
     /**
      * A reference to a Backend Address Pool over which this Load Balancing Rule operates.
      */
-    readonly backendAddressPoolId?: pulumi.Input<string>;
+    backendAddressPoolId?: pulumi.Input<string>;
     /**
      * The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
      */
-    readonly backendPort?: pulumi.Input<number>;
+    backendPort?: pulumi.Input<number>;
     /**
      * Is snat enabled for this Load Balancer Rule? Default `false`.
      */
-    readonly disableOutboundSnat?: pulumi.Input<boolean>;
+    disableOutboundSnat?: pulumi.Input<boolean>;
     /**
      * Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
      */
-    readonly enableFloatingIp?: pulumi.Input<boolean>;
+    enableFloatingIp?: pulumi.Input<boolean>;
     /**
      * Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
      */
-    readonly enableTcpReset?: pulumi.Input<boolean>;
-    readonly frontendIpConfigurationId?: pulumi.Input<string>;
+    enableTcpReset?: pulumi.Input<boolean>;
+    frontendIpConfigurationId?: pulumi.Input<string>;
     /**
      * The name of the frontend IP configuration to which the rule is associated.
      */
-    readonly frontendIpConfigurationName?: pulumi.Input<string>;
+    frontendIpConfigurationName?: pulumi.Input<string>;
     /**
      * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
      */
-    readonly frontendPort?: pulumi.Input<number>;
+    frontendPort?: pulumi.Input<number>;
     /**
      * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
      */
-    readonly idleTimeoutInMinutes?: pulumi.Input<number>;
+    idleTimeoutInMinutes?: pulumi.Input<number>;
     /**
      * Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where  the options are called `None`, `Client IP` and `Client IP and Protocol` respectively.
      */
-    readonly loadDistribution?: pulumi.Input<string>;
+    loadDistribution?: pulumi.Input<string>;
     /**
      * The ID of the Load Balancer in which to create the Rule.
      */
-    readonly loadbalancerId?: pulumi.Input<string>;
+    loadbalancerId?: pulumi.Input<string>;
     /**
      * Specifies the name of the LB Rule.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A reference to a Probe used by this Load Balancing Rule.
      */
-    readonly probeId?: pulumi.Input<string>;
+    probeId?: pulumi.Input<string>;
     /**
      * The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
      */
-    readonly protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the resource.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -274,57 +274,57 @@ export interface RuleArgs {
     /**
      * A reference to a Backend Address Pool over which this Load Balancing Rule operates.
      */
-    readonly backendAddressPoolId?: pulumi.Input<string>;
+    backendAddressPoolId?: pulumi.Input<string>;
     /**
      * The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
      */
-    readonly backendPort: pulumi.Input<number>;
+    backendPort: pulumi.Input<number>;
     /**
      * Is snat enabled for this Load Balancer Rule? Default `false`.
      */
-    readonly disableOutboundSnat?: pulumi.Input<boolean>;
+    disableOutboundSnat?: pulumi.Input<boolean>;
     /**
      * Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
      */
-    readonly enableFloatingIp?: pulumi.Input<boolean>;
+    enableFloatingIp?: pulumi.Input<boolean>;
     /**
      * Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
      */
-    readonly enableTcpReset?: pulumi.Input<boolean>;
+    enableTcpReset?: pulumi.Input<boolean>;
     /**
      * The name of the frontend IP configuration to which the rule is associated.
      */
-    readonly frontendIpConfigurationName: pulumi.Input<string>;
+    frontendIpConfigurationName: pulumi.Input<string>;
     /**
      * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
      */
-    readonly frontendPort: pulumi.Input<number>;
+    frontendPort: pulumi.Input<number>;
     /**
      * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
      */
-    readonly idleTimeoutInMinutes?: pulumi.Input<number>;
+    idleTimeoutInMinutes?: pulumi.Input<number>;
     /**
      * Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where  the options are called `None`, `Client IP` and `Client IP and Protocol` respectively.
      */
-    readonly loadDistribution?: pulumi.Input<string>;
+    loadDistribution?: pulumi.Input<string>;
     /**
      * The ID of the Load Balancer in which to create the Rule.
      */
-    readonly loadbalancerId: pulumi.Input<string>;
+    loadbalancerId: pulumi.Input<string>;
     /**
      * Specifies the name of the LB Rule.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A reference to a Probe used by this Load Balancing Rule.
      */
-    readonly probeId?: pulumi.Input<string>;
+    probeId?: pulumi.Input<string>;
     /**
      * The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
      */
-    readonly protocol: pulumi.Input<string>;
+    protocol: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the resource.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

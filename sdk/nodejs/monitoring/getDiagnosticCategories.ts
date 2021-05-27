@@ -43,7 +43,7 @@ export interface GetDiagnosticCategoriesArgs {
     /**
      * The ID of an existing Resource which Monitor Diagnostics Categories should be retrieved for.
      */
-    readonly resourceId: string;
+    resourceId: string;
 }
 
 /**

@@ -150,31 +150,31 @@ export interface PropertyState {
     /**
      * The name of the API Management Service in which the API Management Property should exist. Changing this forces a new resource to be created.
      */
-    readonly apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string>;
     /**
      * The display name of this API Management Property.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The name of the API Management Property. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the API Management Property should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Specifies whether the API Management Property is secret. Valid values are `true` or `false`. The default value is `false`.
      */
-    readonly secret?: pulumi.Input<boolean>;
+    secret?: pulumi.Input<boolean>;
     /**
      * A list of tags to be applied to the API Management Property.
      */
-    readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The value of this API Management Property.
      */
-    readonly value?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
 }
 
 /**
@@ -184,29 +184,29 @@ export interface PropertyArgs {
     /**
      * The name of the API Management Service in which the API Management Property should exist. Changing this forces a new resource to be created.
      */
-    readonly apiManagementName: pulumi.Input<string>;
+    apiManagementName: pulumi.Input<string>;
     /**
      * The display name of this API Management Property.
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * The name of the API Management Property. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the API Management Property should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies whether the API Management Property is secret. Valid values are `true` or `false`. The default value is `false`.
      */
-    readonly secret?: pulumi.Input<boolean>;
+    secret?: pulumi.Input<boolean>;
     /**
      * A list of tags to be applied to the API Management Property.
      */
-    readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The value of this API Management Property.
      */
-    readonly value: pulumi.Input<string>;
+    value: pulumi.Input<string>;
 }

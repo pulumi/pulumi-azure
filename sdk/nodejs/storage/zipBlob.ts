@@ -118,37 +118,37 @@ export class ZipBlob extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ZipBlob resources.
  */
 export interface ZipBlobState {
-    readonly accessTier?: pulumi.Input<string>;
-    readonly content?: pulumi.Input<pulumi.asset.Archive>;
-    readonly contentMd5?: pulumi.Input<string>;
-    readonly contentType?: pulumi.Input<string>;
-    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly name?: pulumi.Input<string>;
-    readonly parallelism?: pulumi.Input<number>;
-    readonly size?: pulumi.Input<number>;
-    readonly sourceContent?: pulumi.Input<string>;
-    readonly sourceUri?: pulumi.Input<string>;
-    readonly storageAccountName?: pulumi.Input<string>;
-    readonly storageContainerName?: pulumi.Input<string>;
-    readonly type?: pulumi.Input<string>;
-    readonly url?: pulumi.Input<string>;
+    accessTier?: pulumi.Input<string>;
+    content?: pulumi.Input<pulumi.asset.Archive>;
+    contentMd5?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    name?: pulumi.Input<string>;
+    parallelism?: pulumi.Input<number>;
+    size?: pulumi.Input<number>;
+    sourceContent?: pulumi.Input<string>;
+    sourceUri?: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string>;
+    storageContainerName?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a ZipBlob resource.
  */
 export interface ZipBlobArgs {
-    readonly accessTier?: pulumi.Input<string>;
-    readonly content?: pulumi.Input<pulumi.asset.Archive>;
-    readonly contentMd5?: pulumi.Input<string>;
-    readonly contentType?: pulumi.Input<string>;
-    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly name?: pulumi.Input<string>;
-    readonly parallelism?: pulumi.Input<number>;
-    readonly size?: pulumi.Input<number>;
-    readonly sourceContent?: pulumi.Input<string>;
-    readonly sourceUri?: pulumi.Input<string>;
-    readonly storageAccountName: pulumi.Input<string>;
-    readonly storageContainerName: pulumi.Input<string>;
-    readonly type: pulumi.Input<string>;
+    accessTier?: pulumi.Input<string>;
+    content?: pulumi.Input<pulumi.asset.Archive>;
+    contentMd5?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    name?: pulumi.Input<string>;
+    parallelism?: pulumi.Input<number>;
+    size?: pulumi.Input<number>;
+    sourceContent?: pulumi.Input<string>;
+    sourceUri?: pulumi.Input<string>;
+    storageAccountName: pulumi.Input<string>;
+    storageContainerName: pulumi.Input<string>;
+    type: pulumi.Input<string>;
 }

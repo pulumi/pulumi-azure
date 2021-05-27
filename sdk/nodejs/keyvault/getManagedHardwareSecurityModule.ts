@@ -42,11 +42,11 @@ export interface GetManagedHardwareSecurityModuleArgs {
     /**
      * The name of the Key Vault Managed Hardware Security Module.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group in which the Key Vault Managed Hardware Security Module exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

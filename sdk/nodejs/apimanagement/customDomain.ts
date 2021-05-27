@@ -188,27 +188,27 @@ export interface CustomDomainState {
     /**
      * The ID of the API Management service for which to configure Custom Domains. Changing this forces a new API Management Custom Domain resource to be created.
      */
-    readonly apiManagementId?: pulumi.Input<string>;
+    apiManagementId?: pulumi.Input<string>;
     /**
      * One or more `developerPortal` blocks as defined below.
      */
-    readonly developerPortals?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainDeveloperPortal>[]>;
+    developerPortals?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainDeveloperPortal>[]>;
     /**
      * One or more `management` blocks as defined below.
      */
-    readonly managements?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainManagement>[]>;
+    managements?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainManagement>[]>;
     /**
      * One or more `portal` blocks as defined below.
      */
-    readonly portals?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainPortal>[]>;
+    portals?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainPortal>[]>;
     /**
      * One or more `proxy` blocks as defined below.
      */
-    readonly proxies?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainProxy>[]>;
+    proxies?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainProxy>[]>;
     /**
      * One or more `scm` blocks as defined below.
      */
-    readonly scms?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainScm>[]>;
+    scms?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainScm>[]>;
 }
 
 /**
@@ -218,25 +218,25 @@ export interface CustomDomainArgs {
     /**
      * The ID of the API Management service for which to configure Custom Domains. Changing this forces a new API Management Custom Domain resource to be created.
      */
-    readonly apiManagementId: pulumi.Input<string>;
+    apiManagementId: pulumi.Input<string>;
     /**
      * One or more `developerPortal` blocks as defined below.
      */
-    readonly developerPortals?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainDeveloperPortal>[]>;
+    developerPortals?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainDeveloperPortal>[]>;
     /**
      * One or more `management` blocks as defined below.
      */
-    readonly managements?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainManagement>[]>;
+    managements?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainManagement>[]>;
     /**
      * One or more `portal` blocks as defined below.
      */
-    readonly portals?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainPortal>[]>;
+    portals?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainPortal>[]>;
     /**
      * One or more `proxy` blocks as defined below.
      */
-    readonly proxies?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainProxy>[]>;
+    proxies?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainProxy>[]>;
     /**
      * One or more `scm` blocks as defined below.
      */
-    readonly scms?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainScm>[]>;
+    scms?: pulumi.Input<pulumi.Input<inputs.apimanagement.CustomDomainScm>[]>;
 }

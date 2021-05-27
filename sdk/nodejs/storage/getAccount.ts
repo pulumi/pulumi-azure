@@ -43,15 +43,15 @@ export interface GetAccountArgs {
     /**
      * The minimum supported TLS version for this storage account.
      */
-    readonly minTlsVersion?: string;
+    minTlsVersion?: string;
     /**
      * Specifies the name of the Storage Account
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the name of the resource group the Storage Account is located in.
      */
-    readonly resourceGroupName?: string;
+    resourceGroupName?: string;
 }
 
 /**

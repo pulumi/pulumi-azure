@@ -101,19 +101,19 @@ export interface SpringCloudCustomDomainState {
     /**
      * Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `thumbprint` is specified
      */
-    readonly certificateName?: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string>;
     /**
      * Specifies the name of the Spring Cloud Custom Domain. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the resource ID of the Spring Cloud Application. Changing this forces a new resource to be created.
      */
-    readonly springCloudAppId?: pulumi.Input<string>;
+    springCloudAppId?: pulumi.Input<string>;
     /**
      * Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificateName` is specified. Changing this forces a new resource to be created.
      */
-    readonly thumbprint?: pulumi.Input<string>;
+    thumbprint?: pulumi.Input<string>;
 }
 
 /**
@@ -123,17 +123,17 @@ export interface SpringCloudCustomDomainArgs {
     /**
      * Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `thumbprint` is specified
      */
-    readonly certificateName?: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string>;
     /**
      * Specifies the name of the Spring Cloud Custom Domain. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the resource ID of the Spring Cloud Application. Changing this forces a new resource to be created.
      */
-    readonly springCloudAppId: pulumi.Input<string>;
+    springCloudAppId: pulumi.Input<string>;
     /**
      * Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificateName` is specified. Changing this forces a new resource to be created.
      */
-    readonly thumbprint?: pulumi.Input<string>;
+    thumbprint?: pulumi.Input<string>;
 }

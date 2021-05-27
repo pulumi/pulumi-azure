@@ -227,89 +227,89 @@ export interface AssignmentState {
     /**
      * The name of the blueprint assigned
      */
-    readonly blueprintName?: pulumi.Input<string>;
+    blueprintName?: pulumi.Input<string>;
     /**
      * The Description on the Blueprint
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The display name of the blueprint
      */
-    readonly displayName?: pulumi.Input<string>;
-    readonly identity?: pulumi.Input<inputs.blueprint.AssignmentIdentity>;
+    displayName?: pulumi.Input<string>;
+    identity?: pulumi.Input<inputs.blueprint.AssignmentIdentity>;
     /**
      * The Azure location of the Assignment.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
      */
-    readonly lockExcludePrincipals?: pulumi.Input<pulumi.Input<string>[]>;
+    lockExcludePrincipals?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AlResourcesDoNotDelete`.
      */
-    readonly lockMode?: pulumi.Input<string>;
+    lockMode?: pulumi.Input<string>;
     /**
      * The name of the Blueprint Assignment
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * a JSON string to supply Blueprint Assignment parameter values.
      */
-    readonly parameterValues?: pulumi.Input<string>;
+    parameterValues?: pulumi.Input<string>;
     /**
      * a JSON string to supply the Blueprint Resource Group information.
      */
-    readonly resourceGroups?: pulumi.Input<string>;
+    resourceGroups?: pulumi.Input<string>;
     /**
      * The Subscription ID the Blueprint Published Version is to be applied to.
      */
-    readonly targetSubscriptionId?: pulumi.Input<string>;
+    targetSubscriptionId?: pulumi.Input<string>;
     /**
      * The Identity type for the Managed Service Identity. Currently only `UserAssigned` is supported.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * The ID of the Published Version of the blueprint to be assigned.
      */
-    readonly versionId?: pulumi.Input<string>;
+    versionId?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a Assignment resource.
  */
 export interface AssignmentArgs {
-    readonly identity?: pulumi.Input<inputs.blueprint.AssignmentIdentity>;
+    identity?: pulumi.Input<inputs.blueprint.AssignmentIdentity>;
     /**
      * The Azure location of the Assignment.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
      */
-    readonly lockExcludePrincipals?: pulumi.Input<pulumi.Input<string>[]>;
+    lockExcludePrincipals?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The locking mode of the Blueprint Assignment.  One of `None` (Default), `AllResourcesReadOnly`, or `AlResourcesDoNotDelete`.
      */
-    readonly lockMode?: pulumi.Input<string>;
+    lockMode?: pulumi.Input<string>;
     /**
      * The name of the Blueprint Assignment
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * a JSON string to supply Blueprint Assignment parameter values.
      */
-    readonly parameterValues?: pulumi.Input<string>;
+    parameterValues?: pulumi.Input<string>;
     /**
      * a JSON string to supply the Blueprint Resource Group information.
      */
-    readonly resourceGroups?: pulumi.Input<string>;
+    resourceGroups?: pulumi.Input<string>;
     /**
      * The Subscription ID the Blueprint Published Version is to be applied to.
      */
-    readonly targetSubscriptionId: pulumi.Input<string>;
+    targetSubscriptionId: pulumi.Input<string>;
     /**
      * The ID of the Published Version of the blueprint to be assigned.
      */
-    readonly versionId: pulumi.Input<string>;
+    versionId: pulumi.Input<string>;
 }

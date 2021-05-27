@@ -243,81 +243,81 @@ export interface RegistryState {
     /**
      * Specifies whether the admin user is enabled. Defaults to `false`.
      */
-    readonly adminEnabled?: pulumi.Input<boolean>;
+    adminEnabled?: pulumi.Input<boolean>;
     /**
      * The Password associated with the Container Registry Admin account - if the admin account is enabled.
      */
-    readonly adminPassword?: pulumi.Input<string>;
+    adminPassword?: pulumi.Input<string>;
     /**
      * The Username associated with the Container Registry Admin account - if the admin account is enabled.
      */
-    readonly adminUsername?: pulumi.Input<string>;
+    adminUsername?: pulumi.Input<string>;
     /**
      * An `encryption` block as documented below.
      */
-    readonly encryption?: pulumi.Input<inputs.containerservice.RegistryEncryption>;
+    encryption?: pulumi.Input<inputs.containerservice.RegistryEncryption>;
     /**
      * A list of Azure locations where the container registry should be geo-replicated.
      *
      * @deprecated Deprecated in favour of `georeplications`
      */
-    readonly georeplicationLocations?: pulumi.Input<pulumi.Input<string>[]>;
+    georeplicationLocations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `georeplications` block as documented below.
      */
-    readonly georeplications?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryGeoreplication>[]>;
+    georeplications?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryGeoreplication>[]>;
     /**
      * An `identity` block as documented below.
      */
-    readonly identity?: pulumi.Input<inputs.containerservice.RegistryIdentity>;
+    identity?: pulumi.Input<inputs.containerservice.RegistryIdentity>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The URL that can be used to log into the container registry.
      */
-    readonly loginServer?: pulumi.Input<string>;
+    loginServer?: pulumi.Input<string>;
     /**
      * Specifies the name of the Container Registry. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `networkRuleSet` block as documented below.
      */
-    readonly networkRuleSet?: pulumi.Input<inputs.containerservice.RegistryNetworkRuleSet>;
+    networkRuleSet?: pulumi.Input<inputs.containerservice.RegistryNetworkRuleSet>;
     /**
      * Whether public network access is allowed for the container registry. Defaults to `true`.
      */
-    readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
      */
-    readonly quarantinePolicyEnabled?: pulumi.Input<boolean>;
+    quarantinePolicyEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A `retentionPolicy` block as documented below.
      */
-    readonly retentionPolicy?: pulumi.Input<inputs.containerservice.RegistryRetentionPolicy>;
+    retentionPolicy?: pulumi.Input<inputs.containerservice.RegistryRetentionPolicy>;
     /**
      * The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
      */
-    readonly sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string>;
     /**
      * The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
      */
-    readonly storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `trustPolicy` block as documented below.
      */
-    readonly trustPolicy?: pulumi.Input<inputs.containerservice.RegistryTrustPolicy>;
+    trustPolicy?: pulumi.Input<inputs.containerservice.RegistryTrustPolicy>;
 }
 
 /**
@@ -327,67 +327,67 @@ export interface RegistryArgs {
     /**
      * Specifies whether the admin user is enabled. Defaults to `false`.
      */
-    readonly adminEnabled?: pulumi.Input<boolean>;
+    adminEnabled?: pulumi.Input<boolean>;
     /**
      * An `encryption` block as documented below.
      */
-    readonly encryption?: pulumi.Input<inputs.containerservice.RegistryEncryption>;
+    encryption?: pulumi.Input<inputs.containerservice.RegistryEncryption>;
     /**
      * A list of Azure locations where the container registry should be geo-replicated.
      *
      * @deprecated Deprecated in favour of `georeplications`
      */
-    readonly georeplicationLocations?: pulumi.Input<pulumi.Input<string>[]>;
+    georeplicationLocations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `georeplications` block as documented below.
      */
-    readonly georeplications?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryGeoreplication>[]>;
+    georeplications?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryGeoreplication>[]>;
     /**
      * An `identity` block as documented below.
      */
-    readonly identity?: pulumi.Input<inputs.containerservice.RegistryIdentity>;
+    identity?: pulumi.Input<inputs.containerservice.RegistryIdentity>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Container Registry. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `networkRuleSet` block as documented below.
      */
-    readonly networkRuleSet?: pulumi.Input<inputs.containerservice.RegistryNetworkRuleSet>;
+    networkRuleSet?: pulumi.Input<inputs.containerservice.RegistryNetworkRuleSet>;
     /**
      * Whether public network access is allowed for the container registry. Defaults to `true`.
      */
-    readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * Boolean value that indicates whether quarantine policy is enabled. Defaults to `false`.
      */
-    readonly quarantinePolicyEnabled?: pulumi.Input<boolean>;
+    quarantinePolicyEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A `retentionPolicy` block as documented below.
      */
-    readonly retentionPolicy?: pulumi.Input<inputs.containerservice.RegistryRetentionPolicy>;
+    retentionPolicy?: pulumi.Input<inputs.containerservice.RegistryRetentionPolicy>;
     /**
      * The SKU name of the container registry. Possible values are  `Basic`, `Standard` and `Premium`. `Classic` (which was previously `Basic`) is supported only for existing resources.
      */
-    readonly sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string>;
     /**
      * The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.  Changing this forces a new resource to be created.
      */
-    readonly storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `trustPolicy` block as documented below.
      */
-    readonly trustPolicy?: pulumi.Input<inputs.containerservice.RegistryTrustPolicy>;
+    trustPolicy?: pulumi.Input<inputs.containerservice.RegistryTrustPolicy>;
 }

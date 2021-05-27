@@ -128,19 +128,19 @@ export interface FirewallRuleState {
     /**
      * The ending IP address to allow through the firewall for this rule.
      */
-    readonly endIpAddress?: pulumi.Input<string>;
+    endIpAddress?: pulumi.Input<string>;
     /**
      * The name of the firewall rule.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The resource ID of the SQL Server on which to create the Firewall Rule.
      */
-    readonly serverId?: pulumi.Input<string>;
+    serverId?: pulumi.Input<string>;
     /**
      * The starting IP address to allow through the firewall for this rule.
      */
-    readonly startIpAddress?: pulumi.Input<string>;
+    startIpAddress?: pulumi.Input<string>;
 }
 
 /**
@@ -150,17 +150,17 @@ export interface FirewallRuleArgs {
     /**
      * The ending IP address to allow through the firewall for this rule.
      */
-    readonly endIpAddress: pulumi.Input<string>;
+    endIpAddress: pulumi.Input<string>;
     /**
      * The name of the firewall rule.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The resource ID of the SQL Server on which to create the Firewall Rule.
      */
-    readonly serverId: pulumi.Input<string>;
+    serverId: pulumi.Input<string>;
     /**
      * The starting IP address to allow through the firewall for this rule.
      */
-    readonly startIpAddress: pulumi.Input<string>;
+    startIpAddress: pulumi.Input<string>;
 }

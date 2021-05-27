@@ -170,39 +170,39 @@ export interface SecretState {
     /**
      * Specifies the content type for the Key Vault Secret.
      */
-    readonly contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string>;
     /**
      * Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
      */
-    readonly expirationDate?: pulumi.Input<string>;
+    expirationDate?: pulumi.Input<string>;
     /**
      * The ID of the Key Vault where the Secret should be created.
      */
-    readonly keyVaultId?: pulumi.Input<string>;
+    keyVaultId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
      */
-    readonly notBeforeDate?: pulumi.Input<string>;
+    notBeforeDate?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the value of the Key Vault Secret.
      */
-    readonly value?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
     /**
      * The current version of the Key Vault Secret.
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
     /**
      * The Base ID of the Key Vault Secret.
      */
-    readonly versionlessId?: pulumi.Input<string>;
+    versionlessId?: pulumi.Input<string>;
 }
 
 /**
@@ -212,29 +212,29 @@ export interface SecretArgs {
     /**
      * Specifies the content type for the Key Vault Secret.
      */
-    readonly contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string>;
     /**
      * Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
      */
-    readonly expirationDate?: pulumi.Input<string>;
+    expirationDate?: pulumi.Input<string>;
     /**
      * The ID of the Key Vault where the Secret should be created.
      */
-    readonly keyVaultId: pulumi.Input<string>;
+    keyVaultId: pulumi.Input<string>;
     /**
      * Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
      */
-    readonly notBeforeDate?: pulumi.Input<string>;
+    notBeforeDate?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the value of the Key Vault Secret.
      */
-    readonly value: pulumi.Input<string>;
+    value: pulumi.Input<string>;
 }

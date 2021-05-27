@@ -141,35 +141,35 @@ export interface AssessmentPolicyState {
     /**
      * The description of the Security Center Assessment.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The user-friendly display name of the Security Center Assessment.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The implementation effort which is used to remediate the Security Center Assessment. Possible values are `Low`, `Moderate` and `High`.
      */
-    readonly implementationEffort?: pulumi.Input<string>;
+    implementationEffort?: pulumi.Input<string>;
     /**
      * The GUID as the name of the Security Center Assessment Policy.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The description which is used to mitigate the security issue.
      */
-    readonly remediationDescription?: pulumi.Input<string>;
+    remediationDescription?: pulumi.Input<string>;
     /**
      * The severity level of the Security Center Assessment. Possible values are `Low`, `Medium` and `High`. Defaults to `Medium`.
      */
-    readonly severity?: pulumi.Input<string>;
+    severity?: pulumi.Input<string>;
     /**
      * A list of the threat impacts for the Security Center Assessment. Possible values are `AccountBreach`, `DataExfiltration`, `DataSpillage`, `DenialOfService`, `ElevationOfPrivilege`, `MaliciousInsider`, `MissingCoverage` and `ThreatResistance`.
      */
-    readonly threats?: pulumi.Input<pulumi.Input<string>[]>;
+    threats?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The user impact of the Security Center Assessment. Possible values are `Low`, `Moderate` and `High`.
      */
-    readonly userImpact?: pulumi.Input<string>;
+    userImpact?: pulumi.Input<string>;
 }
 
 /**
@@ -179,29 +179,29 @@ export interface AssessmentPolicyArgs {
     /**
      * The description of the Security Center Assessment.
      */
-    readonly description: pulumi.Input<string>;
+    description: pulumi.Input<string>;
     /**
      * The user-friendly display name of the Security Center Assessment.
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * The implementation effort which is used to remediate the Security Center Assessment. Possible values are `Low`, `Moderate` and `High`.
      */
-    readonly implementationEffort?: pulumi.Input<string>;
+    implementationEffort?: pulumi.Input<string>;
     /**
      * The description which is used to mitigate the security issue.
      */
-    readonly remediationDescription?: pulumi.Input<string>;
+    remediationDescription?: pulumi.Input<string>;
     /**
      * The severity level of the Security Center Assessment. Possible values are `Low`, `Medium` and `High`. Defaults to `Medium`.
      */
-    readonly severity?: pulumi.Input<string>;
+    severity?: pulumi.Input<string>;
     /**
      * A list of the threat impacts for the Security Center Assessment. Possible values are `AccountBreach`, `DataExfiltration`, `DataSpillage`, `DenialOfService`, `ElevationOfPrivilege`, `MaliciousInsider`, `MissingCoverage` and `ThreatResistance`.
      */
-    readonly threats?: pulumi.Input<pulumi.Input<string>[]>;
+    threats?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The user impact of the Security Center Assessment. Possible values are `Low`, `Moderate` and `High`.
      */
-    readonly userImpact?: pulumi.Input<string>;
+    userImpact?: pulumi.Input<string>;
 }

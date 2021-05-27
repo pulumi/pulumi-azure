@@ -175,27 +175,27 @@ export interface FirewallApplicationRuleCollectionState {
     /**
      * Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`.
      */
-    readonly action?: pulumi.Input<string>;
+    action?: pulumi.Input<string>;
     /**
      * Specifies the name of the Firewall in which the Application Rule Collection should be created. Changing this forces a new resource to be created.
      */
-    readonly azureFirewallName?: pulumi.Input<string>;
+    azureFirewallName?: pulumi.Input<string>;
     /**
      * Specifies the name of the Application Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
      */
-    readonly priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number>;
     /**
      * Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * One or more `rule` blocks as defined below.
      */
-    readonly rules?: pulumi.Input<pulumi.Input<inputs.network.FirewallApplicationRuleCollectionRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.network.FirewallApplicationRuleCollectionRule>[]>;
 }
 
 /**
@@ -205,25 +205,25 @@ export interface FirewallApplicationRuleCollectionArgs {
     /**
      * Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`.
      */
-    readonly action: pulumi.Input<string>;
+    action: pulumi.Input<string>;
     /**
      * Specifies the name of the Firewall in which the Application Rule Collection should be created. Changing this forces a new resource to be created.
      */
-    readonly azureFirewallName: pulumi.Input<string>;
+    azureFirewallName: pulumi.Input<string>;
     /**
      * Specifies the name of the Application Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
      */
-    readonly priority: pulumi.Input<number>;
+    priority: pulumi.Input<number>;
     /**
      * Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * One or more `rule` blocks as defined below.
      */
-    readonly rules: pulumi.Input<pulumi.Input<inputs.network.FirewallApplicationRuleCollectionRule>[]>;
+    rules: pulumi.Input<pulumi.Input<inputs.network.FirewallApplicationRuleCollectionRule>[]>;
 }

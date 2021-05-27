@@ -218,71 +218,71 @@ export interface KeyVaultState {
     /**
      * A list of up to 16 objects describing access policies, as described below.
      */
-    readonly accessPolicies?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultAccessPolicy>[]>;
+    accessPolicies?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultAccessPolicy>[]>;
     /**
      * One or more `contact` block as defined below.
      */
-    readonly contacts?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultContact>[]>;
+    contacts?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultContact>[]>;
     /**
      * Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
      */
-    readonly enableRbacAuthorization?: pulumi.Input<boolean>;
+    enableRbacAuthorization?: pulumi.Input<boolean>;
     /**
      * Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
      */
-    readonly enabledForDeployment?: pulumi.Input<boolean>;
+    enabledForDeployment?: pulumi.Input<boolean>;
     /**
      * Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
      */
-    readonly enabledForDiskEncryption?: pulumi.Input<boolean>;
+    enabledForDiskEncryption?: pulumi.Input<boolean>;
     /**
      * Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
      */
-    readonly enabledForTemplateDeployment?: pulumi.Input<boolean>;
+    enabledForTemplateDeployment?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Key Vault. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `networkAcls` block as defined below.
      */
-    readonly networkAcls?: pulumi.Input<inputs.keyvault.KeyVaultNetworkAcls>;
+    networkAcls?: pulumi.Input<inputs.keyvault.KeyVaultNetworkAcls>;
     /**
      * Is Purge Protection enabled for this Key Vault? Defaults to `false`.
      */
-    readonly purgeProtectionEnabled?: pulumi.Input<boolean>;
+    purgeProtectionEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
      */
-    readonly skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string>;
     /**
      * @deprecated Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field is no longer configurable and can be safely removed. This field will be removed in version 3.0 of the Azure Provider.
      */
-    readonly softDeleteEnabled?: pulumi.Input<boolean>;
+    softDeleteEnabled?: pulumi.Input<boolean>;
     /**
      * The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
      */
-    readonly softDeleteRetentionDays?: pulumi.Input<number>;
+    softDeleteRetentionDays?: pulumi.Input<number>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
      */
-    readonly tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string>;
     /**
      * The URI of the Key Vault, used for performing operations on keys and secrets.
      */
-    readonly vaultUri?: pulumi.Input<string>;
+    vaultUri?: pulumi.Input<string>;
 }
 
 /**
@@ -292,65 +292,65 @@ export interface KeyVaultArgs {
     /**
      * A list of up to 16 objects describing access policies, as described below.
      */
-    readonly accessPolicies?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultAccessPolicy>[]>;
+    accessPolicies?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultAccessPolicy>[]>;
     /**
      * One or more `contact` block as defined below.
      */
-    readonly contacts?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultContact>[]>;
+    contacts?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultContact>[]>;
     /**
      * Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `false`.
      */
-    readonly enableRbacAuthorization?: pulumi.Input<boolean>;
+    enableRbacAuthorization?: pulumi.Input<boolean>;
     /**
      * Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
      */
-    readonly enabledForDeployment?: pulumi.Input<boolean>;
+    enabledForDeployment?: pulumi.Input<boolean>;
     /**
      * Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
      */
-    readonly enabledForDiskEncryption?: pulumi.Input<boolean>;
+    enabledForDiskEncryption?: pulumi.Input<boolean>;
     /**
      * Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
      */
-    readonly enabledForTemplateDeployment?: pulumi.Input<boolean>;
+    enabledForTemplateDeployment?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Key Vault. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `networkAcls` block as defined below.
      */
-    readonly networkAcls?: pulumi.Input<inputs.keyvault.KeyVaultNetworkAcls>;
+    networkAcls?: pulumi.Input<inputs.keyvault.KeyVaultNetworkAcls>;
     /**
      * Is Purge Protection enabled for this Key Vault? Defaults to `false`.
      */
-    readonly purgeProtectionEnabled?: pulumi.Input<boolean>;
+    purgeProtectionEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
      */
-    readonly skuName: pulumi.Input<string>;
+    skuName: pulumi.Input<string>;
     /**
      * @deprecated Azure has removed support for disabling Soft Delete as of 2020-12-15, as such this field is no longer configurable and can be safely removed. This field will be removed in version 3.0 of the Azure Provider.
      */
-    readonly softDeleteEnabled?: pulumi.Input<boolean>;
+    softDeleteEnabled?: pulumi.Input<boolean>;
     /**
      * The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
      */
-    readonly softDeleteRetentionDays?: pulumi.Input<number>;
+    softDeleteRetentionDays?: pulumi.Input<number>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
      */
-    readonly tenantId: pulumi.Input<string>;
+    tenantId: pulumi.Input<string>;
 }

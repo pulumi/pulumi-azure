@@ -432,191 +432,191 @@ export interface WindowsVirtualMachineScaleSetState {
     /**
      * A `additionalCapabilities` block as defined below.
      */
-    readonly additionalCapabilities?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetAdditionalCapabilities>;
+    additionalCapabilities?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetAdditionalCapabilities>;
     /**
      * One or more `additionalUnattendContent` blocks as defined below.
      */
-    readonly additionalUnattendContents?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetAdditionalUnattendContent>[]>;
+    additionalUnattendContents?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetAdditionalUnattendContent>[]>;
     /**
      * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
      */
-    readonly adminPassword?: pulumi.Input<string>;
+    adminPassword?: pulumi.Input<string>;
     /**
      * The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
      */
-    readonly adminUsername?: pulumi.Input<string>;
+    adminUsername?: pulumi.Input<string>;
     /**
      * A `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
      */
-    readonly automaticInstanceRepair?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetAutomaticInstanceRepair>;
+    automaticInstanceRepair?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetAutomaticInstanceRepair>;
     /**
      * A `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
      */
-    readonly automaticOsUpgradePolicy?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy>;
+    automaticOsUpgradePolicy?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy>;
     /**
      * A `bootDiagnostics` block as defined below.
      */
-    readonly bootDiagnostics?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetBootDiagnostics>;
+    bootDiagnostics?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetBootDiagnostics>;
     /**
      * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`.
      */
-    readonly computerNamePrefix?: pulumi.Input<string>;
+    computerNamePrefix?: pulumi.Input<string>;
     /**
      * The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
      */
-    readonly customData?: pulumi.Input<string>;
+    customData?: pulumi.Input<string>;
     /**
      * One or more `dataDisk` blocks as defined below.
      */
-    readonly dataDisks?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetDataDisk>[]>;
+    dataDisks?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetDataDisk>[]>;
     /**
      * Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
      */
-    readonly doNotRunExtensionsOnOverprovisionedMachines?: pulumi.Input<boolean>;
+    doNotRunExtensionsOnOverprovisionedMachines?: pulumi.Input<boolean>;
     /**
      * Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
      */
-    readonly enableAutomaticUpdates?: pulumi.Input<boolean>;
+    enableAutomaticUpdates?: pulumi.Input<boolean>;
     /**
      * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
      */
-    readonly encryptionAtHostEnabled?: pulumi.Input<boolean>;
+    encryptionAtHostEnabled?: pulumi.Input<boolean>;
     /**
      * The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
      */
-    readonly evictionPolicy?: pulumi.Input<string>;
+    evictionPolicy?: pulumi.Input<string>;
     /**
      * One or more `extension` blocks as defined below
      */
-    readonly extensions?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetExtension>[]>;
+    extensions?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetExtension>[]>;
     /**
      * Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
      */
-    readonly extensionsTimeBudget?: pulumi.Input<string>;
+    extensionsTimeBudget?: pulumi.Input<string>;
     /**
      * The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
      */
-    readonly healthProbeId?: pulumi.Input<string>;
+    healthProbeId?: pulumi.Input<string>;
     /**
      * A `identity` block as defined below.
      */
-    readonly identity?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetIdentity>;
+    identity?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetIdentity>;
     /**
      * The number of Virtual Machines in the Scale Set.
      */
-    readonly instances?: pulumi.Input<number>;
+    instances?: pulumi.Input<number>;
     /**
      * Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
      */
-    readonly licenseType?: pulumi.Input<string>;
+    licenseType?: pulumi.Input<string>;
     /**
      * The Azure location where the Windows Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
      */
-    readonly maxBidPrice?: pulumi.Input<number>;
+    maxBidPrice?: pulumi.Input<number>;
     /**
      * The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * One or more `networkInterface` blocks as defined below.
      */
-    readonly networkInterfaces?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetNetworkInterface>[]>;
+    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetNetworkInterface>[]>;
     /**
      * An `osDisk` block as defined below.
      */
-    readonly osDisk?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetOsDisk>;
+    osDisk?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetOsDisk>;
     /**
      * Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
      */
-    readonly overprovision?: pulumi.Input<boolean>;
+    overprovision?: pulumi.Input<boolean>;
     /**
      * A `plan` block as documented below.
      */
-    readonly plan?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetPlan>;
+    plan?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetPlan>;
     /**
      * Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
      */
-    readonly platformFaultDomainCount?: pulumi.Input<number>;
+    platformFaultDomainCount?: pulumi.Input<number>;
     /**
      * The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
      */
-    readonly priority?: pulumi.Input<string>;
+    priority?: pulumi.Input<string>;
     /**
      * Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
      */
-    readonly provisionVmAgent?: pulumi.Input<boolean>;
+    provisionVmAgent?: pulumi.Input<boolean>;
     /**
      * The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
      */
-    readonly proximityPlacementGroupId?: pulumi.Input<string>;
+    proximityPlacementGroupId?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the Windows Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
      */
-    readonly rollingUpgradePolicy?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetRollingUpgradePolicy>;
+    rollingUpgradePolicy?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetRollingUpgradePolicy>;
     /**
      * The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
      */
-    readonly scaleInPolicy?: pulumi.Input<string>;
+    scaleInPolicy?: pulumi.Input<string>;
     /**
      * One or more `secret` blocks as defined below.
      */
-    readonly secrets?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetSecret>[]>;
+    secrets?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetSecret>[]>;
     /**
      * Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
      */
-    readonly singlePlacementGroup?: pulumi.Input<boolean>;
+    singlePlacementGroup?: pulumi.Input<boolean>;
     /**
      * The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
      */
-    readonly sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string>;
     /**
      * The ID of an Image which each Virtual Machine in this Scale Set should be based on.
      */
-    readonly sourceImageId?: pulumi.Input<string>;
+    sourceImageId?: pulumi.Input<string>;
     /**
      * A `sourceImageReference` block as defined below.
      */
-    readonly sourceImageReference?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetSourceImageReference>;
+    sourceImageReference?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetSourceImageReference>;
     /**
      * A mapping of tags which should be assigned to this Virtual Machine Scale Set.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `terminateNotification` block as defined below.
      */
-    readonly terminateNotification?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetTerminateNotification>;
+    terminateNotification?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetTerminateNotification>;
     /**
      * Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
      */
-    readonly timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string>;
     /**
      * The Unique ID for this Windows Virtual Machine Scale Set.
      */
-    readonly uniqueId?: pulumi.Input<string>;
+    uniqueId?: pulumi.Input<string>;
     /**
      * Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
      */
-    readonly upgradeMode?: pulumi.Input<string>;
+    upgradeMode?: pulumi.Input<string>;
     /**
      * One or more `winrmListener` blocks as defined below.
      */
-    readonly winrmListeners?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetWinrmListener>[]>;
+    winrmListeners?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetWinrmListener>[]>;
     /**
      * Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
      */
-    readonly zoneBalance?: pulumi.Input<boolean>;
+    zoneBalance?: pulumi.Input<boolean>;
     /**
      * A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
      */
-    readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -626,185 +626,185 @@ export interface WindowsVirtualMachineScaleSetArgs {
     /**
      * A `additionalCapabilities` block as defined below.
      */
-    readonly additionalCapabilities?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetAdditionalCapabilities>;
+    additionalCapabilities?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetAdditionalCapabilities>;
     /**
      * One or more `additionalUnattendContent` blocks as defined below.
      */
-    readonly additionalUnattendContents?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetAdditionalUnattendContent>[]>;
+    additionalUnattendContents?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetAdditionalUnattendContent>[]>;
     /**
      * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
      */
-    readonly adminPassword: pulumi.Input<string>;
+    adminPassword: pulumi.Input<string>;
     /**
      * The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
      */
-    readonly adminUsername: pulumi.Input<string>;
+    adminUsername: pulumi.Input<string>;
     /**
      * A `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
      */
-    readonly automaticInstanceRepair?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetAutomaticInstanceRepair>;
+    automaticInstanceRepair?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetAutomaticInstanceRepair>;
     /**
      * A `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
      */
-    readonly automaticOsUpgradePolicy?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy>;
+    automaticOsUpgradePolicy?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy>;
     /**
      * A `bootDiagnostics` block as defined below.
      */
-    readonly bootDiagnostics?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetBootDiagnostics>;
+    bootDiagnostics?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetBootDiagnostics>;
     /**
      * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`.
      */
-    readonly computerNamePrefix?: pulumi.Input<string>;
+    computerNamePrefix?: pulumi.Input<string>;
     /**
      * The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
      */
-    readonly customData?: pulumi.Input<string>;
+    customData?: pulumi.Input<string>;
     /**
      * One or more `dataDisk` blocks as defined below.
      */
-    readonly dataDisks?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetDataDisk>[]>;
+    dataDisks?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetDataDisk>[]>;
     /**
      * Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
      */
-    readonly doNotRunExtensionsOnOverprovisionedMachines?: pulumi.Input<boolean>;
+    doNotRunExtensionsOnOverprovisionedMachines?: pulumi.Input<boolean>;
     /**
      * Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
      */
-    readonly enableAutomaticUpdates?: pulumi.Input<boolean>;
+    enableAutomaticUpdates?: pulumi.Input<boolean>;
     /**
      * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
      */
-    readonly encryptionAtHostEnabled?: pulumi.Input<boolean>;
+    encryptionAtHostEnabled?: pulumi.Input<boolean>;
     /**
      * The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
      */
-    readonly evictionPolicy?: pulumi.Input<string>;
+    evictionPolicy?: pulumi.Input<string>;
     /**
      * One or more `extension` blocks as defined below
      */
-    readonly extensions?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetExtension>[]>;
+    extensions?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetExtension>[]>;
     /**
      * Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
      */
-    readonly extensionsTimeBudget?: pulumi.Input<string>;
+    extensionsTimeBudget?: pulumi.Input<string>;
     /**
      * The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
      */
-    readonly healthProbeId?: pulumi.Input<string>;
+    healthProbeId?: pulumi.Input<string>;
     /**
      * A `identity` block as defined below.
      */
-    readonly identity?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetIdentity>;
+    identity?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetIdentity>;
     /**
      * The number of Virtual Machines in the Scale Set.
      */
-    readonly instances: pulumi.Input<number>;
+    instances: pulumi.Input<number>;
     /**
      * Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
      */
-    readonly licenseType?: pulumi.Input<string>;
+    licenseType?: pulumi.Input<string>;
     /**
      * The Azure location where the Windows Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
      */
-    readonly maxBidPrice?: pulumi.Input<number>;
+    maxBidPrice?: pulumi.Input<number>;
     /**
      * The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * One or more `networkInterface` blocks as defined below.
      */
-    readonly networkInterfaces: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetNetworkInterface>[]>;
+    networkInterfaces: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetNetworkInterface>[]>;
     /**
      * An `osDisk` block as defined below.
      */
-    readonly osDisk: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetOsDisk>;
+    osDisk: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetOsDisk>;
     /**
      * Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
      */
-    readonly overprovision?: pulumi.Input<boolean>;
+    overprovision?: pulumi.Input<boolean>;
     /**
      * A `plan` block as documented below.
      */
-    readonly plan?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetPlan>;
+    plan?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetPlan>;
     /**
      * Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
      */
-    readonly platformFaultDomainCount?: pulumi.Input<number>;
+    platformFaultDomainCount?: pulumi.Input<number>;
     /**
      * The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
      */
-    readonly priority?: pulumi.Input<string>;
+    priority?: pulumi.Input<string>;
     /**
      * Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
      */
-    readonly provisionVmAgent?: pulumi.Input<boolean>;
+    provisionVmAgent?: pulumi.Input<boolean>;
     /**
      * The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
      */
-    readonly proximityPlacementGroupId?: pulumi.Input<string>;
+    proximityPlacementGroupId?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the Windows Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
      */
-    readonly rollingUpgradePolicy?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetRollingUpgradePolicy>;
+    rollingUpgradePolicy?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetRollingUpgradePolicy>;
     /**
      * The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
      */
-    readonly scaleInPolicy?: pulumi.Input<string>;
+    scaleInPolicy?: pulumi.Input<string>;
     /**
      * One or more `secret` blocks as defined below.
      */
-    readonly secrets?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetSecret>[]>;
+    secrets?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetSecret>[]>;
     /**
      * Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
      */
-    readonly singlePlacementGroup?: pulumi.Input<boolean>;
+    singlePlacementGroup?: pulumi.Input<boolean>;
     /**
      * The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
      */
-    readonly sku: pulumi.Input<string>;
+    sku: pulumi.Input<string>;
     /**
      * The ID of an Image which each Virtual Machine in this Scale Set should be based on.
      */
-    readonly sourceImageId?: pulumi.Input<string>;
+    sourceImageId?: pulumi.Input<string>;
     /**
      * A `sourceImageReference` block as defined below.
      */
-    readonly sourceImageReference?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetSourceImageReference>;
+    sourceImageReference?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetSourceImageReference>;
     /**
      * A mapping of tags which should be assigned to this Virtual Machine Scale Set.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `terminateNotification` block as defined below.
      */
-    readonly terminateNotification?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetTerminateNotification>;
+    terminateNotification?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetTerminateNotification>;
     /**
      * Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
      */
-    readonly timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string>;
     /**
      * Specifies how Upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`.
      */
-    readonly upgradeMode?: pulumi.Input<string>;
+    upgradeMode?: pulumi.Input<string>;
     /**
      * One or more `winrmListener` blocks as defined below.
      */
-    readonly winrmListeners?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetWinrmListener>[]>;
+    winrmListeners?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetWinrmListener>[]>;
     /**
      * Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
      */
-    readonly zoneBalance?: pulumi.Input<boolean>;
+    zoneBalance?: pulumi.Input<boolean>;
     /**
      * A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
      */
-    readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

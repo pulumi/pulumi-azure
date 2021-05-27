@@ -197,47 +197,47 @@ export interface DatabasePrincipalState {
     /**
      * The app id, if not empty, of the principal.
      */
-    readonly appId?: pulumi.Input<string>;
+    appId?: pulumi.Input<string>;
     /**
      * The Client ID that owns the specified `objectId`. Changing this forces a new resource to be created.
      */
-    readonly clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Kusto Cluster this database principal will be added to. Changing this forces a new resource to be created.
      */
-    readonly clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     /**
      * Specified the name of the Kusto Database this principal will be added to. Changing this forces a new resource to be created.
      */
-    readonly databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
     /**
      * The email, if not empty, of the principal.
      */
-    readonly email?: pulumi.Input<string>;
+    email?: pulumi.Input<string>;
     /**
      * The fully qualified name of the principal.
      */
-    readonly fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string>;
     /**
      * The name of the Kusto Database Principal.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * An Object ID of a User, Group, or App. Changing this forces a new resource to be created.
      */
-    readonly objectId?: pulumi.Input<string>;
+    objectId?: pulumi.Input<string>;
     /**
      * Specifies the Resource Group where the Kusto Database Principal should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Specifies the permissions the Principal will have. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewers`, `User`, `Viewer`. Changing this forces a new resource to be created.
      */
-    readonly role?: pulumi.Input<string>;
+    role?: pulumi.Input<string>;
     /**
      * Specifies the type of object the principal is. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }
 
 /**
@@ -247,29 +247,29 @@ export interface DatabasePrincipalArgs {
     /**
      * The Client ID that owns the specified `objectId`. Changing this forces a new resource to be created.
      */
-    readonly clientId: pulumi.Input<string>;
+    clientId: pulumi.Input<string>;
     /**
      * Specifies the name of the Kusto Cluster this database principal will be added to. Changing this forces a new resource to be created.
      */
-    readonly clusterName: pulumi.Input<string>;
+    clusterName: pulumi.Input<string>;
     /**
      * Specified the name of the Kusto Database this principal will be added to. Changing this forces a new resource to be created.
      */
-    readonly databaseName: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * An Object ID of a User, Group, or App. Changing this forces a new resource to be created.
      */
-    readonly objectId: pulumi.Input<string>;
+    objectId: pulumi.Input<string>;
     /**
      * Specifies the Resource Group where the Kusto Database Principal should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies the permissions the Principal will have. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewers`, `User`, `Viewer`. Changing this forces a new resource to be created.
      */
-    readonly role: pulumi.Input<string>;
+    role: pulumi.Input<string>;
     /**
      * Specifies the type of object the principal is. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
 }

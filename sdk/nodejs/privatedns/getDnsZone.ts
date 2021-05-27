@@ -42,13 +42,13 @@ export interface GetDnsZoneArgs {
     /**
      * The name of the Private DNS Zone.
      */
-    readonly name: string;
+    name: string;
     /**
      * The Name of the Resource Group where the Private DNS Zone exists.
      * If the Name of the Resource Group is not provided, the first Private DNS Zone from the list of Private
      * DNS Zones in your subscription that matches `name` will be returned.
      */
-    readonly resourceGroupName?: string;
+    resourceGroupName?: string;
 }
 
 /**

@@ -42,11 +42,11 @@ export interface GetAvailabilitySetArgs {
     /**
      * The name of the Availability Set.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the resource group in which the Availability Set exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -119,27 +119,27 @@ export interface CertificateBindingState {
     /**
      * The name of the App Service to which the certificate was bound.
      */
-    readonly appServiceName?: pulumi.Input<string>;
+    appServiceName?: pulumi.Input<string>;
     /**
      * The ID of the certificate to bind to the custom domain. Changing this forces a new App Service Certificate Binding to be created.
      */
-    readonly certificateId?: pulumi.Input<string>;
+    certificateId?: pulumi.Input<string>;
     /**
      * The hostname of the bound certificate.
      */
-    readonly hostname?: pulumi.Input<string>;
+    hostname?: pulumi.Input<string>;
     /**
      * The ID of the Custom Domain/Hostname Binding. Changing this forces a new App Service Certificate Binding to be created.
      */
-    readonly hostnameBindingId?: pulumi.Input<string>;
+    hostnameBindingId?: pulumi.Input<string>;
     /**
      * The type of certificate binding. Allowed values are `IpBasedEnabled` or `SniEnabled`. Changing this forces a new App Service Certificate Binding to be created.
      */
-    readonly sslState?: pulumi.Input<string>;
+    sslState?: pulumi.Input<string>;
     /**
      * The certificate thumbprint.
      */
-    readonly thumbprint?: pulumi.Input<string>;
+    thumbprint?: pulumi.Input<string>;
 }
 
 /**
@@ -149,13 +149,13 @@ export interface CertificateBindingArgs {
     /**
      * The ID of the certificate to bind to the custom domain. Changing this forces a new App Service Certificate Binding to be created.
      */
-    readonly certificateId: pulumi.Input<string>;
+    certificateId: pulumi.Input<string>;
     /**
      * The ID of the Custom Domain/Hostname Binding. Changing this forces a new App Service Certificate Binding to be created.
      */
-    readonly hostnameBindingId: pulumi.Input<string>;
+    hostnameBindingId: pulumi.Input<string>;
     /**
      * The type of certificate binding. Allowed values are `IpBasedEnabled` or `SniEnabled`. Changing this forces a new App Service Certificate Binding to be created.
      */
-    readonly sslState: pulumi.Input<string>;
+    sslState: pulumi.Input<string>;
 }

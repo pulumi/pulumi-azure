@@ -42,11 +42,11 @@ export interface GetDatasetDataLakeGen1Args {
     /**
      * The resource ID of the Data Share where this Data Share Data Lake Gen1 Dataset should be created.
      */
-    readonly dataShareId: string;
+    dataShareId: string;
     /**
      * The name of the Data Share Data Lake Gen1 Dataset.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

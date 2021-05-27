@@ -44,15 +44,15 @@ export interface GetGroupArgs {
     /**
      * The Name of the API Management Service in which this Group exists.
      */
-    readonly apiManagementName: string;
+    apiManagementName: string;
     /**
      * The Name of the API Management Group.
      */
-    readonly name: string;
+    name: string;
     /**
      * The Name of the Resource Group in which the API Management Service exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const test = pulumi.output(azure.cognitive.getAccount({
  *     name: "example-account",
  *     resourceGroupName: "cognitive_account_rg",
- * }, { async: true }));
+ * }));
  *
  * export const primaryAccessKey = test.primaryAccessKey;
  * ```
@@ -43,11 +43,11 @@ export interface GetAccountArgs {
     /**
      * Specifies the name of the Cognitive Services Account.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the name of the resource group where the Cognitive Services Account resides.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -45,17 +45,17 @@ export interface GetManagementGroupArgs {
     /**
      * Specifies the display name of this Management Group.
      */
-    readonly displayName?: string;
+    displayName?: string;
     /**
      * Specifies the name or UUID of this Management Group.
      *
      * @deprecated Deprecated in favour of `name`
      */
-    readonly groupId?: string;
+    groupId?: string;
     /**
      * Specifies the name or UUID of this Management Group.
      */
-    readonly name?: string;
+    name?: string;
 }
 
 /**

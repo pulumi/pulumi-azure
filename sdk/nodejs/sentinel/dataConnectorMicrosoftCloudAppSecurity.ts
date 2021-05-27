@@ -124,23 +124,23 @@ export interface DataConnectorMicrosoftCloudAppSecurityState {
     /**
      * Should the alerts be enabled? Defaults to `true`.
      */
-    readonly alertsEnabled?: pulumi.Input<boolean>;
+    alertsEnabled?: pulumi.Input<boolean>;
     /**
      * Should the Discovery Logs be enabled? Defaults to `true`.
      */
-    readonly discoveryLogsEnabled?: pulumi.Input<boolean>;
+    discoveryLogsEnabled?: pulumi.Input<boolean>;
     /**
      * The ID of the Log Analytics Workspace that this Microsoft Cloud App Security Data Connector resides in. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
      */
-    readonly logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    logAnalyticsWorkspaceId?: pulumi.Input<string>;
     /**
      * The name which should be used for this Microsoft Cloud App Security Data Connector. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
      */
-    readonly tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string>;
 }
 
 /**
@@ -150,21 +150,21 @@ export interface DataConnectorMicrosoftCloudAppSecurityArgs {
     /**
      * Should the alerts be enabled? Defaults to `true`.
      */
-    readonly alertsEnabled?: pulumi.Input<boolean>;
+    alertsEnabled?: pulumi.Input<boolean>;
     /**
      * Should the Discovery Logs be enabled? Defaults to `true`.
      */
-    readonly discoveryLogsEnabled?: pulumi.Input<boolean>;
+    discoveryLogsEnabled?: pulumi.Input<boolean>;
     /**
      * The ID of the Log Analytics Workspace that this Microsoft Cloud App Security Data Connector resides in. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
      */
-    readonly logAnalyticsWorkspaceId: pulumi.Input<string>;
+    logAnalyticsWorkspaceId: pulumi.Input<string>;
     /**
      * The name which should be used for this Microsoft Cloud App Security Data Connector. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
      */
-    readonly tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string>;
 }

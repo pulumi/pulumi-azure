@@ -202,39 +202,39 @@ export interface IotHubDataConnectionState {
     /**
      * Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
      */
-    readonly clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     /**
      * Specifies the IotHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
-    readonly consumerGroup?: pulumi.Input<string>;
+    consumerGroup?: pulumi.Input<string>;
     /**
      * Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
      */
-    readonly databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
     /**
      * Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
      */
-    readonly eventSystemProperties?: pulumi.Input<pulumi.Input<string>[]>;
+    eventSystemProperties?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the resource id of the IotHub this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
-    readonly iothubId?: pulumi.Input<string>;
+    iothubId?: pulumi.Input<string>;
     /**
      * The location where the Kusto Database should be created. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Kusto IotHub Data Connection to create. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
      */
-    readonly sharedAccessPolicyName?: pulumi.Input<string>;
+    sharedAccessPolicyName?: pulumi.Input<string>;
 }
 
 /**
@@ -244,37 +244,37 @@ export interface IotHubDataConnectionArgs {
     /**
      * Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
      */
-    readonly clusterName: pulumi.Input<string>;
+    clusterName: pulumi.Input<string>;
     /**
      * Specifies the IotHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
-    readonly consumerGroup: pulumi.Input<string>;
+    consumerGroup: pulumi.Input<string>;
     /**
      * Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
      */
-    readonly databaseName: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
      */
-    readonly eventSystemProperties?: pulumi.Input<pulumi.Input<string>[]>;
+    eventSystemProperties?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the resource id of the IotHub this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
-    readonly iothubId: pulumi.Input<string>;
+    iothubId: pulumi.Input<string>;
     /**
      * The location where the Kusto Database should be created. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Kusto IotHub Data Connection to create. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
      */
-    readonly sharedAccessPolicyName: pulumi.Input<string>;
+    sharedAccessPolicyName: pulumi.Input<string>;
 }

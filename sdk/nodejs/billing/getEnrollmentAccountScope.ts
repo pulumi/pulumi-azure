@@ -42,11 +42,11 @@ export interface GetEnrollmentAccountScopeArgs {
     /**
      * The Billing Account Name of the Enterprise Account.
      */
-    readonly billingAccountName: string;
+    billingAccountName: string;
     /**
      * The Enrollment Account Name in the above Enterprise Account.
      */
-    readonly enrollmentAccountName: string;
+    enrollmentAccountName: string;
 }
 
 /**

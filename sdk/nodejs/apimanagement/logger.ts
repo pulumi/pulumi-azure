@@ -158,35 +158,35 @@ export interface LoggerState {
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
-    readonly apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string>;
     /**
      * An `applicationInsights` block as documented below.
      */
-    readonly applicationInsights?: pulumi.Input<inputs.apimanagement.LoggerApplicationInsights>;
+    applicationInsights?: pulumi.Input<inputs.apimanagement.LoggerApplicationInsights>;
     /**
      * Specifies whether records should be buffered in the Logger prior to publishing. Defaults to `true`.
      */
-    readonly buffered?: pulumi.Input<boolean>;
+    buffered?: pulumi.Input<boolean>;
     /**
      * A description of this Logger.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * An `eventhub` block as documented below.
      */
-    readonly eventhub?: pulumi.Input<inputs.apimanagement.LoggerEventhub>;
+    eventhub?: pulumi.Input<inputs.apimanagement.LoggerEventhub>;
     /**
      * The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The target resource id which will be linked in the API-Management portal page.
      */
-    readonly resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string>;
 }
 
 /**
@@ -196,33 +196,33 @@ export interface LoggerArgs {
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
-    readonly apiManagementName: pulumi.Input<string>;
+    apiManagementName: pulumi.Input<string>;
     /**
      * An `applicationInsights` block as documented below.
      */
-    readonly applicationInsights?: pulumi.Input<inputs.apimanagement.LoggerApplicationInsights>;
+    applicationInsights?: pulumi.Input<inputs.apimanagement.LoggerApplicationInsights>;
     /**
      * Specifies whether records should be buffered in the Logger prior to publishing. Defaults to `true`.
      */
-    readonly buffered?: pulumi.Input<boolean>;
+    buffered?: pulumi.Input<boolean>;
     /**
      * A description of this Logger.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * An `eventhub` block as documented below.
      */
-    readonly eventhub?: pulumi.Input<inputs.apimanagement.LoggerEventhub>;
+    eventhub?: pulumi.Input<inputs.apimanagement.LoggerEventhub>;
     /**
      * The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The target resource id which will be linked in the API-Management portal page.
      */
-    readonly resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string>;
 }

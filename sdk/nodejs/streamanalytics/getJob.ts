@@ -42,11 +42,11 @@ export interface GetJobArgs {
     /**
      * Specifies the name of the Stream Analytics Job.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the name of the resource group the Stream Analytics Job is located in.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

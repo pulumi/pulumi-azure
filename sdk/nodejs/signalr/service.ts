@@ -210,67 +210,67 @@ export interface ServiceState {
     /**
      * A `cors` block as documented below.
      */
-    readonly cors?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceCor>[]>;
+    cors?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceCor>[]>;
     /**
      * A `features` block as documented below.
      */
-    readonly features?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceFeature>[]>;
+    features?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceFeature>[]>;
     /**
      * The FQDN of the SignalR service.
      */
-    readonly hostname?: pulumi.Input<string>;
+    hostname?: pulumi.Input<string>;
     /**
      * The publicly accessible IP of the SignalR service.
      */
-    readonly ipAddress?: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the SignalR service. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The primary access key for the SignalR service.
      */
-    readonly primaryAccessKey?: pulumi.Input<string>;
+    primaryAccessKey?: pulumi.Input<string>;
     /**
      * The primary connection string for the SignalR service.
      */
-    readonly primaryConnectionString?: pulumi.Input<string>;
+    primaryConnectionString?: pulumi.Input<string>;
     /**
      * The publicly accessible port of the SignalR service which is designed for browser/client use.
      */
-    readonly publicPort?: pulumi.Input<number>;
+    publicPort?: pulumi.Input<number>;
     /**
      * The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The secondary access key for the SignalR service.
      */
-    readonly secondaryAccessKey?: pulumi.Input<string>;
+    secondaryAccessKey?: pulumi.Input<string>;
     /**
      * The secondary connection string for the SignalR service.
      */
-    readonly secondaryConnectionString?: pulumi.Input<string>;
+    secondaryConnectionString?: pulumi.Input<string>;
     /**
      * The publicly accessible port of the SignalR service which is designed for customer server side use.
      */
-    readonly serverPort?: pulumi.Input<number>;
+    serverPort?: pulumi.Input<number>;
     /**
      * A `sku` block as documented below.
      */
-    readonly sku?: pulumi.Input<inputs.signalr.ServiceSku>;
+    sku?: pulumi.Input<inputs.signalr.ServiceSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
      */
-    readonly upstreamEndpoints?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceUpstreamEndpoint>[]>;
+    upstreamEndpoints?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceUpstreamEndpoint>[]>;
 }
 
 /**
@@ -280,33 +280,33 @@ export interface ServiceArgs {
     /**
      * A `cors` block as documented below.
      */
-    readonly cors?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceCor>[]>;
+    cors?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceCor>[]>;
     /**
      * A `features` block as documented below.
      */
-    readonly features?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceFeature>[]>;
+    features?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceFeature>[]>;
     /**
      * Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the SignalR service. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A `sku` block as documented below.
      */
-    readonly sku: pulumi.Input<inputs.signalr.ServiceSku>;
+    sku: pulumi.Input<inputs.signalr.ServiceSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
      */
-    readonly upstreamEndpoints?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceUpstreamEndpoint>[]>;
+    upstreamEndpoints?: pulumi.Input<pulumi.Input<inputs.signalr.ServiceUpstreamEndpoint>[]>;
 }

@@ -206,57 +206,57 @@ export interface WebTestState {
     /**
      * The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
      */
-    readonly applicationInsightsId?: pulumi.Input<string>;
+    applicationInsightsId?: pulumi.Input<string>;
     /**
      * An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/en-us/rest/api/application-insights/webtests/createorupdate/)).
      */
-    readonly configuration?: pulumi.Input<string>;
+    configuration?: pulumi.Input<string>;
     /**
      * Purpose/user defined descriptive test for this WebTest.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Is the test actively being monitored.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
      */
-    readonly frequency?: pulumi.Input<number>;
+    frequency?: pulumi.Input<number>;
     /**
      * A list of where to physically run the tests from to give global coverage for accessibility of your application.
      */
-    readonly geoLocations?: pulumi.Input<pulumi.Input<string>[]>;
+    geoLocations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Application Insights WebTest. Changing this forces a
      * new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Application Insights WebTest. Changing this forces a new resource
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Allow for retries should this WebTest fail.
      */
-    readonly retryEnabled?: pulumi.Input<boolean>;
-    readonly syntheticMonitorId?: pulumi.Input<string>;
+    retryEnabled?: pulumi.Input<boolean>;
+    syntheticMonitorId?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Seconds until this WebTest will timeout and fail. Default is `30`.
      */
-    readonly timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number>;
 }
 
 /**
@@ -266,54 +266,54 @@ export interface WebTestArgs {
     /**
      * The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
      */
-    readonly applicationInsightsId: pulumi.Input<string>;
+    applicationInsightsId: pulumi.Input<string>;
     /**
      * An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/en-us/rest/api/application-insights/webtests/createorupdate/)).
      */
-    readonly configuration: pulumi.Input<string>;
+    configuration: pulumi.Input<string>;
     /**
      * Purpose/user defined descriptive test for this WebTest.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Is the test actively being monitored.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
      */
-    readonly frequency?: pulumi.Input<number>;
+    frequency?: pulumi.Input<number>;
     /**
      * A list of where to physically run the tests from to give global coverage for accessibility of your application.
      */
-    readonly geoLocations: pulumi.Input<pulumi.Input<string>[]>;
+    geoLocations: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * = (Required) The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
      */
-    readonly kind: pulumi.Input<string>;
+    kind: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Application Insights WebTest. Changing this forces a
      * new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Application Insights WebTest. Changing this forces a new resource
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Allow for retries should this WebTest fail.
      */
-    readonly retryEnabled?: pulumi.Input<boolean>;
+    retryEnabled?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Seconds until this WebTest will timeout and fail. Default is `30`.
      */
-    readonly timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number>;
 }

@@ -157,35 +157,35 @@ export interface SpringCloudJavaDeploymentState {
     /**
      * Specifies the required cpu of the Spring Cloud Deployment. Possible Values are between `1` and `4`. Defaults to `1` if not specified.
      */
-    readonly cpu?: pulumi.Input<number>;
+    cpu?: pulumi.Input<number>;
     /**
      * Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
      */
-    readonly environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
      */
-    readonly instanceCount?: pulumi.Input<number>;
+    instanceCount?: pulumi.Input<number>;
     /**
      * Specifies the jvm option of the Spring Cloud Deployment.
      */
-    readonly jvmOptions?: pulumi.Input<string>;
+    jvmOptions?: pulumi.Input<string>;
     /**
      * Specifies the required memory size of the Spring Cloud Deployment. Possible Values are between `1` and `8`. Defaults to `1` if not specified.
      */
-    readonly memoryInGb?: pulumi.Input<number>;
+    memoryInGb?: pulumi.Input<number>;
     /**
      * Specifies the name of the Spring Cloud Deployment. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8` and `Java_11`. Defaults to `Java_8`.
      */
-    readonly runtimeVersion?: pulumi.Input<string>;
+    runtimeVersion?: pulumi.Input<string>;
     /**
      * Specifies the id of the Spring Cloud Application in which to create the Deployment. Changing this forces a new resource to be created.
      */
-    readonly springCloudAppId?: pulumi.Input<string>;
+    springCloudAppId?: pulumi.Input<string>;
 }
 
 /**
@@ -195,33 +195,33 @@ export interface SpringCloudJavaDeploymentArgs {
     /**
      * Specifies the required cpu of the Spring Cloud Deployment. Possible Values are between `1` and `4`. Defaults to `1` if not specified.
      */
-    readonly cpu?: pulumi.Input<number>;
+    cpu?: pulumi.Input<number>;
     /**
      * Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
      */
-    readonly environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
      */
-    readonly instanceCount?: pulumi.Input<number>;
+    instanceCount?: pulumi.Input<number>;
     /**
      * Specifies the jvm option of the Spring Cloud Deployment.
      */
-    readonly jvmOptions?: pulumi.Input<string>;
+    jvmOptions?: pulumi.Input<string>;
     /**
      * Specifies the required memory size of the Spring Cloud Deployment. Possible Values are between `1` and `8`. Defaults to `1` if not specified.
      */
-    readonly memoryInGb?: pulumi.Input<number>;
+    memoryInGb?: pulumi.Input<number>;
     /**
      * Specifies the name of the Spring Cloud Deployment. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8` and `Java_11`. Defaults to `Java_8`.
      */
-    readonly runtimeVersion?: pulumi.Input<string>;
+    runtimeVersion?: pulumi.Input<string>;
     /**
      * Specifies the id of the Spring Cloud Application in which to create the Deployment. Changing this forces a new resource to be created.
      */
-    readonly springCloudAppId: pulumi.Input<string>;
+    springCloudAppId: pulumi.Input<string>;
 }

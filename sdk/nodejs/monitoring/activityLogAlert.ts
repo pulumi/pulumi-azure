@@ -171,35 +171,35 @@ export interface ActivityLogAlertState {
     /**
      * One or more `action` blocks as defined below.
      */
-    readonly actions?: pulumi.Input<pulumi.Input<inputs.monitoring.ActivityLogAlertAction>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.monitoring.ActivityLogAlertAction>[]>;
     /**
      * A `criteria` block as defined below.
      */
-    readonly criteria?: pulumi.Input<inputs.monitoring.ActivityLogAlertCriteria>;
+    criteria?: pulumi.Input<inputs.monitoring.ActivityLogAlertCriteria>;
     /**
      * The description of this activity log alert.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Should this Activity Log Alert be enabled? Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The name of the activity log alert. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the activity log alert instance.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
      */
-    readonly scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -209,33 +209,33 @@ export interface ActivityLogAlertArgs {
     /**
      * One or more `action` blocks as defined below.
      */
-    readonly actions?: pulumi.Input<pulumi.Input<inputs.monitoring.ActivityLogAlertAction>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.monitoring.ActivityLogAlertAction>[]>;
     /**
      * A `criteria` block as defined below.
      */
-    readonly criteria: pulumi.Input<inputs.monitoring.ActivityLogAlertCriteria>;
+    criteria: pulumi.Input<inputs.monitoring.ActivityLogAlertCriteria>;
     /**
      * The description of this activity log alert.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Should this Activity Log Alert be enabled? Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The name of the activity log alert. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the activity log alert instance.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
      */
-    readonly scopes: pulumi.Input<pulumi.Input<string>[]>;
+    scopes: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

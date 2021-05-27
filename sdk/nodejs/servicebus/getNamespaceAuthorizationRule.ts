@@ -44,15 +44,15 @@ export interface GetNamespaceAuthorizationRuleArgs {
     /**
      * Specifies the name of the ServiceBus Namespace Authorization Rule.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the name of the ServiceBus Namespace.
      */
-    readonly namespaceName: string;
+    namespaceName: string;
     /**
      * Specifies the name of the Resource Group where the ServiceBus Namespace exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

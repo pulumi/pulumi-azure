@@ -42,11 +42,11 @@ export interface GetNetworkWatcherArgs {
     /**
      * Specifies the Name of the Network Watcher.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the Name of the Resource Group within which the Network Watcher exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -200,47 +200,47 @@ export interface VirtualNetworkState {
     /**
      * The address space that is used the virtual network. You can supply more than one address space.
      */
-    readonly addressSpaces?: pulumi.Input<pulumi.Input<string>[]>;
+    addressSpaces?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The BGP community attribute in format `<as-number>:<community-value>`.
      */
-    readonly bgpCommunity?: pulumi.Input<string>;
+    bgpCommunity?: pulumi.Input<string>;
     /**
      * A `ddosProtectionPlan` block as documented below.
      */
-    readonly ddosProtectionPlan?: pulumi.Input<inputs.network.VirtualNetworkDdosProtectionPlan>;
+    ddosProtectionPlan?: pulumi.Input<inputs.network.VirtualNetworkDdosProtectionPlan>;
     /**
      * List of IP addresses of DNS servers
      */
-    readonly dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The GUID of the virtual network.
      */
-    readonly guid?: pulumi.Input<string>;
+    guid?: pulumi.Input<string>;
     /**
      * The location/region where the virtual network is created. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the virtual network. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the virtual network.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
      */
-    readonly subnets?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkSubnet>[]>;
+    subnets?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkSubnet>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * @deprecated This is deprecated in favor of `ddos_protection_plan`
      */
-    readonly vmProtectionEnabled?: pulumi.Input<boolean>;
+    vmProtectionEnabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -250,41 +250,41 @@ export interface VirtualNetworkArgs {
     /**
      * The address space that is used the virtual network. You can supply more than one address space.
      */
-    readonly addressSpaces: pulumi.Input<pulumi.Input<string>[]>;
+    addressSpaces: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The BGP community attribute in format `<as-number>:<community-value>`.
      */
-    readonly bgpCommunity?: pulumi.Input<string>;
+    bgpCommunity?: pulumi.Input<string>;
     /**
      * A `ddosProtectionPlan` block as documented below.
      */
-    readonly ddosProtectionPlan?: pulumi.Input<inputs.network.VirtualNetworkDdosProtectionPlan>;
+    ddosProtectionPlan?: pulumi.Input<inputs.network.VirtualNetworkDdosProtectionPlan>;
     /**
      * List of IP addresses of DNS servers
      */
-    readonly dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The location/region where the virtual network is created. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the virtual network. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the virtual network.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
      */
-    readonly subnets?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkSubnet>[]>;
+    subnets?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkSubnet>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * @deprecated This is deprecated in favor of `ddos_protection_plan`
      */
-    readonly vmProtectionEnabled?: pulumi.Input<boolean>;
+    vmProtectionEnabled?: pulumi.Input<boolean>;
 }

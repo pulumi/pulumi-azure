@@ -42,11 +42,11 @@ export interface GetAppServicePlanArgs {
     /**
      * The name of the App Service Plan.
      */
-    readonly name: string;
+    name: string;
     /**
      * The Name of the Resource Group where the App Service Plan exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

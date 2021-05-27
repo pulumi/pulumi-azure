@@ -145,23 +145,23 @@ export interface SqlTriggerState {
     /**
      * Body of the Trigger.
      */
-    readonly body?: pulumi.Input<string>;
+    body?: pulumi.Input<string>;
     /**
      * The id of the Cosmos DB SQL Container to create the SQL Trigger within. Changing this forces a new SQL Trigger to be created.
      */
-    readonly containerId?: pulumi.Input<string>;
+    containerId?: pulumi.Input<string>;
     /**
      * The name which should be used for this SQL Trigger. Changing this forces a new SQL Trigger to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The operation the trigger is associated with. Possible values are `All`, `Create`, `Update`, `Delete` and `Replace`.
      */
-    readonly operation?: pulumi.Input<string>;
+    operation?: pulumi.Input<string>;
     /**
      * Type of the Trigger. Possible values are `Pre` and `Post`.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }
 
 /**
@@ -171,21 +171,21 @@ export interface SqlTriggerArgs {
     /**
      * Body of the Trigger.
      */
-    readonly body: pulumi.Input<string>;
+    body: pulumi.Input<string>;
     /**
      * The id of the Cosmos DB SQL Container to create the SQL Trigger within. Changing this forces a new SQL Trigger to be created.
      */
-    readonly containerId: pulumi.Input<string>;
+    containerId: pulumi.Input<string>;
     /**
      * The name which should be used for this SQL Trigger. Changing this forces a new SQL Trigger to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The operation the trigger is associated with. Possible values are `All`, `Create`, `Update`, `Delete` and `Replace`.
      */
-    readonly operation: pulumi.Input<string>;
+    operation: pulumi.Input<string>;
     /**
      * Type of the Trigger. Possible values are `Pre` and `Post`.
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
 }

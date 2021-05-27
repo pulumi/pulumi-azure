@@ -201,81 +201,81 @@ export interface PrivateCloudState {
     /**
      * A `circuit` block as defined below.
      */
-    readonly circuits?: pulumi.Input<pulumi.Input<inputs.avs.PrivateCloudCircuit>[]>;
+    circuits?: pulumi.Input<pulumi.Input<inputs.avs.PrivateCloudCircuit>[]>;
     /**
      * The endpoint for the HCX Cloud Manager.
      */
-    readonly hcxCloudManagerEndpoint?: pulumi.Input<string>;
+    hcxCloudManagerEndpoint?: pulumi.Input<string>;
     /**
      * Is the Private Cluster connected to the internet? This field can not updated with `management_cluster.0.size` together.
      * > **NOTE :** `internetConnectionEnabled` and `management_cluster.0.size` cannot be updated at the same time.
      */
-    readonly internetConnectionEnabled?: pulumi.Input<boolean>;
+    internetConnectionEnabled?: pulumi.Input<boolean>;
     /**
      * The Azure Region where the Vmware Private Cloud should exist. Changing this forces a new Vmware Private Cloud to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * A `managementCluster` block as defined below.
      * > **NOTE :** `internetConnectionEnabled` and `management_cluster.0.size` cannot be updated at the same time.
      */
-    readonly managementCluster?: pulumi.Input<inputs.avs.PrivateCloudManagementCluster>;
+    managementCluster?: pulumi.Input<inputs.avs.PrivateCloudManagementCluster>;
     /**
      * The network used to access vCenter Server and NSX-T Manager.
      */
-    readonly managementSubnetCidr?: pulumi.Input<string>;
+    managementSubnetCidr?: pulumi.Input<string>;
     /**
      * The name which should be used for this Vmware Private Cloud. Changing this forces a new Vmware Private Cloud to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Vmware Private Cloud to be created.
      */
-    readonly networkSubnetCidr?: pulumi.Input<string>;
+    networkSubnetCidr?: pulumi.Input<string>;
     /**
      * The thumbprint of the NSX-T Manager SSL certificate.
      */
-    readonly nsxtCertificateThumbprint?: pulumi.Input<string>;
+    nsxtCertificateThumbprint?: pulumi.Input<string>;
     /**
      * The endpoint for the NSX-T Data Center manager.
      */
-    readonly nsxtManagerEndpoint?: pulumi.Input<string>;
+    nsxtManagerEndpoint?: pulumi.Input<string>;
     /**
      * The password of the NSX-T Manager. Changing this forces a new Vmware Private Cloud to be created.
      */
-    readonly nsxtPassword?: pulumi.Input<string>;
+    nsxtPassword?: pulumi.Input<string>;
     /**
      * The network which is used for virtual machine cold migration, cloning, and snapshot migration.
      */
-    readonly provisioningSubnetCidr?: pulumi.Input<string>;
+    provisioningSubnetCidr?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Vmware Private Cloud should exist. Changing this forces a new Vmware Private Cloud to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36` and `av36t`. Changing this forces a new Vmware Private Cloud to be created.
      */
-    readonly skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Vmware Private Cloud.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The thumbprint of the vCenter Server SSL certificate.
      */
-    readonly vcenterCertificateThumbprint?: pulumi.Input<string>;
+    vcenterCertificateThumbprint?: pulumi.Input<string>;
     /**
      * The password of the vCenter admin. Changing this forces a new Vmware Private Cloud to be created.
      */
-    readonly vcenterPassword?: pulumi.Input<string>;
+    vcenterPassword?: pulumi.Input<string>;
     /**
      * The endpoint for Virtual Center Server Appliance.
      */
-    readonly vcsaEndpoint?: pulumi.Input<string>;
+    vcsaEndpoint?: pulumi.Input<string>;
     /**
      * The network which is used for live migration of virtual machines.
      */
-    readonly vmotionSubnetCidr?: pulumi.Input<string>;
+    vmotionSubnetCidr?: pulumi.Input<string>;
 }
 
 /**
@@ -286,42 +286,42 @@ export interface PrivateCloudArgs {
      * Is the Private Cluster connected to the internet? This field can not updated with `management_cluster.0.size` together.
      * > **NOTE :** `internetConnectionEnabled` and `management_cluster.0.size` cannot be updated at the same time.
      */
-    readonly internetConnectionEnabled?: pulumi.Input<boolean>;
+    internetConnectionEnabled?: pulumi.Input<boolean>;
     /**
      * The Azure Region where the Vmware Private Cloud should exist. Changing this forces a new Vmware Private Cloud to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * A `managementCluster` block as defined below.
      * > **NOTE :** `internetConnectionEnabled` and `management_cluster.0.size` cannot be updated at the same time.
      */
-    readonly managementCluster: pulumi.Input<inputs.avs.PrivateCloudManagementCluster>;
+    managementCluster: pulumi.Input<inputs.avs.PrivateCloudManagementCluster>;
     /**
      * The name which should be used for this Vmware Private Cloud. Changing this forces a new Vmware Private Cloud to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Vmware Private Cloud to be created.
      */
-    readonly networkSubnetCidr: pulumi.Input<string>;
+    networkSubnetCidr: pulumi.Input<string>;
     /**
      * The password of the NSX-T Manager. Changing this forces a new Vmware Private Cloud to be created.
      */
-    readonly nsxtPassword?: pulumi.Input<string>;
+    nsxtPassword?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Vmware Private Cloud should exist. Changing this forces a new Vmware Private Cloud to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36` and `av36t`. Changing this forces a new Vmware Private Cloud to be created.
      */
-    readonly skuName: pulumi.Input<string>;
+    skuName: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Vmware Private Cloud.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The password of the vCenter admin. Changing this forces a new Vmware Private Cloud to be created.
      */
-    readonly vcenterPassword?: pulumi.Input<string>;
+    vcenterPassword?: pulumi.Input<string>;
 }

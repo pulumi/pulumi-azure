@@ -42,11 +42,11 @@ export interface GetAccountArgs {
     /**
      * The name of this Data Share Account.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group where the Data Share Account exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

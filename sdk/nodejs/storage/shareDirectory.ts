@@ -127,19 +127,19 @@ export interface ShareDirectoryState {
     /**
      * A mapping of metadata to assign to this Directory.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the File Share where this Directory should be created. Changing this forces a new resource to be created.
      */
-    readonly shareName?: pulumi.Input<string>;
+    shareName?: pulumi.Input<string>;
     /**
      * The name of the Storage Account within which the File Share is located. Changing this forces a new resource to be created.
      */
-    readonly storageAccountName?: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string>;
 }
 
 /**
@@ -149,17 +149,17 @@ export interface ShareDirectoryArgs {
     /**
      * A mapping of metadata to assign to this Directory.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the File Share where this Directory should be created. Changing this forces a new resource to be created.
      */
-    readonly shareName: pulumi.Input<string>;
+    shareName: pulumi.Input<string>;
     /**
      * The name of the Storage Account within which the File Share is located. Changing this forces a new resource to be created.
      */
-    readonly storageAccountName: pulumi.Input<string>;
+    storageAccountName: pulumi.Input<string>;
 }

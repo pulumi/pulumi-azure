@@ -42,11 +42,11 @@ export interface GetClusterArgs {
     /**
      * The name of this EventHub Cluster.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group where the EventHub Cluster exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

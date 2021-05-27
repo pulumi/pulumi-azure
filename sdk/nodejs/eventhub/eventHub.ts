@@ -153,31 +153,31 @@ export interface EventHubState {
     /**
      * A `captureDescription` block as defined below.
      */
-    readonly captureDescription?: pulumi.Input<inputs.eventhub.EventHubCaptureDescription>;
+    captureDescription?: pulumi.Input<inputs.eventhub.EventHubCaptureDescription>;
     /**
      * Specifies the number of days to retain the events for this Event Hub.
      */
-    readonly messageRetention?: pulumi.Input<number>;
+    messageRetention?: pulumi.Input<number>;
     /**
      * Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
      */
-    readonly namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string>;
     /**
      * Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
      */
-    readonly partitionCount?: pulumi.Input<number>;
+    partitionCount?: pulumi.Input<number>;
     /**
      * The identifiers for partitions created for Event Hubs.
      */
-    readonly partitionIds?: pulumi.Input<pulumi.Input<string>[]>;
+    partitionIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -187,25 +187,25 @@ export interface EventHubArgs {
     /**
      * A `captureDescription` block as defined below.
      */
-    readonly captureDescription?: pulumi.Input<inputs.eventhub.EventHubCaptureDescription>;
+    captureDescription?: pulumi.Input<inputs.eventhub.EventHubCaptureDescription>;
     /**
      * Specifies the number of days to retain the events for this Event Hub.
      */
-    readonly messageRetention: pulumi.Input<number>;
+    messageRetention: pulumi.Input<number>;
     /**
      * Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
      */
-    readonly namespaceName: pulumi.Input<string>;
+    namespaceName: pulumi.Input<string>;
     /**
      * Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
      */
-    readonly partitionCount: pulumi.Input<number>;
+    partitionCount: pulumi.Input<number>;
     /**
      * The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

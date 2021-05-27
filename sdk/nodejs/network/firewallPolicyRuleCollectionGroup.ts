@@ -198,27 +198,27 @@ export interface FirewallPolicyRuleCollectionGroupState {
     /**
      * One or more `applicationRuleCollection` blocks as defined below.
      */
-    readonly applicationRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollection>[]>;
+    applicationRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollection>[]>;
     /**
      * The ID of the Firewall Policy where the Firewall Policy Rule Collection Group should exist. Changing this forces a new Firewall Policy Rule Collection Group to be created.
      */
-    readonly firewallPolicyId?: pulumi.Input<string>;
+    firewallPolicyId?: pulumi.Input<string>;
     /**
      * The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * One or more `natRuleCollection` blocks as defined below.
      */
-    readonly natRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.FirewallPolicyRuleCollectionGroupNatRuleCollection>[]>;
+    natRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.FirewallPolicyRuleCollectionGroupNatRuleCollection>[]>;
     /**
      * One or more `networkRuleCollection` blocks as defined below.
      */
-    readonly networkRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.FirewallPolicyRuleCollectionGroupNetworkRuleCollection>[]>;
+    networkRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.FirewallPolicyRuleCollectionGroupNetworkRuleCollection>[]>;
     /**
      * The priority of the Firewall Policy Rule Collection Group. The range is 100-65000.
      */
-    readonly priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number>;
 }
 
 /**
@@ -228,25 +228,25 @@ export interface FirewallPolicyRuleCollectionGroupArgs {
     /**
      * One or more `applicationRuleCollection` blocks as defined below.
      */
-    readonly applicationRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollection>[]>;
+    applicationRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollection>[]>;
     /**
      * The ID of the Firewall Policy where the Firewall Policy Rule Collection Group should exist. Changing this forces a new Firewall Policy Rule Collection Group to be created.
      */
-    readonly firewallPolicyId: pulumi.Input<string>;
+    firewallPolicyId: pulumi.Input<string>;
     /**
      * The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * One or more `natRuleCollection` blocks as defined below.
      */
-    readonly natRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.FirewallPolicyRuleCollectionGroupNatRuleCollection>[]>;
+    natRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.FirewallPolicyRuleCollectionGroupNatRuleCollection>[]>;
     /**
      * One or more `networkRuleCollection` blocks as defined below.
      */
-    readonly networkRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.FirewallPolicyRuleCollectionGroupNetworkRuleCollection>[]>;
+    networkRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.FirewallPolicyRuleCollectionGroupNetworkRuleCollection>[]>;
     /**
      * The priority of the Firewall Policy Rule Collection Group. The range is 100-65000.
      */
-    readonly priority: pulumi.Input<number>;
+    priority: pulumi.Input<number>;
 }

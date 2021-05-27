@@ -135,23 +135,23 @@ export interface TriggerHttpRequestState {
     /**
      * Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
      */
-    readonly logicAppId?: pulumi.Input<string>;
+    logicAppId?: pulumi.Input<string>;
     /**
      * Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
      */
-    readonly method?: pulumi.Input<string>;
+    method?: pulumi.Input<string>;
     /**
      * Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the Relative Path used for this Request.
      */
-    readonly relativePath?: pulumi.Input<string>;
+    relativePath?: pulumi.Input<string>;
     /**
      * A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
      */
-    readonly schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string>;
 }
 
 /**
@@ -161,21 +161,21 @@ export interface TriggerHttpRequestArgs {
     /**
      * Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
      */
-    readonly logicAppId: pulumi.Input<string>;
+    logicAppId: pulumi.Input<string>;
     /**
      * Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
      */
-    readonly method?: pulumi.Input<string>;
+    method?: pulumi.Input<string>;
     /**
      * Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the Relative Path used for this Request.
      */
-    readonly relativePath?: pulumi.Input<string>;
+    relativePath?: pulumi.Input<string>;
     /**
      * A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
      */
-    readonly schema: pulumi.Input<string>;
+    schema: pulumi.Input<string>;
 }

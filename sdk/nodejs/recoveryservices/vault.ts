@@ -138,31 +138,31 @@ export interface VaultState {
     /**
      * An `identity` block as defined below.
      */
-    readonly identity?: pulumi.Input<inputs.recoveryservices.VaultIdentity>;
+    identity?: pulumi.Input<inputs.recoveryservices.VaultIdentity>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Recovery Services Vault. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
      */
-    readonly sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string>;
     /**
      * Is soft delete enable for this Vault? Defaults to `true`.
      */
-    readonly softDeleteEnabled?: pulumi.Input<boolean>;
+    softDeleteEnabled?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -172,29 +172,29 @@ export interface VaultArgs {
     /**
      * An `identity` block as defined below.
      */
-    readonly identity?: pulumi.Input<inputs.recoveryservices.VaultIdentity>;
+    identity?: pulumi.Input<inputs.recoveryservices.VaultIdentity>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Recovery Services Vault. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
      */
-    readonly sku: pulumi.Input<string>;
+    sku: pulumi.Input<string>;
     /**
      * Is soft delete enable for this Vault? Defaults to `true`.
      */
-    readonly softDeleteEnabled?: pulumi.Input<boolean>;
+    softDeleteEnabled?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

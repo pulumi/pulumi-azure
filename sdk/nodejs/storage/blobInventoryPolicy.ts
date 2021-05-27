@@ -137,15 +137,15 @@ export interface BlobInventoryPolicyState {
     /**
      * One or more `rules` blocks as defined below.
      */
-    readonly rules?: pulumi.Input<pulumi.Input<inputs.storage.BlobInventoryPolicyRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.storage.BlobInventoryPolicyRule>[]>;
     /**
      * The ID of the storage account to apply this Blob Inventory Policy to. Changing this forces a new Storage Blob Inventory Policy to be created.
      */
-    readonly storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string>;
     /**
      * The storage container name to store the blob inventory files. Changing this forces a new Storage Blob Inventory Policy to be created.
      */
-    readonly storageContainerName?: pulumi.Input<string>;
+    storageContainerName?: pulumi.Input<string>;
 }
 
 /**
@@ -155,13 +155,13 @@ export interface BlobInventoryPolicyArgs {
     /**
      * One or more `rules` blocks as defined below.
      */
-    readonly rules: pulumi.Input<pulumi.Input<inputs.storage.BlobInventoryPolicyRule>[]>;
+    rules: pulumi.Input<pulumi.Input<inputs.storage.BlobInventoryPolicyRule>[]>;
     /**
      * The ID of the storage account to apply this Blob Inventory Policy to. Changing this forces a new Storage Blob Inventory Policy to be created.
      */
-    readonly storageAccountId: pulumi.Input<string>;
+    storageAccountId: pulumi.Input<string>;
     /**
      * The storage container name to store the blob inventory files. Changing this forces a new Storage Blob Inventory Policy to be created.
      */
-    readonly storageContainerName: pulumi.Input<string>;
+    storageContainerName: pulumi.Input<string>;
 }

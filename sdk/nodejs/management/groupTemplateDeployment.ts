@@ -223,36 +223,36 @@ export interface GroupTemplateDeploymentState {
     /**
      * The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
      */
-    readonly debugLevel?: pulumi.Input<string>;
+    debugLevel?: pulumi.Input<string>;
     /**
      * The Azure Region where the Template should exist. Changing this forces a new Template to be created.
      */
-    readonly location?: pulumi.Input<string>;
-    readonly managementGroupId?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
+    managementGroupId?: pulumi.Input<string>;
     /**
      * The name which should be used for this Template Deployment. Changing this forces a new Template Deployment to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The JSON Content of the Outputs of the ARM Template Deployment.
      */
-    readonly outputContent?: pulumi.Input<string>;
+    outputContent?: pulumi.Input<string>;
     /**
      * The contents of the ARM Template parameters file - containing a JSON list of parameters.
      */
-    readonly parametersContent?: pulumi.Input<string>;
+    parametersContent?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Template.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `templateSpecVersionId`.
      */
-    readonly templateContent?: pulumi.Input<string>;
+    templateContent?: pulumi.Input<string>;
     /**
      * The ID of the Template Spec Version to deploy. Cannot be specified with `templateContent`.
      */
-    readonly templateSpecVersionId?: pulumi.Input<string>;
+    templateSpecVersionId?: pulumi.Input<string>;
 }
 
 /**
@@ -262,30 +262,30 @@ export interface GroupTemplateDeploymentArgs {
     /**
      * The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
      */
-    readonly debugLevel?: pulumi.Input<string>;
+    debugLevel?: pulumi.Input<string>;
     /**
      * The Azure Region where the Template should exist. Changing this forces a new Template to be created.
      */
-    readonly location?: pulumi.Input<string>;
-    readonly managementGroupId: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
+    managementGroupId: pulumi.Input<string>;
     /**
      * The name which should be used for this Template Deployment. Changing this forces a new Template Deployment to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The contents of the ARM Template parameters file - containing a JSON list of parameters.
      */
-    readonly parametersContent?: pulumi.Input<string>;
+    parametersContent?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Template.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `templateSpecVersionId`.
      */
-    readonly templateContent?: pulumi.Input<string>;
+    templateContent?: pulumi.Input<string>;
     /**
      * The ID of the Template Spec Version to deploy. Cannot be specified with `templateContent`.
      */
-    readonly templateSpecVersionId?: pulumi.Input<string>;
+    templateSpecVersionId?: pulumi.Input<string>;
 }

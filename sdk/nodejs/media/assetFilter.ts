@@ -183,23 +183,23 @@ export interface AssetFilterState {
     /**
      * The Asset ID for which the Asset Filter should be created. Changing this forces a new Asset Filter to be created.
      */
-    readonly assetId?: pulumi.Input<string>;
+    assetId?: pulumi.Input<string>;
     /**
      * The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning.
      */
-    readonly firstQualityBitrate?: pulumi.Input<number>;
+    firstQualityBitrate?: pulumi.Input<number>;
     /**
      * The name which should be used for this Asset Filter. Changing this forces a new Asset Filter to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `presentationTimeRange` block as defined below.
      */
-    readonly presentationTimeRange?: pulumi.Input<inputs.media.AssetFilterPresentationTimeRange>;
+    presentationTimeRange?: pulumi.Input<inputs.media.AssetFilterPresentationTimeRange>;
     /**
      * One or more `trackSelection` blocks as defined below.
      */
-    readonly trackSelections?: pulumi.Input<pulumi.Input<inputs.media.AssetFilterTrackSelection>[]>;
+    trackSelections?: pulumi.Input<pulumi.Input<inputs.media.AssetFilterTrackSelection>[]>;
 }
 
 /**
@@ -209,21 +209,21 @@ export interface AssetFilterArgs {
     /**
      * The Asset ID for which the Asset Filter should be created. Changing this forces a new Asset Filter to be created.
      */
-    readonly assetId: pulumi.Input<string>;
+    assetId: pulumi.Input<string>;
     /**
      * The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning.
      */
-    readonly firstQualityBitrate?: pulumi.Input<number>;
+    firstQualityBitrate?: pulumi.Input<number>;
     /**
      * The name which should be used for this Asset Filter. Changing this forces a new Asset Filter to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `presentationTimeRange` block as defined below.
      */
-    readonly presentationTimeRange?: pulumi.Input<inputs.media.AssetFilterPresentationTimeRange>;
+    presentationTimeRange?: pulumi.Input<inputs.media.AssetFilterPresentationTimeRange>;
     /**
      * One or more `trackSelection` blocks as defined below.
      */
-    readonly trackSelections?: pulumi.Input<pulumi.Input<inputs.media.AssetFilterTrackSelection>[]>;
+    trackSelections?: pulumi.Input<pulumi.Input<inputs.media.AssetFilterTrackSelection>[]>;
 }

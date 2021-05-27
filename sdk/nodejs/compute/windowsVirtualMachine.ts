@@ -403,171 +403,171 @@ export interface WindowsVirtualMachineState {
     /**
      * A `additionalCapabilities` block as defined below.
      */
-    readonly additionalCapabilities?: pulumi.Input<inputs.compute.WindowsVirtualMachineAdditionalCapabilities>;
+    additionalCapabilities?: pulumi.Input<inputs.compute.WindowsVirtualMachineAdditionalCapabilities>;
     /**
      * One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
      */
-    readonly additionalUnattendContents?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineAdditionalUnattendContent>[]>;
+    additionalUnattendContents?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineAdditionalUnattendContent>[]>;
     /**
      * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
      */
-    readonly adminPassword?: pulumi.Input<string>;
+    adminPassword?: pulumi.Input<string>;
     /**
      * The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
      */
-    readonly adminUsername?: pulumi.Input<string>;
+    adminUsername?: pulumi.Input<string>;
     /**
      * Should Extension Operations be allowed on this Virtual Machine?
      */
-    readonly allowExtensionOperations?: pulumi.Input<boolean>;
+    allowExtensionOperations?: pulumi.Input<boolean>;
     /**
      * Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
      */
-    readonly availabilitySetId?: pulumi.Input<string>;
+    availabilitySetId?: pulumi.Input<string>;
     /**
      * A `bootDiagnostics` block as defined below.
      */
-    readonly bootDiagnostics?: pulumi.Input<inputs.compute.WindowsVirtualMachineBootDiagnostics>;
+    bootDiagnostics?: pulumi.Input<inputs.compute.WindowsVirtualMachineBootDiagnostics>;
     /**
      * Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
      */
-    readonly computerName?: pulumi.Input<string>;
+    computerName?: pulumi.Input<string>;
     /**
      * The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
      */
-    readonly customData?: pulumi.Input<string>;
+    customData?: pulumi.Input<string>;
     /**
      * The ID of a Dedicated Host where this machine should be run on.
      */
-    readonly dedicatedHostId?: pulumi.Input<string>;
+    dedicatedHostId?: pulumi.Input<string>;
     /**
      * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
      */
-    readonly enableAutomaticUpdates?: pulumi.Input<boolean>;
+    enableAutomaticUpdates?: pulumi.Input<boolean>;
     /**
      * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
      */
-    readonly encryptionAtHostEnabled?: pulumi.Input<boolean>;
+    encryptionAtHostEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
      */
-    readonly evictionPolicy?: pulumi.Input<string>;
+    evictionPolicy?: pulumi.Input<string>;
     /**
      * Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
      */
-    readonly extensionsTimeBudget?: pulumi.Input<string>;
+    extensionsTimeBudget?: pulumi.Input<string>;
     /**
      * An `identity` block as defined below.
      */
-    readonly identity?: pulumi.Input<inputs.compute.WindowsVirtualMachineIdentity>;
+    identity?: pulumi.Input<inputs.compute.WindowsVirtualMachineIdentity>;
     /**
      * Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
      */
-    readonly licenseType?: pulumi.Input<string>;
+    licenseType?: pulumi.Input<string>;
     /**
      * The Azure location where the Windows Virtual Machine should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
      */
-    readonly maxBidPrice?: pulumi.Input<number>;
+    maxBidPrice?: pulumi.Input<number>;
     /**
      * The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * . A list of Network Interface ID's which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
      */
-    readonly networkInterfaceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    networkInterfaceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `osDisk` block as defined below.
      */
-    readonly osDisk?: pulumi.Input<inputs.compute.WindowsVirtualMachineOsDisk>;
+    osDisk?: pulumi.Input<inputs.compute.WindowsVirtualMachineOsDisk>;
     /**
      * Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`.
      */
-    readonly patchMode?: pulumi.Input<string>;
+    patchMode?: pulumi.Input<string>;
     /**
      * A `plan` block as defined below. Changing this forces a new resource to be created.
      */
-    readonly plan?: pulumi.Input<inputs.compute.WindowsVirtualMachinePlan>;
+    plan?: pulumi.Input<inputs.compute.WindowsVirtualMachinePlan>;
     /**
      * Specifies the Platform Fault Domain in which this Windows Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Windows Virtual Machine to be created.
      */
-    readonly platformFaultDomain?: pulumi.Input<number>;
+    platformFaultDomain?: pulumi.Input<number>;
     /**
      * Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
      */
-    readonly priority?: pulumi.Input<string>;
+    priority?: pulumi.Input<string>;
     /**
      * The Primary Private IP Address assigned to this Virtual Machine.
      */
-    readonly privateIpAddress?: pulumi.Input<string>;
+    privateIpAddress?: pulumi.Input<string>;
     /**
      * A list of Private IP Addresses assigned to this Virtual Machine.
      */
-    readonly privateIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    privateIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
      */
-    readonly provisionVmAgent?: pulumi.Input<boolean>;
+    provisionVmAgent?: pulumi.Input<boolean>;
     /**
      * The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
      */
-    readonly proximityPlacementGroupId?: pulumi.Input<string>;
+    proximityPlacementGroupId?: pulumi.Input<string>;
     /**
      * The Primary Public IP Address assigned to this Virtual Machine.
      */
-    readonly publicIpAddress?: pulumi.Input<string>;
+    publicIpAddress?: pulumi.Input<string>;
     /**
      * A list of the Public IP Addresses assigned to this Virtual Machine.
      */
-    readonly publicIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    publicIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the Resource Group in which the Windows Virtual Machine should be exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * One or more `secret` blocks as defined below.
      */
-    readonly secrets?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineSecret>[]>;
+    secrets?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineSecret>[]>;
     /**
      * The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
      */
-    readonly size?: pulumi.Input<string>;
+    size?: pulumi.Input<string>;
     /**
      * The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
      */
-    readonly sourceImageId?: pulumi.Input<string>;
+    sourceImageId?: pulumi.Input<string>;
     /**
      * A `sourceImageReference` block as defined below. Changing this forces a new resource to be created.
      */
-    readonly sourceImageReference?: pulumi.Input<inputs.compute.WindowsVirtualMachineSourceImageReference>;
+    sourceImageReference?: pulumi.Input<inputs.compute.WindowsVirtualMachineSourceImageReference>;
     /**
      * A mapping of tags which should be assigned to this Virtual Machine.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
      */
-    readonly timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string>;
     /**
      * A 128-bit identifier which uniquely identifies this Virtual Machine.
      */
-    readonly virtualMachineId?: pulumi.Input<string>;
+    virtualMachineId?: pulumi.Input<string>;
     /**
      * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
      */
-    readonly virtualMachineScaleSetId?: pulumi.Input<string>;
+    virtualMachineScaleSetId?: pulumi.Input<string>;
     /**
      * One or more `winrmListener` blocks as defined below.
      */
-    readonly winrmListeners?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineWinrmListener>[]>;
+    winrmListeners?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineWinrmListener>[]>;
     /**
      * The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
      */
-    readonly zone?: pulumi.Input<string>;
+    zone?: pulumi.Input<string>;
 }
 
 /**
@@ -577,149 +577,149 @@ export interface WindowsVirtualMachineArgs {
     /**
      * A `additionalCapabilities` block as defined below.
      */
-    readonly additionalCapabilities?: pulumi.Input<inputs.compute.WindowsVirtualMachineAdditionalCapabilities>;
+    additionalCapabilities?: pulumi.Input<inputs.compute.WindowsVirtualMachineAdditionalCapabilities>;
     /**
      * One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
      */
-    readonly additionalUnattendContents?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineAdditionalUnattendContent>[]>;
+    additionalUnattendContents?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineAdditionalUnattendContent>[]>;
     /**
      * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
      */
-    readonly adminPassword: pulumi.Input<string>;
+    adminPassword: pulumi.Input<string>;
     /**
      * The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
      */
-    readonly adminUsername: pulumi.Input<string>;
+    adminUsername: pulumi.Input<string>;
     /**
      * Should Extension Operations be allowed on this Virtual Machine?
      */
-    readonly allowExtensionOperations?: pulumi.Input<boolean>;
+    allowExtensionOperations?: pulumi.Input<boolean>;
     /**
      * Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
      */
-    readonly availabilitySetId?: pulumi.Input<string>;
+    availabilitySetId?: pulumi.Input<string>;
     /**
      * A `bootDiagnostics` block as defined below.
      */
-    readonly bootDiagnostics?: pulumi.Input<inputs.compute.WindowsVirtualMachineBootDiagnostics>;
+    bootDiagnostics?: pulumi.Input<inputs.compute.WindowsVirtualMachineBootDiagnostics>;
     /**
      * Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
      */
-    readonly computerName?: pulumi.Input<string>;
+    computerName?: pulumi.Input<string>;
     /**
      * The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
      */
-    readonly customData?: pulumi.Input<string>;
+    customData?: pulumi.Input<string>;
     /**
      * The ID of a Dedicated Host where this machine should be run on.
      */
-    readonly dedicatedHostId?: pulumi.Input<string>;
+    dedicatedHostId?: pulumi.Input<string>;
     /**
      * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created.
      */
-    readonly enableAutomaticUpdates?: pulumi.Input<boolean>;
+    enableAutomaticUpdates?: pulumi.Input<boolean>;
     /**
      * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
      */
-    readonly encryptionAtHostEnabled?: pulumi.Input<boolean>;
+    encryptionAtHostEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
      */
-    readonly evictionPolicy?: pulumi.Input<string>;
+    evictionPolicy?: pulumi.Input<string>;
     /**
      * Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
      */
-    readonly extensionsTimeBudget?: pulumi.Input<string>;
+    extensionsTimeBudget?: pulumi.Input<string>;
     /**
      * An `identity` block as defined below.
      */
-    readonly identity?: pulumi.Input<inputs.compute.WindowsVirtualMachineIdentity>;
+    identity?: pulumi.Input<inputs.compute.WindowsVirtualMachineIdentity>;
     /**
      * Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
      */
-    readonly licenseType?: pulumi.Input<string>;
+    licenseType?: pulumi.Input<string>;
     /**
      * The Azure location where the Windows Virtual Machine should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
      */
-    readonly maxBidPrice?: pulumi.Input<number>;
+    maxBidPrice?: pulumi.Input<number>;
     /**
      * The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * . A list of Network Interface ID's which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
      */
-    readonly networkInterfaceIds: pulumi.Input<pulumi.Input<string>[]>;
+    networkInterfaceIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `osDisk` block as defined below.
      */
-    readonly osDisk: pulumi.Input<inputs.compute.WindowsVirtualMachineOsDisk>;
+    osDisk: pulumi.Input<inputs.compute.WindowsVirtualMachineOsDisk>;
     /**
      * Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`.
      */
-    readonly patchMode?: pulumi.Input<string>;
+    patchMode?: pulumi.Input<string>;
     /**
      * A `plan` block as defined below. Changing this forces a new resource to be created.
      */
-    readonly plan?: pulumi.Input<inputs.compute.WindowsVirtualMachinePlan>;
+    plan?: pulumi.Input<inputs.compute.WindowsVirtualMachinePlan>;
     /**
      * Specifies the Platform Fault Domain in which this Windows Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Windows Virtual Machine to be created.
      */
-    readonly platformFaultDomain?: pulumi.Input<number>;
+    platformFaultDomain?: pulumi.Input<number>;
     /**
      * Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
      */
-    readonly priority?: pulumi.Input<string>;
+    priority?: pulumi.Input<string>;
     /**
      * Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
      */
-    readonly provisionVmAgent?: pulumi.Input<boolean>;
+    provisionVmAgent?: pulumi.Input<boolean>;
     /**
      * The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
      */
-    readonly proximityPlacementGroupId?: pulumi.Input<string>;
+    proximityPlacementGroupId?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the Windows Virtual Machine should be exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * One or more `secret` blocks as defined below.
      */
-    readonly secrets?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineSecret>[]>;
+    secrets?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineSecret>[]>;
     /**
      * The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
      */
-    readonly size: pulumi.Input<string>;
+    size: pulumi.Input<string>;
     /**
      * The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
      */
-    readonly sourceImageId?: pulumi.Input<string>;
+    sourceImageId?: pulumi.Input<string>;
     /**
      * A `sourceImageReference` block as defined below. Changing this forces a new resource to be created.
      */
-    readonly sourceImageReference?: pulumi.Input<inputs.compute.WindowsVirtualMachineSourceImageReference>;
+    sourceImageReference?: pulumi.Input<inputs.compute.WindowsVirtualMachineSourceImageReference>;
     /**
      * A mapping of tags which should be assigned to this Virtual Machine.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
      */
-    readonly timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string>;
     /**
      * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created.
      */
-    readonly virtualMachineScaleSetId?: pulumi.Input<string>;
+    virtualMachineScaleSetId?: pulumi.Input<string>;
     /**
      * One or more `winrmListener` blocks as defined below.
      */
-    readonly winrmListeners?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineWinrmListener>[]>;
+    winrmListeners?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineWinrmListener>[]>;
     /**
      * The Zone in which this Virtual Machine should be created. Changing this forces a new resource to be created.
      */
-    readonly zone?: pulumi.Input<string>;
+    zone?: pulumi.Input<string>;
 }

@@ -151,27 +151,27 @@ export interface ApiSchemaState {
     /**
      * The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
      */
-    readonly apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string>;
     /**
      * The name of the API within the API Management Service where this API Schema should be created. Changing this forces a new resource to be created.
      */
-    readonly apiName?: pulumi.Input<string>;
+    apiName?: pulumi.Input<string>;
     /**
      * The content type of the API Schema.
      */
-    readonly contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string>;
     /**
      * The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A unique identifier for this API Schema. Changing this forces a new resource to be created.
      */
-    readonly schemaId?: pulumi.Input<string>;
+    schemaId?: pulumi.Input<string>;
     /**
      * The JSON escaped string defining the document representing the Schema.
      */
-    readonly value?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
 }
 
 /**
@@ -181,25 +181,25 @@ export interface ApiSchemaArgs {
     /**
      * The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
      */
-    readonly apiManagementName: pulumi.Input<string>;
+    apiManagementName: pulumi.Input<string>;
     /**
      * The name of the API within the API Management Service where this API Schema should be created. Changing this forces a new resource to be created.
      */
-    readonly apiName: pulumi.Input<string>;
+    apiName: pulumi.Input<string>;
     /**
      * The content type of the API Schema.
      */
-    readonly contentType: pulumi.Input<string>;
+    contentType: pulumi.Input<string>;
     /**
      * The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A unique identifier for this API Schema. Changing this forces a new resource to be created.
      */
-    readonly schemaId: pulumi.Input<string>;
+    schemaId: pulumi.Input<string>;
     /**
      * The JSON escaped string defining the document representing the Schema.
      */
-    readonly value: pulumi.Input<string>;
+    value: pulumi.Input<string>;
 }

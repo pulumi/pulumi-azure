@@ -42,11 +42,11 @@ export interface GetServiceArgs {
     /**
      * The name of the private link service.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the resource group in which the private link service resides.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -46,19 +46,19 @@ export interface GetQueueAuthorizationRuleArgs {
     /**
      * The name of this ServiceBus Queue Authorisation Rule.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the ServiceBus Namespace.
      */
-    readonly namespaceName: string;
+    namespaceName: string;
     /**
      * The name of the ServiceBus Queue.
      */
-    readonly queueName: string;
+    queueName: string;
     /**
      * The name of the Resource Group where the ServiceBus Queue Authorisation Rule exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

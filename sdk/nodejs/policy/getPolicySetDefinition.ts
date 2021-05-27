@@ -43,15 +43,15 @@ export interface GetPolicySetDefinitionArgs {
     /**
      * Specifies the display name of the Policy Set Definition. Conflicts with `name`.
      */
-    readonly displayName?: string;
+    displayName?: string;
     /**
      * Only retrieve Policy Set Definitions from this Management Group.
      */
-    readonly managementGroupName?: string;
+    managementGroupName?: string;
     /**
      * Specifies the name of the Policy Set Definition. Conflicts with `displayName`.
      */
-    readonly name?: string;
+    name?: string;
 }
 
 /**

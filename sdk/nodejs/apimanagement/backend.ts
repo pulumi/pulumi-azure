@@ -159,51 +159,51 @@ export interface BackendState {
     /**
      * The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
      */
-    readonly apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string>;
     /**
      * A `credentials` block as documented below.
      */
-    readonly credentials?: pulumi.Input<inputs.apimanagement.BackendCredentials>;
+    credentials?: pulumi.Input<inputs.apimanagement.BackendCredentials>;
     /**
      * The description of the backend.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the API Management backend. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The protocol used by the backend host. Possible values are `http` or `soap`.
      */
-    readonly protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string>;
     /**
      * A `proxy` block as documented below.
      */
-    readonly proxy?: pulumi.Input<inputs.apimanagement.BackendProxy>;
+    proxy?: pulumi.Input<inputs.apimanagement.BackendProxy>;
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster.
      */
-    readonly resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string>;
     /**
      * A `serviceFabricCluster` block as documented below.
      */
-    readonly serviceFabricCluster?: pulumi.Input<inputs.apimanagement.BackendServiceFabricCluster>;
+    serviceFabricCluster?: pulumi.Input<inputs.apimanagement.BackendServiceFabricCluster>;
     /**
      * The title of the backend.
      */
-    readonly title?: pulumi.Input<string>;
+    title?: pulumi.Input<string>;
     /**
      * A `tls` block as documented below.
      */
-    readonly tls?: pulumi.Input<inputs.apimanagement.BackendTls>;
+    tls?: pulumi.Input<inputs.apimanagement.BackendTls>;
     /**
      * The URL of the backend host.
      */
-    readonly url?: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
 }
 
 /**
@@ -213,49 +213,49 @@ export interface BackendArgs {
     /**
      * The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
      */
-    readonly apiManagementName: pulumi.Input<string>;
+    apiManagementName: pulumi.Input<string>;
     /**
      * A `credentials` block as documented below.
      */
-    readonly credentials?: pulumi.Input<inputs.apimanagement.BackendCredentials>;
+    credentials?: pulumi.Input<inputs.apimanagement.BackendCredentials>;
     /**
      * The description of the backend.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the API Management backend. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The protocol used by the backend host. Possible values are `http` or `soap`.
      */
-    readonly protocol: pulumi.Input<string>;
+    protocol: pulumi.Input<string>;
     /**
      * A `proxy` block as documented below.
      */
-    readonly proxy?: pulumi.Input<inputs.apimanagement.BackendProxy>;
+    proxy?: pulumi.Input<inputs.apimanagement.BackendProxy>;
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster.
      */
-    readonly resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string>;
     /**
      * A `serviceFabricCluster` block as documented below.
      */
-    readonly serviceFabricCluster?: pulumi.Input<inputs.apimanagement.BackendServiceFabricCluster>;
+    serviceFabricCluster?: pulumi.Input<inputs.apimanagement.BackendServiceFabricCluster>;
     /**
      * The title of the backend.
      */
-    readonly title?: pulumi.Input<string>;
+    title?: pulumi.Input<string>;
     /**
      * A `tls` block as documented below.
      */
-    readonly tls?: pulumi.Input<inputs.apimanagement.BackendTls>;
+    tls?: pulumi.Input<inputs.apimanagement.BackendTls>;
     /**
      * The URL of the backend host.
      */
-    readonly url: pulumi.Input<string>;
+    url: pulumi.Input<string>;
 }

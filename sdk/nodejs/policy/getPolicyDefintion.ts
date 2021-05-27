@@ -44,19 +44,19 @@ export interface GetPolicyDefintionArgs {
     /**
      * Specifies the display name of the Policy Definition. Conflicts with `name`.
      */
-    readonly displayName?: string;
+    displayName?: string;
     /**
      * @deprecated Deprecated in favour of `management_group_name`
      */
-    readonly managementGroupId?: string;
+    managementGroupId?: string;
     /**
      * Only retrieve Policy Definitions from this Management Group.
      */
-    readonly managementGroupName?: string;
+    managementGroupName?: string;
     /**
      * Specifies the name of the Policy Definition. Conflicts with `displayName`.
      */
-    readonly name?: string;
+    name?: string;
 }
 
 /**

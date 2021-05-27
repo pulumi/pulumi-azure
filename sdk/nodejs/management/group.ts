@@ -129,25 +129,25 @@ export interface GroupState {
     /**
      * A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
      *
      * @deprecated Deprecated in favour of `name`
      */
-    readonly groupId?: pulumi.Input<string>;
+    groupId?: pulumi.Input<string>;
     /**
      * The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the Parent Management Group. Changing this forces a new resource to be created.
      */
-    readonly parentManagementGroupId?: pulumi.Input<string>;
+    parentManagementGroupId?: pulumi.Input<string>;
     /**
      * A list of Subscription GUIDs which should be assigned to the Management Group.
      */
-    readonly subscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -157,23 +157,23 @@ export interface GroupArgs {
     /**
      * A friendly name for this Management Group. If not specified, this'll be the same as the `name`.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
      *
      * @deprecated Deprecated in favour of `name`
      */
-    readonly groupId?: pulumi.Input<string>;
+    groupId?: pulumi.Input<string>;
     /**
      * The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the Parent Management Group. Changing this forces a new resource to be created.
      */
-    readonly parentManagementGroupId?: pulumi.Input<string>;
+    parentManagementGroupId?: pulumi.Input<string>;
     /**
      * A list of Subscription GUIDs which should be assigned to the Management Group.
      */
-    readonly subscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

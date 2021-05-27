@@ -171,35 +171,35 @@ export interface ResourceGroupExportState {
     /**
      * Is the cost management export active? Default is `true`.
      */
-    readonly active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean>;
     /**
      * A `deliveryInfo` block as defined below.
      */
-    readonly deliveryInfo?: pulumi.Input<inputs.costmanagement.ResourceGroupExportDeliveryInfo>;
+    deliveryInfo?: pulumi.Input<inputs.costmanagement.ResourceGroupExportDeliveryInfo>;
     /**
      * Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `query` block as defined below.
      */
-    readonly query?: pulumi.Input<inputs.costmanagement.ResourceGroupExportQuery>;
+    query?: pulumi.Input<inputs.costmanagement.ResourceGroupExportQuery>;
     /**
      * The date the export will stop capturing information.
      */
-    readonly recurrencePeriodEnd?: pulumi.Input<string>;
+    recurrencePeriodEnd?: pulumi.Input<string>;
     /**
      * The date the export will start capturing information.
      */
-    readonly recurrencePeriodStart?: pulumi.Input<string>;
+    recurrencePeriodStart?: pulumi.Input<string>;
     /**
      * How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`.
      */
-    readonly recurrenceType?: pulumi.Input<string>;
+    recurrenceType?: pulumi.Input<string>;
     /**
      * The id of the resource group in which to export information.
      */
-    readonly resourceGroupId?: pulumi.Input<string>;
+    resourceGroupId?: pulumi.Input<string>;
 }
 
 /**
@@ -209,33 +209,33 @@ export interface ResourceGroupExportArgs {
     /**
      * Is the cost management export active? Default is `true`.
      */
-    readonly active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean>;
     /**
      * A `deliveryInfo` block as defined below.
      */
-    readonly deliveryInfo: pulumi.Input<inputs.costmanagement.ResourceGroupExportDeliveryInfo>;
+    deliveryInfo: pulumi.Input<inputs.costmanagement.ResourceGroupExportDeliveryInfo>;
     /**
      * Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `query` block as defined below.
      */
-    readonly query: pulumi.Input<inputs.costmanagement.ResourceGroupExportQuery>;
+    query: pulumi.Input<inputs.costmanagement.ResourceGroupExportQuery>;
     /**
      * The date the export will stop capturing information.
      */
-    readonly recurrencePeriodEnd: pulumi.Input<string>;
+    recurrencePeriodEnd: pulumi.Input<string>;
     /**
      * The date the export will start capturing information.
      */
-    readonly recurrencePeriodStart: pulumi.Input<string>;
+    recurrencePeriodStart: pulumi.Input<string>;
     /**
      * How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`.
      */
-    readonly recurrenceType: pulumi.Input<string>;
+    recurrenceType: pulumi.Input<string>;
     /**
      * The id of the resource group in which to export information.
      */
-    readonly resourceGroupId: pulumi.Input<string>;
+    resourceGroupId: pulumi.Input<string>;
 }

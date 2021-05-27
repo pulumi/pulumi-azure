@@ -146,13 +146,13 @@ export interface EndpointServicebusTopicState {
     /**
      * The connection string for the endpoint.
      */
-    readonly connectionString?: pulumi.Input<string>;
-    readonly iothubName?: pulumi.Input<string>;
+    connectionString?: pulumi.Input<string>;
+    iothubName?: pulumi.Input<string>;
     /**
      * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
      */
-    readonly name?: pulumi.Input<string>;
-    readonly resourceGroupName?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -162,11 +162,11 @@ export interface EndpointServicebusTopicArgs {
     /**
      * The connection string for the endpoint.
      */
-    readonly connectionString: pulumi.Input<string>;
-    readonly iothubName: pulumi.Input<string>;
+    connectionString: pulumi.Input<string>;
+    iothubName: pulumi.Input<string>;
     /**
      * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
      */
-    readonly name?: pulumi.Input<string>;
-    readonly resourceGroupName: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

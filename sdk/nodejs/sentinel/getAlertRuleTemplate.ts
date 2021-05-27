@@ -43,15 +43,15 @@ export interface GetAlertRuleTemplateArgs {
     /**
      * The display name of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
      */
-    readonly displayName?: string;
+    displayName?: string;
     /**
      * The ID of the Log Analytics Workspace.
      */
-    readonly logAnalyticsWorkspaceId: string;
+    logAnalyticsWorkspaceId: string;
     /**
      * The name of this Sentinel Alert Rule Template. Either `displayName` or `name` have to be specified.
      */
-    readonly name?: string;
+    name?: string;
 }
 
 /**

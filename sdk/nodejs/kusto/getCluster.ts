@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const example = pulumi.output(azure.kusto.getCluster({
  *     name: "kustocluster",
  *     resourceGroupName: "test_resource_group",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
@@ -41,11 +41,11 @@ export interface GetClusterArgs {
     /**
      * Specifies the name of the Kusto Cluster.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group where the Kusto Cluster exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

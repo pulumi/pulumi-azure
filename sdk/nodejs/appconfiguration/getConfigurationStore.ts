@@ -42,11 +42,11 @@ export interface GetConfigurationStoreArgs {
     /**
      * The Name of this App Configuration.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group where the App Configuration exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

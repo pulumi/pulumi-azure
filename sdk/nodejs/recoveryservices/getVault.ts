@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const vault = pulumi.output(azure.recoveryservices.getVault({
  *     name: "tfex-recovery_vault",
  *     resourceGroupName: "tfex-resource_group",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetVaultResult> {
@@ -41,11 +41,11 @@ export interface GetVaultArgs {
     /**
      * Specifies the name of the Recovery Services Vault.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the resource group in which the Recovery Services Vault resides.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

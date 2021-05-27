@@ -43,15 +43,15 @@ export interface GetIotHubArgs {
     /**
      * The name of this IoTHub.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group where the IoTHub exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * A mapping of tags which should be assigned to the IoTHub.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

@@ -170,17 +170,17 @@ export interface EnrichmentState {
     /**
      * The list of endpoints which will be enriched.
      */
-    readonly endpointNames?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly iothubName?: pulumi.Input<string>;
+    endpointNames?: pulumi.Input<pulumi.Input<string>[]>;
+    iothubName?: pulumi.Input<string>;
     /**
      * The key of the enrichment.
      */
-    readonly key?: pulumi.Input<string>;
-    readonly resourceGroupName?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
      */
-    readonly value?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
 }
 
 /**
@@ -190,15 +190,15 @@ export interface EnrichmentArgs {
     /**
      * The list of endpoints which will be enriched.
      */
-    readonly endpointNames: pulumi.Input<pulumi.Input<string>[]>;
-    readonly iothubName: pulumi.Input<string>;
+    endpointNames: pulumi.Input<pulumi.Input<string>[]>;
+    iothubName: pulumi.Input<string>;
     /**
      * The key of the enrichment.
      */
-    readonly key: pulumi.Input<string>;
-    readonly resourceGroupName: pulumi.Input<string>;
+    key: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
      */
-    readonly value: pulumi.Input<string>;
+    value: pulumi.Input<string>;
 }

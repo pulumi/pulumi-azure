@@ -117,20 +117,20 @@ export class Agreement extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Agreement resources.
  */
 export interface AgreementState {
-    readonly licenseTextLink?: pulumi.Input<string>;
+    licenseTextLink?: pulumi.Input<string>;
     /**
      * The Offer of the Marketplace Image. Changing this forces a new resource to be created.
      */
-    readonly offer?: pulumi.Input<string>;
+    offer?: pulumi.Input<string>;
     /**
      * The Plan of the Marketplace Image. Changing this forces a new resource to be created.
      */
-    readonly plan?: pulumi.Input<string>;
-    readonly privacyPolicyLink?: pulumi.Input<string>;
+    plan?: pulumi.Input<string>;
+    privacyPolicyLink?: pulumi.Input<string>;
     /**
      * The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
      */
-    readonly publisher?: pulumi.Input<string>;
+    publisher?: pulumi.Input<string>;
 }
 
 /**
@@ -140,13 +140,13 @@ export interface AgreementArgs {
     /**
      * The Offer of the Marketplace Image. Changing this forces a new resource to be created.
      */
-    readonly offer: pulumi.Input<string>;
+    offer: pulumi.Input<string>;
     /**
      * The Plan of the Marketplace Image. Changing this forces a new resource to be created.
      */
-    readonly plan: pulumi.Input<string>;
+    plan: pulumi.Input<string>;
     /**
      * The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
      */
-    readonly publisher: pulumi.Input<string>;
+    publisher: pulumi.Input<string>;
 }

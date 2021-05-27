@@ -42,11 +42,11 @@ export interface GetDatasetBlobStorageArgs {
     /**
      * The ID of the Data Share in which this Data Share Blob Storage Dataset should be created.
      */
-    readonly dataShareId: string;
+    dataShareId: string;
     /**
      * The name of this Data Share Blob Storage Dataset.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

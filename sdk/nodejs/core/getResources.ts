@@ -32,19 +32,19 @@ export interface GetResourcesArgs {
     /**
      * The name of the Resource.
      */
-    readonly name?: string;
+    name?: string;
     /**
      * A mapping of tags which the resource has to have in order to be included in the result.
      */
-    readonly requiredTags?: {[key: string]: string};
+    requiredTags?: {[key: string]: string};
     /**
      * The name of the Resource group where the Resources are located.
      */
-    readonly resourceGroupName?: string;
+    resourceGroupName?: string;
     /**
      * The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A full list of available Resource Types can be found [here](https://docs.microsoft.com/en-us/azure/azure-resource-manager/azure-services-resource-providers).
      */
-    readonly type?: string;
+    type?: string;
 }
 
 /**

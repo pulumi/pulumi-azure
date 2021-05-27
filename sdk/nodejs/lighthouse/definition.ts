@@ -141,27 +141,27 @@ export interface DefinitionState {
     /**
      * An authorization block as defined below.
      */
-    readonly authorizations?: pulumi.Input<pulumi.Input<inputs.lighthouse.DefinitionAuthorization>[]>;
+    authorizations?: pulumi.Input<pulumi.Input<inputs.lighthouse.DefinitionAuthorization>[]>;
     /**
      * A description of the Lighthouse Definition.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
      */
-    readonly lighthouseDefinitionId?: pulumi.Input<string>;
+    lighthouseDefinitionId?: pulumi.Input<string>;
     /**
      * The ID of the managing tenant.
      */
-    readonly managingTenantId?: pulumi.Input<string>;
+    managingTenantId?: pulumi.Input<string>;
     /**
      * The name of the Lighthouse Definition.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the managed subscription.
      */
-    readonly scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string>;
 }
 
 /**
@@ -171,25 +171,25 @@ export interface DefinitionArgs {
     /**
      * An authorization block as defined below.
      */
-    readonly authorizations: pulumi.Input<pulumi.Input<inputs.lighthouse.DefinitionAuthorization>[]>;
+    authorizations: pulumi.Input<pulumi.Input<inputs.lighthouse.DefinitionAuthorization>[]>;
     /**
      * A description of the Lighthouse Definition.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
      */
-    readonly lighthouseDefinitionId?: pulumi.Input<string>;
+    lighthouseDefinitionId?: pulumi.Input<string>;
     /**
      * The ID of the managing tenant.
      */
-    readonly managingTenantId: pulumi.Input<string>;
+    managingTenantId: pulumi.Input<string>;
     /**
      * The name of the Lighthouse Definition.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the managed subscription.
      */
-    readonly scope: pulumi.Input<string>;
+    scope: pulumi.Input<string>;
 }

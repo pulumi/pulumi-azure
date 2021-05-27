@@ -224,39 +224,39 @@ export interface PolicyState {
     /**
      * One or more `customRules` blocks as defined below.
      */
-    readonly customRules?: pulumi.Input<pulumi.Input<inputs.waf.PolicyCustomRule>[]>;
+    customRules?: pulumi.Input<pulumi.Input<inputs.waf.PolicyCustomRule>[]>;
     /**
      * A list of HTTP Listener IDs from an `azure.network.ApplicationGateway`.
      */
-    readonly httpListenerIds?: pulumi.Input<pulumi.Input<string>[]>;
+    httpListenerIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Resource location. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * A `managedRules` blocks as defined below.
      */
-    readonly managedRules?: pulumi.Input<inputs.waf.PolicyManagedRules>;
+    managedRules?: pulumi.Input<inputs.waf.PolicyManagedRules>;
     /**
      * The name of the policy. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A list of URL Path Map Path Rule IDs from an `azure.network.ApplicationGateway`.
      */
-    readonly pathBasedRuleIds?: pulumi.Input<pulumi.Input<string>[]>;
+    pathBasedRuleIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `policySettings` block as defined below.
      */
-    readonly policySettings?: pulumi.Input<inputs.waf.PolicyPolicySettings>;
+    policySettings?: pulumi.Input<inputs.waf.PolicyPolicySettings>;
     /**
      * The name of the resource group. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the Web Application Firewall Policy.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -266,29 +266,29 @@ export interface PolicyArgs {
     /**
      * One or more `customRules` blocks as defined below.
      */
-    readonly customRules?: pulumi.Input<pulumi.Input<inputs.waf.PolicyCustomRule>[]>;
+    customRules?: pulumi.Input<pulumi.Input<inputs.waf.PolicyCustomRule>[]>;
     /**
      * Resource location. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * A `managedRules` blocks as defined below.
      */
-    readonly managedRules: pulumi.Input<inputs.waf.PolicyManagedRules>;
+    managedRules: pulumi.Input<inputs.waf.PolicyManagedRules>;
     /**
      * The name of the policy. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `policySettings` block as defined below.
      */
-    readonly policySettings?: pulumi.Input<inputs.waf.PolicyPolicySettings>;
+    policySettings?: pulumi.Input<inputs.waf.PolicyPolicySettings>;
     /**
      * The name of the resource group. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the Web Application Firewall Policy.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

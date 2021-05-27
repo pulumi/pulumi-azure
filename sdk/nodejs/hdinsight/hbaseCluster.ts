@@ -242,64 +242,64 @@ export interface HBaseClusterState {
     /**
      * Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
      */
-    readonly clusterVersion?: pulumi.Input<string>;
+    clusterVersion?: pulumi.Input<string>;
     /**
      * A `componentVersion` block as defined below.
      */
-    readonly componentVersion?: pulumi.Input<inputs.hdinsight.HBaseClusterComponentVersion>;
+    componentVersion?: pulumi.Input<inputs.hdinsight.HBaseClusterComponentVersion>;
     /**
      * A `gateway` block as defined below.
      */
-    readonly gateway?: pulumi.Input<inputs.hdinsight.HBaseClusterGateway>;
+    gateway?: pulumi.Input<inputs.hdinsight.HBaseClusterGateway>;
     /**
      * The HTTPS Connectivity Endpoint for this HDInsight HBase Cluster.
      */
-    readonly httpsEndpoint?: pulumi.Input<string>;
+    httpsEndpoint?: pulumi.Input<string>;
     /**
      * Specifies the Azure Region which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * A `metastores` block as defined below.
      */
-    readonly metastores?: pulumi.Input<inputs.hdinsight.HBaseClusterMetastores>;
+    metastores?: pulumi.Input<inputs.hdinsight.HBaseClusterMetastores>;
     /**
      * A `monitor` block as defined below.
      */
-    readonly monitor?: pulumi.Input<inputs.hdinsight.HBaseClusterMonitor>;
+    monitor?: pulumi.Input<inputs.hdinsight.HBaseClusterMonitor>;
     /**
      * Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A `roles` block as defined below.
      */
-    readonly roles?: pulumi.Input<inputs.hdinsight.HBaseClusterRoles>;
+    roles?: pulumi.Input<inputs.hdinsight.HBaseClusterRoles>;
     /**
      * The SSH Connectivity Endpoint for this HDInsight HBase Cluster.
      */
-    readonly sshEndpoint?: pulumi.Input<string>;
+    sshEndpoint?: pulumi.Input<string>;
     /**
      * A `storageAccountGen2` block as defined below.
      */
-    readonly storageAccountGen2?: pulumi.Input<inputs.hdinsight.HBaseClusterStorageAccountGen2>;
+    storageAccountGen2?: pulumi.Input<inputs.hdinsight.HBaseClusterStorageAccountGen2>;
     /**
      * One or more `storageAccount` block as defined below.
      */
-    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.HBaseClusterStorageAccount>[]>;
+    storageAccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.HBaseClusterStorageAccount>[]>;
     /**
      * A map of Tags which should be assigned to this HDInsight HBase Cluster.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the Tier which should be used for this HDInsight HBase Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */
-    readonly tier?: pulumi.Input<string>;
-    readonly tlsMinVersion?: pulumi.Input<string>;
+    tier?: pulumi.Input<string>;
+    tlsMinVersion?: pulumi.Input<string>;
 }
 
 /**
@@ -309,54 +309,54 @@ export interface HBaseClusterArgs {
     /**
      * Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
      */
-    readonly clusterVersion: pulumi.Input<string>;
+    clusterVersion: pulumi.Input<string>;
     /**
      * A `componentVersion` block as defined below.
      */
-    readonly componentVersion: pulumi.Input<inputs.hdinsight.HBaseClusterComponentVersion>;
+    componentVersion: pulumi.Input<inputs.hdinsight.HBaseClusterComponentVersion>;
     /**
      * A `gateway` block as defined below.
      */
-    readonly gateway: pulumi.Input<inputs.hdinsight.HBaseClusterGateway>;
+    gateway: pulumi.Input<inputs.hdinsight.HBaseClusterGateway>;
     /**
      * Specifies the Azure Region which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * A `metastores` block as defined below.
      */
-    readonly metastores?: pulumi.Input<inputs.hdinsight.HBaseClusterMetastores>;
+    metastores?: pulumi.Input<inputs.hdinsight.HBaseClusterMetastores>;
     /**
      * A `monitor` block as defined below.
      */
-    readonly monitor?: pulumi.Input<inputs.hdinsight.HBaseClusterMonitor>;
+    monitor?: pulumi.Input<inputs.hdinsight.HBaseClusterMonitor>;
     /**
      * Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A `roles` block as defined below.
      */
-    readonly roles: pulumi.Input<inputs.hdinsight.HBaseClusterRoles>;
+    roles: pulumi.Input<inputs.hdinsight.HBaseClusterRoles>;
     /**
      * A `storageAccountGen2` block as defined below.
      */
-    readonly storageAccountGen2?: pulumi.Input<inputs.hdinsight.HBaseClusterStorageAccountGen2>;
+    storageAccountGen2?: pulumi.Input<inputs.hdinsight.HBaseClusterStorageAccountGen2>;
     /**
      * One or more `storageAccount` block as defined below.
      */
-    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.HBaseClusterStorageAccount>[]>;
+    storageAccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.HBaseClusterStorageAccount>[]>;
     /**
      * A map of Tags which should be assigned to this HDInsight HBase Cluster.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the Tier which should be used for this HDInsight HBase Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */
-    readonly tier: pulumi.Input<string>;
-    readonly tlsMinVersion?: pulumi.Input<string>;
+    tier: pulumi.Input<string>;
+    tlsMinVersion?: pulumi.Input<string>;
 }

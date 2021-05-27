@@ -143,23 +143,23 @@ export interface RegistryTokenState {
     /**
      * The name of the Container Registry. Changing this forces a new resource to be created.
      */
-    readonly containerRegistryName?: pulumi.Input<string>;
+    containerRegistryName?: pulumi.Input<string>;
     /**
      * Should the Container Registry token be enabled? Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Specifies the name of the token. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Container Registry token. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The ID of the Container Registry Scope Map associated with the token.
      */
-    readonly scopeMapId?: pulumi.Input<string>;
+    scopeMapId?: pulumi.Input<string>;
 }
 
 /**
@@ -169,21 +169,21 @@ export interface RegistryTokenArgs {
     /**
      * The name of the Container Registry. Changing this forces a new resource to be created.
      */
-    readonly containerRegistryName: pulumi.Input<string>;
+    containerRegistryName: pulumi.Input<string>;
     /**
      * Should the Container Registry token be enabled? Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Specifies the name of the token. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Container Registry token. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The ID of the Container Registry Scope Map associated with the token.
      */
-    readonly scopeMapId: pulumi.Input<string>;
+    scopeMapId: pulumi.Input<string>;
 }

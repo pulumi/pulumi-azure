@@ -151,31 +151,31 @@ export interface VirtualHubConnectionState {
     /**
      * @deprecated Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider
      */
-    readonly hubToVitualNetworkTrafficAllowed?: pulumi.Input<boolean>;
+    hubToVitualNetworkTrafficAllowed?: pulumi.Input<boolean>;
     /**
      * Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
      */
-    readonly internetSecurityEnabled?: pulumi.Input<boolean>;
+    internetSecurityEnabled?: pulumi.Input<boolean>;
     /**
      * The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created.
      */
-    readonly remoteVirtualNetworkId?: pulumi.Input<string>;
+    remoteVirtualNetworkId?: pulumi.Input<string>;
     /**
      * A `routing` block as defined below.
      */
-    readonly routing?: pulumi.Input<inputs.network.VirtualHubConnectionRouting>;
+    routing?: pulumi.Input<inputs.network.VirtualHubConnectionRouting>;
     /**
      * The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
      */
-    readonly virtualHubId?: pulumi.Input<string>;
+    virtualHubId?: pulumi.Input<string>;
     /**
      * @deprecated Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider
      */
-    readonly vitualNetworkToHubGatewaysTrafficAllowed?: pulumi.Input<boolean>;
+    vitualNetworkToHubGatewaysTrafficAllowed?: pulumi.Input<boolean>;
 }
 
 /**
@@ -185,29 +185,29 @@ export interface VirtualHubConnectionArgs {
     /**
      * @deprecated Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider
      */
-    readonly hubToVitualNetworkTrafficAllowed?: pulumi.Input<boolean>;
+    hubToVitualNetworkTrafficAllowed?: pulumi.Input<boolean>;
     /**
      * Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to `false`.
      */
-    readonly internetSecurityEnabled?: pulumi.Input<boolean>;
+    internetSecurityEnabled?: pulumi.Input<boolean>;
     /**
      * The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created.
      */
-    readonly remoteVirtualNetworkId: pulumi.Input<string>;
+    remoteVirtualNetworkId: pulumi.Input<string>;
     /**
      * A `routing` block as defined below.
      */
-    readonly routing?: pulumi.Input<inputs.network.VirtualHubConnectionRouting>;
+    routing?: pulumi.Input<inputs.network.VirtualHubConnectionRouting>;
     /**
      * The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
      */
-    readonly virtualHubId: pulumi.Input<string>;
+    virtualHubId: pulumi.Input<string>;
     /**
      * @deprecated Due to a breaking behavioural change in the Azure API this property is no longer functional and will be removed in version 3.0 of the provider
      */
-    readonly vitualNetworkToHubGatewaysTrafficAllowed?: pulumi.Input<boolean>;
+    vitualNetworkToHubGatewaysTrafficAllowed?: pulumi.Input<boolean>;
 }

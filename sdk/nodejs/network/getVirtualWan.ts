@@ -50,11 +50,11 @@ export interface GetVirtualWanArgs {
     /**
      * The name of this Virtual Wan.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group where the Virtual Wan exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

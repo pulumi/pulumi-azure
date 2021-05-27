@@ -44,15 +44,15 @@ export interface GetPoolArgs {
     /**
      * The name of the NetApp account where the NetApp pool exists.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The name of the NetApp Pool.
      */
-    readonly name: string;
+    name: string;
     /**
      * The Name of the Resource Group where the NetApp Pool exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -46,11 +46,11 @@ export interface GetEncryptionScopeArgs {
     /**
      * The name of this Storage Encryption Scope.
      */
-    readonly name: string;
+    name: string;
     /**
      * The ID of the Storage Account where this Storage Encryption Scope exists.
      */
-    readonly storageAccountId: string;
+    storageAccountId: string;
 }
 
 /**

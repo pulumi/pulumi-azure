@@ -145,23 +145,23 @@ export interface VirtualNetworkRuleState {
     /**
      * Create the virtual network rule before the subnet has the virtual network service endpoint enabled. The default value is false.
      */
-    readonly ignoreMissingVnetServiceEndpoint?: pulumi.Input<boolean>;
+    ignoreMissingVnetServiceEndpoint?: pulumi.Input<boolean>;
     /**
      * The name of the SQL virtual network rule. Changing this forces a new resource to be created. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group where the SQL server resides. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The name of the SQL Server to which this SQL virtual network rule will be applied to. Changing this forces a new resource to be created.
      */
-    readonly serverName?: pulumi.Input<string>;
+    serverName?: pulumi.Input<string>;
     /**
      * The ID of the subnet that the SQL server will be connected to.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string>;
 }
 
 /**
@@ -171,21 +171,21 @@ export interface VirtualNetworkRuleArgs {
     /**
      * Create the virtual network rule before the subnet has the virtual network service endpoint enabled. The default value is false.
      */
-    readonly ignoreMissingVnetServiceEndpoint?: pulumi.Input<boolean>;
+    ignoreMissingVnetServiceEndpoint?: pulumi.Input<boolean>;
     /**
      * The name of the SQL virtual network rule. Changing this forces a new resource to be created. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group where the SQL server resides. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the SQL Server to which this SQL virtual network rule will be applied to. Changing this forces a new resource to be created.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
     /**
      * The ID of the subnet that the SQL server will be connected to.
      */
-    readonly subnetId: pulumi.Input<string>;
+    subnetId: pulumi.Input<string>;
 }

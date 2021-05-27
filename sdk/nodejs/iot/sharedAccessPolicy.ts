@@ -169,47 +169,47 @@ export interface SharedAccessPolicyState {
     /**
      * Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
      */
-    readonly deviceConnect?: pulumi.Input<boolean>;
+    deviceConnect?: pulumi.Input<boolean>;
     /**
      * The name of the IoTHub to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
      */
-    readonly iothubName?: pulumi.Input<string>;
+    iothubName?: pulumi.Input<string>;
     /**
      * Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The primary connection string of the Shared Access Policy.
      */
-    readonly primaryConnectionString?: pulumi.Input<string>;
+    primaryConnectionString?: pulumi.Input<string>;
     /**
      * The primary key used to create the authentication token.
      */
-    readonly primaryKey?: pulumi.Input<string>;
+    primaryKey?: pulumi.Input<string>;
     /**
      * Adds `RegistryRead` permission to this Shared Access Account. It allows read access to the identity registry.
      */
-    readonly registryRead?: pulumi.Input<boolean>;
+    registryRead?: pulumi.Input<boolean>;
     /**
      * Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
      */
-    readonly registryWrite?: pulumi.Input<boolean>;
+    registryWrite?: pulumi.Input<boolean>;
     /**
      * The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The secondary connection string of the Shared Access Policy.
      */
-    readonly secondaryConnectionString?: pulumi.Input<string>;
+    secondaryConnectionString?: pulumi.Input<string>;
     /**
      * The secondary key used to create the authentication token.
      */
-    readonly secondaryKey?: pulumi.Input<string>;
+    secondaryKey?: pulumi.Input<string>;
     /**
      * Adds `ServiceConnect` permission to this Shared Access Account. It allows sending and receiving on the cloud-side endpoints.
      */
-    readonly serviceConnect?: pulumi.Input<boolean>;
+    serviceConnect?: pulumi.Input<boolean>;
 }
 
 /**
@@ -219,29 +219,29 @@ export interface SharedAccessPolicyArgs {
     /**
      * Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
      */
-    readonly deviceConnect?: pulumi.Input<boolean>;
+    deviceConnect?: pulumi.Input<boolean>;
     /**
      * The name of the IoTHub to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
      */
-    readonly iothubName: pulumi.Input<string>;
+    iothubName: pulumi.Input<string>;
     /**
      * Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Adds `RegistryRead` permission to this Shared Access Account. It allows read access to the identity registry.
      */
-    readonly registryRead?: pulumi.Input<boolean>;
+    registryRead?: pulumi.Input<boolean>;
     /**
      * Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
      */
-    readonly registryWrite?: pulumi.Input<boolean>;
+    registryWrite?: pulumi.Input<boolean>;
     /**
      * The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Adds `ServiceConnect` permission to this Shared Access Account. It allows sending and receiving on the cloud-side endpoints.
      */
-    readonly serviceConnect?: pulumi.Input<boolean>;
+    serviceConnect?: pulumi.Input<boolean>;
 }

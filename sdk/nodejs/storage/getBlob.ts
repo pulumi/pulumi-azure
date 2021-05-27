@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     name: "example-blob-name",
  *     storageAccountName: "example-storage-account-name",
  *     storageContainerName: "example-storage-container-name",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getBlob(args: GetBlobArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobResult> {
@@ -44,19 +44,19 @@ export interface GetBlobArgs {
     /**
      * A map of custom blob metadata.
      */
-    readonly metadata?: {[key: string]: string};
+    metadata?: {[key: string]: string};
     /**
      * The name of the Blob.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Storage Account where the Container exists.
      */
-    readonly storageAccountName: string;
+    storageAccountName: string;
     /**
      * The name of the Storage Container where the Blob exists.
      */
-    readonly storageContainerName: string;
+    storageContainerName: string;
 }
 
 /**

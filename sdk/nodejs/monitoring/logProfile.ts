@@ -161,28 +161,28 @@ export interface LogProfileState {
     /**
      * List of categories of the logs.
      */
-    readonly categories?: pulumi.Input<pulumi.Input<string>[]>;
+    categories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of regions for which Activity Log events are stored or streamed.
      */
-    readonly locations?: pulumi.Input<pulumi.Input<string>[]>;
+    locations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the Log Profile. Changing this forces a
      * new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `retentionPolicy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
      */
-    readonly retentionPolicy?: pulumi.Input<inputs.monitoring.LogProfileRetentionPolicy>;
+    retentionPolicy?: pulumi.Input<inputs.monitoring.LogProfileRetentionPolicy>;
     /**
      * The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storageAccountId` or `servicebusRuleId` must be set.
      */
-    readonly servicebusRuleId?: pulumi.Input<string>;
+    servicebusRuleId?: pulumi.Input<string>;
     /**
      * The resource ID of the storage account in which the Activity Log is stored. At least one of `storageAccountId` or `servicebusRuleId` must be set.
      */
-    readonly storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string>;
 }
 
 /**
@@ -192,26 +192,26 @@ export interface LogProfileArgs {
     /**
      * List of categories of the logs.
      */
-    readonly categories: pulumi.Input<pulumi.Input<string>[]>;
+    categories: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of regions for which Activity Log events are stored or streamed.
      */
-    readonly locations: pulumi.Input<pulumi.Input<string>[]>;
+    locations: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the Log Profile. Changing this forces a
      * new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `retentionPolicy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
      */
-    readonly retentionPolicy: pulumi.Input<inputs.monitoring.LogProfileRetentionPolicy>;
+    retentionPolicy: pulumi.Input<inputs.monitoring.LogProfileRetentionPolicy>;
     /**
      * The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storageAccountId` or `servicebusRuleId` must be set.
      */
-    readonly servicebusRuleId?: pulumi.Input<string>;
+    servicebusRuleId?: pulumi.Input<string>;
     /**
      * The resource ID of the storage account in which the Activity Log is stored. At least one of `storageAccountId` or `servicebusRuleId` must be set.
      */
-    readonly storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string>;
 }

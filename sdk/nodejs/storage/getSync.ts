@@ -42,11 +42,11 @@ export interface GetSyncArgs {
     /**
      * The name of this Storage Sync.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group where the Storage Sync exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -169,28 +169,28 @@ export interface SubscriptionState {
     /**
      * The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
      */
-    readonly alias?: pulumi.Input<string>;
+    alias?: pulumi.Input<string>;
     /**
      * The Azure Billing Scope ID. Can be either a Microsoft Customer Account Billing Scope ID or an Enrollment Billing Scope ID.
      */
-    readonly billingScopeId?: pulumi.Input<string>;
+    billingScopeId?: pulumi.Input<string>;
     /**
      * The ID of the Subscription. Changing this forces a new Subscription to be created.
      */
-    readonly subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string>;
     /**
      * The Name of the Subscription. This is the Display Name in the portal.
      */
-    readonly subscriptionName?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    subscriptionName?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Tenant to which the subscription belongs.
      */
-    readonly tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string>;
     /**
      * The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
      */
-    readonly workload?: pulumi.Input<string>;
+    workload?: pulumi.Input<string>;
 }
 
 /**
@@ -200,21 +200,21 @@ export interface SubscriptionArgs {
     /**
      * The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
      */
-    readonly alias?: pulumi.Input<string>;
+    alias?: pulumi.Input<string>;
     /**
      * The Azure Billing Scope ID. Can be either a Microsoft Customer Account Billing Scope ID or an Enrollment Billing Scope ID.
      */
-    readonly billingScopeId?: pulumi.Input<string>;
+    billingScopeId?: pulumi.Input<string>;
     /**
      * The ID of the Subscription. Changing this forces a new Subscription to be created.
      */
-    readonly subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string>;
     /**
      * The Name of the Subscription. This is the Display Name in the portal.
      */
-    readonly subscriptionName: pulumi.Input<string>;
+    subscriptionName: pulumi.Input<string>;
     /**
      * The workload type of the Subscription.  Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
      */
-    readonly workload?: pulumi.Input<string>;
+    workload?: pulumi.Input<string>;
 }

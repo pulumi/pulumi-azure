@@ -134,23 +134,23 @@ export interface EncryptionScopeState {
     /**
      * Is a secondary layer of encryption with Platform Managed Keys for data applied?
      */
-    readonly infrastructureEncryptionRequired?: pulumi.Input<boolean>;
+    infrastructureEncryptionRequired?: pulumi.Input<boolean>;
     /**
      * The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
      */
-    readonly keyVaultKeyId?: pulumi.Input<string>;
+    keyVaultKeyId?: pulumi.Input<string>;
     /**
      * The name which should be used for this Storage Encryption Scope. Changing this forces a new Storage Encryption Scope to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The source of the Storage Encryption Scope. Possible values are `Microsoft.KeyVault` and `Microsoft.Storage`.
      */
-    readonly source?: pulumi.Input<string>;
+    source?: pulumi.Input<string>;
     /**
      * The ID of the Storage Account where this Storage Encryption Scope is created. Changing this forces a new Storage Encryption Scope to be created.
      */
-    readonly storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string>;
 }
 
 /**
@@ -160,21 +160,21 @@ export interface EncryptionScopeArgs {
     /**
      * Is a secondary layer of encryption with Platform Managed Keys for data applied?
      */
-    readonly infrastructureEncryptionRequired?: pulumi.Input<boolean>;
+    infrastructureEncryptionRequired?: pulumi.Input<boolean>;
     /**
      * The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
      */
-    readonly keyVaultKeyId?: pulumi.Input<string>;
+    keyVaultKeyId?: pulumi.Input<string>;
     /**
      * The name which should be used for this Storage Encryption Scope. Changing this forces a new Storage Encryption Scope to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The source of the Storage Encryption Scope. Possible values are `Microsoft.KeyVault` and `Microsoft.Storage`.
      */
-    readonly source: pulumi.Input<string>;
+    source: pulumi.Input<string>;
     /**
      * The ID of the Storage Account where this Storage Encryption Scope is created. Changing this forces a new Storage Encryption Scope to be created.
      */
-    readonly storageAccountId: pulumi.Input<string>;
+    storageAccountId: pulumi.Input<string>;
 }

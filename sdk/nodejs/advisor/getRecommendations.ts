@@ -46,11 +46,11 @@ export interface GetRecommendationsArgs {
     /**
      * Specifies a list of categories in which the Advisor Recommendations will be listed. Possible values are `HighAvailability`, `Security`, `Performance`, `Cost` and `OperationalExcellence`.
      */
-    readonly filterByCategories?: string[];
+    filterByCategories?: string[];
     /**
      * Specifies a list of resource groups about which the Advisor Recommendations will be listed.
      */
-    readonly filterByResourceGroups?: string[];
+    filterByResourceGroups?: string[];
 }
 
 /**

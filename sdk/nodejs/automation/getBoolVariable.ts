@@ -44,15 +44,15 @@ export interface GetBoolVariableArgs {
     /**
      * The name of the automation account in which the Automation Variable exists.
      */
-    readonly automationAccountName: string;
+    automationAccountName: string;
     /**
      * The name of the Automation Variable.
      */
-    readonly name: string;
+    name: string;
     /**
      * The Name of the Resource Group where the automation account exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

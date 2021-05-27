@@ -47,15 +47,15 @@ export interface GetCertificateArgs {
     /**
      * Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
      */
-    readonly keyVaultId: string;
+    keyVaultId: string;
     /**
      * Specifies the name of the Key Vault Certificate.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the version of the certificate to look up.  (Defaults to latest)
      */
-    readonly version?: string;
+    version?: string;
 }
 
 /**

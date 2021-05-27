@@ -124,15 +124,15 @@ export interface PolicyState {
     /**
      * The ID of the API Management service. Changing this forces a new API Management service Policy to be created.
      */
-    readonly apiManagementId?: pulumi.Input<string>;
+    apiManagementId?: pulumi.Input<string>;
     /**
      * The XML Content for this Policy as a string.
      */
-    readonly xmlContent?: pulumi.Input<string>;
+    xmlContent?: pulumi.Input<string>;
     /**
      * A link to a Policy XML Document, which must be publicly available.
      */
-    readonly xmlLink?: pulumi.Input<string>;
+    xmlLink?: pulumi.Input<string>;
 }
 
 /**
@@ -142,13 +142,13 @@ export interface PolicyArgs {
     /**
      * The ID of the API Management service. Changing this forces a new API Management service Policy to be created.
      */
-    readonly apiManagementId: pulumi.Input<string>;
+    apiManagementId: pulumi.Input<string>;
     /**
      * The XML Content for this Policy as a string.
      */
-    readonly xmlContent?: pulumi.Input<string>;
+    xmlContent?: pulumi.Input<string>;
     /**
      * A link to a Policy XML Document, which must be publicly available.
      */
-    readonly xmlLink?: pulumi.Input<string>;
+    xmlLink?: pulumi.Input<string>;
 }

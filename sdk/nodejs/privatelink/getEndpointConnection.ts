@@ -42,11 +42,11 @@ export interface GetEndpointConnectionArgs {
     /**
      * Specifies the Name of the private endpoint.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the Name of the Resource Group within which the private endpoint exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -47,23 +47,23 @@ export interface GetVolumeArgs {
     /**
      * The name of the NetApp account where the NetApp pool exists.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The name of the NetApp Volume.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the NetApp pool where the NetApp volume exists.
      */
-    readonly poolName: string;
+    poolName: string;
     /**
      * The Name of the Resource Group where the NetApp Volume exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Volume security style
      */
-    readonly securityStyle?: string;
+    securityStyle?: string;
 }
 
 /**

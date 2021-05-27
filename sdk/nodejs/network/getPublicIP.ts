@@ -95,16 +95,16 @@ export interface GetPublicIPArgs {
     /**
      * Specifies the name of the public IP address.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * A mapping of tags to assigned to the resource.
      */
-    readonly tags?: {[key: string]: string};
-    readonly zones?: string[];
+    tags?: {[key: string]: string};
+    zones?: string[];
 }
 
 /**

@@ -42,11 +42,11 @@ export interface GetVirtualMachineScaleSetArgs {
     /**
      * The name of this Virtual Machine Scale Set.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group where the Virtual Machine Scale Set exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

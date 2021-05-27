@@ -151,23 +151,23 @@ export interface NamespaceNetworkRuleSetState {
     /**
      * Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
      */
-    readonly defaultAction?: pulumi.Input<string>;
+    defaultAction?: pulumi.Input<string>;
     /**
      * One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
      */
-    readonly ipRules?: pulumi.Input<pulumi.Input<string>[]>;
+    ipRules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the ServiceBus Namespace name to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
      */
-    readonly namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string>;
     /**
      * One or more `networkRules` blocks as defined below.
      */
-    readonly networkRules?: pulumi.Input<pulumi.Input<inputs.servicebus.NamespaceNetworkRuleSetNetworkRule>[]>;
+    networkRules?: pulumi.Input<pulumi.Input<inputs.servicebus.NamespaceNetworkRuleSetNetworkRule>[]>;
     /**
      * Specifies the name of the Resource Group where the ServiceBus Namespace Network Rule Set should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -177,21 +177,21 @@ export interface NamespaceNetworkRuleSetArgs {
     /**
      * Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
      */
-    readonly defaultAction?: pulumi.Input<string>;
+    defaultAction?: pulumi.Input<string>;
     /**
      * One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
      */
-    readonly ipRules?: pulumi.Input<pulumi.Input<string>[]>;
+    ipRules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the ServiceBus Namespace name to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
      */
-    readonly namespaceName: pulumi.Input<string>;
+    namespaceName: pulumi.Input<string>;
     /**
      * One or more `networkRules` blocks as defined below.
      */
-    readonly networkRules?: pulumi.Input<pulumi.Input<inputs.servicebus.NamespaceNetworkRuleSetNetworkRule>[]>;
+    networkRules?: pulumi.Input<pulumi.Input<inputs.servicebus.NamespaceNetworkRuleSetNetworkRule>[]>;
     /**
      * Specifies the name of the Resource Group where the ServiceBus Namespace Network Rule Set should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

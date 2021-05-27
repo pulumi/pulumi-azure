@@ -133,23 +133,23 @@ export interface TimeSeriesInsightsAccessPolicyState {
     /**
      * The description of the Azure IoT Time Series Insights Access Policy.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Specifies the name of the Azure IoT Time Series Insights Access Policy. Changing this forces a new resource to be created. Must be globally unique.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The id of the principal in Azure Active Directory.
      */
-    readonly principalObjectId?: pulumi.Input<string>;
+    principalObjectId?: pulumi.Input<string>;
     /**
      * A list of roles to apply to the Access Policy. Valid values include `Contributor` and `Reader`.
      */
-    readonly roles?: pulumi.Input<pulumi.Input<string>[]>;
+    roles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The resource ID of the Azure IoT Time Series Insights Environment in which to create the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created.
      */
-    readonly timeSeriesInsightsEnvironmentId?: pulumi.Input<string>;
+    timeSeriesInsightsEnvironmentId?: pulumi.Input<string>;
 }
 
 /**
@@ -159,21 +159,21 @@ export interface TimeSeriesInsightsAccessPolicyArgs {
     /**
      * The description of the Azure IoT Time Series Insights Access Policy.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Specifies the name of the Azure IoT Time Series Insights Access Policy. Changing this forces a new resource to be created. Must be globally unique.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The id of the principal in Azure Active Directory.
      */
-    readonly principalObjectId: pulumi.Input<string>;
+    principalObjectId: pulumi.Input<string>;
     /**
      * A list of roles to apply to the Access Policy. Valid values include `Contributor` and `Reader`.
      */
-    readonly roles: pulumi.Input<pulumi.Input<string>[]>;
+    roles: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The resource ID of the Azure IoT Time Series Insights Environment in which to create the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created.
      */
-    readonly timeSeriesInsightsEnvironmentId: pulumi.Input<string>;
+    timeSeriesInsightsEnvironmentId: pulumi.Input<string>;
 }

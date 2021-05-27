@@ -170,43 +170,43 @@ export interface NamespaceAuthorizationRuleState {
     /**
      * Grants listen access to this this Authorization Rule. Defaults to `false`.
      */
-    readonly listen?: pulumi.Input<boolean>;
+    listen?: pulumi.Input<boolean>;
     /**
      * Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */
-    readonly manage?: pulumi.Input<boolean>;
+    manage?: pulumi.Input<boolean>;
     /**
      * Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
      */
-    readonly namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string>;
     /**
      * The Primary Connection String for the ServiceBus Namespace authorization Rule.
      */
-    readonly primaryConnectionString?: pulumi.Input<string>;
+    primaryConnectionString?: pulumi.Input<string>;
     /**
      * The Primary Key for the ServiceBus Namespace authorization Rule.
      */
-    readonly primaryKey?: pulumi.Input<string>;
+    primaryKey?: pulumi.Input<string>;
     /**
      * The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The Secondary Connection String for the ServiceBus Namespace authorization Rule.
      */
-    readonly secondaryConnectionString?: pulumi.Input<string>;
+    secondaryConnectionString?: pulumi.Input<string>;
     /**
      * The Secondary Key for the ServiceBus Namespace authorization Rule.
      */
-    readonly secondaryKey?: pulumi.Input<string>;
+    secondaryKey?: pulumi.Input<string>;
     /**
      * Grants send access to this this Authorization Rule. Defaults to `false`.
      */
-    readonly send?: pulumi.Input<boolean>;
+    send?: pulumi.Input<boolean>;
 }
 
 /**
@@ -216,25 +216,25 @@ export interface NamespaceAuthorizationRuleArgs {
     /**
      * Grants listen access to this this Authorization Rule. Defaults to `false`.
      */
-    readonly listen?: pulumi.Input<boolean>;
+    listen?: pulumi.Input<boolean>;
     /**
      * Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */
-    readonly manage?: pulumi.Input<boolean>;
+    manage?: pulumi.Input<boolean>;
     /**
      * Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
      */
-    readonly namespaceName: pulumi.Input<string>;
+    namespaceName: pulumi.Input<string>;
     /**
      * The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Grants send access to this this Authorization Rule. Defaults to `false`.
      */
-    readonly send?: pulumi.Input<boolean>;
+    send?: pulumi.Input<boolean>;
 }

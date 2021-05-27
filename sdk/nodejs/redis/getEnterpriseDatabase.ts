@@ -45,15 +45,15 @@ export interface GetEnterpriseDatabaseArgs {
     /**
      * The resource ID of Redis Enterprise Cluster which hosts the Redis Enterprise Database instance.
      */
-    readonly clusterId: string;
+    clusterId: string;
     /**
      * The name of the Redis Enterprise Database.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the resource group the Redis Enterprise Database instance is located in.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

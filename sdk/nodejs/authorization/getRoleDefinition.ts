@@ -31,15 +31,15 @@ export interface GetRoleDefinitionArgs {
     /**
      * Specifies the Name of either a built-in or custom Role Definition.
      */
-    readonly name?: string;
+    name?: string;
     /**
      * Specifies the ID of the Role Definition as a UUID/GUID.
      */
-    readonly roleDefinitionId?: string;
+    roleDefinitionId?: string;
     /**
      * Specifies the Scope at which the Custom Role Definition exists.
      */
-    readonly scope?: string;
+    scope?: string;
 }
 
 /**

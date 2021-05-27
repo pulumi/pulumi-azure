@@ -132,19 +132,19 @@ export interface IdentityProviderFacebookState {
     /**
      * The Name of the API Management Service where this Facebook Identity Provider should be created. Changing this forces a new resource to be created.
      */
-    readonly apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string>;
     /**
      * App ID for Facebook.
      */
-    readonly appId?: pulumi.Input<string>;
+    appId?: pulumi.Input<string>;
     /**
      * App Secret for Facebook.
      */
-    readonly appSecret?: pulumi.Input<string>;
+    appSecret?: pulumi.Input<string>;
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -154,17 +154,17 @@ export interface IdentityProviderFacebookArgs {
     /**
      * The Name of the API Management Service where this Facebook Identity Provider should be created. Changing this forces a new resource to be created.
      */
-    readonly apiManagementName: pulumi.Input<string>;
+    apiManagementName: pulumi.Input<string>;
     /**
      * App ID for Facebook.
      */
-    readonly appId: pulumi.Input<string>;
+    appId: pulumi.Input<string>;
     /**
      * App Secret for Facebook.
      */
-    readonly appSecret: pulumi.Input<string>;
+    appSecret: pulumi.Input<string>;
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

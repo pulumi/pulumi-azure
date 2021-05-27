@@ -154,27 +154,27 @@ export interface VirtualHubIpState {
     /**
      * The name which should be used for this Virtual Hub IP. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The private IP address of the IP configuration.
      */
-    readonly privateIpAddress?: pulumi.Input<string>;
+    privateIpAddress?: pulumi.Input<string>;
     /**
      * The private IP address allocation method. Possible values are `Static` and `Dynamic` is allowed. Defaults to `Dynamic`.
      */
-    readonly privateIpAllocationMethod?: pulumi.Input<string>;
+    privateIpAllocationMethod?: pulumi.Input<string>;
     /**
      * The ID of the Public IP Address.
      */
-    readonly publicIpAddressId?: pulumi.Input<string>;
+    publicIpAddressId?: pulumi.Input<string>;
     /**
      * The ID of the Subnet that the IP will reside. Changing this forces a new resource to be created.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string>;
     /**
      * The ID of the Virtual Hub within which this ip configuration should be created. Changing this forces a new resource to be created.
      */
-    readonly virtualHubId?: pulumi.Input<string>;
+    virtualHubId?: pulumi.Input<string>;
 }
 
 /**
@@ -184,25 +184,25 @@ export interface VirtualHubIpArgs {
     /**
      * The name which should be used for this Virtual Hub IP. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The private IP address of the IP configuration.
      */
-    readonly privateIpAddress?: pulumi.Input<string>;
+    privateIpAddress?: pulumi.Input<string>;
     /**
      * The private IP address allocation method. Possible values are `Static` and `Dynamic` is allowed. Defaults to `Dynamic`.
      */
-    readonly privateIpAllocationMethod?: pulumi.Input<string>;
+    privateIpAllocationMethod?: pulumi.Input<string>;
     /**
      * The ID of the Public IP Address.
      */
-    readonly publicIpAddressId?: pulumi.Input<string>;
+    publicIpAddressId?: pulumi.Input<string>;
     /**
      * The ID of the Subnet that the IP will reside. Changing this forces a new resource to be created.
      */
-    readonly subnetId: pulumi.Input<string>;
+    subnetId: pulumi.Input<string>;
     /**
      * The ID of the Virtual Hub within which this ip configuration should be created. Changing this forces a new resource to be created.
      */
-    readonly virtualHubId: pulumi.Input<string>;
+    virtualHubId: pulumi.Input<string>;
 }

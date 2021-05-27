@@ -44,15 +44,15 @@ export interface GetTemplateSpecVersionArgs {
     /**
      * The name of this Template Spec.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group where the Template Spec exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The Version Name of the Template Spec.
      */
-    readonly version: string;
+    version: string;
 }
 
 /**

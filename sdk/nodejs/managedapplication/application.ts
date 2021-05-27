@@ -187,47 +187,47 @@ export interface ApplicationState {
     /**
      * The application definition ID to deploy.
      */
-    readonly applicationDefinitionId?: pulumi.Input<string>;
+    applicationDefinitionId?: pulumi.Input<string>;
     /**
      * The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the target resource group where all the resources deployed by the managed application will reside. Changing this forces a new resource to be created.
      */
-    readonly managedResourceGroupName?: pulumi.Input<string>;
+    managedResourceGroupName?: pulumi.Input<string>;
     /**
      * Specifies the name of the Managed Application. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name and value pairs that define the managed application outputs.
      */
-    readonly outputs?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    outputs?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The parameter values to pass to the Managed Application. This field is a json object that allows you to assign parameters to this Managed Application.
      */
-    readonly parameterValues?: pulumi.Input<string>;
+    parameterValues?: pulumi.Input<string>;
     /**
      * A mapping of name and value pairs to pass to the managed application as parameters.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * One `plan` block as defined below.
      */
-    readonly plan?: pulumi.Input<inputs.managedapplication.ApplicationPlan>;
+    plan?: pulumi.Input<inputs.managedapplication.ApplicationPlan>;
     /**
      * The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -237,41 +237,41 @@ export interface ApplicationArgs {
     /**
      * The application definition ID to deploy.
      */
-    readonly applicationDefinitionId?: pulumi.Input<string>;
+    applicationDefinitionId?: pulumi.Input<string>;
     /**
      * The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.
      */
-    readonly kind: pulumi.Input<string>;
+    kind: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the target resource group where all the resources deployed by the managed application will reside. Changing this forces a new resource to be created.
      */
-    readonly managedResourceGroupName: pulumi.Input<string>;
+    managedResourceGroupName: pulumi.Input<string>;
     /**
      * Specifies the name of the Managed Application. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The parameter values to pass to the Managed Application. This field is a json object that allows you to assign parameters to this Managed Application.
      */
-    readonly parameterValues?: pulumi.Input<string>;
+    parameterValues?: pulumi.Input<string>;
     /**
      * A mapping of name and value pairs to pass to the managed application as parameters.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * One `plan` block as defined below.
      */
-    readonly plan?: pulumi.Input<inputs.managedapplication.ApplicationPlan>;
+    plan?: pulumi.Input<inputs.managedapplication.ApplicationPlan>;
     /**
      * The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

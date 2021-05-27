@@ -105,11 +105,11 @@ export interface SubscriptionPricingState {
     /**
      * The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm` and `Dns`.
      */
-    readonly resourceType?: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string>;
     /**
      * The pricing tier to use. Possible values are `Free` and `Standard`.
      */
-    readonly tier?: pulumi.Input<string>;
+    tier?: pulumi.Input<string>;
 }
 
 /**
@@ -119,9 +119,9 @@ export interface SubscriptionPricingArgs {
     /**
      * The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm` and `Dns`.
      */
-    readonly resourceType?: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string>;
     /**
      * The pricing tier to use. Possible values are `Free` and `Standard`.
      */
-    readonly tier: pulumi.Input<string>;
+    tier: pulumi.Input<string>;
 }

@@ -44,15 +44,15 @@ export interface GetTopicArgs {
     /**
      * The name of this Service Bus Topic.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Service Bus Namespace.
      */
-    readonly namespaceName: string;
+    namespaceName: string;
     /**
      * The name of the Resource Group where the Service Bus Topic exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

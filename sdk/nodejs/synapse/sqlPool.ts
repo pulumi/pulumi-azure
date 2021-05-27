@@ -164,39 +164,39 @@ export interface SqlPoolState {
     /**
      * The name of the collation to use with this pool, only applicable when `createMode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
      */
-    readonly collation?: pulumi.Input<string>;
+    collation?: pulumi.Input<string>;
     /**
      * Specifies how to create the Sql Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`.
      */
-    readonly createMode?: pulumi.Input<string>;
+    createMode?: pulumi.Input<string>;
     /**
      * Is transparent data encryption enabled? Defaults to `false`.
      */
-    readonly dataEncrypted?: pulumi.Input<boolean>;
+    dataEncrypted?: pulumi.Input<boolean>;
     /**
      * The name which should be used for this Synapse Sql Pool. Changing this forces a new synapse SqlPool to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the Synapse Sql Pool or Sql Database which is to back up, only applicable when `createMode` is set to `Recovery`. Changing this forces a new Synapse Sql Pool to be created.
      */
-    readonly recoveryDatabaseId?: pulumi.Input<string>;
+    recoveryDatabaseId?: pulumi.Input<string>;
     /**
      * A `restore` block as defined below. only applicable when `createMode` is set to `PointInTimeRestore`.
      */
-    readonly restore?: pulumi.Input<inputs.synapse.SqlPoolRestore>;
+    restore?: pulumi.Input<inputs.synapse.SqlPoolRestore>;
     /**
      * Specifies the SKU Name for this Synapse Sql Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
      */
-    readonly skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string>;
     /**
      * The ID of Synapse Workspace within which this Sql Pool should be created. Changing this forces a new Synapse Sql Pool to be created.
      */
-    readonly synapseWorkspaceId?: pulumi.Input<string>;
+    synapseWorkspaceId?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Synapse Sql Pool.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -206,37 +206,37 @@ export interface SqlPoolArgs {
     /**
      * The name of the collation to use with this pool, only applicable when `createMode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
      */
-    readonly collation?: pulumi.Input<string>;
+    collation?: pulumi.Input<string>;
     /**
      * Specifies how to create the Sql Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`.
      */
-    readonly createMode?: pulumi.Input<string>;
+    createMode?: pulumi.Input<string>;
     /**
      * Is transparent data encryption enabled? Defaults to `false`.
      */
-    readonly dataEncrypted?: pulumi.Input<boolean>;
+    dataEncrypted?: pulumi.Input<boolean>;
     /**
      * The name which should be used for this Synapse Sql Pool. Changing this forces a new synapse SqlPool to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the Synapse Sql Pool or Sql Database which is to back up, only applicable when `createMode` is set to `Recovery`. Changing this forces a new Synapse Sql Pool to be created.
      */
-    readonly recoveryDatabaseId?: pulumi.Input<string>;
+    recoveryDatabaseId?: pulumi.Input<string>;
     /**
      * A `restore` block as defined below. only applicable when `createMode` is set to `PointInTimeRestore`.
      */
-    readonly restore?: pulumi.Input<inputs.synapse.SqlPoolRestore>;
+    restore?: pulumi.Input<inputs.synapse.SqlPoolRestore>;
     /**
      * Specifies the SKU Name for this Synapse Sql Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
      */
-    readonly skuName: pulumi.Input<string>;
+    skuName: pulumi.Input<string>;
     /**
      * The ID of Synapse Workspace within which this Sql Pool should be created. Changing this forces a new Synapse Sql Pool to be created.
      */
-    readonly synapseWorkspaceId: pulumi.Input<string>;
+    synapseWorkspaceId: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Synapse Sql Pool.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

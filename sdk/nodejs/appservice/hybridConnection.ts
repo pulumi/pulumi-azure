@@ -194,44 +194,44 @@ export interface HybridConnectionState {
     /**
      * Specifies the name of the App Service. Changing this forces a new resource to be created.
      */
-    readonly appServiceName?: pulumi.Input<string>;
+    appServiceName?: pulumi.Input<string>;
     /**
      * The hostname of the endpoint.
      */
-    readonly hostname?: pulumi.Input<string>;
+    hostname?: pulumi.Input<string>;
     /**
      * The name of the Relay Namespace.
      */
-    readonly namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string>;
     /**
      * The port of the endpoint.
      */
-    readonly port?: pulumi.Input<number>;
+    port?: pulumi.Input<number>;
     /**
      * The ID of the Service Bus Relay. Changing this forces a new resource to be created.
      */
-    readonly relayId?: pulumi.Input<string>;
-    readonly relayName?: pulumi.Input<string>;
+    relayId?: pulumi.Input<string>;
+    relayName?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
      */
-    readonly sendKeyName?: pulumi.Input<string>;
+    sendKeyName?: pulumi.Input<string>;
     /**
      * The value of the Service Bus Primary Access key.
      */
-    readonly sendKeyValue?: pulumi.Input<string>;
+    sendKeyValue?: pulumi.Input<string>;
     /**
      * The name of the Service Bus namespace.
      */
-    readonly serviceBusNamespace?: pulumi.Input<string>;
+    serviceBusNamespace?: pulumi.Input<string>;
     /**
      * The suffix for the service bus endpoint.
      */
-    readonly serviceBusSuffix?: pulumi.Input<string>;
+    serviceBusSuffix?: pulumi.Input<string>;
 }
 
 /**
@@ -241,25 +241,25 @@ export interface HybridConnectionArgs {
     /**
      * Specifies the name of the App Service. Changing this forces a new resource to be created.
      */
-    readonly appServiceName: pulumi.Input<string>;
+    appServiceName: pulumi.Input<string>;
     /**
      * The hostname of the endpoint.
      */
-    readonly hostname: pulumi.Input<string>;
+    hostname: pulumi.Input<string>;
     /**
      * The port of the endpoint.
      */
-    readonly port: pulumi.Input<number>;
+    port: pulumi.Input<number>;
     /**
      * The ID of the Service Bus Relay. Changing this forces a new resource to be created.
      */
-    readonly relayId: pulumi.Input<string>;
+    relayId: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the App Service.  Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
      */
-    readonly sendKeyName?: pulumi.Input<string>;
+    sendKeyName?: pulumi.Input<string>;
 }

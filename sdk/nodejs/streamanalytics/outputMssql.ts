@@ -177,68 +177,68 @@ export class OutputMssql extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OutputMssql resources.
  */
 export interface OutputMssqlState {
-    readonly database?: pulumi.Input<string>;
+    database?: pulumi.Input<string>;
     /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The SQL server url. Changing this forces a new resource to be created.
      */
-    readonly server?: pulumi.Input<string>;
+    server?: pulumi.Input<string>;
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    readonly streamAnalyticsJobName?: pulumi.Input<string>;
+    streamAnalyticsJobName?: pulumi.Input<string>;
     /**
      * Table in the database that the output points to. Changing this forces a new resource to be created.
      */
-    readonly table?: pulumi.Input<string>;
+    table?: pulumi.Input<string>;
     /**
      * Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
      */
-    readonly user?: pulumi.Input<string>;
+    user?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a OutputMssql resource.
  */
 export interface OutputMssqlArgs {
-    readonly database: pulumi.Input<string>;
+    database: pulumi.Input<string>;
     /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
      */
-    readonly password: pulumi.Input<string>;
+    password: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The SQL server url. Changing this forces a new resource to be created.
      */
-    readonly server: pulumi.Input<string>;
+    server: pulumi.Input<string>;
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    readonly streamAnalyticsJobName: pulumi.Input<string>;
+    streamAnalyticsJobName: pulumi.Input<string>;
     /**
      * Table in the database that the output points to. Changing this forces a new resource to be created.
      */
-    readonly table: pulumi.Input<string>;
+    table: pulumi.Input<string>;
     /**
      * Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
      */
-    readonly user: pulumi.Input<string>;
+    user: pulumi.Input<string>;
 }

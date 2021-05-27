@@ -43,12 +43,12 @@ export interface GetFirewallPolicyArgs {
     /**
      * The name of the Web Application Firewall Policy
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group where the Web Application Firewall Policy exists.
      */
-    readonly resourceGroupName: string;
-    readonly tags?: {[key: string]: string};
+    resourceGroupName: string;
+    tags?: {[key: string]: string};
 }
 
 /**

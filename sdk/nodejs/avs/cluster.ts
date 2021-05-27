@@ -145,27 +145,27 @@ export interface ClusterState {
     /**
      * The count of the Vmware Cluster nodes.
      */
-    readonly clusterNodeCount?: pulumi.Input<number>;
+    clusterNodeCount?: pulumi.Input<number>;
     /**
      * A number that identifies this Vmware Cluster in its Vmware Private Cloud.
      */
-    readonly clusterNumber?: pulumi.Input<number>;
+    clusterNumber?: pulumi.Input<number>;
     /**
      * A list of host of the Vmware Cluster.
      */
-    readonly hosts?: pulumi.Input<pulumi.Input<string>[]>;
+    hosts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name which should be used for this Vmware Cluster. Changing this forces a new Vmware Cluster to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The cluster sku to use. Possible values are `av20`, `av36`, and `av36t`. Changing this forces a new Vmware Cluster to be created.
      */
-    readonly skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string>;
     /**
      * The ID of the Vmware Private Cloud in which to create this Vmware Cluster. Changing this forces a new Vmware Cluster to be created.
      */
-    readonly vmwareCloudId?: pulumi.Input<string>;
+    vmwareCloudId?: pulumi.Input<string>;
 }
 
 /**
@@ -175,17 +175,17 @@ export interface ClusterArgs {
     /**
      * The count of the Vmware Cluster nodes.
      */
-    readonly clusterNodeCount: pulumi.Input<number>;
+    clusterNodeCount: pulumi.Input<number>;
     /**
      * The name which should be used for this Vmware Cluster. Changing this forces a new Vmware Cluster to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The cluster sku to use. Possible values are `av20`, `av36`, and `av36t`. Changing this forces a new Vmware Cluster to be created.
      */
-    readonly skuName: pulumi.Input<string>;
+    skuName: pulumi.Input<string>;
     /**
      * The ID of the Vmware Private Cloud in which to create this Vmware Cluster. Changing this forces a new Vmware Cluster to be created.
      */
-    readonly vmwareCloudId: pulumi.Input<string>;
+    vmwareCloudId: pulumi.Input<string>;
 }

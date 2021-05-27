@@ -201,52 +201,52 @@ export interface DefinitionState {
     /**
      * The description of the policy definition.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The display name of the policy definition.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
      *
      * @deprecated Deprecated in favour of `management_group_name`
      */
-    readonly managementGroupId?: pulumi.Input<string>;
+    managementGroupId?: pulumi.Input<string>;
     /**
      * The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
      */
-    readonly managementGroupName?: pulumi.Input<string>;
+    managementGroupName?: pulumi.Input<string>;
     /**
      * The metadata for the policy definition. This
      * is a JSON string representing additional metadata that should be stored
      * with the policy definition.
      */
-    readonly metadata?: pulumi.Input<string>;
+    metadata?: pulumi.Input<string>;
     /**
      * The policy mode that allows you to specify which resource
      * types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
      */
-    readonly mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string>;
     /**
      * The name of the policy definition. Changing this forces a
      * new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Parameters for the policy definition. This field
      * is a JSON string that allows you to parameterize your policy definition.
      */
-    readonly parameters?: pulumi.Input<string>;
+    parameters?: pulumi.Input<string>;
     /**
      * The policy rule for the policy definition. This
      * is a JSON string representing the rule that contains an if and
      * a then block.
      */
-    readonly policyRule?: pulumi.Input<string>;
+    policyRule?: pulumi.Input<string>;
     /**
      * The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
      */
-    readonly policyType?: pulumi.Input<string>;
+    policyType?: pulumi.Input<string>;
 }
 
 /**
@@ -256,50 +256,50 @@ export interface DefinitionArgs {
     /**
      * The description of the policy definition.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The display name of the policy definition.
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
      *
      * @deprecated Deprecated in favour of `management_group_name`
      */
-    readonly managementGroupId?: pulumi.Input<string>;
+    managementGroupId?: pulumi.Input<string>;
     /**
      * The name of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
      */
-    readonly managementGroupName?: pulumi.Input<string>;
+    managementGroupName?: pulumi.Input<string>;
     /**
      * The metadata for the policy definition. This
      * is a JSON string representing additional metadata that should be stored
      * with the policy definition.
      */
-    readonly metadata?: pulumi.Input<string>;
+    metadata?: pulumi.Input<string>;
     /**
      * The policy mode that allows you to specify which resource
      * types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
      */
-    readonly mode: pulumi.Input<string>;
+    mode: pulumi.Input<string>;
     /**
      * The name of the policy definition. Changing this forces a
      * new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Parameters for the policy definition. This field
      * is a JSON string that allows you to parameterize your policy definition.
      */
-    readonly parameters?: pulumi.Input<string>;
+    parameters?: pulumi.Input<string>;
     /**
      * The policy rule for the policy definition. This
      * is a JSON string representing the rule that contains an if and
      * a then block.
      */
-    readonly policyRule?: pulumi.Input<string>;
+    policyRule?: pulumi.Input<string>;
     /**
      * The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
      */
-    readonly policyType: pulumi.Input<string>;
+    policyType: pulumi.Input<string>;
 }

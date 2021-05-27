@@ -139,43 +139,43 @@ export interface ManagedCertificateState {
     /**
      * The Canonical Name of the Certificate.
      */
-    readonly canonicalName?: pulumi.Input<string>;
+    canonicalName?: pulumi.Input<string>;
     /**
      * The ID of the App Service Custom Hostname Binding for the Certificate. Changing this forces a new App Service Managed Certificate to be created.
      */
-    readonly customHostnameBindingId?: pulumi.Input<string>;
+    customHostnameBindingId?: pulumi.Input<string>;
     /**
      * The expiration date of the Certificate.
      */
-    readonly expirationDate?: pulumi.Input<string>;
+    expirationDate?: pulumi.Input<string>;
     /**
      * The friendly name of the Certificate.
      */
-    readonly friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string>;
     /**
      * The list of Host Names for the Certificate.
      */
-    readonly hostNames?: pulumi.Input<pulumi.Input<string>[]>;
+    hostNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Start date for the Certificate.
      */
-    readonly issueDate?: pulumi.Input<string>;
+    issueDate?: pulumi.Input<string>;
     /**
      * The issuer of the Certificate.
      */
-    readonly issuer?: pulumi.Input<string>;
+    issuer?: pulumi.Input<string>;
     /**
      * The Subject Name for the Certificate.
      */
-    readonly subjectName?: pulumi.Input<string>;
+    subjectName?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the App Service Managed Certificate.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Certificate Thumbprint.
      */
-    readonly thumbprint?: pulumi.Input<string>;
+    thumbprint?: pulumi.Input<string>;
 }
 
 /**
@@ -185,9 +185,9 @@ export interface ManagedCertificateArgs {
     /**
      * The ID of the App Service Custom Hostname Binding for the Certificate. Changing this forces a new App Service Managed Certificate to be created.
      */
-    readonly customHostnameBindingId: pulumi.Input<string>;
+    customHostnameBindingId: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the App Service Managed Certificate.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -42,11 +42,11 @@ export interface GetAppServiceEnvironmentArgs {
     /**
      * The name of this App Service Environment.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group where the App Service Environment exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

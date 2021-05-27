@@ -196,51 +196,51 @@ export interface SparkPoolState {
     /**
      * An `autoPause` block as defined below.
      */
-    readonly autoPause?: pulumi.Input<inputs.synapse.SparkPoolAutoPause>;
+    autoPause?: pulumi.Input<inputs.synapse.SparkPoolAutoPause>;
     /**
      * An `autoScale` block as defined below. Exactly one of `nodeCount` or `autoScale` must be specified.
      */
-    readonly autoScale?: pulumi.Input<inputs.synapse.SparkPoolAutoScale>;
+    autoScale?: pulumi.Input<inputs.synapse.SparkPoolAutoScale>;
     /**
      * A `libraryRequirement` block as defined below.
      */
-    readonly libraryRequirement?: pulumi.Input<inputs.synapse.SparkPoolLibraryRequirement>;
+    libraryRequirement?: pulumi.Input<inputs.synapse.SparkPoolLibraryRequirement>;
     /**
      * The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The number of nodes in the Spark Pool. Exactly one of `nodeCount` or `autoScale` must be specified.
      */
-    readonly nodeCount?: pulumi.Input<number>;
+    nodeCount?: pulumi.Input<number>;
     /**
      * The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
      */
-    readonly nodeSize?: pulumi.Input<string>;
+    nodeSize?: pulumi.Input<string>;
     /**
      * The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
      */
-    readonly nodeSizeFamily?: pulumi.Input<string>;
+    nodeSizeFamily?: pulumi.Input<string>;
     /**
      * The Spark events folder. Defaults to `/events`.
      */
-    readonly sparkEventsFolder?: pulumi.Input<string>;
+    sparkEventsFolder?: pulumi.Input<string>;
     /**
      * The default folder where Spark logs will be written. Defaults to `/logs`.
      */
-    readonly sparkLogFolder?: pulumi.Input<string>;
+    sparkLogFolder?: pulumi.Input<string>;
     /**
      * The Apache Spark version. Possible value is `2.4`. Defaults to `2.4`.
      */
-    readonly sparkVersion?: pulumi.Input<string>;
+    sparkVersion?: pulumi.Input<string>;
     /**
      * The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
      */
-    readonly synapseWorkspaceId?: pulumi.Input<string>;
+    synapseWorkspaceId?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Synapse Spark Pool.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -250,49 +250,49 @@ export interface SparkPoolArgs {
     /**
      * An `autoPause` block as defined below.
      */
-    readonly autoPause?: pulumi.Input<inputs.synapse.SparkPoolAutoPause>;
+    autoPause?: pulumi.Input<inputs.synapse.SparkPoolAutoPause>;
     /**
      * An `autoScale` block as defined below. Exactly one of `nodeCount` or `autoScale` must be specified.
      */
-    readonly autoScale?: pulumi.Input<inputs.synapse.SparkPoolAutoScale>;
+    autoScale?: pulumi.Input<inputs.synapse.SparkPoolAutoScale>;
     /**
      * A `libraryRequirement` block as defined below.
      */
-    readonly libraryRequirement?: pulumi.Input<inputs.synapse.SparkPoolLibraryRequirement>;
+    libraryRequirement?: pulumi.Input<inputs.synapse.SparkPoolLibraryRequirement>;
     /**
      * The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The number of nodes in the Spark Pool. Exactly one of `nodeCount` or `autoScale` must be specified.
      */
-    readonly nodeCount?: pulumi.Input<number>;
+    nodeCount?: pulumi.Input<number>;
     /**
      * The level of node in the Spark Pool. Possible value is `Small`, `Medium` and `Large`.
      */
-    readonly nodeSize: pulumi.Input<string>;
+    nodeSize: pulumi.Input<string>;
     /**
      * The kind of nodes that the Spark Pool provides. Possible value is `MemoryOptimized`.
      */
-    readonly nodeSizeFamily: pulumi.Input<string>;
+    nodeSizeFamily: pulumi.Input<string>;
     /**
      * The Spark events folder. Defaults to `/events`.
      */
-    readonly sparkEventsFolder?: pulumi.Input<string>;
+    sparkEventsFolder?: pulumi.Input<string>;
     /**
      * The default folder where Spark logs will be written. Defaults to `/logs`.
      */
-    readonly sparkLogFolder?: pulumi.Input<string>;
+    sparkLogFolder?: pulumi.Input<string>;
     /**
      * The Apache Spark version. Possible value is `2.4`. Defaults to `2.4`.
      */
-    readonly sparkVersion?: pulumi.Input<string>;
+    sparkVersion?: pulumi.Input<string>;
     /**
      * The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
      */
-    readonly synapseWorkspaceId: pulumi.Input<string>;
+    synapseWorkspaceId: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Synapse Spark Pool.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

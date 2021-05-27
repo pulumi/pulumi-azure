@@ -463,220 +463,220 @@ export interface AccountState {
     /**
      * Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
      */
-    readonly accessTier?: pulumi.Input<string>;
+    accessTier?: pulumi.Input<string>;
     /**
      * Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
      */
-    readonly accountKind?: pulumi.Input<string>;
+    accountKind?: pulumi.Input<string>;
     /**
      * Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
      */
-    readonly accountReplicationType?: pulumi.Input<string>;
+    accountReplicationType?: pulumi.Input<string>;
     /**
      * Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
      */
-    readonly accountTier?: pulumi.Input<string>;
+    accountTier?: pulumi.Input<string>;
     /**
      * Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
      */
-    readonly allowBlobPublicAccess?: pulumi.Input<boolean>;
+    allowBlobPublicAccess?: pulumi.Input<boolean>;
     /**
      * A `azureFilesAuthentication` block as defined below.
      */
-    readonly azureFilesAuthentication?: pulumi.Input<inputs.storage.AccountAzureFilesAuthentication>;
+    azureFilesAuthentication?: pulumi.Input<inputs.storage.AccountAzureFilesAuthentication>;
     /**
      * A `blobProperties` block as defined below.
      */
-    readonly blobProperties?: pulumi.Input<inputs.storage.AccountBlobProperties>;
+    blobProperties?: pulumi.Input<inputs.storage.AccountBlobProperties>;
     /**
      * A `customDomain` block as documented below.
      */
-    readonly customDomain?: pulumi.Input<inputs.storage.AccountCustomDomain>;
+    customDomain?: pulumi.Input<inputs.storage.AccountCustomDomain>;
     /**
      * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
      * for more information. Defaults to `true`.
      */
-    readonly enableHttpsTrafficOnly?: pulumi.Input<boolean>;
+    enableHttpsTrafficOnly?: pulumi.Input<boolean>;
     /**
      * A `identity` block as defined below.
      */
-    readonly identity?: pulumi.Input<inputs.storage.AccountIdentity>;
+    identity?: pulumi.Input<inputs.storage.AccountIdentity>;
     /**
      * Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
      */
-    readonly isHnsEnabled?: pulumi.Input<boolean>;
+    isHnsEnabled?: pulumi.Input<boolean>;
     /**
      * Is Large File Share Enabled?
      */
-    readonly largeFileShareEnabled?: pulumi.Input<boolean>;
+    largeFileShareEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
      */
-    readonly minTlsVersion?: pulumi.Input<string>;
+    minTlsVersion?: pulumi.Input<string>;
     /**
      * Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `networkRules` block as documented below.
      */
-    readonly networkRules?: pulumi.Input<inputs.storage.AccountNetworkRules>;
+    networkRules?: pulumi.Input<inputs.storage.AccountNetworkRules>;
     /**
      * Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
      */
-    readonly nfsv3Enabled?: pulumi.Input<boolean>;
+    nfsv3Enabled?: pulumi.Input<boolean>;
     /**
      * The primary access key for the storage account.
      */
-    readonly primaryAccessKey?: pulumi.Input<string>;
+    primaryAccessKey?: pulumi.Input<string>;
     /**
      * The connection string associated with the primary blob location.
      */
-    readonly primaryBlobConnectionString?: pulumi.Input<string>;
+    primaryBlobConnectionString?: pulumi.Input<string>;
     /**
      * The endpoint URL for blob storage in the primary location.
      */
-    readonly primaryBlobEndpoint?: pulumi.Input<string>;
+    primaryBlobEndpoint?: pulumi.Input<string>;
     /**
      * The hostname with port if applicable for blob storage in the primary location.
      */
-    readonly primaryBlobHost?: pulumi.Input<string>;
+    primaryBlobHost?: pulumi.Input<string>;
     /**
      * The connection string associated with the primary location.
      */
-    readonly primaryConnectionString?: pulumi.Input<string>;
+    primaryConnectionString?: pulumi.Input<string>;
     /**
      * The endpoint URL for DFS storage in the primary location.
      */
-    readonly primaryDfsEndpoint?: pulumi.Input<string>;
+    primaryDfsEndpoint?: pulumi.Input<string>;
     /**
      * The hostname with port if applicable for DFS storage in the primary location.
      */
-    readonly primaryDfsHost?: pulumi.Input<string>;
+    primaryDfsHost?: pulumi.Input<string>;
     /**
      * The endpoint URL for file storage in the primary location.
      */
-    readonly primaryFileEndpoint?: pulumi.Input<string>;
+    primaryFileEndpoint?: pulumi.Input<string>;
     /**
      * The hostname with port if applicable for file storage in the primary location.
      */
-    readonly primaryFileHost?: pulumi.Input<string>;
+    primaryFileHost?: pulumi.Input<string>;
     /**
      * The primary location of the storage account.
      */
-    readonly primaryLocation?: pulumi.Input<string>;
+    primaryLocation?: pulumi.Input<string>;
     /**
      * The endpoint URL for queue storage in the primary location.
      */
-    readonly primaryQueueEndpoint?: pulumi.Input<string>;
+    primaryQueueEndpoint?: pulumi.Input<string>;
     /**
      * The hostname with port if applicable for queue storage in the primary location.
      */
-    readonly primaryQueueHost?: pulumi.Input<string>;
+    primaryQueueHost?: pulumi.Input<string>;
     /**
      * The endpoint URL for table storage in the primary location.
      */
-    readonly primaryTableEndpoint?: pulumi.Input<string>;
+    primaryTableEndpoint?: pulumi.Input<string>;
     /**
      * The hostname with port if applicable for table storage in the primary location.
      */
-    readonly primaryTableHost?: pulumi.Input<string>;
+    primaryTableHost?: pulumi.Input<string>;
     /**
      * The endpoint URL for web storage in the primary location.
      */
-    readonly primaryWebEndpoint?: pulumi.Input<string>;
+    primaryWebEndpoint?: pulumi.Input<string>;
     /**
      * The hostname with port if applicable for web storage in the primary location.
      */
-    readonly primaryWebHost?: pulumi.Input<string>;
+    primaryWebHost?: pulumi.Input<string>;
     /**
      * A `queueProperties` block as defined below.
      */
-    readonly queueProperties?: pulumi.Input<inputs.storage.AccountQueueProperties>;
+    queueProperties?: pulumi.Input<inputs.storage.AccountQueueProperties>;
     /**
      * The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A `routing` block as defined below.
      */
-    readonly routing?: pulumi.Input<inputs.storage.AccountRouting>;
+    routing?: pulumi.Input<inputs.storage.AccountRouting>;
     /**
      * The secondary access key for the storage account.
      */
-    readonly secondaryAccessKey?: pulumi.Input<string>;
+    secondaryAccessKey?: pulumi.Input<string>;
     /**
      * The connection string associated with the secondary blob location.
      */
-    readonly secondaryBlobConnectionString?: pulumi.Input<string>;
+    secondaryBlobConnectionString?: pulumi.Input<string>;
     /**
      * The endpoint URL for blob storage in the secondary location.
      */
-    readonly secondaryBlobEndpoint?: pulumi.Input<string>;
+    secondaryBlobEndpoint?: pulumi.Input<string>;
     /**
      * The hostname with port if applicable for blob storage in the secondary location.
      */
-    readonly secondaryBlobHost?: pulumi.Input<string>;
+    secondaryBlobHost?: pulumi.Input<string>;
     /**
      * The connection string associated with the secondary location.
      */
-    readonly secondaryConnectionString?: pulumi.Input<string>;
+    secondaryConnectionString?: pulumi.Input<string>;
     /**
      * The endpoint URL for DFS storage in the secondary location.
      */
-    readonly secondaryDfsEndpoint?: pulumi.Input<string>;
+    secondaryDfsEndpoint?: pulumi.Input<string>;
     /**
      * The hostname with port if applicable for DFS storage in the secondary location.
      */
-    readonly secondaryDfsHost?: pulumi.Input<string>;
+    secondaryDfsHost?: pulumi.Input<string>;
     /**
      * The endpoint URL for file storage in the secondary location.
      */
-    readonly secondaryFileEndpoint?: pulumi.Input<string>;
+    secondaryFileEndpoint?: pulumi.Input<string>;
     /**
      * The hostname with port if applicable for file storage in the secondary location.
      */
-    readonly secondaryFileHost?: pulumi.Input<string>;
+    secondaryFileHost?: pulumi.Input<string>;
     /**
      * The secondary location of the storage account.
      */
-    readonly secondaryLocation?: pulumi.Input<string>;
+    secondaryLocation?: pulumi.Input<string>;
     /**
      * The endpoint URL for queue storage in the secondary location.
      */
-    readonly secondaryQueueEndpoint?: pulumi.Input<string>;
+    secondaryQueueEndpoint?: pulumi.Input<string>;
     /**
      * The hostname with port if applicable for queue storage in the secondary location.
      */
-    readonly secondaryQueueHost?: pulumi.Input<string>;
+    secondaryQueueHost?: pulumi.Input<string>;
     /**
      * The endpoint URL for table storage in the secondary location.
      */
-    readonly secondaryTableEndpoint?: pulumi.Input<string>;
+    secondaryTableEndpoint?: pulumi.Input<string>;
     /**
      * The hostname with port if applicable for table storage in the secondary location.
      */
-    readonly secondaryTableHost?: pulumi.Input<string>;
+    secondaryTableHost?: pulumi.Input<string>;
     /**
      * The endpoint URL for web storage in the secondary location.
      */
-    readonly secondaryWebEndpoint?: pulumi.Input<string>;
+    secondaryWebEndpoint?: pulumi.Input<string>;
     /**
      * The hostname with port if applicable for web storage in the secondary location.
      */
-    readonly secondaryWebHost?: pulumi.Input<string>;
+    secondaryWebHost?: pulumi.Input<string>;
     /**
      * A `staticWebsite` block as defined below.
      */
-    readonly staticWebsite?: pulumi.Input<inputs.storage.AccountStaticWebsite>;
+    staticWebsite?: pulumi.Input<inputs.storage.AccountStaticWebsite>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -686,90 +686,90 @@ export interface AccountArgs {
     /**
      * Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
      */
-    readonly accessTier?: pulumi.Input<string>;
+    accessTier?: pulumi.Input<string>;
     /**
      * Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `StorageV2`.
      */
-    readonly accountKind?: pulumi.Input<string>;
+    accountKind?: pulumi.Input<string>;
     /**
      * Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`.
      */
-    readonly accountReplicationType: pulumi.Input<string>;
+    accountReplicationType: pulumi.Input<string>;
     /**
      * Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
      */
-    readonly accountTier: pulumi.Input<string>;
+    accountTier: pulumi.Input<string>;
     /**
      * Allow or disallow public access to all blobs or containers in the storage account. Defaults to `false`.
      */
-    readonly allowBlobPublicAccess?: pulumi.Input<boolean>;
+    allowBlobPublicAccess?: pulumi.Input<boolean>;
     /**
      * A `azureFilesAuthentication` block as defined below.
      */
-    readonly azureFilesAuthentication?: pulumi.Input<inputs.storage.AccountAzureFilesAuthentication>;
+    azureFilesAuthentication?: pulumi.Input<inputs.storage.AccountAzureFilesAuthentication>;
     /**
      * A `blobProperties` block as defined below.
      */
-    readonly blobProperties?: pulumi.Input<inputs.storage.AccountBlobProperties>;
+    blobProperties?: pulumi.Input<inputs.storage.AccountBlobProperties>;
     /**
      * A `customDomain` block as documented below.
      */
-    readonly customDomain?: pulumi.Input<inputs.storage.AccountCustomDomain>;
+    customDomain?: pulumi.Input<inputs.storage.AccountCustomDomain>;
     /**
      * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
      * for more information. Defaults to `true`.
      */
-    readonly enableHttpsTrafficOnly?: pulumi.Input<boolean>;
+    enableHttpsTrafficOnly?: pulumi.Input<boolean>;
     /**
      * A `identity` block as defined below.
      */
-    readonly identity?: pulumi.Input<inputs.storage.AccountIdentity>;
+    identity?: pulumi.Input<inputs.storage.AccountIdentity>;
     /**
      * Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
      */
-    readonly isHnsEnabled?: pulumi.Input<boolean>;
+    isHnsEnabled?: pulumi.Input<boolean>;
     /**
      * Is Large File Share Enabled?
      */
-    readonly largeFileShareEnabled?: pulumi.Input<boolean>;
+    largeFileShareEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_0` for new storage accounts.
      */
-    readonly minTlsVersion?: pulumi.Input<string>;
+    minTlsVersion?: pulumi.Input<string>;
     /**
      * Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `networkRules` block as documented below.
      */
-    readonly networkRules?: pulumi.Input<inputs.storage.AccountNetworkRules>;
+    networkRules?: pulumi.Input<inputs.storage.AccountNetworkRules>;
     /**
      * Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
      */
-    readonly nfsv3Enabled?: pulumi.Input<boolean>;
+    nfsv3Enabled?: pulumi.Input<boolean>;
     /**
      * A `queueProperties` block as defined below.
      */
-    readonly queueProperties?: pulumi.Input<inputs.storage.AccountQueueProperties>;
+    queueProperties?: pulumi.Input<inputs.storage.AccountQueueProperties>;
     /**
      * The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A `routing` block as defined below.
      */
-    readonly routing?: pulumi.Input<inputs.storage.AccountRouting>;
+    routing?: pulumi.Input<inputs.storage.AccountRouting>;
     /**
      * A `staticWebsite` block as defined below.
      */
-    readonly staticWebsite?: pulumi.Input<inputs.storage.AccountStaticWebsite>;
+    staticWebsite?: pulumi.Input<inputs.storage.AccountStaticWebsite>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

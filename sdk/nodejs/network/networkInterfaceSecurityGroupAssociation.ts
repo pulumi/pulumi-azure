@@ -128,11 +128,11 @@ export interface NetworkInterfaceSecurityGroupAssociationState {
     /**
      * The ID of the Network Interface. Changing this forces a new resource to be created.
      */
-    readonly networkInterfaceId?: pulumi.Input<string>;
+    networkInterfaceId?: pulumi.Input<string>;
     /**
      * The ID of the Network Security Group which should be attached to the Network Interface. Changing this forces a new resource to be created.
      */
-    readonly networkSecurityGroupId?: pulumi.Input<string>;
+    networkSecurityGroupId?: pulumi.Input<string>;
 }
 
 /**
@@ -142,9 +142,9 @@ export interface NetworkInterfaceSecurityGroupAssociationArgs {
     /**
      * The ID of the Network Interface. Changing this forces a new resource to be created.
      */
-    readonly networkInterfaceId: pulumi.Input<string>;
+    networkInterfaceId: pulumi.Input<string>;
     /**
      * The ID of the Network Security Group which should be attached to the Network Interface. Changing this forces a new resource to be created.
      */
-    readonly networkSecurityGroupId: pulumi.Input<string>;
+    networkSecurityGroupId: pulumi.Input<string>;
 }

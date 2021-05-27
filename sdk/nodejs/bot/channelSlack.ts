@@ -157,31 +157,31 @@ export interface ChannelSlackState {
     /**
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      */
-    readonly botName?: pulumi.Input<string>;
+    botName?: pulumi.Input<string>;
     /**
      * The Client ID that will be used to authenticate with Slack.
      */
-    readonly clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string>;
     /**
      * The Client Secret that will be used to authenticate with Slack.
      */
-    readonly clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string>;
     /**
      * The Slack Landing Page URL.
      */
-    readonly landingPageUrl?: pulumi.Input<string>;
+    landingPageUrl?: pulumi.Input<string>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The Verification Token that will be used to authenticate with Slack.
      */
-    readonly verificationToken?: pulumi.Input<string>;
+    verificationToken?: pulumi.Input<string>;
 }
 
 /**
@@ -191,29 +191,29 @@ export interface ChannelSlackArgs {
     /**
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      */
-    readonly botName: pulumi.Input<string>;
+    botName: pulumi.Input<string>;
     /**
      * The Client ID that will be used to authenticate with Slack.
      */
-    readonly clientId: pulumi.Input<string>;
+    clientId: pulumi.Input<string>;
     /**
      * The Client Secret that will be used to authenticate with Slack.
      */
-    readonly clientSecret: pulumi.Input<string>;
+    clientSecret: pulumi.Input<string>;
     /**
      * The Slack Landing Page URL.
      */
-    readonly landingPageUrl?: pulumi.Input<string>;
+    landingPageUrl?: pulumi.Input<string>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The Verification Token that will be used to authenticate with Slack.
      */
-    readonly verificationToken: pulumi.Input<string>;
+    verificationToken: pulumi.Input<string>;
 }

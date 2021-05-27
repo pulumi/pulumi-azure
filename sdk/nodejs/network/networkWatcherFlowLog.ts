@@ -189,35 +189,35 @@ export interface NetworkWatcherFlowLogState {
     /**
      * Boolean flag to enable/disable traffic analytics.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
      */
-    readonly networkSecurityGroupId?: pulumi.Input<string>;
+    networkSecurityGroupId?: pulumi.Input<string>;
     /**
      * The name of the Network Watcher. Changing this forces a new resource to be created.
      */
-    readonly networkWatcherName?: pulumi.Input<string>;
+    networkWatcherName?: pulumi.Input<string>;
     /**
      * The name of the resource group in which the Network Watcher was deployed. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A `retentionPolicy` block as documented below.
      */
-    readonly retentionPolicy?: pulumi.Input<inputs.network.NetworkWatcherFlowLogRetentionPolicy>;
+    retentionPolicy?: pulumi.Input<inputs.network.NetworkWatcherFlowLogRetentionPolicy>;
     /**
      * The ID of the Storage Account where flow logs are stored.
      */
-    readonly storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string>;
     /**
      * A `trafficAnalytics` block as documented below.
      */
-    readonly trafficAnalytics?: pulumi.Input<inputs.network.NetworkWatcherFlowLogTrafficAnalytics>;
+    trafficAnalytics?: pulumi.Input<inputs.network.NetworkWatcherFlowLogTrafficAnalytics>;
     /**
      * The version (revision) of the flow log. Possible values are `1` and `2`.
      */
-    readonly version?: pulumi.Input<number>;
+    version?: pulumi.Input<number>;
 }
 
 /**
@@ -227,33 +227,33 @@ export interface NetworkWatcherFlowLogArgs {
     /**
      * Boolean flag to enable/disable traffic analytics.
      */
-    readonly enabled: pulumi.Input<boolean>;
+    enabled: pulumi.Input<boolean>;
     /**
      * The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
      */
-    readonly networkSecurityGroupId: pulumi.Input<string>;
+    networkSecurityGroupId: pulumi.Input<string>;
     /**
      * The name of the Network Watcher. Changing this forces a new resource to be created.
      */
-    readonly networkWatcherName: pulumi.Input<string>;
+    networkWatcherName: pulumi.Input<string>;
     /**
      * The name of the resource group in which the Network Watcher was deployed. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A `retentionPolicy` block as documented below.
      */
-    readonly retentionPolicy: pulumi.Input<inputs.network.NetworkWatcherFlowLogRetentionPolicy>;
+    retentionPolicy: pulumi.Input<inputs.network.NetworkWatcherFlowLogRetentionPolicy>;
     /**
      * The ID of the Storage Account where flow logs are stored.
      */
-    readonly storageAccountId: pulumi.Input<string>;
+    storageAccountId: pulumi.Input<string>;
     /**
      * A `trafficAnalytics` block as documented below.
      */
-    readonly trafficAnalytics?: pulumi.Input<inputs.network.NetworkWatcherFlowLogTrafficAnalytics>;
+    trafficAnalytics?: pulumi.Input<inputs.network.NetworkWatcherFlowLogTrafficAnalytics>;
     /**
      * The version (revision) of the flow log. Possible values are `1` and `2`.
      */
-    readonly version?: pulumi.Input<number>;
+    version?: pulumi.Input<number>;
 }

@@ -44,15 +44,15 @@ export interface GetServiceArgs {
     /**
      * The Azure Region where the Service is located.
      */
-    readonly location: string;
+    location: string;
     /**
      * Specifies the name of the Healthcare Service.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group in which the Healthcare Service exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

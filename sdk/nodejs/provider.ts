@@ -26,6 +26,56 @@ export class Provider extends pulumi.ProviderResource {
         return obj['__pulumiType'] === Provider.__pulumiType;
     }
 
+    /**
+     * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
+     * Certificate
+     */
+    public readonly clientCertificatePassword!: pulumi.Output<string | undefined>;
+    /**
+     * The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
+     * Principal using a Client Certificate.
+     */
+    public readonly clientCertificatePath!: pulumi.Output<string | undefined>;
+    /**
+     * The Client ID which should be used.
+     */
+    public readonly clientId!: pulumi.Output<string | undefined>;
+    /**
+     * The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
+     */
+    public readonly clientSecret!: pulumi.Output<string | undefined>;
+    /**
+     * The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
+     * public.
+     */
+    public readonly environment!: pulumi.Output<string | undefined>;
+    /**
+     * The Hostname which should be used for the Azure Metadata Service.
+     */
+    public readonly metadataHost!: pulumi.Output<string | undefined>;
+    /**
+     * Deprecated - replaced by `metadata_host`.
+     *
+     * @deprecated use `metadata_host` instead
+     */
+    public readonly metadataUrl!: pulumi.Output<string | undefined>;
+    /**
+     * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
+     * automatically.
+     */
+    public readonly msiEndpoint!: pulumi.Output<string | undefined>;
+    /**
+     * A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
+     */
+    public readonly partnerId!: pulumi.Output<string | undefined>;
+    /**
+     * The Subscription ID which should be used.
+     */
+    public readonly subscriptionId!: pulumi.Output<string | undefined>;
+    /**
+     * The Tenant ID which should be used.
+     */
+    public readonly tenantId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -69,83 +119,83 @@ export class Provider extends pulumi.ProviderResource {
  * The set of arguments for constructing a Provider resource.
  */
 export interface ProviderArgs {
-    readonly auxiliaryTenantIds?: pulumi.Input<pulumi.Input<string>[]>;
+    auxiliaryTenantIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
      * Certificate
      */
-    readonly clientCertificatePassword?: pulumi.Input<string>;
+    clientCertificatePassword?: pulumi.Input<string>;
     /**
      * The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
      * Principal using a Client Certificate.
      */
-    readonly clientCertificatePath?: pulumi.Input<string>;
+    clientCertificatePath?: pulumi.Input<string>;
     /**
      * The Client ID which should be used.
      */
-    readonly clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string>;
     /**
      * The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
      */
-    readonly clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string>;
     /**
      * This will disable the x-ms-correlation-request-id header.
      */
-    readonly disableCorrelationRequestId?: pulumi.Input<boolean>;
+    disableCorrelationRequestId?: pulumi.Input<boolean>;
     /**
      * This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
      */
-    readonly disableTerraformPartnerId?: pulumi.Input<boolean>;
+    disableTerraformPartnerId?: pulumi.Input<boolean>;
     /**
      * The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
      * public.
      */
-    readonly environment?: pulumi.Input<string>;
-    readonly features?: pulumi.Input<inputs.ProviderFeatures>;
+    environment?: pulumi.Input<string>;
+    features?: pulumi.Input<inputs.ProviderFeatures>;
     /**
      * The Hostname which should be used for the Azure Metadata Service.
      */
-    readonly metadataHost?: pulumi.Input<string>;
+    metadataHost?: pulumi.Input<string>;
     /**
      * Deprecated - replaced by `metadata_host`.
      *
      * @deprecated use `metadata_host` instead
      */
-    readonly metadataUrl?: pulumi.Input<string>;
+    metadataUrl?: pulumi.Input<string>;
     /**
      * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
      * automatically.
      */
-    readonly msiEndpoint?: pulumi.Input<string>;
+    msiEndpoint?: pulumi.Input<string>;
     /**
      * A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
      */
-    readonly partnerId?: pulumi.Input<string>;
+    partnerId?: pulumi.Input<string>;
     /**
      * [DEPRECATED] This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
      *
      * @deprecated This field is deprecated and will be removed in version 3.0 of the Azure Provider
      */
-    readonly skipCredentialsValidation?: pulumi.Input<boolean>;
+    skipCredentialsValidation?: pulumi.Input<boolean>;
     /**
      * Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
      * registered?
      */
-    readonly skipProviderRegistration?: pulumi.Input<boolean>;
+    skipProviderRegistration?: pulumi.Input<boolean>;
     /**
      * Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
      */
-    readonly storageUseAzuread?: pulumi.Input<boolean>;
+    storageUseAzuread?: pulumi.Input<boolean>;
     /**
      * The Subscription ID which should be used.
      */
-    readonly subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string>;
     /**
      * The Tenant ID which should be used.
      */
-    readonly tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string>;
     /**
      * Allowed Managed Service Identity be used for Authentication.
      */
-    readonly useMsi?: pulumi.Input<boolean>;
+    useMsi?: pulumi.Input<boolean>;
 }

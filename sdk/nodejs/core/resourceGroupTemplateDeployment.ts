@@ -136,39 +136,39 @@ export interface ResourceGroupTemplateDeploymentState {
     /**
      * The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
      */
-    readonly debugLevel?: pulumi.Input<string>;
+    debugLevel?: pulumi.Input<string>;
     /**
      * The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
      */
-    readonly deploymentMode?: pulumi.Input<string>;
+    deploymentMode?: pulumi.Input<string>;
     /**
      * The name which should be used for this Resource Group Template Deployment. Changing this forces a new Resource Group Template Deployment to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The JSON Content of the Outputs of the ARM Template Deployment.
      */
-    readonly outputContent?: pulumi.Input<string>;
+    outputContent?: pulumi.Input<string>;
     /**
      * The contents of the ARM Template parameters file - containing a JSON list of parameters.
      */
-    readonly parametersContent?: pulumi.Input<string>;
+    parametersContent?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Resource Group Template Deployment should exist. Changing this forces a new Resource Group Template Deployment to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Resource Group Template Deployment.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `templateSpecVersionId`.
      */
-    readonly templateContent?: pulumi.Input<string>;
+    templateContent?: pulumi.Input<string>;
     /**
      * The ID of the Template Spec Version to deploy. Cannot be specified with `templateContent`.
      */
-    readonly templateSpecVersionId?: pulumi.Input<string>;
+    templateSpecVersionId?: pulumi.Input<string>;
 }
 
 /**
@@ -178,33 +178,33 @@ export interface ResourceGroupTemplateDeploymentArgs {
     /**
      * The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
      */
-    readonly debugLevel?: pulumi.Input<string>;
+    debugLevel?: pulumi.Input<string>;
     /**
      * The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
      */
-    readonly deploymentMode: pulumi.Input<string>;
+    deploymentMode: pulumi.Input<string>;
     /**
      * The name which should be used for this Resource Group Template Deployment. Changing this forces a new Resource Group Template Deployment to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The contents of the ARM Template parameters file - containing a JSON list of parameters.
      */
-    readonly parametersContent?: pulumi.Input<string>;
+    parametersContent?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Resource Group Template Deployment should exist. Changing this forces a new Resource Group Template Deployment to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Resource Group Template Deployment.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `templateSpecVersionId`.
      */
-    readonly templateContent?: pulumi.Input<string>;
+    templateContent?: pulumi.Input<string>;
     /**
      * The ID of the Template Spec Version to deploy. Cannot be specified with `templateContent`.
      */
-    readonly templateSpecVersionId?: pulumi.Input<string>;
+    templateSpecVersionId?: pulumi.Input<string>;
 }

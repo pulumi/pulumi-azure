@@ -144,27 +144,27 @@ export interface ShareState {
     /**
      * The ID of the Data Share account in which the Data Share is created. Changing this forces a new Data Share to be created.
      */
-    readonly accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string>;
     /**
      * The Data Share's description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The kind of the Data Share. Possible values are `CopyBased` and `InPlace`. Changing this forces a new Data Share to be created.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * The name which should be used for this Data Share. Changing this forces a new Data Share to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `snapshotSchedule` block as defined below.
      */
-    readonly snapshotSchedule?: pulumi.Input<inputs.datashare.ShareSnapshotSchedule>;
+    snapshotSchedule?: pulumi.Input<inputs.datashare.ShareSnapshotSchedule>;
     /**
      * The terms of the Data Share.
      */
-    readonly terms?: pulumi.Input<string>;
+    terms?: pulumi.Input<string>;
 }
 
 /**
@@ -174,25 +174,25 @@ export interface ShareArgs {
     /**
      * The ID of the Data Share account in which the Data Share is created. Changing this forces a new Data Share to be created.
      */
-    readonly accountId: pulumi.Input<string>;
+    accountId: pulumi.Input<string>;
     /**
      * The Data Share's description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The kind of the Data Share. Possible values are `CopyBased` and `InPlace`. Changing this forces a new Data Share to be created.
      */
-    readonly kind: pulumi.Input<string>;
+    kind: pulumi.Input<string>;
     /**
      * The name which should be used for this Data Share. Changing this forces a new Data Share to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `snapshotSchedule` block as defined below.
      */
-    readonly snapshotSchedule?: pulumi.Input<inputs.datashare.ShareSnapshotSchedule>;
+    snapshotSchedule?: pulumi.Input<inputs.datashare.ShareSnapshotSchedule>;
     /**
      * The terms of the Data Share.
      */
-    readonly terms?: pulumi.Input<string>;
+    terms?: pulumi.Input<string>;
 }

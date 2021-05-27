@@ -42,11 +42,11 @@ export interface GetGatewayConnectionArgs {
     /**
      * Specifies the name of the Virtual Network Gateway Connection.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the name of the resource group the Virtual Network Gateway Connection is located in.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

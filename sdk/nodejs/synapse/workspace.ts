@@ -216,67 +216,67 @@ export interface WorkspaceState {
     /**
      * An `aadAdmin` block as defined below.
      */
-    readonly aadAdmin?: pulumi.Input<inputs.synapse.WorkspaceAadAdmin>;
+    aadAdmin?: pulumi.Input<inputs.synapse.WorkspaceAadAdmin>;
     /**
      * An `azureDevopsRepo` block as defined below.
      */
-    readonly azureDevopsRepo?: pulumi.Input<inputs.synapse.WorkspaceAzureDevopsRepo>;
+    azureDevopsRepo?: pulumi.Input<inputs.synapse.WorkspaceAzureDevopsRepo>;
     /**
      * A list of Connectivity endpoints for this Synapse Workspace.
      */
-    readonly connectivityEndpoints?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    connectivityEndpoints?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
      */
-    readonly customerManagedKeyVersionlessId?: pulumi.Input<string>;
+    customerManagedKeyVersionlessId?: pulumi.Input<string>;
     /**
      * A `githubRepo` block as defined below.
      */
-    readonly githubRepo?: pulumi.Input<inputs.synapse.WorkspaceGithubRepo>;
+    githubRepo?: pulumi.Input<inputs.synapse.WorkspaceGithubRepo>;
     /**
      * An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
      */
-    readonly identities?: pulumi.Input<pulumi.Input<inputs.synapse.WorkspaceIdentity>[]>;
+    identities?: pulumi.Input<pulumi.Input<inputs.synapse.WorkspaceIdentity>[]>;
     /**
      * Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Workspace managed resource group.
      */
-    readonly managedResourceGroupName?: pulumi.Input<string>;
+    managedResourceGroupName?: pulumi.Input<string>;
     /**
      * Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
      */
-    readonly managedVirtualNetworkEnabled?: pulumi.Input<boolean>;
+    managedVirtualNetworkEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
      */
-    readonly sqlAdministratorLogin?: pulumi.Input<string>;
+    sqlAdministratorLogin?: pulumi.Input<string>;
     /**
      * The Password associated with the `sqlAdministratorLogin` for the SQL administrator.
      */
-    readonly sqlAdministratorLoginPassword?: pulumi.Input<string>;
+    sqlAdministratorLoginPassword?: pulumi.Input<string>;
     /**
      * Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
      */
-    readonly sqlIdentityControlEnabled?: pulumi.Input<boolean>;
+    sqlIdentityControlEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
      */
-    readonly storageDataLakeGen2FilesystemId?: pulumi.Input<string>;
+    storageDataLakeGen2FilesystemId?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Synapse Workspace.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -286,57 +286,57 @@ export interface WorkspaceArgs {
     /**
      * An `aadAdmin` block as defined below.
      */
-    readonly aadAdmin?: pulumi.Input<inputs.synapse.WorkspaceAadAdmin>;
+    aadAdmin?: pulumi.Input<inputs.synapse.WorkspaceAadAdmin>;
     /**
      * An `azureDevopsRepo` block as defined below.
      */
-    readonly azureDevopsRepo?: pulumi.Input<inputs.synapse.WorkspaceAzureDevopsRepo>;
+    azureDevopsRepo?: pulumi.Input<inputs.synapse.WorkspaceAzureDevopsRepo>;
     /**
      * The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
      */
-    readonly customerManagedKeyVersionlessId?: pulumi.Input<string>;
+    customerManagedKeyVersionlessId?: pulumi.Input<string>;
     /**
      * A `githubRepo` block as defined below.
      */
-    readonly githubRepo?: pulumi.Input<inputs.synapse.WorkspaceGithubRepo>;
+    githubRepo?: pulumi.Input<inputs.synapse.WorkspaceGithubRepo>;
     /**
      * Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Workspace managed resource group.
      */
-    readonly managedResourceGroupName?: pulumi.Input<string>;
+    managedResourceGroupName?: pulumi.Input<string>;
     /**
      * Is Virtual Network enabled for all computes in this workspace? Defaults to `false`. Changing this forces a new resource to be created.
      */
-    readonly managedVirtualNetworkEnabled?: pulumi.Input<boolean>;
+    managedVirtualNetworkEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies The Login Name of the SQL administrator. Changing this forces a new resource to be created.
      */
-    readonly sqlAdministratorLogin: pulumi.Input<string>;
+    sqlAdministratorLogin: pulumi.Input<string>;
     /**
      * The Password associated with the `sqlAdministratorLogin` for the SQL administrator.
      */
-    readonly sqlAdministratorLoginPassword: pulumi.Input<string>;
+    sqlAdministratorLoginPassword: pulumi.Input<string>;
     /**
      * Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
      */
-    readonly sqlIdentityControlEnabled?: pulumi.Input<boolean>;
+    sqlIdentityControlEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
      */
-    readonly storageDataLakeGen2FilesystemId: pulumi.Input<string>;
+    storageDataLakeGen2FilesystemId: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Synapse Workspace.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

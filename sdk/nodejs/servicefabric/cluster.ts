@@ -247,88 +247,88 @@ export interface ClusterState {
     /**
      * A List of one or more features which should be enabled, such as `DnsService`.
      */
-    readonly addOnFeatures?: pulumi.Input<pulumi.Input<string>[]>;
+    addOnFeatures?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * An `azureActiveDirectory` block as defined below.
      */
-    readonly azureActiveDirectory?: pulumi.Input<inputs.servicefabric.ClusterAzureActiveDirectory>;
+    azureActiveDirectory?: pulumi.Input<inputs.servicefabric.ClusterAzureActiveDirectory>;
     /**
      * A `certificate` block as defined below. Conflicts with `certificateCommonNames`.
      */
-    readonly certificate?: pulumi.Input<inputs.servicefabric.ClusterCertificate>;
+    certificate?: pulumi.Input<inputs.servicefabric.ClusterCertificate>;
     /**
      * A `certificateCommonNames` block as defined below. Conflicts with `certificate`.
      */
-    readonly certificateCommonNames?: pulumi.Input<inputs.servicefabric.ClusterCertificateCommonNames>;
+    certificateCommonNames?: pulumi.Input<inputs.servicefabric.ClusterCertificateCommonNames>;
     /**
      * A `clientCertificateCommonName` block as defined below.
      */
-    readonly clientCertificateCommonNames?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterClientCertificateCommonName>[]>;
+    clientCertificateCommonNames?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterClientCertificateCommonName>[]>;
     /**
      * One or more `clientCertificateThumbprint` blocks as defined below.
      */
-    readonly clientCertificateThumbprints?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterClientCertificateThumbprint>[]>;
+    clientCertificateThumbprints?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterClientCertificateThumbprint>[]>;
     /**
      * Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
      */
-    readonly clusterCodeVersion?: pulumi.Input<string>;
+    clusterCodeVersion?: pulumi.Input<string>;
     /**
      * The Cluster Endpoint for this Service Fabric Cluster.
      */
-    readonly clusterEndpoint?: pulumi.Input<string>;
+    clusterEndpoint?: pulumi.Input<string>;
     /**
      * A `diagnosticsConfig` block as defined below. Changing this forces a new resource to be created.
      */
-    readonly diagnosticsConfig?: pulumi.Input<inputs.servicefabric.ClusterDiagnosticsConfig>;
+    diagnosticsConfig?: pulumi.Input<inputs.servicefabric.ClusterDiagnosticsConfig>;
     /**
      * One or more `fabricSettings` blocks as defined below.
      */
-    readonly fabricSettings?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterFabricSetting>[]>;
+    fabricSettings?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterFabricSetting>[]>;
     /**
      * Specifies the Azure Region where the Service Fabric Cluster should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the Management Endpoint of the cluster such as `http://example.com`. Changing this forces a new resource to be created.
      */
-    readonly managementEndpoint?: pulumi.Input<string>;
+    managementEndpoint?: pulumi.Input<string>;
     /**
      * The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * One or more `nodeType` blocks as defined below.
      */
-    readonly nodeTypes?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterNodeType>[]>;
+    nodeTypes?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterNodeType>[]>;
     /**
      * Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
      */
-    readonly reliabilityLevel?: pulumi.Input<string>;
+    reliabilityLevel?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A `reverseProxyCertificate` block as defined below. Conflicts with `reverseProxyCertificateCommonNames`.
      */
-    readonly reverseProxyCertificate?: pulumi.Input<inputs.servicefabric.ClusterReverseProxyCertificate>;
+    reverseProxyCertificate?: pulumi.Input<inputs.servicefabric.ClusterReverseProxyCertificate>;
     /**
      * A `reverseProxyCertificateCommonNames` block as defined below. Conflicts with `reverseProxyCertificate`.
      */
-    readonly reverseProxyCertificateCommonNames?: pulumi.Input<inputs.servicefabric.ClusterReverseProxyCertificateCommonNames>;
+    reverseProxyCertificateCommonNames?: pulumi.Input<inputs.servicefabric.ClusterReverseProxyCertificateCommonNames>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
      */
-    readonly upgradeMode?: pulumi.Input<string>;
-    readonly upgradePolicy?: pulumi.Input<inputs.servicefabric.ClusterUpgradePolicy>;
+    upgradeMode?: pulumi.Input<string>;
+    upgradePolicy?: pulumi.Input<inputs.servicefabric.ClusterUpgradePolicy>;
     /**
      * Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
      */
-    readonly vmImage?: pulumi.Input<string>;
+    vmImage?: pulumi.Input<string>;
 }
 
 /**
@@ -338,82 +338,82 @@ export interface ClusterArgs {
     /**
      * A List of one or more features which should be enabled, such as `DnsService`.
      */
-    readonly addOnFeatures?: pulumi.Input<pulumi.Input<string>[]>;
+    addOnFeatures?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * An `azureActiveDirectory` block as defined below.
      */
-    readonly azureActiveDirectory?: pulumi.Input<inputs.servicefabric.ClusterAzureActiveDirectory>;
+    azureActiveDirectory?: pulumi.Input<inputs.servicefabric.ClusterAzureActiveDirectory>;
     /**
      * A `certificate` block as defined below. Conflicts with `certificateCommonNames`.
      */
-    readonly certificate?: pulumi.Input<inputs.servicefabric.ClusterCertificate>;
+    certificate?: pulumi.Input<inputs.servicefabric.ClusterCertificate>;
     /**
      * A `certificateCommonNames` block as defined below. Conflicts with `certificate`.
      */
-    readonly certificateCommonNames?: pulumi.Input<inputs.servicefabric.ClusterCertificateCommonNames>;
+    certificateCommonNames?: pulumi.Input<inputs.servicefabric.ClusterCertificateCommonNames>;
     /**
      * A `clientCertificateCommonName` block as defined below.
      */
-    readonly clientCertificateCommonNames?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterClientCertificateCommonName>[]>;
+    clientCertificateCommonNames?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterClientCertificateCommonName>[]>;
     /**
      * One or more `clientCertificateThumbprint` blocks as defined below.
      */
-    readonly clientCertificateThumbprints?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterClientCertificateThumbprint>[]>;
+    clientCertificateThumbprints?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterClientCertificateThumbprint>[]>;
     /**
      * Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
      */
-    readonly clusterCodeVersion?: pulumi.Input<string>;
+    clusterCodeVersion?: pulumi.Input<string>;
     /**
      * A `diagnosticsConfig` block as defined below. Changing this forces a new resource to be created.
      */
-    readonly diagnosticsConfig?: pulumi.Input<inputs.servicefabric.ClusterDiagnosticsConfig>;
+    diagnosticsConfig?: pulumi.Input<inputs.servicefabric.ClusterDiagnosticsConfig>;
     /**
      * One or more `fabricSettings` blocks as defined below.
      */
-    readonly fabricSettings?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterFabricSetting>[]>;
+    fabricSettings?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterFabricSetting>[]>;
     /**
      * Specifies the Azure Region where the Service Fabric Cluster should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the Management Endpoint of the cluster such as `http://example.com`. Changing this forces a new resource to be created.
      */
-    readonly managementEndpoint: pulumi.Input<string>;
+    managementEndpoint: pulumi.Input<string>;
     /**
      * The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * One or more `nodeType` blocks as defined below.
      */
-    readonly nodeTypes: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterNodeType>[]>;
+    nodeTypes: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterNodeType>[]>;
     /**
      * Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
      */
-    readonly reliabilityLevel: pulumi.Input<string>;
+    reliabilityLevel: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A `reverseProxyCertificate` block as defined below. Conflicts with `reverseProxyCertificateCommonNames`.
      */
-    readonly reverseProxyCertificate?: pulumi.Input<inputs.servicefabric.ClusterReverseProxyCertificate>;
+    reverseProxyCertificate?: pulumi.Input<inputs.servicefabric.ClusterReverseProxyCertificate>;
     /**
      * A `reverseProxyCertificateCommonNames` block as defined below. Conflicts with `reverseProxyCertificate`.
      */
-    readonly reverseProxyCertificateCommonNames?: pulumi.Input<inputs.servicefabric.ClusterReverseProxyCertificateCommonNames>;
+    reverseProxyCertificateCommonNames?: pulumi.Input<inputs.servicefabric.ClusterReverseProxyCertificateCommonNames>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
      */
-    readonly upgradeMode: pulumi.Input<string>;
-    readonly upgradePolicy?: pulumi.Input<inputs.servicefabric.ClusterUpgradePolicy>;
+    upgradeMode: pulumi.Input<string>;
+    upgradePolicy?: pulumi.Input<inputs.servicefabric.ClusterUpgradePolicy>;
     /**
      * Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
      */
-    readonly vmImage: pulumi.Input<string>;
+    vmImage: pulumi.Input<string>;
 }

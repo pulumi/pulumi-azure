@@ -172,35 +172,35 @@ export interface AttachedDatabaseConfigurationState {
     /**
      * The list of databases from the `clusterResourceId` which are currently attached to the cluster.
      */
-    readonly attachedDatabaseNames?: pulumi.Input<pulumi.Input<string>[]>;
+    attachedDatabaseNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
      */
-    readonly clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     /**
      * The resource id of the cluster where the databases you would like to attach reside.
      */
-    readonly clusterResourceId?: pulumi.Input<string>;
+    clusterResourceId?: pulumi.Input<string>;
     /**
      * The name of the database which you would like to attach, use * if you want to follow all current and future databases.
      */
-    readonly databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
     /**
      * The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`.
      */
-    readonly defaultPrincipalModificationKind?: pulumi.Input<string>;
+    defaultPrincipalModificationKind?: pulumi.Input<string>;
     /**
      * Specifies the location of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Kusto Attached Database Configuration to create. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the resource group of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -210,29 +210,29 @@ export interface AttachedDatabaseConfigurationArgs {
     /**
      * Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
      */
-    readonly clusterName: pulumi.Input<string>;
+    clusterName: pulumi.Input<string>;
     /**
      * The resource id of the cluster where the databases you would like to attach reside.
      */
-    readonly clusterResourceId: pulumi.Input<string>;
+    clusterResourceId: pulumi.Input<string>;
     /**
      * The name of the database which you would like to attach, use * if you want to follow all current and future databases.
      */
-    readonly databaseName: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`.
      */
-    readonly defaultPrincipalModificationKind?: pulumi.Input<string>;
+    defaultPrincipalModificationKind?: pulumi.Input<string>;
     /**
      * Specifies the location of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Kusto Attached Database Configuration to create. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the resource group of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

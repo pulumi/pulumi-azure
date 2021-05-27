@@ -136,35 +136,35 @@ export interface ZoneState {
     /**
      * The maximum number of record sets that can be created in this Private DNS zone.
      */
-    readonly maxNumberOfRecordSets?: pulumi.Input<number>;
+    maxNumberOfRecordSets?: pulumi.Input<number>;
     /**
      * The maximum number of virtual networks that can be linked to this Private DNS zone.
      */
-    readonly maxNumberOfVirtualNetworkLinks?: pulumi.Input<number>;
+    maxNumberOfVirtualNetworkLinks?: pulumi.Input<number>;
     /**
      * The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled.
      */
-    readonly maxNumberOfVirtualNetworkLinksWithRegistration?: pulumi.Input<number>;
+    maxNumberOfVirtualNetworkLinksWithRegistration?: pulumi.Input<number>;
     /**
      * The name of the Private DNS Zone. Must be a valid domain name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The current number of record sets in this Private DNS zone.
      */
-    readonly numberOfRecordSets?: pulumi.Input<number>;
+    numberOfRecordSets?: pulumi.Input<number>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * An `soaRecord` block as defined below. Changing this forces a new resource to be created.
      */
-    readonly soaRecord?: pulumi.Input<inputs.privatedns.ZoneSoaRecord>;
+    soaRecord?: pulumi.Input<inputs.privatedns.ZoneSoaRecord>;
     /**
      * A mapping of tags to assign to the Record Set.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -174,17 +174,17 @@ export interface ZoneArgs {
     /**
      * The name of the Private DNS Zone. Must be a valid domain name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * An `soaRecord` block as defined below. Changing this forces a new resource to be created.
      */
-    readonly soaRecord?: pulumi.Input<inputs.privatedns.ZoneSoaRecord>;
+    soaRecord?: pulumi.Input<inputs.privatedns.ZoneSoaRecord>;
     /**
      * A mapping of tags to assign to the Record Set.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

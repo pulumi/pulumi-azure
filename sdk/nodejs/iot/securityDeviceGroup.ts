@@ -139,19 +139,19 @@ export interface SecurityDeviceGroupState {
     /**
      * an `allowRule` blocks as defined below.
      */
-    readonly allowRule?: pulumi.Input<inputs.iot.SecurityDeviceGroupAllowRule>;
+    allowRule?: pulumi.Input<inputs.iot.SecurityDeviceGroupAllowRule>;
     /**
      * The ID of the IoT Hub which to link the Security Device Group to. Changing this forces a new resource to be created.
      */
-    readonly iothubId?: pulumi.Input<string>;
+    iothubId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Device Security Group. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * One or more `rangeRule` blocks as defined below.
      */
-    readonly rangeRules?: pulumi.Input<pulumi.Input<inputs.iot.SecurityDeviceGroupRangeRule>[]>;
+    rangeRules?: pulumi.Input<pulumi.Input<inputs.iot.SecurityDeviceGroupRangeRule>[]>;
 }
 
 /**
@@ -161,17 +161,17 @@ export interface SecurityDeviceGroupArgs {
     /**
      * an `allowRule` blocks as defined below.
      */
-    readonly allowRule?: pulumi.Input<inputs.iot.SecurityDeviceGroupAllowRule>;
+    allowRule?: pulumi.Input<inputs.iot.SecurityDeviceGroupAllowRule>;
     /**
      * The ID of the IoT Hub which to link the Security Device Group to. Changing this forces a new resource to be created.
      */
-    readonly iothubId: pulumi.Input<string>;
+    iothubId: pulumi.Input<string>;
     /**
      * Specifies the name of the Device Security Group. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * One or more `rangeRule` blocks as defined below.
      */
-    readonly rangeRules?: pulumi.Input<pulumi.Input<inputs.iot.SecurityDeviceGroupRangeRule>[]>;
+    rangeRules?: pulumi.Input<pulumi.Input<inputs.iot.SecurityDeviceGroupRangeRule>[]>;
 }

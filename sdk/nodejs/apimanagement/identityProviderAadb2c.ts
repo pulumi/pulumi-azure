@@ -205,47 +205,47 @@ export interface IdentityProviderAadb2cState {
     /**
      * The allowed AAD tenant, usually your B2C tenant domain.
      */
-    readonly allowedTenant?: pulumi.Input<string>;
+    allowedTenant?: pulumi.Input<string>;
     /**
      * The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
      */
-    readonly apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string>;
     /**
      * OpenID Connect discovery endpoint hostname, usually your b2clogin.com domain.
      */
-    readonly authority?: pulumi.Input<string>;
+    authority?: pulumi.Input<string>;
     /**
      * Client ID of the Application in your B2C tenant.
      */
-    readonly clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string>;
     /**
      * Client secret of the Application in your B2C tenant.
      */
-    readonly clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string>;
     /**
      * Password reset Policy Name.
      */
-    readonly passwordResetPolicy?: pulumi.Input<string>;
+    passwordResetPolicy?: pulumi.Input<string>;
     /**
      * Profile editing Policy Name.
      */
-    readonly profileEditingPolicy?: pulumi.Input<string>;
+    profileEditingPolicy?: pulumi.Input<string>;
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Signin Policy Name.
      */
-    readonly signinPolicy?: pulumi.Input<string>;
+    signinPolicy?: pulumi.Input<string>;
     /**
      * The tenant to use instead of Common when logging into Active Directory, usually your B2C tenant domain.
      */
-    readonly signinTenant?: pulumi.Input<string>;
+    signinTenant?: pulumi.Input<string>;
     /**
      * Signup Policy Name.
      */
-    readonly signupPolicy?: pulumi.Input<string>;
+    signupPolicy?: pulumi.Input<string>;
 }
 
 /**
@@ -255,45 +255,45 @@ export interface IdentityProviderAadb2cArgs {
     /**
      * The allowed AAD tenant, usually your B2C tenant domain.
      */
-    readonly allowedTenant: pulumi.Input<string>;
+    allowedTenant: pulumi.Input<string>;
     /**
      * The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
      */
-    readonly apiManagementName: pulumi.Input<string>;
+    apiManagementName: pulumi.Input<string>;
     /**
      * OpenID Connect discovery endpoint hostname, usually your b2clogin.com domain.
      */
-    readonly authority: pulumi.Input<string>;
+    authority: pulumi.Input<string>;
     /**
      * Client ID of the Application in your B2C tenant.
      */
-    readonly clientId: pulumi.Input<string>;
+    clientId: pulumi.Input<string>;
     /**
      * Client secret of the Application in your B2C tenant.
      */
-    readonly clientSecret: pulumi.Input<string>;
+    clientSecret: pulumi.Input<string>;
     /**
      * Password reset Policy Name.
      */
-    readonly passwordResetPolicy?: pulumi.Input<string>;
+    passwordResetPolicy?: pulumi.Input<string>;
     /**
      * Profile editing Policy Name.
      */
-    readonly profileEditingPolicy?: pulumi.Input<string>;
+    profileEditingPolicy?: pulumi.Input<string>;
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Signin Policy Name.
      */
-    readonly signinPolicy: pulumi.Input<string>;
+    signinPolicy: pulumi.Input<string>;
     /**
      * The tenant to use instead of Common when logging into Active Directory, usually your B2C tenant domain.
      */
-    readonly signinTenant: pulumi.Input<string>;
+    signinTenant: pulumi.Input<string>;
     /**
      * Signup Policy Name.
      */
-    readonly signupPolicy: pulumi.Input<string>;
+    signupPolicy: pulumi.Input<string>;
 }

@@ -42,11 +42,11 @@ export interface GetApplicationGatewayArgs {
     /**
      * The name of this Application Gateway.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group where the Application Gateway exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

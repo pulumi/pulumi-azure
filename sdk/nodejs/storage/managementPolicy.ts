@@ -162,11 +162,11 @@ export interface ManagementPolicyState {
     /**
      * A `rule` block as documented below.
      */
-    readonly rules?: pulumi.Input<pulumi.Input<inputs.storage.ManagementPolicyRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.storage.ManagementPolicyRule>[]>;
     /**
      * Specifies the id of the storage account to apply the management policy to.
      */
-    readonly storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string>;
 }
 
 /**
@@ -176,9 +176,9 @@ export interface ManagementPolicyArgs {
     /**
      * A `rule` block as documented below.
      */
-    readonly rules?: pulumi.Input<pulumi.Input<inputs.storage.ManagementPolicyRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.storage.ManagementPolicyRule>[]>;
     /**
      * Specifies the id of the storage account to apply the management policy to.
      */
-    readonly storageAccountId: pulumi.Input<string>;
+    storageAccountId: pulumi.Input<string>;
 }

@@ -187,60 +187,60 @@ export interface LinkedServiceAzureSqlDatabaseState {
     /**
      * A map of additional properties to associate with the Data Factory Linked Service Azure SQL Database.
      */
-    readonly additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service Azure SQL Database.
      */
-    readonly annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The connection string in which to authenticate with Azure SQL Database.
      */
-    readonly connectionString?: pulumi.Input<string>;
+    connectionString?: pulumi.Input<string>;
     /**
      * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource to be created.
      */
-    readonly dataFactoryName?: pulumi.Input<string>;
+    dataFactoryName?: pulumi.Input<string>;
     /**
      * The description for the Data Factory Linked Service Azure SQL Database.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
      */
-    readonly integrationRuntimeName?: pulumi.Input<string>;
+    integrationRuntimeName?: pulumi.Input<string>;
     /**
      * A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      */
-    readonly keyVaultPassword?: pulumi.Input<inputs.datafactory.LinkedServiceAzureSqlDatabaseKeyVaultPassword>;
+    keyVaultPassword?: pulumi.Input<inputs.datafactory.LinkedServiceAzureSqlDatabaseKeyVaultPassword>;
     /**
      * Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data
      * factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service Azure SQL Database.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group in which to create the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The service principal id in which to authenticate against the Azure SQL Database. Required if `servicePrincipalKey` is set.
      */
-    readonly servicePrincipalId?: pulumi.Input<string>;
+    servicePrincipalId?: pulumi.Input<string>;
     /**
      * The service principal key in which to authenticate against the Azure SQL Database. Required if `servicePrincipalId` is set.
      */
-    readonly servicePrincipalKey?: pulumi.Input<string>;
+    servicePrincipalKey?: pulumi.Input<string>;
     /**
      * The tenant id or name in which to authenticate against the Azure SQL Database.
      */
-    readonly tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string>;
     /**
      * Whether to use the Data Factory's managed identity to authenticate against the Azure SQL Database. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
      */
-    readonly useManagedIdentity?: pulumi.Input<boolean>;
+    useManagedIdentity?: pulumi.Input<boolean>;
 }
 
 /**
@@ -250,58 +250,58 @@ export interface LinkedServiceAzureSqlDatabaseArgs {
     /**
      * A map of additional properties to associate with the Data Factory Linked Service Azure SQL Database.
      */
-    readonly additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service Azure SQL Database.
      */
-    readonly annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The connection string in which to authenticate with Azure SQL Database.
      */
-    readonly connectionString: pulumi.Input<string>;
+    connectionString: pulumi.Input<string>;
     /**
      * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource to be created.
      */
-    readonly dataFactoryName: pulumi.Input<string>;
+    dataFactoryName: pulumi.Input<string>;
     /**
      * The description for the Data Factory Linked Service Azure SQL Database.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
      */
-    readonly integrationRuntimeName?: pulumi.Input<string>;
+    integrationRuntimeName?: pulumi.Input<string>;
     /**
      * A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      */
-    readonly keyVaultPassword?: pulumi.Input<inputs.datafactory.LinkedServiceAzureSqlDatabaseKeyVaultPassword>;
+    keyVaultPassword?: pulumi.Input<inputs.datafactory.LinkedServiceAzureSqlDatabaseKeyVaultPassword>;
     /**
      * Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data
      * factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service Azure SQL Database.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group in which to create the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The service principal id in which to authenticate against the Azure SQL Database. Required if `servicePrincipalKey` is set.
      */
-    readonly servicePrincipalId?: pulumi.Input<string>;
+    servicePrincipalId?: pulumi.Input<string>;
     /**
      * The service principal key in which to authenticate against the Azure SQL Database. Required if `servicePrincipalId` is set.
      */
-    readonly servicePrincipalKey?: pulumi.Input<string>;
+    servicePrincipalKey?: pulumi.Input<string>;
     /**
      * The tenant id or name in which to authenticate against the Azure SQL Database.
      */
-    readonly tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string>;
     /**
      * Whether to use the Data Factory's managed identity to authenticate against the Azure SQL Database. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
      */
-    readonly useManagedIdentity?: pulumi.Input<boolean>;
+    useManagedIdentity?: pulumi.Input<boolean>;
 }

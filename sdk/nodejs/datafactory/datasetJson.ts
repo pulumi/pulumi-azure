@@ -192,55 +192,55 @@ export interface DatasetJsonState {
     /**
      * A map of additional properties to associate with the Data Factory Dataset.
      */
-    readonly additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of tags that can be used for describing the Data Factory Dataset.
      */
-    readonly annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `azureBlobStorageLocation` block as defined below.
      */
-    readonly azureBlobStorageLocation?: pulumi.Input<inputs.datafactory.DatasetJsonAzureBlobStorageLocation>;
+    azureBlobStorageLocation?: pulumi.Input<inputs.datafactory.DatasetJsonAzureBlobStorageLocation>;
     /**
      * The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
      */
-    readonly dataFactoryName?: pulumi.Input<string>;
+    dataFactoryName?: pulumi.Input<string>;
     /**
      * The description for the Data Factory Dataset.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The encoding format for the file.
      */
-    readonly encoding?: pulumi.Input<string>;
+    encoding?: pulumi.Input<string>;
     /**
      * The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
      */
-    readonly folder?: pulumi.Input<string>;
+    folder?: pulumi.Input<string>;
     /**
      * A `httpServerLocation` block as defined below.
      */
-    readonly httpServerLocation?: pulumi.Input<inputs.datafactory.DatasetJsonHttpServerLocation>;
+    httpServerLocation?: pulumi.Input<inputs.datafactory.DatasetJsonHttpServerLocation>;
     /**
      * The Data Factory Linked Service name in which to associate the Dataset with.
      */
-    readonly linkedServiceName?: pulumi.Input<string>;
+    linkedServiceName?: pulumi.Input<string>;
     /**
      * Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A map of parameters to associate with the Data Factory Dataset.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A `schemaColumn` block as defined below.
      */
-    readonly schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetJsonSchemaColumn>[]>;
+    schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetJsonSchemaColumn>[]>;
 }
 
 /**
@@ -250,53 +250,53 @@ export interface DatasetJsonArgs {
     /**
      * A map of additional properties to associate with the Data Factory Dataset.
      */
-    readonly additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of tags that can be used for describing the Data Factory Dataset.
      */
-    readonly annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `azureBlobStorageLocation` block as defined below.
      */
-    readonly azureBlobStorageLocation?: pulumi.Input<inputs.datafactory.DatasetJsonAzureBlobStorageLocation>;
+    azureBlobStorageLocation?: pulumi.Input<inputs.datafactory.DatasetJsonAzureBlobStorageLocation>;
     /**
      * The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
      */
-    readonly dataFactoryName: pulumi.Input<string>;
+    dataFactoryName: pulumi.Input<string>;
     /**
      * The description for the Data Factory Dataset.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The encoding format for the file.
      */
-    readonly encoding?: pulumi.Input<string>;
+    encoding?: pulumi.Input<string>;
     /**
      * The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
      */
-    readonly folder?: pulumi.Input<string>;
+    folder?: pulumi.Input<string>;
     /**
      * A `httpServerLocation` block as defined below.
      */
-    readonly httpServerLocation?: pulumi.Input<inputs.datafactory.DatasetJsonHttpServerLocation>;
+    httpServerLocation?: pulumi.Input<inputs.datafactory.DatasetJsonHttpServerLocation>;
     /**
      * The Data Factory Linked Service name in which to associate the Dataset with.
      */
-    readonly linkedServiceName: pulumi.Input<string>;
+    linkedServiceName: pulumi.Input<string>;
     /**
      * Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A map of parameters to associate with the Data Factory Dataset.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A `schemaColumn` block as defined below.
      */
-    readonly schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetJsonSchemaColumn>[]>;
+    schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetJsonSchemaColumn>[]>;
 }

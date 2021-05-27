@@ -42,11 +42,11 @@ export interface GetAccountArgs {
     /**
      * Specifies the name of the CosmosDB Account.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the name of the resource group in which the CosmosDB Account resides.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

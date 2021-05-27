@@ -42,11 +42,11 @@ export interface GetAnalyticsWorkspaceArgs {
     /**
      * Specifies the name of the Log Analytics Workspace.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the resource group in which the Log Analytics workspace is located in.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

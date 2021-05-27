@@ -154,28 +154,28 @@ export interface MxRecordState {
     /**
      * The FQDN of the DNS MX Record.
      */
-    readonly fqdn?: pulumi.Input<string>;
+    fqdn?: pulumi.Input<string>;
     /**
      * The name of the DNS MX Record. Changing this forces a new resource to be created. Default to '@' for root zone entry.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * One or more `record` blocks as defined below.
      */
-    readonly records?: pulumi.Input<pulumi.Input<inputs.privatedns.MxRecordRecord>[]>;
+    records?: pulumi.Input<pulumi.Input<inputs.privatedns.MxRecordRecord>[]>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly ttl?: pulumi.Input<number>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    ttl?: pulumi.Input<number>;
     /**
      * Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly zoneName?: pulumi.Input<string>;
+    zoneName?: pulumi.Input<string>;
 }
 
 /**
@@ -185,22 +185,22 @@ export interface MxRecordArgs {
     /**
      * The name of the DNS MX Record. Changing this forces a new resource to be created. Default to '@' for root zone entry.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * One or more `record` blocks as defined below.
      */
-    readonly records: pulumi.Input<pulumi.Input<inputs.privatedns.MxRecordRecord>[]>;
+    records: pulumi.Input<pulumi.Input<inputs.privatedns.MxRecordRecord>[]>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly ttl: pulumi.Input<number>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    ttl: pulumi.Input<number>;
     /**
      * Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly zoneName: pulumi.Input<string>;
+    zoneName: pulumi.Input<string>;
 }

@@ -170,44 +170,44 @@ export interface ServerState {
     /**
      * List of email addresses of admin users.
      */
-    readonly adminUsers?: pulumi.Input<pulumi.Input<string>[]>;
+    adminUsers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * URI and SAS token for a blob container to store backups.
      */
-    readonly backupBlobContainerUri?: pulumi.Input<string>;
+    backupBlobContainerUri?: pulumi.Input<string>;
     /**
      * Indicates if the Power BI service is allowed to access or not.
      */
-    readonly enablePowerBiService?: pulumi.Input<boolean>;
+    enablePowerBiService?: pulumi.Input<boolean>;
     /**
      * One or more `ipv4FirewallRule` block(s) as defined below.
      */
-    readonly ipv4FirewallRules?: pulumi.Input<pulumi.Input<inputs.analysisservices.ServerIpv4FirewallRule>[]>;
+    ipv4FirewallRules?: pulumi.Input<pulumi.Input<inputs.analysisservices.ServerIpv4FirewallRule>[]>;
     /**
      * The Azure location where the Analysis Services Server exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the firewall rule.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
      */
-    readonly querypoolConnectionMode?: pulumi.Input<string>;
+    querypoolConnectionMode?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The full name of the Analysis Services Server.
      */
-    readonly serverFullName?: pulumi.Input<string>;
+    serverFullName?: pulumi.Input<string>;
     /**
      * SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2` and `S9v2`.
      */
-    readonly sku?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    sku?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -217,38 +217,38 @@ export interface ServerArgs {
     /**
      * List of email addresses of admin users.
      */
-    readonly adminUsers?: pulumi.Input<pulumi.Input<string>[]>;
+    adminUsers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * URI and SAS token for a blob container to store backups.
      */
-    readonly backupBlobContainerUri?: pulumi.Input<string>;
+    backupBlobContainerUri?: pulumi.Input<string>;
     /**
      * Indicates if the Power BI service is allowed to access or not.
      */
-    readonly enablePowerBiService?: pulumi.Input<boolean>;
+    enablePowerBiService?: pulumi.Input<boolean>;
     /**
      * One or more `ipv4FirewallRule` block(s) as defined below.
      */
-    readonly ipv4FirewallRules?: pulumi.Input<pulumi.Input<inputs.analysisservices.ServerIpv4FirewallRule>[]>;
+    ipv4FirewallRules?: pulumi.Input<pulumi.Input<inputs.analysisservices.ServerIpv4FirewallRule>[]>;
     /**
      * The Azure location where the Analysis Services Server exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the firewall rule.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
      */
-    readonly querypoolConnectionMode?: pulumi.Input<string>;
+    querypoolConnectionMode?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2` and `S9v2`.
      */
-    readonly sku: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    sku: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

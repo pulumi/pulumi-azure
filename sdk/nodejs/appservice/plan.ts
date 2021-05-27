@@ -223,48 +223,48 @@ export interface PlanState {
     /**
      * The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
      */
-    readonly appServiceEnvironmentId?: pulumi.Input<string>;
-    readonly isXenon?: pulumi.Input<boolean>;
+    appServiceEnvironmentId?: pulumi.Input<string>;
+    isXenon?: pulumi.Input<boolean>;
     /**
      * The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
      */
-    readonly kind?: pulumi.Input<string | Kind>;
+    kind?: pulumi.Input<string | Kind>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
      */
-    readonly maximumElasticWorkerCount?: pulumi.Input<number>;
+    maximumElasticWorkerCount?: pulumi.Input<number>;
     /**
      * The maximum number of workers supported with the App Service Plan's sku.
      */
-    readonly maximumNumberOfWorkers?: pulumi.Input<number>;
+    maximumNumberOfWorkers?: pulumi.Input<number>;
     /**
      * Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
      */
-    readonly perSiteScaling?: pulumi.Input<boolean>;
+    perSiteScaling?: pulumi.Input<boolean>;
     /**
      * Is this App Service Plan `Reserved`. Defaults to `false`.
      */
-    readonly reserved?: pulumi.Input<boolean>;
+    reserved?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the App Service Plan component.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A `sku` block as documented below.
      */
-    readonly sku?: pulumi.Input<inputs.appservice.PlanSku>;
+    sku?: pulumi.Input<inputs.appservice.PlanSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -274,42 +274,42 @@ export interface PlanArgs {
     /**
      * The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
      */
-    readonly appServiceEnvironmentId?: pulumi.Input<string>;
-    readonly isXenon?: pulumi.Input<boolean>;
+    appServiceEnvironmentId?: pulumi.Input<string>;
+    isXenon?: pulumi.Input<boolean>;
     /**
      * The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
      */
-    readonly kind?: pulumi.Input<string | Kind>;
+    kind?: pulumi.Input<string | Kind>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
      */
-    readonly maximumElasticWorkerCount?: pulumi.Input<number>;
+    maximumElasticWorkerCount?: pulumi.Input<number>;
     /**
      * Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
      */
-    readonly perSiteScaling?: pulumi.Input<boolean>;
+    perSiteScaling?: pulumi.Input<boolean>;
     /**
      * Is this App Service Plan `Reserved`. Defaults to `false`.
      */
-    readonly reserved?: pulumi.Input<boolean>;
+    reserved?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the App Service Plan component.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A `sku` block as documented below.
      */
-    readonly sku: pulumi.Input<inputs.appservice.PlanSku>;
+    sku: pulumi.Input<inputs.appservice.PlanSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -44,15 +44,15 @@ export interface GetCertificateArgs {
     /**
      * The name of the Batch account.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * The name of the Batch certificate.
      */
-    readonly name: string;
+    name: string;
     /**
      * The Name of the Resource Group where this Batch account exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

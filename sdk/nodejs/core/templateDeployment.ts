@@ -202,33 +202,33 @@ export interface TemplateDeploymentState {
      * Note that you will almost *always* want this to be set to `Incremental` otherwise the deployment will destroy all infrastructure not
      * specified within the template, and this provider will not be aware of this.
      */
-    readonly deploymentMode?: pulumi.Input<string>;
+    deploymentMode?: pulumi.Input<string>;
     /**
      * Specifies the name of the template deployment. Changing this forces a
      * new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A map of supported scalar output types returned from the deployment (currently, Azure Template Deployment outputs of type String, Int and Bool are supported, and are converted to strings - others will be ignored) and can be accessed using `.outputs["name"]`.
      */
-    readonly outputs?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    outputs?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the name and value pairs that define the deployment parameters for the template.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies a valid Azure JSON parameters file that define the deployment parameters. It can contain KeyVault references
      */
-    readonly parametersBody?: pulumi.Input<string>;
+    parametersBody?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to
      * create the template deployment.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Specifies the JSON definition for the template.
      */
-    readonly templateBody?: pulumi.Input<string>;
+    templateBody?: pulumi.Input<string>;
 }
 
 /**
@@ -240,27 +240,27 @@ export interface TemplateDeploymentArgs {
      * Note that you will almost *always* want this to be set to `Incremental` otherwise the deployment will destroy all infrastructure not
      * specified within the template, and this provider will not be aware of this.
      */
-    readonly deploymentMode: pulumi.Input<string>;
+    deploymentMode: pulumi.Input<string>;
     /**
      * Specifies the name of the template deployment. Changing this forces a
      * new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name and value pairs that define the deployment parameters for the template.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies a valid Azure JSON parameters file that define the deployment parameters. It can contain KeyVault references
      */
-    readonly parametersBody?: pulumi.Input<string>;
+    parametersBody?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to
      * create the template deployment.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies the JSON definition for the template.
      */
-    readonly templateBody?: pulumi.Input<string>;
+    templateBody?: pulumi.Input<string>;
 }

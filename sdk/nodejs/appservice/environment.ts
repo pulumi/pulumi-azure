@@ -182,47 +182,47 @@ export interface EnvironmentState {
     /**
      * Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
      */
-    readonly allowedUserIpCidrs?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedUserIpCidrs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Zero or more `clusterSetting` blocks as defined below.
      */
-    readonly clusterSettings?: pulumi.Input<pulumi.Input<inputs.appservice.EnvironmentClusterSetting>[]>;
+    clusterSettings?: pulumi.Input<pulumi.Input<inputs.appservice.EnvironmentClusterSetting>[]>;
     /**
      * Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
      */
-    readonly frontEndScaleFactor?: pulumi.Input<number>;
+    frontEndScaleFactor?: pulumi.Input<number>;
     /**
      * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
      */
-    readonly internalLoadBalancingMode?: pulumi.Input<string>;
+    internalLoadBalancingMode?: pulumi.Input<string>;
     /**
      * The location where the App Service Environment exists.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the App Service Environment. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.
      */
-    readonly pricingTier?: pulumi.Input<string>;
+    pricingTier?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`).
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * @deprecated this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format
      */
-    readonly userWhitelistedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    userWhitelistedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -232,41 +232,41 @@ export interface EnvironmentArgs {
     /**
      * Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
      */
-    readonly allowedUserIpCidrs?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedUserIpCidrs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Zero or more `clusterSetting` blocks as defined below.
      */
-    readonly clusterSettings?: pulumi.Input<pulumi.Input<inputs.appservice.EnvironmentClusterSetting>[]>;
+    clusterSettings?: pulumi.Input<pulumi.Input<inputs.appservice.EnvironmentClusterSetting>[]>;
     /**
      * Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
      */
-    readonly frontEndScaleFactor?: pulumi.Input<number>;
+    frontEndScaleFactor?: pulumi.Input<number>;
     /**
      * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
      */
-    readonly internalLoadBalancingMode?: pulumi.Input<string>;
+    internalLoadBalancingMode?: pulumi.Input<string>;
     /**
      * The name of the App Service Environment. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.
      */
-    readonly pricingTier?: pulumi.Input<string>;
+    pricingTier?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`).
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
      */
-    readonly subnetId: pulumi.Input<string>;
+    subnetId: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * @deprecated this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format
      */
-    readonly userWhitelistedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    userWhitelistedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
 }

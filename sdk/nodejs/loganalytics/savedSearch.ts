@@ -155,35 +155,35 @@ export interface SavedSearchState {
     /**
      * The category that the Saved Search will be listed under. Changing this forces a new resource to be created.
      */
-    readonly category?: pulumi.Input<string>;
+    category?: pulumi.Input<string>;
     /**
      * The name that Saved Search will be displayed as. Changing this forces a new resource to be created.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The function alias if the query serves as a function. Changing this forces a new resource to be created.
      */
-    readonly functionAlias?: pulumi.Input<string>;
+    functionAlias?: pulumi.Input<string>;
     /**
      * The function parameters if the query serves as a function. Changing this forces a new resource to be created.
      */
-    readonly functionParameters?: pulumi.Input<pulumi.Input<string>[]>;
+    functionParameters?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the ID of the Log Analytics Workspace that the Saved Search will be associated with. Changing this forces a new resource to be created.
      */
-    readonly logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    logAnalyticsWorkspaceId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Log Analytics Saved Search. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The query expression for the saved search. Changing this forces a new resource to be created.
      */
-    readonly query?: pulumi.Input<string>;
+    query?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Logs Analytics Saved Search.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -193,33 +193,33 @@ export interface SavedSearchArgs {
     /**
      * The category that the Saved Search will be listed under. Changing this forces a new resource to be created.
      */
-    readonly category: pulumi.Input<string>;
+    category: pulumi.Input<string>;
     /**
      * The name that Saved Search will be displayed as. Changing this forces a new resource to be created.
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * The function alias if the query serves as a function. Changing this forces a new resource to be created.
      */
-    readonly functionAlias?: pulumi.Input<string>;
+    functionAlias?: pulumi.Input<string>;
     /**
      * The function parameters if the query serves as a function. Changing this forces a new resource to be created.
      */
-    readonly functionParameters?: pulumi.Input<pulumi.Input<string>[]>;
+    functionParameters?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the ID of the Log Analytics Workspace that the Saved Search will be associated with. Changing this forces a new resource to be created.
      */
-    readonly logAnalyticsWorkspaceId: pulumi.Input<string>;
+    logAnalyticsWorkspaceId: pulumi.Input<string>;
     /**
      * Specifies the name of the Log Analytics Saved Search. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The query expression for the saved search. Changing this forces a new resource to be created.
      */
-    readonly query: pulumi.Input<string>;
+    query: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Logs Analytics Saved Search.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

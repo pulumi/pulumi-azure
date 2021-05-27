@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     rowKey: "example-row-key",
  *     storageAccountName: "example-storage-account-name",
  *     tableName: "example-table-name",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getTableEntity(args: GetTableEntityArgs, opts?: pulumi.InvokeOptions): Promise<GetTableEntityResult> {
@@ -45,19 +45,19 @@ export interface GetTableEntityArgs {
     /**
      * The key for the partition where the entity will be retrieved.
      */
-    readonly partitionKey: string;
+    partitionKey: string;
     /**
      * The key for the row where the entity will be retrieved.
      */
-    readonly rowKey: string;
+    rowKey: string;
     /**
      * The name of the Storage Account where the Table exists.
      */
-    readonly storageAccountName: string;
+    storageAccountName: string;
     /**
      * The name of the Table.
      */
-    readonly tableName: string;
+    tableName: string;
 }
 
 /**

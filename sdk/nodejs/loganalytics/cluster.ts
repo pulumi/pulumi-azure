@@ -143,31 +143,31 @@ export interface ClusterState {
     /**
      * The GUID of the cluster.
      */
-    readonly clusterId?: pulumi.Input<string>;
+    clusterId?: pulumi.Input<string>;
     /**
      * A `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
      */
-    readonly identity?: pulumi.Input<inputs.loganalytics.ClusterIdentity>;
+    identity?: pulumi.Input<inputs.loganalytics.ClusterIdentity>;
     /**
      * The Azure Region where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name which should be used for this Log Analytics Cluster. Changing this forces a new Log Analytics Cluster to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The capacity of the Log Analytics Cluster specified in GB/day. Defaults to 1000.
      */
-    readonly sizeGb?: pulumi.Input<number>;
+    sizeGb?: pulumi.Input<number>;
     /**
      * A mapping of tags which should be assigned to the Log Analytics Cluster.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -177,25 +177,25 @@ export interface ClusterArgs {
     /**
      * A `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
      */
-    readonly identity: pulumi.Input<inputs.loganalytics.ClusterIdentity>;
+    identity: pulumi.Input<inputs.loganalytics.ClusterIdentity>;
     /**
      * The Azure Region where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name which should be used for this Log Analytics Cluster. Changing this forces a new Log Analytics Cluster to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The capacity of the Log Analytics Cluster specified in GB/day. Defaults to 1000.
      */
-    readonly sizeGb?: pulumi.Input<number>;
+    sizeGb?: pulumi.Input<number>;
     /**
      * A mapping of tags which should be assigned to the Log Analytics Cluster.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -45,11 +45,11 @@ export interface GetUserAssignedIdentityArgs {
     /**
      * The name of the User Assigned Identity.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group in which the User Assigned Identity exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

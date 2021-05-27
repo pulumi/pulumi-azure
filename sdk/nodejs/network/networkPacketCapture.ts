@@ -226,39 +226,39 @@ export interface NetworkPacketCaptureState {
     /**
      * One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
      */
-    readonly filters?: pulumi.Input<pulumi.Input<inputs.network.NetworkPacketCaptureFilter>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.network.NetworkPacketCaptureFilter>[]>;
     /**
      * The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
      */
-    readonly maximumBytesPerPacket?: pulumi.Input<number>;
+    maximumBytesPerPacket?: pulumi.Input<number>;
     /**
      * Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
      */
-    readonly maximumBytesPerSession?: pulumi.Input<number>;
+    maximumBytesPerSession?: pulumi.Input<number>;
     /**
      * The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
      */
-    readonly maximumCaptureDuration?: pulumi.Input<number>;
+    maximumCaptureDuration?: pulumi.Input<number>;
     /**
      * The name to use for this Network Packet Capture. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Network Watcher. Changing this forces a new resource to be created.
      */
-    readonly networkWatcherName?: pulumi.Input<string>;
+    networkWatcherName?: pulumi.Input<string>;
     /**
      * The name of the resource group in which the Network Watcher exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A `storageLocation` block as defined below. Changing this forces a new resource to be created.
      */
-    readonly storageLocation?: pulumi.Input<inputs.network.NetworkPacketCaptureStorageLocation>;
+    storageLocation?: pulumi.Input<inputs.network.NetworkPacketCaptureStorageLocation>;
     /**
      * The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
      */
-    readonly targetResourceId?: pulumi.Input<string>;
+    targetResourceId?: pulumi.Input<string>;
 }
 
 /**
@@ -268,37 +268,37 @@ export interface NetworkPacketCaptureArgs {
     /**
      * One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
      */
-    readonly filters?: pulumi.Input<pulumi.Input<inputs.network.NetworkPacketCaptureFilter>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.network.NetworkPacketCaptureFilter>[]>;
     /**
      * The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
      */
-    readonly maximumBytesPerPacket?: pulumi.Input<number>;
+    maximumBytesPerPacket?: pulumi.Input<number>;
     /**
      * Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
      */
-    readonly maximumBytesPerSession?: pulumi.Input<number>;
+    maximumBytesPerSession?: pulumi.Input<number>;
     /**
      * The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
      */
-    readonly maximumCaptureDuration?: pulumi.Input<number>;
+    maximumCaptureDuration?: pulumi.Input<number>;
     /**
      * The name to use for this Network Packet Capture. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Network Watcher. Changing this forces a new resource to be created.
      */
-    readonly networkWatcherName: pulumi.Input<string>;
+    networkWatcherName: pulumi.Input<string>;
     /**
      * The name of the resource group in which the Network Watcher exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A `storageLocation` block as defined below. Changing this forces a new resource to be created.
      */
-    readonly storageLocation: pulumi.Input<inputs.network.NetworkPacketCaptureStorageLocation>;
+    storageLocation: pulumi.Input<inputs.network.NetworkPacketCaptureStorageLocation>;
     /**
      * The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
      */
-    readonly targetResourceId: pulumi.Input<string>;
+    targetResourceId: pulumi.Input<string>;
 }

@@ -44,15 +44,15 @@ export interface GetSpringCloudAppArgs {
     /**
      * The name of the Spring Cloud Application.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group where the Spring Cloud Application exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the Spring Cloud Service.
      */
-    readonly serviceName: string;
+    serviceName: string;
 }
 
 /**

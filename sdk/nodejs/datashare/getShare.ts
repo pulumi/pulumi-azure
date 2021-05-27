@@ -46,11 +46,11 @@ export interface GetShareArgs {
     /**
      * The ID of the Data Share account in which the Data Share is created.
      */
-    readonly accountId: string;
+    accountId: string;
     /**
      * The name of this Data Share.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

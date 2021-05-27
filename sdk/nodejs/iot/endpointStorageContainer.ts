@@ -180,40 +180,40 @@ export interface EndpointStorageContainerState {
     /**
      * Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
      */
-    readonly batchFrequencyInSeconds?: pulumi.Input<number>;
+    batchFrequencyInSeconds?: pulumi.Input<number>;
     /**
      * The connection string for the endpoint.
      */
-    readonly connectionString?: pulumi.Input<string>;
+    connectionString?: pulumi.Input<string>;
     /**
      * The name of storage container in the storage account.
      * *
      */
-    readonly containerName?: pulumi.Input<string>;
+    containerName?: pulumi.Input<string>;
     /**
      * Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'.
      */
-    readonly encoding?: pulumi.Input<string>;
+    encoding?: pulumi.Input<string>;
     /**
      * File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
      */
-    readonly fileNameFormat?: pulumi.Input<string>;
+    fileNameFormat?: pulumi.Input<string>;
     /**
      * The name of the IoTHub to which this Storage Container Endpoint belongs. Changing this forces a new resource to be created.
      */
-    readonly iothubName?: pulumi.Input<string>;
+    iothubName?: pulumi.Input<string>;
     /**
      * Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
      */
-    readonly maxChunkSizeInBytes?: pulumi.Input<number>;
+    maxChunkSizeInBytes?: pulumi.Input<number>;
     /**
      * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -223,38 +223,38 @@ export interface EndpointStorageContainerArgs {
     /**
      * Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
      */
-    readonly batchFrequencyInSeconds?: pulumi.Input<number>;
+    batchFrequencyInSeconds?: pulumi.Input<number>;
     /**
      * The connection string for the endpoint.
      */
-    readonly connectionString: pulumi.Input<string>;
+    connectionString: pulumi.Input<string>;
     /**
      * The name of storage container in the storage account.
      * *
      */
-    readonly containerName: pulumi.Input<string>;
+    containerName: pulumi.Input<string>;
     /**
      * Encoding that is used to serialize messages to blobs. Supported values are 'avro' and 'avrodeflate'. Default value is 'avro'.
      */
-    readonly encoding?: pulumi.Input<string>;
+    encoding?: pulumi.Input<string>;
     /**
      * File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
      */
-    readonly fileNameFormat?: pulumi.Input<string>;
+    fileNameFormat?: pulumi.Input<string>;
     /**
      * The name of the IoTHub to which this Storage Container Endpoint belongs. Changing this forces a new resource to be created.
      */
-    readonly iothubName: pulumi.Input<string>;
+    iothubName: pulumi.Input<string>;
     /**
      * Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
      */
-    readonly maxChunkSizeInBytes?: pulumi.Input<number>;
+    maxChunkSizeInBytes?: pulumi.Input<number>;
     /**
      * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

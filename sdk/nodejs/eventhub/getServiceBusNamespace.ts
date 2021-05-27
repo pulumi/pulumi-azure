@@ -44,11 +44,11 @@ export interface GetServiceBusNamespaceArgs {
     /**
      * Specifies the name of the ServiceBus Namespace.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the name of the Resource Group where the ServiceBus Namespace exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

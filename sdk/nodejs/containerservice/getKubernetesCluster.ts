@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const example = pulumi.output(azure.containerservice.getKubernetesCluster({
  *     name: "myakscluster",
  *     resourceGroupName: "my-example-resource-group",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getKubernetesCluster(args: GetKubernetesClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesClusterResult> {
@@ -41,11 +41,11 @@ export interface GetKubernetesClusterArgs {
     /**
      * The name of the managed Kubernetes Cluster.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group in which the managed Kubernetes Cluster exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

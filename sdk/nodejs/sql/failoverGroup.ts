@@ -187,43 +187,43 @@ export interface FailoverGroupState {
     /**
      * A list of database ids to add to the failover group
      */
-    readonly databases?: pulumi.Input<pulumi.Input<string>[]>;
+    databases?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * the location of the failover group.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the failover group. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A list of secondary servers as documented below
      */
-    readonly partnerServers?: pulumi.Input<pulumi.Input<inputs.sql.FailoverGroupPartnerServer>[]>;
+    partnerServers?: pulumi.Input<pulumi.Input<inputs.sql.FailoverGroupPartnerServer>[]>;
     /**
      * A read/write policy as documented below
      */
-    readonly readWriteEndpointFailoverPolicy?: pulumi.Input<inputs.sql.FailoverGroupReadWriteEndpointFailoverPolicy>;
+    readWriteEndpointFailoverPolicy?: pulumi.Input<inputs.sql.FailoverGroupReadWriteEndpointFailoverPolicy>;
     /**
      * a read-only policy as documented below
      */
-    readonly readonlyEndpointFailoverPolicy?: pulumi.Input<inputs.sql.FailoverGroupReadonlyEndpointFailoverPolicy>;
+    readonlyEndpointFailoverPolicy?: pulumi.Input<inputs.sql.FailoverGroupReadonlyEndpointFailoverPolicy>;
     /**
      * The name of the resource group containing the SQL server
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * local replication role of the failover group instance.
      */
-    readonly role?: pulumi.Input<string>;
+    role?: pulumi.Input<string>;
     /**
      * The name of the primary SQL server. Changing this forces a new resource to be created.
      */
-    readonly serverName?: pulumi.Input<string>;
+    serverName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -233,33 +233,33 @@ export interface FailoverGroupArgs {
     /**
      * A list of database ids to add to the failover group
      */
-    readonly databases?: pulumi.Input<pulumi.Input<string>[]>;
+    databases?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the failover group. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A list of secondary servers as documented below
      */
-    readonly partnerServers: pulumi.Input<pulumi.Input<inputs.sql.FailoverGroupPartnerServer>[]>;
+    partnerServers: pulumi.Input<pulumi.Input<inputs.sql.FailoverGroupPartnerServer>[]>;
     /**
      * A read/write policy as documented below
      */
-    readonly readWriteEndpointFailoverPolicy: pulumi.Input<inputs.sql.FailoverGroupReadWriteEndpointFailoverPolicy>;
+    readWriteEndpointFailoverPolicy: pulumi.Input<inputs.sql.FailoverGroupReadWriteEndpointFailoverPolicy>;
     /**
      * a read-only policy as documented below
      */
-    readonly readonlyEndpointFailoverPolicy?: pulumi.Input<inputs.sql.FailoverGroupReadonlyEndpointFailoverPolicy>;
+    readonlyEndpointFailoverPolicy?: pulumi.Input<inputs.sql.FailoverGroupReadonlyEndpointFailoverPolicy>;
     /**
      * The name of the resource group containing the SQL server
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the primary SQL server. Changing this forces a new resource to be created.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

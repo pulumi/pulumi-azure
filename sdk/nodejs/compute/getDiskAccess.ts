@@ -43,15 +43,15 @@ export interface GetDiskAccessArgs {
     /**
      * The name of this Disk Access.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group where the Disk Access exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * A mapping of tags which should be assigned to the Disk Access.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

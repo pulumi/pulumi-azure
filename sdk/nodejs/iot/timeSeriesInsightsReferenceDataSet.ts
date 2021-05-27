@@ -140,27 +140,27 @@ export interface TimeSeriesInsightsReferenceDataSetState {
     /**
      * The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`. Changing this forces a new resource to be created.
      */
-    readonly dataStringComparisonBehavior?: pulumi.Input<string>;
+    dataStringComparisonBehavior?: pulumi.Input<string>;
     /**
      * A `keyProperty` block as defined below. Changing this forces a new resource to be created.
      */
-    readonly keyProperties?: pulumi.Input<pulumi.Input<inputs.iot.TimeSeriesInsightsReferenceDataSetKeyProperty>[]>;
+    keyProperties?: pulumi.Input<pulumi.Input<inputs.iot.TimeSeriesInsightsReferenceDataSetKeyProperty>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created. Must be globally unique.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The resource ID of the Azure IoT Time Series Insights Environment in which to create the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created.
      */
-    readonly timeSeriesInsightsEnvironmentId?: pulumi.Input<string>;
+    timeSeriesInsightsEnvironmentId?: pulumi.Input<string>;
 }
 
 /**
@@ -170,25 +170,25 @@ export interface TimeSeriesInsightsReferenceDataSetArgs {
     /**
      * The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`. Changing this forces a new resource to be created.
      */
-    readonly dataStringComparisonBehavior?: pulumi.Input<string>;
+    dataStringComparisonBehavior?: pulumi.Input<string>;
     /**
      * A `keyProperty` block as defined below. Changing this forces a new resource to be created.
      */
-    readonly keyProperties: pulumi.Input<pulumi.Input<inputs.iot.TimeSeriesInsightsReferenceDataSetKeyProperty>[]>;
+    keyProperties: pulumi.Input<pulumi.Input<inputs.iot.TimeSeriesInsightsReferenceDataSetKeyProperty>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created. Must be globally unique.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The resource ID of the Azure IoT Time Series Insights Environment in which to create the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created.
      */
-    readonly timeSeriesInsightsEnvironmentId: pulumi.Input<string>;
+    timeSeriesInsightsEnvironmentId: pulumi.Input<string>;
 }

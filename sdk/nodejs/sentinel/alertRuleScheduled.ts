@@ -213,71 +213,71 @@ export interface AlertRuleScheduledState {
     /**
      * The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
      */
-    readonly alertRuleTemplateGuid?: pulumi.Input<string>;
+    alertRuleTemplateGuid?: pulumi.Input<string>;
     /**
      * The description of this Sentinel Scheduled Alert Rule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The friendly name of this Sentinel Scheduled Alert Rule.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * A `eventGrouping` block as defined below.
      */
-    readonly eventGrouping?: pulumi.Input<inputs.sentinel.AlertRuleScheduledEventGrouping>;
+    eventGrouping?: pulumi.Input<inputs.sentinel.AlertRuleScheduledEventGrouping>;
     /**
      * A `incidentConfiguration` block as defined below.
      */
-    readonly incidentConfiguration?: pulumi.Input<inputs.sentinel.AlertRuleScheduledIncidentConfiguration>;
+    incidentConfiguration?: pulumi.Input<inputs.sentinel.AlertRuleScheduledIncidentConfiguration>;
     /**
      * The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
      */
-    readonly logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    logAnalyticsWorkspaceId?: pulumi.Input<string>;
     /**
      * The name which should be used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The query of this Sentinel Scheduled Alert Rule.
      */
-    readonly query?: pulumi.Input<string>;
+    query?: pulumi.Input<string>;
     /**
      * The ISO 8601 timespan duration between two consecutive queries. Defaults to `PT5H`.
      */
-    readonly queryFrequency?: pulumi.Input<string>;
+    queryFrequency?: pulumi.Input<string>;
     /**
      * The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
      */
-    readonly queryPeriod?: pulumi.Input<string>;
+    queryPeriod?: pulumi.Input<string>;
     /**
      * The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
      */
-    readonly severity?: pulumi.Input<string>;
+    severity?: pulumi.Input<string>;
     /**
      * If `suppressionEnabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
      */
-    readonly suppressionDuration?: pulumi.Input<string>;
+    suppressionDuration?: pulumi.Input<string>;
     /**
      * Should the Sentinel Scheduled Alert Rulea stop running query after alert is generated? Defaults to `false`.
      */
-    readonly suppressionEnabled?: pulumi.Input<boolean>;
+    suppressionEnabled?: pulumi.Input<boolean>;
     /**
      * A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
      */
-    readonly tactics?: pulumi.Input<pulumi.Input<string>[]>;
+    tactics?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
      */
-    readonly triggerOperator?: pulumi.Input<string>;
+    triggerOperator?: pulumi.Input<string>;
     /**
      * The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule.
      */
-    readonly triggerThreshold?: pulumi.Input<number>;
+    triggerThreshold?: pulumi.Input<number>;
 }
 
 /**
@@ -287,69 +287,69 @@ export interface AlertRuleScheduledArgs {
     /**
      * The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
      */
-    readonly alertRuleTemplateGuid?: pulumi.Input<string>;
+    alertRuleTemplateGuid?: pulumi.Input<string>;
     /**
      * The description of this Sentinel Scheduled Alert Rule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The friendly name of this Sentinel Scheduled Alert Rule.
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * A `eventGrouping` block as defined below.
      */
-    readonly eventGrouping?: pulumi.Input<inputs.sentinel.AlertRuleScheduledEventGrouping>;
+    eventGrouping?: pulumi.Input<inputs.sentinel.AlertRuleScheduledEventGrouping>;
     /**
      * A `incidentConfiguration` block as defined below.
      */
-    readonly incidentConfiguration?: pulumi.Input<inputs.sentinel.AlertRuleScheduledIncidentConfiguration>;
+    incidentConfiguration?: pulumi.Input<inputs.sentinel.AlertRuleScheduledIncidentConfiguration>;
     /**
      * The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
      */
-    readonly logAnalyticsWorkspaceId: pulumi.Input<string>;
+    logAnalyticsWorkspaceId: pulumi.Input<string>;
     /**
      * The name which should be used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The query of this Sentinel Scheduled Alert Rule.
      */
-    readonly query: pulumi.Input<string>;
+    query: pulumi.Input<string>;
     /**
      * The ISO 8601 timespan duration between two consecutive queries. Defaults to `PT5H`.
      */
-    readonly queryFrequency?: pulumi.Input<string>;
+    queryFrequency?: pulumi.Input<string>;
     /**
      * The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
      */
-    readonly queryPeriod?: pulumi.Input<string>;
+    queryPeriod?: pulumi.Input<string>;
     /**
      * The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
      */
-    readonly severity: pulumi.Input<string>;
+    severity: pulumi.Input<string>;
     /**
      * If `suppressionEnabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
      */
-    readonly suppressionDuration?: pulumi.Input<string>;
+    suppressionDuration?: pulumi.Input<string>;
     /**
      * Should the Sentinel Scheduled Alert Rulea stop running query after alert is generated? Defaults to `false`.
      */
-    readonly suppressionEnabled?: pulumi.Input<boolean>;
+    suppressionEnabled?: pulumi.Input<boolean>;
     /**
      * A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
      */
-    readonly tactics?: pulumi.Input<pulumi.Input<string>[]>;
+    tactics?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
      */
-    readonly triggerOperator?: pulumi.Input<string>;
+    triggerOperator?: pulumi.Input<string>;
     /**
      * The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule.
      */
-    readonly triggerThreshold?: pulumi.Input<number>;
+    triggerThreshold?: pulumi.Input<number>;
 }

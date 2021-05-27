@@ -155,31 +155,31 @@ export interface DataLakeGen2PathState {
     /**
      * One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
      */
-    readonly aces?: pulumi.Input<pulumi.Input<inputs.storage.DataLakeGen2PathAce>[]>;
+    aces?: pulumi.Input<pulumi.Input<inputs.storage.DataLakeGen2PathAce>[]>;
     /**
      * The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
      */
-    readonly filesystemName?: pulumi.Input<string>;
+    filesystemName?: pulumi.Input<string>;
     /**
      * Specifies the Object ID of the Azure Active Directory Group to make the owning group.
      */
-    readonly group?: pulumi.Input<string>;
+    group?: pulumi.Input<string>;
     /**
      * Specifies the Object ID of the Azure Active Directory User to make the owning user.
      */
-    readonly owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
     /**
      * The path which should be created within the Data Lake Gen2 File System in the Storage Account. Changing this forces a new resource to be created.
      */
-    readonly path?: pulumi.Input<string>;
+    path?: pulumi.Input<string>;
     /**
      * Specifies the type for path to create. Currently only `directory` is supported.
      */
-    readonly resource?: pulumi.Input<string>;
+    resource?: pulumi.Input<string>;
     /**
      * Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
      */
-    readonly storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string>;
 }
 
 /**
@@ -189,29 +189,29 @@ export interface DataLakeGen2PathArgs {
     /**
      * One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
      */
-    readonly aces?: pulumi.Input<pulumi.Input<inputs.storage.DataLakeGen2PathAce>[]>;
+    aces?: pulumi.Input<pulumi.Input<inputs.storage.DataLakeGen2PathAce>[]>;
     /**
      * The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
      */
-    readonly filesystemName: pulumi.Input<string>;
+    filesystemName: pulumi.Input<string>;
     /**
      * Specifies the Object ID of the Azure Active Directory Group to make the owning group.
      */
-    readonly group?: pulumi.Input<string>;
+    group?: pulumi.Input<string>;
     /**
      * Specifies the Object ID of the Azure Active Directory User to make the owning user.
      */
-    readonly owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
     /**
      * The path which should be created within the Data Lake Gen2 File System in the Storage Account. Changing this forces a new resource to be created.
      */
-    readonly path: pulumi.Input<string>;
+    path: pulumi.Input<string>;
     /**
      * Specifies the type for path to create. Currently only `directory` is supported.
      */
-    readonly resource: pulumi.Input<string>;
+    resource: pulumi.Input<string>;
     /**
      * Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
      */
-    readonly storageAccountId: pulumi.Input<string>;
+    storageAccountId: pulumi.Input<string>;
 }

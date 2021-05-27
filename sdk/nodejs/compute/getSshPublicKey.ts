@@ -43,15 +43,15 @@ export interface GetSshPublicKeyArgs {
     /**
      * The name of this SSH Public Key.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group where the SSH Public Key exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * A mapping of tags which should be assigned to the SSH Public Key.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

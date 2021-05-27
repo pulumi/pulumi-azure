@@ -170,45 +170,45 @@ export interface NatGatewayState {
     /**
      * The idle timeout which should be used in minutes. Defaults to `4`.
      */
-    readonly idleTimeoutInMinutes?: pulumi.Input<number>;
+    idleTimeoutInMinutes?: pulumi.Input<number>;
     /**
      * Specifies the supported Azure location where the NAT Gateway should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the NAT Gateway. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
      *
      * @deprecated Inline Public IP Address ID Deprecations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` resource. This field will be removed in the next major version of the Azure Provider.
      */
-    readonly publicIpAddressIds?: pulumi.Input<pulumi.Input<string>[]>;
+    publicIpAddressIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
      */
-    readonly publicIpPrefixIds?: pulumi.Input<pulumi.Input<string>[]>;
+    publicIpPrefixIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The resource GUID property of the NAT Gateway.
      */
-    readonly resourceGuid?: pulumi.Input<string>;
+    resourceGuid?: pulumi.Input<string>;
     /**
      * The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
      */
-    readonly skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of availability zones where the NAT Gateway should be provisioned. Changing this forces a new resource to be created.
      */
-    readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -218,39 +218,39 @@ export interface NatGatewayArgs {
     /**
      * The idle timeout which should be used in minutes. Defaults to `4`.
      */
-    readonly idleTimeoutInMinutes?: pulumi.Input<number>;
+    idleTimeoutInMinutes?: pulumi.Input<number>;
     /**
      * Specifies the supported Azure location where the NAT Gateway should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the NAT Gateway. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A list of Public IP Address ID's which should be associated with the NAT Gateway resource.
      *
      * @deprecated Inline Public IP Address ID Deprecations have been deprecated in favour of the `azurerm_nat_gateway_public_ip_association` resource. This field will be removed in the next major version of the Azure Provider.
      */
-    readonly publicIpAddressIds?: pulumi.Input<pulumi.Input<string>[]>;
+    publicIpAddressIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of Public IP Prefix ID's which should be associated with the NAT Gateway resource.
      */
-    readonly publicIpPrefixIds?: pulumi.Input<pulumi.Input<string>[]>;
+    publicIpPrefixIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
      */
-    readonly skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of availability zones where the NAT Gateway should be provisioned. Changing this forces a new resource to be created.
      */
-    readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

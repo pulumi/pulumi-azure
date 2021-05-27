@@ -137,19 +137,19 @@ export interface JobCredentialState {
     /**
      * The ID of the Elastic Job Agent. Changing this forces a new Elastic Job Credential to be created.
      */
-    readonly jobAgentId?: pulumi.Input<string>;
+    jobAgentId?: pulumi.Input<string>;
     /**
      * The name which should be used for this Elastic Job Credential. Changing this forces a new Elastic Job Credential to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The password part of the credential.
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * The username part of the credential.
      */
-    readonly username?: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
 }
 
 /**
@@ -159,17 +159,17 @@ export interface JobCredentialArgs {
     /**
      * The ID of the Elastic Job Agent. Changing this forces a new Elastic Job Credential to be created.
      */
-    readonly jobAgentId: pulumi.Input<string>;
+    jobAgentId: pulumi.Input<string>;
     /**
      * The name which should be used for this Elastic Job Credential. Changing this forces a new Elastic Job Credential to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The password part of the credential.
      */
-    readonly password: pulumi.Input<string>;
+    password: pulumi.Input<string>;
     /**
      * The username part of the credential.
      */
-    readonly username: pulumi.Input<string>;
+    username: pulumi.Input<string>;
 }

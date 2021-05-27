@@ -128,27 +128,27 @@ export interface CacheNfsTargetState {
     /**
      * The name HPC Cache, which the HPC Cache NFS Target will be added to. Changing this forces a new resource to be created.
      */
-    readonly cacheName?: pulumi.Input<string>;
+    cacheName?: pulumi.Input<string>;
     /**
      * The name of the HPC Cache NFS Target. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Can be specified multiple times to define multiple `namespaceJunction`. Each `namespaceJuntion` block supports fields documented below.
      */
-    readonly namespaceJunctions?: pulumi.Input<pulumi.Input<inputs.hpc.CacheNfsTargetNamespaceJunction>[]>;
+    namespaceJunctions?: pulumi.Input<pulumi.Input<inputs.hpc.CacheNfsTargetNamespaceJunction>[]>;
     /**
      * The name of the Resource Group in which to create the HPC Cache NFS Target. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The IP address or fully qualified domain name (FQDN) of the HPC Cache NFS target. Changing this forces a new resource to be created.
      */
-    readonly targetHostName?: pulumi.Input<string>;
+    targetHostName?: pulumi.Input<string>;
     /**
      * The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
      */
-    readonly usageModel?: pulumi.Input<string>;
+    usageModel?: pulumi.Input<string>;
 }
 
 /**
@@ -158,25 +158,25 @@ export interface CacheNfsTargetArgs {
     /**
      * The name HPC Cache, which the HPC Cache NFS Target will be added to. Changing this forces a new resource to be created.
      */
-    readonly cacheName: pulumi.Input<string>;
+    cacheName: pulumi.Input<string>;
     /**
      * The name of the HPC Cache NFS Target. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Can be specified multiple times to define multiple `namespaceJunction`. Each `namespaceJuntion` block supports fields documented below.
      */
-    readonly namespaceJunctions: pulumi.Input<pulumi.Input<inputs.hpc.CacheNfsTargetNamespaceJunction>[]>;
+    namespaceJunctions: pulumi.Input<pulumi.Input<inputs.hpc.CacheNfsTargetNamespaceJunction>[]>;
     /**
      * The name of the Resource Group in which to create the HPC Cache NFS Target. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The IP address or fully qualified domain name (FQDN) of the HPC Cache NFS target. Changing this forces a new resource to be created.
      */
-    readonly targetHostName: pulumi.Input<string>;
+    targetHostName: pulumi.Input<string>;
     /**
      * The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
      */
-    readonly usageModel: pulumi.Input<string>;
+    usageModel: pulumi.Input<string>;
 }

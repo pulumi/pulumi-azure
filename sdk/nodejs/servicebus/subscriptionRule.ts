@@ -224,39 +224,39 @@ export interface SubscriptionRuleState {
     /**
      * Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
      */
-    readonly action?: pulumi.Input<string>;
+    action?: pulumi.Input<string>;
     /**
      * A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
      */
-    readonly correlationFilter?: pulumi.Input<inputs.servicebus.SubscriptionRuleCorrelationFilter>;
+    correlationFilter?: pulumi.Input<inputs.servicebus.SubscriptionRuleCorrelationFilter>;
     /**
      * Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`.
      */
-    readonly filterType?: pulumi.Input<string>;
+    filterType?: pulumi.Input<string>;
     /**
      * Specifies the name of the ServiceBus Subscription Rule. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the ServiceBus Namespace in which the ServiceBus Topic exists. Changing this forces a new resource to be created.
      */
-    readonly namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string>;
     /**
      * The name of the resource group in the ServiceBus Namespace exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
      */
-    readonly sqlFilter?: pulumi.Input<string>;
+    sqlFilter?: pulumi.Input<string>;
     /**
      * The name of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
      */
-    readonly subscriptionName?: pulumi.Input<string>;
+    subscriptionName?: pulumi.Input<string>;
     /**
      * The name of the ServiceBus Topic in which the ServiceBus Subscription exists. Changing this forces a new resource to be created.
      */
-    readonly topicName?: pulumi.Input<string>;
+    topicName?: pulumi.Input<string>;
 }
 
 /**
@@ -266,37 +266,37 @@ export interface SubscriptionRuleArgs {
     /**
      * Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
      */
-    readonly action?: pulumi.Input<string>;
+    action?: pulumi.Input<string>;
     /**
      * A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
      */
-    readonly correlationFilter?: pulumi.Input<inputs.servicebus.SubscriptionRuleCorrelationFilter>;
+    correlationFilter?: pulumi.Input<inputs.servicebus.SubscriptionRuleCorrelationFilter>;
     /**
      * Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`.
      */
-    readonly filterType: pulumi.Input<string>;
+    filterType: pulumi.Input<string>;
     /**
      * Specifies the name of the ServiceBus Subscription Rule. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the ServiceBus Namespace in which the ServiceBus Topic exists. Changing this forces a new resource to be created.
      */
-    readonly namespaceName: pulumi.Input<string>;
+    namespaceName: pulumi.Input<string>;
     /**
      * The name of the resource group in the ServiceBus Namespace exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
      */
-    readonly sqlFilter?: pulumi.Input<string>;
+    sqlFilter?: pulumi.Input<string>;
     /**
      * The name of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
      */
-    readonly subscriptionName: pulumi.Input<string>;
+    subscriptionName: pulumi.Input<string>;
     /**
      * The name of the ServiceBus Topic in which the ServiceBus Subscription exists. Changing this forces a new resource to be created.
      */
-    readonly topicName: pulumi.Input<string>;
+    topicName: pulumi.Input<string>;
 }

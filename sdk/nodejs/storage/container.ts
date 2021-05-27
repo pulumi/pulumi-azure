@@ -141,31 +141,31 @@ export interface ContainerState {
     /**
      * The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
      */
-    readonly containerAccessType?: pulumi.Input<string>;
+    containerAccessType?: pulumi.Input<string>;
     /**
      * Is there an Immutability Policy configured on this Storage Container?
      */
-    readonly hasImmutabilityPolicy?: pulumi.Input<boolean>;
+    hasImmutabilityPolicy?: pulumi.Input<boolean>;
     /**
      * Is there a Legal Hold configured on this Storage Container?
      */
-    readonly hasLegalHold?: pulumi.Input<boolean>;
+    hasLegalHold?: pulumi.Input<boolean>;
     /**
      * A mapping of MetaData for this Container. All metadata keys should be lowercase.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the Container which should be created within the Storage Account.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The Resource Manager ID of this Storage Container.
      */
-    readonly resourceManagerId?: pulumi.Input<string>;
+    resourceManagerId?: pulumi.Input<string>;
     /**
      * The name of the Storage Account where the Container should be created.
      */
-    readonly storageAccountName?: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string>;
 }
 
 /**
@@ -175,17 +175,17 @@ export interface ContainerArgs {
     /**
      * The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
      */
-    readonly containerAccessType?: pulumi.Input<string>;
+    containerAccessType?: pulumi.Input<string>;
     /**
      * A mapping of MetaData for this Container. All metadata keys should be lowercase.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the Container which should be created within the Storage Account.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Storage Account where the Container should be created.
      */
-    readonly storageAccountName: pulumi.Input<string>;
+    storageAccountName: pulumi.Input<string>;
 }

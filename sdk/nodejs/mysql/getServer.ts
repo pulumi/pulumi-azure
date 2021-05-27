@@ -42,11 +42,11 @@ export interface GetServerArgs {
     /**
      * Specifies the name of the MySQL Server.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the resource group for the MySQL Server.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

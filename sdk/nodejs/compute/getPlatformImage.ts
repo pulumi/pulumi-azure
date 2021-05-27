@@ -47,23 +47,23 @@ export interface GetPlatformImageArgs {
     /**
      * Specifies the Location to pull information about this Platform Image from.
      */
-    readonly location: string;
+    location: string;
     /**
      * Specifies the Offer associated with the Platform Image.
      */
-    readonly offer: string;
+    offer: string;
     /**
      * Specifies the Publisher associated with the Platform Image.
      */
-    readonly publisher: string;
+    publisher: string;
     /**
      * Specifies the SKU of the Platform Image.
      */
-    readonly sku: string;
+    sku: string;
     /**
      * The version of the Platform Image.
      */
-    readonly version?: string;
+    version?: string;
 }
 
 /**

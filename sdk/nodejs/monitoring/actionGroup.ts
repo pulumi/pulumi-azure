@@ -248,63 +248,63 @@ export interface ActionGroupState {
     /**
      * One or more `armRoleReceiver` blocks as defined below.
      */
-    readonly armRoleReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupArmRoleReceiver>[]>;
+    armRoleReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupArmRoleReceiver>[]>;
     /**
      * One or more `automationRunbookReceiver` blocks as defined below.
      */
-    readonly automationRunbookReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupAutomationRunbookReceiver>[]>;
+    automationRunbookReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupAutomationRunbookReceiver>[]>;
     /**
      * One or more `azureAppPushReceiver` blocks as defined below.
      */
-    readonly azureAppPushReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupAzureAppPushReceiver>[]>;
+    azureAppPushReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupAzureAppPushReceiver>[]>;
     /**
      * One or more `azureFunctionReceiver` blocks as defined below.
      */
-    readonly azureFunctionReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupAzureFunctionReceiver>[]>;
+    azureFunctionReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupAzureFunctionReceiver>[]>;
     /**
      * One or more `emailReceiver` blocks as defined below.
      */
-    readonly emailReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupEmailReceiver>[]>;
+    emailReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupEmailReceiver>[]>;
     /**
      * Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * One or more `itsmReceiver` blocks as defined below.
      */
-    readonly itsmReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupItsmReceiver>[]>;
+    itsmReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupItsmReceiver>[]>;
     /**
      * One or more `logicAppReceiver` blocks as defined below.
      */
-    readonly logicAppReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupLogicAppReceiver>[]>;
+    logicAppReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupLogicAppReceiver>[]>;
     /**
      * The name of the Action Group. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Action Group instance.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The short name of the action group. This will be used in SMS messages.
      */
-    readonly shortName?: pulumi.Input<string>;
+    shortName?: pulumi.Input<string>;
     /**
      * One or more `smsReceiver` blocks as defined below.
      */
-    readonly smsReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupSmsReceiver>[]>;
+    smsReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupSmsReceiver>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * One or more `voiceReceiver` blocks as defined below.
      */
-    readonly voiceReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupVoiceReceiver>[]>;
+    voiceReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupVoiceReceiver>[]>;
     /**
      * One or more `webhookReceiver` blocks as defined below.
      */
-    readonly webhookReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupWebhookReceiver>[]>;
+    webhookReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupWebhookReceiver>[]>;
 }
 
 /**
@@ -314,61 +314,61 @@ export interface ActionGroupArgs {
     /**
      * One or more `armRoleReceiver` blocks as defined below.
      */
-    readonly armRoleReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupArmRoleReceiver>[]>;
+    armRoleReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupArmRoleReceiver>[]>;
     /**
      * One or more `automationRunbookReceiver` blocks as defined below.
      */
-    readonly automationRunbookReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupAutomationRunbookReceiver>[]>;
+    automationRunbookReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupAutomationRunbookReceiver>[]>;
     /**
      * One or more `azureAppPushReceiver` blocks as defined below.
      */
-    readonly azureAppPushReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupAzureAppPushReceiver>[]>;
+    azureAppPushReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupAzureAppPushReceiver>[]>;
     /**
      * One or more `azureFunctionReceiver` blocks as defined below.
      */
-    readonly azureFunctionReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupAzureFunctionReceiver>[]>;
+    azureFunctionReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupAzureFunctionReceiver>[]>;
     /**
      * One or more `emailReceiver` blocks as defined below.
      */
-    readonly emailReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupEmailReceiver>[]>;
+    emailReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupEmailReceiver>[]>;
     /**
      * Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * One or more `itsmReceiver` blocks as defined below.
      */
-    readonly itsmReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupItsmReceiver>[]>;
+    itsmReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupItsmReceiver>[]>;
     /**
      * One or more `logicAppReceiver` blocks as defined below.
      */
-    readonly logicAppReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupLogicAppReceiver>[]>;
+    logicAppReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupLogicAppReceiver>[]>;
     /**
      * The name of the Action Group. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Action Group instance.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The short name of the action group. This will be used in SMS messages.
      */
-    readonly shortName: pulumi.Input<string>;
+    shortName: pulumi.Input<string>;
     /**
      * One or more `smsReceiver` blocks as defined below.
      */
-    readonly smsReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupSmsReceiver>[]>;
+    smsReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupSmsReceiver>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * One or more `voiceReceiver` blocks as defined below.
      */
-    readonly voiceReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupVoiceReceiver>[]>;
+    voiceReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupVoiceReceiver>[]>;
     /**
      * One or more `webhookReceiver` blocks as defined below.
      */
-    readonly webhookReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupWebhookReceiver>[]>;
+    webhookReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.ActionGroupWebhookReceiver>[]>;
 }

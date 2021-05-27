@@ -84,22 +84,22 @@ export class Provider extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Provider resources.
  */
 export interface ProviderState {
-    readonly attestationUri?: pulumi.Input<string>;
-    readonly location?: pulumi.Input<string>;
-    readonly name?: pulumi.Input<string>;
-    readonly policySigningCertificateData?: pulumi.Input<string>;
-    readonly resourceGroupName?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly trustModel?: pulumi.Input<string>;
+    attestationUri?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    policySigningCertificateData?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    trustModel?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a Provider resource.
  */
 export interface ProviderArgs {
-    readonly location?: pulumi.Input<string>;
-    readonly name?: pulumi.Input<string>;
-    readonly policySigningCertificateData?: pulumi.Input<string>;
-    readonly resourceGroupName: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    location?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    policySigningCertificateData?: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

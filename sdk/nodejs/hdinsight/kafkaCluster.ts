@@ -261,76 +261,76 @@ export interface KafkaClusterState {
     /**
      * Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
      */
-    readonly clusterVersion?: pulumi.Input<string>;
+    clusterVersion?: pulumi.Input<string>;
     /**
      * A `componentVersion` block as defined below.
      */
-    readonly componentVersion?: pulumi.Input<inputs.hdinsight.KafkaClusterComponentVersion>;
+    componentVersion?: pulumi.Input<inputs.hdinsight.KafkaClusterComponentVersion>;
     /**
      * Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
      */
-    readonly encryptionInTransitEnabled?: pulumi.Input<boolean>;
+    encryptionInTransitEnabled?: pulumi.Input<boolean>;
     /**
      * A `gateway` block as defined below.
      */
-    readonly gateway?: pulumi.Input<inputs.hdinsight.KafkaClusterGateway>;
+    gateway?: pulumi.Input<inputs.hdinsight.KafkaClusterGateway>;
     /**
      * The HTTPS Connectivity Endpoint for this HDInsight Kafka Cluster.
      */
-    readonly httpsEndpoint?: pulumi.Input<string>;
+    httpsEndpoint?: pulumi.Input<string>;
     /**
      * The Kafka Rest Proxy Endpoint for this HDInsight Kafka Cluster.
      */
-    readonly kafkaRestProxyEndpoint?: pulumi.Input<string>;
+    kafkaRestProxyEndpoint?: pulumi.Input<string>;
     /**
      * Specifies the Azure Region which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * A `metastores` block as defined below.
      */
-    readonly metastores?: pulumi.Input<inputs.hdinsight.KafkaClusterMetastores>;
+    metastores?: pulumi.Input<inputs.hdinsight.KafkaClusterMetastores>;
     /**
      * A `monitor` block as defined below.
      */
-    readonly monitor?: pulumi.Input<inputs.hdinsight.KafkaClusterMonitor>;
+    monitor?: pulumi.Input<inputs.hdinsight.KafkaClusterMonitor>;
     /**
      * Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A `restProxy` block as defined below.
      */
-    readonly restProxy?: pulumi.Input<inputs.hdinsight.KafkaClusterRestProxy>;
+    restProxy?: pulumi.Input<inputs.hdinsight.KafkaClusterRestProxy>;
     /**
      * A `roles` block as defined below.
      */
-    readonly roles?: pulumi.Input<inputs.hdinsight.KafkaClusterRoles>;
+    roles?: pulumi.Input<inputs.hdinsight.KafkaClusterRoles>;
     /**
      * The SSH Connectivity Endpoint for this HDInsight Kafka Cluster.
      */
-    readonly sshEndpoint?: pulumi.Input<string>;
+    sshEndpoint?: pulumi.Input<string>;
     /**
      * A `storageAccountGen2` block as defined below.
      */
-    readonly storageAccountGen2?: pulumi.Input<inputs.hdinsight.KafkaClusterStorageAccountGen2>;
+    storageAccountGen2?: pulumi.Input<inputs.hdinsight.KafkaClusterStorageAccountGen2>;
     /**
      * One or more `storageAccount` block as defined below.
      */
-    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.KafkaClusterStorageAccount>[]>;
+    storageAccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.KafkaClusterStorageAccount>[]>;
     /**
      * A map of Tags which should be assigned to this HDInsight Kafka Cluster.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the Tier which should be used for this HDInsight Kafka Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */
-    readonly tier?: pulumi.Input<string>;
-    readonly tlsMinVersion?: pulumi.Input<string>;
+    tier?: pulumi.Input<string>;
+    tlsMinVersion?: pulumi.Input<string>;
 }
 
 /**
@@ -340,62 +340,62 @@ export interface KafkaClusterArgs {
     /**
      * Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
      */
-    readonly clusterVersion: pulumi.Input<string>;
+    clusterVersion: pulumi.Input<string>;
     /**
      * A `componentVersion` block as defined below.
      */
-    readonly componentVersion: pulumi.Input<inputs.hdinsight.KafkaClusterComponentVersion>;
+    componentVersion: pulumi.Input<inputs.hdinsight.KafkaClusterComponentVersion>;
     /**
      * Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
      */
-    readonly encryptionInTransitEnabled?: pulumi.Input<boolean>;
+    encryptionInTransitEnabled?: pulumi.Input<boolean>;
     /**
      * A `gateway` block as defined below.
      */
-    readonly gateway: pulumi.Input<inputs.hdinsight.KafkaClusterGateway>;
+    gateway: pulumi.Input<inputs.hdinsight.KafkaClusterGateway>;
     /**
      * Specifies the Azure Region which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * A `metastores` block as defined below.
      */
-    readonly metastores?: pulumi.Input<inputs.hdinsight.KafkaClusterMetastores>;
+    metastores?: pulumi.Input<inputs.hdinsight.KafkaClusterMetastores>;
     /**
      * A `monitor` block as defined below.
      */
-    readonly monitor?: pulumi.Input<inputs.hdinsight.KafkaClusterMonitor>;
+    monitor?: pulumi.Input<inputs.hdinsight.KafkaClusterMonitor>;
     /**
      * Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A `restProxy` block as defined below.
      */
-    readonly restProxy?: pulumi.Input<inputs.hdinsight.KafkaClusterRestProxy>;
+    restProxy?: pulumi.Input<inputs.hdinsight.KafkaClusterRestProxy>;
     /**
      * A `roles` block as defined below.
      */
-    readonly roles: pulumi.Input<inputs.hdinsight.KafkaClusterRoles>;
+    roles: pulumi.Input<inputs.hdinsight.KafkaClusterRoles>;
     /**
      * A `storageAccountGen2` block as defined below.
      */
-    readonly storageAccountGen2?: pulumi.Input<inputs.hdinsight.KafkaClusterStorageAccountGen2>;
+    storageAccountGen2?: pulumi.Input<inputs.hdinsight.KafkaClusterStorageAccountGen2>;
     /**
      * One or more `storageAccount` block as defined below.
      */
-    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.KafkaClusterStorageAccount>[]>;
+    storageAccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.KafkaClusterStorageAccount>[]>;
     /**
      * A map of Tags which should be assigned to this HDInsight Kafka Cluster.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the Tier which should be used for this HDInsight Kafka Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */
-    readonly tier: pulumi.Input<string>;
-    readonly tlsMinVersion?: pulumi.Input<string>;
+    tier: pulumi.Input<string>;
+    tlsMinVersion?: pulumi.Input<string>;
 }

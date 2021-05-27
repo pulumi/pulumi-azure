@@ -135,20 +135,20 @@ export interface RegistryScopeMapState {
     /**
      * A list of actions to attach to the scope map (e.g. `repo/content/read`, `repo2/content/delete`).
      */
-    readonly actions?: pulumi.Input<pulumi.Input<string>[]>;
+    actions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the Container Registry. Changing this forces a new resource to be created.
      */
-    readonly containerRegistryName?: pulumi.Input<string>;
-    readonly description?: pulumi.Input<string>;
+    containerRegistryName?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Specifies the name of the scope map. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Container Registry token. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -158,18 +158,18 @@ export interface RegistryScopeMapArgs {
     /**
      * A list of actions to attach to the scope map (e.g. `repo/content/read`, `repo2/content/delete`).
      */
-    readonly actions: pulumi.Input<pulumi.Input<string>[]>;
+    actions: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the Container Registry. Changing this forces a new resource to be created.
      */
-    readonly containerRegistryName: pulumi.Input<string>;
-    readonly description?: pulumi.Input<string>;
+    containerRegistryName: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Specifies the name of the scope map. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Container Registry token. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

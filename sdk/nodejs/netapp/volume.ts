@@ -251,67 +251,67 @@ export interface VolumeState {
     /**
      * The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`.
      */
-    readonly createFromSnapshotResourceId?: pulumi.Input<string>;
+    createFromSnapshotResourceId?: pulumi.Input<string>;
     /**
      * A `dataProtectionReplication` block as defined below.
      */
-    readonly dataProtectionReplication?: pulumi.Input<inputs.netapp.VolumeDataProtectionReplication>;
+    dataProtectionReplication?: pulumi.Input<inputs.netapp.VolumeDataProtectionReplication>;
     /**
      * One or more `exportPolicyRule` block defined below.
      */
-    readonly exportPolicyRules?: pulumi.Input<pulumi.Input<inputs.netapp.VolumeExportPolicyRule>[]>;
+    exportPolicyRules?: pulumi.Input<pulumi.Input<inputs.netapp.VolumeExportPolicyRule>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * A list of IPv4 Addresses which should be used to mount the volume.
      */
-    readonly mountIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    mountIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the NetApp Volume. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
      */
-    readonly poolName?: pulumi.Input<string>;
+    poolName?: pulumi.Input<string>;
     /**
      * The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/en-us/azure/azure-netapp-files/create-volumes-dual-protocol) document.
      */
-    readonly protocols?: pulumi.Input<pulumi.Input<string>[]>;
+    protocols?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
      */
-    readonly securityStyle?: pulumi.Input<string>;
+    securityStyle?: pulumi.Input<string>;
     /**
      * The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
      */
-    readonly serviceLevel?: pulumi.Input<string>;
+    serviceLevel?: pulumi.Input<string>;
     /**
      * The maximum Storage Quota allowed for a file system in Gigabytes.
      */
-    readonly storageQuotaInGb?: pulumi.Input<number>;
+    storageQuotaInGb?: pulumi.Input<number>;
     /**
      * The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
      */
-    readonly volumePath?: pulumi.Input<string>;
+    volumePath?: pulumi.Input<string>;
 }
 
 /**
@@ -321,61 +321,61 @@ export interface VolumeArgs {
     /**
      * The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`.
      */
-    readonly createFromSnapshotResourceId?: pulumi.Input<string>;
+    createFromSnapshotResourceId?: pulumi.Input<string>;
     /**
      * A `dataProtectionReplication` block as defined below.
      */
-    readonly dataProtectionReplication?: pulumi.Input<inputs.netapp.VolumeDataProtectionReplication>;
+    dataProtectionReplication?: pulumi.Input<inputs.netapp.VolumeDataProtectionReplication>;
     /**
      * One or more `exportPolicyRule` block defined below.
      */
-    readonly exportPolicyRules?: pulumi.Input<pulumi.Input<inputs.netapp.VolumeExportPolicyRule>[]>;
+    exportPolicyRules?: pulumi.Input<pulumi.Input<inputs.netapp.VolumeExportPolicyRule>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the NetApp Volume. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
      */
-    readonly poolName: pulumi.Input<string>;
+    poolName: pulumi.Input<string>;
     /**
      * The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/en-us/azure/azure-netapp-files/create-volumes-dual-protocol) document.
      */
-    readonly protocols?: pulumi.Input<pulumi.Input<string>[]>;
+    protocols?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Volume security style, accepted values are `Unix` or `Ntfs`. If not provided, single-protocol volume is created defaulting to `Unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `Ntfs`. In a dual-protocol volume, if not provided, its value will be `Ntfs`.
      */
-    readonly securityStyle?: pulumi.Input<string>;
+    securityStyle?: pulumi.Input<string>;
     /**
      * The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
      */
-    readonly serviceLevel: pulumi.Input<string>;
+    serviceLevel: pulumi.Input<string>;
     /**
      * The maximum Storage Quota allowed for a file system in Gigabytes.
      */
-    readonly storageQuotaInGb: pulumi.Input<number>;
+    storageQuotaInGb: pulumi.Input<number>;
     /**
      * The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
      */
-    readonly subnetId: pulumi.Input<string>;
+    subnetId: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
      */
-    readonly volumePath: pulumi.Input<string>;
+    volumePath: pulumi.Input<string>;
 }

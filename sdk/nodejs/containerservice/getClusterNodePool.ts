@@ -44,15 +44,15 @@ export interface GetClusterNodePoolArgs {
     /**
      * The Name of the Kubernetes Cluster where this Node Pool is located.
      */
-    readonly kubernetesClusterName: string;
+    kubernetesClusterName: string;
     /**
      * The name of this Kubernetes Cluster Node Pool.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group where the Kubernetes Cluster exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

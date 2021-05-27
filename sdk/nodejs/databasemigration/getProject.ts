@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     name: "example-dbms-project",
  *     resourceGroupName: "example-rg",
  *     serviceName: "example-dbms",
- * }, { async: true }));
+ * }));
  *
  * export const name = example.name;
  * ```
@@ -45,15 +45,15 @@ export interface GetProjectArgs {
     /**
      * Name of the database migration project.
      */
-    readonly name: string;
+    name: string;
     /**
      * Name of the resource group where resource belongs to.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Name of the database migration service where resource belongs to.
      */
-    readonly serviceName: string;
+    serviceName: string;
 }
 
 /**

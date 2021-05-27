@@ -42,11 +42,11 @@ export interface GetSpringCloudServiceArgs {
     /**
      * Specifies The name of the Spring Cloud Service resource.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the name of the Resource Group where the Spring Cloud Service exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

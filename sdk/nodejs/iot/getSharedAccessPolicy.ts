@@ -43,15 +43,15 @@ export interface GetSharedAccessPolicyArgs {
     /**
      * The name of the IoTHub to which this Shared Access Policy belongs.
      */
-    readonly iothubName: string;
+    iothubName: string;
     /**
      * Specifies the name of the IotHub Shared Access Policy resource.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the resource group under which the IotHub Shared Access Policy resource has to be created.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

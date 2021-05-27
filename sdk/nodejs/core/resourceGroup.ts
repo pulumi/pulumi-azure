@@ -103,15 +103,15 @@ export interface ResourceGroupState {
     /**
      * The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Resource Group.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -121,13 +121,13 @@ export interface ResourceGroupArgs {
     /**
      * The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Resource Group.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

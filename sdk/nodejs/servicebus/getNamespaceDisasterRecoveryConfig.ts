@@ -24,9 +24,9 @@ export function getNamespaceDisasterRecoveryConfig(args: GetNamespaceDisasterRec
  * A collection of arguments for invoking getNamespaceDisasterRecoveryConfig.
  */
 export interface GetNamespaceDisasterRecoveryConfigArgs {
-    readonly name: string;
-    readonly namespaceName: string;
-    readonly resourceGroupName: string;
+    name: string;
+    namespaceName: string;
+    resourceGroupName: string;
 }
 
 /**

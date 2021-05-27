@@ -142,24 +142,24 @@ export interface DatabaseExtendedAuditingPolicyState {
     /**
      * The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
      */
-    readonly databaseId?: pulumi.Input<string>;
-    readonly logMonitoringEnabled?: pulumi.Input<boolean>;
+    databaseId?: pulumi.Input<string>;
+    logMonitoringEnabled?: pulumi.Input<boolean>;
     /**
      * The number of days to retain logs for in the storage account.
      */
-    readonly retentionInDays?: pulumi.Input<number>;
+    retentionInDays?: pulumi.Input<number>;
     /**
      * The access key to use for the auditing storage account.
      */
-    readonly storageAccountAccessKey?: pulumi.Input<string>;
+    storageAccountAccessKey?: pulumi.Input<string>;
     /**
      * Is `storageAccountAccessKey` value the storage's secondary key?
      */
-    readonly storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
+    storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
     /**
      * The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
      */
-    readonly storageEndpoint?: pulumi.Input<string>;
+    storageEndpoint?: pulumi.Input<string>;
 }
 
 /**
@@ -169,22 +169,22 @@ export interface DatabaseExtendedAuditingPolicyArgs {
     /**
      * The ID of the sql database to set the extended auditing policy. Changing this forces a new resource to be created.
      */
-    readonly databaseId: pulumi.Input<string>;
-    readonly logMonitoringEnabled?: pulumi.Input<boolean>;
+    databaseId: pulumi.Input<string>;
+    logMonitoringEnabled?: pulumi.Input<boolean>;
     /**
      * The number of days to retain logs for in the storage account.
      */
-    readonly retentionInDays?: pulumi.Input<number>;
+    retentionInDays?: pulumi.Input<number>;
     /**
      * The access key to use for the auditing storage account.
      */
-    readonly storageAccountAccessKey?: pulumi.Input<string>;
+    storageAccountAccessKey?: pulumi.Input<string>;
     /**
      * Is `storageAccountAccessKey` value the storage's secondary key?
      */
-    readonly storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
+    storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
     /**
      * The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
      */
-    readonly storageEndpoint?: pulumi.Input<string>;
+    storageEndpoint?: pulumi.Input<string>;
 }

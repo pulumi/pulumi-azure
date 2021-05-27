@@ -42,11 +42,11 @@ export interface GetDatabaseArgs {
     /**
      * The name of the Ms SQL Database.
      */
-    readonly name: string;
+    name: string;
     /**
      * The id of the Ms SQL Server on which to create the database.
      */
-    readonly serverId: string;
+    serverId: string;
 }
 
 /**

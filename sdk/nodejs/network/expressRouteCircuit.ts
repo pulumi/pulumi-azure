@@ -179,47 +179,47 @@ export interface ExpressRouteCircuitState {
     /**
      * Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.
      */
-    readonly allowClassicOperations?: pulumi.Input<boolean>;
+    allowClassicOperations?: pulumi.Input<boolean>;
     /**
      * The bandwidth in Mbps of the circuit being created.
      */
-    readonly bandwidthInMbps?: pulumi.Input<number>;
+    bandwidthInMbps?: pulumi.Input<number>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the peering location and **not** the Azure resource location.
      */
-    readonly peeringLocation?: pulumi.Input<string>;
+    peeringLocation?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The string needed by the service provider to provision the ExpressRoute circuit.
      */
-    readonly serviceKey?: pulumi.Input<string>;
+    serviceKey?: pulumi.Input<string>;
     /**
      * The name of the ExpressRoute Service Provider.
      */
-    readonly serviceProviderName?: pulumi.Input<string>;
+    serviceProviderName?: pulumi.Input<string>;
     /**
      * The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
      */
-    readonly serviceProviderProvisioningState?: pulumi.Input<string>;
+    serviceProviderProvisioningState?: pulumi.Input<string>;
     /**
      * A `sku` block for the ExpressRoute circuit as documented below.
      */
-    readonly sku?: pulumi.Input<inputs.network.ExpressRouteCircuitSku>;
+    sku?: pulumi.Input<inputs.network.ExpressRouteCircuitSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -229,37 +229,37 @@ export interface ExpressRouteCircuitArgs {
     /**
      * Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.
      */
-    readonly allowClassicOperations?: pulumi.Input<boolean>;
+    allowClassicOperations?: pulumi.Input<boolean>;
     /**
      * The bandwidth in Mbps of the circuit being created.
      */
-    readonly bandwidthInMbps: pulumi.Input<number>;
+    bandwidthInMbps: pulumi.Input<number>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the peering location and **not** the Azure resource location.
      */
-    readonly peeringLocation: pulumi.Input<string>;
+    peeringLocation: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the ExpressRoute Service Provider.
      */
-    readonly serviceProviderName: pulumi.Input<string>;
+    serviceProviderName: pulumi.Input<string>;
     /**
      * A `sku` block for the ExpressRoute circuit as documented below.
      */
-    readonly sku: pulumi.Input<inputs.network.ExpressRouteCircuitSku>;
+    sku: pulumi.Input<inputs.network.ExpressRouteCircuitSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

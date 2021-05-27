@@ -150,31 +150,31 @@ export interface AssetState {
     /**
      * The alternate ID of the Asset.
      */
-    readonly alternateId?: pulumi.Input<string>;
+    alternateId?: pulumi.Input<string>;
     /**
      * The name of the asset blob container. Changing this forces a new Media Asset to be created.
      */
-    readonly container?: pulumi.Input<string>;
+    container?: pulumi.Input<string>;
     /**
      * The Asset description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Specifies the name of the Media Services Account. Changing this forces a new Media Asset to be created.
      */
-    readonly mediaServicesAccountName?: pulumi.Input<string>;
+    mediaServicesAccountName?: pulumi.Input<string>;
     /**
      * The name which should be used for this Media Asset. Changing this forces a new Media Asset to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Media Asset should exist. Changing this forces a new Media Asset to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The name of the storage account where to store the media asset. Changing this forces a new Media Asset to be created.
      */
-    readonly storageAccountName?: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string>;
 }
 
 /**
@@ -184,29 +184,29 @@ export interface AssetArgs {
     /**
      * The alternate ID of the Asset.
      */
-    readonly alternateId?: pulumi.Input<string>;
+    alternateId?: pulumi.Input<string>;
     /**
      * The name of the asset blob container. Changing this forces a new Media Asset to be created.
      */
-    readonly container?: pulumi.Input<string>;
+    container?: pulumi.Input<string>;
     /**
      * The Asset description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Specifies the name of the Media Services Account. Changing this forces a new Media Asset to be created.
      */
-    readonly mediaServicesAccountName: pulumi.Input<string>;
+    mediaServicesAccountName: pulumi.Input<string>;
     /**
      * The name which should be used for this Media Asset. Changing this forces a new Media Asset to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Media Asset should exist. Changing this forces a new Media Asset to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the storage account where to store the media asset. Changing this forces a new Media Asset to be created.
      */
-    readonly storageAccountName?: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string>;
 }

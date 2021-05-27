@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const example = pulumi.output(azure.databasemigration.getService({
  *     name: "example-dms",
  *     resourceGroupName: "example-rg",
- * }, { async: true }));
+ * }));
  *
  * export const azurermDmsId = example.id;
  * ```
@@ -43,11 +43,11 @@ export interface GetServiceArgs {
     /**
      * Specify the name of the database migration service.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the Name of the Resource Group within which the database migration service exists
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

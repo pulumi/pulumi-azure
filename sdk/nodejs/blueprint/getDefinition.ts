@@ -47,11 +47,11 @@ export interface GetDefinitionArgs {
     /**
      * The name of the Blueprint.
      */
-    readonly name: string;
+    name: string;
     /**
      * The ID of the Subscription or Management Group, as the scope at which the blueprint definition is stored.
      */
-    readonly scopeId: string;
+    scopeId: string;
 }
 
 /**

@@ -92,11 +92,11 @@ export interface ClusterCustomerManagedKeyState {
     /**
      * The ID of the Key Vault Key to use for encryption.
      */
-    readonly keyVaultKeyId?: pulumi.Input<string>;
+    keyVaultKeyId?: pulumi.Input<string>;
     /**
      * The ID of the Log Analytics Cluster. Changing this forces a new Log Analytics Cluster Customer Managed Key to be created.
      */
-    readonly logAnalyticsClusterId?: pulumi.Input<string>;
+    logAnalyticsClusterId?: pulumi.Input<string>;
 }
 
 /**
@@ -106,9 +106,9 @@ export interface ClusterCustomerManagedKeyArgs {
     /**
      * The ID of the Key Vault Key to use for encryption.
      */
-    readonly keyVaultKeyId: pulumi.Input<string>;
+    keyVaultKeyId: pulumi.Input<string>;
     /**
      * The ID of the Log Analytics Cluster. Changing this forces a new Log Analytics Cluster Customer Managed Key to be created.
      */
-    readonly logAnalyticsClusterId: pulumi.Input<string>;
+    logAnalyticsClusterId: pulumi.Input<string>;
 }

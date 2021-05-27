@@ -246,87 +246,87 @@ export interface DatasetDelimitedTextState {
     /**
      * A map of additional properties to associate with the Data Factory Dataset.
      */
-    readonly additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of tags that can be used for describing the Data Factory Dataset.
      */
-    readonly annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `azureBlobStorageLocation` block as defined below.
      */
-    readonly azureBlobStorageLocation?: pulumi.Input<inputs.datafactory.DatasetDelimitedTextAzureBlobStorageLocation>;
+    azureBlobStorageLocation?: pulumi.Input<inputs.datafactory.DatasetDelimitedTextAzureBlobStorageLocation>;
     /**
      * The column delimiter.
      */
-    readonly columnDelimiter?: pulumi.Input<string>;
+    columnDelimiter?: pulumi.Input<string>;
     /**
      * The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
      */
-    readonly compressionCodec?: pulumi.Input<string>;
+    compressionCodec?: pulumi.Input<string>;
     /**
      * The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
      */
-    readonly compressionLevel?: pulumi.Input<string>;
+    compressionLevel?: pulumi.Input<string>;
     /**
      * The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
      */
-    readonly dataFactoryName?: pulumi.Input<string>;
+    dataFactoryName?: pulumi.Input<string>;
     /**
      * The description for the Data Factory Dataset.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The encoding format for the file.
      */
-    readonly encoding?: pulumi.Input<string>;
+    encoding?: pulumi.Input<string>;
     /**
      * The escape character.
      */
-    readonly escapeCharacter?: pulumi.Input<string>;
+    escapeCharacter?: pulumi.Input<string>;
     /**
      * When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data.
      */
-    readonly firstRowAsHeader?: pulumi.Input<boolean>;
+    firstRowAsHeader?: pulumi.Input<boolean>;
     /**
      * The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
      */
-    readonly folder?: pulumi.Input<string>;
+    folder?: pulumi.Input<string>;
     /**
      * A `httpServerLocation` block as defined below.
      */
-    readonly httpServerLocation?: pulumi.Input<inputs.datafactory.DatasetDelimitedTextHttpServerLocation>;
+    httpServerLocation?: pulumi.Input<inputs.datafactory.DatasetDelimitedTextHttpServerLocation>;
     /**
      * The Data Factory Linked Service name in which to associate the Dataset with.
      */
-    readonly linkedServiceName?: pulumi.Input<string>;
+    linkedServiceName?: pulumi.Input<string>;
     /**
      * Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The null value string.
      */
-    readonly nullValue?: pulumi.Input<string>;
+    nullValue?: pulumi.Input<string>;
     /**
      * A map of parameters to associate with the Data Factory Dataset.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The quote character.
      */
-    readonly quoteCharacter?: pulumi.Input<string>;
+    quoteCharacter?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The row delimiter.
      */
-    readonly rowDelimiter?: pulumi.Input<string>;
+    rowDelimiter?: pulumi.Input<string>;
     /**
      * A `schemaColumn` block as defined below.
      */
-    readonly schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetDelimitedTextSchemaColumn>[]>;
+    schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetDelimitedTextSchemaColumn>[]>;
 }
 
 /**
@@ -336,85 +336,85 @@ export interface DatasetDelimitedTextArgs {
     /**
      * A map of additional properties to associate with the Data Factory Dataset.
      */
-    readonly additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of tags that can be used for describing the Data Factory Dataset.
      */
-    readonly annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `azureBlobStorageLocation` block as defined below.
      */
-    readonly azureBlobStorageLocation?: pulumi.Input<inputs.datafactory.DatasetDelimitedTextAzureBlobStorageLocation>;
+    azureBlobStorageLocation?: pulumi.Input<inputs.datafactory.DatasetDelimitedTextAzureBlobStorageLocation>;
     /**
      * The column delimiter.
      */
-    readonly columnDelimiter?: pulumi.Input<string>;
+    columnDelimiter?: pulumi.Input<string>;
     /**
      * The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
      */
-    readonly compressionCodec?: pulumi.Input<string>;
+    compressionCodec?: pulumi.Input<string>;
     /**
      * The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
      */
-    readonly compressionLevel?: pulumi.Input<string>;
+    compressionLevel?: pulumi.Input<string>;
     /**
      * The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
      */
-    readonly dataFactoryName: pulumi.Input<string>;
+    dataFactoryName: pulumi.Input<string>;
     /**
      * The description for the Data Factory Dataset.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The encoding format for the file.
      */
-    readonly encoding?: pulumi.Input<string>;
+    encoding?: pulumi.Input<string>;
     /**
      * The escape character.
      */
-    readonly escapeCharacter?: pulumi.Input<string>;
+    escapeCharacter?: pulumi.Input<string>;
     /**
      * When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data.
      */
-    readonly firstRowAsHeader?: pulumi.Input<boolean>;
+    firstRowAsHeader?: pulumi.Input<boolean>;
     /**
      * The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
      */
-    readonly folder?: pulumi.Input<string>;
+    folder?: pulumi.Input<string>;
     /**
      * A `httpServerLocation` block as defined below.
      */
-    readonly httpServerLocation?: pulumi.Input<inputs.datafactory.DatasetDelimitedTextHttpServerLocation>;
+    httpServerLocation?: pulumi.Input<inputs.datafactory.DatasetDelimitedTextHttpServerLocation>;
     /**
      * The Data Factory Linked Service name in which to associate the Dataset with.
      */
-    readonly linkedServiceName: pulumi.Input<string>;
+    linkedServiceName: pulumi.Input<string>;
     /**
      * Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The null value string.
      */
-    readonly nullValue?: pulumi.Input<string>;
+    nullValue?: pulumi.Input<string>;
     /**
      * A map of parameters to associate with the Data Factory Dataset.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The quote character.
      */
-    readonly quoteCharacter?: pulumi.Input<string>;
+    quoteCharacter?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The row delimiter.
      */
-    readonly rowDelimiter?: pulumi.Input<string>;
+    rowDelimiter?: pulumi.Input<string>;
     /**
      * A `schemaColumn` block as defined below.
      */
-    readonly schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetDelimitedTextSchemaColumn>[]>;
+    schemaColumns?: pulumi.Input<pulumi.Input<inputs.datafactory.DatasetDelimitedTextSchemaColumn>[]>;
 }

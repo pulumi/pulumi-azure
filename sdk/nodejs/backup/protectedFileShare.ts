@@ -165,23 +165,23 @@ export interface ProtectedFileShareState {
     /**
      * Specifies the ID of the backup policy to use. The policy must be an Azure File Share backup policy. Other types are not supported.
      */
-    readonly backupPolicyId?: pulumi.Input<string>;
+    backupPolicyId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      */
-    readonly recoveryVaultName?: pulumi.Input<string>;
+    recoveryVaultName?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Azure Backup Protected File Share. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Specifies the name of the file share to backup. Changing this forces a new resource to be created.
      */
-    readonly sourceFileShareName?: pulumi.Input<string>;
+    sourceFileShareName?: pulumi.Input<string>;
     /**
      * Specifies the ID of the storage account of the file share to backup. Changing this forces a new resource to be created.
      */
-    readonly sourceStorageAccountId?: pulumi.Input<string>;
+    sourceStorageAccountId?: pulumi.Input<string>;
 }
 
 /**
@@ -191,21 +191,21 @@ export interface ProtectedFileShareArgs {
     /**
      * Specifies the ID of the backup policy to use. The policy must be an Azure File Share backup policy. Other types are not supported.
      */
-    readonly backupPolicyId: pulumi.Input<string>;
+    backupPolicyId: pulumi.Input<string>;
     /**
      * Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      */
-    readonly recoveryVaultName: pulumi.Input<string>;
+    recoveryVaultName: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Azure Backup Protected File Share. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies the name of the file share to backup. Changing this forces a new resource to be created.
      */
-    readonly sourceFileShareName: pulumi.Input<string>;
+    sourceFileShareName: pulumi.Input<string>;
     /**
      * Specifies the ID of the storage account of the file share to backup. Changing this forces a new resource to be created.
      */
-    readonly sourceStorageAccountId: pulumi.Input<string>;
+    sourceStorageAccountId: pulumi.Input<string>;
 }

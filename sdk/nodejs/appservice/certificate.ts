@@ -164,60 +164,60 @@ export interface CertificateState {
     /**
      * The expiration date for the certificate.
      */
-    readonly expirationDate?: pulumi.Input<string>;
+    expirationDate?: pulumi.Input<string>;
     /**
      * The friendly name of the certificate.
      */
-    readonly friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string>;
     /**
      * List of host names the certificate applies to.
      */
-    readonly hostNames?: pulumi.Input<pulumi.Input<string>[]>;
+    hostNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
      */
-    readonly hostingEnvironmentProfileId?: pulumi.Input<string>;
+    hostingEnvironmentProfileId?: pulumi.Input<string>;
     /**
      * The issue date for the certificate.
      */
-    readonly issueDate?: pulumi.Input<string>;
+    issueDate?: pulumi.Input<string>;
     /**
      * The name of the certificate issuer.
      */
-    readonly issuer?: pulumi.Input<string>;
+    issuer?: pulumi.Input<string>;
     /**
      * The ID of the Key Vault secret. Changing this forces a new resource to be created.
      */
-    readonly keyVaultSecretId?: pulumi.Input<string>;
+    keyVaultSecretId?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the certificate. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The password to access the certificate's private key. Changing this forces a new resource to be created.
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
      */
-    readonly pfxBlob?: pulumi.Input<string>;
+    pfxBlob?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The subject name of the certificate.
      */
-    readonly subjectName?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    subjectName?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The thumbprint for the certificate.
      */
-    readonly thumbprint?: pulumi.Input<string>;
+    thumbprint?: pulumi.Input<string>;
 }
 
 /**
@@ -227,30 +227,30 @@ export interface CertificateArgs {
     /**
      * Must be specified when the certificate is for an App Service Environment hosted App Service. Changing this forces a new resource to be created.
      */
-    readonly hostingEnvironmentProfileId?: pulumi.Input<string>;
+    hostingEnvironmentProfileId?: pulumi.Input<string>;
     /**
      * The ID of the Key Vault secret. Changing this forces a new resource to be created.
      */
-    readonly keyVaultSecretId?: pulumi.Input<string>;
+    keyVaultSecretId?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the certificate. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The password to access the certificate's private key. Changing this forces a new resource to be created.
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
      */
-    readonly pfxBlob?: pulumi.Input<string>;
+    pfxBlob?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    resourceGroupName: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

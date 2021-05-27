@@ -166,27 +166,27 @@ export interface DatasetDataLakeGen1State {
     /**
      * The resource ID of the Data Lake Store to be shared with the receiver.
      */
-    readonly dataLakeStoreId?: pulumi.Input<string>;
+    dataLakeStoreId?: pulumi.Input<string>;
     /**
      * The resource ID of the Data Share where this Data Share Data Lake Gen1 Dataset should be created. Changing this forces a new Data Share Data Lake Gen1 Dataset to be created.
      */
-    readonly dataShareId?: pulumi.Input<string>;
+    dataShareId?: pulumi.Input<string>;
     /**
      * The displayed name of the Data Share Dataset.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The file name of the data lake store to be shared with the receiver. Changing this forces a new Data Share Data Lake Gen1 Dataset to be created.
      */
-    readonly fileName?: pulumi.Input<string>;
+    fileName?: pulumi.Input<string>;
     /**
      * The folder path of the data lake store to be shared with the receiver. Changing this forces a new Data Share Data Lake Gen1 Dataset to be created.
      */
-    readonly folderPath?: pulumi.Input<string>;
+    folderPath?: pulumi.Input<string>;
     /**
      * The name of the Data Share Data Lake Gen1 Dataset. Changing this forces a new Data Share Data Lake Gen1 Dataset to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 /**
@@ -196,21 +196,21 @@ export interface DatasetDataLakeGen1Args {
     /**
      * The resource ID of the Data Lake Store to be shared with the receiver.
      */
-    readonly dataLakeStoreId: pulumi.Input<string>;
+    dataLakeStoreId: pulumi.Input<string>;
     /**
      * The resource ID of the Data Share where this Data Share Data Lake Gen1 Dataset should be created. Changing this forces a new Data Share Data Lake Gen1 Dataset to be created.
      */
-    readonly dataShareId: pulumi.Input<string>;
+    dataShareId: pulumi.Input<string>;
     /**
      * The file name of the data lake store to be shared with the receiver. Changing this forces a new Data Share Data Lake Gen1 Dataset to be created.
      */
-    readonly fileName?: pulumi.Input<string>;
+    fileName?: pulumi.Input<string>;
     /**
      * The folder path of the data lake store to be shared with the receiver. Changing this forces a new Data Share Data Lake Gen1 Dataset to be created.
      */
-    readonly folderPath: pulumi.Input<string>;
+    folderPath: pulumi.Input<string>;
     /**
      * The name of the Data Share Data Lake Gen1 Dataset. Changing this forces a new Data Share Data Lake Gen1 Dataset to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

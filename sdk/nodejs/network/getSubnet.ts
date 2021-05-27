@@ -44,15 +44,15 @@ export interface GetSubnetArgs {
     /**
      * Specifies the name of the Subnet.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the name of the resource group the Virtual Network is located in.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * Specifies the name of the Virtual Network this Subnet is located within.
      */
-    readonly virtualNetworkName: string;
+    virtualNetworkName: string;
 }
 
 /**

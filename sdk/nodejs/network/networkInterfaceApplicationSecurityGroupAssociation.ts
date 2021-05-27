@@ -128,11 +128,11 @@ export interface NetworkInterfaceApplicationSecurityGroupAssociationState {
     /**
      * The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created.
      */
-    readonly applicationSecurityGroupId?: pulumi.Input<string>;
+    applicationSecurityGroupId?: pulumi.Input<string>;
     /**
      * The ID of the Network Interface. Changing this forces a new resource to be created.
      */
-    readonly networkInterfaceId?: pulumi.Input<string>;
+    networkInterfaceId?: pulumi.Input<string>;
 }
 
 /**
@@ -142,9 +142,9 @@ export interface NetworkInterfaceApplicationSecurityGroupAssociationArgs {
     /**
      * The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created.
      */
-    readonly applicationSecurityGroupId: pulumi.Input<string>;
+    applicationSecurityGroupId: pulumi.Input<string>;
     /**
      * The ID of the Network Interface. Changing this forces a new resource to be created.
      */
-    readonly networkInterfaceId: pulumi.Input<string>;
+    networkInterfaceId: pulumi.Input<string>;
 }

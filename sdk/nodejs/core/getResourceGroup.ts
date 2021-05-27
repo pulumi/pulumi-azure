@@ -40,7 +40,7 @@ export interface GetResourceGroupArgs {
     /**
      * The Name of this Resource Group.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

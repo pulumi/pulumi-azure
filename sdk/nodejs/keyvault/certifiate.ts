@@ -262,47 +262,47 @@ export interface CertifiateState {
     /**
      * A `certificate` block as defined below, used to Import an existing certificate.
      */
-    readonly certificate?: pulumi.Input<inputs.keyvault.CertifiateCertificate>;
+    certificate?: pulumi.Input<inputs.keyvault.CertifiateCertificate>;
     /**
      * A `certificateAttribute` block as defined below.
      */
-    readonly certificateAttributes?: pulumi.Input<pulumi.Input<inputs.keyvault.CertifiateCertificateAttribute>[]>;
+    certificateAttributes?: pulumi.Input<pulumi.Input<inputs.keyvault.CertifiateCertificateAttribute>[]>;
     /**
      * The raw Key Vault Certificate data represented as a hexadecimal string.
      */
-    readonly certificateData?: pulumi.Input<string>;
+    certificateData?: pulumi.Input<string>;
     /**
      * The Base64 encoded Key Vault Certificate data.
      */
-    readonly certificateDataBase64?: pulumi.Input<string>;
+    certificateDataBase64?: pulumi.Input<string>;
     /**
      * A `certificatePolicy` block as defined below.
      */
-    readonly certificatePolicy?: pulumi.Input<inputs.keyvault.CertifiateCertificatePolicy>;
+    certificatePolicy?: pulumi.Input<inputs.keyvault.CertifiateCertificatePolicy>;
     /**
      * The ID of the Key Vault where the Certificate should be created.
      */
-    readonly keyVaultId?: pulumi.Input<string>;
+    keyVaultId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the associated Key Vault Secret.
      */
-    readonly secretId?: pulumi.Input<string>;
+    secretId?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
      */
-    readonly thumbprint?: pulumi.Input<string>;
+    thumbprint?: pulumi.Input<string>;
     /**
      * The current version of the Key Vault Certificate.
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
 }
 
 /**
@@ -312,21 +312,21 @@ export interface CertifiateArgs {
     /**
      * A `certificate` block as defined below, used to Import an existing certificate.
      */
-    readonly certificate?: pulumi.Input<inputs.keyvault.CertifiateCertificate>;
+    certificate?: pulumi.Input<inputs.keyvault.CertifiateCertificate>;
     /**
      * A `certificatePolicy` block as defined below.
      */
-    readonly certificatePolicy: pulumi.Input<inputs.keyvault.CertifiateCertificatePolicy>;
+    certificatePolicy: pulumi.Input<inputs.keyvault.CertifiateCertificatePolicy>;
     /**
      * The ID of the Key Vault where the Certificate should be created.
      */
-    readonly keyVaultId: pulumi.Input<string>;
+    keyVaultId: pulumi.Input<string>;
     /**
      * Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

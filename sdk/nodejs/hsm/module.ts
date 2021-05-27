@@ -207,35 +207,35 @@ export interface ModuleState {
     /**
      * The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `networkProfile` block as defined below.
      */
-    readonly networkProfile?: pulumi.Input<inputs.hsm.ModuleNetworkProfile>;
+    networkProfile?: pulumi.Input<inputs.hsm.ModuleNetworkProfile>;
     /**
      * The name of the Resource Group where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The sku name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
-    readonly skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string>;
     /**
      * The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
-    readonly stampId?: pulumi.Input<string>;
+    stampId?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Dedicated Hardware Security Module.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Dedicated Hardware Security Module zones. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
-    readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -245,33 +245,33 @@ export interface ModuleArgs {
     /**
      * The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `networkProfile` block as defined below.
      */
-    readonly networkProfile: pulumi.Input<inputs.hsm.ModuleNetworkProfile>;
+    networkProfile: pulumi.Input<inputs.hsm.ModuleNetworkProfile>;
     /**
      * The name of the Resource Group where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The sku name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
-    readonly skuName: pulumi.Input<string>;
+    skuName: pulumi.Input<string>;
     /**
      * The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
-    readonly stampId?: pulumi.Input<string>;
+    stampId?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Dedicated Hardware Security Module.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Dedicated Hardware Security Module zones. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
-    readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

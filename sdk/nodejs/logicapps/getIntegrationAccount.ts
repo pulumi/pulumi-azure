@@ -42,11 +42,11 @@ export interface GetIntegrationAccountArgs {
     /**
      * The name of this Logic App Integration Account.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group where the Logic App Integration Account exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -110,19 +110,19 @@ export interface ClusterCustomerManagedKeyState {
     /**
      * The ID of the Kusto Cluster. Changing this forces a new resource to be created.
      */
-    readonly clusterId?: pulumi.Input<string>;
+    clusterId?: pulumi.Input<string>;
     /**
      * The name of Key Vault Key.
      */
-    readonly keyName?: pulumi.Input<string>;
+    keyName?: pulumi.Input<string>;
     /**
      * The ID of the Key Vault. Changing this forces a new resource to be created.
      */
-    readonly keyVaultId?: pulumi.Input<string>;
+    keyVaultId?: pulumi.Input<string>;
     /**
      * The version of Key Vault Key.
      */
-    readonly keyVersion?: pulumi.Input<string>;
+    keyVersion?: pulumi.Input<string>;
 }
 
 /**
@@ -132,17 +132,17 @@ export interface ClusterCustomerManagedKeyArgs {
     /**
      * The ID of the Kusto Cluster. Changing this forces a new resource to be created.
      */
-    readonly clusterId: pulumi.Input<string>;
+    clusterId: pulumi.Input<string>;
     /**
      * The name of Key Vault Key.
      */
-    readonly keyName: pulumi.Input<string>;
+    keyName: pulumi.Input<string>;
     /**
      * The ID of the Key Vault. Changing this forces a new resource to be created.
      */
-    readonly keyVaultId: pulumi.Input<string>;
+    keyVaultId: pulumi.Input<string>;
     /**
      * The version of Key Vault Key.
      */
-    readonly keyVersion: pulumi.Input<string>;
+    keyVersion: pulumi.Input<string>;
 }

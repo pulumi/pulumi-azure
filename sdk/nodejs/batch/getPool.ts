@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     accountName: "testbatchaccount",
  *     name: "testbatchpool",
  *     resourceGroupName: "test",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
@@ -45,20 +45,20 @@ export interface GetPoolArgs {
     /**
      * The name of the Batch account.
      */
-    readonly accountName: string;
+    accountName: string;
     /**
      * One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
      */
-    readonly certificates?: inputs.batch.GetPoolCertificate[];
+    certificates?: inputs.batch.GetPoolCertificate[];
     /**
      * The name of the endpoint.
      */
-    readonly name: string;
-    readonly resourceGroupName: string;
+    name: string;
+    resourceGroupName: string;
     /**
      * A `startTask` block that describes the start task settings for the Batch pool.
      */
-    readonly startTask?: inputs.batch.GetPoolStartTask;
+    startTask?: inputs.batch.GetPoolStartTask;
 }
 
 /**

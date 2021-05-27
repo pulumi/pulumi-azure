@@ -146,23 +146,23 @@ export interface ProtectedVMState {
     /**
      * Specifies the id of the backup policy to use.
      */
-    readonly backupPolicyId?: pulumi.Input<string>;
+    backupPolicyId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      */
-    readonly recoveryVaultName?: pulumi.Input<string>;
+    recoveryVaultName?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
      */
-    readonly sourceVmId?: pulumi.Input<string>;
+    sourceVmId?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -172,21 +172,21 @@ export interface ProtectedVMArgs {
     /**
      * Specifies the id of the backup policy to use.
      */
-    readonly backupPolicyId: pulumi.Input<string>;
+    backupPolicyId: pulumi.Input<string>;
     /**
      * Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      */
-    readonly recoveryVaultName: pulumi.Input<string>;
+    recoveryVaultName: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
      */
-    readonly sourceVmId: pulumi.Input<string>;
+    sourceVmId: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

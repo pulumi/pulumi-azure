@@ -42,11 +42,11 @@ export interface GetServiceArgs {
     /**
      * The Name of the Search Service.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group where the Search Service exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -187,47 +187,47 @@ export interface StreamingLocatorState {
     /**
      * Alternative Media ID of this Streaming Locator. Changing this forces a new Streaming Locator to be created.
      */
-    readonly alternativeMediaId?: pulumi.Input<string>;
+    alternativeMediaId?: pulumi.Input<string>;
     /**
      * Asset Name. Changing this forces a new Streaming Locator to be created.
      */
-    readonly assetName?: pulumi.Input<string>;
+    assetName?: pulumi.Input<string>;
     /**
      * One or more `contentKey` blocks as defined below. Changing this forces a new Streaming Locator to be created.
      */
-    readonly contentKeys?: pulumi.Input<pulumi.Input<inputs.media.StreamingLocatorContentKey>[]>;
+    contentKeys?: pulumi.Input<pulumi.Input<inputs.media.StreamingLocatorContentKey>[]>;
     /**
      * Name of the default Content Key Policy used by this Streaming Locator.Changing this forces a new Streaming Locator to be created.
      */
-    readonly defaultContentKeyPolicyName?: pulumi.Input<string>;
+    defaultContentKeyPolicyName?: pulumi.Input<string>;
     /**
      * The end time of the Streaming Locator. Changing this forces a new Streaming Locator to be created.
      */
-    readonly endTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string>;
     /**
      * The Media Services account name. Changing this forces a new Streaming Locator to be created.
      */
-    readonly mediaServicesAccountName?: pulumi.Input<string>;
+    mediaServicesAccountName?: pulumi.Input<string>;
     /**
      * The name which should be used for this Streaming Locator. Changing this forces a new Streaming Locator to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Streaming Locator should exist. Changing this forces a new Streaming Locator to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The start time of the Streaming Locator. Changing this forces a new Streaming Locator to be created.
      */
-    readonly startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string>;
     /**
      * The ID of the Streaming Locator. Changing this forces a new Streaming Locator to be created.
      */
-    readonly streamingLocatorId?: pulumi.Input<string>;
+    streamingLocatorId?: pulumi.Input<string>;
     /**
      * Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: `Predefined_DownloadOnly`, `Predefined_ClearStreamingOnly`, `Predefined_DownloadAndClearStreaming`, `Predefined_ClearKey`, `Predefined_MultiDrmCencStreaming` and `Predefined_MultiDrmStreaming`. Changing this forces a new Streaming Locator to be created.
      */
-    readonly streamingPolicyName?: pulumi.Input<string>;
+    streamingPolicyName?: pulumi.Input<string>;
 }
 
 /**
@@ -237,45 +237,45 @@ export interface StreamingLocatorArgs {
     /**
      * Alternative Media ID of this Streaming Locator. Changing this forces a new Streaming Locator to be created.
      */
-    readonly alternativeMediaId?: pulumi.Input<string>;
+    alternativeMediaId?: pulumi.Input<string>;
     /**
      * Asset Name. Changing this forces a new Streaming Locator to be created.
      */
-    readonly assetName: pulumi.Input<string>;
+    assetName: pulumi.Input<string>;
     /**
      * One or more `contentKey` blocks as defined below. Changing this forces a new Streaming Locator to be created.
      */
-    readonly contentKeys?: pulumi.Input<pulumi.Input<inputs.media.StreamingLocatorContentKey>[]>;
+    contentKeys?: pulumi.Input<pulumi.Input<inputs.media.StreamingLocatorContentKey>[]>;
     /**
      * Name of the default Content Key Policy used by this Streaming Locator.Changing this forces a new Streaming Locator to be created.
      */
-    readonly defaultContentKeyPolicyName?: pulumi.Input<string>;
+    defaultContentKeyPolicyName?: pulumi.Input<string>;
     /**
      * The end time of the Streaming Locator. Changing this forces a new Streaming Locator to be created.
      */
-    readonly endTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string>;
     /**
      * The Media Services account name. Changing this forces a new Streaming Locator to be created.
      */
-    readonly mediaServicesAccountName: pulumi.Input<string>;
+    mediaServicesAccountName: pulumi.Input<string>;
     /**
      * The name which should be used for this Streaming Locator. Changing this forces a new Streaming Locator to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Streaming Locator should exist. Changing this forces a new Streaming Locator to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The start time of the Streaming Locator. Changing this forces a new Streaming Locator to be created.
      */
-    readonly startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string>;
     /**
      * The ID of the Streaming Locator. Changing this forces a new Streaming Locator to be created.
      */
-    readonly streamingLocatorId?: pulumi.Input<string>;
+    streamingLocatorId?: pulumi.Input<string>;
     /**
      * Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: `Predefined_DownloadOnly`, `Predefined_ClearStreamingOnly`, `Predefined_DownloadAndClearStreaming`, `Predefined_ClearKey`, `Predefined_MultiDrmCencStreaming` and `Predefined_MultiDrmStreaming`. Changing this forces a new Streaming Locator to be created.
      */
-    readonly streamingPolicyName: pulumi.Input<string>;
+    streamingPolicyName: pulumi.Input<string>;
 }

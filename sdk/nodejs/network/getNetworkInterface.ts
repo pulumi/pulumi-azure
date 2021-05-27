@@ -42,11 +42,11 @@ export interface GetNetworkInterfaceArgs {
     /**
      * Specifies the name of the Network Interface.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the name of the resource group the Network Interface is located in.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

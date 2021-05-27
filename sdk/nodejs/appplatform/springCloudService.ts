@@ -172,43 +172,43 @@ export interface SpringCloudServiceState {
     /**
      * A `configServerGitSetting` block as defined below.
      */
-    readonly configServerGitSetting?: pulumi.Input<inputs.appplatform.SpringCloudServiceConfigServerGitSetting>;
+    configServerGitSetting?: pulumi.Input<inputs.appplatform.SpringCloudServiceConfigServerGitSetting>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `network` block as defined below. Changing this forces a new resource to be created.
      */
-    readonly network?: pulumi.Input<inputs.appplatform.SpringCloudServiceNetwork>;
+    network?: pulumi.Input<inputs.appplatform.SpringCloudServiceNetwork>;
     /**
      * A list of the outbound Public IP Addresses used by this Spring Cloud Service.
      */
-    readonly outboundPublicIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    outboundPublicIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of `requiredNetworkTrafficRules` blocks as defined below.
      */
-    readonly requiredNetworkTrafficRules?: pulumi.Input<pulumi.Input<inputs.appplatform.SpringCloudServiceRequiredNetworkTrafficRule>[]>;
+    requiredNetworkTrafficRules?: pulumi.Input<pulumi.Input<inputs.appplatform.SpringCloudServiceRequiredNetworkTrafficRule>[]>;
     /**
      * Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
      */
-    readonly skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `trace` block as defined below.
      */
-    readonly trace?: pulumi.Input<inputs.appplatform.SpringCloudServiceTrace>;
+    trace?: pulumi.Input<inputs.appplatform.SpringCloudServiceTrace>;
 }
 
 /**
@@ -218,33 +218,33 @@ export interface SpringCloudServiceArgs {
     /**
      * A `configServerGitSetting` block as defined below.
      */
-    readonly configServerGitSetting?: pulumi.Input<inputs.appplatform.SpringCloudServiceConfigServerGitSetting>;
+    configServerGitSetting?: pulumi.Input<inputs.appplatform.SpringCloudServiceConfigServerGitSetting>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `network` block as defined below. Changing this forces a new resource to be created.
      */
-    readonly network?: pulumi.Input<inputs.appplatform.SpringCloudServiceNetwork>;
+    network?: pulumi.Input<inputs.appplatform.SpringCloudServiceNetwork>;
     /**
      * Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0` and `S0`. Defaults to `S0`.
      */
-    readonly skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `trace` block as defined below.
      */
-    readonly trace?: pulumi.Input<inputs.appplatform.SpringCloudServiceTrace>;
+    trace?: pulumi.Input<inputs.appplatform.SpringCloudServiceTrace>;
 }
