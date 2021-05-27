@@ -79,6 +79,10 @@ export class StaticSite extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     public readonly skuSize!: pulumi.Output<string | undefined>;
     public readonly skuTier!: pulumi.Output<string | undefined>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a StaticSite resource with the given unique name, arguments, and options.
@@ -100,6 +104,7 @@ export class StaticSite extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["skuSize"] = state ? state.skuSize : undefined;
             inputs["skuTier"] = state ? state.skuTier : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as StaticSiteArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -110,6 +115,7 @@ export class StaticSite extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["skuSize"] = args ? args.skuSize : undefined;
             inputs["skuTier"] = args ? args.skuTier : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["apiKey"] = undefined /*out*/;
             inputs["defaultHostName"] = undefined /*out*/;
         }
@@ -146,6 +152,10 @@ export interface StaticSiteState {
     resourceGroupName?: pulumi.Input<string>;
     skuSize?: pulumi.Input<string>;
     skuTier?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -166,4 +176,8 @@ export interface StaticSiteArgs {
     resourceGroupName: pulumi.Input<string>;
     skuSize?: pulumi.Input<string>;
     skuTier?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

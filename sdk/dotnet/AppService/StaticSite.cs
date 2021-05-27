@@ -81,6 +81,12 @@ namespace Pulumi.Azure.AppService
         [Output("skuTier")]
         public Output<string?> SkuTier { get; private set; } = null!;
 
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a StaticSite resource with the given unique name, arguments, and options.
@@ -151,6 +157,18 @@ namespace Pulumi.Azure.AppService
         [Input("skuTier")]
         public Input<string>? SkuTier { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public StaticSiteArgs()
         {
         }
@@ -193,6 +211,18 @@ namespace Pulumi.Azure.AppService
 
         [Input("skuTier")]
         public Input<string>? SkuTier { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public StaticSiteState()
         {

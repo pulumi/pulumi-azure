@@ -33,9 +33,11 @@ export interface ProviderFeaturesTemplateDeployment {
 export interface ProviderFeaturesVirtualMachine {
     deleteOsDiskOnDeletion?: boolean;
     gracefulShutdown?: boolean;
+    skipShutdownAndForceDelete?: boolean;
 }
 
 export interface ProviderFeaturesVirtualMachineScaleSet {
+    forceDelete?: boolean;
     rollInstancesWhenRequired?: boolean;
 }
 export namespace advisor {
@@ -5942,11 +5944,11 @@ export namespace compute {
 
     export interface LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy {
         /**
-         * Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
+         * Should automatic rollbacks be disabled?
          */
         disableAutomaticRollback: boolean;
         /**
-         * Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? Changing this forces a new resource to be created.
+         * Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
          */
         enableAutomaticOsUpgrade: boolean;
     }
@@ -7175,11 +7177,11 @@ export namespace compute {
 
     export interface WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy {
         /**
-         * Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
+         * Should automatic rollbacks be disabled?
          */
         disableAutomaticRollback: boolean;
         /**
-         * Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? Changing this forces a new resource to be created.
+         * Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
          */
         enableAutomaticOsUpgrade: boolean;
     }
@@ -7596,9 +7598,11 @@ export namespace config {
     export interface FeaturesVirtualMachine {
         deleteOsDiskOnDeletion?: boolean;
         gracefulShutdown?: boolean;
+        skipShutdownAndForceDelete?: boolean;
     }
 
     export interface FeaturesVirtualMachineScaleSet {
+        forceDelete?: boolean;
         rollInstancesWhenRequired: boolean;
     }
 }
@@ -21194,7 +21198,7 @@ export namespace network {
 
     export interface RouteTableRoute {
         /**
-         * The destination CIDR to which the route applies, such as 10.1.0.0/16
+         * The destination CIDR to which the route applies, such as 10.1.0.0/16. Tags such as `VirtualNetwork`, `AzureLoadBalancer` or `Internet` can also be used.
          */
         addressPrefix: string;
         /**
@@ -21434,7 +21438,7 @@ export namespace network {
         /**
          * A list of `peeringAddresses` as defined below. Only one `peeringAddresses` block can be specified except when `activeActive` of this Virtual Network Gateway is `true`.
          */
-        peeringAddresses?: outputs.network.VirtualNetworkGatewayBgpSettingsPeeringAddress[];
+        peeringAddresses: outputs.network.VirtualNetworkGatewayBgpSettingsPeeringAddress[];
     }
 
     export interface VirtualNetworkGatewayBgpSettingsPeeringAddress {
@@ -23787,22 +23791,22 @@ export namespace storage {
 
     export interface AccountNetworkRulesPrivateLinkAccess {
         /**
-         * The resource id of the `azure.privatelink.Endpoint` of the resource access rule.
+         * The resource id of the resource access rule to be granted access.
          */
         endpointResourceId: string;
         /**
-         * The tenant id of the `azure.privatelink.Endpoint` of the resource access rule. Defaults to the current tenant id.
+         * The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id.
          */
         endpointTenantId: string;
     }
 
     export interface AccountNetworkRulesPrivateLinkAccessRule {
         /**
-         * The resource id of the `azure.privatelink.Endpoint` of the resource access rule.
+         * The resource id of the resource access rule to be granted access.
          */
         endpointResourceId: string;
         /**
-         * The tenant id of the `azure.privatelink.Endpoint` of the resource access rule. Defaults to the current tenant id.
+         * The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id.
          */
         endpointTenantId: string;
     }

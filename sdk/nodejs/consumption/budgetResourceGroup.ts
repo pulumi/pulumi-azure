@@ -14,14 +14,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const current = azure.core.getSubscription({});
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "eastus"});
  * const test = new azure.monitoring.ActionGroup("test", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     shortName: "example",
  * });
  * const exampleBudgetResourceGroup = new azure.consumption.BudgetResourceGroup("exampleBudgetResourceGroup", {
- *     subscriptionId: current.then(current => current.subscriptionId),
  *     resourceGroupId: exampleResourceGroup.id,
  *     amount: 1000,
  *     timeGrain: "Monthly",

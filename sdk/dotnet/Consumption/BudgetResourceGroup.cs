@@ -12,6 +12,100 @@ namespace Pulumi.Azure.Consumption
     /// <summary>
     /// Manages a Resource Group Consumption Budget.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "eastus",
+    ///         });
+    ///         var test = new Azure.Monitoring.ActionGroup("test", new Azure.Monitoring.ActionGroupArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             ShortName = "example",
+    ///         });
+    ///         var exampleBudgetResourceGroup = new Azure.Consumption.BudgetResourceGroup("exampleBudgetResourceGroup", new Azure.Consumption.BudgetResourceGroupArgs
+    ///         {
+    ///             ResourceGroupId = exampleResourceGroup.Id,
+    ///             Amount = 1000,
+    ///             TimeGrain = "Monthly",
+    ///             TimePeriod = new Azure.Consumption.Inputs.BudgetResourceGroupTimePeriodArgs
+    ///             {
+    ///                 StartDate = "2020-11-01T00:00:00Z",
+    ///                 EndDate = "2020-12-01T00:00:00Z",
+    ///             },
+    ///             Filter = new Azure.Consumption.Inputs.BudgetResourceGroupFilterArgs
+    ///             {
+    ///                 Dimensions = 
+    ///                 {
+    ///                     new Azure.Consumption.Inputs.BudgetResourceGroupFilterDimensionArgs
+    ///                     {
+    ///                         Name = "ResourceId",
+    ///                         Values = 
+    ///                         {
+    ///                             azurerm_monitor_action_group.Example.Id,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Tags = 
+    ///                 {
+    ///                     new Azure.Consumption.Inputs.BudgetResourceGroupFilterTagArgs
+    ///                     {
+    ///                         Name = "foo",
+    ///                         Values = 
+    ///                         {
+    ///                             "bar",
+    ///                             "baz",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Notifications = 
+    ///             {
+    ///                 new Azure.Consumption.Inputs.BudgetResourceGroupNotificationArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                     Threshold = 90,
+    ///                     Operator = "EqualTo",
+    ///                     ContactEmails = 
+    ///                     {
+    ///                         "foo@example.com",
+    ///                         "bar@example.com",
+    ///                     },
+    ///                     ContactGroups = 
+    ///                     {
+    ///                         azurerm_monitor_action_group.Example.Id,
+    ///                     },
+    ///                     ContactRoles = 
+    ///                     {
+    ///                         "Owner",
+    ///                     },
+    ///                 },
+    ///                 new Azure.Consumption.Inputs.BudgetResourceGroupNotificationArgs
+    ///                 {
+    ///                     Enabled = false,
+    ///                     Threshold = 100,
+    ///                     Operator = "GreaterThan",
+    ///                     ContactEmails = 
+    ///                     {
+    ///                         "foo@example.com",
+    ///                         "bar@example.com",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Resource Group Consumption Budgets can be imported using the `resource id`, e.g.

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class RouteTableRouteArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The destination CIDR to which the route applies, such as 10.1.0.0/16
+        /// The destination CIDR to which the route applies, such as 10.1.0.0/16. Tags such as `VirtualNetwork`, `AzureLoadBalancer` or `Internet` can also be used.
         /// </summary>
         [Input("addressPrefix", required: true)]
         public Input<string> AddressPrefix { get; set; } = null!;

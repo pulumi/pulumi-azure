@@ -94,6 +94,12 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> Host { get; private set; } = null!;
 
         /// <summary>
+        /// The host key fingerprint of the SFTP server.
+        /// </summary>
+        [Output("hostKeyFingerprint")]
+        public Output<string?> HostKeyFingerprint { get; private set; } = null!;
+
+        /// <summary>
         /// The integration runtime reference to associate with the Data Factory Linked Service.
         /// </summary>
         [Output("integrationRuntimeName")]
@@ -129,6 +135,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to validate host key fingerprint while connecting. If set to `false`, `host_key_fingerprint` must also be set.
+        /// </summary>
+        [Output("skipHostKeyValidation")]
+        public Output<bool?> SkipHostKeyValidation { get; private set; } = null!;
 
         /// <summary>
         /// The username used to log on to the SFTP server.
@@ -231,6 +243,12 @@ namespace Pulumi.Azure.DataFactory
         public Input<string> Host { get; set; } = null!;
 
         /// <summary>
+        /// The host key fingerprint of the SFTP server.
+        /// </summary>
+        [Input("hostKeyFingerprint")]
+        public Input<string>? HostKeyFingerprint { get; set; }
+
+        /// <summary>
         /// The integration runtime reference to associate with the Data Factory Linked Service.
         /// </summary>
         [Input("integrationRuntimeName")]
@@ -272,6 +290,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Whether to validate host key fingerprint while connecting. If set to `false`, `host_key_fingerprint` must also be set.
+        /// </summary>
+        [Input("skipHostKeyValidation")]
+        public Input<bool>? SkipHostKeyValidation { get; set; }
 
         /// <summary>
         /// The username used to log on to the SFTP server.
@@ -335,6 +359,12 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Host { get; set; }
 
         /// <summary>
+        /// The host key fingerprint of the SFTP server.
+        /// </summary>
+        [Input("hostKeyFingerprint")]
+        public Input<string>? HostKeyFingerprint { get; set; }
+
+        /// <summary>
         /// The integration runtime reference to associate with the Data Factory Linked Service.
         /// </summary>
         [Input("integrationRuntimeName")]
@@ -376,6 +406,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// Whether to validate host key fingerprint while connecting. If set to `false`, `host_key_fingerprint` must also be set.
+        /// </summary>
+        [Input("skipHostKeyValidation")]
+        public Input<bool>? SkipHostKeyValidation { get; set; }
 
         /// <summary>
         /// The username used to log on to the SFTP server.

@@ -18,6 +18,9 @@ namespace Pulumi.Azure.Inputs
         [Input("gracefulShutdown")]
         public Input<bool>? GracefulShutdown { get; set; }
 
+        [Input("skipShutdownAndForceDelete")]
+        public Input<bool>? SkipShutdownAndForceDelete { get; set; }
+
         public ProviderFeaturesVirtualMachineArgs()
         {
         }

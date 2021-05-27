@@ -63,6 +63,8 @@ type GetCertificateDataArgs struct {
 
 // A collection of values returned by getCertificateData.
 type GetCertificateDataResult struct {
+	// Amount of certificates in the chain in case Key Vault Certificate is a bundle (e.g. has an intermediate certificate).
+	CertificatesCount int `pulumi:"certificatesCount"`
 	// Expiry date of certificate in RFC3339 format.
 	Expires string `pulumi:"expires"`
 	// The raw Key Vault Certificate data represented as a hexadecimal string.

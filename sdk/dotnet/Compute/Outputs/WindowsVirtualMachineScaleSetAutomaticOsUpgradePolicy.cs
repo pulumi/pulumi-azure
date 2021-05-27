@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy
     {
         /// <summary>
-        /// Should automatic rollbacks be disabled? Changing this forces a new resource to be created.
+        /// Should automatic rollbacks be disabled?
         /// </summary>
         public readonly bool DisableAutomaticRollback;
         /// <summary>
-        /// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? Changing this forces a new resource to be created.
+        /// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
         /// </summary>
         public readonly bool EnableAutomaticOsUpgrade;
 

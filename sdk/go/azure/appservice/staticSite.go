@@ -61,6 +61,8 @@ type StaticSite struct {
 	ResourceGroupName pulumi.StringOutput    `pulumi:"resourceGroupName"`
 	SkuSize           pulumi.StringPtrOutput `pulumi:"skuSize"`
 	SkuTier           pulumi.StringPtrOutput `pulumi:"skuTier"`
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewStaticSite registers a new resource with the given unique name, arguments, and options.
@@ -107,6 +109,8 @@ type staticSiteState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	SkuSize           *string `pulumi:"skuSize"`
 	SkuTier           *string `pulumi:"skuTier"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type StaticSiteState struct {
@@ -122,6 +126,8 @@ type StaticSiteState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	SkuSize           pulumi.StringPtrInput
 	SkuTier           pulumi.StringPtrInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (StaticSiteState) ElementType() reflect.Type {
@@ -137,6 +143,8 @@ type staticSiteArgs struct {
 	ResourceGroupName string  `pulumi:"resourceGroupName"`
 	SkuSize           *string `pulumi:"skuSize"`
 	SkuTier           *string `pulumi:"skuTier"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a StaticSite resource.
@@ -149,6 +157,8 @@ type StaticSiteArgs struct {
 	ResourceGroupName pulumi.StringInput
 	SkuSize           pulumi.StringPtrInput
 	SkuTier           pulumi.StringPtrInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (StaticSiteArgs) ElementType() reflect.Type {

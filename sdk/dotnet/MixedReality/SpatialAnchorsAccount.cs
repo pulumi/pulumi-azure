@@ -48,6 +48,18 @@ namespace Pulumi.Azure.MixedReality
     public partial class SpatialAnchorsAccount : Pulumi.CustomResource
     {
         /// <summary>
+        /// The domain of the Spatial Anchors Account.
+        /// </summary>
+        [Output("accountDomain")]
+        public Output<string> AccountDomain { get; private set; } = null!;
+
+        /// <summary>
+        /// The account ID of the Spatial Anchors Account.
+        /// </summary>
+        [Output("accountId")]
+        public Output<string> AccountId { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -154,6 +166,18 @@ namespace Pulumi.Azure.MixedReality
 
     public sealed class SpatialAnchorsAccountState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The domain of the Spatial Anchors Account.
+        /// </summary>
+        [Input("accountDomain")]
+        public Input<string>? AccountDomain { get; set; }
+
+        /// <summary>
+        /// The account ID of the Spatial Anchors Account.
+        /// </summary>
+        [Input("accountId")]
+        public Input<string>? AccountId { get; set; }
+
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>

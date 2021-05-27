@@ -129,7 +129,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly restorePointInTime!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
+     * Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/singleserver/servers/create#sku).
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -310,7 +310,7 @@ export interface ServerState {
      */
     restorePointInTime?: pulumi.Input<string>;
     /**
-     * Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
+     * Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/singleserver/servers/create#sku).
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -408,7 +408,7 @@ export interface ServerArgs {
      */
     restorePointInTime?: pulumi.Input<string>;
     /**
-     * Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
+     * Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/singleserver/servers/create#sku).
      */
     skuName: pulumi.Input<string>;
     /**

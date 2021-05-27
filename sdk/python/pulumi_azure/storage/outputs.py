@@ -677,8 +677,8 @@ class AccountNetworkRulesPrivateLinkAccess(dict):
                  endpoint_resource_id: str,
                  endpoint_tenant_id: Optional[str] = None):
         """
-        :param str endpoint_resource_id: The resource id of the `privatelink.Endpoint` of the resource access rule.
-        :param str endpoint_tenant_id: The tenant id of the `privatelink.Endpoint` of the resource access rule. Defaults to the current tenant id.
+        :param str endpoint_resource_id: The resource id of the resource access rule to be granted access.
+        :param str endpoint_tenant_id: The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id.
         """
         pulumi.set(__self__, "endpoint_resource_id", endpoint_resource_id)
         if endpoint_tenant_id is not None:
@@ -688,7 +688,7 @@ class AccountNetworkRulesPrivateLinkAccess(dict):
     @pulumi.getter(name="endpointResourceId")
     def endpoint_resource_id(self) -> str:
         """
-        The resource id of the `privatelink.Endpoint` of the resource access rule.
+        The resource id of the resource access rule to be granted access.
         """
         return pulumi.get(self, "endpoint_resource_id")
 
@@ -696,7 +696,7 @@ class AccountNetworkRulesPrivateLinkAccess(dict):
     @pulumi.getter(name="endpointTenantId")
     def endpoint_tenant_id(self) -> Optional[str]:
         """
-        The tenant id of the `privatelink.Endpoint` of the resource access rule. Defaults to the current tenant id.
+        The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id.
         """
         return pulumi.get(self, "endpoint_tenant_id")
 
@@ -726,8 +726,8 @@ class AccountNetworkRulesPrivateLinkAccessRule(dict):
                  endpoint_resource_id: str,
                  endpoint_tenant_id: Optional[str] = None):
         """
-        :param str endpoint_resource_id: The resource id of the `privatelink.Endpoint` of the resource access rule.
-        :param str endpoint_tenant_id: The tenant id of the `privatelink.Endpoint` of the resource access rule. Defaults to the current tenant id.
+        :param str endpoint_resource_id: The resource id of the resource access rule to be granted access.
+        :param str endpoint_tenant_id: The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id.
         """
         pulumi.set(__self__, "endpoint_resource_id", endpoint_resource_id)
         if endpoint_tenant_id is not None:
@@ -737,7 +737,7 @@ class AccountNetworkRulesPrivateLinkAccessRule(dict):
     @pulumi.getter(name="endpointResourceId")
     def endpoint_resource_id(self) -> str:
         """
-        The resource id of the `privatelink.Endpoint` of the resource access rule.
+        The resource id of the resource access rule to be granted access.
         """
         return pulumi.get(self, "endpoint_resource_id")
 
@@ -745,7 +745,7 @@ class AccountNetworkRulesPrivateLinkAccessRule(dict):
     @pulumi.getter(name="endpointTenantId")
     def endpoint_tenant_id(self) -> Optional[str]:
         """
-        The tenant id of the `privatelink.Endpoint` of the resource access rule. Defaults to the current tenant id.
+        The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id.
         """
         return pulumi.get(self, "endpoint_tenant_id")
 

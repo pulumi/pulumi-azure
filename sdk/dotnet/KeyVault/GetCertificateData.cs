@@ -83,6 +83,10 @@ namespace Pulumi.Azure.KeyVault
     public sealed class GetCertificateDataResult
     {
         /// <summary>
+        /// Amount of certificates in the chain in case Key Vault Certificate is a bundle (e.g. has an intermediate certificate).
+        /// </summary>
+        public readonly int CertificatesCount;
+        /// <summary>
         /// Expiry date of certificate in RFC3339 format.
         /// </summary>
         public readonly string Expires;
@@ -112,6 +116,8 @@ namespace Pulumi.Azure.KeyVault
 
         [OutputConstructor]
         private GetCertificateDataResult(
+            int certificatesCount,
+
             string expires,
 
             string hex,
@@ -130,6 +136,7 @@ namespace Pulumi.Azure.KeyVault
 
             string version)
         {
+            CertificatesCount = certificatesCount;
             Expires = expires;
             Hex = hex;
             Id = id;

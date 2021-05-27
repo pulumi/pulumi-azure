@@ -57,6 +57,14 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
     }
 
     /**
+     * The domain of the Spatial Anchors Account.
+     */
+    public /*out*/ readonly accountDomain!: pulumi.Output<string>;
+    /**
+     * The account ID of the Spatial Anchors Account.
+     */
+    public /*out*/ readonly accountId!: pulumi.Output<string>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -86,6 +94,8 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpatialAnchorsAccountState | undefined;
+            inputs["accountDomain"] = state ? state.accountDomain : undefined;
+            inputs["accountId"] = state ? state.accountId : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -99,6 +109,8 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["accountDomain"] = undefined /*out*/;
+            inputs["accountId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -111,6 +123,14 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SpatialAnchorsAccount resources.
  */
 export interface SpatialAnchorsAccountState {
+    /**
+     * The domain of the Spatial Anchors Account.
+     */
+    accountDomain?: pulumi.Input<string>;
+    /**
+     * The account ID of the Spatial Anchors Account.
+     */
+    accountId?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

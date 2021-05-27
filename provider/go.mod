@@ -14,5 +14,5 @@ require (
 replace (
 	github.com/hashicorp/go-getter v1.5.0 => github.com/hashicorp/go-getter v1.4.0
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
-	github.com/terraform-providers/terraform-provider-azurerm => github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210521104707-5870f8fc118f
+	github.com/terraform-providers/terraform-provider-azurerm => github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210527153949-74dbe5e5c7cb
 )

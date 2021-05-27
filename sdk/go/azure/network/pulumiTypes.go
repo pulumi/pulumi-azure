@@ -13081,7 +13081,7 @@ func (o RouteFilterRulePtrOutput) RuleType() pulumi.StringPtrOutput {
 }
 
 type RouteTableRoute struct {
-	// The destination CIDR to which the route applies, such as 10.1.0.0/16
+	// The destination CIDR to which the route applies, such as 10.1.0.0/16. Tags such as `VirtualNetwork`, `AzureLoadBalancer` or `Internet` can also be used.
 	AddressPrefix string `pulumi:"addressPrefix"`
 	// The name of the route.
 	Name string `pulumi:"name"`
@@ -13103,7 +13103,7 @@ type RouteTableRouteInput interface {
 }
 
 type RouteTableRouteArgs struct {
-	// The destination CIDR to which the route applies, such as 10.1.0.0/16
+	// The destination CIDR to which the route applies, such as 10.1.0.0/16. Tags such as `VirtualNetwork`, `AzureLoadBalancer` or `Internet` can also be used.
 	AddressPrefix pulumi.StringInput `pulumi:"addressPrefix"`
 	// The name of the route.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -13164,7 +13164,7 @@ func (o RouteTableRouteOutput) ToRouteTableRouteOutputWithContext(ctx context.Co
 	return o
 }
 
-// The destination CIDR to which the route applies, such as 10.1.0.0/16
+// The destination CIDR to which the route applies, such as 10.1.0.0/16. Tags such as `VirtualNetwork`, `AzureLoadBalancer` or `Internet` can also be used.
 func (o RouteTableRouteOutput) AddressPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteTableRoute) string { return v.AddressPrefix }).(pulumi.StringOutput)
 }

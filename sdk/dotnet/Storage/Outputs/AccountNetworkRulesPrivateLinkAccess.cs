@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class AccountNetworkRulesPrivateLinkAccess
     {
         /// <summary>
-        /// The resource id of the `azure.privatelink.Endpoint` of the resource access rule.
+        /// The resource id of the resource access rule to be granted access.
         /// </summary>
         public readonly string EndpointResourceId;
         /// <summary>
-        /// The tenant id of the `azure.privatelink.Endpoint` of the resource access rule. Defaults to the current tenant id.
+        /// The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id.
         /// </summary>
         public readonly string? EndpointTenantId;
 

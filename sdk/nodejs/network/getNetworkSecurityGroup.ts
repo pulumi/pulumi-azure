@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.network.getNetworkSecurityGroup({
- *     name: azurerm_network_security_group.example.name,
+ *     name: "example",
  *     resourceGroupName: azurerm_resource_group.example.name,
  * });
  * export const location = example.then(example => example.location);

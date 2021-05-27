@@ -54,6 +54,10 @@ import (
 type SpatialAnchorsAccount struct {
 	pulumi.CustomResourceState
 
+	// The domain of the Spatial Anchors Account.
+	AccountDomain pulumi.StringOutput `pulumi:"accountDomain"`
+	// The account ID of the Spatial Anchors Account.
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Spatial Anchors Account. Changing this forces a new resource to be created. Must be globally unique.
@@ -96,6 +100,10 @@ func GetSpatialAnchorsAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SpatialAnchorsAccount resources.
 type spatialAnchorsAccountState struct {
+	// The domain of the Spatial Anchors Account.
+	AccountDomain *string `pulumi:"accountDomain"`
+	// The account ID of the Spatial Anchors Account.
+	AccountId *string `pulumi:"accountId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Spatial Anchors Account. Changing this forces a new resource to be created. Must be globally unique.
@@ -107,6 +115,10 @@ type spatialAnchorsAccountState struct {
 }
 
 type SpatialAnchorsAccountState struct {
+	// The domain of the Spatial Anchors Account.
+	AccountDomain pulumi.StringPtrInput
+	// The account ID of the Spatial Anchors Account.
+	AccountId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Spatial Anchors Account. Changing this forces a new resource to be created. Must be globally unique.

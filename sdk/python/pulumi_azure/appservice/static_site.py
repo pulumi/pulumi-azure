@@ -17,12 +17,14 @@ class StaticSiteArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sku_size: Optional[pulumi.Input[str]] = None,
-                 sku_tier: Optional[pulumi.Input[str]] = None):
+                 sku_tier: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a StaticSite resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[str] location: The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[str] name: The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
@@ -33,6 +35,8 @@ class StaticSiteArgs:
             pulumi.set(__self__, "sku_size", sku_size)
         if sku_tier is not None:
             pulumi.set(__self__, "sku_tier", sku_tier)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -88,6 +92,18 @@ class StaticSiteArgs:
     def sku_tier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sku_tier", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.input_type
 class _StaticSiteState:
@@ -98,7 +114,8 @@ class _StaticSiteState:
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_size: Optional[pulumi.Input[str]] = None,
-                 sku_tier: Optional[pulumi.Input[str]] = None):
+                 sku_tier: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering StaticSite resources.
         :param pulumi.Input[str] api_key: The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. Github Action.
@@ -106,6 +123,7 @@ class _StaticSiteState:
         :param pulumi.Input[str] location: The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[str] name: The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
@@ -121,6 +139,8 @@ class _StaticSiteState:
             pulumi.set(__self__, "sku_size", sku_size)
         if sku_tier is not None:
             pulumi.set(__self__, "sku_tier", sku_tier)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -200,6 +220,18 @@ class _StaticSiteState:
     def sku_tier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sku_tier", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 class StaticSite(pulumi.CustomResource):
     @overload
@@ -211,6 +243,7 @@ class StaticSite(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_size: Optional[pulumi.Input[str]] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Manages an App Service Static Site.
@@ -241,6 +274,7 @@ class StaticSite(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[str] name: The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
     @overload
@@ -292,6 +326,7 @@ class StaticSite(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_size: Optional[pulumi.Input[str]] = None,
                  sku_tier: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -311,6 +346,7 @@ class StaticSite(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sku_size"] = sku_size
             __props__.__dict__["sku_tier"] = sku_tier
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["api_key"] = None
             __props__.__dict__["default_host_name"] = None
         super(StaticSite, __self__).__init__(
@@ -329,7 +365,8 @@ class StaticSite(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku_size: Optional[pulumi.Input[str]] = None,
-            sku_tier: Optional[pulumi.Input[str]] = None) -> 'StaticSite':
+            sku_tier: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'StaticSite':
         """
         Get an existing StaticSite resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -342,6 +379,7 @@ class StaticSite(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[str] name: The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -354,6 +392,7 @@ class StaticSite(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku_size"] = sku_size
         __props__.__dict__["sku_tier"] = sku_tier
+        __props__.__dict__["tags"] = tags
         return StaticSite(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -405,4 +444,12 @@ class StaticSite(pulumi.CustomResource):
     @pulumi.getter(name="skuTier")
     def sku_tier(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "sku_tier")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
+        return pulumi.get(self, "tags")
 

@@ -65,6 +65,10 @@ export interface GetCertificateDataArgs {
  */
 export interface GetCertificateDataResult {
     /**
+     * Amount of certificates in the chain in case Key Vault Certificate is a bundle (e.g. has an intermediate certificate).
+     */
+    readonly certificatesCount: number;
+    /**
      * Expiry date of certificate in RFC3339 format.
      */
     readonly expires: string;

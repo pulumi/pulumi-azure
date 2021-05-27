@@ -1572,9 +1572,9 @@ func (o AccountNetworkRulesTypePtrOutput) VirtualNetworkSubnetIds() pulumi.Strin
 }
 
 type AccountNetworkRulesPrivateLinkAccess struct {
-	// The resource id of the `privatelink.Endpoint` of the resource access rule.
+	// The resource id of the resource access rule to be granted access.
 	EndpointResourceId string `pulumi:"endpointResourceId"`
-	// The tenant id of the `privatelink.Endpoint` of the resource access rule. Defaults to the current tenant id.
+	// The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id.
 	EndpointTenantId *string `pulumi:"endpointTenantId"`
 }
 
@@ -1590,9 +1590,9 @@ type AccountNetworkRulesPrivateLinkAccessInput interface {
 }
 
 type AccountNetworkRulesPrivateLinkAccessArgs struct {
-	// The resource id of the `privatelink.Endpoint` of the resource access rule.
+	// The resource id of the resource access rule to be granted access.
 	EndpointResourceId pulumi.StringInput `pulumi:"endpointResourceId"`
-	// The tenant id of the `privatelink.Endpoint` of the resource access rule. Defaults to the current tenant id.
+	// The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id.
 	EndpointTenantId pulumi.StringPtrInput `pulumi:"endpointTenantId"`
 }
 
@@ -1647,12 +1647,12 @@ func (o AccountNetworkRulesPrivateLinkAccessOutput) ToAccountNetworkRulesPrivate
 	return o
 }
 
-// The resource id of the `privatelink.Endpoint` of the resource access rule.
+// The resource id of the resource access rule to be granted access.
 func (o AccountNetworkRulesPrivateLinkAccessOutput) EndpointResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountNetworkRulesPrivateLinkAccess) string { return v.EndpointResourceId }).(pulumi.StringOutput)
 }
 
-// The tenant id of the `privatelink.Endpoint` of the resource access rule. Defaults to the current tenant id.
+// The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id.
 func (o AccountNetworkRulesPrivateLinkAccessOutput) EndpointTenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountNetworkRulesPrivateLinkAccess) *string { return v.EndpointTenantId }).(pulumi.StringPtrOutput)
 }
@@ -1678,9 +1678,9 @@ func (o AccountNetworkRulesPrivateLinkAccessArrayOutput) Index(i pulumi.IntInput
 }
 
 type AccountNetworkRulesPrivateLinkAccessRule struct {
-	// The resource id of the `privatelink.Endpoint` of the resource access rule.
+	// The resource id of the resource access rule to be granted access.
 	EndpointResourceId string `pulumi:"endpointResourceId"`
-	// The tenant id of the `privatelink.Endpoint` of the resource access rule. Defaults to the current tenant id.
+	// The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id.
 	EndpointTenantId *string `pulumi:"endpointTenantId"`
 }
 
@@ -1696,9 +1696,9 @@ type AccountNetworkRulesPrivateLinkAccessRuleInput interface {
 }
 
 type AccountNetworkRulesPrivateLinkAccessRuleArgs struct {
-	// The resource id of the `privatelink.Endpoint` of the resource access rule.
+	// The resource id of the resource access rule to be granted access.
 	EndpointResourceId pulumi.StringInput `pulumi:"endpointResourceId"`
-	// The tenant id of the `privatelink.Endpoint` of the resource access rule. Defaults to the current tenant id.
+	// The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id.
 	EndpointTenantId pulumi.StringPtrInput `pulumi:"endpointTenantId"`
 }
 
@@ -1753,12 +1753,12 @@ func (o AccountNetworkRulesPrivateLinkAccessRuleOutput) ToAccountNetworkRulesPri
 	return o
 }
 
-// The resource id of the `privatelink.Endpoint` of the resource access rule.
+// The resource id of the resource access rule to be granted access.
 func (o AccountNetworkRulesPrivateLinkAccessRuleOutput) EndpointResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountNetworkRulesPrivateLinkAccessRule) string { return v.EndpointResourceId }).(pulumi.StringOutput)
 }
 
-// The tenant id of the `privatelink.Endpoint` of the resource access rule. Defaults to the current tenant id.
+// The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id.
 func (o AccountNetworkRulesPrivateLinkAccessRuleOutput) EndpointTenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountNetworkRulesPrivateLinkAccessRule) *string { return v.EndpointTenantId }).(pulumi.StringPtrOutput)
 }

@@ -86,9 +86,9 @@ type LinkedServiceDataLakeStorageGen2 struct {
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account. Required if `useManagedIdentity` is true.
+	// The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account.
 	ServicePrincipalId pulumi.StringPtrOutput `pulumi:"servicePrincipalId"`
-	// The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.  Required if `useManagedIdentity` is true.
+	// The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
 	ServicePrincipalKey pulumi.StringPtrOutput `pulumi:"servicePrincipalKey"`
 	// The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
 	Tenant pulumi.StringPtrOutput `pulumi:"tenant"`
@@ -153,9 +153,9 @@ type linkedServiceDataLakeStorageGen2State struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account. Required if `useManagedIdentity` is true.
+	// The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account.
 	ServicePrincipalId *string `pulumi:"servicePrincipalId"`
-	// The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.  Required if `useManagedIdentity` is true.
+	// The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
 	ServicePrincipalKey *string `pulumi:"servicePrincipalKey"`
 	// The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
 	Tenant *string `pulumi:"tenant"`
@@ -183,9 +183,9 @@ type LinkedServiceDataLakeStorageGen2State struct {
 	Parameters pulumi.StringMapInput
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
 	ResourceGroupName pulumi.StringPtrInput
-	// The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account. Required if `useManagedIdentity` is true.
+	// The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account.
 	ServicePrincipalId pulumi.StringPtrInput
-	// The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.  Required if `useManagedIdentity` is true.
+	// The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
 	ServicePrincipalKey pulumi.StringPtrInput
 	// The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
 	Tenant pulumi.StringPtrInput
@@ -217,9 +217,9 @@ type linkedServiceDataLakeStorageGen2Args struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account. Required if `useManagedIdentity` is true.
+	// The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account.
 	ServicePrincipalId *string `pulumi:"servicePrincipalId"`
-	// The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.  Required if `useManagedIdentity` is true.
+	// The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
 	ServicePrincipalKey *string `pulumi:"servicePrincipalKey"`
 	// The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
 	Tenant *string `pulumi:"tenant"`
@@ -248,9 +248,9 @@ type LinkedServiceDataLakeStorageGen2Args struct {
 	Parameters pulumi.StringMapInput
 	// The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
 	ResourceGroupName pulumi.StringInput
-	// The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account. Required if `useManagedIdentity` is true.
+	// The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account.
 	ServicePrincipalId pulumi.StringPtrInput
-	// The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.  Required if `useManagedIdentity` is true.
+	// The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
 	ServicePrincipalKey pulumi.StringPtrInput
 	// The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
 	Tenant pulumi.StringPtrInput

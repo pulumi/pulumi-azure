@@ -731,8 +731,9 @@ func (o ProviderFeaturesTemplateDeploymentPtrOutput) DeleteNestedItemsDuringDele
 }
 
 type ProviderFeaturesVirtualMachine struct {
-	DeleteOsDiskOnDeletion *bool `pulumi:"deleteOsDiskOnDeletion"`
-	GracefulShutdown       *bool `pulumi:"gracefulShutdown"`
+	DeleteOsDiskOnDeletion     *bool `pulumi:"deleteOsDiskOnDeletion"`
+	GracefulShutdown           *bool `pulumi:"gracefulShutdown"`
+	SkipShutdownAndForceDelete *bool `pulumi:"skipShutdownAndForceDelete"`
 }
 
 // ProviderFeaturesVirtualMachineInput is an input type that accepts ProviderFeaturesVirtualMachineArgs and ProviderFeaturesVirtualMachineOutput values.
@@ -747,8 +748,9 @@ type ProviderFeaturesVirtualMachineInput interface {
 }
 
 type ProviderFeaturesVirtualMachineArgs struct {
-	DeleteOsDiskOnDeletion pulumi.BoolPtrInput `pulumi:"deleteOsDiskOnDeletion"`
-	GracefulShutdown       pulumi.BoolPtrInput `pulumi:"gracefulShutdown"`
+	DeleteOsDiskOnDeletion     pulumi.BoolPtrInput `pulumi:"deleteOsDiskOnDeletion"`
+	GracefulShutdown           pulumi.BoolPtrInput `pulumi:"gracefulShutdown"`
+	SkipShutdownAndForceDelete pulumi.BoolPtrInput `pulumi:"skipShutdownAndForceDelete"`
 }
 
 func (ProviderFeaturesVirtualMachineArgs) ElementType() reflect.Type {
@@ -835,6 +837,10 @@ func (o ProviderFeaturesVirtualMachineOutput) GracefulShutdown() pulumi.BoolPtrO
 	return o.ApplyT(func(v ProviderFeaturesVirtualMachine) *bool { return v.GracefulShutdown }).(pulumi.BoolPtrOutput)
 }
 
+func (o ProviderFeaturesVirtualMachineOutput) SkipShutdownAndForceDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesVirtualMachine) *bool { return v.SkipShutdownAndForceDelete }).(pulumi.BoolPtrOutput)
+}
+
 type ProviderFeaturesVirtualMachinePtrOutput struct{ *pulumi.OutputState }
 
 func (ProviderFeaturesVirtualMachinePtrOutput) ElementType() reflect.Type {
@@ -871,8 +877,18 @@ func (o ProviderFeaturesVirtualMachinePtrOutput) GracefulShutdown() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
+func (o ProviderFeaturesVirtualMachinePtrOutput) SkipShutdownAndForceDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderFeaturesVirtualMachine) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SkipShutdownAndForceDelete
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ProviderFeaturesVirtualMachineScaleSet struct {
-	RollInstancesWhenRequired bool `pulumi:"rollInstancesWhenRequired"`
+	ForceDelete               *bool `pulumi:"forceDelete"`
+	RollInstancesWhenRequired bool  `pulumi:"rollInstancesWhenRequired"`
 }
 
 // ProviderFeaturesVirtualMachineScaleSetInput is an input type that accepts ProviderFeaturesVirtualMachineScaleSetArgs and ProviderFeaturesVirtualMachineScaleSetOutput values.
@@ -887,7 +903,8 @@ type ProviderFeaturesVirtualMachineScaleSetInput interface {
 }
 
 type ProviderFeaturesVirtualMachineScaleSetArgs struct {
-	RollInstancesWhenRequired pulumi.BoolInput `pulumi:"rollInstancesWhenRequired"`
+	ForceDelete               pulumi.BoolPtrInput `pulumi:"forceDelete"`
+	RollInstancesWhenRequired pulumi.BoolInput    `pulumi:"rollInstancesWhenRequired"`
 }
 
 func (ProviderFeaturesVirtualMachineScaleSetArgs) ElementType() reflect.Type {
@@ -966,6 +983,10 @@ func (o ProviderFeaturesVirtualMachineScaleSetOutput) ToProviderFeaturesVirtualM
 		return &v
 	}).(ProviderFeaturesVirtualMachineScaleSetPtrOutput)
 }
+func (o ProviderFeaturesVirtualMachineScaleSetOutput) ForceDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesVirtualMachineScaleSet) *bool { return v.ForceDelete }).(pulumi.BoolPtrOutput)
+}
+
 func (o ProviderFeaturesVirtualMachineScaleSetOutput) RollInstancesWhenRequired() pulumi.BoolOutput {
 	return o.ApplyT(func(v ProviderFeaturesVirtualMachineScaleSet) bool { return v.RollInstancesWhenRequired }).(pulumi.BoolOutput)
 }
@@ -986,6 +1007,15 @@ func (o ProviderFeaturesVirtualMachineScaleSetPtrOutput) ToProviderFeaturesVirtu
 
 func (o ProviderFeaturesVirtualMachineScaleSetPtrOutput) Elem() ProviderFeaturesVirtualMachineScaleSetOutput {
 	return o.ApplyT(func(v *ProviderFeaturesVirtualMachineScaleSet) ProviderFeaturesVirtualMachineScaleSet { return *v }).(ProviderFeaturesVirtualMachineScaleSetOutput)
+}
+
+func (o ProviderFeaturesVirtualMachineScaleSetPtrOutput) ForceDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderFeaturesVirtualMachineScaleSet) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ForceDelete
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o ProviderFeaturesVirtualMachineScaleSetPtrOutput) RollInstancesWhenRequired() pulumi.BoolPtrOutput {

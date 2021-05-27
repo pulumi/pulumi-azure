@@ -38,8 +38,8 @@ class LinkedServiceDataLakeStorageGen2Args:
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
                factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
-        :param pulumi.Input[str] service_principal_id: The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account. Required if `use_managed_identity` is true.
-        :param pulumi.Input[str] service_principal_key: The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.  Required if `use_managed_identity` is true.
+        :param pulumi.Input[str] service_principal_id: The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account.
+        :param pulumi.Input[str] service_principal_key: The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
         :param pulumi.Input[str] tenant: The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
         :param pulumi.Input[bool] use_managed_identity: Whether to use the Data Factory's managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `service_principal_id` and `service_principal_key`
         """
@@ -180,7 +180,7 @@ class LinkedServiceDataLakeStorageGen2Args:
     @pulumi.getter(name="servicePrincipalId")
     def service_principal_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account. Required if `use_managed_identity` is true.
+        The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account.
         """
         return pulumi.get(self, "service_principal_id")
 
@@ -192,7 +192,7 @@ class LinkedServiceDataLakeStorageGen2Args:
     @pulumi.getter(name="servicePrincipalKey")
     def service_principal_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.  Required if `use_managed_identity` is true.
+        The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
         """
         return pulumi.get(self, "service_principal_key")
 
@@ -252,8 +252,8 @@ class _LinkedServiceDataLakeStorageGen2State:
                factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-        :param pulumi.Input[str] service_principal_id: The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account. Required if `use_managed_identity` is true.
-        :param pulumi.Input[str] service_principal_key: The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.  Required if `use_managed_identity` is true.
+        :param pulumi.Input[str] service_principal_id: The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account.
+        :param pulumi.Input[str] service_principal_key: The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
         :param pulumi.Input[str] tenant: The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
         :param pulumi.Input[str] url: The endpoint for the Azure Data Lake Storage Gen2 service.
         :param pulumi.Input[bool] use_managed_identity: Whether to use the Data Factory's managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `service_principal_id` and `service_principal_key`
@@ -386,7 +386,7 @@ class _LinkedServiceDataLakeStorageGen2State:
     @pulumi.getter(name="servicePrincipalId")
     def service_principal_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account. Required if `use_managed_identity` is true.
+        The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account.
         """
         return pulumi.get(self, "service_principal_id")
 
@@ -398,7 +398,7 @@ class _LinkedServiceDataLakeStorageGen2State:
     @pulumi.getter(name="servicePrincipalKey")
     def service_principal_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.  Required if `use_managed_identity` is true.
+        The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
         """
         return pulumi.get(self, "service_principal_key")
 
@@ -504,8 +504,8 @@ class LinkedServiceDataLakeStorageGen2(pulumi.CustomResource):
                factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-        :param pulumi.Input[str] service_principal_id: The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account. Required if `use_managed_identity` is true.
-        :param pulumi.Input[str] service_principal_key: The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.  Required if `use_managed_identity` is true.
+        :param pulumi.Input[str] service_principal_id: The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account.
+        :param pulumi.Input[str] service_principal_key: The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
         :param pulumi.Input[str] tenant: The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
         :param pulumi.Input[str] url: The endpoint for the Azure Data Lake Storage Gen2 service.
         :param pulumi.Input[bool] use_managed_identity: Whether to use the Data Factory's managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `service_principal_id` and `service_principal_key`
@@ -645,8 +645,8 @@ class LinkedServiceDataLakeStorageGen2(pulumi.CustomResource):
                factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
-        :param pulumi.Input[str] service_principal_id: The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account. Required if `use_managed_identity` is true.
-        :param pulumi.Input[str] service_principal_key: The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.  Required if `use_managed_identity` is true.
+        :param pulumi.Input[str] service_principal_id: The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account.
+        :param pulumi.Input[str] service_principal_key: The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
         :param pulumi.Input[str] tenant: The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
         :param pulumi.Input[str] url: The endpoint for the Azure Data Lake Storage Gen2 service.
         :param pulumi.Input[bool] use_managed_identity: Whether to use the Data Factory's managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `service_principal_id` and `service_principal_key`
@@ -739,7 +739,7 @@ class LinkedServiceDataLakeStorageGen2(pulumi.CustomResource):
     @pulumi.getter(name="servicePrincipalId")
     def service_principal_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account. Required if `use_managed_identity` is true.
+        The service principal id in which to authenticate against the Azure Data Lake Storage Gen2 account.
         """
         return pulumi.get(self, "service_principal_id")
 
@@ -747,7 +747,7 @@ class LinkedServiceDataLakeStorageGen2(pulumi.CustomResource):
     @pulumi.getter(name="servicePrincipalKey")
     def service_principal_key(self) -> pulumi.Output[Optional[str]]:
         """
-        The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.  Required if `use_managed_identity` is true.
+        The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
         """
         return pulumi.get(self, "service_principal_key")
 

@@ -43,7 +43,7 @@ type Endpoint struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
 	OptimizationType pulumi.StringPtrOutput `pulumi:"optimizationType"`
-	// The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
+	// The host header CDN provider will send along with content requests to origins.
 	OriginHostHeader pulumi.StringPtrOutput `pulumi:"originHostHeader"`
 	// The path used at for origin requests.
 	OriginPath pulumi.StringOutput `pulumi:"originPath"`
@@ -121,7 +121,7 @@ type endpointState struct {
 	Name *string `pulumi:"name"`
 	// What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
 	OptimizationType *string `pulumi:"optimizationType"`
-	// The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
+	// The host header CDN provider will send along with content requests to origins.
 	OriginHostHeader *string `pulumi:"originHostHeader"`
 	// The path used at for origin requests.
 	OriginPath *string `pulumi:"originPath"`
@@ -162,7 +162,7 @@ type EndpointState struct {
 	Name pulumi.StringPtrInput
 	// What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
 	OptimizationType pulumi.StringPtrInput
-	// The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
+	// The host header CDN provider will send along with content requests to origins.
 	OriginHostHeader pulumi.StringPtrInput
 	// The path used at for origin requests.
 	OriginPath pulumi.StringPtrInput
@@ -205,7 +205,7 @@ type endpointArgs struct {
 	Name *string `pulumi:"name"`
 	// What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
 	OptimizationType *string `pulumi:"optimizationType"`
-	// The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
+	// The host header CDN provider will send along with content requests to origins.
 	OriginHostHeader *string `pulumi:"originHostHeader"`
 	// The path used at for origin requests.
 	OriginPath *string `pulumi:"originPath"`
@@ -245,7 +245,7 @@ type EndpointArgs struct {
 	Name pulumi.StringPtrInput
 	// What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
 	OptimizationType pulumi.StringPtrInput
-	// The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
+	// The host header CDN provider will send along with content requests to origins.
 	OriginHostHeader pulumi.StringPtrInput
 	// The path used at for origin requests.
 	OriginPath pulumi.StringPtrInput
