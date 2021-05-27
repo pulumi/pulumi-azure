@@ -174,51 +174,51 @@ export interface EventGridTopicState {
     /**
      * The Endpoint associated with the EventGrid Topic.
      */
-    readonly endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string>;
     /**
      * One or more `inboundIpRule` blocks as defined below.
      */
-    readonly inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventhub.EventGridTopicInboundIpRule>[]>;
+    inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventhub.EventGridTopicInboundIpRule>[]>;
     /**
      * A `inputMappingDefaultValues` block as defined below.
      */
-    readonly inputMappingDefaultValues?: pulumi.Input<inputs.eventhub.EventGridTopicInputMappingDefaultValues>;
+    inputMappingDefaultValues?: pulumi.Input<inputs.eventhub.EventGridTopicInputMappingDefaultValues>;
     /**
      * A `inputMappingFields` block as defined below.
      */
-    readonly inputMappingFields?: pulumi.Input<inputs.eventhub.EventGridTopicInputMappingFields>;
+    inputMappingFields?: pulumi.Input<inputs.eventhub.EventGridTopicInputMappingFields>;
     /**
      * Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      */
-    readonly inputSchema?: pulumi.Input<string>;
+    inputSchema?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The Primary Shared Access Key associated with the EventGrid Topic.
      */
-    readonly primaryAccessKey?: pulumi.Input<string>;
+    primaryAccessKey?: pulumi.Input<string>;
     /**
      * Whether or not public network access is allowed for this server. Defaults to `true`.
      */
-    readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The Secondary Shared Access Key associated with the EventGrid Topic.
      */
-    readonly secondaryAccessKey?: pulumi.Input<string>;
+    secondaryAccessKey?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -228,37 +228,37 @@ export interface EventGridTopicArgs {
     /**
      * One or more `inboundIpRule` blocks as defined below.
      */
-    readonly inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventhub.EventGridTopicInboundIpRule>[]>;
+    inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventhub.EventGridTopicInboundIpRule>[]>;
     /**
      * A `inputMappingDefaultValues` block as defined below.
      */
-    readonly inputMappingDefaultValues?: pulumi.Input<inputs.eventhub.EventGridTopicInputMappingDefaultValues>;
+    inputMappingDefaultValues?: pulumi.Input<inputs.eventhub.EventGridTopicInputMappingDefaultValues>;
     /**
      * A `inputMappingFields` block as defined below.
      */
-    readonly inputMappingFields?: pulumi.Input<inputs.eventhub.EventGridTopicInputMappingFields>;
+    inputMappingFields?: pulumi.Input<inputs.eventhub.EventGridTopicInputMappingFields>;
     /**
      * Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      */
-    readonly inputSchema?: pulumi.Input<string>;
+    inputSchema?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Whether or not public network access is allowed for this server. Defaults to `true`.
      */
-    readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

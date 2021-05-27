@@ -109,23 +109,23 @@ export interface MeshApplicationState {
     /**
      * Specifies the Azure Region where the Service Fabric Mesh Application should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Service Fabric Mesh Application. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the Service Fabric Mesh Application exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Any number of `service` block as defined below.
      */
-    readonly services?: pulumi.Input<pulumi.Input<inputs.servicefabric.MeshApplicationService>[]>;
+    services?: pulumi.Input<pulumi.Input<inputs.servicefabric.MeshApplicationService>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -135,21 +135,21 @@ export interface MeshApplicationArgs {
     /**
      * Specifies the Azure Region where the Service Fabric Mesh Application should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Service Fabric Mesh Application. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the Service Fabric Mesh Application exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Any number of `service` block as defined below.
      */
-    readonly services: pulumi.Input<pulumi.Input<inputs.servicefabric.MeshApplicationService>[]>;
+    services: pulumi.Input<pulumi.Input<inputs.servicefabric.MeshApplicationService>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

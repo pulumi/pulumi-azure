@@ -42,11 +42,11 @@ export interface GetFlexibleServerArgs {
     /**
      * The name of this PostgreSQL Flexible Server.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group where the PostgreSQL Flexible Server exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

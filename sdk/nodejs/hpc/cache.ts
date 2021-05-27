@@ -215,69 +215,69 @@ export interface CacheState {
     /**
      * The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
      */
-    readonly cacheSizeInGb?: pulumi.Input<number>;
+    cacheSizeInGb?: pulumi.Input<number>;
     /**
      * A `defaultAccessPolicy` block as defined below.
      */
-    readonly defaultAccessPolicy?: pulumi.Input<inputs.hpc.CacheDefaultAccessPolicy>;
+    defaultAccessPolicy?: pulumi.Input<inputs.hpc.CacheDefaultAccessPolicy>;
     /**
      * A `directoryActiveDirectory` block as defined below.
      */
-    readonly directoryActiveDirectory?: pulumi.Input<inputs.hpc.CacheDirectoryActiveDirectory>;
+    directoryActiveDirectory?: pulumi.Input<inputs.hpc.CacheDirectoryActiveDirectory>;
     /**
      * A `directoryFlatFile` block as defined below.
      */
-    readonly directoryFlatFile?: pulumi.Input<inputs.hpc.CacheDirectoryFlatFile>;
+    directoryFlatFile?: pulumi.Input<inputs.hpc.CacheDirectoryFlatFile>;
     /**
      * A `directoryLdap` block as defined below.
      */
-    readonly directoryLdap?: pulumi.Input<inputs.hpc.CacheDirectoryLdap>;
+    directoryLdap?: pulumi.Input<inputs.hpc.CacheDirectoryLdap>;
     /**
      * A `dns` block as defined below.
      */
-    readonly dns?: pulumi.Input<inputs.hpc.CacheDns>;
+    dns?: pulumi.Input<inputs.hpc.CacheDns>;
     /**
      * Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * A list of IP Addresses where the HPC Cache can be mounted.
      */
-    readonly mountAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    mountAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
      */
-    readonly mtu?: pulumi.Input<number>;
+    mtu?: pulumi.Input<number>;
     /**
      * The name of the HPC Cache. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
      */
-    readonly ntpServer?: pulumi.Input<string>;
+    ntpServer?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
      *
      * @deprecated This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.
      */
-    readonly rootSquashEnabled?: pulumi.Input<boolean>;
+    rootSquashEnabled?: pulumi.Input<boolean>;
     /**
      * The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
      */
-    readonly skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string>;
     /**
      * The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the HPC Cache.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -287,63 +287,63 @@ export interface CacheArgs {
     /**
      * The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `24576`, and `49152`. Changing this forces a new resource to be created.
      */
-    readonly cacheSizeInGb: pulumi.Input<number>;
+    cacheSizeInGb: pulumi.Input<number>;
     /**
      * A `defaultAccessPolicy` block as defined below.
      */
-    readonly defaultAccessPolicy?: pulumi.Input<inputs.hpc.CacheDefaultAccessPolicy>;
+    defaultAccessPolicy?: pulumi.Input<inputs.hpc.CacheDefaultAccessPolicy>;
     /**
      * A `directoryActiveDirectory` block as defined below.
      */
-    readonly directoryActiveDirectory?: pulumi.Input<inputs.hpc.CacheDirectoryActiveDirectory>;
+    directoryActiveDirectory?: pulumi.Input<inputs.hpc.CacheDirectoryActiveDirectory>;
     /**
      * A `directoryFlatFile` block as defined below.
      */
-    readonly directoryFlatFile?: pulumi.Input<inputs.hpc.CacheDirectoryFlatFile>;
+    directoryFlatFile?: pulumi.Input<inputs.hpc.CacheDirectoryFlatFile>;
     /**
      * A `directoryLdap` block as defined below.
      */
-    readonly directoryLdap?: pulumi.Input<inputs.hpc.CacheDirectoryLdap>;
+    directoryLdap?: pulumi.Input<inputs.hpc.CacheDirectoryLdap>;
     /**
      * A `dns` block as defined below.
      */
-    readonly dns?: pulumi.Input<inputs.hpc.CacheDns>;
+    dns?: pulumi.Input<inputs.hpc.CacheDns>;
     /**
      * Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to 1500.
      */
-    readonly mtu?: pulumi.Input<number>;
+    mtu?: pulumi.Input<number>;
     /**
      * The name of the HPC Cache. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
      */
-    readonly ntpServer?: pulumi.Input<string>;
+    ntpServer?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Whether to enable [root squash](https://docs.microsoft.com/en-us/azure/hpc-cache/access-policies#root-squash)? Defaults to `false`.
      *
      * @deprecated This property is not functional and will be deprecated in favor of `default_access_policy.0.access_rule.x.root_squash_enabled`, where the scope of access_rule is `default`.
      */
-    readonly rootSquashEnabled?: pulumi.Input<boolean>;
+    rootSquashEnabled?: pulumi.Input<boolean>;
     /**
      * The SKU of HPC Cache to use. Possible values are `Standard_2G`, `Standard_4G` and `Standard_8G`. Changing this forces a new resource to be created.
      */
-    readonly skuName: pulumi.Input<string>;
+    skuName: pulumi.Input<string>;
     /**
      * The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
      */
-    readonly subnetId: pulumi.Input<string>;
+    subnetId: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the HPC Cache.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

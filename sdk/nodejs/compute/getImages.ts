@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(azure.compute.getImages({
  *     resourceGroupName: "example-resources",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getImages(args: GetImagesArgs, opts?: pulumi.InvokeOptions): Promise<GetImagesResult> {
@@ -40,11 +40,11 @@ export interface GetImagesArgs {
     /**
      * The name of the Resource Group in which the Image exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * A mapping of tags to filter the list of images against.
      */
-    readonly tagsFilter?: {[key: string]: string};
+    tagsFilter?: {[key: string]: string};
 }
 
 /**

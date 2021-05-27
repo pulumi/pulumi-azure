@@ -166,37 +166,37 @@ export interface SubscriptionState {
     /**
      * Determines whether tracing can be enabled.  Defaults to `true`.
      */
-    readonly allowTracing?: pulumi.Input<boolean>;
+    allowTracing?: pulumi.Input<boolean>;
     /**
      * The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
      */
-    readonly apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string>;
     /**
      * The display name of this Subscription.
      */
-    readonly displayName?: pulumi.Input<string>;
-    readonly primaryKey?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
+    primaryKey?: pulumi.Input<string>;
     /**
      * The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
      */
-    readonly productId?: pulumi.Input<string>;
+    productId?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
-    readonly secondaryKey?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
+    secondaryKey?: pulumi.Input<string>;
     /**
      * The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
      */
-    readonly state?: pulumi.Input<string>;
+    state?: pulumi.Input<string>;
     /**
      * An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
      */
-    readonly subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string>;
     /**
      * The ID of the User which should be assigned to this Subscription. Changing this forces a new resource to be created.
      */
-    readonly userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string>;
 }
 
 /**
@@ -206,35 +206,35 @@ export interface SubscriptionArgs {
     /**
      * Determines whether tracing can be enabled.  Defaults to `true`.
      */
-    readonly allowTracing?: pulumi.Input<boolean>;
+    allowTracing?: pulumi.Input<boolean>;
     /**
      * The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
      */
-    readonly apiManagementName: pulumi.Input<string>;
+    apiManagementName: pulumi.Input<string>;
     /**
      * The display name of this Subscription.
      */
-    readonly displayName: pulumi.Input<string>;
-    readonly primaryKey?: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
+    primaryKey?: pulumi.Input<string>;
     /**
      * The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
      */
-    readonly productId?: pulumi.Input<string>;
+    productId?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
-    readonly secondaryKey?: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
+    secondaryKey?: pulumi.Input<string>;
     /**
      * The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
      */
-    readonly state?: pulumi.Input<string>;
+    state?: pulumi.Input<string>;
     /**
      * An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
      */
-    readonly subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string>;
     /**
      * The ID of the User which should be assigned to this Subscription. Changing this forces a new resource to be created.
      */
-    readonly userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string>;
 }

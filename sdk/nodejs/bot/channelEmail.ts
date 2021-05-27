@@ -118,23 +118,23 @@ export interface ChannelEmailState {
     /**
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      */
-    readonly botName?: pulumi.Input<string>;
+    botName?: pulumi.Input<string>;
     /**
      * The email address that the Bot will authenticate with.
      */
-    readonly emailAddress?: pulumi.Input<string>;
+    emailAddress?: pulumi.Input<string>;
     /**
      * The email password that the Bot will authenticate with.
      */
-    readonly emailPassword?: pulumi.Input<string>;
+    emailPassword?: pulumi.Input<string>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -144,21 +144,21 @@ export interface ChannelEmailArgs {
     /**
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      */
-    readonly botName: pulumi.Input<string>;
+    botName: pulumi.Input<string>;
     /**
      * The email address that the Bot will authenticate with.
      */
-    readonly emailAddress: pulumi.Input<string>;
+    emailAddress: pulumi.Input<string>;
     /**
      * The email password that the Bot will authenticate with.
      */
-    readonly emailPassword: pulumi.Input<string>;
+    emailPassword: pulumi.Input<string>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

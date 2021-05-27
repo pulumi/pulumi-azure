@@ -285,116 +285,116 @@ export interface ServiceState {
     /**
      * One or more `additionalLocation` blocks as defined below.
      */
-    readonly additionalLocations?: pulumi.Input<pulumi.Input<inputs.apimanagement.ServiceAdditionalLocation>[]>;
+    additionalLocations?: pulumi.Input<pulumi.Input<inputs.apimanagement.ServiceAdditionalLocation>[]>;
     /**
      * One or more (up to 10) `certificate` blocks as defined below.
      */
-    readonly certificates?: pulumi.Input<pulumi.Input<inputs.apimanagement.ServiceCertificate>[]>;
+    certificates?: pulumi.Input<pulumi.Input<inputs.apimanagement.ServiceCertificate>[]>;
     /**
      * The URL for the Developer Portal associated with this API Management service.
      */
-    readonly developerPortalUrl?: pulumi.Input<string>;
+    developerPortalUrl?: pulumi.Input<string>;
     /**
      * The URL of the Regional Gateway for the API Management Service in the specified region.
      */
-    readonly gatewayRegionalUrl?: pulumi.Input<string>;
+    gatewayRegionalUrl?: pulumi.Input<string>;
     /**
      * The URL of the Gateway for the API Management Service.
      */
-    readonly gatewayUrl?: pulumi.Input<string>;
+    gatewayUrl?: pulumi.Input<string>;
     /**
      * A `hostnameConfiguration` block as defined below.
      */
-    readonly hostnameConfiguration?: pulumi.Input<inputs.apimanagement.ServiceHostnameConfiguration>;
+    hostnameConfiguration?: pulumi.Input<inputs.apimanagement.ServiceHostnameConfiguration>;
     /**
      * An `identity` block is documented below.
      */
-    readonly identity?: pulumi.Input<inputs.apimanagement.ServiceIdentity>;
+    identity?: pulumi.Input<inputs.apimanagement.ServiceIdentity>;
     /**
      * The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The URL for the Management API associated with this API Management service.
      */
-    readonly managementApiUrl?: pulumi.Input<string>;
+    managementApiUrl?: pulumi.Input<string>;
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Email address from which the notification will be sent.
      */
-    readonly notificationSenderEmail?: pulumi.Input<string>;
+    notificationSenderEmail?: pulumi.Input<string>;
     /**
      * A `policy` block as defined below.
      */
-    readonly policy?: pulumi.Input<inputs.apimanagement.ServicePolicy>;
+    policy?: pulumi.Input<inputs.apimanagement.ServicePolicy>;
     /**
      * The URL for the Publisher Portal associated with this API Management service.
      */
-    readonly portalUrl?: pulumi.Input<string>;
+    portalUrl?: pulumi.Input<string>;
     /**
      * The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
      */
-    readonly privateIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    privateIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `protocols` block as defined below.
      */
-    readonly protocols?: pulumi.Input<inputs.apimanagement.ServiceProtocols>;
+    protocols?: pulumi.Input<inputs.apimanagement.ServiceProtocols>;
     /**
      * Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
      */
-    readonly publicIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    publicIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The email of publisher/company.
      */
-    readonly publisherEmail?: pulumi.Input<string>;
+    publisherEmail?: pulumi.Input<string>;
     /**
      * The name of publisher/company.
      */
-    readonly publisherName?: pulumi.Input<string>;
+    publisherName?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The URL for the SCM (Source Code Management) Endpoint associated with this API Management service.
      */
-    readonly scmUrl?: pulumi.Input<string>;
+    scmUrl?: pulumi.Input<string>;
     /**
      * A `security` block as defined below.
      */
-    readonly security?: pulumi.Input<inputs.apimanagement.ServiceSecurity>;
+    security?: pulumi.Input<inputs.apimanagement.ServiceSecurity>;
     /**
      * A `signIn` block as defined below.
      */
-    readonly signIn?: pulumi.Input<inputs.apimanagement.ServiceSignIn>;
+    signIn?: pulumi.Input<inputs.apimanagement.ServiceSignIn>;
     /**
      * A `signUp` block as defined below.
      */
-    readonly signUp?: pulumi.Input<inputs.apimanagement.ServiceSignUp>;
+    signUp?: pulumi.Input<inputs.apimanagement.ServiceSignUp>;
     /**
      * `skuName` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
      */
-    readonly skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string>;
     /**
      * A mapping of tags assigned to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `tenantAccess` block as defined below.
      */
-    readonly tenantAccess?: pulumi.Input<inputs.apimanagement.ServiceTenantAccess>;
+    tenantAccess?: pulumi.Input<inputs.apimanagement.ServiceTenantAccess>;
     /**
      * A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
      */
-    readonly virtualNetworkConfiguration?: pulumi.Input<inputs.apimanagement.ServiceVirtualNetworkConfiguration>;
+    virtualNetworkConfiguration?: pulumi.Input<inputs.apimanagement.ServiceVirtualNetworkConfiguration>;
     /**
      * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. 
      * > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
      */
-    readonly virtualNetworkType?: pulumi.Input<string>;
+    virtualNetworkType?: pulumi.Input<string>;
 }
 
 /**
@@ -404,82 +404,82 @@ export interface ServiceArgs {
     /**
      * One or more `additionalLocation` blocks as defined below.
      */
-    readonly additionalLocations?: pulumi.Input<pulumi.Input<inputs.apimanagement.ServiceAdditionalLocation>[]>;
+    additionalLocations?: pulumi.Input<pulumi.Input<inputs.apimanagement.ServiceAdditionalLocation>[]>;
     /**
      * One or more (up to 10) `certificate` blocks as defined below.
      */
-    readonly certificates?: pulumi.Input<pulumi.Input<inputs.apimanagement.ServiceCertificate>[]>;
+    certificates?: pulumi.Input<pulumi.Input<inputs.apimanagement.ServiceCertificate>[]>;
     /**
      * A `hostnameConfiguration` block as defined below.
      */
-    readonly hostnameConfiguration?: pulumi.Input<inputs.apimanagement.ServiceHostnameConfiguration>;
+    hostnameConfiguration?: pulumi.Input<inputs.apimanagement.ServiceHostnameConfiguration>;
     /**
      * An `identity` block is documented below.
      */
-    readonly identity?: pulumi.Input<inputs.apimanagement.ServiceIdentity>;
+    identity?: pulumi.Input<inputs.apimanagement.ServiceIdentity>;
     /**
      * The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Email address from which the notification will be sent.
      */
-    readonly notificationSenderEmail?: pulumi.Input<string>;
+    notificationSenderEmail?: pulumi.Input<string>;
     /**
      * A `policy` block as defined below.
      */
-    readonly policy?: pulumi.Input<inputs.apimanagement.ServicePolicy>;
+    policy?: pulumi.Input<inputs.apimanagement.ServicePolicy>;
     /**
      * A `protocols` block as defined below.
      */
-    readonly protocols?: pulumi.Input<inputs.apimanagement.ServiceProtocols>;
+    protocols?: pulumi.Input<inputs.apimanagement.ServiceProtocols>;
     /**
      * The email of publisher/company.
      */
-    readonly publisherEmail: pulumi.Input<string>;
+    publisherEmail: pulumi.Input<string>;
     /**
      * The name of publisher/company.
      */
-    readonly publisherName: pulumi.Input<string>;
+    publisherName: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A `security` block as defined below.
      */
-    readonly security?: pulumi.Input<inputs.apimanagement.ServiceSecurity>;
+    security?: pulumi.Input<inputs.apimanagement.ServiceSecurity>;
     /**
      * A `signIn` block as defined below.
      */
-    readonly signIn?: pulumi.Input<inputs.apimanagement.ServiceSignIn>;
+    signIn?: pulumi.Input<inputs.apimanagement.ServiceSignIn>;
     /**
      * A `signUp` block as defined below.
      */
-    readonly signUp?: pulumi.Input<inputs.apimanagement.ServiceSignUp>;
+    signUp?: pulumi.Input<inputs.apimanagement.ServiceSignUp>;
     /**
      * `skuName` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
      */
-    readonly skuName: pulumi.Input<string>;
+    skuName: pulumi.Input<string>;
     /**
      * A mapping of tags assigned to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `tenantAccess` block as defined below.
      */
-    readonly tenantAccess?: pulumi.Input<inputs.apimanagement.ServiceTenantAccess>;
+    tenantAccess?: pulumi.Input<inputs.apimanagement.ServiceTenantAccess>;
     /**
      * A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
      */
-    readonly virtualNetworkConfiguration?: pulumi.Input<inputs.apimanagement.ServiceVirtualNetworkConfiguration>;
+    virtualNetworkConfiguration?: pulumi.Input<inputs.apimanagement.ServiceVirtualNetworkConfiguration>;
     /**
      * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. 
      * > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
      */
-    readonly virtualNetworkType?: pulumi.Input<string>;
+    virtualNetworkType?: pulumi.Input<string>;
 }

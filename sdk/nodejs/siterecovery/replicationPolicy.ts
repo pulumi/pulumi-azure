@@ -136,23 +136,23 @@ export interface ReplicationPolicyState {
     /**
      * Specifies the frequency(in minutes) at which to create application consistent recovery points.
      */
-    readonly applicationConsistentSnapshotFrequencyInMinutes?: pulumi.Input<number>;
+    applicationConsistentSnapshotFrequencyInMinutes?: pulumi.Input<number>;
     /**
      * The name of the network mapping.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The duration in minutes for which the recovery points need to be stored.
      */
-    readonly recoveryPointRetentionInMinutes?: pulumi.Input<number>;
+    recoveryPointRetentionInMinutes?: pulumi.Input<number>;
     /**
      * The name of the vault that should be updated.
      */
-    readonly recoveryVaultName?: pulumi.Input<string>;
+    recoveryVaultName?: pulumi.Input<string>;
     /**
      * Name of the resource group where the vault that should be updated is located.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -162,21 +162,21 @@ export interface ReplicationPolicyArgs {
     /**
      * Specifies the frequency(in minutes) at which to create application consistent recovery points.
      */
-    readonly applicationConsistentSnapshotFrequencyInMinutes: pulumi.Input<number>;
+    applicationConsistentSnapshotFrequencyInMinutes: pulumi.Input<number>;
     /**
      * The name of the network mapping.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The duration in minutes for which the recovery points need to be stored.
      */
-    readonly recoveryPointRetentionInMinutes: pulumi.Input<number>;
+    recoveryPointRetentionInMinutes: pulumi.Input<number>;
     /**
      * The name of the vault that should be updated.
      */
-    readonly recoveryVaultName: pulumi.Input<string>;
+    recoveryVaultName: pulumi.Input<string>;
     /**
      * Name of the resource group where the vault that should be updated is located.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

@@ -44,15 +44,15 @@ export interface GetMcaAccountScopeArgs {
     /**
      * The Billing Account Name of the MCA account.
      */
-    readonly billingAccountName: string;
+    billingAccountName: string;
     /**
      * The Billing Profile Name in the above Billing Account.
      */
-    readonly billingProfileName: string;
+    billingProfileName: string;
     /**
      * The Invoice Section Name in the above Billing Profile.
      */
-    readonly invoiceSectionName: string;
+    invoiceSectionName: string;
 }
 
 /**

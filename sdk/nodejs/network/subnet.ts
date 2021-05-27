@@ -178,43 +178,43 @@ export interface SubnetState {
      *
      * @deprecated Use the `address_prefixes` property instead.
      */
-    readonly addressPrefix?: pulumi.Input<string>;
+    addressPrefix?: pulumi.Input<string>;
     /**
      * The address prefixes to use for the subnet.
      */
-    readonly addressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    addressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * One or more `delegation` blocks as defined below.
      */
-    readonly delegations?: pulumi.Input<pulumi.Input<inputs.network.SubnetDelegation>[]>;
+    delegations?: pulumi.Input<pulumi.Input<inputs.network.SubnetDelegation>[]>;
     /**
      * Enable or Disable network policies for the private link endpoint on the subnet. Default value is `false`. Conflicts with enforce_private_link_service_network_policies.
      */
-    readonly enforcePrivateLinkEndpointNetworkPolicies?: pulumi.Input<boolean>;
+    enforcePrivateLinkEndpointNetworkPolicies?: pulumi.Input<boolean>;
     /**
      * Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with `enforcePrivateLinkEndpointNetworkPolicies`.
      */
-    readonly enforcePrivateLinkServiceNetworkPolicies?: pulumi.Input<boolean>;
+    enforcePrivateLinkServiceNetworkPolicies?: pulumi.Input<boolean>;
     /**
      * The name of the subnet. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The list of IDs of Service Endpoint Policies to associate with the subnet.
      */
-    readonly serviceEndpointPolicyIds?: pulumi.Input<pulumi.Input<string>[]>;
+    serviceEndpointPolicyIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
      */
-    readonly serviceEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
+    serviceEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
      */
-    readonly virtualNetworkName?: pulumi.Input<string>;
+    virtualNetworkName?: pulumi.Input<string>;
 }
 
 /**
@@ -226,41 +226,41 @@ export interface SubnetArgs {
      *
      * @deprecated Use the `address_prefixes` property instead.
      */
-    readonly addressPrefix?: pulumi.Input<string>;
+    addressPrefix?: pulumi.Input<string>;
     /**
      * The address prefixes to use for the subnet.
      */
-    readonly addressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    addressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * One or more `delegation` blocks as defined below.
      */
-    readonly delegations?: pulumi.Input<pulumi.Input<inputs.network.SubnetDelegation>[]>;
+    delegations?: pulumi.Input<pulumi.Input<inputs.network.SubnetDelegation>[]>;
     /**
      * Enable or Disable network policies for the private link endpoint on the subnet. Default value is `false`. Conflicts with enforce_private_link_service_network_policies.
      */
-    readonly enforcePrivateLinkEndpointNetworkPolicies?: pulumi.Input<boolean>;
+    enforcePrivateLinkEndpointNetworkPolicies?: pulumi.Input<boolean>;
     /**
      * Enable or Disable network policies for the private link service on the subnet. Default valule is `false`. Conflicts with `enforcePrivateLinkEndpointNetworkPolicies`.
      */
-    readonly enforcePrivateLinkServiceNetworkPolicies?: pulumi.Input<boolean>;
+    enforcePrivateLinkServiceNetworkPolicies?: pulumi.Input<boolean>;
     /**
      * The name of the subnet. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The list of IDs of Service Endpoint Policies to associate with the subnet.
      */
-    readonly serviceEndpointPolicyIds?: pulumi.Input<pulumi.Input<string>[]>;
+    serviceEndpointPolicyIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage` and `Microsoft.Web`.
      */
-    readonly serviceEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
+    serviceEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
      */
-    readonly virtualNetworkName: pulumi.Input<string>;
+    virtualNetworkName: pulumi.Input<string>;
 }

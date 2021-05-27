@@ -44,15 +44,15 @@ export interface GetVirtualNetworkArgs {
     /**
      * Specifies the name of the Dev Test Lab.
      */
-    readonly labName: string;
+    labName: string;
     /**
      * Specifies the name of the Virtual Network.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the name of the resource group that contains the Virtual Network.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

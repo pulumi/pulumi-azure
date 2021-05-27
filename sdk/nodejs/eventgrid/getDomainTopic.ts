@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const example = pulumi.output(azure.eventgrid.getDomainTopic({
  *     name: "my-eventgrid-domain-topic",
  *     resourceGroupName: "example-resources",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getDomainTopic(args: GetDomainTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainTopicResult> {
@@ -42,15 +42,15 @@ export interface GetDomainTopicArgs {
     /**
      * The name of the EventGrid Domain Topic domain.
      */
-    readonly domainName: string;
+    domainName: string;
     /**
      * The name of the EventGrid Domain Topic resource.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the resource group in which the EventGrid Domain Topic exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

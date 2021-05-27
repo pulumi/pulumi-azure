@@ -222,60 +222,60 @@ export interface LiveEventState {
     /**
      * The flag indicates if the resource should be automatically started on creation. Default is `false`.
      */
-    readonly autoStartEnabled?: pulumi.Input<boolean>;
+    autoStartEnabled?: pulumi.Input<boolean>;
     /**
      * A `crossSiteAccessPolicy` block as defined below.
      */
-    readonly crossSiteAccessPolicy?: pulumi.Input<inputs.media.LiveEventCrossSiteAccessPolicy>;
+    crossSiteAccessPolicy?: pulumi.Input<inputs.media.LiveEventCrossSiteAccessPolicy>;
     /**
      * A description for the live event.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A `encoding` block as defined below.
      */
-    readonly encoding?: pulumi.Input<inputs.media.LiveEventEncoding>;
+    encoding?: pulumi.Input<inputs.media.LiveEventEncoding>;
     /**
      * When `useStaticHostname` is set to true, the `hostnamePrefix` specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center.
      */
-    readonly hostnamePrefix?: pulumi.Input<string>;
+    hostnamePrefix?: pulumi.Input<string>;
     /**
      * A `input` block as defined below.
      */
-    readonly input?: pulumi.Input<inputs.media.LiveEventInput>;
+    input?: pulumi.Input<inputs.media.LiveEventInput>;
     /**
      * The Azure Region where the Live Event should exist. Changing this forces a new Live Event to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The Media Services account name. Changing this forces a new Live Event to be created.
      */
-    readonly mediaServicesAccountName?: pulumi.Input<string>;
+    mediaServicesAccountName?: pulumi.Input<string>;
     /**
      * The name which should be used for this Live Event. Changing this forces a new Live Event to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `preview` block as defined below.
      */
-    readonly preview?: pulumi.Input<inputs.media.LiveEventPreview>;
+    preview?: pulumi.Input<inputs.media.LiveEventPreview>;
     /**
      * The name of the Resource Group where the Live Event should exist. Changing this forces a new Live Event to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Live Event.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies a list of languages (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in `BCP-47` format (e.g: `en-US`). [See the Microsoft Documentation for more information about the live transcription feature and the list of supported languages](https://go.microsoft.com/fwlink/?linkid=2133742 ).
      */
-    readonly transcriptionLanguages?: pulumi.Input<pulumi.Input<string>[]>;
+    transcriptionLanguages?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created.
      * ---
      */
-    readonly useStaticHostname?: pulumi.Input<boolean>;
+    useStaticHostname?: pulumi.Input<boolean>;
 }
 
 /**
@@ -285,58 +285,58 @@ export interface LiveEventArgs {
     /**
      * The flag indicates if the resource should be automatically started on creation. Default is `false`.
      */
-    readonly autoStartEnabled?: pulumi.Input<boolean>;
+    autoStartEnabled?: pulumi.Input<boolean>;
     /**
      * A `crossSiteAccessPolicy` block as defined below.
      */
-    readonly crossSiteAccessPolicy?: pulumi.Input<inputs.media.LiveEventCrossSiteAccessPolicy>;
+    crossSiteAccessPolicy?: pulumi.Input<inputs.media.LiveEventCrossSiteAccessPolicy>;
     /**
      * A description for the live event.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A `encoding` block as defined below.
      */
-    readonly encoding?: pulumi.Input<inputs.media.LiveEventEncoding>;
+    encoding?: pulumi.Input<inputs.media.LiveEventEncoding>;
     /**
      * When `useStaticHostname` is set to true, the `hostnamePrefix` specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center.
      */
-    readonly hostnamePrefix?: pulumi.Input<string>;
+    hostnamePrefix?: pulumi.Input<string>;
     /**
      * A `input` block as defined below.
      */
-    readonly input: pulumi.Input<inputs.media.LiveEventInput>;
+    input: pulumi.Input<inputs.media.LiveEventInput>;
     /**
      * The Azure Region where the Live Event should exist. Changing this forces a new Live Event to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The Media Services account name. Changing this forces a new Live Event to be created.
      */
-    readonly mediaServicesAccountName: pulumi.Input<string>;
+    mediaServicesAccountName: pulumi.Input<string>;
     /**
      * The name which should be used for this Live Event. Changing this forces a new Live Event to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `preview` block as defined below.
      */
-    readonly preview?: pulumi.Input<inputs.media.LiveEventPreview>;
+    preview?: pulumi.Input<inputs.media.LiveEventPreview>;
     /**
      * The name of the Resource Group where the Live Event should exist. Changing this forces a new Live Event to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Live Event.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies a list of languages (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in `BCP-47` format (e.g: `en-US`). [See the Microsoft Documentation for more information about the live transcription feature and the list of supported languages](https://go.microsoft.com/fwlink/?linkid=2133742 ).
      */
-    readonly transcriptionLanguages?: pulumi.Input<pulumi.Input<string>[]>;
+    transcriptionLanguages?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created.
      * ---
      */
-    readonly useStaticHostname?: pulumi.Input<boolean>;
+    useStaticHostname?: pulumi.Input<boolean>;
 }

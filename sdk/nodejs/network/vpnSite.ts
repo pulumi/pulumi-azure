@@ -157,39 +157,39 @@ export interface VpnSiteState {
     /**
      * Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
      */
-    readonly addressCidrs?: pulumi.Input<pulumi.Input<string>[]>;
+    addressCidrs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The model of the VPN device.
      */
-    readonly deviceModel?: pulumi.Input<string>;
+    deviceModel?: pulumi.Input<string>;
     /**
      * The name of the VPN device vendor.
      */
-    readonly deviceVendor?: pulumi.Input<string>;
+    deviceVendor?: pulumi.Input<string>;
     /**
      * One or more `link` blocks as defined below.
      */
-    readonly links?: pulumi.Input<pulumi.Input<inputs.network.VpnSiteLink>[]>;
+    links?: pulumi.Input<pulumi.Input<inputs.network.VpnSiteLink>[]>;
     /**
      * The Azure Region where the VPN Site should exist. Changing this forces a new VPN Site to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name which should be used for this VPN Site. Changing this forces a new VPN Site to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the VPN Site should exist. Changing this forces a new VPN Site to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the VPN Site.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Virtual Wan where this VPN site resides in. Changing this forces a new VPN Site to be created.
      */
-    readonly virtualWanId?: pulumi.Input<string>;
+    virtualWanId?: pulumi.Input<string>;
 }
 
 /**
@@ -199,37 +199,37 @@ export interface VpnSiteArgs {
     /**
      * Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
      */
-    readonly addressCidrs?: pulumi.Input<pulumi.Input<string>[]>;
+    addressCidrs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The model of the VPN device.
      */
-    readonly deviceModel?: pulumi.Input<string>;
+    deviceModel?: pulumi.Input<string>;
     /**
      * The name of the VPN device vendor.
      */
-    readonly deviceVendor?: pulumi.Input<string>;
+    deviceVendor?: pulumi.Input<string>;
     /**
      * One or more `link` blocks as defined below.
      */
-    readonly links?: pulumi.Input<pulumi.Input<inputs.network.VpnSiteLink>[]>;
+    links?: pulumi.Input<pulumi.Input<inputs.network.VpnSiteLink>[]>;
     /**
      * The Azure Region where the VPN Site should exist. Changing this forces a new VPN Site to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name which should be used for this VPN Site. Changing this forces a new VPN Site to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the VPN Site should exist. Changing this forces a new VPN Site to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the VPN Site.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Virtual Wan where this VPN site resides in. Changing this forces a new VPN Site to be created.
      */
-    readonly virtualWanId: pulumi.Input<string>;
+    virtualWanId: pulumi.Input<string>;
 }

@@ -236,45 +236,45 @@ export interface ExtensionState {
      * Specifies if the platform deploys
      * the latest minor version update to the `typeHandlerVersion` specified.
      */
-    readonly autoUpgradeMinorVersion?: pulumi.Input<boolean>;
+    autoUpgradeMinorVersion?: pulumi.Input<boolean>;
     /**
      * The name of the virtual machine extension peering. Changing
      * this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The protectedSettings passed to the
      * extension, like settings, these are specified as a JSON object in a string.
      */
-    readonly protectedSettings?: pulumi.Input<string>;
+    protectedSettings?: pulumi.Input<string>;
     /**
      * The publisher of the extension, available publishers
      * can be found by using the Azure CLI.
      */
-    readonly publisher?: pulumi.Input<string>;
+    publisher?: pulumi.Input<string>;
     /**
      * The settings passed to the extension, these are
      * specified as a JSON object in a string.
      */
-    readonly settings?: pulumi.Input<string>;
+    settings?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of extension, available types for a publisher can
      * be found using the Azure CLI.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * Specifies the version of the extension to
      * use, available versions can be found using the Azure CLI.
      */
-    readonly typeHandlerVersion?: pulumi.Input<string>;
+    typeHandlerVersion?: pulumi.Input<string>;
     /**
      * The ID of the Virtual Machine. Changing this forces a new resource to be created
      */
-    readonly virtualMachineId?: pulumi.Input<string>;
+    virtualMachineId?: pulumi.Input<string>;
 }
 
 /**
@@ -285,43 +285,43 @@ export interface ExtensionArgs {
      * Specifies if the platform deploys
      * the latest minor version update to the `typeHandlerVersion` specified.
      */
-    readonly autoUpgradeMinorVersion?: pulumi.Input<boolean>;
+    autoUpgradeMinorVersion?: pulumi.Input<boolean>;
     /**
      * The name of the virtual machine extension peering. Changing
      * this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The protectedSettings passed to the
      * extension, like settings, these are specified as a JSON object in a string.
      */
-    readonly protectedSettings?: pulumi.Input<string>;
+    protectedSettings?: pulumi.Input<string>;
     /**
      * The publisher of the extension, available publishers
      * can be found by using the Azure CLI.
      */
-    readonly publisher: pulumi.Input<string>;
+    publisher: pulumi.Input<string>;
     /**
      * The settings passed to the extension, these are
      * specified as a JSON object in a string.
      */
-    readonly settings?: pulumi.Input<string>;
+    settings?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of extension, available types for a publisher can
      * be found using the Azure CLI.
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
     /**
      * Specifies the version of the extension to
      * use, available versions can be found using the Azure CLI.
      */
-    readonly typeHandlerVersion: pulumi.Input<string>;
+    typeHandlerVersion: pulumi.Input<string>;
     /**
      * The ID of the Virtual Machine. Changing this forces a new resource to be created
      */
-    readonly virtualMachineId: pulumi.Input<string>;
+    virtualMachineId: pulumi.Input<string>;
 }

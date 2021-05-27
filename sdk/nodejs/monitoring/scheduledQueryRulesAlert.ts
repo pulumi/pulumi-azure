@@ -183,58 +183,58 @@ export interface ScheduledQueryRulesAlertState {
     /**
      * An `action` block as defined below.
      */
-    readonly action?: pulumi.Input<inputs.monitoring.ScheduledQueryRulesAlertAction>;
+    action?: pulumi.Input<inputs.monitoring.ScheduledQueryRulesAlertAction>;
     /**
      * List of Resource IDs referred into query.
      */
-    readonly authorizedResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    authorizedResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The resource URI over which log search query is to be run.
      */
-    readonly dataSourceId?: pulumi.Input<string>;
+    dataSourceId?: pulumi.Input<string>;
     /**
      * The description of the scheduled query rule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Whether this scheduled query rule is enabled.  Default is `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
      */
-    readonly frequency?: pulumi.Input<number>;
-    readonly location?: pulumi.Input<string>;
+    frequency?: pulumi.Input<number>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the scheduled query rule. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Log search query.
      */
-    readonly query?: pulumi.Input<string>;
-    readonly queryType?: pulumi.Input<string>;
+    query?: pulumi.Input<string>;
+    queryType?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the scheduled query rule instance.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Severity of the alert. Possible values include: 0, 1, 2, 3, or 4.
      */
-    readonly severity?: pulumi.Input<number>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    severity?: pulumi.Input<number>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
      */
-    readonly throttling?: pulumi.Input<number>;
+    throttling?: pulumi.Input<number>;
     /**
      * Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
      */
-    readonly timeWindow?: pulumi.Input<number>;
+    timeWindow?: pulumi.Input<number>;
     /**
      * The condition that results in the alert rule being run.
      */
-    readonly trigger?: pulumi.Input<inputs.monitoring.ScheduledQueryRulesAlertTrigger>;
+    trigger?: pulumi.Input<inputs.monitoring.ScheduledQueryRulesAlertTrigger>;
 }
 
 /**
@@ -244,56 +244,56 @@ export interface ScheduledQueryRulesAlertArgs {
     /**
      * An `action` block as defined below.
      */
-    readonly action: pulumi.Input<inputs.monitoring.ScheduledQueryRulesAlertAction>;
+    action: pulumi.Input<inputs.monitoring.ScheduledQueryRulesAlertAction>;
     /**
      * List of Resource IDs referred into query.
      */
-    readonly authorizedResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    authorizedResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The resource URI over which log search query is to be run.
      */
-    readonly dataSourceId: pulumi.Input<string>;
+    dataSourceId: pulumi.Input<string>;
     /**
      * The description of the scheduled query rule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Whether this scheduled query rule is enabled.  Default is `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Frequency (in minutes) at which rule condition should be evaluated.  Values must be between 5 and 1440 (inclusive).
      */
-    readonly frequency: pulumi.Input<number>;
-    readonly location?: pulumi.Input<string>;
+    frequency: pulumi.Input<number>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the scheduled query rule. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Log search query.
      */
-    readonly query: pulumi.Input<string>;
-    readonly queryType?: pulumi.Input<string>;
+    query: pulumi.Input<string>;
+    queryType?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the scheduled query rule instance.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Severity of the alert. Possible values include: 0, 1, 2, 3, or 4.
      */
-    readonly severity?: pulumi.Input<number>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    severity?: pulumi.Input<number>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Time (in minutes) for which Alerts should be throttled or suppressed.  Values must be between 0 and 10000 (inclusive).
      */
-    readonly throttling?: pulumi.Input<number>;
+    throttling?: pulumi.Input<number>;
     /**
      * Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`).  Values must be between 5 and 2880 (inclusive).
      */
-    readonly timeWindow: pulumi.Input<number>;
+    timeWindow: pulumi.Input<number>;
     /**
      * The condition that results in the alert rule being run.
      */
-    readonly trigger: pulumi.Input<inputs.monitoring.ScheduledQueryRulesAlertTrigger>;
+    trigger: pulumi.Input<inputs.monitoring.ScheduledQueryRulesAlertTrigger>;
 }

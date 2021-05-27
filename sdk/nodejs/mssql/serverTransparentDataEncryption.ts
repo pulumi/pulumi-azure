@@ -125,11 +125,11 @@ export interface ServerTransparentDataEncryptionState {
     /**
      * To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
      */
-    readonly keyVaultKeyId?: pulumi.Input<string>;
+    keyVaultKeyId?: pulumi.Input<string>;
     /**
      * Specifies the name of the MS SQL Server.
      */
-    readonly serverId?: pulumi.Input<string>;
+    serverId?: pulumi.Input<string>;
 }
 
 /**
@@ -139,9 +139,9 @@ export interface ServerTransparentDataEncryptionArgs {
     /**
      * To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
      */
-    readonly keyVaultKeyId?: pulumi.Input<string>;
+    keyVaultKeyId?: pulumi.Input<string>;
     /**
      * Specifies the name of the MS SQL Server.
      */
-    readonly serverId: pulumi.Input<string>;
+    serverId: pulumi.Input<string>;
 }

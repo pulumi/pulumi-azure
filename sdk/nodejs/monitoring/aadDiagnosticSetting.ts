@@ -182,27 +182,27 @@ export interface AadDiagnosticSettingState {
     /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
      */
-    readonly eventhubAuthorizationRuleId?: pulumi.Input<string>;
+    eventhubAuthorizationRuleId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Event Hub where Diagnostics Data should be sent. If not specified, the default Event Hub will be used. Changing this forces a new resource to be created.
      */
-    readonly eventhubName?: pulumi.Input<string>;
+    eventhubName?: pulumi.Input<string>;
     /**
      * Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
      */
-    readonly logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    logAnalyticsWorkspaceId?: pulumi.Input<string>;
     /**
      * One or more `log` blocks as defined below.
      */
-    readonly logs?: pulumi.Input<pulumi.Input<inputs.monitoring.AadDiagnosticSettingLog>[]>;
+    logs?: pulumi.Input<pulumi.Input<inputs.monitoring.AadDiagnosticSettingLog>[]>;
     /**
      * The name which should be used for this Monitor Azure Active Directory Diagnostic Setting. Changing this forces a new Monitor Azure Active Directory Diagnostic Setting to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
      */
-    readonly storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string>;
 }
 
 /**
@@ -212,25 +212,25 @@ export interface AadDiagnosticSettingArgs {
     /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
      */
-    readonly eventhubAuthorizationRuleId?: pulumi.Input<string>;
+    eventhubAuthorizationRuleId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Event Hub where Diagnostics Data should be sent. If not specified, the default Event Hub will be used. Changing this forces a new resource to be created.
      */
-    readonly eventhubName?: pulumi.Input<string>;
+    eventhubName?: pulumi.Input<string>;
     /**
      * Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
      */
-    readonly logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    logAnalyticsWorkspaceId?: pulumi.Input<string>;
     /**
      * One or more `log` blocks as defined below.
      */
-    readonly logs: pulumi.Input<pulumi.Input<inputs.monitoring.AadDiagnosticSettingLog>[]>;
+    logs: pulumi.Input<pulumi.Input<inputs.monitoring.AadDiagnosticSettingLog>[]>;
     /**
      * The name which should be used for this Monitor Azure Active Directory Diagnostic Setting. Changing this forces a new Monitor Azure Active Directory Diagnostic Setting to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
      */
-    readonly storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string>;
 }

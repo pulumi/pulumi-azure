@@ -42,11 +42,11 @@ export interface GetProfileArgs {
     /**
      * The name of the CDN Profile.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the resource group in which the CDN Profile exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

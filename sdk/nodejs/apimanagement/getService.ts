@@ -42,11 +42,11 @@ export interface GetServiceArgs {
     /**
      * The name of the API Management service.
      */
-    readonly name: string;
+    name: string;
     /**
      * The Name of the Resource Group in which the API Management Service exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

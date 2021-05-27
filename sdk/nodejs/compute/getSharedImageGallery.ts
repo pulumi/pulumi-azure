@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const example = pulumi.output(azure.compute.getSharedImageGallery({
  *     name: "my-image-gallery",
  *     resourceGroupName: "example-resources",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getSharedImageGallery(args: GetSharedImageGalleryArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedImageGalleryResult> {
@@ -41,11 +41,11 @@ export interface GetSharedImageGalleryArgs {
     /**
      * The name of the Shared Image Gallery.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group in which the Shared Image Gallery exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

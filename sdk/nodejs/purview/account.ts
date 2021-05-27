@@ -167,51 +167,51 @@ export interface AccountState {
     /**
      * Atlas Kafka endpoint primary connection string.
      */
-    readonly atlasKafkaEndpointPrimaryConnectionString?: pulumi.Input<string>;
+    atlasKafkaEndpointPrimaryConnectionString?: pulumi.Input<string>;
     /**
      * Atlas Kafka endpoint secondary connection string.
      */
-    readonly atlasKafkaEndpointSecondaryConnectionString?: pulumi.Input<string>;
+    atlasKafkaEndpointSecondaryConnectionString?: pulumi.Input<string>;
     /**
      * Catalog endpoint.
      */
-    readonly catalogEndpoint?: pulumi.Input<string>;
+    catalogEndpoint?: pulumi.Input<string>;
     /**
      * Guardian endpoint.
      */
-    readonly guardianEndpoint?: pulumi.Input<string>;
+    guardianEndpoint?: pulumi.Input<string>;
     /**
      * A `identity` block as defined below.
      */
-    readonly identities?: pulumi.Input<pulumi.Input<inputs.purview.AccountIdentity>[]>;
+    identities?: pulumi.Input<pulumi.Input<inputs.purview.AccountIdentity>[]>;
     /**
      * The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Should the Purview Account be visible to the public network? Defaults to `true`.
      */
-    readonly publicNetworkEnabled?: pulumi.Input<boolean>;
+    publicNetworkEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Resource Group where the Purview Account should exist. Changing this forces a new Purview Account to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Scan endpoint.
      */
-    readonly scanEndpoint?: pulumi.Input<string>;
+    scanEndpoint?: pulumi.Input<string>;
     /**
      * The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_4` and `Standard_16`.
      */
-    readonly skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Purview Account.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -221,25 +221,25 @@ export interface AccountArgs {
     /**
      * The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Should the Purview Account be visible to the public network? Defaults to `true`.
      */
-    readonly publicNetworkEnabled?: pulumi.Input<boolean>;
+    publicNetworkEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Resource Group where the Purview Account should exist. Changing this forces a new Purview Account to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The SKU's capacity for platform size and catalog capabilities. Accepted values are `Standard_4` and `Standard_16`.
      */
-    readonly skuName: pulumi.Input<string>;
+    skuName: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Purview Account.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

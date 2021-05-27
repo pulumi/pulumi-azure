@@ -248,68 +248,68 @@ export interface HadoopClusterState {
     /**
      * Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
      */
-    readonly clusterVersion?: pulumi.Input<string>;
+    clusterVersion?: pulumi.Input<string>;
     /**
      * A `componentVersion` block as defined below.
      */
-    readonly componentVersion?: pulumi.Input<inputs.hdinsight.HadoopClusterComponentVersion>;
+    componentVersion?: pulumi.Input<inputs.hdinsight.HadoopClusterComponentVersion>;
     /**
      * A `gateway` block as defined below.
      */
-    readonly gateway?: pulumi.Input<inputs.hdinsight.HadoopClusterGateway>;
+    gateway?: pulumi.Input<inputs.hdinsight.HadoopClusterGateway>;
     /**
      * The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
      */
-    readonly httpsEndpoint?: pulumi.Input<string>;
+    httpsEndpoint?: pulumi.Input<string>;
     /**
      * Specifies the Azure Region which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * A `metastores` block as defined below.
      */
-    readonly metastores?: pulumi.Input<inputs.hdinsight.HadoopClusterMetastores>;
+    metastores?: pulumi.Input<inputs.hdinsight.HadoopClusterMetastores>;
     /**
      * A `monitor` block as defined below.
      */
-    readonly monitor?: pulumi.Input<inputs.hdinsight.HadoopClusterMonitor>;
+    monitor?: pulumi.Input<inputs.hdinsight.HadoopClusterMonitor>;
     /**
      * Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `network` block as defined below.
      */
-    readonly network?: pulumi.Input<inputs.hdinsight.HadoopClusterNetwork>;
+    network?: pulumi.Input<inputs.hdinsight.HadoopClusterNetwork>;
     /**
      * Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A `roles` block as defined below.
      */
-    readonly roles?: pulumi.Input<inputs.hdinsight.HadoopClusterRoles>;
+    roles?: pulumi.Input<inputs.hdinsight.HadoopClusterRoles>;
     /**
      * The SSH Connectivity Endpoint for this HDInsight Hadoop Cluster.
      */
-    readonly sshEndpoint?: pulumi.Input<string>;
+    sshEndpoint?: pulumi.Input<string>;
     /**
      * A `storageAccountGen2` block as defined below.
      */
-    readonly storageAccountGen2?: pulumi.Input<inputs.hdinsight.HadoopClusterStorageAccountGen2>;
+    storageAccountGen2?: pulumi.Input<inputs.hdinsight.HadoopClusterStorageAccountGen2>;
     /**
      * One or more `storageAccount` block as defined below.
      */
-    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.HadoopClusterStorageAccount>[]>;
+    storageAccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.HadoopClusterStorageAccount>[]>;
     /**
      * A map of Tags which should be assigned to this HDInsight Hadoop Cluster.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */
-    readonly tier?: pulumi.Input<string>;
-    readonly tlsMinVersion?: pulumi.Input<string>;
+    tier?: pulumi.Input<string>;
+    tlsMinVersion?: pulumi.Input<string>;
 }
 
 /**
@@ -319,58 +319,58 @@ export interface HadoopClusterArgs {
     /**
      * Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
      */
-    readonly clusterVersion: pulumi.Input<string>;
+    clusterVersion: pulumi.Input<string>;
     /**
      * A `componentVersion` block as defined below.
      */
-    readonly componentVersion: pulumi.Input<inputs.hdinsight.HadoopClusterComponentVersion>;
+    componentVersion: pulumi.Input<inputs.hdinsight.HadoopClusterComponentVersion>;
     /**
      * A `gateway` block as defined below.
      */
-    readonly gateway: pulumi.Input<inputs.hdinsight.HadoopClusterGateway>;
+    gateway: pulumi.Input<inputs.hdinsight.HadoopClusterGateway>;
     /**
      * Specifies the Azure Region which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * A `metastores` block as defined below.
      */
-    readonly metastores?: pulumi.Input<inputs.hdinsight.HadoopClusterMetastores>;
+    metastores?: pulumi.Input<inputs.hdinsight.HadoopClusterMetastores>;
     /**
      * A `monitor` block as defined below.
      */
-    readonly monitor?: pulumi.Input<inputs.hdinsight.HadoopClusterMonitor>;
+    monitor?: pulumi.Input<inputs.hdinsight.HadoopClusterMonitor>;
     /**
      * Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `network` block as defined below.
      */
-    readonly network?: pulumi.Input<inputs.hdinsight.HadoopClusterNetwork>;
+    network?: pulumi.Input<inputs.hdinsight.HadoopClusterNetwork>;
     /**
      * Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A `roles` block as defined below.
      */
-    readonly roles: pulumi.Input<inputs.hdinsight.HadoopClusterRoles>;
+    roles: pulumi.Input<inputs.hdinsight.HadoopClusterRoles>;
     /**
      * A `storageAccountGen2` block as defined below.
      */
-    readonly storageAccountGen2?: pulumi.Input<inputs.hdinsight.HadoopClusterStorageAccountGen2>;
+    storageAccountGen2?: pulumi.Input<inputs.hdinsight.HadoopClusterStorageAccountGen2>;
     /**
      * One or more `storageAccount` block as defined below.
      */
-    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.HadoopClusterStorageAccount>[]>;
+    storageAccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.HadoopClusterStorageAccount>[]>;
     /**
      * A map of Tags which should be assigned to this HDInsight Hadoop Cluster.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */
-    readonly tier: pulumi.Input<string>;
-    readonly tlsMinVersion?: pulumi.Input<string>;
+    tier: pulumi.Input<string>;
+    tlsMinVersion?: pulumi.Input<string>;
 }

@@ -229,103 +229,103 @@ export interface KubernetesClusterNodePoolState {
     /**
      * A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
      */
-    readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
      */
-    readonly enableAutoScaling?: pulumi.Input<boolean>;
+    enableAutoScaling?: pulumi.Input<boolean>;
     /**
      * Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
      */
-    readonly enableHostEncryption?: pulumi.Input<boolean>;
+    enableHostEncryption?: pulumi.Input<boolean>;
     /**
      * Should each node have a Public IP Address? Defaults to `false`.
      */
-    readonly enableNodePublicIp?: pulumi.Input<boolean>;
+    enableNodePublicIp?: pulumi.Input<boolean>;
     /**
      * The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      */
-    readonly evictionPolicy?: pulumi.Input<string>;
+    evictionPolicy?: pulumi.Input<string>;
     /**
      * The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
      */
-    readonly kubernetesClusterId?: pulumi.Input<string>;
+    kubernetesClusterId?: pulumi.Input<string>;
     /**
      * The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `minCount`.
      */
-    readonly maxCount?: pulumi.Input<number>;
+    maxCount?: pulumi.Input<number>;
     /**
      * The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
      */
-    readonly maxPods?: pulumi.Input<number>;
+    maxPods?: pulumi.Input<number>;
     /**
      * The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `maxCount`.
      */
-    readonly minCount?: pulumi.Input<number>;
+    minCount?: pulumi.Input<number>;
     /**
      * Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
      */
-    readonly mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string>;
     /**
      * The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be a value in the range `minCount` - `maxCount`.
      */
-    readonly nodeCount?: pulumi.Input<number>;
+    nodeCount?: pulumi.Input<number>;
     /**
      * A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
      */
-    readonly nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
      */
-    readonly nodeTaints?: pulumi.Input<pulumi.Input<string>[]>;
+    nodeTaints?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
      */
-    readonly orchestratorVersion?: pulumi.Input<string>;
+    orchestratorVersion?: pulumi.Input<string>;
     /**
      * The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
      */
-    readonly osDiskSizeGb?: pulumi.Input<number>;
+    osDiskSizeGb?: pulumi.Input<number>;
     /**
      * The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
      */
-    readonly osDiskType?: pulumi.Input<string>;
+    osDiskType?: pulumi.Input<string>;
     /**
      * The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
      */
-    readonly osType?: pulumi.Input<string>;
+    osType?: pulumi.Input<string>;
     /**
      * The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
      */
-    readonly priority?: pulumi.Input<string>;
+    priority?: pulumi.Input<string>;
     /**
      * The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
      */
-    readonly proximityPlacementGroupId?: pulumi.Input<string>;
+    proximityPlacementGroupId?: pulumi.Input<string>;
     /**
      * The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
      */
-    readonly spotMaxPrice?: pulumi.Input<number>;
+    spotMaxPrice?: pulumi.Input<number>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `upgradeSettings` block as documented below.
      */
-    readonly upgradeSettings?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolUpgradeSettings>;
+    upgradeSettings?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolUpgradeSettings>;
     /**
      * The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
      */
-    readonly vmSize?: pulumi.Input<string>;
+    vmSize?: pulumi.Input<string>;
     /**
      * The ID of the Subnet where this Node Pool should exist.
      */
-    readonly vnetSubnetId?: pulumi.Input<string>;
+    vnetSubnetId?: pulumi.Input<string>;
 }
 
 /**
@@ -335,101 +335,101 @@ export interface KubernetesClusterNodePoolArgs {
     /**
      * A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
      */
-    readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
      */
-    readonly enableAutoScaling?: pulumi.Input<boolean>;
+    enableAutoScaling?: pulumi.Input<boolean>;
     /**
      * Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
      */
-    readonly enableHostEncryption?: pulumi.Input<boolean>;
+    enableHostEncryption?: pulumi.Input<boolean>;
     /**
      * Should each node have a Public IP Address? Defaults to `false`.
      */
-    readonly enableNodePublicIp?: pulumi.Input<boolean>;
+    enableNodePublicIp?: pulumi.Input<boolean>;
     /**
      * The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      */
-    readonly evictionPolicy?: pulumi.Input<string>;
+    evictionPolicy?: pulumi.Input<string>;
     /**
      * The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
      */
-    readonly kubernetesClusterId: pulumi.Input<string>;
+    kubernetesClusterId: pulumi.Input<string>;
     /**
      * The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `minCount`.
      */
-    readonly maxCount?: pulumi.Input<number>;
+    maxCount?: pulumi.Input<number>;
     /**
      * The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
      */
-    readonly maxPods?: pulumi.Input<number>;
+    maxPods?: pulumi.Input<number>;
     /**
      * The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `maxCount`.
      */
-    readonly minCount?: pulumi.Input<number>;
+    minCount?: pulumi.Input<number>;
     /**
      * Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
      */
-    readonly mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string>;
     /**
      * The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be a value in the range `minCount` - `maxCount`.
      */
-    readonly nodeCount?: pulumi.Input<number>;
+    nodeCount?: pulumi.Input<number>;
     /**
      * A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
      */
-    readonly nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
      */
-    readonly nodeTaints?: pulumi.Input<pulumi.Input<string>[]>;
+    nodeTaints?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
      */
-    readonly orchestratorVersion?: pulumi.Input<string>;
+    orchestratorVersion?: pulumi.Input<string>;
     /**
      * The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
      */
-    readonly osDiskSizeGb?: pulumi.Input<number>;
+    osDiskSizeGb?: pulumi.Input<number>;
     /**
      * The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
      */
-    readonly osDiskType?: pulumi.Input<string>;
+    osDiskType?: pulumi.Input<string>;
     /**
      * The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
      */
-    readonly osType?: pulumi.Input<string>;
+    osType?: pulumi.Input<string>;
     /**
      * The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
      */
-    readonly priority?: pulumi.Input<string>;
+    priority?: pulumi.Input<string>;
     /**
      * The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
      */
-    readonly proximityPlacementGroupId?: pulumi.Input<string>;
+    proximityPlacementGroupId?: pulumi.Input<string>;
     /**
      * The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
      */
-    readonly spotMaxPrice?: pulumi.Input<number>;
+    spotMaxPrice?: pulumi.Input<number>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `upgradeSettings` block as documented below.
      */
-    readonly upgradeSettings?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolUpgradeSettings>;
+    upgradeSettings?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolUpgradeSettings>;
     /**
      * The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
      */
-    readonly vmSize: pulumi.Input<string>;
+    vmSize: pulumi.Input<string>;
     /**
      * The ID of the Subnet where this Node Pool should exist.
      */
-    readonly vnetSubnetId?: pulumi.Input<string>;
+    vnetSubnetId?: pulumi.Input<string>;
 }

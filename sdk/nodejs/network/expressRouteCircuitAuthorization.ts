@@ -140,25 +140,25 @@ export interface ExpressRouteCircuitAuthorizationState {
     /**
      * The Authorization Key.
      */
-    readonly authorizationKey?: pulumi.Input<string>;
+    authorizationKey?: pulumi.Input<string>;
     /**
      * The authorization use status.
      */
-    readonly authorizationUseStatus?: pulumi.Input<string>;
+    authorizationUseStatus?: pulumi.Input<string>;
     /**
      * The name of the Express Route Circuit in which to create the Authorization.
      */
-    readonly expressRouteCircuitName?: pulumi.Input<string>;
+    expressRouteCircuitName?: pulumi.Input<string>;
     /**
      * The name of the ExpressRoute circuit. Changing this forces a
      * new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to
      * create the ExpressRoute circuit. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -168,15 +168,15 @@ export interface ExpressRouteCircuitAuthorizationArgs {
     /**
      * The name of the Express Route Circuit in which to create the Authorization.
      */
-    readonly expressRouteCircuitName: pulumi.Input<string>;
+    expressRouteCircuitName: pulumi.Input<string>;
     /**
      * The name of the ExpressRoute circuit. Changing this forces a
      * new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to
      * create the ExpressRoute circuit. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

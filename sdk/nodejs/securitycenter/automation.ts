@@ -192,39 +192,39 @@ export interface AutomationState {
     /**
      * One or more `action` blocks as defined below. An `action` tells this automation where the data is to be sent to upon being evaluated by the rules in the `source`.
      */
-    readonly actions?: pulumi.Input<pulumi.Input<inputs.securitycenter.AutomationAction>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.securitycenter.AutomationAction>[]>;
     /**
      * Specifies the description for the Security Center Automation.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Boolean to enable or disable this Security Center Automation.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The Azure Region where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A list of scopes on which the automation logic is applied, at least one is required. Supported scopes are a subscription (in this format `/subscriptions/00000000-0000-0000-0000-000000000000`) or a resource group under that subscription (in the format `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example`). The automation will only apply on defined scopes.
      */
-    readonly scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
      */
-    readonly sources?: pulumi.Input<pulumi.Input<inputs.securitycenter.AutomationSource>[]>;
+    sources?: pulumi.Input<pulumi.Input<inputs.securitycenter.AutomationSource>[]>;
     /**
      * A mapping of tags assigned to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -234,37 +234,37 @@ export interface AutomationArgs {
     /**
      * One or more `action` blocks as defined below. An `action` tells this automation where the data is to be sent to upon being evaluated by the rules in the `source`.
      */
-    readonly actions: pulumi.Input<pulumi.Input<inputs.securitycenter.AutomationAction>[]>;
+    actions: pulumi.Input<pulumi.Input<inputs.securitycenter.AutomationAction>[]>;
     /**
      * Specifies the description for the Security Center Automation.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Boolean to enable or disable this Security Center Automation.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The Azure Region where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A list of scopes on which the automation logic is applied, at least one is required. Supported scopes are a subscription (in this format `/subscriptions/00000000-0000-0000-0000-000000000000`) or a resource group under that subscription (in the format `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example`). The automation will only apply on defined scopes.
      */
-    readonly scopes: pulumi.Input<pulumi.Input<string>[]>;
+    scopes: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
      */
-    readonly sources: pulumi.Input<pulumi.Input<inputs.securitycenter.AutomationSource>[]>;
+    sources: pulumi.Input<pulumi.Input<inputs.securitycenter.AutomationSource>[]>;
     /**
      * A mapping of tags assigned to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

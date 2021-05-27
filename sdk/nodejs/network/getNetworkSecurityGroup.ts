@@ -42,11 +42,11 @@ export interface GetNetworkSecurityGroupArgs {
     /**
      * Specifies the Name of the Network Security Group.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the Name of the Resource Group within which the Network Security Group exists
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

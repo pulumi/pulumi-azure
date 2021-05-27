@@ -150,27 +150,27 @@ export interface BastionHostState {
     /**
      * The FQDN for the Bastion Host.
      */
-    readonly dnsName?: pulumi.Input<string>;
+    dnsName?: pulumi.Input<string>;
     /**
      * A `ipConfiguration` block as defined below.
      */
-    readonly ipConfiguration?: pulumi.Input<inputs.compute.BastionHostIpConfiguration>;
+    ipConfiguration?: pulumi.Input<inputs.compute.BastionHostIpConfiguration>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Bastion Host.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -180,21 +180,21 @@ export interface BastionHostArgs {
     /**
      * A `ipConfiguration` block as defined below.
      */
-    readonly ipConfiguration?: pulumi.Input<inputs.compute.BastionHostIpConfiguration>;
+    ipConfiguration?: pulumi.Input<inputs.compute.BastionHostIpConfiguration>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.  Review [Azure Bastion Host FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) for supported locations.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Bastion Host. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Bastion Host.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

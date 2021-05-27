@@ -123,23 +123,23 @@ export interface InstanceState {
     /**
      * The Api endpoint to work with this Digital Twins instance.
      */
-    readonly hostName?: pulumi.Input<string>;
+    hostName?: pulumi.Input<string>;
     /**
      * The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name which should be used for this Digital Twins instance. Changing this forces a new Digital Twins instance to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Digital Twins instance.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -149,17 +149,17 @@ export interface InstanceArgs {
     /**
      * The Azure Region where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name which should be used for this Digital Twins instance. Changing this forces a new Digital Twins instance to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Digital Twins instance should exist. Changing this forces a new Digital Twins instance to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Digital Twins instance.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

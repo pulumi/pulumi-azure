@@ -143,23 +143,23 @@ export interface ActiveDirectoryAdministratorState {
     /**
      * The login name of the principal to set as the server administrator
      */
-    readonly login?: pulumi.Input<string>;
+    login?: pulumi.Input<string>;
     /**
      * The ID of the principal to set as the server administrator
      */
-    readonly objectId?: pulumi.Input<string>;
+    objectId?: pulumi.Input<string>;
     /**
      * The name of the resource group for the PostgreSQL server. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The name of the PostgreSQL Server on which to set the administrator. Changing this forces a new resource to be created.
      */
-    readonly serverName?: pulumi.Input<string>;
+    serverName?: pulumi.Input<string>;
     /**
      * The Azure Tenant ID
      */
-    readonly tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string>;
 }
 
 /**
@@ -169,21 +169,21 @@ export interface ActiveDirectoryAdministratorArgs {
     /**
      * The login name of the principal to set as the server administrator
      */
-    readonly login: pulumi.Input<string>;
+    login: pulumi.Input<string>;
     /**
      * The ID of the principal to set as the server administrator
      */
-    readonly objectId: pulumi.Input<string>;
+    objectId: pulumi.Input<string>;
     /**
      * The name of the resource group for the PostgreSQL server. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the PostgreSQL Server on which to set the administrator. Changing this forces a new resource to be created.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
     /**
      * The Azure Tenant ID
      */
-    readonly tenantId: pulumi.Input<string>;
+    tenantId: pulumi.Input<string>;
 }

@@ -183,64 +183,64 @@ export interface PoolState {
     /**
      * Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * A `autoScale` block that describes the scale settings when using auto scale.
      */
-    readonly autoScale?: pulumi.Input<inputs.batch.PoolAutoScale>;
+    autoScale?: pulumi.Input<inputs.batch.PoolAutoScale>;
     /**
      * One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
      */
-    readonly certificates?: pulumi.Input<pulumi.Input<inputs.batch.PoolCertificate>[]>;
+    certificates?: pulumi.Input<pulumi.Input<inputs.batch.PoolCertificate>[]>;
     /**
      * The container configuration used in the pool's VMs.
      */
-    readonly containerConfiguration?: pulumi.Input<inputs.batch.PoolContainerConfiguration>;
+    containerConfiguration?: pulumi.Input<inputs.batch.PoolContainerConfiguration>;
     /**
      * Specifies the display name of the Batch pool.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * A `fixedScale` block that describes the scale settings when using fixed scale.
      */
-    readonly fixedScale?: pulumi.Input<inputs.batch.PoolFixedScale>;
+    fixedScale?: pulumi.Input<inputs.batch.PoolFixedScale>;
     /**
      * Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
      */
-    readonly maxTasksPerNode?: pulumi.Input<number>;
+    maxTasksPerNode?: pulumi.Input<number>;
     /**
      * A map of custom batch pool metadata.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the name of the Batch pool. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `networkConfiguration` block that describes the network configurations for the Batch pool.
      */
-    readonly networkConfiguration?: pulumi.Input<inputs.batch.PoolNetworkConfiguration>;
+    networkConfiguration?: pulumi.Input<inputs.batch.PoolNetworkConfiguration>;
     /**
      * Specifies the Sku of the node agents that will be created in the Batch pool.
      */
-    readonly nodeAgentSkuId?: pulumi.Input<string>;
+    nodeAgentSkuId?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A `startTask` block that describes the start task settings for the Batch pool.
      */
-    readonly startTask?: pulumi.Input<inputs.batch.PoolStartTask>;
-    readonly stopPendingResizeOperation?: pulumi.Input<boolean>;
+    startTask?: pulumi.Input<inputs.batch.PoolStartTask>;
+    stopPendingResizeOperation?: pulumi.Input<boolean>;
     /**
      * A `storageImageReference` for the virtual machines that will compose the Batch pool.
      */
-    readonly storageImageReference?: pulumi.Input<inputs.batch.PoolStorageImageReference>;
+    storageImageReference?: pulumi.Input<inputs.batch.PoolStorageImageReference>;
     /**
      * Specifies the size of the VM created in the Batch pool.
      */
-    readonly vmSize?: pulumi.Input<string>;
+    vmSize?: pulumi.Input<string>;
 }
 
 /**
@@ -250,62 +250,62 @@ export interface PoolArgs {
     /**
      * Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * A `autoScale` block that describes the scale settings when using auto scale.
      */
-    readonly autoScale?: pulumi.Input<inputs.batch.PoolAutoScale>;
+    autoScale?: pulumi.Input<inputs.batch.PoolAutoScale>;
     /**
      * One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
      */
-    readonly certificates?: pulumi.Input<pulumi.Input<inputs.batch.PoolCertificate>[]>;
+    certificates?: pulumi.Input<pulumi.Input<inputs.batch.PoolCertificate>[]>;
     /**
      * The container configuration used in the pool's VMs.
      */
-    readonly containerConfiguration?: pulumi.Input<inputs.batch.PoolContainerConfiguration>;
+    containerConfiguration?: pulumi.Input<inputs.batch.PoolContainerConfiguration>;
     /**
      * Specifies the display name of the Batch pool.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * A `fixedScale` block that describes the scale settings when using fixed scale.
      */
-    readonly fixedScale?: pulumi.Input<inputs.batch.PoolFixedScale>;
+    fixedScale?: pulumi.Input<inputs.batch.PoolFixedScale>;
     /**
      * Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
      */
-    readonly maxTasksPerNode?: pulumi.Input<number>;
+    maxTasksPerNode?: pulumi.Input<number>;
     /**
      * A map of custom batch pool metadata.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the name of the Batch pool. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `networkConfiguration` block that describes the network configurations for the Batch pool.
      */
-    readonly networkConfiguration?: pulumi.Input<inputs.batch.PoolNetworkConfiguration>;
+    networkConfiguration?: pulumi.Input<inputs.batch.PoolNetworkConfiguration>;
     /**
      * Specifies the Sku of the node agents that will be created in the Batch pool.
      */
-    readonly nodeAgentSkuId: pulumi.Input<string>;
+    nodeAgentSkuId: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A `startTask` block that describes the start task settings for the Batch pool.
      */
-    readonly startTask?: pulumi.Input<inputs.batch.PoolStartTask>;
-    readonly stopPendingResizeOperation?: pulumi.Input<boolean>;
+    startTask?: pulumi.Input<inputs.batch.PoolStartTask>;
+    stopPendingResizeOperation?: pulumi.Input<boolean>;
     /**
      * A `storageImageReference` for the virtual machines that will compose the Batch pool.
      */
-    readonly storageImageReference: pulumi.Input<inputs.batch.PoolStorageImageReference>;
+    storageImageReference: pulumi.Input<inputs.batch.PoolStorageImageReference>;
     /**
      * Specifies the size of the VM created in the Batch pool.
      */
-    readonly vmSize: pulumi.Input<string>;
+    vmSize: pulumi.Input<string>;
 }

@@ -135,23 +135,23 @@ export interface StoreFirewallRuleState {
     /**
      * Specifies the name of the Data Lake Store for which the Firewall Rule should take effect.
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * The End IP Address for the firewall rule.
      */
-    readonly endIpAddress?: pulumi.Input<string>;
+    endIpAddress?: pulumi.Input<string>;
     /**
      * Specifies the name of the Data Lake Store. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Data Lake Store.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The Start IP address for the firewall rule.
      */
-    readonly startIpAddress?: pulumi.Input<string>;
+    startIpAddress?: pulumi.Input<string>;
 }
 
 /**
@@ -161,21 +161,21 @@ export interface StoreFirewallRuleArgs {
     /**
      * Specifies the name of the Data Lake Store for which the Firewall Rule should take effect.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The End IP Address for the firewall rule.
      */
-    readonly endIpAddress: pulumi.Input<string>;
+    endIpAddress: pulumi.Input<string>;
     /**
      * Specifies the name of the Data Lake Store. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Data Lake Store.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The Start IP address for the firewall rule.
      */
-    readonly startIpAddress: pulumi.Input<string>;
+    startIpAddress: pulumi.Input<string>;
 }

@@ -118,24 +118,24 @@ export interface SmartDetectionRuleState {
     /**
      * Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
      */
-    readonly additionalEmailRecipients?: pulumi.Input<pulumi.Input<string>[]>;
+    additionalEmailRecipients?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the Application Insights component on which the Smart Detection Rule operates. Changing this forces a new resource to be created.
      */
-    readonly applicationInsightsId?: pulumi.Input<string>;
+    applicationInsightsId?: pulumi.Input<string>;
     /**
      * Is the Application Insights Smart Detection Rule enabled? Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Specifies the name of the Application Insights Smart Detection Rule. Valid values include `Slow page load time`, `Slow server response time`, 
      * `Long dependency duration`.  Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Do emails get sent to subscription owners? Defaults to `true`.
      */
-    readonly sendEmailsToSubscriptionOwners?: pulumi.Input<boolean>;
+    sendEmailsToSubscriptionOwners?: pulumi.Input<boolean>;
 }
 
 /**
@@ -145,22 +145,22 @@ export interface SmartDetectionRuleArgs {
     /**
      * Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
      */
-    readonly additionalEmailRecipients?: pulumi.Input<pulumi.Input<string>[]>;
+    additionalEmailRecipients?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the Application Insights component on which the Smart Detection Rule operates. Changing this forces a new resource to be created.
      */
-    readonly applicationInsightsId: pulumi.Input<string>;
+    applicationInsightsId: pulumi.Input<string>;
     /**
      * Is the Application Insights Smart Detection Rule enabled? Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Specifies the name of the Application Insights Smart Detection Rule. Valid values include `Slow page load time`, `Slow server response time`, 
      * `Long dependency duration`.  Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Do emails get sent to subscription owners? Defaults to `true`.
      */
-    readonly sendEmailsToSubscriptionOwners?: pulumi.Input<boolean>;
+    sendEmailsToSubscriptionOwners?: pulumi.Input<boolean>;
 }

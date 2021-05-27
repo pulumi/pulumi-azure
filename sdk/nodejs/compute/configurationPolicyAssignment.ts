@@ -163,19 +163,19 @@ export interface ConfigurationPolicyAssignmentState {
     /**
      * A `configuration` block as defined below.
      */
-    readonly configuration?: pulumi.Input<inputs.compute.ConfigurationPolicyAssignmentConfiguration>;
+    configuration?: pulumi.Input<inputs.compute.ConfigurationPolicyAssignmentConfiguration>;
     /**
      * The Azure location where the Virtual Machine Configuration Policy Assignment should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Virtual Machine Configuration Policy Assignment. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The resource ID of the Virtual Machine which this Guest Configuration Assignment should apply to. Changing this forces a new resource to be created.
      */
-    readonly virtualMachineId?: pulumi.Input<string>;
+    virtualMachineId?: pulumi.Input<string>;
 }
 
 /**
@@ -185,17 +185,17 @@ export interface ConfigurationPolicyAssignmentArgs {
     /**
      * A `configuration` block as defined below.
      */
-    readonly configuration: pulumi.Input<inputs.compute.ConfigurationPolicyAssignmentConfiguration>;
+    configuration: pulumi.Input<inputs.compute.ConfigurationPolicyAssignmentConfiguration>;
     /**
      * The Azure location where the Virtual Machine Configuration Policy Assignment should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Virtual Machine Configuration Policy Assignment. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The resource ID of the Virtual Machine which this Guest Configuration Assignment should apply to. Changing this forces a new resource to be created.
      */
-    readonly virtualMachineId: pulumi.Input<string>;
+    virtualMachineId: pulumi.Input<string>;
 }

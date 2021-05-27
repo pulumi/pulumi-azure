@@ -110,23 +110,23 @@ export interface DatasetKustoDatabaseState {
     /**
      * The name of the Data Share Dataset.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The location of the Kusto Cluster.
      */
-    readonly kustoClusterLocation?: pulumi.Input<string>;
+    kustoClusterLocation?: pulumi.Input<string>;
     /**
      * The resource ID of the Kusto Cluster Database to be shared with the receiver. Changing this forces a new Data Share Kusto Database Dataset to be created.
      */
-    readonly kustoDatabaseId?: pulumi.Input<string>;
+    kustoDatabaseId?: pulumi.Input<string>;
     /**
      * The name which should be used for this Data Share Kusto Database Dataset. Changing this forces a new Data Share Kusto Database Dataset to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The resource ID of the Data Share where this Data Share Kusto Database Dataset should be created. Changing this forces a new Data Share Kusto Database Dataset to be created.
      */
-    readonly shareId?: pulumi.Input<string>;
+    shareId?: pulumi.Input<string>;
 }
 
 /**
@@ -136,13 +136,13 @@ export interface DatasetKustoDatabaseArgs {
     /**
      * The resource ID of the Kusto Cluster Database to be shared with the receiver. Changing this forces a new Data Share Kusto Database Dataset to be created.
      */
-    readonly kustoDatabaseId: pulumi.Input<string>;
+    kustoDatabaseId: pulumi.Input<string>;
     /**
      * The name which should be used for this Data Share Kusto Database Dataset. Changing this forces a new Data Share Kusto Database Dataset to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The resource ID of the Data Share where this Data Share Kusto Database Dataset should be created. Changing this forces a new Data Share Kusto Database Dataset to be created.
      */
-    readonly shareId: pulumi.Input<string>;
+    shareId: pulumi.Input<string>;
 }

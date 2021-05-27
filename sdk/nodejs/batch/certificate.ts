@@ -143,36 +143,36 @@ export interface CertificateState {
     /**
      * Specifies the name of the Batch account. Changing this forces a new resource to be created.
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * The base64-encoded contents of the certificate.
      */
-    readonly certificate?: pulumi.Input<string>;
+    certificate?: pulumi.Input<string>;
     /**
      * The format of the certificate. Possible values are `Cer` or `Pfx`.
      */
-    readonly format?: pulumi.Input<string>;
+    format?: pulumi.Input<string>;
     /**
      * The generated name of the certificate.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The password to access the certificate's private key. This can only be specified when `format` is `Pfx`.
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * The public key of the certificate.
      */
-    readonly publicData?: pulumi.Input<string>;
+    publicData?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The thumbprint of the certificate. At this time the only supported value is 'SHA1'.
      */
-    readonly thumbprint?: pulumi.Input<string>;
-    readonly thumbprintAlgorithm?: pulumi.Input<string>;
+    thumbprint?: pulumi.Input<string>;
+    thumbprintAlgorithm?: pulumi.Input<string>;
 }
 
 /**
@@ -182,26 +182,26 @@ export interface CertificateArgs {
     /**
      * Specifies the name of the Batch account. Changing this forces a new resource to be created.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The base64-encoded contents of the certificate.
      */
-    readonly certificate: pulumi.Input<string>;
+    certificate: pulumi.Input<string>;
     /**
      * The format of the certificate. Possible values are `Cer` or `Pfx`.
      */
-    readonly format: pulumi.Input<string>;
+    format: pulumi.Input<string>;
     /**
      * The password to access the certificate's private key. This can only be specified when `format` is `Pfx`.
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The thumbprint of the certificate. At this time the only supported value is 'SHA1'.
      */
-    readonly thumbprint: pulumi.Input<string>;
-    readonly thumbprintAlgorithm: pulumi.Input<string>;
+    thumbprint: pulumi.Input<string>;
+    thumbprintAlgorithm: pulumi.Input<string>;
 }

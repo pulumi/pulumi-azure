@@ -107,19 +107,19 @@ export interface IotHubCertificateState {
     /**
      * The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content.
      */
-    readonly certificateContent?: pulumi.Input<string>;
+    certificateContent?: pulumi.Input<string>;
     /**
      * The name of the IoT Device Provisioning Service that this certificate will be attached to. Changing this forces a new resource to be created.
      */
-    readonly iotDpsName?: pulumi.Input<string>;
+    iotDpsName?: pulumi.Input<string>;
     /**
      * Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group under which the Iot Device Provisioning Service Certificate resource has to be created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -129,17 +129,17 @@ export interface IotHubCertificateArgs {
     /**
      * The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content.
      */
-    readonly certificateContent: pulumi.Input<string>;
+    certificateContent: pulumi.Input<string>;
     /**
      * The name of the IoT Device Provisioning Service that this certificate will be attached to. Changing this forces a new resource to be created.
      */
-    readonly iotDpsName: pulumi.Input<string>;
+    iotDpsName: pulumi.Input<string>;
     /**
      * Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group under which the Iot Device Provisioning Service Certificate resource has to be created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

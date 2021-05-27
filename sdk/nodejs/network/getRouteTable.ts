@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const example = pulumi.output(azure.network.getRouteTable({
  *     name: "myroutetable",
  *     resourceGroupName: "some-resource-group",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getRouteTable(args: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> {
@@ -41,11 +41,11 @@ export interface GetRouteTableArgs {
     /**
      * The name of the Route Table.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group in which the Route Table exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

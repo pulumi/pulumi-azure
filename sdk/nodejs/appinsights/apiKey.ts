@@ -156,24 +156,24 @@ export interface ApiKeyState {
     /**
      * The API Key secret (Sensitive).
      */
-    readonly apiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string>;
     /**
      * The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
      */
-    readonly applicationInsightsId?: pulumi.Input<string>;
+    applicationInsightsId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Application Insights API key. Changing this forces a
      * new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
      */
-    readonly readPermissions?: pulumi.Input<pulumi.Input<string>[]>;
+    readPermissions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
      */
-    readonly writePermissions?: pulumi.Input<pulumi.Input<string>[]>;
+    writePermissions?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -183,18 +183,18 @@ export interface ApiKeyArgs {
     /**
      * The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
      */
-    readonly applicationInsightsId: pulumi.Input<string>;
+    applicationInsightsId: pulumi.Input<string>;
     /**
      * Specifies the name of the Application Insights API key. Changing this forces a
      * new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
      */
-    readonly readPermissions?: pulumi.Input<pulumi.Input<string>[]>;
+    readPermissions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
      */
-    readonly writePermissions?: pulumi.Input<pulumi.Input<string>[]>;
+    writePermissions?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -119,15 +119,15 @@ export interface ActiveSlotState {
     /**
      * The name of the App Service within which the Slot exists.  Changing this forces a new resource to be created.
      */
-    readonly appServiceName?: pulumi.Input<string>;
+    appServiceName?: pulumi.Input<string>;
     /**
      * The name of the App Service Slot which should be promoted to the Production Slot within the App Service.
      */
-    readonly appServiceSlotName?: pulumi.Input<string>;
+    appServiceSlotName?: pulumi.Input<string>;
     /**
      * The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -137,13 +137,13 @@ export interface ActiveSlotArgs {
     /**
      * The name of the App Service within which the Slot exists.  Changing this forces a new resource to be created.
      */
-    readonly appServiceName: pulumi.Input<string>;
+    appServiceName: pulumi.Input<string>;
     /**
      * The name of the App Service Slot which should be promoted to the Production Slot within the App Service.
      */
-    readonly appServiceSlotName: pulumi.Input<string>;
+    appServiceSlotName: pulumi.Input<string>;
     /**
      * The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

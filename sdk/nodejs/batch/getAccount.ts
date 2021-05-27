@@ -42,11 +42,11 @@ export interface GetAccountArgs {
     /**
      * The name of the Batch account.
      */
-    readonly name: string;
+    name: string;
     /**
      * The Name of the Resource Group where this Batch account exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -44,15 +44,15 @@ export interface GetHubArgs {
     /**
      * Specifies the Name of the Notification Hub.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the Name of the Notification Hub Namespace which contains the Notification Hub.
      */
-    readonly namespaceName: string;
+    namespaceName: string;
     /**
      * Specifies the Name of the Resource Group within which the Notification Hub exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

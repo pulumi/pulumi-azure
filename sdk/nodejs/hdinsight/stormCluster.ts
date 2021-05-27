@@ -238,60 +238,60 @@ export interface StormClusterState {
     /**
      * Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
      */
-    readonly clusterVersion?: pulumi.Input<string>;
+    clusterVersion?: pulumi.Input<string>;
     /**
      * A `componentVersion` block as defined below.
      */
-    readonly componentVersion?: pulumi.Input<inputs.hdinsight.StormClusterComponentVersion>;
+    componentVersion?: pulumi.Input<inputs.hdinsight.StormClusterComponentVersion>;
     /**
      * A `gateway` block as defined below.
      */
-    readonly gateway?: pulumi.Input<inputs.hdinsight.StormClusterGateway>;
+    gateway?: pulumi.Input<inputs.hdinsight.StormClusterGateway>;
     /**
      * The HTTPS Connectivity Endpoint for this HDInsight Storm Cluster.
      */
-    readonly httpsEndpoint?: pulumi.Input<string>;
+    httpsEndpoint?: pulumi.Input<string>;
     /**
      * Specifies the Azure Region which this HDInsight Storm Cluster should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * A `metastores` block as defined below.
      */
-    readonly metastores?: pulumi.Input<inputs.hdinsight.StormClusterMetastores>;
+    metastores?: pulumi.Input<inputs.hdinsight.StormClusterMetastores>;
     /**
      * A `monitor` block as defined below.
      */
-    readonly monitor?: pulumi.Input<inputs.hdinsight.StormClusterMonitor>;
+    monitor?: pulumi.Input<inputs.hdinsight.StormClusterMonitor>;
     /**
      * Specifies the name for this HDInsight Storm Cluster. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the Resource Group in which this HDInsight Storm Cluster should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A `roles` block as defined below.
      */
-    readonly roles?: pulumi.Input<inputs.hdinsight.StormClusterRoles>;
+    roles?: pulumi.Input<inputs.hdinsight.StormClusterRoles>;
     /**
      * The SSH Connectivity Endpoint for this HDInsight Storm Cluster.
      */
-    readonly sshEndpoint?: pulumi.Input<string>;
+    sshEndpoint?: pulumi.Input<string>;
     /**
      * One or more `storageAccount` block as defined below.
      */
-    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.StormClusterStorageAccount>[]>;
+    storageAccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.StormClusterStorageAccount>[]>;
     /**
      * A map of Tags which should be assigned to this HDInsight Storm Cluster.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the Tier which should be used for this HDInsight Storm Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */
-    readonly tier?: pulumi.Input<string>;
-    readonly tlsMinVersion?: pulumi.Input<string>;
+    tier?: pulumi.Input<string>;
+    tlsMinVersion?: pulumi.Input<string>;
 }
 
 /**
@@ -301,50 +301,50 @@ export interface StormClusterArgs {
     /**
      * Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
      */
-    readonly clusterVersion: pulumi.Input<string>;
+    clusterVersion: pulumi.Input<string>;
     /**
      * A `componentVersion` block as defined below.
      */
-    readonly componentVersion: pulumi.Input<inputs.hdinsight.StormClusterComponentVersion>;
+    componentVersion: pulumi.Input<inputs.hdinsight.StormClusterComponentVersion>;
     /**
      * A `gateway` block as defined below.
      */
-    readonly gateway: pulumi.Input<inputs.hdinsight.StormClusterGateway>;
+    gateway: pulumi.Input<inputs.hdinsight.StormClusterGateway>;
     /**
      * Specifies the Azure Region which this HDInsight Storm Cluster should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * A `metastores` block as defined below.
      */
-    readonly metastores?: pulumi.Input<inputs.hdinsight.StormClusterMetastores>;
+    metastores?: pulumi.Input<inputs.hdinsight.StormClusterMetastores>;
     /**
      * A `monitor` block as defined below.
      */
-    readonly monitor?: pulumi.Input<inputs.hdinsight.StormClusterMonitor>;
+    monitor?: pulumi.Input<inputs.hdinsight.StormClusterMonitor>;
     /**
      * Specifies the name for this HDInsight Storm Cluster. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the Resource Group in which this HDInsight Storm Cluster should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A `roles` block as defined below.
      */
-    readonly roles: pulumi.Input<inputs.hdinsight.StormClusterRoles>;
+    roles: pulumi.Input<inputs.hdinsight.StormClusterRoles>;
     /**
      * One or more `storageAccount` block as defined below.
      */
-    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.StormClusterStorageAccount>[]>;
+    storageAccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.StormClusterStorageAccount>[]>;
     /**
      * A map of Tags which should be assigned to this HDInsight Storm Cluster.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the Tier which should be used for this HDInsight Storm Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */
-    readonly tier: pulumi.Input<string>;
-    readonly tlsMinVersion?: pulumi.Input<string>;
+    tier: pulumi.Input<string>;
+    tlsMinVersion?: pulumi.Input<string>;
 }

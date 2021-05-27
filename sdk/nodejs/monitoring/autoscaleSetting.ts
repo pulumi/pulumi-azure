@@ -359,35 +359,35 @@ export interface AutoscaleSettingState {
     /**
      * Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the AutoScale Setting. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies a `notification` block as defined below.
      */
-    readonly notification?: pulumi.Input<inputs.monitoring.AutoscaleSettingNotification>;
+    notification?: pulumi.Input<inputs.monitoring.AutoscaleSettingNotification>;
     /**
      * Specifies one or more (up to 20) `profile` blocks as defined below.
      */
-    readonly profiles?: pulumi.Input<pulumi.Input<inputs.monitoring.AutoscaleSettingProfile>[]>;
+    profiles?: pulumi.Input<pulumi.Input<inputs.monitoring.AutoscaleSettingProfile>[]>;
     /**
      * The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the resource ID of the resource that the autoscale setting should be added to.
      */
-    readonly targetResourceId?: pulumi.Input<string>;
+    targetResourceId?: pulumi.Input<string>;
 }
 
 /**
@@ -397,33 +397,33 @@ export interface AutoscaleSettingArgs {
     /**
      * Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the AutoScale Setting. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies a `notification` block as defined below.
      */
-    readonly notification?: pulumi.Input<inputs.monitoring.AutoscaleSettingNotification>;
+    notification?: pulumi.Input<inputs.monitoring.AutoscaleSettingNotification>;
     /**
      * Specifies one or more (up to 20) `profile` blocks as defined below.
      */
-    readonly profiles: pulumi.Input<pulumi.Input<inputs.monitoring.AutoscaleSettingProfile>[]>;
+    profiles: pulumi.Input<pulumi.Input<inputs.monitoring.AutoscaleSettingProfile>[]>;
     /**
      * The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the resource ID of the resource that the autoscale setting should be added to.
      */
-    readonly targetResourceId: pulumi.Input<string>;
+    targetResourceId: pulumi.Input<string>;
 }

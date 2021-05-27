@@ -92,11 +92,11 @@ export interface ServerKeyState {
     /**
      * The URL to a Key Vault Key.
      */
-    readonly keyVaultKeyId?: pulumi.Input<string>;
+    keyVaultKeyId?: pulumi.Input<string>;
     /**
      * The ID of the MySQL Server. Changing this forces a new resource to be created.
      */
-    readonly serverId?: pulumi.Input<string>;
+    serverId?: pulumi.Input<string>;
 }
 
 /**
@@ -106,9 +106,9 @@ export interface ServerKeyArgs {
     /**
      * The URL to a Key Vault Key.
      */
-    readonly keyVaultKeyId: pulumi.Input<string>;
+    keyVaultKeyId: pulumi.Input<string>;
     /**
      * The ID of the MySQL Server. Changing this forces a new resource to be created.
      */
-    readonly serverId: pulumi.Input<string>;
+    serverId: pulumi.Input<string>;
 }

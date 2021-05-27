@@ -178,39 +178,39 @@ export interface OutboundRuleState {
     /**
      * The number of outbound ports to be used for NAT.
      */
-    readonly allocatedOutboundPorts?: pulumi.Input<number>;
+    allocatedOutboundPorts?: pulumi.Input<number>;
     /**
      * The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
      */
-    readonly backendAddressPoolId?: pulumi.Input<string>;
+    backendAddressPoolId?: pulumi.Input<string>;
     /**
      * Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
      */
-    readonly enableTcpReset?: pulumi.Input<boolean>;
+    enableTcpReset?: pulumi.Input<boolean>;
     /**
      * One or more `frontendIpConfiguration` blocks as defined below.
      */
-    readonly frontendIpConfigurations?: pulumi.Input<pulumi.Input<inputs.lb.OutboundRuleFrontendIpConfiguration>[]>;
+    frontendIpConfigurations?: pulumi.Input<pulumi.Input<inputs.lb.OutboundRuleFrontendIpConfiguration>[]>;
     /**
      * The timeout for the TCP idle connection
      */
-    readonly idleTimeoutInMinutes?: pulumi.Input<number>;
+    idleTimeoutInMinutes?: pulumi.Input<number>;
     /**
      * The ID of the Load Balancer in which to create the Outbound Rule. Changing this forces a new resource to be created.
      */
-    readonly loadbalancerId?: pulumi.Input<string>;
+    loadbalancerId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
      */
-    readonly protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -220,37 +220,37 @@ export interface OutboundRuleArgs {
     /**
      * The number of outbound ports to be used for NAT.
      */
-    readonly allocatedOutboundPorts?: pulumi.Input<number>;
+    allocatedOutboundPorts?: pulumi.Input<number>;
     /**
      * The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
      */
-    readonly backendAddressPoolId: pulumi.Input<string>;
+    backendAddressPoolId: pulumi.Input<string>;
     /**
      * Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
      */
-    readonly enableTcpReset?: pulumi.Input<boolean>;
+    enableTcpReset?: pulumi.Input<boolean>;
     /**
      * One or more `frontendIpConfiguration` blocks as defined below.
      */
-    readonly frontendIpConfigurations?: pulumi.Input<pulumi.Input<inputs.lb.OutboundRuleFrontendIpConfiguration>[]>;
+    frontendIpConfigurations?: pulumi.Input<pulumi.Input<inputs.lb.OutboundRuleFrontendIpConfiguration>[]>;
     /**
      * The timeout for the TCP idle connection
      */
-    readonly idleTimeoutInMinutes?: pulumi.Input<number>;
+    idleTimeoutInMinutes?: pulumi.Input<number>;
     /**
      * The ID of the Load Balancer in which to create the Outbound Rule. Changing this forces a new resource to be created.
      */
-    readonly loadbalancerId: pulumi.Input<string>;
+    loadbalancerId: pulumi.Input<string>;
     /**
      * Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
      */
-    readonly protocol: pulumi.Input<string>;
+    protocol: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

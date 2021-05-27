@@ -42,11 +42,11 @@ export interface GetInsightsArgs {
     /**
      * Specifies the name of the Application Insights component.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the name of the resource group the Application Insights component is located in.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

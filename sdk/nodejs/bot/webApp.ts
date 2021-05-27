@@ -177,55 +177,55 @@ export interface WebAppState {
     /**
      * The Application Insights API Key to associate with the Web App Bot.
      */
-    readonly developerAppInsightsApiKey?: pulumi.Input<string>;
+    developerAppInsightsApiKey?: pulumi.Input<string>;
     /**
      * The Application Insights Application ID to associate with the Web App Bot.
      */
-    readonly developerAppInsightsApplicationId?: pulumi.Input<string>;
+    developerAppInsightsApplicationId?: pulumi.Input<string>;
     /**
      * The Application Insights Key to associate with the Web App Bot.
      */
-    readonly developerAppInsightsKey?: pulumi.Input<string>;
+    developerAppInsightsKey?: pulumi.Input<string>;
     /**
      * The name of the Web App Bot will be displayed as. This defaults to `name` if not specified.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The Web App Bot endpoint.
      */
-    readonly endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * A list of LUIS App IDs to associate with the Web App Bot.
      */
-    readonly luisAppIds?: pulumi.Input<pulumi.Input<string>[]>;
+    luisAppIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The LUIS key to associate with the Web App Bot.
      */
-    readonly luisKey?: pulumi.Input<string>;
+    luisKey?: pulumi.Input<string>;
     /**
      * The Microsoft Application ID for the Web App Bot. Changing this forces a new resource to be created.
      */
-    readonly microsoftAppId?: pulumi.Input<string>;
+    microsoftAppId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Web App Bot. Changing this forces a new resource to be created. Must be globally unique.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Web App Bot. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The SKU of the Web App Bot. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
      */
-    readonly sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -235,53 +235,53 @@ export interface WebAppArgs {
     /**
      * The Application Insights API Key to associate with the Web App Bot.
      */
-    readonly developerAppInsightsApiKey?: pulumi.Input<string>;
+    developerAppInsightsApiKey?: pulumi.Input<string>;
     /**
      * The Application Insights Application ID to associate with the Web App Bot.
      */
-    readonly developerAppInsightsApplicationId?: pulumi.Input<string>;
+    developerAppInsightsApplicationId?: pulumi.Input<string>;
     /**
      * The Application Insights Key to associate with the Web App Bot.
      */
-    readonly developerAppInsightsKey?: pulumi.Input<string>;
+    developerAppInsightsKey?: pulumi.Input<string>;
     /**
      * The name of the Web App Bot will be displayed as. This defaults to `name` if not specified.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The Web App Bot endpoint.
      */
-    readonly endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * A list of LUIS App IDs to associate with the Web App Bot.
      */
-    readonly luisAppIds?: pulumi.Input<pulumi.Input<string>[]>;
+    luisAppIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The LUIS key to associate with the Web App Bot.
      */
-    readonly luisKey?: pulumi.Input<string>;
+    luisKey?: pulumi.Input<string>;
     /**
      * The Microsoft Application ID for the Web App Bot. Changing this forces a new resource to be created.
      */
-    readonly microsoftAppId: pulumi.Input<string>;
+    microsoftAppId: pulumi.Input<string>;
     /**
      * Specifies the name of the Web App Bot. Changing this forces a new resource to be created. Must be globally unique.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Web App Bot. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The SKU of the Web App Bot. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
      */
-    readonly sku: pulumi.Input<string>;
+    sku: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

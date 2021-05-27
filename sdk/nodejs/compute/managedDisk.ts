@@ -253,83 +253,83 @@ export interface ManagedDiskState {
     /**
      * The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `sourceUri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `sourceResourceId`), `FromImage` (Copy a Platform Image, specified with `imageReferenceId`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `sourceResourceId`).
      */
-    readonly createOption?: pulumi.Input<string>;
+    createOption?: pulumi.Input<string>;
     /**
      * The ID of the disk access resource for using private endpoints on disks.
      */
-    readonly diskAccessId?: pulumi.Input<string>;
+    diskAccessId?: pulumi.Input<string>;
     /**
      * The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
      */
-    readonly diskEncryptionSetId?: pulumi.Input<string>;
+    diskEncryptionSetId?: pulumi.Input<string>;
     /**
      * The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
      */
-    readonly diskIopsReadWrite?: pulumi.Input<number>;
+    diskIopsReadWrite?: pulumi.Input<number>;
     /**
      * The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
      */
-    readonly diskMbpsReadWrite?: pulumi.Input<number>;
+    diskMbpsReadWrite?: pulumi.Input<number>;
     /**
      * Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
      */
-    readonly diskSizeGb?: pulumi.Input<number>;
+    diskSizeGb?: pulumi.Input<number>;
     /**
      * A `encryptionSettings` block as defined below.
      */
-    readonly encryptionSettings?: pulumi.Input<inputs.compute.ManagedDiskEncryptionSettings>;
+    encryptionSettings?: pulumi.Input<inputs.compute.ManagedDiskEncryptionSettings>;
     /**
      * ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`.
      */
-    readonly imageReferenceId?: pulumi.Input<string>;
+    imageReferenceId?: pulumi.Input<string>;
     /**
      * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
      */
-    readonly networkAccessPolicy?: pulumi.Input<string>;
+    networkAccessPolicy?: pulumi.Input<string>;
     /**
      * Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
      */
-    readonly osType?: pulumi.Input<string>;
+    osType?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Managed Disk should exist.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The ID of an existing Managed Disk to copy `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
      */
-    readonly sourceResourceId?: pulumi.Input<string>;
+    sourceResourceId?: pulumi.Input<string>;
     /**
      * URI to a valid VHD file to be used when `createOption` is `Import`.
      */
-    readonly sourceUri?: pulumi.Input<string>;
+    sourceUri?: pulumi.Input<string>;
     /**
      * The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.  Changing this forces a new resource to be created.
      */
-    readonly storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string>;
     /**
      * The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
      */
-    readonly storageAccountType?: pulumi.Input<string>;
+    storageAccountType?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
      */
-    readonly tier?: pulumi.Input<string>;
+    tier?: pulumi.Input<string>;
     /**
      * A collection containing the availability zone to allocate the Managed Disk in.
      */
-    readonly zones?: pulumi.Input<string>;
+    zones?: pulumi.Input<string>;
 }
 
 /**
@@ -339,81 +339,81 @@ export interface ManagedDiskArgs {
     /**
      * The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include `Import` (Import a VHD file in to the managed disk (VHD specified with `sourceUri`), `Empty` (Create an empty managed disk), `Copy` (Copy an existing managed disk or snapshot, specified with `sourceResourceId`), `FromImage` (Copy a Platform Image, specified with `imageReferenceId`), `Restore` (Set by Azure Backup or Site Recovery on a restored disk, specified with `sourceResourceId`).
      */
-    readonly createOption: pulumi.Input<string>;
+    createOption: pulumi.Input<string>;
     /**
      * The ID of the disk access resource for using private endpoints on disks.
      */
-    readonly diskAccessId?: pulumi.Input<string>;
+    diskAccessId?: pulumi.Input<string>;
     /**
      * The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk.
      */
-    readonly diskEncryptionSetId?: pulumi.Input<string>;
+    diskEncryptionSetId?: pulumi.Input<string>;
     /**
      * The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
      */
-    readonly diskIopsReadWrite?: pulumi.Input<number>;
+    diskIopsReadWrite?: pulumi.Input<number>;
     /**
      * The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second.
      */
-    readonly diskMbpsReadWrite?: pulumi.Input<number>;
+    diskMbpsReadWrite?: pulumi.Input<number>;
     /**
      * Specifies the size of the managed disk to create in gigabytes. If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased.
      */
-    readonly diskSizeGb?: pulumi.Input<number>;
+    diskSizeGb?: pulumi.Input<number>;
     /**
      * A `encryptionSettings` block as defined below.
      */
-    readonly encryptionSettings?: pulumi.Input<inputs.compute.ManagedDiskEncryptionSettings>;
+    encryptionSettings?: pulumi.Input<inputs.compute.ManagedDiskEncryptionSettings>;
     /**
      * ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`.
      */
-    readonly imageReferenceId?: pulumi.Input<string>;
+    imageReferenceId?: pulumi.Input<string>;
     /**
      * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
      */
-    readonly networkAccessPolicy?: pulumi.Input<string>;
+    networkAccessPolicy?: pulumi.Input<string>;
     /**
      * Specify a value when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
      */
-    readonly osType?: pulumi.Input<string>;
+    osType?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Managed Disk should exist.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The ID of an existing Managed Disk to copy `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`
      */
-    readonly sourceResourceId?: pulumi.Input<string>;
+    sourceResourceId?: pulumi.Input<string>;
     /**
      * URI to a valid VHD file to be used when `createOption` is `Import`.
      */
-    readonly sourceUri?: pulumi.Input<string>;
+    sourceUri?: pulumi.Input<string>;
     /**
      * The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import`.  Changing this forces a new resource to be created.
      */
-    readonly storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string>;
     /**
      * The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
      */
-    readonly storageAccountType: pulumi.Input<string>;
+    storageAccountType: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs.
      */
-    readonly tier?: pulumi.Input<string>;
+    tier?: pulumi.Input<string>;
     /**
      * A collection containing the availability zone to allocate the Managed Disk in.
      */
-    readonly zones?: pulumi.Input<string>;
+    zones?: pulumi.Input<string>;
 }

@@ -42,11 +42,11 @@ export interface GetStoreArgs {
     /**
      * The name of the Data Lake Store.
      */
-    readonly name: string;
+    name: string;
     /**
      * The Name of the Resource Group where the Data Lake Store exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

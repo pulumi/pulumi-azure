@@ -47,11 +47,11 @@ export interface GetBackendAddressPoolArgs {
     /**
      * The ID of the Load Balancer in which the Backend Address Pool exists.
      */
-    readonly loadbalancerId: string;
+    loadbalancerId: string;
     /**
      * Specifies the name of the Backend Address Pool.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

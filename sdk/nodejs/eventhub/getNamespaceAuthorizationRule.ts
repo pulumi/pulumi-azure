@@ -44,15 +44,15 @@ export interface GetNamespaceAuthorizationRuleArgs {
     /**
      * The name of the EventHub Authorization Rule resource.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the name of the EventHub Namespace.
      */
-    readonly namespaceName: string;
+    namespaceName: string;
     /**
      * The name of the resource group in which the EventHub Namespace exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -42,11 +42,11 @@ export interface GetConfigurationArgs {
     /**
      * Specifies the name of the Maintenance Configuration.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the name of the Resource Group where this Maintenance Configuration exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

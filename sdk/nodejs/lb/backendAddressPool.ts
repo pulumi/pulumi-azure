@@ -145,31 +145,31 @@ export interface BackendAddressPoolState {
     /**
      * @deprecated This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.
      */
-    readonly backendAddresses?: pulumi.Input<pulumi.Input<inputs.lb.BackendAddressPoolBackendAddress>[]>;
+    backendAddresses?: pulumi.Input<pulumi.Input<inputs.lb.BackendAddressPoolBackendAddress>[]>;
     /**
      * The Backend IP Configurations associated with this Backend Address Pool.
      */
-    readonly backendIpConfigurations?: pulumi.Input<pulumi.Input<string>[]>;
+    backendIpConfigurations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Load Balancing Rules associated with this Backend Address Pool.
      */
-    readonly loadBalancingRules?: pulumi.Input<pulumi.Input<string>[]>;
+    loadBalancingRules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the Load Balancer in which to create the Backend Address Pool.
      */
-    readonly loadbalancerId?: pulumi.Input<string>;
+    loadbalancerId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Backend Address Pool.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * An array of the Load Balancing Outbound Rules associated with this Backend Address Pool.
      */
-    readonly outboundRules?: pulumi.Input<pulumi.Input<string>[]>;
+    outboundRules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -179,17 +179,17 @@ export interface BackendAddressPoolArgs {
     /**
      * @deprecated This field is non-functional and will be removed in version 3.0 of the Azure Provider - use the separate `azurerm_lb_backend_address_pool_address` resource instead.
      */
-    readonly backendAddresses?: pulumi.Input<pulumi.Input<inputs.lb.BackendAddressPoolBackendAddress>[]>;
+    backendAddresses?: pulumi.Input<pulumi.Input<inputs.lb.BackendAddressPoolBackendAddress>[]>;
     /**
      * The ID of the Load Balancer in which to create the Backend Address Pool.
      */
-    readonly loadbalancerId: pulumi.Input<string>;
+    loadbalancerId: pulumi.Input<string>;
     /**
      * Specifies the name of the Backend Address Pool.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }

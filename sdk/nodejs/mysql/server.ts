@@ -253,99 +253,99 @@ export interface ServerState {
     /**
      * The Administrator Login for the MySQL Server. Required when `createMode` is `Default`. Changing this forces a new resource to be created.
      */
-    readonly administratorLogin?: pulumi.Input<string>;
+    administratorLogin?: pulumi.Input<string>;
     /**
      * The Password associated with the `administratorLogin` for the MySQL Server. Required when `createMode` is `Default`.
      */
-    readonly administratorLoginPassword?: pulumi.Input<string>;
+    administratorLoginPassword?: pulumi.Input<string>;
     /**
      * Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
      */
-    readonly autoGrowEnabled?: pulumi.Input<boolean>;
+    autoGrowEnabled?: pulumi.Input<boolean>;
     /**
      * Backup retention days for the server, supported values are between `7` and `35` days.
      */
-    readonly backupRetentionDays?: pulumi.Input<number>;
+    backupRetentionDays?: pulumi.Input<number>;
     /**
      * The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default`.
      */
-    readonly createMode?: pulumi.Input<string>;
+    createMode?: pulumi.Input<string>;
     /**
      * For creation modes other than `Default`, the source server ID to use.
      */
-    readonly creationSourceServerId?: pulumi.Input<string>;
+    creationSourceServerId?: pulumi.Input<string>;
     /**
      * The FQDN of the MySQL Server.
      */
-    readonly fqdn?: pulumi.Input<string>;
+    fqdn?: pulumi.Input<string>;
     /**
      * Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not supported for the Basic tier.
      */
-    readonly geoRedundantBackupEnabled?: pulumi.Input<boolean>;
+    geoRedundantBackupEnabled?: pulumi.Input<boolean>;
     /**
      * An `identity` block as defined below.
      */
-    readonly identity?: pulumi.Input<inputs.mysql.ServerIdentity>;
+    identity?: pulumi.Input<inputs.mysql.ServerIdentity>;
     /**
      * Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
      */
-    readonly infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
+    infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the MySQL Server. Changing this forces a new resource to be created. This needs to be globally unique within Azure.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Whether or not public network access is allowed for this server. Defaults to `true`.
      */
-    readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the MySQL Server. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * When `createMode` is `PointInTimeRestore`, specifies the point in time to restore from `creationSourceServerId`.
      */
-    readonly restorePointInTime?: pulumi.Input<string>;
+    restorePointInTime?: pulumi.Input<string>;
     /**
      * Specifies the SKU Name for this MySQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#sku).
      */
-    readonly skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string>;
     /**
      * @deprecated this has been moved to the boolean attribute `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.
      */
-    readonly sslEnforcement?: pulumi.Input<string>;
+    sslEnforcement?: pulumi.Input<string>;
     /**
      * Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
      */
-    readonly sslEnforcementEnabled?: pulumi.Input<boolean>;
+    sslEnforcementEnabled?: pulumi.Input<boolean>;
     /**
      * The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
      */
-    readonly sslMinimalTlsVersionEnforced?: pulumi.Input<string>;
+    sslMinimalTlsVersionEnforced?: pulumi.Input<string>;
     /**
      * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
      */
-    readonly storageMb?: pulumi.Input<number>;
+    storageMb?: pulumi.Input<number>;
     /**
      * @deprecated all storage_profile properties have been moved to the top level. This block will be removed in version 3.0 of the provider.
      */
-    readonly storageProfile?: pulumi.Input<inputs.mysql.ServerStorageProfile>;
+    storageProfile?: pulumi.Input<inputs.mysql.ServerStorageProfile>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threatDetectionPolicy` block supports fields documented below.
      */
-    readonly threatDetectionPolicy?: pulumi.Input<inputs.mysql.ServerThreatDetectionPolicy>;
+    threatDetectionPolicy?: pulumi.Input<inputs.mysql.ServerThreatDetectionPolicy>;
     /**
      * Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
 }
 
 /**
@@ -355,93 +355,93 @@ export interface ServerArgs {
     /**
      * The Administrator Login for the MySQL Server. Required when `createMode` is `Default`. Changing this forces a new resource to be created.
      */
-    readonly administratorLogin?: pulumi.Input<string>;
+    administratorLogin?: pulumi.Input<string>;
     /**
      * The Password associated with the `administratorLogin` for the MySQL Server. Required when `createMode` is `Default`.
      */
-    readonly administratorLoginPassword?: pulumi.Input<string>;
+    administratorLoginPassword?: pulumi.Input<string>;
     /**
      * Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
      */
-    readonly autoGrowEnabled?: pulumi.Input<boolean>;
+    autoGrowEnabled?: pulumi.Input<boolean>;
     /**
      * Backup retention days for the server, supported values are between `7` and `35` days.
      */
-    readonly backupRetentionDays?: pulumi.Input<number>;
+    backupRetentionDays?: pulumi.Input<number>;
     /**
      * The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default`.
      */
-    readonly createMode?: pulumi.Input<string>;
+    createMode?: pulumi.Input<string>;
     /**
      * For creation modes other than `Default`, the source server ID to use.
      */
-    readonly creationSourceServerId?: pulumi.Input<string>;
+    creationSourceServerId?: pulumi.Input<string>;
     /**
      * Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not supported for the Basic tier.
      */
-    readonly geoRedundantBackupEnabled?: pulumi.Input<boolean>;
+    geoRedundantBackupEnabled?: pulumi.Input<boolean>;
     /**
      * An `identity` block as defined below.
      */
-    readonly identity?: pulumi.Input<inputs.mysql.ServerIdentity>;
+    identity?: pulumi.Input<inputs.mysql.ServerIdentity>;
     /**
      * Whether or not infrastructure is encrypted for this server. Defaults to `false`. Changing this forces a new resource to be created.
      */
-    readonly infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
+    infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the MySQL Server. Changing this forces a new resource to be created. This needs to be globally unique within Azure.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Whether or not public network access is allowed for this server. Defaults to `true`.
      */
-    readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the MySQL Server. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * When `createMode` is `PointInTimeRestore`, specifies the point in time to restore from `creationSourceServerId`.
      */
-    readonly restorePointInTime?: pulumi.Input<string>;
+    restorePointInTime?: pulumi.Input<string>;
     /**
      * Specifies the SKU Name for this MySQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#sku).
      */
-    readonly skuName: pulumi.Input<string>;
+    skuName: pulumi.Input<string>;
     /**
      * @deprecated this has been moved to the boolean attribute `ssl_enforcement_enabled` and will be removed in version 3.0 of the provider.
      */
-    readonly sslEnforcement?: pulumi.Input<string>;
+    sslEnforcement?: pulumi.Input<string>;
     /**
      * Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
      */
-    readonly sslEnforcementEnabled?: pulumi.Input<boolean>;
+    sslEnforcementEnabled?: pulumi.Input<boolean>;
     /**
      * The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLSEnforcementDisabled`.
      */
-    readonly sslMinimalTlsVersionEnforced?: pulumi.Input<string>;
+    sslMinimalTlsVersionEnforced?: pulumi.Input<string>;
     /**
      * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#StorageProfile).
      */
-    readonly storageMb?: pulumi.Input<number>;
+    storageMb?: pulumi.Input<number>;
     /**
      * @deprecated all storage_profile properties have been moved to the top level. This block will be removed in version 3.0 of the provider.
      */
-    readonly storageProfile?: pulumi.Input<inputs.mysql.ServerStorageProfile>;
+    storageProfile?: pulumi.Input<inputs.mysql.ServerStorageProfile>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threatDetectionPolicy` block supports fields documented below.
      */
-    readonly threatDetectionPolicy?: pulumi.Input<inputs.mysql.ServerThreatDetectionPolicy>;
+    threatDetectionPolicy?: pulumi.Input<inputs.mysql.ServerThreatDetectionPolicy>;
     /**
      * Specifies the version of MySQL to use. Valid values are `5.6`, `5.7`, and `8.0`. Changing this forces a new resource to be created.
      */
-    readonly version: pulumi.Input<string>;
+    version: pulumi.Input<string>;
 }

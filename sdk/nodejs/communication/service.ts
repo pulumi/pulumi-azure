@@ -114,19 +114,19 @@ export interface ServiceState {
     /**
      * The location where the Communication service stores its data at rest. Possible values are `Asia Pacific`, `Australia`, `Europe`, `UK` and `United States`. Defaults to `United States`.
      */
-    readonly dataLocation?: pulumi.Input<string>;
+    dataLocation?: pulumi.Input<string>;
     /**
      * The name of the Communication Service resource. Changing this forces a new Communication Service to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Communication Service should exist. Changing this forces a new Communication Service to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Communication Service.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -136,17 +136,17 @@ export interface ServiceArgs {
     /**
      * The location where the Communication service stores its data at rest. Possible values are `Asia Pacific`, `Australia`, `Europe`, `UK` and `United States`. Defaults to `United States`.
      */
-    readonly dataLocation?: pulumi.Input<string>;
+    dataLocation?: pulumi.Input<string>;
     /**
      * The name of the Communication Service resource. Changing this forces a new Communication Service to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Communication Service should exist. Changing this forces a new Communication Service to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Communication Service.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

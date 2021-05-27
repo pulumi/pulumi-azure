@@ -163,35 +163,35 @@ export interface OpenIdConnectProviderState {
     /**
      * The name of the API Management Service in which this OpenID Connect Provider should be created. Changing this forces a new resource to be created.
      */
-    readonly apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string>;
     /**
      * The Client ID used for the Client Application.
      */
-    readonly clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string>;
     /**
      * The Client Secret used for the Client Application.
      */
-    readonly clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string>;
     /**
      * A description of this OpenID Connect Provider.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A user-friendly name for this OpenID Connect Provider.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The URI of the Metadata endpoint.
      */
-    readonly metadataEndpoint?: pulumi.Input<string>;
+    metadataEndpoint?: pulumi.Input<string>;
     /**
      * the Name of the OpenID Connect Provider which should be created within the API Management Service. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -201,33 +201,33 @@ export interface OpenIdConnectProviderArgs {
     /**
      * The name of the API Management Service in which this OpenID Connect Provider should be created. Changing this forces a new resource to be created.
      */
-    readonly apiManagementName: pulumi.Input<string>;
+    apiManagementName: pulumi.Input<string>;
     /**
      * The Client ID used for the Client Application.
      */
-    readonly clientId: pulumi.Input<string>;
+    clientId: pulumi.Input<string>;
     /**
      * The Client Secret used for the Client Application.
      */
-    readonly clientSecret: pulumi.Input<string>;
+    clientSecret: pulumi.Input<string>;
     /**
      * A description of this OpenID Connect Provider.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A user-friendly name for this OpenID Connect Provider.
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * The URI of the Metadata endpoint.
      */
-    readonly metadataEndpoint: pulumi.Input<string>;
+    metadataEndpoint: pulumi.Input<string>;
     /**
      * the Name of the OpenID Connect Provider which should be created within the API Management Service. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

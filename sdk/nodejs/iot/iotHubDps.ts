@@ -158,43 +158,43 @@ export interface IotHubDpsState {
     /**
      * The allocation policy of the IoT Device Provisioning Service.
      */
-    readonly allocationPolicy?: pulumi.Input<string>;
+    allocationPolicy?: pulumi.Input<string>;
     /**
      * The device endpoint of the IoT Device Provisioning Service.
      */
-    readonly deviceProvisioningHostName?: pulumi.Input<string>;
+    deviceProvisioningHostName?: pulumi.Input<string>;
     /**
      * The unique identifier of the IoT Device Provisioning Service.
      */
-    readonly idScope?: pulumi.Input<string>;
+    idScope?: pulumi.Input<string>;
     /**
      * A `linkedHub` block as defined below.
      */
-    readonly linkedHubs?: pulumi.Input<pulumi.Input<inputs.iot.IotHubDpsLinkedHub>[]>;
+    linkedHubs?: pulumi.Input<pulumi.Input<inputs.iot.IotHubDpsLinkedHub>[]>;
     /**
      * Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The service endpoint of the IoT Device Provisioning Service.
      */
-    readonly serviceOperationsHostName?: pulumi.Input<string>;
+    serviceOperationsHostName?: pulumi.Input<string>;
     /**
      * A `sku` block as defined below.
      */
-    readonly sku?: pulumi.Input<inputs.iot.IotHubDpsSku>;
+    sku?: pulumi.Input<inputs.iot.IotHubDpsSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -204,25 +204,25 @@ export interface IotHubDpsArgs {
     /**
      * A `linkedHub` block as defined below.
      */
-    readonly linkedHubs?: pulumi.Input<pulumi.Input<inputs.iot.IotHubDpsLinkedHub>[]>;
+    linkedHubs?: pulumi.Input<pulumi.Input<inputs.iot.IotHubDpsLinkedHub>[]>;
     /**
      * Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A `sku` block as defined below.
      */
-    readonly sku: pulumi.Input<inputs.iot.IotHubDpsSku>;
+    sku: pulumi.Input<inputs.iot.IotHubDpsSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

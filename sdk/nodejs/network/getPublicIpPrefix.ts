@@ -44,12 +44,12 @@ export interface GetPublicIpPrefixArgs {
     /**
      * Specifies the name of the public IP prefix.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the name of the resource group.
      */
-    readonly resourceGroupName: string;
-    readonly zones?: string[];
+    resourceGroupName: string;
+    zones?: string[];
 }
 
 /**

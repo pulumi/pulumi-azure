@@ -148,23 +148,23 @@ export interface EndpointServicebusState {
     /**
      * The storage secret of the dead-lettering, whose format is `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
      */
-    readonly deadLetterStorageSecret?: pulumi.Input<string>;
+    deadLetterStorageSecret?: pulumi.Input<string>;
     /**
      * The ID of the Digital Twins Instance. Changing this forces a new Digital Twins Service Bus Endpoint to be created.
      */
-    readonly digitalTwinsId?: pulumi.Input<string>;
+    digitalTwinsId?: pulumi.Input<string>;
     /**
      * The name which should be used for this Digital Twins Service Bus Endpoint. Changing this forces a new Digital Twins Service Bus Endpoint to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The primary connection string of the Service Bus Topic Authorization Rule with a minimum of `send` permission. .
      */
-    readonly servicebusPrimaryConnectionString?: pulumi.Input<string>;
+    servicebusPrimaryConnectionString?: pulumi.Input<string>;
     /**
      * The secondary connection string of the Service Bus Topic Authorization Rule with a minimum of `send` permission.
      */
-    readonly servicebusSecondaryConnectionString?: pulumi.Input<string>;
+    servicebusSecondaryConnectionString?: pulumi.Input<string>;
 }
 
 /**
@@ -174,21 +174,21 @@ export interface EndpointServicebusArgs {
     /**
      * The storage secret of the dead-lettering, whose format is `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
      */
-    readonly deadLetterStorageSecret?: pulumi.Input<string>;
+    deadLetterStorageSecret?: pulumi.Input<string>;
     /**
      * The ID of the Digital Twins Instance. Changing this forces a new Digital Twins Service Bus Endpoint to be created.
      */
-    readonly digitalTwinsId: pulumi.Input<string>;
+    digitalTwinsId: pulumi.Input<string>;
     /**
      * The name which should be used for this Digital Twins Service Bus Endpoint. Changing this forces a new Digital Twins Service Bus Endpoint to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The primary connection string of the Service Bus Topic Authorization Rule with a minimum of `send` permission. .
      */
-    readonly servicebusPrimaryConnectionString: pulumi.Input<string>;
+    servicebusPrimaryConnectionString: pulumi.Input<string>;
     /**
      * The secondary connection string of the Service Bus Topic Authorization Rule with a minimum of `send` permission.
      */
-    readonly servicebusSecondaryConnectionString: pulumi.Input<string>;
+    servicebusSecondaryConnectionString: pulumi.Input<string>;
 }

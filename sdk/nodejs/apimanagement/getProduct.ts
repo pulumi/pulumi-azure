@@ -44,15 +44,15 @@ export interface GetProductArgs {
     /**
      * The Name of the API Management Service in which this Product exists.
      */
-    readonly apiManagementName: string;
+    apiManagementName: string;
     /**
      * The Identifier for the API Management Product.
      */
-    readonly productId: string;
+    productId: string;
     /**
      * The Name of the Resource Group in which the API Management Service exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -175,31 +175,31 @@ export interface StreamingPolicyState {
     /**
      * A `commonEncryptionCbcs` block as defined below. Changing this forces a new Streaming Policy to be created.
      */
-    readonly commonEncryptionCbcs?: pulumi.Input<inputs.media.StreamingPolicyCommonEncryptionCbcs>;
+    commonEncryptionCbcs?: pulumi.Input<inputs.media.StreamingPolicyCommonEncryptionCbcs>;
     /**
      * A `commonEncryptionCenc` block as defined below. Changing this forces a new Streaming Policy to be created.
      */
-    readonly commonEncryptionCenc?: pulumi.Input<inputs.media.StreamingPolicyCommonEncryptionCenc>;
+    commonEncryptionCenc?: pulumi.Input<inputs.media.StreamingPolicyCommonEncryptionCenc>;
     /**
      * Default Content Key used by current Streaming Policy. Changing this forces a new Streaming Policy to be created.
      */
-    readonly defaultContentKeyPolicyName?: pulumi.Input<string>;
+    defaultContentKeyPolicyName?: pulumi.Input<string>;
     /**
      * The Media Services account name. Changing this forces a new Streaming Policy to be created.
      */
-    readonly mediaServicesAccountName?: pulumi.Input<string>;
+    mediaServicesAccountName?: pulumi.Input<string>;
     /**
      * The name which should be used for this Streaming Policy. Changing this forces a new Streaming Policy to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `noEncryptionEnabledProtocols` block as defined below. Changing this forces a new Streaming Policy to be created.
      */
-    readonly noEncryptionEnabledProtocols?: pulumi.Input<inputs.media.StreamingPolicyNoEncryptionEnabledProtocols>;
+    noEncryptionEnabledProtocols?: pulumi.Input<inputs.media.StreamingPolicyNoEncryptionEnabledProtocols>;
     /**
      * The name of the Resource Group where the Streaming Policy should exist. Changing this forces a new Streaming Policy to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -209,29 +209,29 @@ export interface StreamingPolicyArgs {
     /**
      * A `commonEncryptionCbcs` block as defined below. Changing this forces a new Streaming Policy to be created.
      */
-    readonly commonEncryptionCbcs?: pulumi.Input<inputs.media.StreamingPolicyCommonEncryptionCbcs>;
+    commonEncryptionCbcs?: pulumi.Input<inputs.media.StreamingPolicyCommonEncryptionCbcs>;
     /**
      * A `commonEncryptionCenc` block as defined below. Changing this forces a new Streaming Policy to be created.
      */
-    readonly commonEncryptionCenc?: pulumi.Input<inputs.media.StreamingPolicyCommonEncryptionCenc>;
+    commonEncryptionCenc?: pulumi.Input<inputs.media.StreamingPolicyCommonEncryptionCenc>;
     /**
      * Default Content Key used by current Streaming Policy. Changing this forces a new Streaming Policy to be created.
      */
-    readonly defaultContentKeyPolicyName?: pulumi.Input<string>;
+    defaultContentKeyPolicyName?: pulumi.Input<string>;
     /**
      * The Media Services account name. Changing this forces a new Streaming Policy to be created.
      */
-    readonly mediaServicesAccountName: pulumi.Input<string>;
+    mediaServicesAccountName: pulumi.Input<string>;
     /**
      * The name which should be used for this Streaming Policy. Changing this forces a new Streaming Policy to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `noEncryptionEnabledProtocols` block as defined below. Changing this forces a new Streaming Policy to be created.
      */
-    readonly noEncryptionEnabledProtocols?: pulumi.Input<inputs.media.StreamingPolicyNoEncryptionEnabledProtocols>;
+    noEncryptionEnabledProtocols?: pulumi.Input<inputs.media.StreamingPolicyNoEncryptionEnabledProtocols>;
     /**
      * The name of the Resource Group where the Streaming Policy should exist. Changing this forces a new Streaming Policy to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

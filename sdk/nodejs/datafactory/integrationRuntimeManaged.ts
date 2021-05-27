@@ -183,55 +183,55 @@ export interface IntegrationRuntimeManagedState {
     /**
      * A `catalogInfo` block as defined below.
      */
-    readonly catalogInfo?: pulumi.Input<inputs.datafactory.IntegrationRuntimeManagedCatalogInfo>;
+    catalogInfo?: pulumi.Input<inputs.datafactory.IntegrationRuntimeManagedCatalogInfo>;
     /**
      * A `customSetupScript` block as defined below.
      */
-    readonly customSetupScript?: pulumi.Input<inputs.datafactory.IntegrationRuntimeManagedCustomSetupScript>;
+    customSetupScript?: pulumi.Input<inputs.datafactory.IntegrationRuntimeManagedCustomSetupScript>;
     /**
      * Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
      */
-    readonly dataFactoryName?: pulumi.Input<string>;
+    dataFactoryName?: pulumi.Input<string>;
     /**
      * Integration runtime description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
      */
-    readonly edition?: pulumi.Input<string>;
+    edition?: pulumi.Input<string>;
     /**
      * The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
      */
-    readonly licenseType?: pulumi.Input<string>;
+    licenseType?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
      */
-    readonly maxParallelExecutionsPerNode?: pulumi.Input<number>;
+    maxParallelExecutionsPerNode?: pulumi.Input<number>;
     /**
      * Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The size of the nodes on which the Managed Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
      */
-    readonly nodeSize?: pulumi.Input<string>;
+    nodeSize?: pulumi.Input<string>;
     /**
      * Number of nodes for the Managed Integration Runtime. Max is `10`. Defaults to `1`.
      */
-    readonly numberOfNodes?: pulumi.Input<number>;
+    numberOfNodes?: pulumi.Input<number>;
     /**
      * The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A `vnetIntegration` block as defined below.
      */
-    readonly vnetIntegration?: pulumi.Input<inputs.datafactory.IntegrationRuntimeManagedVnetIntegration>;
+    vnetIntegration?: pulumi.Input<inputs.datafactory.IntegrationRuntimeManagedVnetIntegration>;
 }
 
 /**
@@ -241,53 +241,53 @@ export interface IntegrationRuntimeManagedArgs {
     /**
      * A `catalogInfo` block as defined below.
      */
-    readonly catalogInfo?: pulumi.Input<inputs.datafactory.IntegrationRuntimeManagedCatalogInfo>;
+    catalogInfo?: pulumi.Input<inputs.datafactory.IntegrationRuntimeManagedCatalogInfo>;
     /**
      * A `customSetupScript` block as defined below.
      */
-    readonly customSetupScript?: pulumi.Input<inputs.datafactory.IntegrationRuntimeManagedCustomSetupScript>;
+    customSetupScript?: pulumi.Input<inputs.datafactory.IntegrationRuntimeManagedCustomSetupScript>;
     /**
      * Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
      */
-    readonly dataFactoryName: pulumi.Input<string>;
+    dataFactoryName: pulumi.Input<string>;
     /**
      * Integration runtime description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
      */
-    readonly edition?: pulumi.Input<string>;
+    edition?: pulumi.Input<string>;
     /**
      * The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrize`. Defaults to `LicenseIncluded`.
      */
-    readonly licenseType?: pulumi.Input<string>;
+    licenseType?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
      */
-    readonly maxParallelExecutionsPerNode?: pulumi.Input<number>;
+    maxParallelExecutionsPerNode?: pulumi.Input<number>;
     /**
      * Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The size of the nodes on which the Managed Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
      */
-    readonly nodeSize: pulumi.Input<string>;
+    nodeSize: pulumi.Input<string>;
     /**
      * Number of nodes for the Managed Integration Runtime. Max is `10`. Defaults to `1`.
      */
-    readonly numberOfNodes?: pulumi.Input<number>;
+    numberOfNodes?: pulumi.Input<number>;
     /**
      * The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A `vnetIntegration` block as defined below.
      */
-    readonly vnetIntegration?: pulumi.Input<inputs.datafactory.IntegrationRuntimeManagedVnetIntegration>;
+    vnetIntegration?: pulumi.Input<inputs.datafactory.IntegrationRuntimeManagedVnetIntegration>;
 }

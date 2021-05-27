@@ -108,11 +108,11 @@ export interface SettingState {
     /**
      * Boolean flag to enable/disable data access.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The setting to manage. Possible values are `MCAS` and `WDATP`.
      */
-    readonly settingName?: pulumi.Input<string>;
+    settingName?: pulumi.Input<string>;
 }
 
 /**
@@ -122,9 +122,9 @@ export interface SettingArgs {
     /**
      * Boolean flag to enable/disable data access.
      */
-    readonly enabled: pulumi.Input<boolean>;
+    enabled: pulumi.Input<boolean>;
     /**
      * The setting to manage. Possible values are `MCAS` and `WDATP`.
      */
-    readonly settingName: pulumi.Input<string>;
+    settingName: pulumi.Input<string>;
 }

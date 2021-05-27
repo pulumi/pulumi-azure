@@ -75,16 +75,16 @@ export class SqlFunction extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SqlFunction resources.
  */
 export interface SqlFunctionState {
-    readonly body?: pulumi.Input<string>;
-    readonly containerId?: pulumi.Input<string>;
-    readonly name?: pulumi.Input<string>;
+    body?: pulumi.Input<string>;
+    containerId?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a SqlFunction resource.
  */
 export interface SqlFunctionArgs {
-    readonly body: pulumi.Input<string>;
-    readonly containerId: pulumi.Input<string>;
-    readonly name?: pulumi.Input<string>;
+    body: pulumi.Input<string>;
+    containerId: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

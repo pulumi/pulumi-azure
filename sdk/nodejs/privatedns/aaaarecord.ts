@@ -144,28 +144,28 @@ export interface AAAARecordState {
     /**
      * The FQDN of the DNS AAAA Record.
      */
-    readonly fqdn?: pulumi.Input<string>;
+    fqdn?: pulumi.Input<string>;
     /**
      * The name of the DNS A Record.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A list of IPv6 Addresses.
      */
-    readonly records?: pulumi.Input<pulumi.Input<string>[]>;
+    records?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly ttl?: pulumi.Input<number>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    ttl?: pulumi.Input<number>;
     /**
      * Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly zoneName?: pulumi.Input<string>;
+    zoneName?: pulumi.Input<string>;
 }
 
 /**
@@ -175,22 +175,22 @@ export interface AAAARecordArgs {
     /**
      * The name of the DNS A Record.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A list of IPv6 Addresses.
      */
-    readonly records: pulumi.Input<pulumi.Input<string>[]>;
+    records: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly ttl: pulumi.Input<number>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    ttl: pulumi.Input<number>;
     /**
      * Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly zoneName: pulumi.Input<string>;
+    zoneName: pulumi.Input<string>;
 }

@@ -176,43 +176,43 @@ export interface SharedImageVersionState {
     /**
      * Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
      */
-    readonly excludeFromLatest?: pulumi.Input<boolean>;
+    excludeFromLatest?: pulumi.Input<boolean>;
     /**
      * The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
      */
-    readonly galleryName?: pulumi.Input<string>;
+    galleryName?: pulumi.Input<string>;
     /**
      * The name of the Shared Image within the Shared Image Gallery in which this Version should be created. Changing this forces a new resource to be created.
      */
-    readonly imageName?: pulumi.Input<string>;
+    imageName?: pulumi.Input<string>;
     /**
      * The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      */
-    readonly managedImageId?: pulumi.Input<string>;
+    managedImageId?: pulumi.Input<string>;
     /**
      * The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      */
-    readonly osDiskSnapshotId?: pulumi.Input<string>;
+    osDiskSnapshotId?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A collection of tags which should be applied to this resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * One or more `targetRegion` blocks as documented below.
      */
-    readonly targetRegions?: pulumi.Input<pulumi.Input<inputs.compute.SharedImageVersionTargetRegion>[]>;
+    targetRegions?: pulumi.Input<pulumi.Input<inputs.compute.SharedImageVersionTargetRegion>[]>;
 }
 
 /**
@@ -222,41 +222,41 @@ export interface SharedImageVersionArgs {
     /**
      * Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
      */
-    readonly excludeFromLatest?: pulumi.Input<boolean>;
+    excludeFromLatest?: pulumi.Input<boolean>;
     /**
      * The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
      */
-    readonly galleryName: pulumi.Input<string>;
+    galleryName: pulumi.Input<string>;
     /**
      * The name of the Shared Image within the Shared Image Gallery in which this Version should be created. Changing this forces a new resource to be created.
      */
-    readonly imageName: pulumi.Input<string>;
+    imageName: pulumi.Input<string>;
     /**
      * The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      */
-    readonly managedImageId?: pulumi.Input<string>;
+    managedImageId?: pulumi.Input<string>;
     /**
      * The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      */
-    readonly osDiskSnapshotId?: pulumi.Input<string>;
+    osDiskSnapshotId?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A collection of tags which should be applied to this resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * One or more `targetRegion` blocks as documented below.
      */
-    readonly targetRegions: pulumi.Input<pulumi.Input<inputs.compute.SharedImageVersionTargetRegion>[]>;
+    targetRegions: pulumi.Input<pulumi.Input<inputs.compute.SharedImageVersionTargetRegion>[]>;
 }

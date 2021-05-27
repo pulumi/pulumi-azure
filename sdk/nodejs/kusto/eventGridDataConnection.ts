@@ -249,57 +249,57 @@ export interface EventGridDataConnectionState {
      * Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults
      * to `Microsoft.Storage.BlobCreated`.
      */
-    readonly blobStorageEventType?: pulumi.Input<string>;
+    blobStorageEventType?: pulumi.Input<string>;
     /**
      * Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
      */
-    readonly clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     /**
      * Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
      */
-    readonly dataFormat?: pulumi.Input<string>;
+    dataFormat?: pulumi.Input<string>;
     /**
      * Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
      */
-    readonly databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
     /**
      * Specifies the Event Hub consumer group this data connection will use for
      * ingestion. Changing this forces a new resource to be created.
      */
-    readonly eventhubConsumerGroupName?: pulumi.Input<string>;
+    eventhubConsumerGroupName?: pulumi.Input<string>;
     /**
      * Specifies the resource id of the Event Hub this data connection will use for ingestion.
      * Changing this forces a new resource to be created.
      */
-    readonly eventhubId?: pulumi.Input<string>;
+    eventhubId?: pulumi.Input<string>;
     /**
      * The location where the Kusto Database should be created. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
      */
-    readonly mappingRuleName?: pulumi.Input<string>;
+    mappingRuleName?: pulumi.Input<string>;
     /**
      * The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * is the first record of every file ignored? Defaults to `false`.
      */
-    readonly skipFirstRecord?: pulumi.Input<boolean>;
+    skipFirstRecord?: pulumi.Input<boolean>;
     /**
      * Specifies the resource id of the Storage Account this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
-    readonly storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string>;
     /**
      * Specifies the target table name used for the message ingestion. Table must exist before resource is created.
      */
-    readonly tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string>;
 }
 
 /**
@@ -311,55 +311,55 @@ export interface EventGridDataConnectionArgs {
      * Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults
      * to `Microsoft.Storage.BlobCreated`.
      */
-    readonly blobStorageEventType?: pulumi.Input<string>;
+    blobStorageEventType?: pulumi.Input<string>;
     /**
      * Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
      */
-    readonly clusterName: pulumi.Input<string>;
+    clusterName: pulumi.Input<string>;
     /**
      * Specifies the data format of the EventHub messages. Allowed values: `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV` and `TXT`
      */
-    readonly dataFormat?: pulumi.Input<string>;
+    dataFormat?: pulumi.Input<string>;
     /**
      * Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
      */
-    readonly databaseName: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * Specifies the Event Hub consumer group this data connection will use for
      * ingestion. Changing this forces a new resource to be created.
      */
-    readonly eventhubConsumerGroupName: pulumi.Input<string>;
+    eventhubConsumerGroupName: pulumi.Input<string>;
     /**
      * Specifies the resource id of the Event Hub this data connection will use for ingestion.
      * Changing this forces a new resource to be created.
      */
-    readonly eventhubId: pulumi.Input<string>;
+    eventhubId: pulumi.Input<string>;
     /**
      * The location where the Kusto Database should be created. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
      */
-    readonly mappingRuleName?: pulumi.Input<string>;
+    mappingRuleName?: pulumi.Input<string>;
     /**
      * The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * is the first record of every file ignored? Defaults to `false`.
      */
-    readonly skipFirstRecord?: pulumi.Input<boolean>;
+    skipFirstRecord?: pulumi.Input<boolean>;
     /**
      * Specifies the resource id of the Storage Account this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
-    readonly storageAccountId: pulumi.Input<string>;
+    storageAccountId: pulumi.Input<string>;
     /**
      * Specifies the target table name used for the message ingestion. Table must exist before resource is created.
      */
-    readonly tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string>;
 }

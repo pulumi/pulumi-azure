@@ -192,63 +192,63 @@ export interface LinkedServiceAzureBlobStorageState {
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
      */
-    readonly additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service.
      */
-    readonly annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The connection string. Conflicts with `sasUri` and `serviceEndpoint`.
      */
-    readonly connectionString?: pulumi.Input<string>;
+    connectionString?: pulumi.Input<string>;
     /**
      * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    readonly dataFactoryName?: pulumi.Input<string>;
+    dataFactoryName?: pulumi.Input<string>;
     /**
      * The description for the Data Factory Linked Service.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service.
      */
-    readonly integrationRuntimeName?: pulumi.Input<string>;
+    integrationRuntimeName?: pulumi.Input<string>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The SAS URI. Conflicts with `connectionString` and `serviceEndpoint`.
      */
-    readonly sasUri?: pulumi.Input<string>;
+    sasUri?: pulumi.Input<string>;
     /**
      * The Service Endpoint. Conflicts with `connectionString` and `sasUri`. Required with `useManagedIdentity`.
      */
-    readonly serviceEndpoint?: pulumi.Input<string>;
+    serviceEndpoint?: pulumi.Input<string>;
     /**
      * The service principal id in which to authenticate against the Azure Blob Storage account. Required if `servicePrincipalKey` is set.
      */
-    readonly servicePrincipalId?: pulumi.Input<string>;
+    servicePrincipalId?: pulumi.Input<string>;
     /**
      * The service principal key in which to authenticate against the AAzure Blob Storage account.  Required if `servicePrincipalId` is set.
      */
-    readonly servicePrincipalKey?: pulumi.Input<string>;
+    servicePrincipalKey?: pulumi.Input<string>;
     /**
      * The tenant id or name in which to authenticate against the Azure Blob Storage account.
      */
-    readonly tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string>;
     /**
      * Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `servicePrincipalId` and `servicePrincipalKey`.
      */
-    readonly useManagedIdentity?: pulumi.Input<boolean>;
+    useManagedIdentity?: pulumi.Input<boolean>;
 }
 
 /**
@@ -258,61 +258,61 @@ export interface LinkedServiceAzureBlobStorageArgs {
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
      */
-    readonly additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service.
      */
-    readonly annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The connection string. Conflicts with `sasUri` and `serviceEndpoint`.
      */
-    readonly connectionString?: pulumi.Input<string>;
+    connectionString?: pulumi.Input<string>;
     /**
      * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    readonly dataFactoryName: pulumi.Input<string>;
+    dataFactoryName: pulumi.Input<string>;
     /**
      * The description for the Data Factory Linked Service.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service.
      */
-    readonly integrationRuntimeName?: pulumi.Input<string>;
+    integrationRuntimeName?: pulumi.Input<string>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The SAS URI. Conflicts with `connectionString` and `serviceEndpoint`.
      */
-    readonly sasUri?: pulumi.Input<string>;
+    sasUri?: pulumi.Input<string>;
     /**
      * The Service Endpoint. Conflicts with `connectionString` and `sasUri`. Required with `useManagedIdentity`.
      */
-    readonly serviceEndpoint?: pulumi.Input<string>;
+    serviceEndpoint?: pulumi.Input<string>;
     /**
      * The service principal id in which to authenticate against the Azure Blob Storage account. Required if `servicePrincipalKey` is set.
      */
-    readonly servicePrincipalId?: pulumi.Input<string>;
+    servicePrincipalId?: pulumi.Input<string>;
     /**
      * The service principal key in which to authenticate against the AAzure Blob Storage account.  Required if `servicePrincipalId` is set.
      */
-    readonly servicePrincipalKey?: pulumi.Input<string>;
+    servicePrincipalKey?: pulumi.Input<string>;
     /**
      * The tenant id or name in which to authenticate against the Azure Blob Storage account.
      */
-    readonly tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string>;
     /**
      * Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `servicePrincipalId` and `servicePrincipalKey`.
      */
-    readonly useManagedIdentity?: pulumi.Input<boolean>;
+    useManagedIdentity?: pulumi.Input<boolean>;
 }

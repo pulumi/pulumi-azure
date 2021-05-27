@@ -146,31 +146,31 @@ export interface CertificateIssuerState {
     /**
      * The account number with the third-party Certificate Issuer.
      */
-    readonly accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string>;
     /**
      * One or more `admin` blocks as defined below.
      */
-    readonly admins?: pulumi.Input<pulumi.Input<inputs.keyvault.CertificateIssuerAdmin>[]>;
+    admins?: pulumi.Input<pulumi.Input<inputs.keyvault.CertificateIssuerAdmin>[]>;
     /**
      * The ID of the Key Vault in which to create the Certificate Issuer.
      */
-    readonly keyVaultId?: pulumi.Input<string>;
+    keyVaultId?: pulumi.Input<string>;
     /**
      * The name which should be used for this Key Vault Certificate Issuer. Changing this forces a new Key Vault Certificate Issuer to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the organization as provided to the issuer.
      */
-    readonly orgId?: pulumi.Input<string>;
+    orgId?: pulumi.Input<string>;
     /**
      * The password associated with the account and organization ID at the third-party Certificate Issuer. If not specified, will not overwrite any previous value.
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`, `OneCertV2-PrivateCA`, `OneCertV2-PublicCA` and `SslAdminV2`.
      */
-    readonly providerName?: pulumi.Input<string>;
+    providerName?: pulumi.Input<string>;
 }
 
 /**
@@ -180,29 +180,29 @@ export interface CertificateIssuerArgs {
     /**
      * The account number with the third-party Certificate Issuer.
      */
-    readonly accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string>;
     /**
      * One or more `admin` blocks as defined below.
      */
-    readonly admins?: pulumi.Input<pulumi.Input<inputs.keyvault.CertificateIssuerAdmin>[]>;
+    admins?: pulumi.Input<pulumi.Input<inputs.keyvault.CertificateIssuerAdmin>[]>;
     /**
      * The ID of the Key Vault in which to create the Certificate Issuer.
      */
-    readonly keyVaultId: pulumi.Input<string>;
+    keyVaultId: pulumi.Input<string>;
     /**
      * The name which should be used for this Key Vault Certificate Issuer. Changing this forces a new Key Vault Certificate Issuer to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the organization as provided to the issuer.
      */
-    readonly orgId?: pulumi.Input<string>;
+    orgId?: pulumi.Input<string>;
     /**
      * The password associated with the account and organization ID at the third-party Certificate Issuer. If not specified, will not overwrite any previous value.
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`, `OneCertV2-PrivateCA`, `OneCertV2-PublicCA` and `SslAdminV2`.
      */
-    readonly providerName: pulumi.Input<string>;
+    providerName: pulumi.Input<string>;
 }

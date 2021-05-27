@@ -41,11 +41,11 @@ export interface GetSubscriptionsArgs {
     /**
      * A case-insensitive value which must be contained within the `displayName` field, used to filter the results
      */
-    readonly displayNameContains?: string;
+    displayNameContains?: string;
     /**
      * A case-insensitive prefix which can be used to filter on the `displayName` field
      */
-    readonly displayNamePrefix?: string;
+    displayNamePrefix?: string;
 }
 
 /**

@@ -131,19 +131,19 @@ export interface ModuleState {
     /**
      * The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
      */
-    readonly automationAccountName?: pulumi.Input<string>;
+    automationAccountName?: pulumi.Input<string>;
     /**
      * The published Module link.
      */
-    readonly moduleLink?: pulumi.Input<inputs.automation.ModuleModuleLink>;
+    moduleLink?: pulumi.Input<inputs.automation.ModuleModuleLink>;
     /**
      * Specifies the name of the Module. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which the Module is created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -153,17 +153,17 @@ export interface ModuleArgs {
     /**
      * The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
      */
-    readonly automationAccountName: pulumi.Input<string>;
+    automationAccountName: pulumi.Input<string>;
     /**
      * The published Module link.
      */
-    readonly moduleLink: pulumi.Input<inputs.automation.ModuleModuleLink>;
+    moduleLink: pulumi.Input<inputs.automation.ModuleModuleLink>;
     /**
      * Specifies the name of the Module. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which the Module is created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

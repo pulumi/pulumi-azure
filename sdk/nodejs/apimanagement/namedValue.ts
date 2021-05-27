@@ -150,31 +150,31 @@ export interface NamedValueState {
     /**
      * The name of the API Management Service in which the API Management Named Value should exist. Changing this forces a new resource to be created.
      */
-    readonly apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string>;
     /**
      * The display name of this API Management Named Value.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The name of the API Management Named Value. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the API Management Named Value should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
      */
-    readonly secret?: pulumi.Input<boolean>;
+    secret?: pulumi.Input<boolean>;
     /**
      * A list of tags to be applied to the API Management Named Value.
      */
-    readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The value of this API Management Named Value.
      */
-    readonly value?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
 }
 
 /**
@@ -184,29 +184,29 @@ export interface NamedValueArgs {
     /**
      * The name of the API Management Service in which the API Management Named Value should exist. Changing this forces a new resource to be created.
      */
-    readonly apiManagementName: pulumi.Input<string>;
+    apiManagementName: pulumi.Input<string>;
     /**
      * The display name of this API Management Named Value.
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * The name of the API Management Named Value. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the API Management Named Value should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
      */
-    readonly secret?: pulumi.Input<boolean>;
+    secret?: pulumi.Input<boolean>;
     /**
      * A list of tags to be applied to the API Management Named Value.
      */
-    readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The value of this API Management Named Value.
      */
-    readonly value: pulumi.Input<string>;
+    value: pulumi.Input<string>;
 }

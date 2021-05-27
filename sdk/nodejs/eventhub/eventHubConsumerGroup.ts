@@ -149,23 +149,23 @@ export interface EventHubConsumerGroupState {
     /**
      * Specifies the name of the EventHub. Changing this forces a new resource to be created.
      */
-    readonly eventhubName?: pulumi.Input<string>;
+    eventhubName?: pulumi.Input<string>;
     /**
      * Specifies the name of the EventHub Consumer Group resource. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.
      */
-    readonly namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string>;
     /**
      * The name of the resource group in which the EventHub Consumer Group's grandparent Namespace exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Specifies the user metadata.
      */
-    readonly userMetadata?: pulumi.Input<string>;
+    userMetadata?: pulumi.Input<string>;
 }
 
 /**
@@ -175,21 +175,21 @@ export interface EventHubConsumerGroupArgs {
     /**
      * Specifies the name of the EventHub. Changing this forces a new resource to be created.
      */
-    readonly eventhubName: pulumi.Input<string>;
+    eventhubName: pulumi.Input<string>;
     /**
      * Specifies the name of the EventHub Consumer Group resource. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.
      */
-    readonly namespaceName: pulumi.Input<string>;
+    namespaceName: pulumi.Input<string>;
     /**
      * The name of the resource group in which the EventHub Consumer Group's grandparent Namespace exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies the user metadata.
      */
-    readonly userMetadata?: pulumi.Input<string>;
+    userMetadata?: pulumi.Input<string>;
 }

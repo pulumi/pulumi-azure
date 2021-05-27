@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const example = pulumi.output(azure.network.getPublicIPs({
  *     attached: false,
  *     resourceGroupName: "pip-test",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getPublicIPs(args: GetPublicIPsArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPsResult> {
@@ -43,19 +43,19 @@ export interface GetPublicIPsArgs {
     /**
      * The Allocation Type for the Public IP Address. Possible values include `Static` or `Dynamic`.
      */
-    readonly allocationType?: string;
+    allocationType?: string;
     /**
      * Filter to include IP Addresses which are attached to a device, such as a VM/LB (`true`) or unattached (`false`).
      */
-    readonly attached?: boolean;
+    attached?: boolean;
     /**
      * A prefix match used for the IP Addresses `name` field, case sensitive.
      */
-    readonly namePrefix?: string;
+    namePrefix?: string;
     /**
      * Specifies the name of the resource group.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

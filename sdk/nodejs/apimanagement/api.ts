@@ -235,79 +235,79 @@ export interface ApiState {
     /**
      * The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
      */
-    readonly apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string>;
     /**
      * A description of the API Management API, which may include HTML formatting tags.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The display name of the API.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * A `import` block as documented below.
      */
-    readonly import?: pulumi.Input<inputs.apimanagement.ApiImport>;
+    import?: pulumi.Input<inputs.apimanagement.ApiImport>;
     /**
      * Is this the current API Revision?
      */
-    readonly isCurrent?: pulumi.Input<boolean>;
+    isCurrent?: pulumi.Input<boolean>;
     /**
      * Is this API Revision online/accessible via the Gateway?
      */
-    readonly isOnline?: pulumi.Input<boolean>;
+    isOnline?: pulumi.Input<boolean>;
     /**
      * The name of the API Management API. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * An `oauth2Authorization` block as documented below.
      */
-    readonly oauth2Authorization?: pulumi.Input<inputs.apimanagement.ApiOauth2Authorization>;
+    oauth2Authorization?: pulumi.Input<inputs.apimanagement.ApiOauth2Authorization>;
     /**
      * An `openidAuthentication` block as documented below.
      */
-    readonly openidAuthentication?: pulumi.Input<inputs.apimanagement.ApiOpenidAuthentication>;
+    openidAuthentication?: pulumi.Input<inputs.apimanagement.ApiOpenidAuthentication>;
     /**
      * The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
      */
-    readonly path?: pulumi.Input<string>;
+    path?: pulumi.Input<string>;
     /**
      * A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
      */
-    readonly protocols?: pulumi.Input<pulumi.Input<string>[]>;
+    protocols?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The Revision which used for this API.
      */
-    readonly revision?: pulumi.Input<string>;
+    revision?: pulumi.Input<string>;
     /**
      * Absolute URL of the backend service implementing this API.
      */
-    readonly serviceUrl?: pulumi.Input<string>;
+    serviceUrl?: pulumi.Input<string>;
     /**
      * Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
      */
-    readonly soapPassThrough?: pulumi.Input<boolean>;
+    soapPassThrough?: pulumi.Input<boolean>;
     /**
      * A `subscriptionKeyParameterNames` block as documented below.
      */
-    readonly subscriptionKeyParameterNames?: pulumi.Input<inputs.apimanagement.ApiSubscriptionKeyParameterNames>;
+    subscriptionKeyParameterNames?: pulumi.Input<inputs.apimanagement.ApiSubscriptionKeyParameterNames>;
     /**
      * Should this API require a subscription key?
      */
-    readonly subscriptionRequired?: pulumi.Input<boolean>;
+    subscriptionRequired?: pulumi.Input<boolean>;
     /**
      * The Version number of this API, if this API is versioned.
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
     /**
      * The ID of the Version Set which this API is associated with.
      */
-    readonly versionSetId?: pulumi.Input<string>;
+    versionSetId?: pulumi.Input<string>;
 }
 
 /**
@@ -317,69 +317,69 @@ export interface ApiArgs {
     /**
      * The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
      */
-    readonly apiManagementName: pulumi.Input<string>;
+    apiManagementName: pulumi.Input<string>;
     /**
      * A description of the API Management API, which may include HTML formatting tags.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The display name of the API.
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * A `import` block as documented below.
      */
-    readonly import?: pulumi.Input<inputs.apimanagement.ApiImport>;
+    import?: pulumi.Input<inputs.apimanagement.ApiImport>;
     /**
      * The name of the API Management API. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * An `oauth2Authorization` block as documented below.
      */
-    readonly oauth2Authorization?: pulumi.Input<inputs.apimanagement.ApiOauth2Authorization>;
+    oauth2Authorization?: pulumi.Input<inputs.apimanagement.ApiOauth2Authorization>;
     /**
      * An `openidAuthentication` block as documented below.
      */
-    readonly openidAuthentication?: pulumi.Input<inputs.apimanagement.ApiOpenidAuthentication>;
+    openidAuthentication?: pulumi.Input<inputs.apimanagement.ApiOpenidAuthentication>;
     /**
      * The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
      */
-    readonly path: pulumi.Input<string>;
+    path: pulumi.Input<string>;
     /**
      * A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
      */
-    readonly protocols: pulumi.Input<pulumi.Input<string>[]>;
+    protocols: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The Revision which used for this API.
      */
-    readonly revision: pulumi.Input<string>;
+    revision: pulumi.Input<string>;
     /**
      * Absolute URL of the backend service implementing this API.
      */
-    readonly serviceUrl?: pulumi.Input<string>;
+    serviceUrl?: pulumi.Input<string>;
     /**
      * Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
      */
-    readonly soapPassThrough?: pulumi.Input<boolean>;
+    soapPassThrough?: pulumi.Input<boolean>;
     /**
      * A `subscriptionKeyParameterNames` block as documented below.
      */
-    readonly subscriptionKeyParameterNames?: pulumi.Input<inputs.apimanagement.ApiSubscriptionKeyParameterNames>;
+    subscriptionKeyParameterNames?: pulumi.Input<inputs.apimanagement.ApiSubscriptionKeyParameterNames>;
     /**
      * Should this API require a subscription key?
      */
-    readonly subscriptionRequired?: pulumi.Input<boolean>;
+    subscriptionRequired?: pulumi.Input<boolean>;
     /**
      * The Version number of this API, if this API is versioned.
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
     /**
      * The ID of the Version Set which this API is associated with.
      */
-    readonly versionSetId?: pulumi.Input<string>;
+    versionSetId?: pulumi.Input<string>;
 }

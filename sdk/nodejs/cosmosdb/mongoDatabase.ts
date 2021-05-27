@@ -128,23 +128,23 @@ export interface MongoDatabaseState {
     /**
      * The name of the Cosmos DB Mongo Database to create the table within. Changing this forces a new resource to be created.
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      */
-    readonly autoscaleSettings?: pulumi.Input<inputs.cosmosdb.MongoDatabaseAutoscaleSettings>;
+    autoscaleSettings?: pulumi.Input<inputs.cosmosdb.MongoDatabaseAutoscaleSettings>;
     /**
      * Specifies the name of the Cosmos DB Mongo Database. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which the Cosmos DB Mongo Database is created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
      */
-    readonly throughput?: pulumi.Input<number>;
+    throughput?: pulumi.Input<number>;
 }
 
 /**
@@ -154,21 +154,21 @@ export interface MongoDatabaseArgs {
     /**
      * The name of the Cosmos DB Mongo Database to create the table within. Changing this forces a new resource to be created.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      */
-    readonly autoscaleSettings?: pulumi.Input<inputs.cosmosdb.MongoDatabaseAutoscaleSettings>;
+    autoscaleSettings?: pulumi.Input<inputs.cosmosdb.MongoDatabaseAutoscaleSettings>;
     /**
      * Specifies the name of the Cosmos DB Mongo Database. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which the Cosmos DB Mongo Database is created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
      */
-    readonly throughput?: pulumi.Input<number>;
+    throughput?: pulumi.Input<number>;
 }

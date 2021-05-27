@@ -201,55 +201,55 @@ export interface SqlContainerState {
     /**
      * The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      */
-    readonly analyticalStorageTtl?: pulumi.Input<number>;
+    analyticalStorageTtl?: pulumi.Input<number>;
     /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
      */
-    readonly autoscaleSettings?: pulumi.Input<inputs.cosmosdb.SqlContainerAutoscaleSettings>;
+    autoscaleSettings?: pulumi.Input<inputs.cosmosdb.SqlContainerAutoscaleSettings>;
     /**
      * A `conflictResolutionPolicy` blocks as defined below.
      */
-    readonly conflictResolutionPolicy?: pulumi.Input<inputs.cosmosdb.SqlContainerConflictResolutionPolicy>;
+    conflictResolutionPolicy?: pulumi.Input<inputs.cosmosdb.SqlContainerConflictResolutionPolicy>;
     /**
      * The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
      */
-    readonly databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
     /**
      * The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      */
-    readonly defaultTtl?: pulumi.Input<number>;
+    defaultTtl?: pulumi.Input<number>;
     /**
      * An `indexingPolicy` block as defined below.
      */
-    readonly indexingPolicy?: pulumi.Input<inputs.cosmosdb.SqlContainerIndexingPolicy>;
+    indexingPolicy?: pulumi.Input<inputs.cosmosdb.SqlContainerIndexingPolicy>;
     /**
      * Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Define a partition key. Changing this forces a new resource to be created.
      */
-    readonly partitionKeyPath?: pulumi.Input<string>;
+    partitionKeyPath?: pulumi.Input<string>;
     /**
      * Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
      */
-    readonly partitionKeyVersion?: pulumi.Input<number>;
+    partitionKeyVersion?: pulumi.Input<number>;
     /**
      * The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
      */
-    readonly throughput?: pulumi.Input<number>;
+    throughput?: pulumi.Input<number>;
     /**
      * One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
      */
-    readonly uniqueKeys?: pulumi.Input<pulumi.Input<inputs.cosmosdb.SqlContainerUniqueKey>[]>;
+    uniqueKeys?: pulumi.Input<pulumi.Input<inputs.cosmosdb.SqlContainerUniqueKey>[]>;
 }
 
 /**
@@ -259,53 +259,53 @@ export interface SqlContainerArgs {
     /**
      * The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      */
-    readonly analyticalStorageTtl?: pulumi.Input<number>;
+    analyticalStorageTtl?: pulumi.Input<number>;
     /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partitionKeyPath` to be set.
      */
-    readonly autoscaleSettings?: pulumi.Input<inputs.cosmosdb.SqlContainerAutoscaleSettings>;
+    autoscaleSettings?: pulumi.Input<inputs.cosmosdb.SqlContainerAutoscaleSettings>;
     /**
      * A `conflictResolutionPolicy` blocks as defined below.
      */
-    readonly conflictResolutionPolicy?: pulumi.Input<inputs.cosmosdb.SqlContainerConflictResolutionPolicy>;
+    conflictResolutionPolicy?: pulumi.Input<inputs.cosmosdb.SqlContainerConflictResolutionPolicy>;
     /**
      * The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
      */
-    readonly databaseName: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      */
-    readonly defaultTtl?: pulumi.Input<number>;
+    defaultTtl?: pulumi.Input<number>;
     /**
      * An `indexingPolicy` block as defined below.
      */
-    readonly indexingPolicy?: pulumi.Input<inputs.cosmosdb.SqlContainerIndexingPolicy>;
+    indexingPolicy?: pulumi.Input<inputs.cosmosdb.SqlContainerIndexingPolicy>;
     /**
      * Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Define a partition key. Changing this forces a new resource to be created.
      */
-    readonly partitionKeyPath: pulumi.Input<string>;
+    partitionKeyPath: pulumi.Input<string>;
     /**
      * Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
      */
-    readonly partitionKeyVersion?: pulumi.Input<number>;
+    partitionKeyVersion?: pulumi.Input<number>;
     /**
      * The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
      */
-    readonly throughput?: pulumi.Input<number>;
+    throughput?: pulumi.Input<number>;
     /**
      * One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
      */
-    readonly uniqueKeys?: pulumi.Input<pulumi.Input<inputs.cosmosdb.SqlContainerUniqueKey>[]>;
+    uniqueKeys?: pulumi.Input<pulumi.Input<inputs.cosmosdb.SqlContainerUniqueKey>[]>;
 }

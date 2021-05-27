@@ -143,31 +143,31 @@ export interface HubState {
     /**
      * A `apnsCredential` block as defined below.
      */
-    readonly apnsCredential?: pulumi.Input<inputs.notificationhub.HubApnsCredential>;
+    apnsCredential?: pulumi.Input<inputs.notificationhub.HubApnsCredential>;
     /**
      * A `gcmCredential` block as defined below.
      */
-    readonly gcmCredential?: pulumi.Input<inputs.notificationhub.HubGcmCredential>;
+    gcmCredential?: pulumi.Input<inputs.notificationhub.HubGcmCredential>;
     /**
      * The Azure Region in which this Notification Hub Namespace exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name to use for this Notification Hub. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Notification Hub Namespace in which to create this Notification Hub. Changing this forces a new resource to be created.
      */
-    readonly namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -177,29 +177,29 @@ export interface HubArgs {
     /**
      * A `apnsCredential` block as defined below.
      */
-    readonly apnsCredential?: pulumi.Input<inputs.notificationhub.HubApnsCredential>;
+    apnsCredential?: pulumi.Input<inputs.notificationhub.HubApnsCredential>;
     /**
      * A `gcmCredential` block as defined below.
      */
-    readonly gcmCredential?: pulumi.Input<inputs.notificationhub.HubGcmCredential>;
+    gcmCredential?: pulumi.Input<inputs.notificationhub.HubGcmCredential>;
     /**
      * The Azure Region in which this Notification Hub Namespace exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name to use for this Notification Hub. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Notification Hub Namespace in which to create this Notification Hub. Changing this forces a new resource to be created.
      */
-    readonly namespaceName: pulumi.Input<string>;
+    namespaceName: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

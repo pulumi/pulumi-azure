@@ -194,44 +194,44 @@ export interface GremlinGraphState {
     /**
      * The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
      */
-    readonly accountName?: pulumi.Input<string>;
-    readonly autoscaleSettings?: pulumi.Input<inputs.cosmosdb.GremlinGraphAutoscaleSettings>;
+    accountName?: pulumi.Input<string>;
+    autoscaleSettings?: pulumi.Input<inputs.cosmosdb.GremlinGraphAutoscaleSettings>;
     /**
      * A `conflictResolutionPolicy` blocks as defined below.
      */
-    readonly conflictResolutionPolicies?: pulumi.Input<pulumi.Input<inputs.cosmosdb.GremlinGraphConflictResolutionPolicy>[]>;
+    conflictResolutionPolicies?: pulumi.Input<pulumi.Input<inputs.cosmosdb.GremlinGraphConflictResolutionPolicy>[]>;
     /**
      * The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
      */
-    readonly databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
     /**
      * The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
      */
-    readonly defaultTtl?: pulumi.Input<number>;
+    defaultTtl?: pulumi.Input<number>;
     /**
      * The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below. Changing this forces a new resource to be created.
      */
-    readonly indexPolicies?: pulumi.Input<pulumi.Input<inputs.cosmosdb.GremlinGraphIndexPolicy>[]>;
+    indexPolicies?: pulumi.Input<pulumi.Input<inputs.cosmosdb.GremlinGraphIndexPolicy>[]>;
     /**
      * Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Define a partition key. Changing this forces a new resource to be created.
      */
-    readonly partitionKeyPath?: pulumi.Input<string>;
+    partitionKeyPath?: pulumi.Input<string>;
     /**
      * The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply.
      */
-    readonly throughput?: pulumi.Input<number>;
+    throughput?: pulumi.Input<number>;
     /**
      * One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
      */
-    readonly uniqueKeys?: pulumi.Input<pulumi.Input<inputs.cosmosdb.GremlinGraphUniqueKey>[]>;
+    uniqueKeys?: pulumi.Input<pulumi.Input<inputs.cosmosdb.GremlinGraphUniqueKey>[]>;
 }
 
 /**
@@ -241,42 +241,42 @@ export interface GremlinGraphArgs {
     /**
      * The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
      */
-    readonly accountName: pulumi.Input<string>;
-    readonly autoscaleSettings?: pulumi.Input<inputs.cosmosdb.GremlinGraphAutoscaleSettings>;
+    accountName: pulumi.Input<string>;
+    autoscaleSettings?: pulumi.Input<inputs.cosmosdb.GremlinGraphAutoscaleSettings>;
     /**
      * A `conflictResolutionPolicy` blocks as defined below.
      */
-    readonly conflictResolutionPolicies?: pulumi.Input<pulumi.Input<inputs.cosmosdb.GremlinGraphConflictResolutionPolicy>[]>;
+    conflictResolutionPolicies?: pulumi.Input<pulumi.Input<inputs.cosmosdb.GremlinGraphConflictResolutionPolicy>[]>;
     /**
      * The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
      */
-    readonly databaseName: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
      */
-    readonly defaultTtl?: pulumi.Input<number>;
+    defaultTtl?: pulumi.Input<number>;
     /**
      * The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below. Changing this forces a new resource to be created.
      */
-    readonly indexPolicies: pulumi.Input<pulumi.Input<inputs.cosmosdb.GremlinGraphIndexPolicy>[]>;
+    indexPolicies: pulumi.Input<pulumi.Input<inputs.cosmosdb.GremlinGraphIndexPolicy>[]>;
     /**
      * Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Define a partition key. Changing this forces a new resource to be created.
      */
-    readonly partitionKeyPath: pulumi.Input<string>;
+    partitionKeyPath: pulumi.Input<string>;
     /**
      * The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply.
      */
-    readonly throughput?: pulumi.Input<number>;
+    throughput?: pulumi.Input<number>;
     /**
      * One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
      */
-    readonly uniqueKeys?: pulumi.Input<pulumi.Input<inputs.cosmosdb.GremlinGraphUniqueKey>[]>;
+    uniqueKeys?: pulumi.Input<pulumi.Input<inputs.cosmosdb.GremlinGraphUniqueKey>[]>;
 }

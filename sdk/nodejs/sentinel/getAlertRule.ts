@@ -46,11 +46,11 @@ export interface GetAlertRuleArgs {
     /**
      * The ID of the Log Analytics Workspace this Sentinel Alert Rule belongs to.
      */
-    readonly logAnalyticsWorkspaceId: string;
+    logAnalyticsWorkspaceId: string;
     /**
      * The name which should be used for this Sentinel Alert Rule.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

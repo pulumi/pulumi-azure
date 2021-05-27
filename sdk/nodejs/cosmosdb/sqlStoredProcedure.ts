@@ -155,27 +155,27 @@ export interface SqlStoredProcedureState {
     /**
      * The name of the Cosmos DB Account to create the stored procedure within. Changing this forces a new resource to be created.
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * The body of the stored procedure.
      */
-    readonly body?: pulumi.Input<string>;
+    body?: pulumi.Input<string>;
     /**
      * The name of the Cosmos DB SQL Container to create the stored procedure within. Changing this forces a new resource to be created.
      */
-    readonly containerName?: pulumi.Input<string>;
+    containerName?: pulumi.Input<string>;
     /**
      * The name of the Cosmos DB SQL Database to create the stored procedure within. Changing this forces a new resource to be created.
      */
-    readonly databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
     /**
      * Specifies the name of the Cosmos DB SQL Stored Procedure. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -185,25 +185,25 @@ export interface SqlStoredProcedureArgs {
     /**
      * The name of the Cosmos DB Account to create the stored procedure within. Changing this forces a new resource to be created.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The body of the stored procedure.
      */
-    readonly body: pulumi.Input<string>;
+    body: pulumi.Input<string>;
     /**
      * The name of the Cosmos DB SQL Container to create the stored procedure within. Changing this forces a new resource to be created.
      */
-    readonly containerName: pulumi.Input<string>;
+    containerName: pulumi.Input<string>;
     /**
      * The name of the Cosmos DB SQL Database to create the stored procedure within. Changing this forces a new resource to be created.
      */
-    readonly databaseName: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * Specifies the name of the Cosmos DB SQL Stored Procedure. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

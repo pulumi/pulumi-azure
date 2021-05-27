@@ -166,25 +166,25 @@ export interface CassandraTableState {
     /**
      * Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
      */
-    readonly analyticalStorageTtl?: pulumi.Input<number>;
-    readonly autoscaleSettings?: pulumi.Input<inputs.cosmosdb.CassandraTableAutoscaleSettings>;
+    analyticalStorageTtl?: pulumi.Input<number>;
+    autoscaleSettings?: pulumi.Input<inputs.cosmosdb.CassandraTableAutoscaleSettings>;
     /**
      * The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
      */
-    readonly cassandraKeyspaceId?: pulumi.Input<string>;
+    cassandraKeyspaceId?: pulumi.Input<string>;
     /**
      * Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
      */
-    readonly defaultTtl?: pulumi.Input<number>;
+    defaultTtl?: pulumi.Input<number>;
     /**
      * Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `schema` block as defined below. Changing this forces a new resource to be created.
      */
-    readonly schema?: pulumi.Input<inputs.cosmosdb.CassandraTableSchema>;
-    readonly throughput?: pulumi.Input<number>;
+    schema?: pulumi.Input<inputs.cosmosdb.CassandraTableSchema>;
+    throughput?: pulumi.Input<number>;
 }
 
 /**
@@ -194,23 +194,23 @@ export interface CassandraTableArgs {
     /**
      * Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
      */
-    readonly analyticalStorageTtl?: pulumi.Input<number>;
-    readonly autoscaleSettings?: pulumi.Input<inputs.cosmosdb.CassandraTableAutoscaleSettings>;
+    analyticalStorageTtl?: pulumi.Input<number>;
+    autoscaleSettings?: pulumi.Input<inputs.cosmosdb.CassandraTableAutoscaleSettings>;
     /**
      * The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
      */
-    readonly cassandraKeyspaceId: pulumi.Input<string>;
+    cassandraKeyspaceId: pulumi.Input<string>;
     /**
      * Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
      */
-    readonly defaultTtl?: pulumi.Input<number>;
+    defaultTtl?: pulumi.Input<number>;
     /**
      * Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `schema` block as defined below. Changing this forces a new resource to be created.
      */
-    readonly schema: pulumi.Input<inputs.cosmosdb.CassandraTableSchema>;
-    readonly throughput?: pulumi.Input<number>;
+    schema: pulumi.Input<inputs.cosmosdb.CassandraTableSchema>;
+    throughput?: pulumi.Input<number>;
 }

@@ -26,11 +26,11 @@ export interface GetPrivateCloudArgs {
     /**
      * The name of this Vmware Private Cloud.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group where the Vmware Private Cloud exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

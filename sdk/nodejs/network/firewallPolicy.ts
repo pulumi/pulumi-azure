@@ -162,51 +162,51 @@ export interface FirewallPolicyState {
     /**
      * The ID of the base Firewall Policy.
      */
-    readonly basePolicyId?: pulumi.Input<string>;
+    basePolicyId?: pulumi.Input<string>;
     /**
      * A list of reference to child Firewall Policies of this Firewall Policy.
      */
-    readonly childPolicies?: pulumi.Input<pulumi.Input<string>[]>;
+    childPolicies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `dns` block as defined below.
      */
-    readonly dns?: pulumi.Input<inputs.network.FirewallPolicyDns>;
+    dns?: pulumi.Input<inputs.network.FirewallPolicyDns>;
     /**
      * A list of references to Azure Firewalls that this Firewall Policy is associated with.
      */
-    readonly firewalls?: pulumi.Input<pulumi.Input<string>[]>;
+    firewalls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A list of references to Firewall Policy Rule Collection Groups that belongs to this Firewall Policy.
      */
-    readonly ruleCollectionGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    ruleCollectionGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.
      */
-    readonly sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Firewall Policy.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `threatIntelligenceAllowlist` block as defined below.
      */
-    readonly threatIntelligenceAllowlist?: pulumi.Input<inputs.network.FirewallPolicyThreatIntelligenceAllowlist>;
+    threatIntelligenceAllowlist?: pulumi.Input<inputs.network.FirewallPolicyThreatIntelligenceAllowlist>;
     /**
      * The operation mode for Threat Intelligence. Possible values are `Alert`, `Deny` and `Off`. Defaults to `Alert`.
      */
-    readonly threatIntelligenceMode?: pulumi.Input<string>;
+    threatIntelligenceMode?: pulumi.Input<string>;
 }
 
 /**
@@ -216,37 +216,37 @@ export interface FirewallPolicyArgs {
     /**
      * The ID of the base Firewall Policy.
      */
-    readonly basePolicyId?: pulumi.Input<string>;
+    basePolicyId?: pulumi.Input<string>;
     /**
      * A `dns` block as defined below.
      */
-    readonly dns?: pulumi.Input<inputs.network.FirewallPolicyDns>;
+    dns?: pulumi.Input<inputs.network.FirewallPolicyDns>;
     /**
      * The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`.
      */
-    readonly sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Firewall Policy.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `threatIntelligenceAllowlist` block as defined below.
      */
-    readonly threatIntelligenceAllowlist?: pulumi.Input<inputs.network.FirewallPolicyThreatIntelligenceAllowlist>;
+    threatIntelligenceAllowlist?: pulumi.Input<inputs.network.FirewallPolicyThreatIntelligenceAllowlist>;
     /**
      * The operation mode for Threat Intelligence. Possible values are `Alert`, `Deny` and `Off`. Defaults to `Alert`.
      */
-    readonly threatIntelligenceMode?: pulumi.Input<string>;
+    threatIntelligenceMode?: pulumi.Input<string>;
 }

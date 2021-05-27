@@ -42,11 +42,11 @@ export interface GetWorkflowArgs {
     /**
      * The name of the Logic App Workflow.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group in which the Logic App Workflow exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

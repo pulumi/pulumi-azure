@@ -122,15 +122,15 @@ export interface StoreFileState {
     /**
      * Specifies the name of the Data Lake Store for which the File should created.
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * The path to the local file to be added to the Data Lake Store.
      */
-    readonly localFilePath?: pulumi.Input<string>;
+    localFilePath?: pulumi.Input<string>;
     /**
      * The path created for the file on the Data Lake Store.
      */
-    readonly remoteFilePath?: pulumi.Input<string>;
+    remoteFilePath?: pulumi.Input<string>;
 }
 
 /**
@@ -140,13 +140,13 @@ export interface StoreFileArgs {
     /**
      * Specifies the name of the Data Lake Store for which the File should created.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * The path to the local file to be added to the Data Lake Store.
      */
-    readonly localFilePath: pulumi.Input<string>;
+    localFilePath: pulumi.Input<string>;
     /**
      * The path created for the file on the Data Lake Store.
      */
-    readonly remoteFilePath: pulumi.Input<string>;
+    remoteFilePath: pulumi.Input<string>;
 }

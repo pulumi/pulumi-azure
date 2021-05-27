@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     name: "policy",
  *     recoveryVaultName: "recovery_vault",
  *     resourceGroupName: "resource_group",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getPolicyVM(args: GetPolicyVMArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyVMResult> {
@@ -43,15 +43,15 @@ export interface GetPolicyVMArgs {
     /**
      * Specifies the name of the VM Backup Policy.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the name of the Recovery Services Vault.
      */
-    readonly recoveryVaultName: string;
+    recoveryVaultName: string;
     /**
      * The name of the resource group in which the VM Backup Policy resides.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

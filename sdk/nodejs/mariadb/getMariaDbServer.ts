@@ -42,11 +42,11 @@ export interface GetMariaDbServerArgs {
     /**
      * The name of the MariaDB Server to retrieve information about.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the resource group where the MariaDB Server exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

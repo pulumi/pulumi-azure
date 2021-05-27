@@ -153,27 +153,27 @@ export interface CustomHostnameBindingState {
     /**
      * The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created.
      */
-    readonly appServiceName?: pulumi.Input<string>;
+    appServiceName?: pulumi.Input<string>;
     /**
      * Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
      */
-    readonly hostname?: pulumi.Input<string>;
+    hostname?: pulumi.Input<string>;
     /**
      * The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
      */
-    readonly sslState?: pulumi.Input<string>;
+    sslState?: pulumi.Input<string>;
     /**
      * The SSL certificate thumbprint. Changing this forces a new resource to be created.
      */
-    readonly thumbprint?: pulumi.Input<string>;
+    thumbprint?: pulumi.Input<string>;
     /**
      * The virtual IP address assigned to the hostname if IP based SSL is enabled.
      */
-    readonly virtualIp?: pulumi.Input<string>;
+    virtualIp?: pulumi.Input<string>;
 }
 
 /**
@@ -183,21 +183,21 @@ export interface CustomHostnameBindingArgs {
     /**
      * The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created.
      */
-    readonly appServiceName: pulumi.Input<string>;
+    appServiceName: pulumi.Input<string>;
     /**
      * Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
      */
-    readonly hostname: pulumi.Input<string>;
+    hostname: pulumi.Input<string>;
     /**
      * The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
      */
-    readonly sslState?: pulumi.Input<string>;
+    sslState?: pulumi.Input<string>;
     /**
      * The SSL certificate thumbprint. Changing this forces a new resource to be created.
      */
-    readonly thumbprint?: pulumi.Input<string>;
+    thumbprint?: pulumi.Input<string>;
 }

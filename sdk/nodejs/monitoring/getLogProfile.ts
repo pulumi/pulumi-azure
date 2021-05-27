@@ -40,7 +40,7 @@ export interface GetLogProfileArgs {
     /**
      * Specifies the Name of the Log Profile.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

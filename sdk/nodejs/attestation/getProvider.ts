@@ -23,8 +23,8 @@ export function getProvider(args: GetProviderArgs, opts?: pulumi.InvokeOptions):
  * A collection of arguments for invoking getProvider.
  */
 export interface GetProviderArgs {
-    readonly name: string;
-    readonly resourceGroupName: string;
+    name: string;
+    resourceGroupName: string;
 }
 
 /**

@@ -160,20 +160,20 @@ export interface DscNodeConfigurationState {
     /**
      * The name of the automation account in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
      */
-    readonly automationAccountName?: pulumi.Input<string>;
-    readonly configurationName?: pulumi.Input<string>;
+    automationAccountName?: pulumi.Input<string>;
+    configurationName?: pulumi.Input<string>;
     /**
      * The PowerShell DSC Node Configuration (mof content).
      */
-    readonly contentEmbedded?: pulumi.Input<string>;
+    contentEmbedded?: pulumi.Input<string>;
     /**
      * Specifies the name of the DSC Node Configuration. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -183,17 +183,17 @@ export interface DscNodeConfigurationArgs {
     /**
      * The name of the automation account in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
      */
-    readonly automationAccountName: pulumi.Input<string>;
+    automationAccountName: pulumi.Input<string>;
     /**
      * The PowerShell DSC Node Configuration (mof content).
      */
-    readonly contentEmbedded: pulumi.Input<string>;
+    contentEmbedded: pulumi.Input<string>;
     /**
      * Specifies the name of the DSC Node Configuration. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

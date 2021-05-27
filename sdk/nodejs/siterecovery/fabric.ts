@@ -124,19 +124,19 @@ export interface FabricState {
     /**
      * In what region should the fabric be located.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the network mapping.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the vault that should be updated.
      */
-    readonly recoveryVaultName?: pulumi.Input<string>;
+    recoveryVaultName?: pulumi.Input<string>;
     /**
      * Name of the resource group where the vault that should be updated is located.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -146,17 +146,17 @@ export interface FabricArgs {
     /**
      * In what region should the fabric be located.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the network mapping.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the vault that should be updated.
      */
-    readonly recoveryVaultName: pulumi.Input<string>;
+    recoveryVaultName: pulumi.Input<string>;
     /**
      * Name of the resource group where the vault that should be updated is located.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

@@ -279,103 +279,103 @@ export interface FunctionAppSlotState {
     /**
      * The ID of the App Service Plan within which to create this Function App Slot.
      */
-    readonly appServicePlanId?: pulumi.Input<string>;
+    appServicePlanId?: pulumi.Input<string>;
     /**
      * A key-value pair of App Settings.
      */
-    readonly appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * An `authSettings` block as defined below.
      */
-    readonly authSettings?: pulumi.Input<inputs.appservice.FunctionAppSlotAuthSettings>;
+    authSettings?: pulumi.Input<inputs.appservice.FunctionAppSlotAuthSettings>;
     /**
      * Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
      */
-    readonly clientAffinityEnabled?: pulumi.Input<boolean>;
+    clientAffinityEnabled?: pulumi.Input<boolean>;
     /**
      * A `connectionString` block as defined below.
      */
-    readonly connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppSlotConnectionString>[]>;
+    connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppSlotConnectionString>[]>;
     /**
      * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
      */
-    readonly dailyMemoryTimeQuota?: pulumi.Input<number>;
+    dailyMemoryTimeQuota?: pulumi.Input<number>;
     /**
      * The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
      */
-    readonly defaultHostname?: pulumi.Input<string>;
+    defaultHostname?: pulumi.Input<string>;
     /**
      * Should the built-in logging of the Function App be enabled? Defaults to `true`.
      */
-    readonly enableBuiltinLogging?: pulumi.Input<boolean>;
+    enableBuiltinLogging?: pulumi.Input<boolean>;
     /**
      * Is the Function App enabled?
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created.
      */
-    readonly functionAppName?: pulumi.Input<string>;
+    functionAppName?: pulumi.Input<string>;
     /**
      * Can the Function App only be accessed via HTTPS? Defaults to `false`.
      */
-    readonly httpsOnly?: pulumi.Input<boolean>;
+    httpsOnly?: pulumi.Input<boolean>;
     /**
      * An `identity` block as defined below.
      */
-    readonly identity?: pulumi.Input<inputs.appservice.FunctionAppSlotIdentity>;
+    identity?: pulumi.Input<inputs.appservice.FunctionAppSlotIdentity>;
     /**
      * The Function App kind - such as `functionapp,linux,container`
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Function App. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A string indicating the Operating System type for this function app.
      */
-    readonly osType?: pulumi.Input<string>;
+    osType?: pulumi.Input<string>;
     /**
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
      */
-    readonly outboundIpAddresses?: pulumi.Input<string>;
+    outboundIpAddresses?: pulumi.Input<string>;
     /**
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      */
-    readonly possibleOutboundIpAddresses?: pulumi.Input<string>;
+    possibleOutboundIpAddresses?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Function App Slot.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A `siteConfig` object as defined below.
      */
-    readonly siteConfig?: pulumi.Input<inputs.appservice.FunctionAppSlotSiteConfig>;
+    siteConfig?: pulumi.Input<inputs.appservice.FunctionAppSlotSiteConfig>;
     /**
      * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this Function App Slot.
      */
-    readonly siteCredentials?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppSlotSiteCredential>[]>;
+    siteCredentials?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppSlotSiteCredential>[]>;
     /**
      * The access key which will be used to access the backend storage account for the Function App.
      */
-    readonly storageAccountAccessKey?: pulumi.Input<string>;
+    storageAccountAccessKey?: pulumi.Input<string>;
     /**
      * The backend storage account name which will be used by the Function App (such as the dashboard, logs).
      */
-    readonly storageAccountName?: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The runtime version associated with the Function App. Defaults to `~1`.
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
 }
 
 /**
@@ -385,81 +385,81 @@ export interface FunctionAppSlotArgs {
     /**
      * The ID of the App Service Plan within which to create this Function App Slot.
      */
-    readonly appServicePlanId: pulumi.Input<string>;
+    appServicePlanId: pulumi.Input<string>;
     /**
      * A key-value pair of App Settings.
      */
-    readonly appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * An `authSettings` block as defined below.
      */
-    readonly authSettings?: pulumi.Input<inputs.appservice.FunctionAppSlotAuthSettings>;
+    authSettings?: pulumi.Input<inputs.appservice.FunctionAppSlotAuthSettings>;
     /**
      * Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
      */
-    readonly clientAffinityEnabled?: pulumi.Input<boolean>;
+    clientAffinityEnabled?: pulumi.Input<boolean>;
     /**
      * A `connectionString` block as defined below.
      */
-    readonly connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppSlotConnectionString>[]>;
+    connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppSlotConnectionString>[]>;
     /**
      * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
      */
-    readonly dailyMemoryTimeQuota?: pulumi.Input<number>;
+    dailyMemoryTimeQuota?: pulumi.Input<number>;
     /**
      * Should the built-in logging of the Function App be enabled? Defaults to `true`.
      */
-    readonly enableBuiltinLogging?: pulumi.Input<boolean>;
+    enableBuiltinLogging?: pulumi.Input<boolean>;
     /**
      * Is the Function App enabled?
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created.
      */
-    readonly functionAppName: pulumi.Input<string>;
+    functionAppName: pulumi.Input<string>;
     /**
      * Can the Function App only be accessed via HTTPS? Defaults to `false`.
      */
-    readonly httpsOnly?: pulumi.Input<boolean>;
+    httpsOnly?: pulumi.Input<boolean>;
     /**
      * An `identity` block as defined below.
      */
-    readonly identity?: pulumi.Input<inputs.appservice.FunctionAppSlotIdentity>;
+    identity?: pulumi.Input<inputs.appservice.FunctionAppSlotIdentity>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Function App. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A string indicating the Operating System type for this function app.
      */
-    readonly osType?: pulumi.Input<string>;
+    osType?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Function App Slot.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A `siteConfig` object as defined below.
      */
-    readonly siteConfig?: pulumi.Input<inputs.appservice.FunctionAppSlotSiteConfig>;
+    siteConfig?: pulumi.Input<inputs.appservice.FunctionAppSlotSiteConfig>;
     /**
      * The access key which will be used to access the backend storage account for the Function App.
      */
-    readonly storageAccountAccessKey: pulumi.Input<string>;
+    storageAccountAccessKey: pulumi.Input<string>;
     /**
      * The backend storage account name which will be used by the Function App (such as the dashboard, logs).
      */
-    readonly storageAccountName: pulumi.Input<string>;
+    storageAccountName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The runtime version associated with the Function App. Defaults to `~1`.
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
 }

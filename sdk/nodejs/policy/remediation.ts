@@ -188,27 +188,27 @@ export interface RemediationState {
     /**
      * A list of the resource locations that will be remediated.
      */
-    readonly locationFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    locationFilters?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the Policy Remediation. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the Policy Assignment that should be remediated.
      */
-    readonly policyAssignmentId?: pulumi.Input<string>;
+    policyAssignmentId?: pulumi.Input<string>;
     /**
      * The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
      */
-    readonly policyDefinitionReferenceId?: pulumi.Input<string>;
+    policyDefinitionReferenceId?: pulumi.Input<string>;
     /**
      * The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
      */
-    readonly resourceDiscoveryMode?: pulumi.Input<string>;
+    resourceDiscoveryMode?: pulumi.Input<string>;
     /**
      * The Scope at which the Policy Remediation should be applied. Changing this forces a new resource to be created. A scope must be a Resource ID out of one of the following list:
      */
-    readonly scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string>;
 }
 
 /**
@@ -218,25 +218,25 @@ export interface RemediationArgs {
     /**
      * A list of the resource locations that will be remediated.
      */
-    readonly locationFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    locationFilters?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the Policy Remediation. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the Policy Assignment that should be remediated.
      */
-    readonly policyAssignmentId: pulumi.Input<string>;
+    policyAssignmentId: pulumi.Input<string>;
     /**
      * The unique ID for the policy definition within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
      */
-    readonly policyDefinitionReferenceId?: pulumi.Input<string>;
+    policyDefinitionReferenceId?: pulumi.Input<string>;
     /**
      * The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
      */
-    readonly resourceDiscoveryMode?: pulumi.Input<string>;
+    resourceDiscoveryMode?: pulumi.Input<string>;
     /**
      * The Scope at which the Policy Remediation should be applied. Changing this forces a new resource to be created. A scope must be a Resource ID out of one of the following list:
      */
-    readonly scope: pulumi.Input<string>;
+    scope: pulumi.Input<string>;
 }

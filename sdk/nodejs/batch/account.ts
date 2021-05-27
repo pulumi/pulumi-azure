@@ -162,43 +162,43 @@ export interface AccountState {
     /**
      * The account endpoint used to interact with the Batch service.
      */
-    readonly accountEndpoint?: pulumi.Input<string>;
+    accountEndpoint?: pulumi.Input<string>;
     /**
      * A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
      */
-    readonly keyVaultReference?: pulumi.Input<inputs.batch.AccountKeyVaultReference>;
+    keyVaultReference?: pulumi.Input<inputs.batch.AccountKeyVaultReference>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Batch account. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
      */
-    readonly poolAllocationMode?: pulumi.Input<string>;
+    poolAllocationMode?: pulumi.Input<string>;
     /**
      * The Batch account primary access key.
      */
-    readonly primaryAccessKey?: pulumi.Input<string>;
+    primaryAccessKey?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The Batch account secondary access key.
      */
-    readonly secondaryAccessKey?: pulumi.Input<string>;
+    secondaryAccessKey?: pulumi.Input<string>;
     /**
      * Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
      */
-    readonly storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -208,29 +208,29 @@ export interface AccountArgs {
     /**
      * A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
      */
-    readonly keyVaultReference?: pulumi.Input<inputs.batch.AccountKeyVaultReference>;
+    keyVaultReference?: pulumi.Input<inputs.batch.AccountKeyVaultReference>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Batch account. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
      */
-    readonly poolAllocationMode?: pulumi.Input<string>;
+    poolAllocationMode?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
      */
-    readonly storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

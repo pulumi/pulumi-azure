@@ -42,11 +42,11 @@ export interface GetDatasetKustoDatabaseArgs {
     /**
      * The name of this Data Share Kusto Database Dataset.
      */
-    readonly name: string;
+    name: string;
     /**
      * The resource ID of the Data Share where this Data Share Kusto Database Dataset should be created.
      */
-    readonly shareId: string;
+    shareId: string;
 }
 
 /**

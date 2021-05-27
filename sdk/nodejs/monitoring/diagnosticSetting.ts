@@ -166,39 +166,39 @@ export interface DiagnosticSettingState {
     /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
      */
-    readonly eventhubAuthorizationRuleId?: pulumi.Input<string>;
+    eventhubAuthorizationRuleId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
      */
-    readonly eventhubName?: pulumi.Input<string>;
+    eventhubName?: pulumi.Input<string>;
     /**
      * When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
      */
-    readonly logAnalyticsDestinationType?: pulumi.Input<string>;
+    logAnalyticsDestinationType?: pulumi.Input<string>;
     /**
      * Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
      */
-    readonly logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    logAnalyticsWorkspaceId?: pulumi.Input<string>;
     /**
      * One or more `log` blocks as defined below.
      */
-    readonly logs?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingLog>[]>;
+    logs?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingLog>[]>;
     /**
      * One or more `metric` blocks as defined below.
      */
-    readonly metrics?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingMetric>[]>;
+    metrics?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingMetric>[]>;
     /**
      * Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
      */
-    readonly storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string>;
     /**
      * The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
      */
-    readonly targetResourceId?: pulumi.Input<string>;
+    targetResourceId?: pulumi.Input<string>;
 }
 
 /**
@@ -208,37 +208,37 @@ export interface DiagnosticSettingArgs {
     /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
      */
-    readonly eventhubAuthorizationRuleId?: pulumi.Input<string>;
+    eventhubAuthorizationRuleId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
      */
-    readonly eventhubName?: pulumi.Input<string>;
+    eventhubName?: pulumi.Input<string>;
     /**
      * When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
      */
-    readonly logAnalyticsDestinationType?: pulumi.Input<string>;
+    logAnalyticsDestinationType?: pulumi.Input<string>;
     /**
      * Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
      */
-    readonly logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    logAnalyticsWorkspaceId?: pulumi.Input<string>;
     /**
      * One or more `log` blocks as defined below.
      */
-    readonly logs?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingLog>[]>;
+    logs?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingLog>[]>;
     /**
      * One or more `metric` blocks as defined below.
      */
-    readonly metrics?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingMetric>[]>;
+    metrics?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingMetric>[]>;
     /**
      * Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
      */
-    readonly storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string>;
     /**
      * The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
      */
-    readonly targetResourceId: pulumi.Input<string>;
+    targetResourceId: pulumi.Input<string>;
 }

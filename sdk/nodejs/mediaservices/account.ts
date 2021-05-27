@@ -159,36 +159,36 @@ export interface AccountState {
     /**
      * An `identity` block is documented below.
      */
-    readonly identity?: pulumi.Input<inputs.mediaservices.AccountIdentity>;
+    identity?: pulumi.Input<inputs.mediaservices.AccountIdentity>;
     /**
      * An `keyDeliveryAccessControl` block is documented below.
      */
-    readonly keyDeliveryAccessControl?: pulumi.Input<inputs.mediaservices.AccountKeyDeliveryAccessControl>;
+    keyDeliveryAccessControl?: pulumi.Input<inputs.mediaservices.AccountKeyDeliveryAccessControl>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * One or more `storageAccount` blocks as defined below.
      */
-    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.mediaservices.AccountStorageAccount>[]>;
+    storageAccounts?: pulumi.Input<pulumi.Input<inputs.mediaservices.AccountStorageAccount>[]>;
     /**
      * Specifies the storage authentication type. 
      * Possible value is  `ManagedIdentity` or `System`.
      */
-    readonly storageAuthenticationType?: pulumi.Input<string>;
+    storageAuthenticationType?: pulumi.Input<string>;
     /**
      * A mapping of tags assigned to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -198,34 +198,34 @@ export interface AccountArgs {
     /**
      * An `identity` block is documented below.
      */
-    readonly identity?: pulumi.Input<inputs.mediaservices.AccountIdentity>;
+    identity?: pulumi.Input<inputs.mediaservices.AccountIdentity>;
     /**
      * An `keyDeliveryAccessControl` block is documented below.
      */
-    readonly keyDeliveryAccessControl?: pulumi.Input<inputs.mediaservices.AccountKeyDeliveryAccessControl>;
+    keyDeliveryAccessControl?: pulumi.Input<inputs.mediaservices.AccountKeyDeliveryAccessControl>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * One or more `storageAccount` blocks as defined below.
      */
-    readonly storageAccounts: pulumi.Input<pulumi.Input<inputs.mediaservices.AccountStorageAccount>[]>;
+    storageAccounts: pulumi.Input<pulumi.Input<inputs.mediaservices.AccountStorageAccount>[]>;
     /**
      * Specifies the storage authentication type. 
      * Possible value is  `ManagedIdentity` or `System`.
      */
-    readonly storageAuthenticationType?: pulumi.Input<string>;
+    storageAuthenticationType?: pulumi.Input<string>;
     /**
      * A mapping of tags assigned to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

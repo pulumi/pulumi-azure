@@ -145,27 +145,27 @@ export interface EndpointEventGridState {
     /**
      * The storage secret of the dead-lettering, whose format is `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
      */
-    readonly deadLetterStorageSecret?: pulumi.Input<string>;
+    deadLetterStorageSecret?: pulumi.Input<string>;
     /**
      * The resource ID of the Digital Twins Instance. Changing this forces a new Digital Twins Eventgrid Endpoint to be created.
      */
-    readonly digitalTwinsId?: pulumi.Input<string>;
+    digitalTwinsId?: pulumi.Input<string>;
     /**
      * The endpoint of the Event Grid Topic.
      */
-    readonly eventgridTopicEndpoint?: pulumi.Input<string>;
+    eventgridTopicEndpoint?: pulumi.Input<string>;
     /**
      * The primary access key of the Event Grid Topic.
      */
-    readonly eventgridTopicPrimaryAccessKey?: pulumi.Input<string>;
+    eventgridTopicPrimaryAccessKey?: pulumi.Input<string>;
     /**
      * The secondary access key of the Event Grid Topic.
      */
-    readonly eventgridTopicSecondaryAccessKey?: pulumi.Input<string>;
+    eventgridTopicSecondaryAccessKey?: pulumi.Input<string>;
     /**
      * The name which should be used for this Digital Twins Eventgrid Endpoint. Changing this forces a new Digital Twins Eventgrid Endpoint to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 /**
@@ -175,25 +175,25 @@ export interface EndpointEventGridArgs {
     /**
      * The storage secret of the dead-lettering, whose format is `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
      */
-    readonly deadLetterStorageSecret?: pulumi.Input<string>;
+    deadLetterStorageSecret?: pulumi.Input<string>;
     /**
      * The resource ID of the Digital Twins Instance. Changing this forces a new Digital Twins Eventgrid Endpoint to be created.
      */
-    readonly digitalTwinsId: pulumi.Input<string>;
+    digitalTwinsId: pulumi.Input<string>;
     /**
      * The endpoint of the Event Grid Topic.
      */
-    readonly eventgridTopicEndpoint: pulumi.Input<string>;
+    eventgridTopicEndpoint: pulumi.Input<string>;
     /**
      * The primary access key of the Event Grid Topic.
      */
-    readonly eventgridTopicPrimaryAccessKey: pulumi.Input<string>;
+    eventgridTopicPrimaryAccessKey: pulumi.Input<string>;
     /**
      * The secondary access key of the Event Grid Topic.
      */
-    readonly eventgridTopicSecondaryAccessKey: pulumi.Input<string>;
+    eventgridTopicSecondaryAccessKey: pulumi.Input<string>;
     /**
      * The name which should be used for this Digital Twins Eventgrid Endpoint. Changing this forces a new Digital Twins Eventgrid Endpoint to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

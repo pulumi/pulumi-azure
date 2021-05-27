@@ -168,27 +168,27 @@ export interface LinkedServerState {
     /**
      * The ID of the linked Redis cache. Changing this forces a new Redis to be created.
      */
-    readonly linkedRedisCacheId?: pulumi.Input<string>;
+    linkedRedisCacheId?: pulumi.Input<string>;
     /**
      * The location of the linked Redis cache. Changing this forces a new Redis to be created.
      */
-    readonly linkedRedisCacheLocation?: pulumi.Input<string>;
+    linkedRedisCacheLocation?: pulumi.Input<string>;
     /**
      * The name of the linked server.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Redis caches exists. Changing this forces a new Redis to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created.
      */
-    readonly serverRole?: pulumi.Input<string>;
+    serverRole?: pulumi.Input<string>;
     /**
      * The name of Redis cache to link with. Changing this forces a new Redis to be created. (eg The primary role)
      */
-    readonly targetRedisCacheName?: pulumi.Input<string>;
+    targetRedisCacheName?: pulumi.Input<string>;
 }
 
 /**
@@ -198,21 +198,21 @@ export interface LinkedServerArgs {
     /**
      * The ID of the linked Redis cache. Changing this forces a new Redis to be created.
      */
-    readonly linkedRedisCacheId: pulumi.Input<string>;
+    linkedRedisCacheId: pulumi.Input<string>;
     /**
      * The location of the linked Redis cache. Changing this forces a new Redis to be created.
      */
-    readonly linkedRedisCacheLocation: pulumi.Input<string>;
+    linkedRedisCacheLocation: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Redis caches exists. Changing this forces a new Redis to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created.
      */
-    readonly serverRole: pulumi.Input<string>;
+    serverRole: pulumi.Input<string>;
     /**
      * The name of Redis cache to link with. Changing this forces a new Redis to be created. (eg The primary role)
      */
-    readonly targetRedisCacheName: pulumi.Input<string>;
+    targetRedisCacheName: pulumi.Input<string>;
 }

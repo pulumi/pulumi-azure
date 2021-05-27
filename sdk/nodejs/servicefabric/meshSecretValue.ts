@@ -108,23 +108,23 @@ export interface MeshSecretValueState {
     /**
      * Specifies the Azure Region where the Service Fabric Mesh Secret Value should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Service Fabric Mesh Secret Value. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The id of the Service Fabric Mesh Secret in which the value will be applied to. Changing this forces a new resource to be created.
      */
-    readonly serviceFabricMeshSecretId?: pulumi.Input<string>;
+    serviceFabricMeshSecretId?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the value that will be applied to the Service Fabric Mesh Secret. Changing this forces a new resource to be created.
      */
-    readonly value?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
 }
 
 /**
@@ -134,21 +134,21 @@ export interface MeshSecretValueArgs {
     /**
      * Specifies the Azure Region where the Service Fabric Mesh Secret Value should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Service Fabric Mesh Secret Value. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The id of the Service Fabric Mesh Secret in which the value will be applied to. Changing this forces a new resource to be created.
      */
-    readonly serviceFabricMeshSecretId: pulumi.Input<string>;
+    serviceFabricMeshSecretId: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the value that will be applied to the Service Fabric Mesh Secret. Changing this forces a new resource to be created.
      */
-    readonly value: pulumi.Input<string>;
+    value: pulumi.Input<string>;
 }

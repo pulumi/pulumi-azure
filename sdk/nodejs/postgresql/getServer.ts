@@ -42,11 +42,11 @@ export interface GetServerArgs {
     /**
      * The name of the PostgreSQL Server.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the name of the Resource Group where the PostgreSQL Server exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

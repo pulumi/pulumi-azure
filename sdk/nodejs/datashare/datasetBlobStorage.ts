@@ -177,31 +177,31 @@ export interface DatasetBlobStorageState {
     /**
      * The name of the storage account container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
      */
-    readonly containerName?: pulumi.Input<string>;
+    containerName?: pulumi.Input<string>;
     /**
      * The ID of the Data Share in which this Data Share Blob Storage Dataset should be created. Changing this forces a new Data Share Blob Storage Dataset to be created.
      */
-    readonly dataShareId?: pulumi.Input<string>;
+    dataShareId?: pulumi.Input<string>;
     /**
      * The name of the Data Share Dataset.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The path of the file in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
      */
-    readonly filePath?: pulumi.Input<string>;
+    filePath?: pulumi.Input<string>;
     /**
      * The path of the folder in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
      */
-    readonly folderPath?: pulumi.Input<string>;
+    folderPath?: pulumi.Input<string>;
     /**
      * The name which should be used for this Data Share Blob Storage Dataset. Changing this forces a new Data Share Blob Storage Dataset to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `storageAccount` block as defined below.
      */
-    readonly storageAccount?: pulumi.Input<inputs.datashare.DatasetBlobStorageStorageAccount>;
+    storageAccount?: pulumi.Input<inputs.datashare.DatasetBlobStorageStorageAccount>;
 }
 
 /**
@@ -211,25 +211,25 @@ export interface DatasetBlobStorageArgs {
     /**
      * The name of the storage account container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
      */
-    readonly containerName: pulumi.Input<string>;
+    containerName: pulumi.Input<string>;
     /**
      * The ID of the Data Share in which this Data Share Blob Storage Dataset should be created. Changing this forces a new Data Share Blob Storage Dataset to be created.
      */
-    readonly dataShareId: pulumi.Input<string>;
+    dataShareId: pulumi.Input<string>;
     /**
      * The path of the file in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
      */
-    readonly filePath?: pulumi.Input<string>;
+    filePath?: pulumi.Input<string>;
     /**
      * The path of the folder in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
      */
-    readonly folderPath?: pulumi.Input<string>;
+    folderPath?: pulumi.Input<string>;
     /**
      * The name which should be used for this Data Share Blob Storage Dataset. Changing this forces a new Data Share Blob Storage Dataset to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `storageAccount` block as defined below.
      */
-    readonly storageAccount: pulumi.Input<inputs.datashare.DatasetBlobStorageStorageAccount>;
+    storageAccount: pulumi.Input<inputs.datashare.DatasetBlobStorageStorageAccount>;
 }

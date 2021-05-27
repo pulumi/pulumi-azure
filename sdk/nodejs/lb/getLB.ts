@@ -42,11 +42,11 @@ export interface GetLBArgs {
     /**
      * Specifies the name of the Load Balancer.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group in which the Load Balancer exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

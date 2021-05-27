@@ -189,48 +189,48 @@ export class NatRule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NatRule resources.
  */
 export interface NatRuleState {
-    readonly backendIpConfigurationId?: pulumi.Input<string>;
+    backendIpConfigurationId?: pulumi.Input<string>;
     /**
      * The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
      */
-    readonly backendPort?: pulumi.Input<number>;
+    backendPort?: pulumi.Input<number>;
     /**
      * Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
      */
-    readonly enableFloatingIp?: pulumi.Input<boolean>;
+    enableFloatingIp?: pulumi.Input<boolean>;
     /**
      * Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
      */
-    readonly enableTcpReset?: pulumi.Input<boolean>;
-    readonly frontendIpConfigurationId?: pulumi.Input<string>;
+    enableTcpReset?: pulumi.Input<boolean>;
+    frontendIpConfigurationId?: pulumi.Input<string>;
     /**
      * The name of the frontend IP configuration exposing this rule.
      */
-    readonly frontendIpConfigurationName?: pulumi.Input<string>;
+    frontendIpConfigurationName?: pulumi.Input<string>;
     /**
      * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
      */
-    readonly frontendPort?: pulumi.Input<number>;
+    frontendPort?: pulumi.Input<number>;
     /**
      * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
      */
-    readonly idleTimeoutInMinutes?: pulumi.Input<number>;
+    idleTimeoutInMinutes?: pulumi.Input<number>;
     /**
      * The ID of the Load Balancer in which to create the NAT Rule.
      */
-    readonly loadbalancerId?: pulumi.Input<string>;
+    loadbalancerId?: pulumi.Input<string>;
     /**
      * Specifies the name of the NAT Rule.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
      */
-    readonly protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the resource.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -240,41 +240,41 @@ export interface NatRuleArgs {
     /**
      * The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
      */
-    readonly backendPort: pulumi.Input<number>;
+    backendPort: pulumi.Input<number>;
     /**
      * Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
      */
-    readonly enableFloatingIp?: pulumi.Input<boolean>;
+    enableFloatingIp?: pulumi.Input<boolean>;
     /**
      * Is TCP Reset enabled for this Load Balancer Rule? Defaults to `false`.
      */
-    readonly enableTcpReset?: pulumi.Input<boolean>;
+    enableTcpReset?: pulumi.Input<boolean>;
     /**
      * The name of the frontend IP configuration exposing this rule.
      */
-    readonly frontendIpConfigurationName: pulumi.Input<string>;
+    frontendIpConfigurationName: pulumi.Input<string>;
     /**
      * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
      */
-    readonly frontendPort: pulumi.Input<number>;
+    frontendPort: pulumi.Input<number>;
     /**
      * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
      */
-    readonly idleTimeoutInMinutes?: pulumi.Input<number>;
+    idleTimeoutInMinutes?: pulumi.Input<number>;
     /**
      * The ID of the Load Balancer in which to create the NAT Rule.
      */
-    readonly loadbalancerId: pulumi.Input<string>;
+    loadbalancerId: pulumi.Input<string>;
     /**
      * Specifies the name of the NAT Rule.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
      */
-    readonly protocol: pulumi.Input<string>;
+    protocol: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the resource.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

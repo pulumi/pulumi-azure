@@ -173,55 +173,55 @@ export interface ServiceState {
     /**
      * A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
      */
-    readonly allowedIps?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `identity` block as defined below.
      */
-    readonly identity?: pulumi.Input<inputs.search.ServiceIdentity>;
+    identity?: pulumi.Input<inputs.search.ServiceIdentity>;
     /**
      * The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The number of partitions which should be created.
      */
-    readonly partitionCount?: pulumi.Input<number>;
+    partitionCount?: pulumi.Input<number>;
     /**
      * The Primary Key used for Search Service Administration.
      */
-    readonly primaryKey?: pulumi.Input<string>;
+    primaryKey?: pulumi.Input<string>;
     /**
      * Whether or not public network access is allowed for this resource. Defaults to `true`.
      */
-    readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * A `queryKeys` block as defined below.
      */
-    readonly queryKeys?: pulumi.Input<pulumi.Input<inputs.search.ServiceQueryKey>[]>;
+    queryKeys?: pulumi.Input<pulumi.Input<inputs.search.ServiceQueryKey>[]>;
     /**
      * The number of replica's which should be created.
      */
-    readonly replicaCount?: pulumi.Input<number>;
+    replicaCount?: pulumi.Input<number>;
     /**
      * The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The Secondary Key used for Search Service Administration.
      */
-    readonly secondaryKey?: pulumi.Input<string>;
+    secondaryKey?: pulumi.Input<string>;
     /**
      * The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
      */
-    readonly sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Search Service.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -231,41 +231,41 @@ export interface ServiceArgs {
     /**
      * A list of IPv4 addresses or CIDRs that are allowed access to the search service endpoint.
      */
-    readonly allowedIps?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `identity` block as defined below.
      */
-    readonly identity?: pulumi.Input<inputs.search.ServiceIdentity>;
+    identity?: pulumi.Input<inputs.search.ServiceIdentity>;
     /**
      * The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The number of partitions which should be created.
      */
-    readonly partitionCount?: pulumi.Input<number>;
+    partitionCount?: pulumi.Input<number>;
     /**
      * Whether or not public network access is allowed for this resource. Defaults to `true`.
      */
-    readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The number of replica's which should be created.
      */
-    readonly replicaCount?: pulumi.Input<number>;
+    replicaCount?: pulumi.Input<number>;
     /**
      * The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The SKU which should be used for this Search Service. Possible values are `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
      */
-    readonly sku: pulumi.Input<string>;
+    sku: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Search Service.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

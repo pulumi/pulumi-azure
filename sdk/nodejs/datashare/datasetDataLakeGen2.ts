@@ -170,31 +170,31 @@ export interface DatasetDataLakeGen2State {
     /**
      * The name of the Data Share Dataset.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The path of the file in the data lake file system to be shared with the receiver. Conflicts with `folderPath` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
      */
-    readonly filePath?: pulumi.Input<string>;
+    filePath?: pulumi.Input<string>;
     /**
      * The name of the data lake file system to be shared with the receiver. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
      */
-    readonly fileSystemName?: pulumi.Input<string>;
+    fileSystemName?: pulumi.Input<string>;
     /**
      * The folder path in the data lake file system to be shared with the receiver. Conflicts with `filePath` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
      */
-    readonly folderPath?: pulumi.Input<string>;
+    folderPath?: pulumi.Input<string>;
     /**
      * The name which should be used for this Data Share Data Lake Gen2 Dataset. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The resource ID of the Data Share where this Data Share Data Lake Gen2 Dataset should be created. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
      */
-    readonly shareId?: pulumi.Input<string>;
+    shareId?: pulumi.Input<string>;
     /**
      * The resource id of the storage account of the data lake file system to be shared with the receiver. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
      */
-    readonly storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string>;
 }
 
 /**
@@ -204,25 +204,25 @@ export interface DatasetDataLakeGen2Args {
     /**
      * The path of the file in the data lake file system to be shared with the receiver. Conflicts with `folderPath` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
      */
-    readonly filePath?: pulumi.Input<string>;
+    filePath?: pulumi.Input<string>;
     /**
      * The name of the data lake file system to be shared with the receiver. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
      */
-    readonly fileSystemName: pulumi.Input<string>;
+    fileSystemName: pulumi.Input<string>;
     /**
      * The folder path in the data lake file system to be shared with the receiver. Conflicts with `filePath` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
      */
-    readonly folderPath?: pulumi.Input<string>;
+    folderPath?: pulumi.Input<string>;
     /**
      * The name which should be used for this Data Share Data Lake Gen2 Dataset. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The resource ID of the Data Share where this Data Share Data Lake Gen2 Dataset should be created. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
      */
-    readonly shareId: pulumi.Input<string>;
+    shareId: pulumi.Input<string>;
     /**
      * The resource id of the storage account of the data lake file system to be shared with the receiver. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
      */
-    readonly storageAccountId: pulumi.Input<string>;
+    storageAccountId: pulumi.Input<string>;
 }

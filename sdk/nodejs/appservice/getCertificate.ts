@@ -43,12 +43,12 @@ export interface GetCertificateArgs {
     /**
      * Specifies the name of the certificate.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the resource group in which to create the certificate.
      */
-    readonly resourceGroupName: string;
-    readonly tags?: {[key: string]: string};
+    resourceGroupName: string;
+    tags?: {[key: string]: string};
 }
 
 /**

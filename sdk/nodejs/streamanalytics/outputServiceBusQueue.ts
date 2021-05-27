@@ -180,35 +180,35 @@ export interface OutputServiceBusQueueState {
     /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Service Bus Queue.
      */
-    readonly queueName?: pulumi.Input<string>;
+    queueName?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A `serialization` block as defined below.
      */
-    readonly serialization?: pulumi.Input<inputs.streamanalytics.OutputServiceBusQueueSerialization>;
+    serialization?: pulumi.Input<inputs.streamanalytics.OutputServiceBusQueueSerialization>;
     /**
      * The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
      */
-    readonly servicebusNamespace?: pulumi.Input<string>;
+    servicebusNamespace?: pulumi.Input<string>;
     /**
      * The shared access policy key for the specified shared access policy.
      */
-    readonly sharedAccessPolicyKey?: pulumi.Input<string>;
+    sharedAccessPolicyKey?: pulumi.Input<string>;
     /**
      * The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
      */
-    readonly sharedAccessPolicyName?: pulumi.Input<string>;
+    sharedAccessPolicyName?: pulumi.Input<string>;
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    readonly streamAnalyticsJobName?: pulumi.Input<string>;
+    streamAnalyticsJobName?: pulumi.Input<string>;
 }
 
 /**
@@ -218,33 +218,33 @@ export interface OutputServiceBusQueueArgs {
     /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Service Bus Queue.
      */
-    readonly queueName: pulumi.Input<string>;
+    queueName: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A `serialization` block as defined below.
      */
-    readonly serialization: pulumi.Input<inputs.streamanalytics.OutputServiceBusQueueSerialization>;
+    serialization: pulumi.Input<inputs.streamanalytics.OutputServiceBusQueueSerialization>;
     /**
      * The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
      */
-    readonly servicebusNamespace: pulumi.Input<string>;
+    servicebusNamespace: pulumi.Input<string>;
     /**
      * The shared access policy key for the specified shared access policy.
      */
-    readonly sharedAccessPolicyKey: pulumi.Input<string>;
+    sharedAccessPolicyKey: pulumi.Input<string>;
     /**
      * The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
      */
-    readonly sharedAccessPolicyName: pulumi.Input<string>;
+    sharedAccessPolicyName: pulumi.Input<string>;
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    readonly streamAnalyticsJobName: pulumi.Input<string>;
+    streamAnalyticsJobName: pulumi.Input<string>;
 }

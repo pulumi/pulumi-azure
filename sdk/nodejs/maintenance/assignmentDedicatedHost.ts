@@ -128,15 +128,15 @@ export interface AssignmentDedicatedHostState {
     /**
      * Specifies the Dedicated Host ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.
      */
-    readonly dedicatedHostId?: pulumi.Input<string>;
+    dedicatedHostId?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the ID of the Maintenance Configuration Resource. Changing this forces a new resource to be created.
      */
-    readonly maintenanceConfigurationId?: pulumi.Input<string>;
+    maintenanceConfigurationId?: pulumi.Input<string>;
 }
 
 /**
@@ -146,13 +146,13 @@ export interface AssignmentDedicatedHostArgs {
     /**
      * Specifies the Dedicated Host ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.
      */
-    readonly dedicatedHostId: pulumi.Input<string>;
+    dedicatedHostId: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the ID of the Maintenance Configuration Resource. Changing this forces a new resource to be created.
      */
-    readonly maintenanceConfigurationId: pulumi.Input<string>;
+    maintenanceConfigurationId: pulumi.Input<string>;
 }

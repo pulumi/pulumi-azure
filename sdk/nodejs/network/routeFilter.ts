@@ -126,23 +126,23 @@ export interface RouteFilterState {
     /**
      * The Azure Region where the Route Filter should exist. Changing this forces a new Route Filter to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The Name which should be used for this Route Filter.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Route Filter should exist. Changing this forces a new Route Filter to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A `rules` block as defined below.
      */
-    readonly rule?: pulumi.Input<inputs.network.RouteFilterRule>;
+    rule?: pulumi.Input<inputs.network.RouteFilterRule>;
     /**
      * A mapping of tags which should be assigned to the Route Filter.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -152,21 +152,21 @@ export interface RouteFilterArgs {
     /**
      * The Azure Region where the Route Filter should exist. Changing this forces a new Route Filter to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The Name which should be used for this Route Filter.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Route Filter should exist. Changing this forces a new Route Filter to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A `rules` block as defined below.
      */
-    readonly rule?: pulumi.Input<inputs.network.RouteFilterRule>;
+    rule?: pulumi.Input<inputs.network.RouteFilterRule>;
     /**
      * A mapping of tags which should be assigned to the Route Filter.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

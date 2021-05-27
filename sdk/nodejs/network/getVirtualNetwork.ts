@@ -42,11 +42,11 @@ export interface GetVirtualNetworkArgs {
     /**
      * Specifies the name of the Virtual Network.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the name of the resource group the Virtual Network is located in.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

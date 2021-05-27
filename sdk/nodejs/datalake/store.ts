@@ -152,43 +152,43 @@ export interface StoreState {
     /**
      * Is Encryption enabled on this Data Lake Store Account? Possible values are `Enabled` or `Disabled`. Defaults to `Enabled`.
      */
-    readonly encryptionState?: pulumi.Input<string>;
+    encryptionState?: pulumi.Input<string>;
     /**
      * The Encryption Type used for this Data Lake Store Account. Currently can be set to `ServiceManaged` when `encryptionState` is `Enabled` - and must be a blank string when it's Disabled.
      */
-    readonly encryptionType?: pulumi.Input<string>;
+    encryptionType?: pulumi.Input<string>;
     /**
      * The Endpoint for the Data Lake Store.
      */
-    readonly endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string>;
     /**
      * are Azure Service IP's allowed through the firewall? Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
      */
-    readonly firewallAllowAzureIps?: pulumi.Input<string>;
+    firewallAllowAzureIps?: pulumi.Input<string>;
     /**
      * the state of the Firewall. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
      */
-    readonly firewallState?: pulumi.Input<string>;
+    firewallState?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Data Lake Store. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Data Lake Store.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The monthly commitment tier for Data Lake Store. Accepted values are `Consumption`, `Commitment_1TB`, `Commitment_10TB`, `Commitment_100TB`, `Commitment_500TB`, `Commitment_1PB` or `Commitment_5PB`.
      */
-    readonly tier?: pulumi.Input<string>;
+    tier?: pulumi.Input<string>;
 }
 
 /**
@@ -198,37 +198,37 @@ export interface StoreArgs {
     /**
      * Is Encryption enabled on this Data Lake Store Account? Possible values are `Enabled` or `Disabled`. Defaults to `Enabled`.
      */
-    readonly encryptionState?: pulumi.Input<string>;
+    encryptionState?: pulumi.Input<string>;
     /**
      * The Encryption Type used for this Data Lake Store Account. Currently can be set to `ServiceManaged` when `encryptionState` is `Enabled` - and must be a blank string when it's Disabled.
      */
-    readonly encryptionType?: pulumi.Input<string>;
+    encryptionType?: pulumi.Input<string>;
     /**
      * are Azure Service IP's allowed through the firewall? Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
      */
-    readonly firewallAllowAzureIps?: pulumi.Input<string>;
+    firewallAllowAzureIps?: pulumi.Input<string>;
     /**
      * the state of the Firewall. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
      */
-    readonly firewallState?: pulumi.Input<string>;
+    firewallState?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Data Lake Store. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Data Lake Store.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The monthly commitment tier for Data Lake Store. Accepted values are `Consumption`, `Commitment_1TB`, `Commitment_10TB`, `Commitment_100TB`, `Commitment_500TB`, `Commitment_1PB` or `Commitment_5PB`.
      */
-    readonly tier?: pulumi.Input<string>;
+    tier?: pulumi.Input<string>;
 }

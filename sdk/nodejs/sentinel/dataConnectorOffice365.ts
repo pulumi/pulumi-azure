@@ -128,27 +128,27 @@ export interface DataConnectorOffice365State {
     /**
      * Should the Exchange data connector be enabled? Defaults to `true`.
      */
-    readonly exchangeEnabled?: pulumi.Input<boolean>;
+    exchangeEnabled?: pulumi.Input<boolean>;
     /**
      * The ID of the Log Analytics Workspace that this Office 365 Data Connector resides in. Changing this forces a new Office 365 Data Connector to be created.
      */
-    readonly logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    logAnalyticsWorkspaceId?: pulumi.Input<string>;
     /**
      * The name which should be used for this Office 365 Data Connector. Changing this forces a new Office 365 Data Connector to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Should the SharePoint data connector be enabled? Defaults to `true`.
      */
-    readonly sharepointEnabled?: pulumi.Input<boolean>;
+    sharepointEnabled?: pulumi.Input<boolean>;
     /**
      * Should the Microsoft Teams data connector be enabled? Defaults to `true`.
      */
-    readonly teamsEnabled?: pulumi.Input<boolean>;
+    teamsEnabled?: pulumi.Input<boolean>;
     /**
      * The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created.
      */
-    readonly tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string>;
 }
 
 /**
@@ -158,25 +158,25 @@ export interface DataConnectorOffice365Args {
     /**
      * Should the Exchange data connector be enabled? Defaults to `true`.
      */
-    readonly exchangeEnabled?: pulumi.Input<boolean>;
+    exchangeEnabled?: pulumi.Input<boolean>;
     /**
      * The ID of the Log Analytics Workspace that this Office 365 Data Connector resides in. Changing this forces a new Office 365 Data Connector to be created.
      */
-    readonly logAnalyticsWorkspaceId: pulumi.Input<string>;
+    logAnalyticsWorkspaceId: pulumi.Input<string>;
     /**
      * The name which should be used for this Office 365 Data Connector. Changing this forces a new Office 365 Data Connector to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Should the SharePoint data connector be enabled? Defaults to `true`.
      */
-    readonly sharepointEnabled?: pulumi.Input<boolean>;
+    sharepointEnabled?: pulumi.Input<boolean>;
     /**
      * Should the Microsoft Teams data connector be enabled? Defaults to `true`.
      */
-    readonly teamsEnabled?: pulumi.Input<boolean>;
+    teamsEnabled?: pulumi.Input<boolean>;
     /**
      * The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created.
      */
-    readonly tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string>;
 }

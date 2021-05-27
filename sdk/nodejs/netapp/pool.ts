@@ -148,31 +148,31 @@ export interface PoolState {
     /**
      * The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
      */
-    readonly accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the NetApp Pool. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
      */
-    readonly serviceLevel?: pulumi.Input<string>;
+    serviceLevel?: pulumi.Input<string>;
     /**
      * Provisioned size of the pool in TB. Value must be between `4` and `500`.
      */
-    readonly sizeInTb?: pulumi.Input<number>;
+    sizeInTb?: pulumi.Input<number>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -182,29 +182,29 @@ export interface PoolArgs {
     /**
      * The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
      */
-    readonly accountName: pulumi.Input<string>;
+    accountName: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the NetApp Pool. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`.
      */
-    readonly serviceLevel: pulumi.Input<string>;
+    serviceLevel: pulumi.Input<string>;
     /**
      * Provisioned size of the pool in TB. Value must be between `4` and `500`.
      */
-    readonly sizeInTb: pulumi.Input<number>;
+    sizeInTb: pulumi.Input<number>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

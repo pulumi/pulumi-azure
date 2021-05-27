@@ -116,11 +116,11 @@ export interface NatGatewayPublicIpAssociationState {
     /**
      * The ID of the Nat Gateway. Changing this forces a new resource to be created.
      */
-    readonly natGatewayId?: pulumi.Input<string>;
+    natGatewayId?: pulumi.Input<string>;
     /**
      * The ID of the Public IP which this Nat Gateway which should be connected to. Changing this forces a new resource to be created.
      */
-    readonly publicIpAddressId?: pulumi.Input<string>;
+    publicIpAddressId?: pulumi.Input<string>;
 }
 
 /**
@@ -130,9 +130,9 @@ export interface NatGatewayPublicIpAssociationArgs {
     /**
      * The ID of the Nat Gateway. Changing this forces a new resource to be created.
      */
-    readonly natGatewayId: pulumi.Input<string>;
+    natGatewayId: pulumi.Input<string>;
     /**
      * The ID of the Public IP which this Nat Gateway which should be connected to. Changing this forces a new resource to be created.
      */
-    readonly publicIpAddressId: pulumi.Input<string>;
+    publicIpAddressId: pulumi.Input<string>;
 }

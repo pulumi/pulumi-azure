@@ -44,15 +44,15 @@ export interface GetApiVersionSetArgs {
     /**
      * The name of the API Management Service where the API Version Set exists.
      */
-    readonly apiManagementName: string;
+    apiManagementName: string;
     /**
      * The name of the API Version Set.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group in which the parent API Management Service exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

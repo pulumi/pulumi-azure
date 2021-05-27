@@ -167,43 +167,43 @@ export interface LinkedServiceState {
      *
      * @deprecated This field has been deprecated and will be removed in a future version of the provider
      */
-    readonly linkedServiceName?: pulumi.Input<string>;
+    linkedServiceName?: pulumi.Input<string>;
     /**
      * The generated name of the Linked Service. The format for this attribute is always `<workspace name>/<linked service type>`(e.g. `workspace1/Automation` or `workspace1/Cluster`)
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the readable Resource that will be linked to the workspace. This should be used for linking to an Automation Account resource.
      */
-    readonly readAccessId?: pulumi.Input<string>;
+    readAccessId?: pulumi.Input<string>;
     /**
      * The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The ID of the Resource that will be linked to the workspace. This should be used for linking to an Automation Account resource.
      *
      * @deprecated This field has been deprecated in favour of `read_access_id` and will be removed in a future version of the provider
      */
-    readonly resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
      */
-    readonly workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string>;
     /**
      * The name of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
      *
      * @deprecated This field has been deprecated in favour of `workspace_id` and will be removed in a future version of the provider
      */
-    readonly workspaceName?: pulumi.Input<string>;
+    workspaceName?: pulumi.Input<string>;
     /**
      * The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
      */
-    readonly writeAccessId?: pulumi.Input<string>;
+    writeAccessId?: pulumi.Input<string>;
 }
 
 /**
@@ -215,37 +215,37 @@ export interface LinkedServiceArgs {
      *
      * @deprecated This field has been deprecated and will be removed in a future version of the provider
      */
-    readonly linkedServiceName?: pulumi.Input<string>;
+    linkedServiceName?: pulumi.Input<string>;
     /**
      * The ID of the readable Resource that will be linked to the workspace. This should be used for linking to an Automation Account resource.
      */
-    readonly readAccessId?: pulumi.Input<string>;
+    readAccessId?: pulumi.Input<string>;
     /**
      * The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The ID of the Resource that will be linked to the workspace. This should be used for linking to an Automation Account resource.
      *
      * @deprecated This field has been deprecated in favour of `read_access_id` and will be removed in a future version of the provider
      */
-    readonly resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
      */
-    readonly workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string>;
     /**
      * The name of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource. Changing this forces a new resource to be created.
      *
      * @deprecated This field has been deprecated in favour of `workspace_id` and will be removed in a future version of the provider
      */
-    readonly workspaceName?: pulumi.Input<string>;
+    workspaceName?: pulumi.Input<string>;
     /**
      * The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
      */
-    readonly writeAccessId?: pulumi.Input<string>;
+    writeAccessId?: pulumi.Input<string>;
 }

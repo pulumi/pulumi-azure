@@ -121,11 +121,11 @@ export interface WorkspaceApplicationGroupAssociationState {
     /**
      * The resource ID for the Virtual Desktop Application Group.
      */
-    readonly applicationGroupId?: pulumi.Input<string>;
+    applicationGroupId?: pulumi.Input<string>;
     /**
      * The resource ID for the Virtual Desktop Workspace.
      */
-    readonly workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string>;
 }
 
 /**
@@ -135,9 +135,9 @@ export interface WorkspaceApplicationGroupAssociationArgs {
     /**
      * The resource ID for the Virtual Desktop Application Group.
      */
-    readonly applicationGroupId: pulumi.Input<string>;
+    applicationGroupId: pulumi.Input<string>;
     /**
      * The resource ID for the Virtual Desktop Workspace.
      */
-    readonly workspaceId: pulumi.Input<string>;
+    workspaceId: pulumi.Input<string>;
 }

@@ -146,35 +146,35 @@ export interface IntegrationRuntimeRuleState {
     /**
      * Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
      */
-    readonly computeType?: pulumi.Input<string>;
+    computeType?: pulumi.Input<string>;
     /**
      * Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
      */
-    readonly coreCount?: pulumi.Input<number>;
+    coreCount?: pulumi.Input<number>;
     /**
      * Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
      */
-    readonly dataFactoryName?: pulumi.Input<string>;
+    dataFactoryName?: pulumi.Input<string>;
     /**
      * Integration runtime description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
      */
-    readonly timeToLiveMin?: pulumi.Input<number>;
+    timeToLiveMin?: pulumi.Input<number>;
 }
 
 /**
@@ -184,33 +184,33 @@ export interface IntegrationRuntimeRuleArgs {
     /**
      * Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
      */
-    readonly computeType?: pulumi.Input<string>;
+    computeType?: pulumi.Input<string>;
     /**
      * Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
      */
-    readonly coreCount?: pulumi.Input<number>;
+    coreCount?: pulumi.Input<number>;
     /**
      * Specifies the name of the Data Factory the Managed Integration Runtime belongs to. Changing this forces a new resource to be created.
      */
-    readonly dataFactoryName: pulumi.Input<string>;
+    dataFactoryName: pulumi.Input<string>;
     /**
      * Integration runtime description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Managed Integration Runtime. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
      */
-    readonly timeToLiveMin?: pulumi.Input<number>;
+    timeToLiveMin?: pulumi.Input<number>;
 }

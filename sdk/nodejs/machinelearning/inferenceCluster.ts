@@ -207,35 +207,35 @@ export interface InferenceClusterState {
     /**
      * The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    readonly clusterPurpose?: pulumi.Input<string>;
+    clusterPurpose?: pulumi.Input<string>;
     /**
      * The description of the Machine Learning compute.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    readonly kubernetesClusterId?: pulumi.Input<string>;
+    kubernetesClusterId?: pulumi.Input<string>;
     /**
      * The Azure Region where the Machine Learning Inference Cluster should exist. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    readonly machineLearningWorkspaceId?: pulumi.Input<string>;
+    machineLearningWorkspaceId?: pulumi.Input<string>;
     /**
      * The name which should be used for this Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `ssl` block as defined below.
      */
-    readonly ssl?: pulumi.Input<inputs.machinelearning.InferenceClusterSsl>;
+    ssl?: pulumi.Input<inputs.machinelearning.InferenceClusterSsl>;
     /**
      * A mapping of tags which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -245,33 +245,33 @@ export interface InferenceClusterArgs {
     /**
      * The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    readonly clusterPurpose?: pulumi.Input<string>;
+    clusterPurpose?: pulumi.Input<string>;
     /**
      * The description of the Machine Learning compute.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    readonly kubernetesClusterId: pulumi.Input<string>;
+    kubernetesClusterId: pulumi.Input<string>;
     /**
      * The Azure Region where the Machine Learning Inference Cluster should exist. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    readonly machineLearningWorkspaceId: pulumi.Input<string>;
+    machineLearningWorkspaceId: pulumi.Input<string>;
     /**
      * The name which should be used for this Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `ssl` block as defined below.
      */
-    readonly ssl?: pulumi.Input<inputs.machinelearning.InferenceClusterSsl>;
+    ssl?: pulumi.Input<inputs.machinelearning.InferenceClusterSsl>;
     /**
      * A mapping of tags which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -183,31 +183,31 @@ export interface ProtectionContainerMappingState {
     /**
      * The name of the network mapping.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Name of fabric that should contains the protection container to map.
      */
-    readonly recoveryFabricName?: pulumi.Input<string>;
+    recoveryFabricName?: pulumi.Input<string>;
     /**
      * Id of the policy to use for this mapping.
      */
-    readonly recoveryReplicationPolicyId?: pulumi.Input<string>;
+    recoveryReplicationPolicyId?: pulumi.Input<string>;
     /**
      * Name of the source protection container to map.
      */
-    readonly recoverySourceProtectionContainerName?: pulumi.Input<string>;
+    recoverySourceProtectionContainerName?: pulumi.Input<string>;
     /**
      * Id of target protection container to map to.
      */
-    readonly recoveryTargetProtectionContainerId?: pulumi.Input<string>;
+    recoveryTargetProtectionContainerId?: pulumi.Input<string>;
     /**
      * The name of the vault that should be updated.
      */
-    readonly recoveryVaultName?: pulumi.Input<string>;
+    recoveryVaultName?: pulumi.Input<string>;
     /**
      * Name of the resource group where the vault that should be updated is located.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -217,29 +217,29 @@ export interface ProtectionContainerMappingArgs {
     /**
      * The name of the network mapping.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Name of fabric that should contains the protection container to map.
      */
-    readonly recoveryFabricName: pulumi.Input<string>;
+    recoveryFabricName: pulumi.Input<string>;
     /**
      * Id of the policy to use for this mapping.
      */
-    readonly recoveryReplicationPolicyId: pulumi.Input<string>;
+    recoveryReplicationPolicyId: pulumi.Input<string>;
     /**
      * Name of the source protection container to map.
      */
-    readonly recoverySourceProtectionContainerName: pulumi.Input<string>;
+    recoverySourceProtectionContainerName: pulumi.Input<string>;
     /**
      * Id of target protection container to map to.
      */
-    readonly recoveryTargetProtectionContainerId: pulumi.Input<string>;
+    recoveryTargetProtectionContainerId: pulumi.Input<string>;
     /**
      * The name of the vault that should be updated.
      */
-    readonly recoveryVaultName: pulumi.Input<string>;
+    recoveryVaultName: pulumi.Input<string>;
     /**
      * Name of the resource group where the vault that should be updated is located.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

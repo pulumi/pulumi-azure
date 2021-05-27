@@ -201,43 +201,43 @@ export interface StreamInputBlobState {
     /**
      * The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
      */
-    readonly dateFormat?: pulumi.Input<string>;
+    dateFormat?: pulumi.Input<string>;
     /**
      * The name of the Stream Input Blob. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
      */
-    readonly pathPattern?: pulumi.Input<string>;
+    pathPattern?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A `serialization` block as defined below.
      */
-    readonly serialization?: pulumi.Input<inputs.streamanalytics.StreamInputBlobSerialization>;
+    serialization?: pulumi.Input<inputs.streamanalytics.StreamInputBlobSerialization>;
     /**
      * The Access Key which should be used to connect to this Storage Account.
      */
-    readonly storageAccountKey?: pulumi.Input<string>;
+    storageAccountKey?: pulumi.Input<string>;
     /**
      * The name of the Storage Account.
      */
-    readonly storageAccountName?: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string>;
     /**
      * The name of the Container within the Storage Account.
      */
-    readonly storageContainerName?: pulumi.Input<string>;
+    storageContainerName?: pulumi.Input<string>;
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    readonly streamAnalyticsJobName?: pulumi.Input<string>;
+    streamAnalyticsJobName?: pulumi.Input<string>;
     /**
      * The time format. Wherever `{time}` appears in `pathPattern`, the value of this property is used as the time format instead.
      */
-    readonly timeFormat?: pulumi.Input<string>;
+    timeFormat?: pulumi.Input<string>;
 }
 
 /**
@@ -247,41 +247,41 @@ export interface StreamInputBlobArgs {
     /**
      * The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
      */
-    readonly dateFormat: pulumi.Input<string>;
+    dateFormat: pulumi.Input<string>;
     /**
      * The name of the Stream Input Blob. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
      */
-    readonly pathPattern: pulumi.Input<string>;
+    pathPattern: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A `serialization` block as defined below.
      */
-    readonly serialization: pulumi.Input<inputs.streamanalytics.StreamInputBlobSerialization>;
+    serialization: pulumi.Input<inputs.streamanalytics.StreamInputBlobSerialization>;
     /**
      * The Access Key which should be used to connect to this Storage Account.
      */
-    readonly storageAccountKey: pulumi.Input<string>;
+    storageAccountKey: pulumi.Input<string>;
     /**
      * The name of the Storage Account.
      */
-    readonly storageAccountName: pulumi.Input<string>;
+    storageAccountName: pulumi.Input<string>;
     /**
      * The name of the Container within the Storage Account.
      */
-    readonly storageContainerName: pulumi.Input<string>;
+    storageContainerName: pulumi.Input<string>;
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    readonly streamAnalyticsJobName: pulumi.Input<string>;
+    streamAnalyticsJobName: pulumi.Input<string>;
     /**
      * The time format. Wherever `{time}` appears in `pathPattern`, the value of this property is used as the time format instead.
      */
-    readonly timeFormat: pulumi.Input<string>;
+    timeFormat: pulumi.Input<string>;
 }

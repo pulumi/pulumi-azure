@@ -42,11 +42,11 @@ export interface GetRegistryArgs {
     /**
      * The name of the Container Registry.
      */
-    readonly name: string;
+    name: string;
     /**
      * The Name of the Resource Group where this Container Registry exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

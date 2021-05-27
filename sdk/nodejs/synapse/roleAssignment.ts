@@ -139,15 +139,15 @@ export interface RoleAssignmentState {
     /**
      * The ID of the Principal (User, Group or Service Principal) to assign the Synapse Role Definition to. Changing this forces a new resource to be created.
      */
-    readonly principalId?: pulumi.Input<string>;
+    principalId?: pulumi.Input<string>;
     /**
      * The Role Name of the Synapse Built-In Role. Changing this forces a new resource to be created.
      */
-    readonly roleName?: pulumi.Input<string>;
+    roleName?: pulumi.Input<string>;
     /**
      * The ID of the Synapse Workspace on which to create the Role Assignment. Changing this forces a new resource to be created.
      */
-    readonly synapseWorkspaceId?: pulumi.Input<string>;
+    synapseWorkspaceId?: pulumi.Input<string>;
 }
 
 /**
@@ -157,13 +157,13 @@ export interface RoleAssignmentArgs {
     /**
      * The ID of the Principal (User, Group or Service Principal) to assign the Synapse Role Definition to. Changing this forces a new resource to be created.
      */
-    readonly principalId: pulumi.Input<string>;
+    principalId: pulumi.Input<string>;
     /**
      * The Role Name of the Synapse Built-In Role. Changing this forces a new resource to be created.
      */
-    readonly roleName: pulumi.Input<string>;
+    roleName: pulumi.Input<string>;
     /**
      * The ID of the Synapse Workspace on which to create the Role Assignment. Changing this forces a new resource to be created.
      */
-    readonly synapseWorkspaceId: pulumi.Input<string>;
+    synapseWorkspaceId: pulumi.Input<string>;
 }

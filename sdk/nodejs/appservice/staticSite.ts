@@ -127,25 +127,25 @@ export interface StaticSiteState {
     /**
      * The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. Github Action.
      */
-    readonly apiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string>;
     /**
      * The default host name of the Static Web App.
      */
-    readonly defaultHostName?: pulumi.Input<string>;
+    defaultHostName?: pulumi.Input<string>;
     /**
      * The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
-    readonly skuSize?: pulumi.Input<string>;
-    readonly skuTier?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
+    skuSize?: pulumi.Input<string>;
+    skuTier?: pulumi.Input<string>;
 }
 
 /**
@@ -155,15 +155,15 @@ export interface StaticSiteArgs {
     /**
      * The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
-    readonly skuSize?: pulumi.Input<string>;
-    readonly skuTier?: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
+    skuSize?: pulumi.Input<string>;
+    skuTier?: pulumi.Input<string>;
 }

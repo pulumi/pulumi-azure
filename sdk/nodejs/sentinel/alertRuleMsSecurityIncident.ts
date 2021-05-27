@@ -172,47 +172,47 @@ export interface AlertRuleMsSecurityIncidentState {
     /**
      * The GUID of the alert rule template which is used to create this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
      */
-    readonly alertRuleTemplateGuid?: pulumi.Input<string>;
+    alertRuleTemplateGuid?: pulumi.Input<string>;
     /**
      * The description of this Sentinel MS Security Incident Alert Rule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The friendly name of this Sentinel MS Security Incident Alert Rule.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * Only create incidents when the alert display name doesn't contain text from this list.
      */
-    readonly displayNameExcludeFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    displayNameExcludeFilters?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
      */
-    readonly displayNameFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    displayNameFilters?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The ID of the Log Analytics Workspace this Sentinel MS Security Incident Alert Rule belongs to. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
      */
-    readonly logAnalyticsWorkspaceId?: pulumi.Input<string>;
+    logAnalyticsWorkspaceId?: pulumi.Input<string>;
     /**
      * The name which should be used for this Sentinel MS Security Incident Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The Microsoft Security Service from where the alert will be generated. Possible values are `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT`, `Microsoft Cloud App Security`, `Microsoft Defender Advanced Threat Protection` and `Office 365 Advanced Threat Protection`.
      */
-    readonly productFilter?: pulumi.Input<string>;
+    productFilter?: pulumi.Input<string>;
     /**
      * Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
      */
-    readonly severityFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    severityFilters?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * @deprecated this property has been renamed to display_name_filter to better match the SDK & API
      */
-    readonly textWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
+    textWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -222,45 +222,45 @@ export interface AlertRuleMsSecurityIncidentArgs {
     /**
      * The GUID of the alert rule template which is used to create this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
      */
-    readonly alertRuleTemplateGuid?: pulumi.Input<string>;
+    alertRuleTemplateGuid?: pulumi.Input<string>;
     /**
      * The description of this Sentinel MS Security Incident Alert Rule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The friendly name of this Sentinel MS Security Incident Alert Rule.
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * Only create incidents when the alert display name doesn't contain text from this list.
      */
-    readonly displayNameExcludeFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    displayNameExcludeFilters?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
      */
-    readonly displayNameFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    displayNameFilters?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The ID of the Log Analytics Workspace this Sentinel MS Security Incident Alert Rule belongs to. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
      */
-    readonly logAnalyticsWorkspaceId: pulumi.Input<string>;
+    logAnalyticsWorkspaceId: pulumi.Input<string>;
     /**
      * The name which should be used for this Sentinel MS Security Incident Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The Microsoft Security Service from where the alert will be generated. Possible values are `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT`, `Microsoft Cloud App Security`, `Microsoft Defender Advanced Threat Protection` and `Office 365 Advanced Threat Protection`.
      */
-    readonly productFilter: pulumi.Input<string>;
+    productFilter: pulumi.Input<string>;
     /**
      * Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
      */
-    readonly severityFilters: pulumi.Input<pulumi.Input<string>[]>;
+    severityFilters: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * @deprecated this property has been renamed to display_name_filter to better match the SDK & API
      */
-    readonly textWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
+    textWhitelists?: pulumi.Input<pulumi.Input<string>[]>;
 }

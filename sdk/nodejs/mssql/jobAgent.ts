@@ -126,19 +126,19 @@ export interface JobAgentState {
     /**
      * The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
      */
-    readonly databaseId?: pulumi.Input<string>;
+    databaseId?: pulumi.Input<string>;
     /**
      * The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name which should be used for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Database.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -148,17 +148,17 @@ export interface JobAgentArgs {
     /**
      * The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
      */
-    readonly databaseId: pulumi.Input<string>;
+    databaseId: pulumi.Input<string>;
     /**
      * The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name which should be used for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Database.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -148,27 +148,27 @@ export interface IdentityProviderAadState {
     /**
      * List of allowed AAD Tenants.
      */
-    readonly allowedTenants?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedTenants?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
      */
-    readonly apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string>;
     /**
      * Client Id of the Application in the AAD Identity Provider.
      */
-    readonly clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string>;
     /**
      * Client secret of the Application in the AAD Identity Provider.
      */
-    readonly clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string>;
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The AAD Tenant to use instead of Common when logging into Active Directory
      */
-    readonly signinTenant?: pulumi.Input<string>;
+    signinTenant?: pulumi.Input<string>;
 }
 
 /**
@@ -178,25 +178,25 @@ export interface IdentityProviderAadArgs {
     /**
      * List of allowed AAD Tenants.
      */
-    readonly allowedTenants: pulumi.Input<pulumi.Input<string>[]>;
+    allowedTenants: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
      */
-    readonly apiManagementName: pulumi.Input<string>;
+    apiManagementName: pulumi.Input<string>;
     /**
      * Client Id of the Application in the AAD Identity Provider.
      */
-    readonly clientId: pulumi.Input<string>;
+    clientId: pulumi.Input<string>;
     /**
      * Client secret of the Application in the AAD Identity Provider.
      */
-    readonly clientSecret: pulumi.Input<string>;
+    clientSecret: pulumi.Input<string>;
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The AAD Tenant to use instead of Common when logging into Active Directory
      */
-    readonly signinTenant?: pulumi.Input<string>;
+    signinTenant?: pulumi.Input<string>;
 }

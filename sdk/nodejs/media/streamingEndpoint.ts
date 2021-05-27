@@ -261,67 +261,67 @@ export interface StreamingEndpointState {
     /**
      * A `accessControl` block as defined below.
      */
-    readonly accessControl?: pulumi.Input<inputs.media.StreamingEndpointAccessControl>;
+    accessControl?: pulumi.Input<inputs.media.StreamingEndpointAccessControl>;
     /**
      * The flag indicates if the resource should be automatically started on creation.
      */
-    readonly autoStartEnabled?: pulumi.Input<boolean>;
+    autoStartEnabled?: pulumi.Input<boolean>;
     /**
      * The CDN enabled flag.
      */
-    readonly cdnEnabled?: pulumi.Input<boolean>;
+    cdnEnabled?: pulumi.Input<boolean>;
     /**
      * The CDN profile name.
      */
-    readonly cdnProfile?: pulumi.Input<string>;
+    cdnProfile?: pulumi.Input<string>;
     /**
      * The CDN provider name. Supported value are `StandardVerizon`,`PremiumVerizon` and `StandardAkamai`
      */
-    readonly cdnProvider?: pulumi.Input<string>;
+    cdnProvider?: pulumi.Input<string>;
     /**
      * A `crossSiteAccessPolicy` block as defined below.
      */
-    readonly crossSiteAccessPolicy?: pulumi.Input<inputs.media.StreamingEndpointCrossSiteAccessPolicy>;
+    crossSiteAccessPolicy?: pulumi.Input<inputs.media.StreamingEndpointCrossSiteAccessPolicy>;
     /**
      * The custom host names of the streaming endpoint.
      */
-    readonly customHostNames?: pulumi.Input<pulumi.Input<string>[]>;
+    customHostNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The streaming endpoint description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The host name of the Streaming Endpoint.
      */
-    readonly hostName?: pulumi.Input<string>;
+    hostName?: pulumi.Input<string>;
     /**
      * The Azure Region where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Max cache age in seconds.
      */
-    readonly maxCacheAgeSeconds?: pulumi.Input<number>;
+    maxCacheAgeSeconds?: pulumi.Input<number>;
     /**
      * The Media Services account name. Changing this forces a new Streaming Endpoint to be created.
      */
-    readonly mediaServicesAccountName?: pulumi.Input<string>;
+    mediaServicesAccountName?: pulumi.Input<string>;
     /**
      * The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The number of scale units.
      */
-    readonly scaleUnits?: pulumi.Input<number>;
+    scaleUnits?: pulumi.Input<number>;
     /**
      * A mapping of tags which should be assigned to the Streaming Endpoint.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -331,61 +331,61 @@ export interface StreamingEndpointArgs {
     /**
      * A `accessControl` block as defined below.
      */
-    readonly accessControl?: pulumi.Input<inputs.media.StreamingEndpointAccessControl>;
+    accessControl?: pulumi.Input<inputs.media.StreamingEndpointAccessControl>;
     /**
      * The flag indicates if the resource should be automatically started on creation.
      */
-    readonly autoStartEnabled?: pulumi.Input<boolean>;
+    autoStartEnabled?: pulumi.Input<boolean>;
     /**
      * The CDN enabled flag.
      */
-    readonly cdnEnabled?: pulumi.Input<boolean>;
+    cdnEnabled?: pulumi.Input<boolean>;
     /**
      * The CDN profile name.
      */
-    readonly cdnProfile?: pulumi.Input<string>;
+    cdnProfile?: pulumi.Input<string>;
     /**
      * The CDN provider name. Supported value are `StandardVerizon`,`PremiumVerizon` and `StandardAkamai`
      */
-    readonly cdnProvider?: pulumi.Input<string>;
+    cdnProvider?: pulumi.Input<string>;
     /**
      * A `crossSiteAccessPolicy` block as defined below.
      */
-    readonly crossSiteAccessPolicy?: pulumi.Input<inputs.media.StreamingEndpointCrossSiteAccessPolicy>;
+    crossSiteAccessPolicy?: pulumi.Input<inputs.media.StreamingEndpointCrossSiteAccessPolicy>;
     /**
      * The custom host names of the streaming endpoint.
      */
-    readonly customHostNames?: pulumi.Input<pulumi.Input<string>[]>;
+    customHostNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The streaming endpoint description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The Azure Region where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Max cache age in seconds.
      */
-    readonly maxCacheAgeSeconds?: pulumi.Input<number>;
+    maxCacheAgeSeconds?: pulumi.Input<number>;
     /**
      * The Media Services account name. Changing this forces a new Streaming Endpoint to be created.
      */
-    readonly mediaServicesAccountName: pulumi.Input<string>;
+    mediaServicesAccountName: pulumi.Input<string>;
     /**
      * The name which should be used for this Streaming Endpoint maximum length is 24. Changing this forces a new Streaming Endpoint to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The number of scale units.
      */
-    readonly scaleUnits: pulumi.Input<number>;
+    scaleUnits: pulumi.Input<number>;
     /**
      * A mapping of tags which should be assigned to the Streaming Endpoint.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

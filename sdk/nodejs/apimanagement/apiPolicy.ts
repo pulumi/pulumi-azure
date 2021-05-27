@@ -113,23 +113,23 @@ export interface ApiPolicyState {
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
-    readonly apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string>;
     /**
      * The ID of the API Management API within the API Management Service. Changing this forces a new resource to be created.
      */
-    readonly apiName?: pulumi.Input<string>;
+    apiName?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The XML Content for this Policy as a string.
      */
-    readonly xmlContent?: pulumi.Input<string>;
+    xmlContent?: pulumi.Input<string>;
     /**
      * A link to a Policy XML Document, which must be publicly available.
      */
-    readonly xmlLink?: pulumi.Input<string>;
+    xmlLink?: pulumi.Input<string>;
 }
 
 /**
@@ -139,21 +139,21 @@ export interface ApiPolicyArgs {
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
-    readonly apiManagementName: pulumi.Input<string>;
+    apiManagementName: pulumi.Input<string>;
     /**
      * The ID of the API Management API within the API Management Service. Changing this forces a new resource to be created.
      */
-    readonly apiName: pulumi.Input<string>;
+    apiName: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The XML Content for this Policy as a string.
      */
-    readonly xmlContent?: pulumi.Input<string>;
+    xmlContent?: pulumi.Input<string>;
     /**
      * A link to a Policy XML Document, which must be publicly available.
      */
-    readonly xmlLink?: pulumi.Input<string>;
+    xmlLink?: pulumi.Input<string>;
 }

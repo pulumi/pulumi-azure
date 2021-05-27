@@ -137,27 +137,27 @@ export interface IntVariableState {
     /**
      * The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
      */
-    readonly automationAccountName?: pulumi.Input<string>;
+    automationAccountName?: pulumi.Input<string>;
     /**
      * The description of the Automation Variable.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Specifies if the Automation Variable is encrypted. Defaults to `false`.
      */
-    readonly encrypted?: pulumi.Input<boolean>;
+    encrypted?: pulumi.Input<boolean>;
     /**
      * The name of the Automation Variable. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Automation Variable. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The value of the Automation Variable as a `integer`.
      */
-    readonly value?: pulumi.Input<number>;
+    value?: pulumi.Input<number>;
 }
 
 /**
@@ -167,25 +167,25 @@ export interface IntVariableArgs {
     /**
      * The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
      */
-    readonly automationAccountName: pulumi.Input<string>;
+    automationAccountName: pulumi.Input<string>;
     /**
      * The description of the Automation Variable.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Specifies if the Automation Variable is encrypted. Defaults to `false`.
      */
-    readonly encrypted?: pulumi.Input<boolean>;
+    encrypted?: pulumi.Input<boolean>;
     /**
      * The name of the Automation Variable. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Automation Variable. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The value of the Automation Variable as a `integer`.
      */
-    readonly value?: pulumi.Input<number>;
+    value?: pulumi.Input<number>;
 }

@@ -154,39 +154,39 @@ export interface ShareFileState {
     /**
      * Sets the file’s Content-Disposition header.
      */
-    readonly contentDisposition?: pulumi.Input<string>;
+    contentDisposition?: pulumi.Input<string>;
     /**
      * Specifies which content encodings have been applied to the file.
      */
-    readonly contentEncoding?: pulumi.Input<string>;
+    contentEncoding?: pulumi.Input<string>;
     /**
      * The MD5 sum of the file contents. Changing this forces a new resource to be created.
      */
-    readonly contentMd5?: pulumi.Input<string>;
+    contentMd5?: pulumi.Input<string>;
     /**
      * The content type of the share file. Defaults to `application/octet-stream`.
      */
-    readonly contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string>;
     /**
      * A mapping of metadata to assign to this file.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
      */
-    readonly path?: pulumi.Input<string>;
+    path?: pulumi.Input<string>;
     /**
      * An absolute path to a file on the local system.
      */
-    readonly source?: pulumi.Input<string>;
+    source?: pulumi.Input<string>;
     /**
      * The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
      */
-    readonly storageShareId?: pulumi.Input<string>;
+    storageShareId?: pulumi.Input<string>;
 }
 
 /**
@@ -196,37 +196,37 @@ export interface ShareFileArgs {
     /**
      * Sets the file’s Content-Disposition header.
      */
-    readonly contentDisposition?: pulumi.Input<string>;
+    contentDisposition?: pulumi.Input<string>;
     /**
      * Specifies which content encodings have been applied to the file.
      */
-    readonly contentEncoding?: pulumi.Input<string>;
+    contentEncoding?: pulumi.Input<string>;
     /**
      * The MD5 sum of the file contents. Changing this forces a new resource to be created.
      */
-    readonly contentMd5?: pulumi.Input<string>;
+    contentMd5?: pulumi.Input<string>;
     /**
      * The content type of the share file. Defaults to `application/octet-stream`.
      */
-    readonly contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string>;
     /**
      * A mapping of metadata to assign to this file.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The storage share directory that you would like the file placed into. Changing this forces a new resource to be created.
      */
-    readonly path?: pulumi.Input<string>;
+    path?: pulumi.Input<string>;
     /**
      * An absolute path to a file on the local system.
      */
-    readonly source?: pulumi.Input<string>;
+    source?: pulumi.Input<string>;
     /**
      * The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
      */
-    readonly storageShareId: pulumi.Input<string>;
+    storageShareId: pulumi.Input<string>;
 }

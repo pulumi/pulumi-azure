@@ -183,56 +183,56 @@ export interface ReplicatedVMState {
     /**
      * One or more `managedDisk` block.
      */
-    readonly managedDisks?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMManagedDisk>[]>;
+    managedDisks?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMManagedDisk>[]>;
     /**
      * The name of the network mapping.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * One or more `networkInterface` block.
      */
-    readonly networkInterfaces?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMNetworkInterface>[]>;
-    readonly recoveryReplicationPolicyId?: pulumi.Input<string>;
+    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMNetworkInterface>[]>;
+    recoveryReplicationPolicyId?: pulumi.Input<string>;
     /**
      * The name of the vault that should be updated.
      */
-    readonly recoveryVaultName?: pulumi.Input<string>;
+    recoveryVaultName?: pulumi.Input<string>;
     /**
      * Name of the resource group where the vault that should be updated is located.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Name of fabric that should contains this replication.
      */
-    readonly sourceRecoveryFabricName?: pulumi.Input<string>;
+    sourceRecoveryFabricName?: pulumi.Input<string>;
     /**
      * Name of the protection container to use.
      */
-    readonly sourceRecoveryProtectionContainerName?: pulumi.Input<string>;
+    sourceRecoveryProtectionContainerName?: pulumi.Input<string>;
     /**
      * Id of the VM to replicate
      */
-    readonly sourceVmId?: pulumi.Input<string>;
+    sourceVmId?: pulumi.Input<string>;
     /**
      * Id of availability set that the new VM should belong to when a failover is done.
      */
-    readonly targetAvailabilitySetId?: pulumi.Input<string>;
+    targetAvailabilitySetId?: pulumi.Input<string>;
     /**
      * Network to use when a failover is done (recommended to set if any networkInterface is configured for failover).
      */
-    readonly targetNetworkId?: pulumi.Input<string>;
+    targetNetworkId?: pulumi.Input<string>;
     /**
      * Id of fabric where the VM replication should be handled when a failover is done.
      */
-    readonly targetRecoveryFabricId?: pulumi.Input<string>;
+    targetRecoveryFabricId?: pulumi.Input<string>;
     /**
      * Id of protection container where the VM replication should be created when a failover is done.
      */
-    readonly targetRecoveryProtectionContainerId?: pulumi.Input<string>;
+    targetRecoveryProtectionContainerId?: pulumi.Input<string>;
     /**
      * Id of resource group where the VM should be created when a failover is done.
      */
-    readonly targetResourceGroupId?: pulumi.Input<string>;
+    targetResourceGroupId?: pulumi.Input<string>;
 }
 
 /**
@@ -242,54 +242,54 @@ export interface ReplicatedVMArgs {
     /**
      * One or more `managedDisk` block.
      */
-    readonly managedDisks?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMManagedDisk>[]>;
+    managedDisks?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMManagedDisk>[]>;
     /**
      * The name of the network mapping.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * One or more `networkInterface` block.
      */
-    readonly networkInterfaces?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMNetworkInterface>[]>;
-    readonly recoveryReplicationPolicyId: pulumi.Input<string>;
+    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMNetworkInterface>[]>;
+    recoveryReplicationPolicyId: pulumi.Input<string>;
     /**
      * The name of the vault that should be updated.
      */
-    readonly recoveryVaultName: pulumi.Input<string>;
+    recoveryVaultName: pulumi.Input<string>;
     /**
      * Name of the resource group where the vault that should be updated is located.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of fabric that should contains this replication.
      */
-    readonly sourceRecoveryFabricName: pulumi.Input<string>;
+    sourceRecoveryFabricName: pulumi.Input<string>;
     /**
      * Name of the protection container to use.
      */
-    readonly sourceRecoveryProtectionContainerName: pulumi.Input<string>;
+    sourceRecoveryProtectionContainerName: pulumi.Input<string>;
     /**
      * Id of the VM to replicate
      */
-    readonly sourceVmId: pulumi.Input<string>;
+    sourceVmId: pulumi.Input<string>;
     /**
      * Id of availability set that the new VM should belong to when a failover is done.
      */
-    readonly targetAvailabilitySetId?: pulumi.Input<string>;
+    targetAvailabilitySetId?: pulumi.Input<string>;
     /**
      * Network to use when a failover is done (recommended to set if any networkInterface is configured for failover).
      */
-    readonly targetNetworkId?: pulumi.Input<string>;
+    targetNetworkId?: pulumi.Input<string>;
     /**
      * Id of fabric where the VM replication should be handled when a failover is done.
      */
-    readonly targetRecoveryFabricId: pulumi.Input<string>;
+    targetRecoveryFabricId: pulumi.Input<string>;
     /**
      * Id of protection container where the VM replication should be created when a failover is done.
      */
-    readonly targetRecoveryProtectionContainerId: pulumi.Input<string>;
+    targetRecoveryProtectionContainerId: pulumi.Input<string>;
     /**
      * Id of resource group where the VM should be created when a failover is done.
      */
-    readonly targetResourceGroupId: pulumi.Input<string>;
+    targetResourceGroupId: pulumi.Input<string>;
 }

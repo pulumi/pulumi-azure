@@ -160,40 +160,40 @@ export interface LinkedServiceAzureTableStorageState {
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
      */
-    readonly additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service.
      */
-    readonly annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The connection string to an Azure Storage Account.
      */
-    readonly connectionString?: pulumi.Input<string>;
+    connectionString?: pulumi.Input<string>;
     /**
      * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    readonly dataFactoryName?: pulumi.Input<string>;
+    dataFactoryName?: pulumi.Input<string>;
     /**
      * The description for the Data Factory Linked Service.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service.
      */
-    readonly integrationRuntimeName?: pulumi.Input<string>;
+    integrationRuntimeName?: pulumi.Input<string>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
      * factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -203,38 +203,38 @@ export interface LinkedServiceAzureTableStorageArgs {
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
      */
-    readonly additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service.
      */
-    readonly annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The connection string to an Azure Storage Account.
      */
-    readonly connectionString: pulumi.Input<string>;
+    connectionString: pulumi.Input<string>;
     /**
      * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    readonly dataFactoryName: pulumi.Input<string>;
+    dataFactoryName: pulumi.Input<string>;
     /**
      * The description for the Data Factory Linked Service.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service.
      */
-    readonly integrationRuntimeName?: pulumi.Input<string>;
+    integrationRuntimeName?: pulumi.Input<string>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data
      * factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

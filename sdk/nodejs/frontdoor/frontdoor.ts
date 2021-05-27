@@ -276,86 +276,86 @@ export interface FrontdoorState {
     /**
      * A `backendPoolHealthProbe` block as defined below.
      */
-    readonly backendPoolHealthProbes?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolHealthProbe>[]>;
+    backendPoolHealthProbes?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolHealthProbe>[]>;
     /**
      * A map/dictionary of Backend Pool Health Probe Names (key) to the Backend Pool Health Probe ID (value)
      */
-    readonly backendPoolHealthProbesMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    backendPoolHealthProbesMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map/dictionary of Backend Pool Load Balancing Setting Names (key) to the Backend Pool Load Balancing Setting ID (value)
      */
-    readonly backendPoolLoadBalancingSettingsMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    backendPoolLoadBalancingSettingsMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `backendPoolLoadBalancing` block as defined below.
      */
-    readonly backendPoolLoadBalancings?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolLoadBalancing>[]>;
+    backendPoolLoadBalancings?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolLoadBalancing>[]>;
     /**
      * A `backendPool` block as defined below.
      */
-    readonly backendPools?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPool>[]>;
+    backendPools?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPool>[]>;
     /**
      * A map/dictionary of Backend Pool Names (key) to the Backend Pool ID (value)
      */
-    readonly backendPoolsMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    backendPoolsMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
      */
-    readonly backendPoolsSendReceiveTimeoutSeconds?: pulumi.Input<number>;
+    backendPoolsSendReceiveTimeoutSeconds?: pulumi.Input<number>;
     /**
      * The host that each frontendEndpoint must CNAME to.
      */
-    readonly cname?: pulumi.Input<string>;
+    cname?: pulumi.Input<string>;
     /**
      * Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
      */
-    readonly enforceBackendPoolsCertificateNameCheck?: pulumi.Input<boolean>;
-    readonly explicitResourceOrders?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorExplicitResourceOrder>[]>;
+    enforceBackendPoolsCertificateNameCheck?: pulumi.Input<boolean>;
+    explicitResourceOrders?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorExplicitResourceOrder>[]>;
     /**
      * A friendly name for the Front Door service.
      */
-    readonly friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string>;
     /**
      * A `frontendEndpoint` block as defined below.
      */
-    readonly frontendEndpoints?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorFrontendEndpoint>[]>;
+    frontendEndpoints?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorFrontendEndpoint>[]>;
     /**
      * The names of the `frontendEndpoint` blocks within this resource to associate with this `routingRule`.
      */
-    readonly frontendEndpointsMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    frontendEndpointsMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend.
      */
-    readonly headerFrontdoorId?: pulumi.Input<string>;
+    headerFrontdoorId?: pulumi.Input<string>;
     /**
      * Should the Front Door Load Balancer be Enabled? Defaults to `true`.
      */
-    readonly loadBalancerEnabled?: pulumi.Input<boolean>;
+    loadBalancerEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created
      *
      * @deprecated Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A `routingRule` block as defined below.
      */
-    readonly routingRules?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorRoutingRule>[]>;
+    routingRules?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorRoutingRule>[]>;
     /**
      * A map/dictionary of Routing Rule Names (key) to the Routing Rule ID (value)
      */
-    readonly routingRulesMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    routingRulesMap?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -365,55 +365,55 @@ export interface FrontdoorArgs {
     /**
      * A `backendPoolHealthProbe` block as defined below.
      */
-    readonly backendPoolHealthProbes: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolHealthProbe>[]>;
+    backendPoolHealthProbes: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolHealthProbe>[]>;
     /**
      * A `backendPoolLoadBalancing` block as defined below.
      */
-    readonly backendPoolLoadBalancings: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolLoadBalancing>[]>;
+    backendPoolLoadBalancings: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPoolLoadBalancing>[]>;
     /**
      * A `backendPool` block as defined below.
      */
-    readonly backendPools: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPool>[]>;
+    backendPools: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorBackendPool>[]>;
     /**
      * Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
      */
-    readonly backendPoolsSendReceiveTimeoutSeconds?: pulumi.Input<number>;
+    backendPoolsSendReceiveTimeoutSeconds?: pulumi.Input<number>;
     /**
      * Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
      */
-    readonly enforceBackendPoolsCertificateNameCheck: pulumi.Input<boolean>;
+    enforceBackendPoolsCertificateNameCheck: pulumi.Input<boolean>;
     /**
      * A friendly name for the Front Door service.
      */
-    readonly friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string>;
     /**
      * A `frontendEndpoint` block as defined below.
      */
-    readonly frontendEndpoints: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorFrontendEndpoint>[]>;
+    frontendEndpoints: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorFrontendEndpoint>[]>;
     /**
      * Should the Front Door Load Balancer be Enabled? Defaults to `true`.
      */
-    readonly loadBalancerEnabled?: pulumi.Input<boolean>;
+    loadBalancerEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created
      *
      * @deprecated Due to the service's API changing 'location' must now always be set to 'Global' for new resources, however if the Front Door service was created prior 2020/03/10 it may continue to exist in a specific current location
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A `routingRule` block as defined below.
      */
-    readonly routingRules: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorRoutingRule>[]>;
+    routingRules: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontdoorRoutingRule>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

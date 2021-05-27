@@ -173,43 +173,43 @@ export interface ConnectionState {
     /**
      * The name of the Bot Resource this connection will be associated with. Changing this forces a new resource to be created.
      */
-    readonly botName?: pulumi.Input<string>;
+    botName?: pulumi.Input<string>;
     /**
      * The Client ID that will be used to authenticate with the service provider.
      */
-    readonly clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string>;
     /**
      * The Client Secret that will be used to authenticate with the service provider.
      */
-    readonly clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Bot Connection. Changing this forces a new resource to be created. Must be globally unique.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A map of additional parameters to apply to the connection.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group in which to create the Bot Connection. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The Scopes at which the connection should be applied.
      */
-    readonly scopes?: pulumi.Input<string>;
+    scopes?: pulumi.Input<string>;
     /**
      * The name of the service provider that will be associated with this connection. Changing this forces a new resource to be created.
      */
-    readonly serviceProviderName?: pulumi.Input<string>;
+    serviceProviderName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -219,41 +219,41 @@ export interface ConnectionArgs {
     /**
      * The name of the Bot Resource this connection will be associated with. Changing this forces a new resource to be created.
      */
-    readonly botName: pulumi.Input<string>;
+    botName: pulumi.Input<string>;
     /**
      * The Client ID that will be used to authenticate with the service provider.
      */
-    readonly clientId: pulumi.Input<string>;
+    clientId: pulumi.Input<string>;
     /**
      * The Client Secret that will be used to authenticate with the service provider.
      */
-    readonly clientSecret: pulumi.Input<string>;
+    clientSecret: pulumi.Input<string>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Bot Connection. Changing this forces a new resource to be created. Must be globally unique.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A map of additional parameters to apply to the connection.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group in which to create the Bot Connection. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The Scopes at which the connection should be applied.
      */
-    readonly scopes?: pulumi.Input<string>;
+    scopes?: pulumi.Input<string>;
     /**
      * The name of the service provider that will be associated with this connection. Changing this forces a new resource to be created.
      */
-    readonly serviceProviderName: pulumi.Input<string>;
+    serviceProviderName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

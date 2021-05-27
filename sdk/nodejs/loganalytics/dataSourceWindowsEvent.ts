@@ -136,23 +136,23 @@ export interface DataSourceWindowsEventState {
     /**
      * Specifies the name of the Windows Event Log to collect events from.
      */
-    readonly eventLogName?: pulumi.Input<string>;
+    eventLogName?: pulumi.Input<string>;
     /**
      * Specifies an array of event types applied to the specified event log. Possible values include `error`, `warning` and `information`.
      */
-    readonly eventTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    eventTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name which should be used for this Log Analytics Windows Event DataSource. Changing this forces a new Log Analytics Windows Event DataSource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Log Analytics Windows Event DataSource should exist. Changing this forces a new Log Analytics Windows Event DataSource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The name of the Log Analytics Workspace where the Log Analytics Windows Event DataSource should exist. Changing this forces a new Log Analytics Windows Event DataSource to be created.
      */
-    readonly workspaceName?: pulumi.Input<string>;
+    workspaceName?: pulumi.Input<string>;
 }
 
 /**
@@ -162,21 +162,21 @@ export interface DataSourceWindowsEventArgs {
     /**
      * Specifies the name of the Windows Event Log to collect events from.
      */
-    readonly eventLogName: pulumi.Input<string>;
+    eventLogName: pulumi.Input<string>;
     /**
      * Specifies an array of event types applied to the specified event log. Possible values include `error`, `warning` and `information`.
      */
-    readonly eventTypes: pulumi.Input<pulumi.Input<string>[]>;
+    eventTypes: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name which should be used for this Log Analytics Windows Event DataSource. Changing this forces a new Log Analytics Windows Event DataSource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Log Analytics Windows Event DataSource should exist. Changing this forces a new Log Analytics Windows Event DataSource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Log Analytics Workspace where the Log Analytics Windows Event DataSource should exist. Changing this forces a new Log Analytics Windows Event DataSource to be created.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

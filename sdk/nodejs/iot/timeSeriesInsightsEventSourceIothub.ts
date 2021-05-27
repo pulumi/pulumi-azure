@@ -199,43 +199,43 @@ export interface TimeSeriesInsightsEventSourceIothubState {
     /**
      * Specifies the name of the IotHub Consumer Group that holds the partitions from which events will be read.
      */
-    readonly consumerGroupName?: pulumi.Input<string>;
+    consumerGroupName?: pulumi.Input<string>;
     /**
      * Specifies the id of the IoT Time Series Insights Environment that the Event Source should be associated with. Changing this forces a new resource to created.
      */
-    readonly environmentId?: pulumi.Input<string>;
+    environmentId?: pulumi.Input<string>;
     /**
      * Specifies the resource id where events will be coming from.
      */
-    readonly eventSourceResourceId?: pulumi.Input<string>;
+    eventSourceResourceId?: pulumi.Input<string>;
     /**
      * Specifies the name of the IotHub which will be associated with this resource.
      */
-    readonly iothubName?: pulumi.Input<string>;
+    iothubName?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Azure IoT Time Series Insights IoTHub Event Source. Changing this forces a new resource to be created. Must be globally unique.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the value of the Shared Access Policy key that grants the Time Series Insights service read access to the IotHub.
      */
-    readonly sharedAccessKey?: pulumi.Input<string>;
+    sharedAccessKey?: pulumi.Input<string>;
     /**
      * Specifies the name of the Shared Access key that grants the Event Source access to the IotHub.
      */
-    readonly sharedAccessKeyName?: pulumi.Input<string>;
+    sharedAccessKeyName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the value that will be used as the event source's timestamp. This value defaults to the event creation time.
      */
-    readonly timestampPropertyName?: pulumi.Input<string>;
+    timestampPropertyName?: pulumi.Input<string>;
 }
 
 /**
@@ -245,41 +245,41 @@ export interface TimeSeriesInsightsEventSourceIothubArgs {
     /**
      * Specifies the name of the IotHub Consumer Group that holds the partitions from which events will be read.
      */
-    readonly consumerGroupName: pulumi.Input<string>;
+    consumerGroupName: pulumi.Input<string>;
     /**
      * Specifies the id of the IoT Time Series Insights Environment that the Event Source should be associated with. Changing this forces a new resource to created.
      */
-    readonly environmentId: pulumi.Input<string>;
+    environmentId: pulumi.Input<string>;
     /**
      * Specifies the resource id where events will be coming from.
      */
-    readonly eventSourceResourceId: pulumi.Input<string>;
+    eventSourceResourceId: pulumi.Input<string>;
     /**
      * Specifies the name of the IotHub which will be associated with this resource.
      */
-    readonly iothubName: pulumi.Input<string>;
+    iothubName: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Azure IoT Time Series Insights IoTHub Event Source. Changing this forces a new resource to be created. Must be globally unique.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the value of the Shared Access Policy key that grants the Time Series Insights service read access to the IotHub.
      */
-    readonly sharedAccessKey: pulumi.Input<string>;
+    sharedAccessKey: pulumi.Input<string>;
     /**
      * Specifies the name of the Shared Access key that grants the Event Source access to the IotHub.
      */
-    readonly sharedAccessKeyName: pulumi.Input<string>;
+    sharedAccessKeyName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the value that will be used as the event source's timestamp. This value defaults to the event creation time.
      */
-    readonly timestampPropertyName?: pulumi.Input<string>;
+    timestampPropertyName?: pulumi.Input<string>;
 }

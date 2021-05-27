@@ -112,11 +112,11 @@ export interface GroupSubscriptionAssociationState {
     /**
      * The ID of the Management Group to associate the Subscription with. Changing this forces a new Management to be created.
      */
-    readonly managementGroupId?: pulumi.Input<string>;
+    managementGroupId?: pulumi.Input<string>;
     /**
      * The ID of the Subscription to be associated with the Management Group. Changing this forces a new Management to be created.
      */
-    readonly subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string>;
 }
 
 /**
@@ -126,9 +126,9 @@ export interface GroupSubscriptionAssociationArgs {
     /**
      * The ID of the Management Group to associate the Subscription with. Changing this forces a new Management to be created.
      */
-    readonly managementGroupId: pulumi.Input<string>;
+    managementGroupId: pulumi.Input<string>;
     /**
      * The ID of the Subscription to be associated with the Management Group. Changing this forces a new Management to be created.
      */
-    readonly subscriptionId: pulumi.Input<string>;
+    subscriptionId: pulumi.Input<string>;
 }

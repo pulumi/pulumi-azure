@@ -114,11 +114,11 @@ export interface AdvancedThreatProtectionState {
     /**
      * Should Advanced Threat Protection be enabled on this resource?
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The ID of the Azure Resource which to enable Advanced Threat Protection on. Changing this forces a new resource to be created.
      */
-    readonly targetResourceId?: pulumi.Input<string>;
+    targetResourceId?: pulumi.Input<string>;
 }
 
 /**
@@ -128,9 +128,9 @@ export interface AdvancedThreatProtectionArgs {
     /**
      * Should Advanced Threat Protection be enabled on this resource?
      */
-    readonly enabled: pulumi.Input<boolean>;
+    enabled: pulumi.Input<boolean>;
     /**
      * The ID of the Azure Resource which to enable Advanced Threat Protection on. Changing this forces a new resource to be created.
      */
-    readonly targetResourceId: pulumi.Input<string>;
+    targetResourceId: pulumi.Input<string>;
 }

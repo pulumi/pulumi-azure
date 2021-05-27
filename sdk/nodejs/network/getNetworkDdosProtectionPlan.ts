@@ -43,15 +43,15 @@ export interface GetNetworkDdosProtectionPlanArgs {
     /**
      * The name of the Network DDoS Protection Plan.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the resource group where the Network DDoS Protection Plan exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * A mapping of tags assigned to the resource.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

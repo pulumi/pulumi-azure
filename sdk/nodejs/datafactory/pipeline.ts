@@ -178,39 +178,39 @@ export interface PipelineState {
     /**
      * A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
      */
-    readonly activitiesJson?: pulumi.Input<string>;
+    activitiesJson?: pulumi.Input<string>;
     /**
      * List of tags that can be used for describing the Data Factory Pipeline.
      */
-    readonly annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
      */
-    readonly dataFactoryName?: pulumi.Input<string>;
+    dataFactoryName?: pulumi.Input<string>;
     /**
      * The description for the Data Factory Pipeline.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
      */
-    readonly folder?: pulumi.Input<string>;
+    folder?: pulumi.Input<string>;
     /**
      * Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A map of parameters to associate with the Data Factory Pipeline.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group in which to create the Data Factory Pipeline. Changing this forces a new resource
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A map of variables to associate with the Data Factory Pipeline.
      */
-    readonly variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -220,37 +220,37 @@ export interface PipelineArgs {
     /**
      * A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
      */
-    readonly activitiesJson?: pulumi.Input<string>;
+    activitiesJson?: pulumi.Input<string>;
     /**
      * List of tags that can be used for describing the Data Factory Pipeline.
      */
-    readonly annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
      */
-    readonly dataFactoryName: pulumi.Input<string>;
+    dataFactoryName: pulumi.Input<string>;
     /**
      * The description for the Data Factory Pipeline.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
      */
-    readonly folder?: pulumi.Input<string>;
+    folder?: pulumi.Input<string>;
     /**
      * Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A map of parameters to associate with the Data Factory Pipeline.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group in which to create the Data Factory Pipeline. Changing this forces a new resource
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A map of variables to associate with the Data Factory Pipeline.
      */
-    readonly variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

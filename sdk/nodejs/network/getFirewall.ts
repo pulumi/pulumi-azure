@@ -43,15 +43,15 @@ export interface GetFirewallArgs {
     /**
      * The name of the Azure Firewall.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group in which the Azure Firewall exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The availability zones in which the Azure Firewall is created.
      */
-    readonly zones?: string[];
+    zones?: string[];
 }
 
 /**

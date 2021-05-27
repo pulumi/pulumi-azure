@@ -145,28 +145,28 @@ export interface JobScheduleState {
     /**
      * The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
      */
-    readonly automationAccountName?: pulumi.Input<string>;
+    automationAccountName?: pulumi.Input<string>;
     /**
      * The UUID identifying the Automation Job Schedule.
      */
-    readonly jobScheduleId?: pulumi.Input<string>;
+    jobScheduleId?: pulumi.Input<string>;
     /**
      * A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
      */
-    readonly runOn?: pulumi.Input<string>;
+    runOn?: pulumi.Input<string>;
     /**
      * The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
      */
-    readonly runbookName?: pulumi.Input<string>;
-    readonly scheduleName?: pulumi.Input<string>;
+    runbookName?: pulumi.Input<string>;
+    scheduleName?: pulumi.Input<string>;
 }
 
 /**
@@ -176,26 +176,26 @@ export interface JobScheduleArgs {
     /**
      * The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
      */
-    readonly automationAccountName: pulumi.Input<string>;
+    automationAccountName: pulumi.Input<string>;
     /**
      * The UUID identifying the Automation Job Schedule.
      */
-    readonly jobScheduleId?: pulumi.Input<string>;
+    jobScheduleId?: pulumi.Input<string>;
     /**
      * A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
      */
-    readonly runOn?: pulumi.Input<string>;
+    runOn?: pulumi.Input<string>;
     /**
      * The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
      */
-    readonly runbookName: pulumi.Input<string>;
-    readonly scheduleName: pulumi.Input<string>;
+    runbookName: pulumi.Input<string>;
+    scheduleName: pulumi.Input<string>;
 }

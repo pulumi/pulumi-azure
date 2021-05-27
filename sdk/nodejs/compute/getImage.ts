@@ -44,19 +44,19 @@ export interface GetImageArgs {
     /**
      * The name of the Image.
      */
-    readonly name?: string;
+    name?: string;
     /**
      * Regex pattern of the image to match.
      */
-    readonly nameRegex?: string;
+    nameRegex?: string;
     /**
      * The Name of the Resource Group where this Image exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * By default when matching by regex, images are sorted by name in ascending order and the first match is chosen, to sort descending, set this flag.
      */
-    readonly sortDescending?: boolean;
+    sortDescending?: boolean;
 }
 
 /**

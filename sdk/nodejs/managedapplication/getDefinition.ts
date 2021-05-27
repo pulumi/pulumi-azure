@@ -42,11 +42,11 @@ export interface GetDefinitionArgs {
     /**
      * Specifies the name of the Managed Application Definition.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the name of the Resource Group where this Managed Application Definition exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

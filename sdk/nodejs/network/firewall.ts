@@ -196,59 +196,59 @@ export interface FirewallState {
     /**
      * A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
      */
-    readonly dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the Firewall Policy applied to this Firewall.
      */
-    readonly firewallPolicyId?: pulumi.Input<string>;
+    firewallPolicyId?: pulumi.Input<string>;
     /**
      * An `ipConfiguration` block as documented below.
      */
-    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.FirewallIpConfiguration>[]>;
+    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.FirewallIpConfiguration>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created.
      */
-    readonly managementIpConfiguration?: pulumi.Input<inputs.network.FirewallManagementIpConfiguration>;
+    managementIpConfiguration?: pulumi.Input<inputs.network.FirewallManagementIpConfiguration>;
     /**
      * Specifies the name of the Firewall. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A list of SNAT private CIDR IP ranges, or the special string `IANAPrivateRanges`, which indicates Azure Firewall does not SNAT when the destination IP address is a private range per IANA RFC 1918.
      */
-    readonly privateIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    privateIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Sku name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
      */
-    readonly skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string>;
     /**
      * Sku tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
      */
-    readonly skuTier?: pulumi.Input<string>;
+    skuTier?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
      */
-    readonly threatIntelMode?: pulumi.Input<string>;
+    threatIntelMode?: pulumi.Input<string>;
     /**
      * A `virtualHub` block as documented below.
      */
-    readonly virtualHub?: pulumi.Input<inputs.network.FirewallVirtualHub>;
+    virtualHub?: pulumi.Input<inputs.network.FirewallVirtualHub>;
     /**
      * Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
      */
-    readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -258,57 +258,57 @@ export interface FirewallArgs {
     /**
      * A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
      */
-    readonly dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the Firewall Policy applied to this Firewall.
      */
-    readonly firewallPolicyId?: pulumi.Input<string>;
+    firewallPolicyId?: pulumi.Input<string>;
     /**
      * An `ipConfiguration` block as documented below.
      */
-    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.FirewallIpConfiguration>[]>;
+    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.FirewallIpConfiguration>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created.
      */
-    readonly managementIpConfiguration?: pulumi.Input<inputs.network.FirewallManagementIpConfiguration>;
+    managementIpConfiguration?: pulumi.Input<inputs.network.FirewallManagementIpConfiguration>;
     /**
      * Specifies the name of the Firewall. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A list of SNAT private CIDR IP ranges, or the special string `IANAPrivateRanges`, which indicates Azure Firewall does not SNAT when the destination IP address is a private range per IANA RFC 1918.
      */
-    readonly privateIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    privateIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Sku name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
      */
-    readonly skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string>;
     /**
      * Sku tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
      */
-    readonly skuTier?: pulumi.Input<string>;
+    skuTier?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
      */
-    readonly threatIntelMode?: pulumi.Input<string>;
+    threatIntelMode?: pulumi.Input<string>;
     /**
      * A `virtualHub` block as documented below.
      */
-    readonly virtualHub?: pulumi.Input<inputs.network.FirewallVirtualHub>;
+    virtualHub?: pulumi.Input<inputs.network.FirewallVirtualHub>;
     /**
      * Specifies the availability zones in which the Azure Firewall should be created. Changing this forces a new resource to be created.
      */
-    readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

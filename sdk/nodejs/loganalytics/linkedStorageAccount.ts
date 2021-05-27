@@ -136,19 +136,19 @@ export interface LinkedStorageAccountState {
     /**
      * The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are "customlogs", "azurewatson", "query", "ingestion" and "alerts". Changing this forces a new Log Analytics Linked Storage Account to be created.
      */
-    readonly dataSourceType?: pulumi.Input<string>;
+    dataSourceType?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Log Analytics Linked Storage Account should exist. Changing this forces a new Log Analytics Linked Storage Account to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The storage account resource ids to be linked.
      */
-    readonly storageAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
+    storageAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
      */
-    readonly workspaceResourceId?: pulumi.Input<string>;
+    workspaceResourceId?: pulumi.Input<string>;
 }
 
 /**
@@ -158,17 +158,17 @@ export interface LinkedStorageAccountArgs {
     /**
      * The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are "customlogs", "azurewatson", "query", "ingestion" and "alerts". Changing this forces a new Log Analytics Linked Storage Account to be created.
      */
-    readonly dataSourceType: pulumi.Input<string>;
+    dataSourceType: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Log Analytics Linked Storage Account should exist. Changing this forces a new Log Analytics Linked Storage Account to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The storage account resource ids to be linked.
      */
-    readonly storageAccountIds: pulumi.Input<pulumi.Input<string>[]>;
+    storageAccountIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
      */
-    readonly workspaceResourceId: pulumi.Input<string>;
+    workspaceResourceId: pulumi.Input<string>;
 }

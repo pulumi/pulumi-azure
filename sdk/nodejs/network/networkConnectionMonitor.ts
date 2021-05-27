@@ -278,55 +278,55 @@ export interface NetworkConnectionMonitorState {
     /**
      * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
      */
-    readonly autoStart?: pulumi.Input<boolean>;
+    autoStart?: pulumi.Input<boolean>;
     /**
      * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
      */
-    readonly destination?: pulumi.Input<inputs.network.NetworkConnectionMonitorDestination>;
+    destination?: pulumi.Input<inputs.network.NetworkConnectionMonitorDestination>;
     /**
      * A `endpoint` block as defined below.
      */
-    readonly endpoints?: pulumi.Input<pulumi.Input<inputs.network.NetworkConnectionMonitorEndpoint>[]>;
+    endpoints?: pulumi.Input<pulumi.Input<inputs.network.NetworkConnectionMonitorEndpoint>[]>;
     /**
      * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
      */
-    readonly intervalInSeconds?: pulumi.Input<number>;
+    intervalInSeconds?: pulumi.Input<number>;
     /**
      * The Azure Region where the Network Connection Monitor should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name which should be used for this Network Connection Monitor. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the Network Watcher. Changing this forces a new resource to be created.
      */
-    readonly networkWatcherId?: pulumi.Input<string>;
+    networkWatcherId?: pulumi.Input<string>;
     /**
      * The description of the Network Connection Monitor.
      */
-    readonly notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string>;
     /**
      * A list of IDs of the Log Analytics Workspace which will accept the output from the Network Connection Monitor.
      */
-    readonly outputWorkspaceResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    outputWorkspaceResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
      */
-    readonly source?: pulumi.Input<inputs.network.NetworkConnectionMonitorSource>;
+    source?: pulumi.Input<inputs.network.NetworkConnectionMonitorSource>;
     /**
      * A mapping of tags which should be assigned to the Network Connection Monitor.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `testConfiguration` block as defined below.
      */
-    readonly testConfigurations?: pulumi.Input<pulumi.Input<inputs.network.NetworkConnectionMonitorTestConfiguration>[]>;
+    testConfigurations?: pulumi.Input<pulumi.Input<inputs.network.NetworkConnectionMonitorTestConfiguration>[]>;
     /**
      * A `testGroup` block as defined below.
      */
-    readonly testGroups?: pulumi.Input<pulumi.Input<inputs.network.NetworkConnectionMonitorTestGroup>[]>;
+    testGroups?: pulumi.Input<pulumi.Input<inputs.network.NetworkConnectionMonitorTestGroup>[]>;
 }
 
 /**
@@ -336,53 +336,53 @@ export interface NetworkConnectionMonitorArgs {
     /**
      * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
      */
-    readonly autoStart?: pulumi.Input<boolean>;
+    autoStart?: pulumi.Input<boolean>;
     /**
      * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
      */
-    readonly destination?: pulumi.Input<inputs.network.NetworkConnectionMonitorDestination>;
+    destination?: pulumi.Input<inputs.network.NetworkConnectionMonitorDestination>;
     /**
      * A `endpoint` block as defined below.
      */
-    readonly endpoints: pulumi.Input<pulumi.Input<inputs.network.NetworkConnectionMonitorEndpoint>[]>;
+    endpoints: pulumi.Input<pulumi.Input<inputs.network.NetworkConnectionMonitorEndpoint>[]>;
     /**
      * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
      */
-    readonly intervalInSeconds?: pulumi.Input<number>;
+    intervalInSeconds?: pulumi.Input<number>;
     /**
      * The Azure Region where the Network Connection Monitor should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name which should be used for this Network Connection Monitor. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the Network Watcher. Changing this forces a new resource to be created.
      */
-    readonly networkWatcherId: pulumi.Input<string>;
+    networkWatcherId: pulumi.Input<string>;
     /**
      * The description of the Network Connection Monitor.
      */
-    readonly notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string>;
     /**
      * A list of IDs of the Log Analytics Workspace which will accept the output from the Network Connection Monitor.
      */
-    readonly outputWorkspaceResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    outputWorkspaceResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * @deprecated The field belongs to the v1 network connection monitor, which is now deprecated in favour of v2 by Azure. Please check the document (https://www.terraform.io/docs/providers/azurerm/r/network_connection_monitor.html) for the v2 properties.
      */
-    readonly source?: pulumi.Input<inputs.network.NetworkConnectionMonitorSource>;
+    source?: pulumi.Input<inputs.network.NetworkConnectionMonitorSource>;
     /**
      * A mapping of tags which should be assigned to the Network Connection Monitor.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `testConfiguration` block as defined below.
      */
-    readonly testConfigurations: pulumi.Input<pulumi.Input<inputs.network.NetworkConnectionMonitorTestConfiguration>[]>;
+    testConfigurations: pulumi.Input<pulumi.Input<inputs.network.NetworkConnectionMonitorTestConfiguration>[]>;
     /**
      * A `testGroup` block as defined below.
      */
-    readonly testGroups: pulumi.Input<pulumi.Input<inputs.network.NetworkConnectionMonitorTestGroup>[]>;
+    testGroups: pulumi.Input<pulumi.Input<inputs.network.NetworkConnectionMonitorTestGroup>[]>;
 }

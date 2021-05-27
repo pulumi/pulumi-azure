@@ -188,55 +188,55 @@ export interface JobState {
     /**
      * Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0` and `1.1`.
      */
-    readonly compatibilityLevel?: pulumi.Input<string>;
+    compatibilityLevel?: pulumi.Input<string>;
     /**
      * Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
      */
-    readonly dataLocale?: pulumi.Input<string>;
+    dataLocale?: pulumi.Input<string>;
     /**
      * Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
      */
-    readonly eventsLateArrivalMaxDelayInSeconds?: pulumi.Input<number>;
+    eventsLateArrivalMaxDelayInSeconds?: pulumi.Input<number>;
     /**
      * Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `5`.
      */
-    readonly eventsOutOfOrderMaxDelayInSeconds?: pulumi.Input<number>;
+    eventsOutOfOrderMaxDelayInSeconds?: pulumi.Input<number>;
     /**
      * Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
      */
-    readonly eventsOutOfOrderPolicy?: pulumi.Input<string>;
+    eventsOutOfOrderPolicy?: pulumi.Input<string>;
     /**
      * The Job ID assigned by the Stream Analytics Job.
      */
-    readonly jobId?: pulumi.Input<string>;
+    jobId?: pulumi.Input<string>;
     /**
      * The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.  Default is `Drop`.
      */
-    readonly outputErrorPolicy?: pulumi.Input<string>;
+    outputErrorPolicy?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
      */
-    readonly streamingUnits?: pulumi.Input<number>;
+    streamingUnits?: pulumi.Input<number>;
     /**
      * A mapping of tags assigned to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
      */
-    readonly transformationQuery?: pulumi.Input<string>;
+    transformationQuery?: pulumi.Input<string>;
 }
 
 /**
@@ -246,49 +246,49 @@ export interface JobArgs {
     /**
      * Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0` and `1.1`.
      */
-    readonly compatibilityLevel?: pulumi.Input<string>;
+    compatibilityLevel?: pulumi.Input<string>;
     /**
      * Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
      */
-    readonly dataLocale?: pulumi.Input<string>;
+    dataLocale?: pulumi.Input<string>;
     /**
      * Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
      */
-    readonly eventsLateArrivalMaxDelayInSeconds?: pulumi.Input<number>;
+    eventsLateArrivalMaxDelayInSeconds?: pulumi.Input<number>;
     /**
      * Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `5`.
      */
-    readonly eventsOutOfOrderMaxDelayInSeconds?: pulumi.Input<number>;
+    eventsOutOfOrderMaxDelayInSeconds?: pulumi.Input<number>;
     /**
      * Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
      */
-    readonly eventsOutOfOrderPolicy?: pulumi.Input<string>;
+    eventsOutOfOrderPolicy?: pulumi.Input<string>;
     /**
      * The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.  Default is `Drop`.
      */
-    readonly outputErrorPolicy?: pulumi.Input<string>;
+    outputErrorPolicy?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
      */
-    readonly streamingUnits: pulumi.Input<number>;
+    streamingUnits: pulumi.Input<number>;
     /**
      * A mapping of tags assigned to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
      */
-    readonly transformationQuery: pulumi.Input<string>;
+    transformationQuery: pulumi.Input<string>;
 }

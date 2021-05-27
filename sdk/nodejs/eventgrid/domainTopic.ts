@@ -118,15 +118,15 @@ export interface DomainTopicState {
     /**
      * Specifies the name of the EventGrid Domain. Changing this forces a new resource to be created.
      */
-    readonly domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string>;
     /**
      * Specifies the name of the EventGrid Domain Topic resource. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -136,13 +136,13 @@ export interface DomainTopicArgs {
     /**
      * Specifies the name of the EventGrid Domain. Changing this forces a new resource to be created.
      */
-    readonly domainName: pulumi.Input<string>;
+    domainName: pulumi.Input<string>;
     /**
      * Specifies the name of the EventGrid Domain Topic resource. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

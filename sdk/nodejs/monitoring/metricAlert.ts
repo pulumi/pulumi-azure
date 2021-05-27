@@ -220,67 +220,67 @@ export interface MetricAlertState {
     /**
      * One or more `action` blocks as defined below.
      */
-    readonly actions?: pulumi.Input<pulumi.Input<inputs.monitoring.MetricAlertAction>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.monitoring.MetricAlertAction>[]>;
     /**
      * A `applicationInsightsWebTestLocationAvailabilityCriteria` block as defined below.
      */
-    readonly applicationInsightsWebTestLocationAvailabilityCriteria?: pulumi.Input<inputs.monitoring.MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria>;
+    applicationInsightsWebTestLocationAvailabilityCriteria?: pulumi.Input<inputs.monitoring.MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria>;
     /**
      * Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
      */
-    readonly autoMitigate?: pulumi.Input<boolean>;
+    autoMitigate?: pulumi.Input<boolean>;
     /**
      * One or more (static) `criteria` blocks as defined below.
      */
-    readonly criterias?: pulumi.Input<pulumi.Input<inputs.monitoring.MetricAlertCriteria>[]>;
+    criterias?: pulumi.Input<pulumi.Input<inputs.monitoring.MetricAlertCriteria>[]>;
     /**
      * The description of this Metric Alert.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A `dynamicCriteria` block as defined below.
      */
-    readonly dynamicCriteria?: pulumi.Input<inputs.monitoring.MetricAlertDynamicCriteria>;
+    dynamicCriteria?: pulumi.Input<inputs.monitoring.MetricAlertDynamicCriteria>;
     /**
      * Should this Metric Alert be enabled? Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`.
      */
-    readonly frequency?: pulumi.Input<string>;
+    frequency?: pulumi.Input<string>;
     /**
      * The name of the Metric Alert. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Metric Alert instance.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A set of strings of resource IDs at which the metric criteria should be applied.
      */
-    readonly scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
      */
-    readonly severity?: pulumi.Input<number>;
+    severity?: pulumi.Input<number>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The location of the target resource.
      */
-    readonly targetResourceLocation?: pulumi.Input<string>;
+    targetResourceLocation?: pulumi.Input<string>;
     /**
      * The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
      */
-    readonly targetResourceType?: pulumi.Input<string>;
+    targetResourceType?: pulumi.Input<string>;
     /**
      * The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
      */
-    readonly windowSize?: pulumi.Input<string>;
+    windowSize?: pulumi.Input<string>;
 }
 
 /**
@@ -290,65 +290,65 @@ export interface MetricAlertArgs {
     /**
      * One or more `action` blocks as defined below.
      */
-    readonly actions?: pulumi.Input<pulumi.Input<inputs.monitoring.MetricAlertAction>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.monitoring.MetricAlertAction>[]>;
     /**
      * A `applicationInsightsWebTestLocationAvailabilityCriteria` block as defined below.
      */
-    readonly applicationInsightsWebTestLocationAvailabilityCriteria?: pulumi.Input<inputs.monitoring.MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria>;
+    applicationInsightsWebTestLocationAvailabilityCriteria?: pulumi.Input<inputs.monitoring.MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria>;
     /**
      * Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
      */
-    readonly autoMitigate?: pulumi.Input<boolean>;
+    autoMitigate?: pulumi.Input<boolean>;
     /**
      * One or more (static) `criteria` blocks as defined below.
      */
-    readonly criterias?: pulumi.Input<pulumi.Input<inputs.monitoring.MetricAlertCriteria>[]>;
+    criterias?: pulumi.Input<pulumi.Input<inputs.monitoring.MetricAlertCriteria>[]>;
     /**
      * The description of this Metric Alert.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A `dynamicCriteria` block as defined below.
      */
-    readonly dynamicCriteria?: pulumi.Input<inputs.monitoring.MetricAlertDynamicCriteria>;
+    dynamicCriteria?: pulumi.Input<inputs.monitoring.MetricAlertDynamicCriteria>;
     /**
      * Should this Metric Alert be enabled? Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`.
      */
-    readonly frequency?: pulumi.Input<string>;
+    frequency?: pulumi.Input<string>;
     /**
      * The name of the Metric Alert. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Metric Alert instance.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A set of strings of resource IDs at which the metric criteria should be applied.
      */
-    readonly scopes: pulumi.Input<pulumi.Input<string>[]>;
+    scopes: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
      */
-    readonly severity?: pulumi.Input<number>;
+    severity?: pulumi.Input<number>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The location of the target resource.
      */
-    readonly targetResourceLocation?: pulumi.Input<string>;
+    targetResourceLocation?: pulumi.Input<string>;
     /**
      * The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
      */
-    readonly targetResourceType?: pulumi.Input<string>;
+    targetResourceType?: pulumi.Input<string>;
     /**
      * The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
      */
-    readonly windowSize?: pulumi.Input<string>;
+    windowSize?: pulumi.Input<string>;
 }

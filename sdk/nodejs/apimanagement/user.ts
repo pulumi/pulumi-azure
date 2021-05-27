@@ -177,43 +177,43 @@ export interface UserState {
     /**
      * The name of the API Management Service in which the User should be created. Changing this forces a new resource to be created.
      */
-    readonly apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string>;
     /**
      * The kind of confirmation email which will be sent to this user. Possible values are `invite` and `signup`. Changing this forces a new resource to be created.
      */
-    readonly confirmation?: pulumi.Input<string>;
+    confirmation?: pulumi.Input<string>;
     /**
      * The email address associated with this user.
      */
-    readonly email?: pulumi.Input<string>;
+    email?: pulumi.Input<string>;
     /**
      * The first name for this user.
      */
-    readonly firstName?: pulumi.Input<string>;
+    firstName?: pulumi.Input<string>;
     /**
      * The last name for this user.
      */
-    readonly lastName?: pulumi.Input<string>;
+    lastName?: pulumi.Input<string>;
     /**
      * A note about this user.
      */
-    readonly note?: pulumi.Input<string>;
+    note?: pulumi.Input<string>;
     /**
      * The password associated with this user.
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The state of this user. Possible values are `active`, `blocked` and `pending`.
      */
-    readonly state?: pulumi.Input<string>;
+    state?: pulumi.Input<string>;
     /**
      * The Identifier for this User, which must be unique within the API Management Service. Changing this forces a new resource to be created.
      */
-    readonly userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string>;
 }
 
 /**
@@ -223,41 +223,41 @@ export interface UserArgs {
     /**
      * The name of the API Management Service in which the User should be created. Changing this forces a new resource to be created.
      */
-    readonly apiManagementName: pulumi.Input<string>;
+    apiManagementName: pulumi.Input<string>;
     /**
      * The kind of confirmation email which will be sent to this user. Possible values are `invite` and `signup`. Changing this forces a new resource to be created.
      */
-    readonly confirmation?: pulumi.Input<string>;
+    confirmation?: pulumi.Input<string>;
     /**
      * The email address associated with this user.
      */
-    readonly email: pulumi.Input<string>;
+    email: pulumi.Input<string>;
     /**
      * The first name for this user.
      */
-    readonly firstName: pulumi.Input<string>;
+    firstName: pulumi.Input<string>;
     /**
      * The last name for this user.
      */
-    readonly lastName: pulumi.Input<string>;
+    lastName: pulumi.Input<string>;
     /**
      * A note about this user.
      */
-    readonly note?: pulumi.Input<string>;
+    note?: pulumi.Input<string>;
     /**
      * The password associated with this user.
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The state of this user. Possible values are `active`, `blocked` and `pending`.
      */
-    readonly state?: pulumi.Input<string>;
+    state?: pulumi.Input<string>;
     /**
      * The Identifier for this User, which must be unique within the API Management Service. Changing this forces a new resource to be created.
      */
-    readonly userId: pulumi.Input<string>;
+    userId: pulumi.Input<string>;
 }

@@ -180,31 +180,31 @@ export interface NetworkMappingState {
     /**
      * The name of the network mapping.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the vault that should be updated.
      */
-    readonly recoveryVaultName?: pulumi.Input<string>;
+    recoveryVaultName?: pulumi.Input<string>;
     /**
      * Name of the resource group where the vault that should be updated is located.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The id of the primary network.
      */
-    readonly sourceNetworkId?: pulumi.Input<string>;
+    sourceNetworkId?: pulumi.Input<string>;
     /**
      * Specifies the ASR fabric where mapping should be created.
      */
-    readonly sourceRecoveryFabricName?: pulumi.Input<string>;
+    sourceRecoveryFabricName?: pulumi.Input<string>;
     /**
      * The id of the recovery network.
      */
-    readonly targetNetworkId?: pulumi.Input<string>;
+    targetNetworkId?: pulumi.Input<string>;
     /**
      * The Azure Site Recovery fabric object corresponding to the recovery Azure region.
      */
-    readonly targetRecoveryFabricName?: pulumi.Input<string>;
+    targetRecoveryFabricName?: pulumi.Input<string>;
 }
 
 /**
@@ -214,29 +214,29 @@ export interface NetworkMappingArgs {
     /**
      * The name of the network mapping.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the vault that should be updated.
      */
-    readonly recoveryVaultName: pulumi.Input<string>;
+    recoveryVaultName: pulumi.Input<string>;
     /**
      * Name of the resource group where the vault that should be updated is located.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The id of the primary network.
      */
-    readonly sourceNetworkId: pulumi.Input<string>;
+    sourceNetworkId: pulumi.Input<string>;
     /**
      * Specifies the ASR fabric where mapping should be created.
      */
-    readonly sourceRecoveryFabricName: pulumi.Input<string>;
+    sourceRecoveryFabricName: pulumi.Input<string>;
     /**
      * The id of the recovery network.
      */
-    readonly targetNetworkId: pulumi.Input<string>;
+    targetNetworkId: pulumi.Input<string>;
     /**
      * The Azure Site Recovery fabric object corresponding to the recovery Azure region.
      */
-    readonly targetRecoveryFabricName: pulumi.Input<string>;
+    targetRecoveryFabricName: pulumi.Input<string>;
 }

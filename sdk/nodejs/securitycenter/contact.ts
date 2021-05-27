@@ -123,19 +123,19 @@ export interface ContactState {
     /**
      * Whether to send security alerts notifications to the security contact.
      */
-    readonly alertNotifications?: pulumi.Input<boolean>;
+    alertNotifications?: pulumi.Input<boolean>;
     /**
      * Whether to send security alerts notifications to subscription admins.
      */
-    readonly alertsToAdmins?: pulumi.Input<boolean>;
+    alertsToAdmins?: pulumi.Input<boolean>;
     /**
      * The email of the Security Center Contact.
      */
-    readonly email?: pulumi.Input<string>;
+    email?: pulumi.Input<string>;
     /**
      * The phone number of the Security Center Contact.
      */
-    readonly phone?: pulumi.Input<string>;
+    phone?: pulumi.Input<string>;
 }
 
 /**
@@ -145,17 +145,17 @@ export interface ContactArgs {
     /**
      * Whether to send security alerts notifications to the security contact.
      */
-    readonly alertNotifications: pulumi.Input<boolean>;
+    alertNotifications: pulumi.Input<boolean>;
     /**
      * Whether to send security alerts notifications to subscription admins.
      */
-    readonly alertsToAdmins: pulumi.Input<boolean>;
+    alertsToAdmins: pulumi.Input<boolean>;
     /**
      * The email of the Security Center Contact.
      */
-    readonly email: pulumi.Input<string>;
+    email: pulumi.Input<string>;
     /**
      * The phone number of the Security Center Contact.
      */
-    readonly phone?: pulumi.Input<string>;
+    phone?: pulumi.Input<string>;
 }

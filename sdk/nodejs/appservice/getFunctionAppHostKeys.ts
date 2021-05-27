@@ -41,11 +41,11 @@ export interface GetFunctionAppHostKeysArgs {
     /**
      * The name of the Function App.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group where the Function App exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

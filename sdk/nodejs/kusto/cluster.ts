@@ -209,75 +209,75 @@ export interface ClusterState {
     /**
      * The Kusto Cluster URI to be used for data ingestion.
      */
-    readonly dataIngestionUri?: pulumi.Input<string>;
+    dataIngestionUri?: pulumi.Input<string>;
     /**
      * Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
      */
-    readonly doubleEncryptionEnabled?: pulumi.Input<boolean>;
+    doubleEncryptionEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies if the cluster's disks are encrypted.
      */
-    readonly enableDiskEncryption?: pulumi.Input<boolean>;
+    enableDiskEncryption?: pulumi.Input<boolean>;
     /**
      * Specifies if the purge operations are enabled.
      */
-    readonly enablePurge?: pulumi.Input<boolean>;
+    enablePurge?: pulumi.Input<boolean>;
     /**
      * Specifies if the streaming ingest is enabled.
      */
-    readonly enableStreamingIngest?: pulumi.Input<boolean>;
+    enableStreamingIngest?: pulumi.Input<boolean>;
     /**
      * . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
      */
-    readonly engine?: pulumi.Input<string>;
+    engine?: pulumi.Input<string>;
     /**
      * An identity block.
      */
-    readonly identity?: pulumi.Input<inputs.kusto.ClusterIdentity>;
+    identity?: pulumi.Input<inputs.kusto.ClusterIdentity>;
     /**
      * An list of `languageExtensions` to enable. Valid values are: `PYTHON` and `R`.
      */
-    readonly languageExtensions?: pulumi.Input<pulumi.Input<string>[]>;
+    languageExtensions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * An `optimizedAutoScale` block as defined below.
      */
-    readonly optimizedAutoScale?: pulumi.Input<inputs.kusto.ClusterOptimizedAutoScale>;
+    optimizedAutoScale?: pulumi.Input<inputs.kusto.ClusterOptimizedAutoScale>;
     /**
      * Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A `sku` block as defined below.
      */
-    readonly sku?: pulumi.Input<inputs.kusto.ClusterSku>;
+    sku?: pulumi.Input<inputs.kusto.ClusterSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies a list of tenant IDs that are trusted by the cluster.
      */
-    readonly trustedExternalTenants?: pulumi.Input<pulumi.Input<string>[]>;
+    trustedExternalTenants?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The FQDN of the Azure Kusto Cluster.
      */
-    readonly uri?: pulumi.Input<string>;
+    uri?: pulumi.Input<string>;
     /**
      * A `virtualNetworkConfiguration` block as defined below. Changing this forces a new resource to be created.
      */
-    readonly virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.ClusterVirtualNetworkConfiguration>;
+    virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.ClusterVirtualNetworkConfiguration>;
     /**
      * A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
      */
-    readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -287,65 +287,65 @@ export interface ClusterArgs {
     /**
      * Is the cluster's double encryption enabled? Defaults to `false`. Changing this forces a new resource to be created.
      */
-    readonly doubleEncryptionEnabled?: pulumi.Input<boolean>;
+    doubleEncryptionEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies if the cluster's disks are encrypted.
      */
-    readonly enableDiskEncryption?: pulumi.Input<boolean>;
+    enableDiskEncryption?: pulumi.Input<boolean>;
     /**
      * Specifies if the purge operations are enabled.
      */
-    readonly enablePurge?: pulumi.Input<boolean>;
+    enablePurge?: pulumi.Input<boolean>;
     /**
      * Specifies if the streaming ingest is enabled.
      */
-    readonly enableStreamingIngest?: pulumi.Input<boolean>;
+    enableStreamingIngest?: pulumi.Input<boolean>;
     /**
      * . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
      */
-    readonly engine?: pulumi.Input<string>;
+    engine?: pulumi.Input<string>;
     /**
      * An identity block.
      */
-    readonly identity?: pulumi.Input<inputs.kusto.ClusterIdentity>;
+    identity?: pulumi.Input<inputs.kusto.ClusterIdentity>;
     /**
      * An list of `languageExtensions` to enable. Valid values are: `PYTHON` and `R`.
      */
-    readonly languageExtensions?: pulumi.Input<pulumi.Input<string>[]>;
+    languageExtensions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * An `optimizedAutoScale` block as defined below.
      */
-    readonly optimizedAutoScale?: pulumi.Input<inputs.kusto.ClusterOptimizedAutoScale>;
+    optimizedAutoScale?: pulumi.Input<inputs.kusto.ClusterOptimizedAutoScale>;
     /**
      * Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A `sku` block as defined below.
      */
-    readonly sku: pulumi.Input<inputs.kusto.ClusterSku>;
+    sku: pulumi.Input<inputs.kusto.ClusterSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies a list of tenant IDs that are trusted by the cluster.
      */
-    readonly trustedExternalTenants?: pulumi.Input<pulumi.Input<string>[]>;
+    trustedExternalTenants?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `virtualNetworkConfiguration` block as defined below. Changing this forces a new resource to be created.
      */
-    readonly virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.ClusterVirtualNetworkConfiguration>;
+    virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.ClusterVirtualNetworkConfiguration>;
     /**
      * A list of Availability Zones in which the cluster instances should be created in. Changing this forces a new resource to be created.
      */
-    readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -131,31 +131,31 @@ export interface ZoneState {
     /**
      * (Optional) Maximum number of Records in the zone. Defaults to `1000`.
      */
-    readonly maxNumberOfRecordSets?: pulumi.Input<number>;
+    maxNumberOfRecordSets?: pulumi.Input<number>;
     /**
      * The name of the DNS Zone. Must be a valid domain name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * (Optional) A list of values that make up the NS record for the zone.
      */
-    readonly nameServers?: pulumi.Input<pulumi.Input<string>[]>;
+    nameServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * (Optional) The number of records already in the zone.
      */
-    readonly numberOfRecordSets?: pulumi.Input<number>;
+    numberOfRecordSets?: pulumi.Input<number>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * An `soaRecord` block as defined below. Changing this forces a new resource to be created.
      */
-    readonly soaRecord?: pulumi.Input<inputs.dns.ZoneSoaRecord>;
+    soaRecord?: pulumi.Input<inputs.dns.ZoneSoaRecord>;
     /**
      * A mapping of tags to assign to the Record Set.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -165,17 +165,17 @@ export interface ZoneArgs {
     /**
      * The name of the DNS Zone. Must be a valid domain name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * An `soaRecord` block as defined below. Changing this forces a new resource to be created.
      */
-    readonly soaRecord?: pulumi.Input<inputs.dns.ZoneSoaRecord>;
+    soaRecord?: pulumi.Input<inputs.dns.ZoneSoaRecord>;
     /**
      * A mapping of tags to assign to the Record Set.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

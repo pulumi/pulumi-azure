@@ -178,43 +178,43 @@ export interface OrderState {
     /**
      * A `contact` block as defined below.
      */
-    readonly contact?: pulumi.Input<inputs.databoxedge.OrderContact>;
+    contact?: pulumi.Input<inputs.databoxedge.OrderContact>;
     /**
      * The name of the Databox Edge Device this order is for. Changing this forces a new Databox Edge Order to be created.
      */
-    readonly deviceName?: pulumi.Input<string>;
+    deviceName?: pulumi.Input<string>;
     /**
      * The contact person name. Changing this forces a new Databox Edge Order to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Databox Edge Order should exist. Changing this forces a new Databox Edge Order to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Tracking information for the package returned from the customer whether it has an original or a replacement device. A `returnTracking` block as defined below.
      */
-    readonly returnTrackings?: pulumi.Input<pulumi.Input<inputs.databoxedge.OrderReturnTracking>[]>;
+    returnTrackings?: pulumi.Input<pulumi.Input<inputs.databoxedge.OrderReturnTracking>[]>;
     /**
      * Serial number of the device being tracked.
      */
-    readonly serialNumber?: pulumi.Input<string>;
+    serialNumber?: pulumi.Input<string>;
     /**
      * A `shipmentAddress block as defined below.
      */
-    readonly shipmentAddress?: pulumi.Input<inputs.databoxedge.OrderShipmentAddress>;
+    shipmentAddress?: pulumi.Input<inputs.databoxedge.OrderShipmentAddress>;
     /**
      * List of status changes in the order. A `shipmentHistory` block as defined below.
      */
-    readonly shipmentHistories?: pulumi.Input<pulumi.Input<inputs.databoxedge.OrderShipmentHistory>[]>;
+    shipmentHistories?: pulumi.Input<pulumi.Input<inputs.databoxedge.OrderShipmentHistory>[]>;
     /**
      * Tracking information for the package delivered to the customer whether it has an original or a replacement device. A `shipmentTracking` block as defined below.
      */
-    readonly shipmentTrackings?: pulumi.Input<pulumi.Input<inputs.databoxedge.OrderShipmentTracking>[]>;
+    shipmentTrackings?: pulumi.Input<pulumi.Input<inputs.databoxedge.OrderShipmentTracking>[]>;
     /**
      * The current status of the order. A `status` block as defined below.
      */
-    readonly statuses?: pulumi.Input<pulumi.Input<inputs.databoxedge.OrderStatus>[]>;
+    statuses?: pulumi.Input<pulumi.Input<inputs.databoxedge.OrderStatus>[]>;
 }
 
 /**
@@ -224,17 +224,17 @@ export interface OrderArgs {
     /**
      * A `contact` block as defined below.
      */
-    readonly contact: pulumi.Input<inputs.databoxedge.OrderContact>;
+    contact: pulumi.Input<inputs.databoxedge.OrderContact>;
     /**
      * The name of the Databox Edge Device this order is for. Changing this forces a new Databox Edge Order to be created.
      */
-    readonly deviceName: pulumi.Input<string>;
+    deviceName: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Databox Edge Order should exist. Changing this forces a new Databox Edge Order to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A `shipmentAddress block as defined below.
      */
-    readonly shipmentAddress: pulumi.Input<inputs.databoxedge.OrderShipmentAddress>;
+    shipmentAddress: pulumi.Input<inputs.databoxedge.OrderShipmentAddress>;
 }

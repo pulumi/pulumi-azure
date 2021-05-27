@@ -43,15 +43,15 @@ export interface GetWorkspaceArgs {
     /**
      * The name of the Databricks Workspace.
      */
-    readonly name: string;
+    name: string;
     /**
      * The Name of the Resource Group where the Databricks Workspace exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * A mapping of tags to assign to the Databricks Workspace.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

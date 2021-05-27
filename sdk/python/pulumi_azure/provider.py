@@ -500,3 +500,95 @@ class Provider(pulumi.ProviderResource):
             __props__,
             opts)
 
+    @property
+    @pulumi.getter(name="clientCertificatePassword")
+    def client_certificate_password(self) -> pulumi.Output[Optional[str]]:
+        """
+        The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
+        Certificate
+        """
+        return pulumi.get(self, "client_certificate_password")
+
+    @property
+    @pulumi.getter(name="clientCertificatePath")
+    def client_certificate_path(self) -> pulumi.Output[Optional[str]]:
+        """
+        The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
+        Principal using a Client Certificate.
+        """
+        return pulumi.get(self, "client_certificate_path")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Client ID which should be used.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter
+    def environment(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
+        public.
+        """
+        return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter(name="metadataHost")
+    def metadata_host(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Hostname which should be used for the Azure Metadata Service.
+        """
+        return pulumi.get(self, "metadata_host")
+
+    @property
+    @pulumi.getter(name="metadataUrl")
+    def metadata_url(self) -> pulumi.Output[Optional[str]]:
+        """
+        Deprecated - replaced by `metadata_host`.
+        """
+        return pulumi.get(self, "metadata_url")
+
+    @property
+    @pulumi.getter(name="msiEndpoint")
+    def msi_endpoint(self) -> pulumi.Output[Optional[str]]:
+        """
+        The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
+        automatically.
+        """
+        return pulumi.get(self, "msi_endpoint")
+
+    @property
+    @pulumi.getter(name="partnerId")
+    def partner_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
+        """
+        return pulumi.get(self, "partner_id")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Subscription ID which should be used.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Tenant ID which should be used.
+        """
+        return pulumi.get(self, "tenant_id")
+

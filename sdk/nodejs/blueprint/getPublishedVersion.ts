@@ -46,15 +46,15 @@ export interface GetPublishedVersionArgs {
     /**
      * The name of the Blueprint Definition
      */
-    readonly blueprintName: string;
+    blueprintName: string;
     /**
      * The ID of the Management Group / Subscription where this Blueprint Definition is stored.
      */
-    readonly scopeId: string;
+    scopeId: string;
     /**
      * The Version name of the Published Version of the Blueprint Definition
      */
-    readonly version: string;
+    version: string;
 }
 
 /**

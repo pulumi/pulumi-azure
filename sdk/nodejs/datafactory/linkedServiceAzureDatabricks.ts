@@ -256,63 +256,63 @@ export interface LinkedServiceAzureDatabricksState {
     /**
      * Authenticate to ADB via an access token.
      */
-    readonly accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string>;
     /**
      * The domain URL of the databricks instance.
      */
-    readonly adbDomain?: pulumi.Input<string>;
+    adbDomain?: pulumi.Input<string>;
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
      */
-    readonly additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service.
      */
-    readonly annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    readonly dataFactoryName?: pulumi.Input<string>;
+    dataFactoryName?: pulumi.Input<string>;
     /**
      * The description for the Data Factory Linked Service.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The clusterId of an existing cluster within the linked ADB instance.
      */
-    readonly existingClusterId?: pulumi.Input<string>;
+    existingClusterId?: pulumi.Input<string>;
     /**
      * Leverages an instance pool within the linked ADB instance as defined by  `instancePool` block below.
      */
-    readonly instancePool?: pulumi.Input<inputs.datafactory.LinkedServiceAzureDatabricksInstancePool>;
+    instancePool?: pulumi.Input<inputs.datafactory.LinkedServiceAzureDatabricksInstancePool>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service.
      */
-    readonly integrationRuntimeName?: pulumi.Input<string>;
+    integrationRuntimeName?: pulumi.Input<string>;
     /**
      * Authenticate to ADB via Azure Key Vault Linked Service as defined in the `keyVaultPassword` block below.
      */
-    readonly keyVaultPassword?: pulumi.Input<inputs.datafactory.LinkedServiceAzureDatabricksKeyVaultPassword>;
+    keyVaultPassword?: pulumi.Input<inputs.datafactory.LinkedServiceAzureDatabricksKeyVaultPassword>;
     /**
      * Authenticate to ADB via managed service identity.
      */
-    readonly msiWorkSpaceResourceId?: pulumi.Input<string>;
+    msiWorkSpaceResourceId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Creates new clusters within the linked ADB instance as defined in the  `newClusterConfig` block below.
      */
-    readonly newClusterConfig?: pulumi.Input<inputs.datafactory.LinkedServiceAzureDatabricksNewClusterConfig>;
+    newClusterConfig?: pulumi.Input<inputs.datafactory.LinkedServiceAzureDatabricksNewClusterConfig>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -322,61 +322,61 @@ export interface LinkedServiceAzureDatabricksArgs {
     /**
      * Authenticate to ADB via an access token.
      */
-    readonly accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string>;
     /**
      * The domain URL of the databricks instance.
      */
-    readonly adbDomain: pulumi.Input<string>;
+    adbDomain: pulumi.Input<string>;
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
      */
-    readonly additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service.
      */
-    readonly annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    readonly dataFactoryName: pulumi.Input<string>;
+    dataFactoryName: pulumi.Input<string>;
     /**
      * The description for the Data Factory Linked Service.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The clusterId of an existing cluster within the linked ADB instance.
      */
-    readonly existingClusterId?: pulumi.Input<string>;
+    existingClusterId?: pulumi.Input<string>;
     /**
      * Leverages an instance pool within the linked ADB instance as defined by  `instancePool` block below.
      */
-    readonly instancePool?: pulumi.Input<inputs.datafactory.LinkedServiceAzureDatabricksInstancePool>;
+    instancePool?: pulumi.Input<inputs.datafactory.LinkedServiceAzureDatabricksInstancePool>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service.
      */
-    readonly integrationRuntimeName?: pulumi.Input<string>;
+    integrationRuntimeName?: pulumi.Input<string>;
     /**
      * Authenticate to ADB via Azure Key Vault Linked Service as defined in the `keyVaultPassword` block below.
      */
-    readonly keyVaultPassword?: pulumi.Input<inputs.datafactory.LinkedServiceAzureDatabricksKeyVaultPassword>;
+    keyVaultPassword?: pulumi.Input<inputs.datafactory.LinkedServiceAzureDatabricksKeyVaultPassword>;
     /**
      * Authenticate to ADB via managed service identity.
      */
-    readonly msiWorkSpaceResourceId?: pulumi.Input<string>;
+    msiWorkSpaceResourceId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Creates new clusters within the linked ADB instance as defined in the  `newClusterConfig` block below.
      */
-    readonly newClusterConfig?: pulumi.Input<inputs.datafactory.LinkedServiceAzureDatabricksNewClusterConfig>;
+    newClusterConfig?: pulumi.Input<inputs.datafactory.LinkedServiceAzureDatabricksNewClusterConfig>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group in which to create the Data Factory Linked Service. Changing this forces a new resource.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

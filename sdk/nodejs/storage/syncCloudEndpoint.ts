@@ -149,23 +149,23 @@ export interface SyncCloudEndpointState {
     /**
      * The Storage Share name to be synchronized in this Storage Sync Cloud Endpoint. Changing this forces a new Storage Sync Cloud Endpoint to be created.
      */
-    readonly fileShareName?: pulumi.Input<string>;
+    fileShareName?: pulumi.Input<string>;
     /**
      * The name which should be used for this Storage Sync Cloud Endpoint. Changing this forces a new Storage Sync Cloud Endpoint to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the Storage Account where the Storage Share exists. Changing this forces a new Storage Sync Cloud Endpoint to be created.
      */
-    readonly storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string>;
     /**
      * The Tenant ID of the Storage Account where the Storage Share exists. Changing this forces a new Storage Sync Cloud Endpoint to be created. Defaults to the current tenant id.
      */
-    readonly storageAccountTenantId?: pulumi.Input<string>;
+    storageAccountTenantId?: pulumi.Input<string>;
     /**
      * The ID of the Storage Sync Group where this Cloud Endpoint should be created. Changing this forces a new Storage Sync Cloud Endpoint to be created.
      */
-    readonly storageSyncGroupId?: pulumi.Input<string>;
+    storageSyncGroupId?: pulumi.Input<string>;
 }
 
 /**
@@ -175,21 +175,21 @@ export interface SyncCloudEndpointArgs {
     /**
      * The Storage Share name to be synchronized in this Storage Sync Cloud Endpoint. Changing this forces a new Storage Sync Cloud Endpoint to be created.
      */
-    readonly fileShareName: pulumi.Input<string>;
+    fileShareName: pulumi.Input<string>;
     /**
      * The name which should be used for this Storage Sync Cloud Endpoint. Changing this forces a new Storage Sync Cloud Endpoint to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the Storage Account where the Storage Share exists. Changing this forces a new Storage Sync Cloud Endpoint to be created.
      */
-    readonly storageAccountId: pulumi.Input<string>;
+    storageAccountId: pulumi.Input<string>;
     /**
      * The Tenant ID of the Storage Account where the Storage Share exists. Changing this forces a new Storage Sync Cloud Endpoint to be created. Defaults to the current tenant id.
      */
-    readonly storageAccountTenantId?: pulumi.Input<string>;
+    storageAccountTenantId?: pulumi.Input<string>;
     /**
      * The ID of the Storage Sync Group where this Cloud Endpoint should be created. Changing this forces a new Storage Sync Cloud Endpoint to be created.
      */
-    readonly storageSyncGroupId: pulumi.Input<string>;
+    storageSyncGroupId: pulumi.Input<string>;
 }

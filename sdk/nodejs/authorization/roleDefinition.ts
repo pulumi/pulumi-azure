@@ -140,31 +140,31 @@ export interface RoleDefinitionState {
     /**
      * One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
      */
-    readonly assignableScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    assignableScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A description of the Role Definition.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the Role Definition. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `permissions` block as defined below.
      */
-    readonly permissions?: pulumi.Input<pulumi.Input<inputs.authorization.RoleDefinitionPermission>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.authorization.RoleDefinitionPermission>[]>;
     /**
      * A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
      */
-    readonly roleDefinitionId?: pulumi.Input<string>;
+    roleDefinitionId?: pulumi.Input<string>;
     /**
      * The Azure Resource Manager ID for the resource.
      */
-    readonly roleDefinitionResourceId?: pulumi.Input<string>;
+    roleDefinitionResourceId?: pulumi.Input<string>;
     /**
      * The scope at which the Role Definition applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignableScopes`. Changing this forces a new resource to be created.
      */
-    readonly scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string>;
 }
 
 /**
@@ -174,25 +174,25 @@ export interface RoleDefinitionArgs {
     /**
      * One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
      */
-    readonly assignableScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    assignableScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A description of the Role Definition.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the Role Definition. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `permissions` block as defined below.
      */
-    readonly permissions?: pulumi.Input<pulumi.Input<inputs.authorization.RoleDefinitionPermission>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.authorization.RoleDefinitionPermission>[]>;
     /**
      * A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
      */
-    readonly roleDefinitionId?: pulumi.Input<string>;
+    roleDefinitionId?: pulumi.Input<string>;
     /**
      * The scope at which the Role Definition applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignableScopes`. Changing this forces a new resource to be created.
      */
-    readonly scope: pulumi.Input<string>;
+    scope: pulumi.Input<string>;
 }

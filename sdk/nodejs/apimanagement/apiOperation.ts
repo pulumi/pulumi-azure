@@ -189,47 +189,47 @@ export interface ApiOperationState {
     /**
      * The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
      */
-    readonly apiManagementName?: pulumi.Input<string>;
+    apiManagementName?: pulumi.Input<string>;
     /**
      * The name of the API within the API Management Service where this API Operation should be created. Changing this forces a new resource to be created.
      */
-    readonly apiName?: pulumi.Input<string>;
+    apiName?: pulumi.Input<string>;
     /**
      * A description for this API Operation, which may include HTML formatting tags.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The Display Name for this API Management Operation.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * The HTTP Method used for this API Management Operation, like `GET`, `DELETE`, `PUT` or `POST` - but not limited to these values.
      */
-    readonly method?: pulumi.Input<string>;
+    method?: pulumi.Input<string>;
     /**
      * A unique identifier for this API Operation. Changing this forces a new resource to be created.
      */
-    readonly operationId?: pulumi.Input<string>;
+    operationId?: pulumi.Input<string>;
     /**
      * A `request` block as defined below.
      */
-    readonly request?: pulumi.Input<inputs.apimanagement.ApiOperationRequest>;
+    request?: pulumi.Input<inputs.apimanagement.ApiOperationRequest>;
     /**
      * The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * One or more `response` blocks as defined below.
      */
-    readonly responses?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationResponse>[]>;
+    responses?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationResponse>[]>;
     /**
      * One or more `templateParameter` blocks as defined below.
      */
-    readonly templateParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationTemplateParameter>[]>;
+    templateParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationTemplateParameter>[]>;
     /**
      * The relative URL Template identifying the target resource for this operation, which may include parameters.
      */
-    readonly urlTemplate?: pulumi.Input<string>;
+    urlTemplate?: pulumi.Input<string>;
 }
 
 /**
@@ -239,45 +239,45 @@ export interface ApiOperationArgs {
     /**
      * The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
      */
-    readonly apiManagementName: pulumi.Input<string>;
+    apiManagementName: pulumi.Input<string>;
     /**
      * The name of the API within the API Management Service where this API Operation should be created. Changing this forces a new resource to be created.
      */
-    readonly apiName: pulumi.Input<string>;
+    apiName: pulumi.Input<string>;
     /**
      * A description for this API Operation, which may include HTML formatting tags.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The Display Name for this API Management Operation.
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * The HTTP Method used for this API Management Operation, like `GET`, `DELETE`, `PUT` or `POST` - but not limited to these values.
      */
-    readonly method: pulumi.Input<string>;
+    method: pulumi.Input<string>;
     /**
      * A unique identifier for this API Operation. Changing this forces a new resource to be created.
      */
-    readonly operationId: pulumi.Input<string>;
+    operationId: pulumi.Input<string>;
     /**
      * A `request` block as defined below.
      */
-    readonly request?: pulumi.Input<inputs.apimanagement.ApiOperationRequest>;
+    request?: pulumi.Input<inputs.apimanagement.ApiOperationRequest>;
     /**
      * The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * One or more `response` blocks as defined below.
      */
-    readonly responses?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationResponse>[]>;
+    responses?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationResponse>[]>;
     /**
      * One or more `templateParameter` blocks as defined below.
      */
-    readonly templateParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationTemplateParameter>[]>;
+    templateParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationTemplateParameter>[]>;
     /**
      * The relative URL Template identifying the target resource for this operation, which may include parameters.
      */
-    readonly urlTemplate: pulumi.Input<string>;
+    urlTemplate: pulumi.Input<string>;
 }

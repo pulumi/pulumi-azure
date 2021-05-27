@@ -178,51 +178,51 @@ export interface DefinitionState {
     /**
      * One or more `authorization` block defined below.
      */
-    readonly authorizations?: pulumi.Input<pulumi.Input<inputs.managedapplication.DefinitionAuthorization>[]>;
+    authorizations?: pulumi.Input<pulumi.Input<inputs.managedapplication.DefinitionAuthorization>[]>;
     /**
      * Specifies the `createUiDefinition` json for the backing template with `Microsoft.Solutions/applications` resource.
      */
-    readonly createUiDefinition?: pulumi.Input<string>;
+    createUiDefinition?: pulumi.Input<string>;
     /**
      * Specifies the managed application definition description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Specifies the managed application definition display name.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the managed application lock level. Valid values include `CanNotDelete`, `None`, `ReadOnly`. Changing this forces a new resource to be created.
      */
-    readonly lockLevel?: pulumi.Input<string>;
+    lockLevel?: pulumi.Input<string>;
     /**
      * Specifies the inline main template json which has resources to be provisioned.
      */
-    readonly mainTemplate?: pulumi.Input<string>;
+    mainTemplate?: pulumi.Input<string>;
     /**
      * Specifies the name of the Managed Application Definition. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Is the package enabled? Defaults to `true`.
      */
-    readonly packageEnabled?: pulumi.Input<boolean>;
+    packageEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the managed application definition package file Uri.
      */
-    readonly packageFileUri?: pulumi.Input<string>;
+    packageFileUri?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Managed Application Definition should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -232,49 +232,49 @@ export interface DefinitionArgs {
     /**
      * One or more `authorization` block defined below.
      */
-    readonly authorizations?: pulumi.Input<pulumi.Input<inputs.managedapplication.DefinitionAuthorization>[]>;
+    authorizations?: pulumi.Input<pulumi.Input<inputs.managedapplication.DefinitionAuthorization>[]>;
     /**
      * Specifies the `createUiDefinition` json for the backing template with `Microsoft.Solutions/applications` resource.
      */
-    readonly createUiDefinition?: pulumi.Input<string>;
+    createUiDefinition?: pulumi.Input<string>;
     /**
      * Specifies the managed application definition description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Specifies the managed application definition display name.
      */
-    readonly displayName: pulumi.Input<string>;
+    displayName: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the managed application lock level. Valid values include `CanNotDelete`, `None`, `ReadOnly`. Changing this forces a new resource to be created.
      */
-    readonly lockLevel: pulumi.Input<string>;
+    lockLevel: pulumi.Input<string>;
     /**
      * Specifies the inline main template json which has resources to be provisioned.
      */
-    readonly mainTemplate?: pulumi.Input<string>;
+    mainTemplate?: pulumi.Input<string>;
     /**
      * Specifies the name of the Managed Application Definition. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Is the package enabled? Defaults to `true`.
      */
-    readonly packageEnabled?: pulumi.Input<boolean>;
+    packageEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the managed application definition package file Uri.
      */
-    readonly packageFileUri?: pulumi.Input<string>;
+    packageFileUri?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Managed Application Definition should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

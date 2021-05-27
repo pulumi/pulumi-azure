@@ -272,105 +272,105 @@ export interface DatabaseState {
     /**
      * Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
      */
-    readonly autoPauseDelayInMinutes?: pulumi.Input<number>;
+    autoPauseDelayInMinutes?: pulumi.Input<number>;
     /**
      * Specifies the collation of the database. Changing this forces a new resource to be created.
      */
-    readonly collation?: pulumi.Input<string>;
+    collation?: pulumi.Input<string>;
     /**
      * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
      */
-    readonly createMode?: pulumi.Input<string>;
+    createMode?: pulumi.Input<string>;
     /**
      * The id of the source database to be referred to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
      */
-    readonly creationSourceDatabaseId?: pulumi.Input<string>;
+    creationSourceDatabaseId?: pulumi.Input<string>;
     /**
      * Specifies the ID of the elastic pool containing this database.
      */
-    readonly elasticPoolId?: pulumi.Input<string>;
+    elasticPoolId?: pulumi.Input<string>;
     /**
      * A `extendedAuditingPolicy` block as defined below.
      *
      * @deprecated the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
      */
-    readonly extendedAuditingPolicy?: pulumi.Input<inputs.mssql.DatabaseExtendedAuditingPolicy>;
+    extendedAuditingPolicy?: pulumi.Input<inputs.mssql.DatabaseExtendedAuditingPolicy>;
     /**
      * A boolean that specifies if the Geo Backup Policy is enabled.
      */
-    readonly geoBackupEnabled?: pulumi.Input<boolean>;
+    geoBackupEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
      */
-    readonly licenseType?: pulumi.Input<string>;
+    licenseType?: pulumi.Input<string>;
     /**
      * A `longTermRetentionPolicy` block as defined below.
      */
-    readonly longTermRetentionPolicy?: pulumi.Input<inputs.mssql.DatabaseLongTermRetentionPolicy>;
+    longTermRetentionPolicy?: pulumi.Input<inputs.mssql.DatabaseLongTermRetentionPolicy>;
     /**
      * The max size of the database in gigabytes.
      */
-    readonly maxSizeGb?: pulumi.Input<number>;
+    maxSizeGb?: pulumi.Input<number>;
     /**
      * Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
      */
-    readonly minCapacity?: pulumi.Input<number>;
+    minCapacity?: pulumi.Input<number>;
     /**
      * The name of the Ms SQL Database. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
      */
-    readonly readReplicaCount?: pulumi.Input<number>;
+    readReplicaCount?: pulumi.Input<number>;
     /**
      * If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
      */
-    readonly readScale?: pulumi.Input<boolean>;
+    readScale?: pulumi.Input<boolean>;
     /**
      * The ID of the database to be recovered. This property is only applicable when the `createMode` is `Recovery`.
      */
-    readonly recoverDatabaseId?: pulumi.Input<string>;
+    recoverDatabaseId?: pulumi.Input<string>;
     /**
      * The ID of the database to be restored. This property is only applicable when the `createMode` is `Restore`.
      */
-    readonly restoreDroppedDatabaseId?: pulumi.Input<string>;
+    restoreDroppedDatabaseId?: pulumi.Input<string>;
     /**
      * Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore`  databases.
      */
-    readonly restorePointInTime?: pulumi.Input<string>;
+    restorePointInTime?: pulumi.Input<string>;
     /**
      * Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
      */
-    readonly sampleName?: pulumi.Input<string>;
+    sampleName?: pulumi.Input<string>;
     /**
      * The id of the Ms SQL Server on which to create the database. Changing this forces a new resource to be created.
      */
-    readonly serverId?: pulumi.Input<string>;
+    serverId?: pulumi.Input<string>;
     /**
      * A `shortTermRetentionPolicy` block as defined below.
      */
-    readonly shortTermRetentionPolicy?: pulumi.Input<inputs.mssql.DatabaseShortTermRetentionPolicy>;
+    shortTermRetentionPolicy?: pulumi.Input<inputs.mssql.DatabaseShortTermRetentionPolicy>;
     /**
      * Specifies the name of the sku used by the database. Changing this forces a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
      */
-    readonly skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string>;
     /**
      * Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
      */
-    readonly storageAccountType?: pulumi.Input<string>;
+    storageAccountType?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
      */
-    readonly threatDetectionPolicy?: pulumi.Input<inputs.mssql.DatabaseThreatDetectionPolicy>;
+    threatDetectionPolicy?: pulumi.Input<inputs.mssql.DatabaseThreatDetectionPolicy>;
     /**
      * Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
      */
-    readonly zoneRedundant?: pulumi.Input<boolean>;
+    zoneRedundant?: pulumi.Input<boolean>;
 }
 
 /**
@@ -380,103 +380,103 @@ export interface DatabaseArgs {
     /**
      * Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
      */
-    readonly autoPauseDelayInMinutes?: pulumi.Input<number>;
+    autoPauseDelayInMinutes?: pulumi.Input<number>;
     /**
      * Specifies the collation of the database. Changing this forces a new resource to be created.
      */
-    readonly collation?: pulumi.Input<string>;
+    collation?: pulumi.Input<string>;
     /**
      * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
      */
-    readonly createMode?: pulumi.Input<string>;
+    createMode?: pulumi.Input<string>;
     /**
      * The id of the source database to be referred to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
      */
-    readonly creationSourceDatabaseId?: pulumi.Input<string>;
+    creationSourceDatabaseId?: pulumi.Input<string>;
     /**
      * Specifies the ID of the elastic pool containing this database.
      */
-    readonly elasticPoolId?: pulumi.Input<string>;
+    elasticPoolId?: pulumi.Input<string>;
     /**
      * A `extendedAuditingPolicy` block as defined below.
      *
      * @deprecated the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
      */
-    readonly extendedAuditingPolicy?: pulumi.Input<inputs.mssql.DatabaseExtendedAuditingPolicy>;
+    extendedAuditingPolicy?: pulumi.Input<inputs.mssql.DatabaseExtendedAuditingPolicy>;
     /**
      * A boolean that specifies if the Geo Backup Policy is enabled.
      */
-    readonly geoBackupEnabled?: pulumi.Input<boolean>;
+    geoBackupEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
      */
-    readonly licenseType?: pulumi.Input<string>;
+    licenseType?: pulumi.Input<string>;
     /**
      * A `longTermRetentionPolicy` block as defined below.
      */
-    readonly longTermRetentionPolicy?: pulumi.Input<inputs.mssql.DatabaseLongTermRetentionPolicy>;
+    longTermRetentionPolicy?: pulumi.Input<inputs.mssql.DatabaseLongTermRetentionPolicy>;
     /**
      * The max size of the database in gigabytes.
      */
-    readonly maxSizeGb?: pulumi.Input<number>;
+    maxSizeGb?: pulumi.Input<number>;
     /**
      * Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
      */
-    readonly minCapacity?: pulumi.Input<number>;
+    minCapacity?: pulumi.Input<number>;
     /**
      * The name of the Ms SQL Database. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
      */
-    readonly readReplicaCount?: pulumi.Input<number>;
+    readReplicaCount?: pulumi.Input<number>;
     /**
      * If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
      */
-    readonly readScale?: pulumi.Input<boolean>;
+    readScale?: pulumi.Input<boolean>;
     /**
      * The ID of the database to be recovered. This property is only applicable when the `createMode` is `Recovery`.
      */
-    readonly recoverDatabaseId?: pulumi.Input<string>;
+    recoverDatabaseId?: pulumi.Input<string>;
     /**
      * The ID of the database to be restored. This property is only applicable when the `createMode` is `Restore`.
      */
-    readonly restoreDroppedDatabaseId?: pulumi.Input<string>;
+    restoreDroppedDatabaseId?: pulumi.Input<string>;
     /**
      * Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `createMode`= `PointInTimeRestore`  databases.
      */
-    readonly restorePointInTime?: pulumi.Input<string>;
+    restorePointInTime?: pulumi.Input<string>;
     /**
      * Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
      */
-    readonly sampleName?: pulumi.Input<string>;
+    sampleName?: pulumi.Input<string>;
     /**
      * The id of the Ms SQL Server on which to create the database. Changing this forces a new resource to be created.
      */
-    readonly serverId: pulumi.Input<string>;
+    serverId: pulumi.Input<string>;
     /**
      * A `shortTermRetentionPolicy` block as defined below.
      */
-    readonly shortTermRetentionPolicy?: pulumi.Input<inputs.mssql.DatabaseShortTermRetentionPolicy>;
+    shortTermRetentionPolicy?: pulumi.Input<inputs.mssql.DatabaseShortTermRetentionPolicy>;
     /**
      * Specifies the name of the sku used by the database. Changing this forces a new resource to be created. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`.
      */
-    readonly skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string>;
     /**
      * Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created.  Possible values are `GRS`, `LRS` and `ZRS`.  The default value is `GRS`.
      */
-    readonly storageAccountType?: pulumi.Input<string>;
+    storageAccountType?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
      */
-    readonly threatDetectionPolicy?: pulumi.Input<inputs.mssql.DatabaseThreatDetectionPolicy>;
+    threatDetectionPolicy?: pulumi.Input<inputs.mssql.DatabaseThreatDetectionPolicy>;
     /**
      * Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
      */
-    readonly zoneRedundant?: pulumi.Input<boolean>;
+    zoneRedundant?: pulumi.Input<boolean>;
 }

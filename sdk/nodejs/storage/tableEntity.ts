@@ -146,25 +146,25 @@ export interface TableEntityState {
     /**
      * A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.
      */
-    readonly entity?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    entity?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The key for the partition where the entity will be inserted/merged. Changing this forces a new resource.
      */
-    readonly partitionKey?: pulumi.Input<string>;
+    partitionKey?: pulumi.Input<string>;
     /**
      * The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
      */
-    readonly rowKey?: pulumi.Input<string>;
+    rowKey?: pulumi.Input<string>;
     /**
      * Specifies the storage account in which to create the storage table entity.
      * Changing this forces a new resource to be created.
      */
-    readonly storageAccountName?: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string>;
     /**
      * The name of the storage table in which to create the storage table entity.
      * Changing this forces a new resource to be created.
      */
-    readonly tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string>;
 }
 
 /**
@@ -174,23 +174,23 @@ export interface TableEntityArgs {
     /**
      * A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.
      */
-    readonly entity: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    entity: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The key for the partition where the entity will be inserted/merged. Changing this forces a new resource.
      */
-    readonly partitionKey: pulumi.Input<string>;
+    partitionKey: pulumi.Input<string>;
     /**
      * The key for the row where the entity will be inserted/merged. Changing this forces a new resource.
      */
-    readonly rowKey: pulumi.Input<string>;
+    rowKey: pulumi.Input<string>;
     /**
      * Specifies the storage account in which to create the storage table entity.
      * Changing this forces a new resource to be created.
      */
-    readonly storageAccountName: pulumi.Input<string>;
+    storageAccountName: pulumi.Input<string>;
     /**
      * The name of the storage table in which to create the storage table entity.
      * Changing this forces a new resource to be created.
      */
-    readonly tableName: pulumi.Input<string>;
+    tableName: pulumi.Input<string>;
 }

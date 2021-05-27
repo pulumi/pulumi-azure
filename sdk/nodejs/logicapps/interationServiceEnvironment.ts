@@ -204,47 +204,47 @@ export interface InterationServiceEnvironmentState {
     /**
      * The type of access endpoint to use for the Integration Service Environment. Possible Values are `Internal` and `External`. Changing this forces a new Integration Service Environment to be created.
      */
-    readonly accessEndpointType?: pulumi.Input<string>;
+    accessEndpointType?: pulumi.Input<string>;
     /**
      * The list of access endpoint ip addresses of connector.
      */
-    readonly connectorEndpointIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    connectorEndpointIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The list of outgoing ip addresses of connector.
      */
-    readonly connectorOutboundIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    connectorOutboundIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Azure Region where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Integration Service Environment. Changing this forces a new Integration Service Environment to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The sku name and capacity of the Integration Service Environment. Possible Values for `sku` element are `Developer` and `Premium` and possible values for the `capacity` element are from `0` to `10`.  Defaults to `sku` of `Developer` with a `Capacity` of `0` (e.g. `Developer_0`). Changing this forces a new Integration Service Environment to be created when `sku` element is not the same with existing one.
      */
-    readonly skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Integration Service Environment.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
      */
-    readonly virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The list of access endpoint ip addresses of workflow.
      */
-    readonly workflowEndpointIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    workflowEndpointIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The list of outgoing ip addresses of workflow.
      */
-    readonly workflowOutboundIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    workflowOutboundIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -254,29 +254,29 @@ export interface InterationServiceEnvironmentArgs {
     /**
      * The type of access endpoint to use for the Integration Service Environment. Possible Values are `Internal` and `External`. Changing this forces a new Integration Service Environment to be created.
      */
-    readonly accessEndpointType: pulumi.Input<string>;
+    accessEndpointType: pulumi.Input<string>;
     /**
      * The Azure Region where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Integration Service Environment. Changing this forces a new Integration Service Environment to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The sku name and capacity of the Integration Service Environment. Possible Values for `sku` element are `Developer` and `Premium` and possible values for the `capacity` element are from `0` to `10`.  Defaults to `sku` of `Developer` with a `Capacity` of `0` (e.g. `Developer_0`). Changing this forces a new Integration Service Environment to be created when `sku` element is not the same with existing one.
      */
-    readonly skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Integration Service Environment.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
      */
-    readonly virtualNetworkSubnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    virtualNetworkSubnetIds: pulumi.Input<pulumi.Input<string>[]>;
 }

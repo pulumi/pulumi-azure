@@ -145,39 +145,39 @@ export interface FactoryState {
     /**
      * Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
      */
-    readonly customerManagedKeyId?: pulumi.Input<string>;
+    customerManagedKeyId?: pulumi.Input<string>;
     /**
      * A `githubConfiguration` block as defined below.
      */
-    readonly githubConfiguration?: pulumi.Input<inputs.datafactory.FactoryGithubConfiguration>;
+    githubConfiguration?: pulumi.Input<inputs.datafactory.FactoryGithubConfiguration>;
     /**
      * An `identity` block as defined below.
      */
-    readonly identity?: pulumi.Input<inputs.datafactory.FactoryIdentity>;
+    identity?: pulumi.Input<inputs.datafactory.FactoryIdentity>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Is the Data Factory visible to the public network? Defaults to `true`.
      */
-    readonly publicNetworkEnabled?: pulumi.Input<boolean>;
+    publicNetworkEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the Data Factory.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `vstsConfiguration` block as defined below.
      */
-    readonly vstsConfiguration?: pulumi.Input<inputs.datafactory.FactoryVstsConfiguration>;
+    vstsConfiguration?: pulumi.Input<inputs.datafactory.FactoryVstsConfiguration>;
 }
 
 /**
@@ -187,37 +187,37 @@ export interface FactoryArgs {
     /**
      * Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
      */
-    readonly customerManagedKeyId?: pulumi.Input<string>;
+    customerManagedKeyId?: pulumi.Input<string>;
     /**
      * A `githubConfiguration` block as defined below.
      */
-    readonly githubConfiguration?: pulumi.Input<inputs.datafactory.FactoryGithubConfiguration>;
+    githubConfiguration?: pulumi.Input<inputs.datafactory.FactoryGithubConfiguration>;
     /**
      * An `identity` block as defined below.
      */
-    readonly identity?: pulumi.Input<inputs.datafactory.FactoryIdentity>;
+    identity?: pulumi.Input<inputs.datafactory.FactoryIdentity>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Is the Data Factory visible to the public network? Defaults to `true`.
      */
-    readonly publicNetworkEnabled?: pulumi.Input<boolean>;
+    publicNetworkEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the Data Factory.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `vstsConfiguration` block as defined below.
      */
-    readonly vstsConfiguration?: pulumi.Input<inputs.datafactory.FactoryVstsConfiguration>;
+    vstsConfiguration?: pulumi.Input<inputs.datafactory.FactoryVstsConfiguration>;
 }

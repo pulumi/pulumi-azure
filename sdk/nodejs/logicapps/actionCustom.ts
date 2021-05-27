@@ -129,15 +129,15 @@ export interface ActionCustomState {
     /**
      * Specifies the JSON Blob defining the Body of this Custom Action.
      */
-    readonly body?: pulumi.Input<string>;
+    body?: pulumi.Input<string>;
     /**
      * Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
      */
-    readonly logicAppId?: pulumi.Input<string>;
+    logicAppId?: pulumi.Input<string>;
     /**
      * Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 /**
@@ -147,13 +147,13 @@ export interface ActionCustomArgs {
     /**
      * Specifies the JSON Blob defining the Body of this Custom Action.
      */
-    readonly body: pulumi.Input<string>;
+    body: pulumi.Input<string>;
     /**
      * Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
      */
-    readonly logicAppId: pulumi.Input<string>;
+    logicAppId: pulumi.Input<string>;
     /**
      * Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

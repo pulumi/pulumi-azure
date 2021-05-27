@@ -372,89 +372,89 @@ export interface VirtualNetworkGatewayConnectionState {
      * Express Route Circuit. This field is required only if the type is an
      * ExpressRoute connection.
      */
-    readonly authorizationKey?: pulumi.Input<string>;
+    authorizationKey?: pulumi.Input<string>;
     /**
      * The IKE protocol version to use. Possible
      * values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
      * Changing this value will force a resource to be created.
      * > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
      */
-    readonly connectionProtocol?: pulumi.Input<string>;
+    connectionProtocol?: pulumi.Input<string>;
     /**
      * The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
      */
-    readonly dpdTimeoutSeconds?: pulumi.Input<number>;
+    dpdTimeoutSeconds?: pulumi.Input<number>;
     /**
      * If `true`, BGP (Border Gateway Protocol) is enabled
      * for this connection. Defaults to `false`.
      */
-    readonly enableBgp?: pulumi.Input<boolean>;
+    enableBgp?: pulumi.Input<boolean>;
     /**
      * The ID of the Express Route Circuit
      * when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
      * The Express Route Circuit can be in the same or in a different subscription.
      */
-    readonly expressRouteCircuitId?: pulumi.Input<string>;
+    expressRouteCircuitId?: pulumi.Input<string>;
     /**
      * If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
      */
-    readonly expressRouteGatewayBypass?: pulumi.Input<boolean>;
+    expressRouteGatewayBypass?: pulumi.Input<boolean>;
     /**
      * A `ipsecPolicy` block which is documented below.
      * Only a single policy can be defined for a connection. For details on
      * custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
      */
-    readonly ipsecPolicy?: pulumi.Input<inputs.network.VirtualNetworkGatewayConnectionIpsecPolicy>;
+    ipsecPolicy?: pulumi.Input<inputs.network.VirtualNetworkGatewayConnectionIpsecPolicy>;
     /**
      * Use private local Azure IP for the connection. Changing this forces a new resource to be created.
      */
-    readonly localAzureIpAddressEnabled?: pulumi.Input<boolean>;
+    localAzureIpAddressEnabled?: pulumi.Input<boolean>;
     /**
      * The ID of the local network gateway
      * when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
      */
-    readonly localNetworkGatewayId?: pulumi.Input<string>;
+    localNetworkGatewayId?: pulumi.Input<string>;
     /**
      * The location/region where the connection is
      * located. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the connection. Changing the name forces a
      * new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the peer virtual
      * network gateway when creating a VNet-to-VNet connection (i.e. when `type`
      * is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or
      * in a different subscription.
      */
-    readonly peerVirtualNetworkGatewayId?: pulumi.Input<string>;
+    peerVirtualNetworkGatewayId?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to
      * create the connection Changing the name forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The routing weight. Defaults to `10`.
      */
-    readonly routingWeight?: pulumi.Input<number>;
+    routingWeight?: pulumi.Input<number>;
     /**
      * The shared IPSec key. A key could be provided if a
      * Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
      */
-    readonly sharedKey?: pulumi.Input<string>;
+    sharedKey?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `trafficSelectorPolicy` which allows to specify traffic selector policy proposal to be used in a virtual network gateway connection.
      * Only one block can be defined for a connection.
      * For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
      */
-    readonly trafficSelectorPolicy?: pulumi.Input<inputs.network.VirtualNetworkGatewayConnectionTrafficSelectorPolicy>;
+    trafficSelectorPolicy?: pulumi.Input<inputs.network.VirtualNetworkGatewayConnectionTrafficSelectorPolicy>;
     /**
      * The type of connection. Valid options are `IPsec`
      * (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
@@ -462,19 +462,19 @@ export interface VirtualNetworkGatewayConnectionState {
      * examples above). Changing the connection type will force a new connection
      * to be created.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * If `true`, policy-based traffic
      * selectors are enabled for this connection. Enabling policy-based traffic
      * selectors requires an `ipsecPolicy` block. Defaults to `false`.
      */
-    readonly usePolicyBasedTrafficSelectors?: pulumi.Input<boolean>;
+    usePolicyBasedTrafficSelectors?: pulumi.Input<boolean>;
     /**
      * The ID of the Virtual Network Gateway
      * in which the connection will be created. Changing the gateway forces a new
      * resource to be created.
      */
-    readonly virtualNetworkGatewayId?: pulumi.Input<string>;
+    virtualNetworkGatewayId?: pulumi.Input<string>;
 }
 
 /**
@@ -486,89 +486,89 @@ export interface VirtualNetworkGatewayConnectionArgs {
      * Express Route Circuit. This field is required only if the type is an
      * ExpressRoute connection.
      */
-    readonly authorizationKey?: pulumi.Input<string>;
+    authorizationKey?: pulumi.Input<string>;
     /**
      * The IKE protocol version to use. Possible
      * values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
      * Changing this value will force a resource to be created.
      * > **Note**: Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
      */
-    readonly connectionProtocol?: pulumi.Input<string>;
+    connectionProtocol?: pulumi.Input<string>;
     /**
      * The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
      */
-    readonly dpdTimeoutSeconds?: pulumi.Input<number>;
+    dpdTimeoutSeconds?: pulumi.Input<number>;
     /**
      * If `true`, BGP (Border Gateway Protocol) is enabled
      * for this connection. Defaults to `false`.
      */
-    readonly enableBgp?: pulumi.Input<boolean>;
+    enableBgp?: pulumi.Input<boolean>;
     /**
      * The ID of the Express Route Circuit
      * when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
      * The Express Route Circuit can be in the same or in a different subscription.
      */
-    readonly expressRouteCircuitId?: pulumi.Input<string>;
+    expressRouteCircuitId?: pulumi.Input<string>;
     /**
      * If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
      */
-    readonly expressRouteGatewayBypass?: pulumi.Input<boolean>;
+    expressRouteGatewayBypass?: pulumi.Input<boolean>;
     /**
      * A `ipsecPolicy` block which is documented below.
      * Only a single policy can be defined for a connection. For details on
      * custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
      */
-    readonly ipsecPolicy?: pulumi.Input<inputs.network.VirtualNetworkGatewayConnectionIpsecPolicy>;
+    ipsecPolicy?: pulumi.Input<inputs.network.VirtualNetworkGatewayConnectionIpsecPolicy>;
     /**
      * Use private local Azure IP for the connection. Changing this forces a new resource to be created.
      */
-    readonly localAzureIpAddressEnabled?: pulumi.Input<boolean>;
+    localAzureIpAddressEnabled?: pulumi.Input<boolean>;
     /**
      * The ID of the local network gateway
      * when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
      */
-    readonly localNetworkGatewayId?: pulumi.Input<string>;
+    localNetworkGatewayId?: pulumi.Input<string>;
     /**
      * The location/region where the connection is
      * located. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the connection. Changing the name forces a
      * new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the peer virtual
      * network gateway when creating a VNet-to-VNet connection (i.e. when `type`
      * is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or
      * in a different subscription.
      */
-    readonly peerVirtualNetworkGatewayId?: pulumi.Input<string>;
+    peerVirtualNetworkGatewayId?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to
      * create the connection Changing the name forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The routing weight. Defaults to `10`.
      */
-    readonly routingWeight?: pulumi.Input<number>;
+    routingWeight?: pulumi.Input<number>;
     /**
      * The shared IPSec key. A key could be provided if a
      * Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
      */
-    readonly sharedKey?: pulumi.Input<string>;
+    sharedKey?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `trafficSelectorPolicy` which allows to specify traffic selector policy proposal to be used in a virtual network gateway connection.
      * Only one block can be defined for a connection.
      * For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
      */
-    readonly trafficSelectorPolicy?: pulumi.Input<inputs.network.VirtualNetworkGatewayConnectionTrafficSelectorPolicy>;
+    trafficSelectorPolicy?: pulumi.Input<inputs.network.VirtualNetworkGatewayConnectionTrafficSelectorPolicy>;
     /**
      * The type of connection. Valid options are `IPsec`
      * (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
@@ -576,17 +576,17 @@ export interface VirtualNetworkGatewayConnectionArgs {
      * examples above). Changing the connection type will force a new connection
      * to be created.
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
     /**
      * If `true`, policy-based traffic
      * selectors are enabled for this connection. Enabling policy-based traffic
      * selectors requires an `ipsecPolicy` block. Defaults to `false`.
      */
-    readonly usePolicyBasedTrafficSelectors?: pulumi.Input<boolean>;
+    usePolicyBasedTrafficSelectors?: pulumi.Input<boolean>;
     /**
      * The ID of the Virtual Network Gateway
      * in which the connection will be created. Changing the gateway forces a new
      * resource to be created.
      */
-    readonly virtualNetworkGatewayId: pulumi.Input<string>;
+    virtualNetworkGatewayId: pulumi.Input<string>;
 }

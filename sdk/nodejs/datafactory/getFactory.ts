@@ -42,11 +42,11 @@ export interface GetFactoryArgs {
     /**
      * The name of this Azure Data Factory.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group where the Azure Data Factory exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

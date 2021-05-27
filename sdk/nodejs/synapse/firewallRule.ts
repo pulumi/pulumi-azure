@@ -137,19 +137,19 @@ export interface FirewallRuleState {
     /**
      * The ending IP address to allow through the firewall for this rule.
      */
-    readonly endIpAddress?: pulumi.Input<string>;
+    endIpAddress?: pulumi.Input<string>;
     /**
      * The Name of the firewall rule. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The starting IP address to allow through the firewall for this rule.
      */
-    readonly startIpAddress?: pulumi.Input<string>;
+    startIpAddress?: pulumi.Input<string>;
     /**
      * The ID of the Synapse Workspace on which to create the Firewall Rule. Changing this forces a new resource to be created.
      */
-    readonly synapseWorkspaceId?: pulumi.Input<string>;
+    synapseWorkspaceId?: pulumi.Input<string>;
 }
 
 /**
@@ -159,17 +159,17 @@ export interface FirewallRuleArgs {
     /**
      * The ending IP address to allow through the firewall for this rule.
      */
-    readonly endIpAddress: pulumi.Input<string>;
+    endIpAddress: pulumi.Input<string>;
     /**
      * The Name of the firewall rule. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The starting IP address to allow through the firewall for this rule.
      */
-    readonly startIpAddress: pulumi.Input<string>;
+    startIpAddress: pulumi.Input<string>;
     /**
      * The ID of the Synapse Workspace on which to create the Firewall Rule. Changing this forces a new resource to be created.
      */
-    readonly synapseWorkspaceId: pulumi.Input<string>;
+    synapseWorkspaceId: pulumi.Input<string>;
 }

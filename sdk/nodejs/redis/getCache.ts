@@ -44,12 +44,12 @@ export interface GetCacheArgs {
     /**
      * The name of the Redis cache
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the resource group the Redis cache instance is located in.
      */
-    readonly resourceGroupName: string;
-    readonly zones?: string[];
+    resourceGroupName: string;
+    zones?: string[];
 }
 
 /**

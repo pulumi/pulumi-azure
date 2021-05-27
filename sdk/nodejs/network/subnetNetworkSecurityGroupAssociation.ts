@@ -130,11 +130,11 @@ export interface SubnetNetworkSecurityGroupAssociationState {
     /**
      * The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created.
      */
-    readonly networkSecurityGroupId?: pulumi.Input<string>;
+    networkSecurityGroupId?: pulumi.Input<string>;
     /**
      * The ID of the Subnet. Changing this forces a new resource to be created.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string>;
 }
 
 /**
@@ -144,9 +144,9 @@ export interface SubnetNetworkSecurityGroupAssociationArgs {
     /**
      * The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created.
      */
-    readonly networkSecurityGroupId: pulumi.Input<string>;
+    networkSecurityGroupId: pulumi.Input<string>;
     /**
      * The ID of the Subnet. Changing this forces a new resource to be created.
      */
-    readonly subnetId: pulumi.Input<string>;
+    subnetId: pulumi.Input<string>;
 }

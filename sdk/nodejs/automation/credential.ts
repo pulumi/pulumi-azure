@@ -143,27 +143,27 @@ export interface CredentialState {
     /**
      * The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
      */
-    readonly automationAccountName?: pulumi.Input<string>;
+    automationAccountName?: pulumi.Input<string>;
     /**
      * The description associated with this Automation Credential.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Specifies the name of the Credential. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The password associated with this Automation Credential.
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * The name of the resource group in which the Credential is created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The username associated with this Automation Credential.
      */
-    readonly username?: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
 }
 
 /**
@@ -173,25 +173,25 @@ export interface CredentialArgs {
     /**
      * The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
      */
-    readonly automationAccountName: pulumi.Input<string>;
+    automationAccountName: pulumi.Input<string>;
     /**
      * The description associated with this Automation Credential.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Specifies the name of the Credential. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The password associated with this Automation Credential.
      */
-    readonly password: pulumi.Input<string>;
+    password: pulumi.Input<string>;
     /**
      * The name of the resource group in which the Credential is created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The username associated with this Automation Credential.
      */
-    readonly username: pulumi.Input<string>;
+    username: pulumi.Input<string>;
 }

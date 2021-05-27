@@ -126,64 +126,64 @@ export class ScheduledQueryRulesLog extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ScheduledQueryRulesLog resources.
  */
 export interface ScheduledQueryRulesLogState {
-    readonly authorizedResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    authorizedResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `criteria` block as defined below.
      */
-    readonly criteria?: pulumi.Input<inputs.monitoring.ScheduledQueryRulesLogCriteria>;
+    criteria?: pulumi.Input<inputs.monitoring.ScheduledQueryRulesLogCriteria>;
     /**
      * The resource uri over which log search query is to be run.
      */
-    readonly dataSourceId?: pulumi.Input<string>;
+    dataSourceId?: pulumi.Input<string>;
     /**
      * The description of the scheduled query rule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Whether this scheduled query rule is enabled.  Default is `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
-    readonly location?: pulumi.Input<string>;
+    enabled?: pulumi.Input<boolean>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the scheduled query rule. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the scheduled query rule instance.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    resourceGroupName?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
  * The set of arguments for constructing a ScheduledQueryRulesLog resource.
  */
 export interface ScheduledQueryRulesLogArgs {
-    readonly authorizedResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    authorizedResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A `criteria` block as defined below.
      */
-    readonly criteria: pulumi.Input<inputs.monitoring.ScheduledQueryRulesLogCriteria>;
+    criteria: pulumi.Input<inputs.monitoring.ScheduledQueryRulesLogCriteria>;
     /**
      * The resource uri over which log search query is to be run.
      */
-    readonly dataSourceId: pulumi.Input<string>;
+    dataSourceId: pulumi.Input<string>;
     /**
      * The description of the scheduled query rule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Whether this scheduled query rule is enabled.  Default is `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
-    readonly location?: pulumi.Input<string>;
+    enabled?: pulumi.Input<boolean>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the scheduled query rule. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the scheduled query rule instance.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    resourceGroupName: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

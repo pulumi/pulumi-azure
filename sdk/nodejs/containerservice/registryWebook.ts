@@ -176,40 +176,40 @@ export interface RegistryWebookState {
     /**
      * A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chartPush`, `chartDelete`
      */
-    readonly actions?: pulumi.Input<pulumi.Input<string>[]>;
+    actions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Custom headers that will be added to the webhook notifications request.
      */
-    readonly customHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    customHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Container Registry Webhook. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The Name of Container registry this Webhook belongs to. Changing this forces a new resource to be created.
      */
-    readonly registryName?: pulumi.Input<string>;
+    registryName?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Container Registry Webhook. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events.
      */
-    readonly scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string>;
     /**
      * Specifies the service URI for the Webhook to post notifications.
      */
-    readonly serviceUri?: pulumi.Input<string>;
+    serviceUri?: pulumi.Input<string>;
     /**
      * Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`.
      */
-    readonly status?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    status?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -219,38 +219,38 @@ export interface RegistryWebookArgs {
     /**
      * A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chartPush`, `chartDelete`
      */
-    readonly actions: pulumi.Input<pulumi.Input<string>[]>;
+    actions: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Custom headers that will be added to the webhook notifications request.
      */
-    readonly customHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    customHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Container Registry Webhook. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The Name of Container registry this Webhook belongs to. Changing this forces a new resource to be created.
      */
-    readonly registryName: pulumi.Input<string>;
+    registryName: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Container Registry Webhook. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events.
      */
-    readonly scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string>;
     /**
      * Specifies the service URI for the Webhook to post notifications.
      */
-    readonly serviceUri: pulumi.Input<string>;
+    serviceUri: pulumi.Input<string>;
     /**
      * Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`.
      */
-    readonly status?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    status?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

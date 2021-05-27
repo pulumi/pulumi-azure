@@ -123,23 +123,23 @@ export interface SyncState {
     /**
      * Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`.
      */
-    readonly incomingTrafficPolicy?: pulumi.Input<string>;
+    incomingTrafficPolicy?: pulumi.Input<string>;
     /**
      * The Azure Region where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name which should be used for this Storage Sync. Changing this forces a new Storage Sync to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Storage Sync.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -149,21 +149,21 @@ export interface SyncArgs {
     /**
      * Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`.
      */
-    readonly incomingTrafficPolicy?: pulumi.Input<string>;
+    incomingTrafficPolicy?: pulumi.Input<string>;
     /**
      * The Azure Region where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name which should be used for this Storage Sync. Changing this forces a new Storage Sync to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Storage Sync.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

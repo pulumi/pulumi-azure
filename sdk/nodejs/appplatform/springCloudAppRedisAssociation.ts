@@ -144,23 +144,23 @@ export interface SpringCloudAppRedisAssociationState {
     /**
      * Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the Redis Cache access key.
      */
-    readonly redisAccessKey?: pulumi.Input<string>;
+    redisAccessKey?: pulumi.Input<string>;
     /**
      * Specifies the Redis Cache resource ID. Changing this forces a new resource to be created.
      */
-    readonly redisCacheId?: pulumi.Input<string>;
+    redisCacheId?: pulumi.Input<string>;
     /**
      * Specifies the Spring Cloud Application resource ID in which the Association is created. Changing this forces a new resource to be created.
      */
-    readonly springCloudAppId?: pulumi.Input<string>;
+    springCloudAppId?: pulumi.Input<string>;
     /**
      * Should SSL be used when connecting to Redis? Defaults to `true`.
      */
-    readonly sslEnabled?: pulumi.Input<boolean>;
+    sslEnabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -170,21 +170,21 @@ export interface SpringCloudAppRedisAssociationArgs {
     /**
      * Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the Redis Cache access key.
      */
-    readonly redisAccessKey: pulumi.Input<string>;
+    redisAccessKey: pulumi.Input<string>;
     /**
      * Specifies the Redis Cache resource ID. Changing this forces a new resource to be created.
      */
-    readonly redisCacheId: pulumi.Input<string>;
+    redisCacheId: pulumi.Input<string>;
     /**
      * Specifies the Spring Cloud Application resource ID in which the Association is created. Changing this forces a new resource to be created.
      */
-    readonly springCloudAppId: pulumi.Input<string>;
+    springCloudAppId: pulumi.Input<string>;
     /**
      * Should SSL be used when connecting to Redis? Defaults to `true`.
      */
-    readonly sslEnabled?: pulumi.Input<boolean>;
+    sslEnabled?: pulumi.Input<boolean>;
 }

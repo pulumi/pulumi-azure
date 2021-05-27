@@ -42,11 +42,11 @@ export interface GetWorkspaceArgs {
     /**
      * The name of this Synapse Workspace.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group where the Synapse Workspace exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

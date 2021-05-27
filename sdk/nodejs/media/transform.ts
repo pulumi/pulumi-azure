@@ -197,23 +197,23 @@ export interface TransformState {
     /**
      * An optional verbose description of the Transform.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The Media Services account name. Changing this forces a new Transform to be created.
      */
-    readonly mediaServicesAccountName?: pulumi.Input<string>;
+    mediaServicesAccountName?: pulumi.Input<string>;
     /**
      * The name which should be used for this Transform. Changing this forces a new Transform to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * One or more `output` blocks as defined below. At least one `output` must be defined.
      */
-    readonly outputs?: pulumi.Input<pulumi.Input<inputs.media.TransformOutput>[]>;
+    outputs?: pulumi.Input<pulumi.Input<inputs.media.TransformOutput>[]>;
     /**
      * The name of the Resource Group where the Transform should exist. Changing this forces a new Transform to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -223,21 +223,21 @@ export interface TransformArgs {
     /**
      * An optional verbose description of the Transform.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The Media Services account name. Changing this forces a new Transform to be created.
      */
-    readonly mediaServicesAccountName: pulumi.Input<string>;
+    mediaServicesAccountName: pulumi.Input<string>;
     /**
      * The name which should be used for this Transform. Changing this forces a new Transform to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * One or more `output` blocks as defined below. At least one `output` must be defined.
      */
-    readonly outputs?: pulumi.Input<pulumi.Input<inputs.media.TransformOutput>[]>;
+    outputs?: pulumi.Input<pulumi.Input<inputs.media.TransformOutput>[]>;
     /**
      * The name of the Resource Group where the Transform should exist. Changing this forces a new Transform to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

@@ -205,55 +205,55 @@ export interface WorkspaceState {
     /**
      * The ID of the Application Insights associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      */
-    readonly applicationInsightsId?: pulumi.Input<string>;
+    applicationInsightsId?: pulumi.Input<string>;
     /**
      * The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      */
-    readonly containerRegistryId?: pulumi.Input<string>;
+    containerRegistryId?: pulumi.Input<string>;
     /**
      * The description of this Machine Learning Workspace.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Friendly name for this Machine Learning Workspace.
      */
-    readonly friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string>;
     /**
      * Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
      */
-    readonly highBusinessImpact?: pulumi.Input<boolean>;
+    highBusinessImpact?: pulumi.Input<boolean>;
     /**
      * An `identity` block defined below.
      */
-    readonly identity?: pulumi.Input<inputs.machinelearning.WorkspaceIdentity>;
+    identity?: pulumi.Input<inputs.machinelearning.WorkspaceIdentity>;
     /**
      * The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      */
-    readonly keyVaultId?: pulumi.Input<string>;
+    keyVaultId?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
      */
-    readonly skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string>;
     /**
      * The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      */
-    readonly storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -263,53 +263,53 @@ export interface WorkspaceArgs {
     /**
      * The ID of the Application Insights associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      */
-    readonly applicationInsightsId: pulumi.Input<string>;
+    applicationInsightsId: pulumi.Input<string>;
     /**
      * The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      */
-    readonly containerRegistryId?: pulumi.Input<string>;
+    containerRegistryId?: pulumi.Input<string>;
     /**
      * The description of this Machine Learning Workspace.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Friendly name for this Machine Learning Workspace.
      */
-    readonly friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string>;
     /**
      * Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
      */
-    readonly highBusinessImpact?: pulumi.Input<boolean>;
+    highBusinessImpact?: pulumi.Input<boolean>;
     /**
      * An `identity` block defined below.
      */
-    readonly identity: pulumi.Input<inputs.machinelearning.WorkspaceIdentity>;
+    identity: pulumi.Input<inputs.machinelearning.WorkspaceIdentity>;
     /**
      * The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      */
-    readonly keyVaultId: pulumi.Input<string>;
+    keyVaultId: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
      */
-    readonly skuName?: pulumi.Input<string>;
+    skuName?: pulumi.Input<string>;
     /**
      * The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      */
-    readonly storageAccountId: pulumi.Input<string>;
+    storageAccountId: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

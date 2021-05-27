@@ -161,35 +161,35 @@ export interface StorageInsightsState {
     /**
      * The names of the blob containers that the workspace should read.
      */
-    readonly blobContainerNames?: pulumi.Input<pulumi.Input<string>[]>;
+    blobContainerNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name which should be used for this Log Analytics Storage Insights. Changing this forces a new Log Analytics Storage Insights to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Log Analytics Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The ID of the Storage Account used by this Log Analytics Storage Insights.
      */
-    readonly storageAccountId?: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string>;
     /**
      * The storage access key to be used to connect to the storage account.
      */
-    readonly storageAccountKey?: pulumi.Input<string>;
+    storageAccountKey?: pulumi.Input<string>;
     /**
      * The names of the Azure tables that the workspace should read.
      */
-    readonly tableNames?: pulumi.Input<pulumi.Input<string>[]>;
+    tableNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A mapping of tags which should be assigned to the Log Analytics Storage Insights.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Log Analytics Workspace within which the Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
      */
-    readonly workspaceId?: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string>;
 }
 
 /**
@@ -199,33 +199,33 @@ export interface StorageInsightsArgs {
     /**
      * The names of the blob containers that the workspace should read.
      */
-    readonly blobContainerNames?: pulumi.Input<pulumi.Input<string>[]>;
+    blobContainerNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name which should be used for this Log Analytics Storage Insights. Changing this forces a new Log Analytics Storage Insights to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Log Analytics Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The ID of the Storage Account used by this Log Analytics Storage Insights.
      */
-    readonly storageAccountId: pulumi.Input<string>;
+    storageAccountId: pulumi.Input<string>;
     /**
      * The storage access key to be used to connect to the storage account.
      */
-    readonly storageAccountKey: pulumi.Input<string>;
+    storageAccountKey: pulumi.Input<string>;
     /**
      * The names of the Azure tables that the workspace should read.
      */
-    readonly tableNames?: pulumi.Input<pulumi.Input<string>[]>;
+    tableNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A mapping of tags which should be assigned to the Log Analytics Storage Insights.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Log Analytics Workspace within which the Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
      */
-    readonly workspaceId: pulumi.Input<string>;
+    workspaceId: pulumi.Input<string>;
 }

@@ -196,35 +196,35 @@ export interface JobState {
     /**
      * Optional customer supplied description of the Job.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A `inputAsset` block as defined below. Changing this forces a new Media Job to be created.
      */
-    readonly inputAsset?: pulumi.Input<inputs.media.JobInputAsset>;
+    inputAsset?: pulumi.Input<inputs.media.JobInputAsset>;
     /**
      * The Media Services account name. Changing this forces a new Transform to be created.
      */
-    readonly mediaServicesAccountName?: pulumi.Input<string>;
+    mediaServicesAccountName?: pulumi.Input<string>;
     /**
      * The name which should be used for this Media Job. Changing this forces a new Media Job to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * One or more `outputAsset` blocks as defined below. Changing this forces a new Media Job to be created.
      */
-    readonly outputAssets?: pulumi.Input<pulumi.Input<inputs.media.JobOutputAsset>[]>;
+    outputAssets?: pulumi.Input<pulumi.Input<inputs.media.JobOutputAsset>[]>;
     /**
      * Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created.
      */
-    readonly priority?: pulumi.Input<string>;
+    priority?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Media Job should exist. Changing this forces a new Media Job to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The Transform name. Changing this forces a new Media Job to be created.
      */
-    readonly transformName?: pulumi.Input<string>;
+    transformName?: pulumi.Input<string>;
 }
 
 /**
@@ -234,33 +234,33 @@ export interface JobArgs {
     /**
      * Optional customer supplied description of the Job.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A `inputAsset` block as defined below. Changing this forces a new Media Job to be created.
      */
-    readonly inputAsset: pulumi.Input<inputs.media.JobInputAsset>;
+    inputAsset: pulumi.Input<inputs.media.JobInputAsset>;
     /**
      * The Media Services account name. Changing this forces a new Transform to be created.
      */
-    readonly mediaServicesAccountName: pulumi.Input<string>;
+    mediaServicesAccountName: pulumi.Input<string>;
     /**
      * The name which should be used for this Media Job. Changing this forces a new Media Job to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * One or more `outputAsset` blocks as defined below. Changing this forces a new Media Job to be created.
      */
-    readonly outputAssets: pulumi.Input<pulumi.Input<inputs.media.JobOutputAsset>[]>;
+    outputAssets: pulumi.Input<pulumi.Input<inputs.media.JobOutputAsset>[]>;
     /**
      * Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created.
      */
-    readonly priority?: pulumi.Input<string>;
+    priority?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Media Job should exist. Changing this forces a new Media Job to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The Transform name. Changing this forces a new Media Job to be created.
      */
-    readonly transformName: pulumi.Input<string>;
+    transformName: pulumi.Input<string>;
 }

@@ -167,43 +167,43 @@ export interface TriggerScheduleState {
     /**
      * List of tags that can be used for describing the Data Factory Schedule Trigger.
      */
-    readonly annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
      */
-    readonly dataFactoryName?: pulumi.Input<string>;
+    dataFactoryName?: pulumi.Input<string>;
     /**
      * The time the Schedule Trigger should end. The time will be represented in UTC.
      */
-    readonly endTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string>;
     /**
      * The trigger freqency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
      */
-    readonly frequency?: pulumi.Input<string>;
+    frequency?: pulumi.Input<string>;
     /**
      * The interval for how often the trigger occurs. This defaults to 1.
      */
-    readonly interval?: pulumi.Input<number>;
+    interval?: pulumi.Input<number>;
     /**
      * Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The Data Factory Pipeline name that the trigger will act on.
      */
-    readonly pipelineName?: pulumi.Input<string>;
+    pipelineName?: pulumi.Input<string>;
     /**
      * The pipeline parameters that the trigger will act upon.
      */
-    readonly pipelineParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    pipelineParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
      */
-    readonly startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string>;
 }
 
 /**
@@ -213,41 +213,41 @@ export interface TriggerScheduleArgs {
     /**
      * List of tags that can be used for describing the Data Factory Schedule Trigger.
      */
-    readonly annotations?: pulumi.Input<pulumi.Input<string>[]>;
+    annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Data Factory name in which to associate the Schedule Trigger with. Changing this forces a new resource.
      */
-    readonly dataFactoryName: pulumi.Input<string>;
+    dataFactoryName: pulumi.Input<string>;
     /**
      * The time the Schedule Trigger should end. The time will be represented in UTC.
      */
-    readonly endTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string>;
     /**
      * The trigger freqency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
      */
-    readonly frequency?: pulumi.Input<string>;
+    frequency?: pulumi.Input<string>;
     /**
      * The interval for how often the trigger occurs. This defaults to 1.
      */
-    readonly interval?: pulumi.Input<number>;
+    interval?: pulumi.Input<number>;
     /**
      * Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The Data Factory Pipeline name that the trigger will act on.
      */
-    readonly pipelineName: pulumi.Input<string>;
+    pipelineName: pulumi.Input<string>;
     /**
      * The pipeline parameters that the trigger will act upon.
      */
-    readonly pipelineParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    pipelineParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group in which to create the Data Factory Schedule Trigger. Changing this forces a new resource
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
      */
-    readonly startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string>;
 }

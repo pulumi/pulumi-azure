@@ -181,31 +181,31 @@ export interface RouteState {
     /**
      * The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
      */
-    readonly condition?: pulumi.Input<string>;
+    condition?: pulumi.Input<string>;
     /**
      * Specifies whether a route is enabled.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
      */
-    readonly endpointNames?: pulumi.Input<string>;
+    endpointNames?: pulumi.Input<string>;
     /**
      * The name of the IoTHub to which this Route belongs. Changing this forces a new resource to be created.
      */
-    readonly iothubName?: pulumi.Input<string>;
+    iothubName?: pulumi.Input<string>;
     /**
      * The name of the route.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group under which the IotHub Route resource has to be created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The source that the routing rule is to be applied to. Possible values include: `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
      */
-    readonly source?: pulumi.Input<string>;
+    source?: pulumi.Input<string>;
 }
 
 /**
@@ -215,29 +215,29 @@ export interface RouteArgs {
     /**
      * The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
      */
-    readonly condition?: pulumi.Input<string>;
+    condition?: pulumi.Input<string>;
     /**
      * Specifies whether a route is enabled.
      */
-    readonly enabled: pulumi.Input<boolean>;
+    enabled: pulumi.Input<boolean>;
     /**
      * The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
      */
-    readonly endpointNames: pulumi.Input<string>;
+    endpointNames: pulumi.Input<string>;
     /**
      * The name of the IoTHub to which this Route belongs. Changing this forces a new resource to be created.
      */
-    readonly iothubName: pulumi.Input<string>;
+    iothubName: pulumi.Input<string>;
     /**
      * The name of the route.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group under which the IotHub Route resource has to be created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The source that the routing rule is to be applied to. Possible values include: `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`.
      */
-    readonly source: pulumi.Input<string>;
+    source: pulumi.Input<string>;
 }

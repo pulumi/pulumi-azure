@@ -42,11 +42,11 @@ export interface GetServerArgs {
     /**
      * The name of this Microsoft SQL Server.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group where the Microsoft SQL Server exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

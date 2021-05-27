@@ -42,11 +42,11 @@ export interface GetFirewallPolicyArgs {
     /**
      * The name of this Firewall Policy.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group where the Firewall Policy exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

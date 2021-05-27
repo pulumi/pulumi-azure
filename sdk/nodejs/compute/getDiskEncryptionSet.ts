@@ -29,11 +29,11 @@ export interface GetDiskEncryptionSetArgs {
     /**
      * The name of the Disk Encryption Set exists.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group where the Disk Encryption Set exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

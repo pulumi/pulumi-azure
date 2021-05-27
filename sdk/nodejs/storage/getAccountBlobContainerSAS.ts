@@ -82,51 +82,51 @@ export interface GetAccountBlobContainerSASArgs {
     /**
      * The `Cache-Control` response header that is sent when this SAS token is used.
      */
-    readonly cacheControl?: string;
+    cacheControl?: string;
     /**
      * The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of an `azure.storage.Account` resource.
      */
-    readonly connectionString: string;
+    connectionString: string;
     /**
      * Name of the container.
      */
-    readonly containerName: string;
+    containerName: string;
     /**
      * The `Content-Disposition` response header that is sent when this SAS token is used.
      */
-    readonly contentDisposition?: string;
+    contentDisposition?: string;
     /**
      * The `Content-Encoding` response header that is sent when this SAS token is used.
      */
-    readonly contentEncoding?: string;
+    contentEncoding?: string;
     /**
      * The `Content-Language` response header that is sent when this SAS token is used.
      */
-    readonly contentLanguage?: string;
+    contentLanguage?: string;
     /**
      * The `Content-Type` response header that is sent when this SAS token is used.
      */
-    readonly contentType?: string;
+    contentType?: string;
     /**
      * The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
      */
-    readonly expiry: string;
+    expiry: string;
     /**
      * Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
      */
-    readonly httpsOnly?: boolean;
+    httpsOnly?: boolean;
     /**
      * Single ipv4 address or range (connected with a dash) of ipv4 addresses.
      */
-    readonly ipAddress?: string;
+    ipAddress?: string;
     /**
      * A `permissions` block as defined below.
      */
-    readonly permissions: inputs.storage.GetAccountBlobContainerSASPermissions;
+    permissions: inputs.storage.GetAccountBlobContainerSASPermissions;
     /**
      * The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
      */
-    readonly start: string;
+    start: string;
 }
 
 /**

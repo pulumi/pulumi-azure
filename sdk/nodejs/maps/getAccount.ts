@@ -43,12 +43,12 @@ export interface GetAccountArgs {
     /**
      * Specifies the name of the Maps Account.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the name of the Resource Group in which the Maps Account is located.
      */
-    readonly resourceGroupName: string;
-    readonly tags?: {[key: string]: string};
+    resourceGroupName: string;
+    tags?: {[key: string]: string};
 }
 
 /**

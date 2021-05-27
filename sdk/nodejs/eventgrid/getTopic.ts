@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const example = pulumi.output(azure.eventgrid.getTopic({
  *     name: "my-eventgrid-topic",
  *     resourceGroupName: "example-resources",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
@@ -42,12 +42,12 @@ export interface GetTopicArgs {
     /**
      * The name of the EventGrid Topic resource.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the resource group in which the EventGrid Topic exists.
      */
-    readonly resourceGroupName: string;
-    readonly tags?: {[key: string]: string};
+    resourceGroupName: string;
+    tags?: {[key: string]: string};
 }
 
 /**

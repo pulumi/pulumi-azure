@@ -195,55 +195,55 @@ export interface AuthorizationRuleState {
     /**
      * Specifies the name of the EventHub. Changing this forces a new resource to be created.
      */
-    readonly eventhubName?: pulumi.Input<string>;
+    eventhubName?: pulumi.Input<string>;
     /**
      * Does this Authorization Rule have permissions to Listen to the Event Hub? Defaults to `false`.
      */
-    readonly listen?: pulumi.Input<boolean>;
+    listen?: pulumi.Input<boolean>;
     /**
      * Does this Authorization Rule have permissions to Manage to the Event Hub? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */
-    readonly manage?: pulumi.Input<boolean>;
+    manage?: pulumi.Input<boolean>;
     /**
      * Specifies the name of the EventHub Authorization Rule resource. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.
      */
-    readonly namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string>;
     /**
      * The Primary Connection String for the Event Hubs authorization Rule.
      */
-    readonly primaryConnectionString?: pulumi.Input<string>;
+    primaryConnectionString?: pulumi.Input<string>;
     /**
      * The alias of the Primary Connection String for the Event Hubs authorization Rule, which is generated when disaster recovery is enabled.
      */
-    readonly primaryConnectionStringAlias?: pulumi.Input<string>;
+    primaryConnectionStringAlias?: pulumi.Input<string>;
     /**
      * The Primary Key for the Event Hubs authorization Rule.
      */
-    readonly primaryKey?: pulumi.Input<string>;
+    primaryKey?: pulumi.Input<string>;
     /**
      * The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The Secondary Connection String for the Event Hubs Authorization Rule.
      */
-    readonly secondaryConnectionString?: pulumi.Input<string>;
+    secondaryConnectionString?: pulumi.Input<string>;
     /**
      * The alias of the Secondary Connection String for the Event Hubs Authorization Rule, which is generated when disaster recovery is enabled.
      */
-    readonly secondaryConnectionStringAlias?: pulumi.Input<string>;
+    secondaryConnectionStringAlias?: pulumi.Input<string>;
     /**
      * The Secondary Key for the Event Hubs Authorization Rule.
      */
-    readonly secondaryKey?: pulumi.Input<string>;
+    secondaryKey?: pulumi.Input<string>;
     /**
      * Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
      */
-    readonly send?: pulumi.Input<boolean>;
+    send?: pulumi.Input<boolean>;
 }
 
 /**
@@ -253,29 +253,29 @@ export interface AuthorizationRuleArgs {
     /**
      * Specifies the name of the EventHub. Changing this forces a new resource to be created.
      */
-    readonly eventhubName: pulumi.Input<string>;
+    eventhubName: pulumi.Input<string>;
     /**
      * Does this Authorization Rule have permissions to Listen to the Event Hub? Defaults to `false`.
      */
-    readonly listen?: pulumi.Input<boolean>;
+    listen?: pulumi.Input<boolean>;
     /**
      * Does this Authorization Rule have permissions to Manage to the Event Hub? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */
-    readonly manage?: pulumi.Input<boolean>;
+    manage?: pulumi.Input<boolean>;
     /**
      * Specifies the name of the EventHub Authorization Rule resource. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.
      */
-    readonly namespaceName: pulumi.Input<string>;
+    namespaceName: pulumi.Input<string>;
     /**
      * The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
      */
-    readonly send?: pulumi.Input<boolean>;
+    send?: pulumi.Input<boolean>;
 }

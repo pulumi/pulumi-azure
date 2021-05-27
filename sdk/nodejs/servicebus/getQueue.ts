@@ -44,15 +44,15 @@ export interface GetQueueArgs {
     /**
      * The name of this Service Bus Queue.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the ServiceBus Namespace.
      */
-    readonly namespaceName: string;
+    namespaceName: string;
     /**
      * The name of the Resource Group where the Service Bus Queue exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

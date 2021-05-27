@@ -120,27 +120,27 @@ export interface VpnGatewayConnectionState {
     /**
      * Whether Internet Security is enabled for this VPN Connection. Defaults to `false`.
      */
-    readonly internetSecurityEnabled?: pulumi.Input<boolean>;
+    internetSecurityEnabled?: pulumi.Input<boolean>;
     /**
      * The name which should be used for this VPN Gateway Connection. Changing this forces a new VPN Gateway Connection to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the remote VPN Site, which will connect to the VPN Gateway. Changing this forces a new VPN Gateway Connection to be created.
      */
-    readonly remoteVpnSiteId?: pulumi.Input<string>;
+    remoteVpnSiteId?: pulumi.Input<string>;
     /**
      * A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
      */
-    readonly routings?: pulumi.Input<pulumi.Input<inputs.network.VpnGatewayConnectionRouting>[]>;
+    routings?: pulumi.Input<pulumi.Input<inputs.network.VpnGatewayConnectionRouting>[]>;
     /**
      * The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created.
      */
-    readonly vpnGatewayId?: pulumi.Input<string>;
+    vpnGatewayId?: pulumi.Input<string>;
     /**
      * One or more `vpnLink` blocks as defined below.
      */
-    readonly vpnLinks?: pulumi.Input<pulumi.Input<inputs.network.VpnGatewayConnectionVpnLink>[]>;
+    vpnLinks?: pulumi.Input<pulumi.Input<inputs.network.VpnGatewayConnectionVpnLink>[]>;
 }
 
 /**
@@ -150,25 +150,25 @@ export interface VpnGatewayConnectionArgs {
     /**
      * Whether Internet Security is enabled for this VPN Connection. Defaults to `false`.
      */
-    readonly internetSecurityEnabled?: pulumi.Input<boolean>;
+    internetSecurityEnabled?: pulumi.Input<boolean>;
     /**
      * The name which should be used for this VPN Gateway Connection. Changing this forces a new VPN Gateway Connection to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the remote VPN Site, which will connect to the VPN Gateway. Changing this forces a new VPN Gateway Connection to be created.
      */
-    readonly remoteVpnSiteId: pulumi.Input<string>;
+    remoteVpnSiteId: pulumi.Input<string>;
     /**
      * A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
      */
-    readonly routings?: pulumi.Input<pulumi.Input<inputs.network.VpnGatewayConnectionRouting>[]>;
+    routings?: pulumi.Input<pulumi.Input<inputs.network.VpnGatewayConnectionRouting>[]>;
     /**
      * The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created.
      */
-    readonly vpnGatewayId: pulumi.Input<string>;
+    vpnGatewayId: pulumi.Input<string>;
     /**
      * One or more `vpnLink` blocks as defined below.
      */
-    readonly vpnLinks: pulumi.Input<pulumi.Input<inputs.network.VpnGatewayConnectionVpnLink>[]>;
+    vpnLinks: pulumi.Input<pulumi.Input<inputs.network.VpnGatewayConnectionVpnLink>[]>;
 }

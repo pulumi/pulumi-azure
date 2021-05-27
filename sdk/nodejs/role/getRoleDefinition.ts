@@ -27,9 +27,9 @@ export function getRoleDefinition(args?: GetRoleDefinitionArgs, opts?: pulumi.In
  * A collection of arguments for invoking getRoleDefinition.
  */
 export interface GetRoleDefinitionArgs {
-    readonly name?: string;
-    readonly roleDefinitionId?: string;
-    readonly scope?: string;
+    name?: string;
+    roleDefinitionId?: string;
+    scope?: string;
 }
 
 /**

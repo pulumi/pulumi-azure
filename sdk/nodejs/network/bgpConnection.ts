@@ -150,19 +150,19 @@ export interface BgpConnectionState {
     /**
      * The name which should be used for this Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The peer autonomous system number for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
      */
-    readonly peerAsn?: pulumi.Input<number>;
+    peerAsn?: pulumi.Input<number>;
     /**
      * The peer ip address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
      */
-    readonly peerIp?: pulumi.Input<string>;
+    peerIp?: pulumi.Input<string>;
     /**
      * The ID of the Virtual Hub within which this Bgp connection should be created. Changing this forces a new resource to be created.
      */
-    readonly virtualHubId?: pulumi.Input<string>;
+    virtualHubId?: pulumi.Input<string>;
 }
 
 /**
@@ -172,17 +172,17 @@ export interface BgpConnectionArgs {
     /**
      * The name which should be used for this Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The peer autonomous system number for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
      */
-    readonly peerAsn: pulumi.Input<number>;
+    peerAsn: pulumi.Input<number>;
     /**
      * The peer ip address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
      */
-    readonly peerIp: pulumi.Input<string>;
+    peerIp: pulumi.Input<string>;
     /**
      * The ID of the Virtual Hub within which this Bgp connection should be created. Changing this forces a new resource to be created.
      */
-    readonly virtualHubId: pulumi.Input<string>;
+    virtualHubId: pulumi.Input<string>;
 }

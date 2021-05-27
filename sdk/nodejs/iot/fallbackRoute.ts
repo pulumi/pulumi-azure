@@ -169,23 +169,23 @@ export interface FallbackRouteState {
     /**
      * The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
      */
-    readonly condition?: pulumi.Input<string>;
+    condition?: pulumi.Input<string>;
     /**
      * Used to specify whether the fallback route is enabled.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
      */
-    readonly endpointNames?: pulumi.Input<string>;
+    endpointNames?: pulumi.Input<string>;
     /**
      * The name of the IoTHub to which this Fallback Route belongs. Changing this forces a new resource to be created.
      */
-    readonly iothubName?: pulumi.Input<string>;
+    iothubName?: pulumi.Input<string>;
     /**
      * The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -195,21 +195,21 @@ export interface FallbackRouteArgs {
     /**
      * The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
      */
-    readonly condition?: pulumi.Input<string>;
+    condition?: pulumi.Input<string>;
     /**
      * Used to specify whether the fallback route is enabled.
      */
-    readonly enabled: pulumi.Input<boolean>;
+    enabled: pulumi.Input<boolean>;
     /**
      * The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
      */
-    readonly endpointNames: pulumi.Input<string>;
+    endpointNames: pulumi.Input<string>;
     /**
      * The name of the IoTHub to which this Fallback Route belongs. Changing this forces a new resource to be created.
      */
-    readonly iothubName: pulumi.Input<string>;
+    iothubName: pulumi.Input<string>;
     /**
      * The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

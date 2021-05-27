@@ -42,11 +42,11 @@ export interface GetDatasetDataLakeGen2Args {
     /**
      * The name of this Data Share Data Lake Gen2 Dataset.
      */
-    readonly name: string;
+    name: string;
     /**
      * The resource ID of the Data Share where this Data Share Data Lake Gen2 Dataset should be created.
      */
-    readonly shareId: string;
+    shareId: string;
 }
 
 /**

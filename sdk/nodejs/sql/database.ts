@@ -220,96 +220,96 @@ export interface DatabaseState {
     /**
      * The name of the collation. Applies only if `createMode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
      */
-    readonly collation?: pulumi.Input<string>;
+    collation?: pulumi.Input<string>;
     /**
      * Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`,  `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/en-us/rest/api/sql/databases/createorupdate#createmode)
      */
-    readonly createMode?: pulumi.Input<string>;
+    createMode?: pulumi.Input<string>;
     /**
      * The creation date of the SQL Database.
      */
-    readonly creationDate?: pulumi.Input<string>;
+    creationDate?: pulumi.Input<string>;
     /**
      * The default secondary location of the SQL Database.
      */
-    readonly defaultSecondaryLocation?: pulumi.Input<string>;
+    defaultSecondaryLocation?: pulumi.Input<string>;
     /**
      * The edition of the database to be created. Applies only if `createMode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
      */
-    readonly edition?: pulumi.Input<string>;
+    edition?: pulumi.Input<string>;
     /**
      * The name of the elastic database pool.
      */
-    readonly elasticPoolName?: pulumi.Input<string>;
-    readonly encryption?: pulumi.Input<string>;
+    elasticPoolName?: pulumi.Input<string>;
+    encryption?: pulumi.Input<string>;
     /**
      * A `extendedAuditingPolicy` block as defined below.
      *
      * @deprecated the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
      */
-    readonly extendedAuditingPolicy?: pulumi.Input<inputs.sql.DatabaseExtendedAuditingPolicy>;
+    extendedAuditingPolicy?: pulumi.Input<inputs.sql.DatabaseExtendedAuditingPolicy>;
     /**
      * A Database Import block as documented below. `createMode` must be set to `Default`.
      */
-    readonly import?: pulumi.Input<inputs.sql.DatabaseImport>;
+    import?: pulumi.Input<inputs.sql.DatabaseImport>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
      */
-    readonly maxSizeBytes?: pulumi.Input<string>;
-    readonly maxSizeGb?: pulumi.Input<string>;
+    maxSizeBytes?: pulumi.Input<string>;
+    maxSizeGb?: pulumi.Input<string>;
     /**
      * The name of the database.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out).
      */
-    readonly readScale?: pulumi.Input<boolean>;
+    readScale?: pulumi.Input<boolean>;
     /**
      * A GUID/UUID corresponding to a configured Service Level Objective for the Azure SQL database which can be used to configure a performance level.
      * .
      */
-    readonly requestedServiceObjectiveId?: pulumi.Input<string>;
+    requestedServiceObjectiveId?: pulumi.Input<string>;
     /**
      * The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the cli: `shell az sql db list-editions -l westus -o table`. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/en-us/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions).
      */
-    readonly requestedServiceObjectiveName?: pulumi.Input<string>;
+    requestedServiceObjectiveName?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
      */
-    readonly restorePointInTime?: pulumi.Input<string>;
+    restorePointInTime?: pulumi.Input<string>;
     /**
      * The name of the SQL Server on which to create the database.
      */
-    readonly serverName?: pulumi.Input<string>;
+    serverName?: pulumi.Input<string>;
     /**
      * The deletion date time of the source database. Only applies to deleted databases where `createMode` is `PointInTimeRestore`.
      */
-    readonly sourceDatabaseDeletionDate?: pulumi.Input<string>;
+    sourceDatabaseDeletionDate?: pulumi.Input<string>;
     /**
      * The URI of the source database if `createMode` value is not `Default`.
      */
-    readonly sourceDatabaseId?: pulumi.Input<string>;
+    sourceDatabaseId?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
      */
-    readonly threatDetectionPolicy?: pulumi.Input<inputs.sql.DatabaseThreatDetectionPolicy>;
+    threatDetectionPolicy?: pulumi.Input<inputs.sql.DatabaseThreatDetectionPolicy>;
     /**
      * Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
      */
-    readonly zoneRedundant?: pulumi.Input<boolean>;
+    zoneRedundant?: pulumi.Input<boolean>;
 }
 
 /**
@@ -319,85 +319,85 @@ export interface DatabaseArgs {
     /**
      * The name of the collation. Applies only if `createMode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
      */
-    readonly collation?: pulumi.Input<string>;
+    collation?: pulumi.Input<string>;
     /**
      * Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`,  `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/en-us/rest/api/sql/databases/createorupdate#createmode)
      */
-    readonly createMode?: pulumi.Input<string>;
+    createMode?: pulumi.Input<string>;
     /**
      * The edition of the database to be created. Applies only if `createMode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
      */
-    readonly edition?: pulumi.Input<string>;
+    edition?: pulumi.Input<string>;
     /**
      * The name of the elastic database pool.
      */
-    readonly elasticPoolName?: pulumi.Input<string>;
+    elasticPoolName?: pulumi.Input<string>;
     /**
      * A `extendedAuditingPolicy` block as defined below.
      *
      * @deprecated the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
      */
-    readonly extendedAuditingPolicy?: pulumi.Input<inputs.sql.DatabaseExtendedAuditingPolicy>;
+    extendedAuditingPolicy?: pulumi.Input<inputs.sql.DatabaseExtendedAuditingPolicy>;
     /**
      * A Database Import block as documented below. `createMode` must be set to `Default`.
      */
-    readonly import?: pulumi.Input<inputs.sql.DatabaseImport>;
+    import?: pulumi.Input<inputs.sql.DatabaseImport>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
      */
-    readonly maxSizeBytes?: pulumi.Input<string>;
-    readonly maxSizeGb?: pulumi.Input<string>;
+    maxSizeBytes?: pulumi.Input<string>;
+    maxSizeGb?: pulumi.Input<string>;
     /**
      * The name of the database.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out).
      */
-    readonly readScale?: pulumi.Input<boolean>;
+    readScale?: pulumi.Input<boolean>;
     /**
      * A GUID/UUID corresponding to a configured Service Level Objective for the Azure SQL database which can be used to configure a performance level.
      * .
      */
-    readonly requestedServiceObjectiveId?: pulumi.Input<string>;
+    requestedServiceObjectiveId?: pulumi.Input<string>;
     /**
      * The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the cli: `shell az sql db list-editions -l westus -o table`. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/en-us/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions).
      */
-    readonly requestedServiceObjectiveName?: pulumi.Input<string>;
+    requestedServiceObjectiveName?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
      */
-    readonly restorePointInTime?: pulumi.Input<string>;
+    restorePointInTime?: pulumi.Input<string>;
     /**
      * The name of the SQL Server on which to create the database.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
     /**
      * The deletion date time of the source database. Only applies to deleted databases where `createMode` is `PointInTimeRestore`.
      */
-    readonly sourceDatabaseDeletionDate?: pulumi.Input<string>;
+    sourceDatabaseDeletionDate?: pulumi.Input<string>;
     /**
      * The URI of the source database if `createMode` value is not `Default`.
      */
-    readonly sourceDatabaseId?: pulumi.Input<string>;
+    sourceDatabaseId?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
      */
-    readonly threatDetectionPolicy?: pulumi.Input<inputs.sql.DatabaseThreatDetectionPolicy>;
+    threatDetectionPolicy?: pulumi.Input<inputs.sql.DatabaseThreatDetectionPolicy>;
     /**
      * Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
      */
-    readonly zoneRedundant?: pulumi.Input<boolean>;
+    zoneRedundant?: pulumi.Input<boolean>;
 }

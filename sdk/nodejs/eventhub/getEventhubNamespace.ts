@@ -44,11 +44,11 @@ export interface GetEventhubNamespaceArgs {
     /**
      * The name of the EventHub Namespace.
      */
-    readonly name: string;
+    name: string;
     /**
      * The Name of the Resource Group where the EventHub Namespace exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

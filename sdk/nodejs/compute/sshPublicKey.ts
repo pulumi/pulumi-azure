@@ -124,23 +124,23 @@ export interface SshPublicKeyState {
     /**
      * The Azure Region where the SSH Public Key should exist. Changing this forces a new SSH Public Key to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name which should be used for this SSH Public Key. Changing this forces a new SSH Public Key to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * SSH public key used to authenticate to a virtual machine through ssh. the provided public key needs to be at least 2048-bit and in ssh-rsa format.
      */
-    readonly publicKey?: pulumi.Input<string>;
+    publicKey?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the SSH Public Key should exist. Changing this forces a new SSH Public Key to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the SSH Public Key.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -150,21 +150,21 @@ export interface SshPublicKeyArgs {
     /**
      * The Azure Region where the SSH Public Key should exist. Changing this forces a new SSH Public Key to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name which should be used for this SSH Public Key. Changing this forces a new SSH Public Key to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * SSH public key used to authenticate to a virtual machine through ssh. the provided public key needs to be at least 2048-bit and in ssh-rsa format.
      */
-    readonly publicKey: pulumi.Input<string>;
+    publicKey: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the SSH Public Key should exist. Changing this forces a new SSH Public Key to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the SSH Public Key.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -42,11 +42,11 @@ export interface GetSyncGroupArgs {
     /**
      * The name of this Storage Sync Group.
      */
-    readonly name: string;
+    name: string;
     /**
      * The resource ID of the Storage Sync where this Storage Sync Group is.
      */
-    readonly storageSyncId: string;
+    storageSyncId: string;
 }
 
 /**

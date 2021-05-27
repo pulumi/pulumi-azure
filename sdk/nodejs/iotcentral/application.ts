@@ -148,35 +148,35 @@ export interface ApplicationState {
     /**
      * A `displayName` name. Custom display name for the IoT Central application. Default is resource name.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
      */
-    readonly sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string>;
     /**
      * A `subDomain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
      */
-    readonly subDomain?: pulumi.Input<string>;
+    subDomain?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `template` name. IoT Central application template name. Default is a custom application.
      */
-    readonly template?: pulumi.Input<string>;
+    template?: pulumi.Input<string>;
 }
 
 /**
@@ -186,33 +186,33 @@ export interface ApplicationArgs {
     /**
      * A `displayName` name. Custom display name for the IoT Central application. Default is resource name.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
      */
-    readonly sku?: pulumi.Input<string>;
+    sku?: pulumi.Input<string>;
     /**
      * A `subDomain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
      */
-    readonly subDomain: pulumi.Input<string>;
+    subDomain: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `template` name. IoT Central application template name. Default is a custom application.
      */
-    readonly template?: pulumi.Input<string>;
+    template?: pulumi.Input<string>;
 }

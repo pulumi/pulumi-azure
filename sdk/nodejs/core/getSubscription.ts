@@ -39,7 +39,7 @@ export interface GetSubscriptionArgs {
     /**
      * Specifies the ID of the subscription. If this argument is omitted, the subscription ID of the current Azure Resource Manager provider is used.
      */
-    readonly subscriptionId?: string;
+    subscriptionId?: string;
 }
 
 /**

@@ -166,27 +166,27 @@ export interface SpringCloudAppMysqlAssociationState {
     /**
      * Specifies the name of the MySQL Database which the Spring Cloud App should be associated with.
      */
-    readonly databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
     /**
      * Specifies the ID of the MySQL Server. Changing this forces a new resource to be created.
      */
-    readonly mysqlServerId?: pulumi.Input<string>;
+    mysqlServerId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the password which should be used when connecting to the MySQL Database from the Spring Cloud App.
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * Specifies the ID of the Spring Cloud Application where this Association is created. Changing this forces a new resource to be created.
      */
-    readonly springCloudAppId?: pulumi.Input<string>;
+    springCloudAppId?: pulumi.Input<string>;
     /**
      * Specifies the username which should be used when connecting to the MySQL Database from the Spring Cloud App.
      */
-    readonly username?: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
 }
 
 /**
@@ -196,25 +196,25 @@ export interface SpringCloudAppMysqlAssociationArgs {
     /**
      * Specifies the name of the MySQL Database which the Spring Cloud App should be associated with.
      */
-    readonly databaseName: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * Specifies the ID of the MySQL Server. Changing this forces a new resource to be created.
      */
-    readonly mysqlServerId: pulumi.Input<string>;
+    mysqlServerId: pulumi.Input<string>;
     /**
      * Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the password which should be used when connecting to the MySQL Database from the Spring Cloud App.
      */
-    readonly password: pulumi.Input<string>;
+    password: pulumi.Input<string>;
     /**
      * Specifies the ID of the Spring Cloud Application where this Association is created. Changing this forces a new resource to be created.
      */
-    readonly springCloudAppId: pulumi.Input<string>;
+    springCloudAppId: pulumi.Input<string>;
     /**
      * Specifies the username which should be used when connecting to the MySQL Database from the Spring Cloud App.
      */
-    readonly username: pulumi.Input<string>;
+    username: pulumi.Input<string>;
 }

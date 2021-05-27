@@ -196,40 +196,40 @@ export interface PolicyFileShareState {
     /**
      * Configures the Policy backup frequency and times as documented in the `backup` block below.
      */
-    readonly backup?: pulumi.Input<inputs.backup.PolicyFileShareBackup>;
+    backup?: pulumi.Input<inputs.backup.PolicyFileShareBackup>;
     /**
      * Specifies the name of the policy. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      */
-    readonly recoveryVaultName?: pulumi.Input<string>;
+    recoveryVaultName?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Configures the policy daily retention as documented in the `retentionDaily` block below.
      */
-    readonly retentionDaily?: pulumi.Input<inputs.backup.PolicyFileShareRetentionDaily>;
+    retentionDaily?: pulumi.Input<inputs.backup.PolicyFileShareRetentionDaily>;
     /**
      * Configures the policy monthly retention as documented in the `retentionMonthly` block below.
      */
-    readonly retentionMonthly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionMonthly>;
+    retentionMonthly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionMonthly>;
     /**
      * Configures the policy weekly retention as documented in the `retentionWeekly` block below.
      */
-    readonly retentionWeekly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionWeekly>;
+    retentionWeekly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionWeekly>;
     /**
      * Configures the policy yearly retention as documented in the `retentionYearly` block below.
      */
-    readonly retentionYearly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionYearly>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    retentionYearly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionYearly>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
      */
-    readonly timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string>;
 }
 
 /**
@@ -239,38 +239,38 @@ export interface PolicyFileShareArgs {
     /**
      * Configures the Policy backup frequency and times as documented in the `backup` block below.
      */
-    readonly backup: pulumi.Input<inputs.backup.PolicyFileShareBackup>;
+    backup: pulumi.Input<inputs.backup.PolicyFileShareBackup>;
     /**
      * Specifies the name of the policy. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      */
-    readonly recoveryVaultName: pulumi.Input<string>;
+    recoveryVaultName: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Configures the policy daily retention as documented in the `retentionDaily` block below.
      */
-    readonly retentionDaily: pulumi.Input<inputs.backup.PolicyFileShareRetentionDaily>;
+    retentionDaily: pulumi.Input<inputs.backup.PolicyFileShareRetentionDaily>;
     /**
      * Configures the policy monthly retention as documented in the `retentionMonthly` block below.
      */
-    readonly retentionMonthly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionMonthly>;
+    retentionMonthly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionMonthly>;
     /**
      * Configures the policy weekly retention as documented in the `retentionWeekly` block below.
      */
-    readonly retentionWeekly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionWeekly>;
+    retentionWeekly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionWeekly>;
     /**
      * Configures the policy yearly retention as documented in the `retentionYearly` block below.
      */
-    readonly retentionYearly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionYearly>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    retentionYearly?: pulumi.Input<inputs.backup.PolicyFileShareRetentionYearly>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the timezone. [the possible values are defined here](http://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
      */
-    readonly timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string>;
 }

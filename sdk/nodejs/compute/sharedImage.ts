@@ -200,59 +200,59 @@ export interface SharedImageState {
     /**
      * A description of this Shared Image.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The End User Licence Agreement for the Shared Image.
      */
-    readonly eula?: pulumi.Input<string>;
+    eula?: pulumi.Input<string>;
     /**
      * Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
      */
-    readonly galleryName?: pulumi.Input<string>;
+    galleryName?: pulumi.Input<string>;
     /**
      * The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
      */
-    readonly hyperVGeneration?: pulumi.Input<string>;
+    hyperVGeneration?: pulumi.Input<string>;
     /**
      * An `identifier` block as defined below.
      */
-    readonly identifier?: pulumi.Input<inputs.compute.SharedImageIdentifier>;
+    identifier?: pulumi.Input<inputs.compute.SharedImageIdentifier>;
     /**
      * Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Shared Image. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
      */
-    readonly osType?: pulumi.Input<string>;
+    osType?: pulumi.Input<string>;
     /**
      * The URI containing the Privacy Statement associated with this Shared Image.
      */
-    readonly privacyStatementUri?: pulumi.Input<string>;
+    privacyStatementUri?: pulumi.Input<string>;
     /**
      * A `purchasePlan` block as defined below.
      */
-    readonly purchasePlan?: pulumi.Input<inputs.compute.SharedImagePurchasePlan>;
+    purchasePlan?: pulumi.Input<inputs.compute.SharedImagePurchasePlan>;
     /**
      * The URI containing the Release Notes associated with this Shared Image.
      */
-    readonly releaseNoteUri?: pulumi.Input<string>;
+    releaseNoteUri?: pulumi.Input<string>;
     /**
      * The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
      */
-    readonly specialized?: pulumi.Input<boolean>;
+    specialized?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the Shared Image.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -262,57 +262,57 @@ export interface SharedImageArgs {
     /**
      * A description of this Shared Image.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The End User Licence Agreement for the Shared Image.
      */
-    readonly eula?: pulumi.Input<string>;
+    eula?: pulumi.Input<string>;
     /**
      * Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
      */
-    readonly galleryName: pulumi.Input<string>;
+    galleryName: pulumi.Input<string>;
     /**
      * The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
      */
-    readonly hyperVGeneration?: pulumi.Input<string>;
+    hyperVGeneration?: pulumi.Input<string>;
     /**
      * An `identifier` block as defined below.
      */
-    readonly identifier: pulumi.Input<inputs.compute.SharedImageIdentifier>;
+    identifier: pulumi.Input<inputs.compute.SharedImageIdentifier>;
     /**
      * Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Shared Image. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
      */
-    readonly osType: pulumi.Input<string>;
+    osType: pulumi.Input<string>;
     /**
      * The URI containing the Privacy Statement associated with this Shared Image.
      */
-    readonly privacyStatementUri?: pulumi.Input<string>;
+    privacyStatementUri?: pulumi.Input<string>;
     /**
      * A `purchasePlan` block as defined below.
      */
-    readonly purchasePlan?: pulumi.Input<inputs.compute.SharedImagePurchasePlan>;
+    purchasePlan?: pulumi.Input<inputs.compute.SharedImagePurchasePlan>;
     /**
      * The URI containing the Release Notes associated with this Shared Image.
      */
-    readonly releaseNoteUri?: pulumi.Input<string>;
+    releaseNoteUri?: pulumi.Input<string>;
     /**
      * The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Defaults to `false`. Changing this forces a new resource to be created.
      */
-    readonly specialized?: pulumi.Input<boolean>;
+    specialized?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the Shared Image.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -43,15 +43,15 @@ export interface GetDpsSharedAccessPolicyArgs {
     /**
      * Specifies the name of the IoT Hub Device Provisioning service to which the Shared Access Policy belongs.
      */
-    readonly iothubDpsName: string;
+    iothubDpsName: string;
     /**
      * Specifies the name of the IotHub Shared Access Policy.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the name of the resource group under which the IotHub Shared Access Policy resource exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

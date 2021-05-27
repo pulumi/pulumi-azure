@@ -147,31 +147,31 @@ export interface VirtualNetworkState {
     /**
      * A description for the Virtual Network.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Specifies the name of the Dev Test Lab in which the Virtual Network should be created. Changing this forces a new resource to be created.
      */
-    readonly labName?: pulumi.Input<string>;
+    labName?: pulumi.Input<string>;
     /**
      * Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A `subnet` block as defined below.
      */
-    readonly subnet?: pulumi.Input<inputs.devtest.VirtualNetworkSubnet>;
+    subnet?: pulumi.Input<inputs.devtest.VirtualNetworkSubnet>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The unique immutable identifier of the Dev Test Virtual Network.
      */
-    readonly uniqueIdentifier?: pulumi.Input<string>;
+    uniqueIdentifier?: pulumi.Input<string>;
 }
 
 /**
@@ -181,25 +181,25 @@ export interface VirtualNetworkArgs {
     /**
      * A description for the Virtual Network.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Specifies the name of the Dev Test Lab in which the Virtual Network should be created. Changing this forces a new resource to be created.
      */
-    readonly labName: pulumi.Input<string>;
+    labName: pulumi.Input<string>;
     /**
      * Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A `subnet` block as defined below.
      */
-    readonly subnet?: pulumi.Input<inputs.devtest.VirtualNetworkSubnet>;
+    subnet?: pulumi.Input<inputs.devtest.VirtualNetworkSubnet>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

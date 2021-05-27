@@ -42,11 +42,11 @@ export interface GetSecretArgs {
     /**
      * Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
      */
-    readonly keyVaultId: string;
+    keyVaultId: string;
     /**
      * Specifies the name of the Key Vault Secret.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

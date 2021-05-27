@@ -137,23 +137,23 @@ export interface EventhubNamespaceDisasterRecoveryConfigState {
     /**
      * @deprecated This property has been deprecated and will be removed in v3.0 of the provider as any DRC created with an alternate name cannot be deleted and the service is not going to change this. Please see: https://github.com/Azure/azure-sdk-for-go/issues/5893
      */
-    readonly alternateName?: pulumi.Input<string>;
+    alternateName?: pulumi.Input<string>;
     /**
      * Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the primary EventHub Namespace to replicate. Changing this forces a new resource to be created.
      */
-    readonly namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string>;
     /**
      * The ID of the EventHub Namespace to replicate to.
      */
-    readonly partnerNamespaceId?: pulumi.Input<string>;
+    partnerNamespaceId?: pulumi.Input<string>;
     /**
      * The name of the resource group in which the Disaster Recovery Config exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -163,21 +163,21 @@ export interface EventhubNamespaceDisasterRecoveryConfigArgs {
     /**
      * @deprecated This property has been deprecated and will be removed in v3.0 of the provider as any DRC created with an alternate name cannot be deleted and the service is not going to change this. Please see: https://github.com/Azure/azure-sdk-for-go/issues/5893
      */
-    readonly alternateName?: pulumi.Input<string>;
+    alternateName?: pulumi.Input<string>;
     /**
      * Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the primary EventHub Namespace to replicate. Changing this forces a new resource to be created.
      */
-    readonly namespaceName: pulumi.Input<string>;
+    namespaceName: pulumi.Input<string>;
     /**
      * The ID of the EventHub Namespace to replicate to.
      */
-    readonly partnerNamespaceId: pulumi.Input<string>;
+    partnerNamespaceId: pulumi.Input<string>;
     /**
      * The name of the resource group in which the Disaster Recovery Config exists. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

@@ -42,12 +42,12 @@ export interface GetFunctionAppArgs {
     /**
      * The name of the Function App resource.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group where the Function App exists.
      */
-    readonly resourceGroupName: string;
-    readonly tags?: {[key: string]: string};
+    resourceGroupName: string;
+    tags?: {[key: string]: string};
 }
 
 /**

@@ -188,49 +188,49 @@ export interface SqlServerState {
     /**
      * The administrator login name for the new server. Changing this forces a new resource to be created.
      */
-    readonly administratorLogin?: pulumi.Input<string>;
+    administratorLogin?: pulumi.Input<string>;
     /**
      * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
      */
-    readonly administratorLoginPassword?: pulumi.Input<string>;
+    administratorLoginPassword?: pulumi.Input<string>;
     /**
      * The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
      */
-    readonly connectionPolicy?: pulumi.Input<string>;
+    connectionPolicy?: pulumi.Input<string>;
     /**
      * A `extendedAuditingPolicy` block as defined below.
      *
      * @deprecated the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
      */
-    readonly extendedAuditingPolicy?: pulumi.Input<inputs.sql.SqlServerExtendedAuditingPolicy>;
+    extendedAuditingPolicy?: pulumi.Input<inputs.sql.SqlServerExtendedAuditingPolicy>;
     /**
      * The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
      */
-    readonly fullyQualifiedDomainName?: pulumi.Input<string>;
+    fullyQualifiedDomainName?: pulumi.Input<string>;
     /**
      * An `identity` block as defined below.
      */
-    readonly identity?: pulumi.Input<inputs.sql.SqlServerIdentity>;
+    identity?: pulumi.Input<inputs.sql.SqlServerIdentity>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Microsoft SQL Server.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
 }
 
 /**
@@ -240,43 +240,43 @@ export interface SqlServerArgs {
     /**
      * The administrator login name for the new server. Changing this forces a new resource to be created.
      */
-    readonly administratorLogin: pulumi.Input<string>;
+    administratorLogin: pulumi.Input<string>;
     /**
      * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
      */
-    readonly administratorLoginPassword: pulumi.Input<string>;
+    administratorLoginPassword: pulumi.Input<string>;
     /**
      * The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
      */
-    readonly connectionPolicy?: pulumi.Input<string>;
+    connectionPolicy?: pulumi.Input<string>;
     /**
      * A `extendedAuditingPolicy` block as defined below.
      *
      * @deprecated the `extended_auditing_policy` block has been moved to `azurerm_mssql_server_extended_auditing_policy` and `azurerm_mssql_database_extended_auditing_policy`. This block will be removed in version 3.0 of the provider.
      */
-    readonly extendedAuditingPolicy?: pulumi.Input<inputs.sql.SqlServerExtendedAuditingPolicy>;
+    extendedAuditingPolicy?: pulumi.Input<inputs.sql.SqlServerExtendedAuditingPolicy>;
     /**
      * An `identity` block as defined below.
      */
-    readonly identity?: pulumi.Input<inputs.sql.SqlServerIdentity>;
+    identity?: pulumi.Input<inputs.sql.SqlServerIdentity>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Microsoft SQL Server. This needs to be globally unique within Azure.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Microsoft SQL Server.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
      */
-    readonly version: pulumi.Input<string>;
+    version: pulumi.Input<string>;
 }

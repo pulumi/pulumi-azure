@@ -42,11 +42,11 @@ export interface GetVirtualHubArgs {
     /**
      * The name of the Virtual Hub.
      */
-    readonly name: string;
+    name: string;
     /**
      * The Name of the Resource Group where the Virtual Hub exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

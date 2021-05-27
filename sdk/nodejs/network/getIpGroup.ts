@@ -42,11 +42,11 @@ export interface GetIpGroupArgs {
     /**
      * Specifies the Name of the IP Group.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the Name of the Resource Group within which the IP Group exists
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

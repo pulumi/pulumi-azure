@@ -122,27 +122,27 @@ export interface DiskEncryptionSetState {
     /**
      * A `identity` block defined below.
      */
-    readonly identity?: pulumi.Input<inputs.compute.DiskEncryptionSetIdentity>;
+    identity?: pulumi.Input<inputs.compute.DiskEncryptionSetIdentity>;
     /**
      * Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
      */
-    readonly keyVaultKeyId?: pulumi.Input<string>;
+    keyVaultKeyId?: pulumi.Input<string>;
     /**
      * Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Disk Encryption Set. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the Disk Encryption Set.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -152,25 +152,25 @@ export interface DiskEncryptionSetArgs {
     /**
      * A `identity` block defined below.
      */
-    readonly identity: pulumi.Input<inputs.compute.DiskEncryptionSetIdentity>;
+    identity: pulumi.Input<inputs.compute.DiskEncryptionSetIdentity>;
     /**
      * Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
      */
-    readonly keyVaultKeyId: pulumi.Input<string>;
+    keyVaultKeyId: pulumi.Input<string>;
     /**
      * Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Disk Encryption Set. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the Disk Encryption Set.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

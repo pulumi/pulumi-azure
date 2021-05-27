@@ -42,11 +42,11 @@ export interface GetInstanceArgs {
     /**
      * The name of this Digital Twins instance.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group where the Digital Twins instance exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

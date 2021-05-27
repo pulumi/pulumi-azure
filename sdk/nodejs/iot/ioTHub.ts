@@ -309,91 +309,91 @@ export interface IoTHubState {
     /**
      * An `endpoint` block as defined below.
      */
-    readonly endpoints?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubEndpoint>[]>;
+    endpoints?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubEndpoint>[]>;
     /**
      * A `enrichment` block as defined below.
      */
-    readonly enrichments?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubEnrichment>[]>;
+    enrichments?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubEnrichment>[]>;
     /**
      * The EventHub compatible endpoint for events data
      */
-    readonly eventHubEventsEndpoint?: pulumi.Input<string>;
+    eventHubEventsEndpoint?: pulumi.Input<string>;
     /**
      * The EventHub compatible path for events data
      */
-    readonly eventHubEventsPath?: pulumi.Input<string>;
+    eventHubEventsPath?: pulumi.Input<string>;
     /**
      * The EventHub compatible endpoint for operational data
      */
-    readonly eventHubOperationsEndpoint?: pulumi.Input<string>;
+    eventHubOperationsEndpoint?: pulumi.Input<string>;
     /**
      * The EventHub compatible path for operational data
      */
-    readonly eventHubOperationsPath?: pulumi.Input<string>;
+    eventHubOperationsPath?: pulumi.Input<string>;
     /**
      * The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
      */
-    readonly eventHubPartitionCount?: pulumi.Input<number>;
+    eventHubPartitionCount?: pulumi.Input<number>;
     /**
      * The event hub retention to use in days. Must be between `1` and `7`.
      */
-    readonly eventHubRetentionInDays?: pulumi.Input<number>;
+    eventHubRetentionInDays?: pulumi.Input<number>;
     /**
      * A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
      */
-    readonly fallbackRoute?: pulumi.Input<inputs.iot.IoTHubFallbackRoute>;
+    fallbackRoute?: pulumi.Input<inputs.iot.IoTHubFallbackRoute>;
     /**
      * A `fileUpload` block as defined below.
      */
-    readonly fileUpload?: pulumi.Input<inputs.iot.IoTHubFileUpload>;
+    fileUpload?: pulumi.Input<inputs.iot.IoTHubFileUpload>;
     /**
      * The hostname of the IotHub Resource.
      */
-    readonly hostname?: pulumi.Input<string>;
+    hostname?: pulumi.Input<string>;
     /**
      * One or more `ipFilterRule` blocks as defined below.
      */
-    readonly ipFilterRules?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubIpFilterRule>[]>;
+    ipFilterRules?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubIpFilterRule>[]>;
     /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
      */
-    readonly minTlsVersion?: pulumi.Input<string>;
+    minTlsVersion?: pulumi.Input<string>;
     /**
      * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Is the IotHub resource accessible from a public network?
      */
-    readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A `route` block as defined below.
      */
-    readonly routes?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubRoute>[]>;
+    routes?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubRoute>[]>;
     /**
      * One or more `sharedAccessPolicy` blocks as defined below.
      */
-    readonly sharedAccessPolicies?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubSharedAccessPolicy>[]>;
+    sharedAccessPolicies?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubSharedAccessPolicy>[]>;
     /**
      * A `sku` block as defined below.
      */
-    readonly sku?: pulumi.Input<inputs.iot.IoTHubSku>;
+    sku?: pulumi.Input<inputs.iot.IoTHubSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }
 
 /**
@@ -403,61 +403,61 @@ export interface IoTHubArgs {
     /**
      * An `endpoint` block as defined below.
      */
-    readonly endpoints?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubEndpoint>[]>;
+    endpoints?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubEndpoint>[]>;
     /**
      * A `enrichment` block as defined below.
      */
-    readonly enrichments?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubEnrichment>[]>;
+    enrichments?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubEnrichment>[]>;
     /**
      * The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`.
      */
-    readonly eventHubPartitionCount?: pulumi.Input<number>;
+    eventHubPartitionCount?: pulumi.Input<number>;
     /**
      * The event hub retention to use in days. Must be between `1` and `7`.
      */
-    readonly eventHubRetentionInDays?: pulumi.Input<number>;
+    eventHubRetentionInDays?: pulumi.Input<number>;
     /**
      * A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
      */
-    readonly fallbackRoute?: pulumi.Input<inputs.iot.IoTHubFallbackRoute>;
+    fallbackRoute?: pulumi.Input<inputs.iot.IoTHubFallbackRoute>;
     /**
      * A `fileUpload` block as defined below.
      */
-    readonly fileUpload?: pulumi.Input<inputs.iot.IoTHubFileUpload>;
+    fileUpload?: pulumi.Input<inputs.iot.IoTHubFileUpload>;
     /**
      * One or more `ipFilterRule` blocks as defined below.
      */
-    readonly ipFilterRules?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubIpFilterRule>[]>;
+    ipFilterRules?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubIpFilterRule>[]>;
     /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
      */
-    readonly minTlsVersion?: pulumi.Input<string>;
+    minTlsVersion?: pulumi.Input<string>;
     /**
      * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Is the IotHub resource accessible from a public network?
      */
-    readonly publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A `route` block as defined below.
      */
-    readonly routes?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubRoute>[]>;
+    routes?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubRoute>[]>;
     /**
      * A `sku` block as defined below.
      */
-    readonly sku: pulumi.Input<inputs.iot.IoTHubSku>;
+    sku: pulumi.Input<inputs.iot.IoTHubSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

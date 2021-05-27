@@ -194,61 +194,61 @@ export interface BlobState {
     /**
      * The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
      */
-    readonly accessTier?: pulumi.Input<string>;
+    accessTier?: pulumi.Input<string>;
     /**
      * The MD5 sum of the blob contents. Cannot be defined if `sourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
      */
-    readonly contentMd5?: pulumi.Input<string>;
+    contentMd5?: pulumi.Input<string>;
     /**
      * The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
      */
-    readonly contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string>;
     /**
      * A map of custom blob metadata.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the storage blob. Must be unique within the storage container the blob is located.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
      */
-    readonly parallelism?: pulumi.Input<number>;
+    parallelism?: pulumi.Input<number>;
     /**
      * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
      */
-    readonly size?: pulumi.Input<number>;
+    size?: pulumi.Input<number>;
     /**
      * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
      */
-    readonly source?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive>;
+    source?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive>;
     /**
      * The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
      */
-    readonly sourceContent?: pulumi.Input<string>;
+    sourceContent?: pulumi.Input<string>;
     /**
      * The URI of an existing blob, or a file in the Azure File service, to use as the source contents
      * for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
      */
-    readonly sourceUri?: pulumi.Input<string>;
+    sourceUri?: pulumi.Input<string>;
     /**
      * Specifies the storage account in which to create the storage container.
      * Changing this forces a new resource to be created.
      */
-    readonly storageAccountName?: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string>;
     /**
      * The name of the storage container in which this blob should be created.
      */
-    readonly storageContainerName?: pulumi.Input<string>;
+    storageContainerName?: pulumi.Input<string>;
     /**
      * The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * The URL of the blob
      */
-    readonly url?: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
 }
 
 /**
@@ -258,55 +258,55 @@ export interface BlobArgs {
     /**
      * The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
      */
-    readonly accessTier?: pulumi.Input<string>;
+    accessTier?: pulumi.Input<string>;
     /**
      * The MD5 sum of the blob contents. Cannot be defined if `sourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
      */
-    readonly contentMd5?: pulumi.Input<string>;
+    contentMd5?: pulumi.Input<string>;
     /**
      * The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
      */
-    readonly contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string>;
     /**
      * A map of custom blob metadata.
      */
-    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the storage blob. Must be unique within the storage container the blob is located.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
      */
-    readonly parallelism?: pulumi.Input<number>;
+    parallelism?: pulumi.Input<number>;
     /**
      * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
      */
-    readonly size?: pulumi.Input<number>;
+    size?: pulumi.Input<number>;
     /**
      * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified.
      */
-    readonly source?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive>;
+    source?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive>;
     /**
      * The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified.
      */
-    readonly sourceContent?: pulumi.Input<string>;
+    sourceContent?: pulumi.Input<string>;
     /**
      * The URI of an existing blob, or a file in the Azure File service, to use as the source contents
      * for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
      */
-    readonly sourceUri?: pulumi.Input<string>;
+    sourceUri?: pulumi.Input<string>;
     /**
      * Specifies the storage account in which to create the storage container.
      * Changing this forces a new resource to be created.
      */
-    readonly storageAccountName: pulumi.Input<string>;
+    storageAccountName: pulumi.Input<string>;
     /**
      * The name of the storage container in which this blob should be created.
      */
-    readonly storageContainerName: pulumi.Input<string>;
+    storageContainerName: pulumi.Input<string>;
     /**
      * The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
 }

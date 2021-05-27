@@ -130,23 +130,23 @@ export interface AccountState {
     /**
      * An `identity` block as defined below.
      */
-    readonly identity?: pulumi.Input<inputs.datashare.AccountIdentity>;
+    identity?: pulumi.Input<inputs.datashare.AccountIdentity>;
     /**
      * The Azure Region where the Data Share Account should exist. Changing this forces a new Data Share Account to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name which should be used for this Data Share Account. Changing this forces a new Data Share Account to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Data Share Account should exist. Changing this forces a new Data Share Account to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Data Share Account.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -156,21 +156,21 @@ export interface AccountArgs {
     /**
      * An `identity` block as defined below.
      */
-    readonly identity: pulumi.Input<inputs.datashare.AccountIdentity>;
+    identity: pulumi.Input<inputs.datashare.AccountIdentity>;
     /**
      * The Azure Region where the Data Share Account should exist. Changing this forces a new Data Share Account to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name which should be used for this Data Share Account. Changing this forces a new Data Share Account to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Data Share Account should exist. Changing this forces a new Data Share Account to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Data Share Account.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

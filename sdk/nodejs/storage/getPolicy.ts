@@ -43,7 +43,7 @@ export interface GetPolicyArgs {
     /**
      * Specifies the id of the storage account to retrieve the management policy for.
      */
-    readonly storageAccountId: string;
+    storageAccountId: string;
 }
 
 /**

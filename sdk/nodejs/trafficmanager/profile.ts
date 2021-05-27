@@ -188,43 +188,43 @@ export interface ProfileState {
     /**
      * This block specifies the DNS configuration of the Profile, it supports the fields documented below.
      */
-    readonly dnsConfig?: pulumi.Input<inputs.trafficmanager.ProfileDnsConfig>;
+    dnsConfig?: pulumi.Input<inputs.trafficmanager.ProfileDnsConfig>;
     /**
      * The FQDN of the created Profile.
      */
-    readonly fqdn?: pulumi.Input<string>;
+    fqdn?: pulumi.Input<string>;
     /**
      * The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
      */
-    readonly maxReturn?: pulumi.Input<number>;
+    maxReturn?: pulumi.Input<number>;
     /**
      * This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
      */
-    readonly monitorConfig?: pulumi.Input<inputs.trafficmanager.ProfileMonitorConfig>;
+    monitorConfig?: pulumi.Input<inputs.trafficmanager.ProfileMonitorConfig>;
     /**
      * The name of the Traffic Manager profile. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
      */
-    readonly profileStatus?: pulumi.Input<string>;
+    profileStatus?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Traffic Manager profile.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the algorithm used to route traffic, possible values are:
      */
-    readonly trafficRoutingMethod?: pulumi.Input<string>;
+    trafficRoutingMethod?: pulumi.Input<string>;
     /**
      * Indicates whether Traffic View is enabled for the Traffic Manager profile.
      */
-    readonly trafficViewEnabled?: pulumi.Input<boolean>;
+    trafficViewEnabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -234,37 +234,37 @@ export interface ProfileArgs {
     /**
      * This block specifies the DNS configuration of the Profile, it supports the fields documented below.
      */
-    readonly dnsConfig: pulumi.Input<inputs.trafficmanager.ProfileDnsConfig>;
+    dnsConfig: pulumi.Input<inputs.trafficmanager.ProfileDnsConfig>;
     /**
      * The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
      */
-    readonly maxReturn?: pulumi.Input<number>;
+    maxReturn?: pulumi.Input<number>;
     /**
      * This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
      */
-    readonly monitorConfig: pulumi.Input<inputs.trafficmanager.ProfileMonitorConfig>;
+    monitorConfig: pulumi.Input<inputs.trafficmanager.ProfileMonitorConfig>;
     /**
      * The name of the Traffic Manager profile. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
      */
-    readonly profileStatus?: pulumi.Input<string>;
+    profileStatus?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Traffic Manager profile.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the algorithm used to route traffic, possible values are:
      */
-    readonly trafficRoutingMethod: pulumi.Input<string>;
+    trafficRoutingMethod: pulumi.Input<string>;
     /**
      * Indicates whether Traffic View is enabled for the Traffic Manager profile.
      */
-    readonly trafficViewEnabled?: pulumi.Input<boolean>;
+    trafficViewEnabled?: pulumi.Input<boolean>;
 }

@@ -186,47 +186,47 @@ export interface ElasticPoolState {
     /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
      */
-    readonly licenseType?: pulumi.Input<string>;
+    licenseType?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
      */
-    readonly maxSizeBytes?: pulumi.Input<number>;
+    maxSizeBytes?: pulumi.Input<number>;
     /**
      * The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`.
      */
-    readonly maxSizeGb?: pulumi.Input<number>;
+    maxSizeGb?: pulumi.Input<number>;
     /**
      * The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `perDatabaseSettings` block as defined below.
      */
-    readonly perDatabaseSettings?: pulumi.Input<inputs.mssql.ElasticPoolPerDatabaseSettings>;
+    perDatabaseSettings?: pulumi.Input<inputs.mssql.ElasticPoolPerDatabaseSettings>;
     /**
      * The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
      */
-    readonly serverName?: pulumi.Input<string>;
+    serverName?: pulumi.Input<string>;
     /**
      * A `sku` block as defined below.
      */
-    readonly sku?: pulumi.Input<inputs.mssql.ElasticPoolSku>;
+    sku?: pulumi.Input<inputs.mssql.ElasticPoolSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
      */
-    readonly zoneRedundant?: pulumi.Input<boolean>;
+    zoneRedundant?: pulumi.Input<boolean>;
 }
 
 /**
@@ -236,45 +236,45 @@ export interface ElasticPoolArgs {
     /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
      */
-    readonly licenseType?: pulumi.Input<string>;
+    licenseType?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
      */
-    readonly maxSizeBytes?: pulumi.Input<number>;
+    maxSizeBytes?: pulumi.Input<number>;
     /**
      * The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`.
      */
-    readonly maxSizeGb?: pulumi.Input<number>;
+    maxSizeGb?: pulumi.Input<number>;
     /**
      * The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A `perDatabaseSettings` block as defined below.
      */
-    readonly perDatabaseSettings: pulumi.Input<inputs.mssql.ElasticPoolPerDatabaseSettings>;
+    perDatabaseSettings: pulumi.Input<inputs.mssql.ElasticPoolPerDatabaseSettings>;
     /**
      * The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
      */
-    readonly serverName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
     /**
      * A `sku` block as defined below.
      */
-    readonly sku: pulumi.Input<inputs.mssql.ElasticPoolSku>;
+    sku: pulumi.Input<inputs.mssql.ElasticPoolSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
      */
-    readonly zoneRedundant?: pulumi.Input<boolean>;
+    zoneRedundant?: pulumi.Input<boolean>;
 }

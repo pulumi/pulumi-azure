@@ -42,11 +42,11 @@ export interface GetAccountArgs {
     /**
      * The name of the NetApp Account.
      */
-    readonly name: string;
+    name: string;
     /**
      * The Name of the Resource Group where the NetApp Account exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

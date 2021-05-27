@@ -205,23 +205,23 @@ export interface ContentKeyPolicyState {
     /**
      * A description for the Policy.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The Media Services account name. Changing this forces a new Content Key Policy to be created.
      */
-    readonly mediaServicesAccountName?: pulumi.Input<string>;
+    mediaServicesAccountName?: pulumi.Input<string>;
     /**
      * The name which should be used for this Content Key Policy. Changing this forces a new Content Key Policy to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * One or more `policyOption` blocks as defined below.
      */
-    readonly policyOptions?: pulumi.Input<pulumi.Input<inputs.media.ContentKeyPolicyPolicyOption>[]>;
+    policyOptions?: pulumi.Input<pulumi.Input<inputs.media.ContentKeyPolicyPolicyOption>[]>;
     /**
      * The name of the Resource Group where the Content Key Policy should exist. Changing this forces a new Content Key Policy to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -231,21 +231,21 @@ export interface ContentKeyPolicyArgs {
     /**
      * A description for the Policy.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The Media Services account name. Changing this forces a new Content Key Policy to be created.
      */
-    readonly mediaServicesAccountName: pulumi.Input<string>;
+    mediaServicesAccountName: pulumi.Input<string>;
     /**
      * The name which should be used for this Content Key Policy. Changing this forces a new Content Key Policy to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * One or more `policyOption` blocks as defined below.
      */
-    readonly policyOptions: pulumi.Input<pulumi.Input<inputs.media.ContentKeyPolicyPolicyOption>[]>;
+    policyOptions: pulumi.Input<pulumi.Input<inputs.media.ContentKeyPolicyPolicyOption>[]>;
     /**
      * The name of the Resource Group where the Content Key Policy should exist. Changing this forces a new Content Key Policy to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

@@ -30,15 +30,15 @@ export interface GetUserArgs {
     /**
      * The Name of the API Management Service in which this User exists.
      */
-    readonly apiManagementName: string;
+    apiManagementName: string;
     /**
      * The Name of the Resource Group in which the API Management Service exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The Identifier for the User.
      */
-    readonly userId: string;
+    userId: string;
 }
 
 /**

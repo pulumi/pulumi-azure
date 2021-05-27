@@ -156,31 +156,31 @@ export interface DataSourceWindowsPerformanceCounterState {
     /**
      * The friendly name of the performance counter.
      */
-    readonly counterName?: pulumi.Input<string>;
+    counterName?: pulumi.Input<string>;
     /**
      * The name of the virtual machine instance to which the Windows Performance Counter DataSource be applied. Specify a `*` will apply to all instances.
      */
-    readonly instanceName?: pulumi.Input<string>;
+    instanceName?: pulumi.Input<string>;
     /**
      * The time of sample interval in seconds. Supports values between 10 and 2147483647.
      */
-    readonly intervalSeconds?: pulumi.Input<number>;
+    intervalSeconds?: pulumi.Input<number>;
     /**
      * The Name which should be used for this Log Analytics Windows Performance Counter DataSource. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The object name of the Log Analytics Windows Performance Counter DataSource.
      */
-    readonly objectName?: pulumi.Input<string>;
+    objectName?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The name of the Log Analytics Workspace where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
      */
-    readonly workspaceName?: pulumi.Input<string>;
+    workspaceName?: pulumi.Input<string>;
 }
 
 /**
@@ -190,29 +190,29 @@ export interface DataSourceWindowsPerformanceCounterArgs {
     /**
      * The friendly name of the performance counter.
      */
-    readonly counterName: pulumi.Input<string>;
+    counterName: pulumi.Input<string>;
     /**
      * The name of the virtual machine instance to which the Windows Performance Counter DataSource be applied. Specify a `*` will apply to all instances.
      */
-    readonly instanceName: pulumi.Input<string>;
+    instanceName: pulumi.Input<string>;
     /**
      * The time of sample interval in seconds. Supports values between 10 and 2147483647.
      */
-    readonly intervalSeconds: pulumi.Input<number>;
+    intervalSeconds: pulumi.Input<number>;
     /**
      * The Name which should be used for this Log Analytics Windows Performance Counter DataSource. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The object name of the Log Analytics Windows Performance Counter DataSource.
      */
-    readonly objectName: pulumi.Input<string>;
+    objectName: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The name of the Log Analytics Workspace where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
      */
-    readonly workspaceName: pulumi.Input<string>;
+    workspaceName: pulumi.Input<string>;
 }

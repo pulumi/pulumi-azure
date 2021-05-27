@@ -153,35 +153,35 @@ export interface ActionRuleActionGroupState {
     /**
      * Specifies the resource id of monitor action group.
      */
-    readonly actionGroupId?: pulumi.Input<string>;
+    actionGroupId?: pulumi.Input<string>;
     /**
      * A `condition` block as defined below.
      */
-    readonly condition?: pulumi.Input<inputs.monitoring.ActionRuleActionGroupCondition>;
+    condition?: pulumi.Input<inputs.monitoring.ActionRuleActionGroupCondition>;
     /**
      * Specifies a description for the Action Rule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Is the Action Rule enabled? Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Specifies the name of the Monitor Action Rule. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the resource group in which the Monitor Action Rule should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * A `scope` block as defined below.
      */
-    readonly scope?: pulumi.Input<inputs.monitoring.ActionRuleActionGroupScope>;
+    scope?: pulumi.Input<inputs.monitoring.ActionRuleActionGroupScope>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -191,33 +191,33 @@ export interface ActionRuleActionGroupArgs {
     /**
      * Specifies the resource id of monitor action group.
      */
-    readonly actionGroupId: pulumi.Input<string>;
+    actionGroupId: pulumi.Input<string>;
     /**
      * A `condition` block as defined below.
      */
-    readonly condition?: pulumi.Input<inputs.monitoring.ActionRuleActionGroupCondition>;
+    condition?: pulumi.Input<inputs.monitoring.ActionRuleActionGroupCondition>;
     /**
      * Specifies a description for the Action Rule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Is the Action Rule enabled? Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Specifies the name of the Monitor Action Rule. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the resource group in which the Monitor Action Rule should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * A `scope` block as defined below.
      */
-    readonly scope?: pulumi.Input<inputs.monitoring.ActionRuleActionGroupScope>;
+    scope?: pulumi.Input<inputs.monitoring.ActionRuleActionGroupScope>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

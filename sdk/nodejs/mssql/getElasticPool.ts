@@ -44,15 +44,15 @@ export interface GetElasticPoolArgs {
     /**
      * The name of the elastic pool.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the resource group which contains the elastic pool.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The name of the SQL Server which contains the elastic pool.
      */
-    readonly serverName: string;
+    serverName: string;
 }
 
 /**

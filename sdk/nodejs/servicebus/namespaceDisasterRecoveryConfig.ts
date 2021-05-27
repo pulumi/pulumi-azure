@@ -149,31 +149,31 @@ export interface NamespaceDisasterRecoveryConfigState {
     /**
      * The alias Primary Connection String for the ServiceBus Namespace.
      */
-    readonly aliasPrimaryConnectionString?: pulumi.Input<string>;
+    aliasPrimaryConnectionString?: pulumi.Input<string>;
     /**
      * The alias Secondary Connection String for the ServiceBus Namespace
      */
-    readonly aliasSecondaryConnectionString?: pulumi.Input<string>;
+    aliasSecondaryConnectionString?: pulumi.Input<string>;
     /**
      * The primary access key for the authorization rule `RootManageSharedAccessKey`.
      */
-    readonly defaultPrimaryKey?: pulumi.Input<string>;
+    defaultPrimaryKey?: pulumi.Input<string>;
     /**
      * The secondary access key for the authorization rule `RootManageSharedAccessKey`.
      */
-    readonly defaultSecondaryKey?: pulumi.Input<string>;
+    defaultSecondaryKey?: pulumi.Input<string>;
     /**
      * Specifies the name of the Disaster Recovery Config. This is the alias DNS name that will be created. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the Service Bus Namespace to replicate to.
      */
-    readonly partnerNamespaceId?: pulumi.Input<string>;
+    partnerNamespaceId?: pulumi.Input<string>;
     /**
      * The ID of the primary Service Bus Namespace to replicate. Changing this forces a new resource to be created.
      */
-    readonly primaryNamespaceId?: pulumi.Input<string>;
+    primaryNamespaceId?: pulumi.Input<string>;
 }
 
 /**
@@ -183,13 +183,13 @@ export interface NamespaceDisasterRecoveryConfigArgs {
     /**
      * Specifies the name of the Disaster Recovery Config. This is the alias DNS name that will be created. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the Service Bus Namespace to replicate to.
      */
-    readonly partnerNamespaceId: pulumi.Input<string>;
+    partnerNamespaceId: pulumi.Input<string>;
     /**
      * The ID of the primary Service Bus Namespace to replicate. Changing this forces a new resource to be created.
      */
-    readonly primaryNamespaceId: pulumi.Input<string>;
+    primaryNamespaceId: pulumi.Input<string>;
 }

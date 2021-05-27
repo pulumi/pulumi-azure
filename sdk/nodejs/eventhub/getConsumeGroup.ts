@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     name: azurerm_eventhub_consumer_group_testName,
  *     namespaceName: azurerm_eventhub_namespace_testName,
  *     resourceGroupName: azurerm_resource_group_testName,
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getConsumeGroup(args: GetConsumeGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetConsumeGroupResult> {
@@ -45,19 +45,19 @@ export interface GetConsumeGroupArgs {
     /**
      * Specifies the name of the EventHub.
      */
-    readonly eventhubName: string;
+    eventhubName: string;
     /**
      * Specifies the name of the EventHub Consumer Group resource.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the name of the grandparent EventHub Namespace.
      */
-    readonly namespaceName: string;
+    namespaceName: string;
     /**
      * The name of the resource group in which the EventHub Consumer Group's grandparent Namespace exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

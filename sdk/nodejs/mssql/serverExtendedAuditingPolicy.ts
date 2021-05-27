@@ -144,27 +144,27 @@ export interface ServerExtendedAuditingPolicyState {
     /**
      * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
      */
-    readonly logMonitoringEnabled?: pulumi.Input<boolean>;
+    logMonitoringEnabled?: pulumi.Input<boolean>;
     /**
      * The number of days to retain logs for in the storage account.
      */
-    readonly retentionInDays?: pulumi.Input<number>;
+    retentionInDays?: pulumi.Input<number>;
     /**
      * The ID of the sql server to set the extended auditing policy. Changing this forces a new resource to be created.
      */
-    readonly serverId?: pulumi.Input<string>;
+    serverId?: pulumi.Input<string>;
     /**
      * The access key to use for the auditing storage account.
      */
-    readonly storageAccountAccessKey?: pulumi.Input<string>;
+    storageAccountAccessKey?: pulumi.Input<string>;
     /**
      * Is `storageAccountAccessKey` value the storage's secondary key?
      */
-    readonly storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
+    storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
     /**
      * The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
      */
-    readonly storageEndpoint?: pulumi.Input<string>;
+    storageEndpoint?: pulumi.Input<string>;
 }
 
 /**
@@ -174,25 +174,25 @@ export interface ServerExtendedAuditingPolicyArgs {
     /**
      * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor.
      */
-    readonly logMonitoringEnabled?: pulumi.Input<boolean>;
+    logMonitoringEnabled?: pulumi.Input<boolean>;
     /**
      * The number of days to retain logs for in the storage account.
      */
-    readonly retentionInDays?: pulumi.Input<number>;
+    retentionInDays?: pulumi.Input<number>;
     /**
      * The ID of the sql server to set the extended auditing policy. Changing this forces a new resource to be created.
      */
-    readonly serverId: pulumi.Input<string>;
+    serverId: pulumi.Input<string>;
     /**
      * The access key to use for the auditing storage account.
      */
-    readonly storageAccountAccessKey?: pulumi.Input<string>;
+    storageAccountAccessKey?: pulumi.Input<string>;
     /**
      * Is `storageAccountAccessKey` value the storage's secondary key?
      */
-    readonly storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
+    storageAccountAccessKeyIsSecondary?: pulumi.Input<boolean>;
     /**
      * The blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all extended auditing logs.
      */
-    readonly storageEndpoint?: pulumi.Input<string>;
+    storageEndpoint?: pulumi.Input<string>;
 }

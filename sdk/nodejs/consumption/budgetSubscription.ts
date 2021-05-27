@@ -187,31 +187,31 @@ export interface BudgetSubscriptionState {
     /**
      * The total amount of cost to track with the budget.
      */
-    readonly amount?: pulumi.Input<number>;
+    amount?: pulumi.Input<number>;
     /**
      * A `filter` block as defined below.
      */
-    readonly filter?: pulumi.Input<inputs.consumption.BudgetSubscriptionFilter>;
+    filter?: pulumi.Input<inputs.consumption.BudgetSubscriptionFilter>;
     /**
      * The name which should be used for this Subscription Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * One or more `notification` blocks as defined below.
      */
-    readonly notifications?: pulumi.Input<pulumi.Input<inputs.consumption.BudgetSubscriptionNotification>[]>;
+    notifications?: pulumi.Input<pulumi.Input<inputs.consumption.BudgetSubscriptionNotification>[]>;
     /**
      * The ID of the Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
      */
-    readonly subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string>;
     /**
      * The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `Monthly`, `Quarterly`, `Annually`, `BillingMonth`, `BillingQuarter`, or `BillingYear`. Defaults to `Monthly`.
      */
-    readonly timeGrain?: pulumi.Input<string>;
+    timeGrain?: pulumi.Input<string>;
     /**
      * A `timePeriod` block as defined below.
      */
-    readonly timePeriod?: pulumi.Input<inputs.consumption.BudgetSubscriptionTimePeriod>;
+    timePeriod?: pulumi.Input<inputs.consumption.BudgetSubscriptionTimePeriod>;
 }
 
 /**
@@ -221,29 +221,29 @@ export interface BudgetSubscriptionArgs {
     /**
      * The total amount of cost to track with the budget.
      */
-    readonly amount: pulumi.Input<number>;
+    amount: pulumi.Input<number>;
     /**
      * A `filter` block as defined below.
      */
-    readonly filter?: pulumi.Input<inputs.consumption.BudgetSubscriptionFilter>;
+    filter?: pulumi.Input<inputs.consumption.BudgetSubscriptionFilter>;
     /**
      * The name which should be used for this Subscription Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * One or more `notification` blocks as defined below.
      */
-    readonly notifications: pulumi.Input<pulumi.Input<inputs.consumption.BudgetSubscriptionNotification>[]>;
+    notifications: pulumi.Input<pulumi.Input<inputs.consumption.BudgetSubscriptionNotification>[]>;
     /**
      * The ID of the Consumption Budget. Changing this forces a new Subscription Consumption Budget to be created.
      */
-    readonly subscriptionId: pulumi.Input<string>;
+    subscriptionId: pulumi.Input<string>;
     /**
      * The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `Monthly`, `Quarterly`, `Annually`, `BillingMonth`, `BillingQuarter`, or `BillingYear`. Defaults to `Monthly`.
      */
-    readonly timeGrain?: pulumi.Input<string>;
+    timeGrain?: pulumi.Input<string>;
     /**
      * A `timePeriod` block as defined below.
      */
-    readonly timePeriod: pulumi.Input<inputs.consumption.BudgetSubscriptionTimePeriod>;
+    timePeriod: pulumi.Input<inputs.consumption.BudgetSubscriptionTimePeriod>;
 }

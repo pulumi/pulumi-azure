@@ -178,82 +178,82 @@ export class Schedule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Schedule resources.
  */
 export interface ScheduleState {
-    readonly dailyRecurrence?: pulumi.Input<inputs.devtest.ScheduleDailyRecurrence>;
-    readonly hourlyRecurrence?: pulumi.Input<inputs.devtest.ScheduleHourlyRecurrence>;
+    dailyRecurrence?: pulumi.Input<inputs.devtest.ScheduleDailyRecurrence>;
+    hourlyRecurrence?: pulumi.Input<inputs.devtest.ScheduleHourlyRecurrence>;
     /**
      * The name of the dev test lab. Changing this forces a new resource to be created.
      */
-    readonly labName?: pulumi.Input<string>;
+    labName?: pulumi.Input<string>;
     /**
      * The location where the schedule is created. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
      */
-    readonly name?: pulumi.Input<string>;
-    readonly notificationSettings?: pulumi.Input<inputs.devtest.ScheduleNotificationSettings>;
+    name?: pulumi.Input<string>;
+    notificationSettings?: pulumi.Input<inputs.devtest.ScheduleNotificationSettings>;
     /**
      * The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The status of this schedule. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
      */
-    readonly taskType?: pulumi.Input<string>;
+    taskType?: pulumi.Input<string>;
     /**
      * The time zone ID (e.g. Pacific Standard time).
      */
-    readonly timeZoneId?: pulumi.Input<string>;
-    readonly weeklyRecurrence?: pulumi.Input<inputs.devtest.ScheduleWeeklyRecurrence>;
+    timeZoneId?: pulumi.Input<string>;
+    weeklyRecurrence?: pulumi.Input<inputs.devtest.ScheduleWeeklyRecurrence>;
 }
 
 /**
  * The set of arguments for constructing a Schedule resource.
  */
 export interface ScheduleArgs {
-    readonly dailyRecurrence?: pulumi.Input<inputs.devtest.ScheduleDailyRecurrence>;
-    readonly hourlyRecurrence?: pulumi.Input<inputs.devtest.ScheduleHourlyRecurrence>;
+    dailyRecurrence?: pulumi.Input<inputs.devtest.ScheduleDailyRecurrence>;
+    hourlyRecurrence?: pulumi.Input<inputs.devtest.ScheduleHourlyRecurrence>;
     /**
      * The name of the dev test lab. Changing this forces a new resource to be created.
      */
-    readonly labName: pulumi.Input<string>;
+    labName: pulumi.Input<string>;
     /**
      * The location where the schedule is created. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`.
      */
-    readonly name?: pulumi.Input<string>;
-    readonly notificationSettings: pulumi.Input<inputs.devtest.ScheduleNotificationSettings>;
+    name?: pulumi.Input<string>;
+    notificationSettings: pulumi.Input<inputs.devtest.ScheduleNotificationSettings>;
     /**
      * The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The status of this schedule. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
      */
-    readonly taskType: pulumi.Input<string>;
+    taskType: pulumi.Input<string>;
     /**
      * The time zone ID (e.g. Pacific Standard time).
      */
-    readonly timeZoneId: pulumi.Input<string>;
-    readonly weeklyRecurrence?: pulumi.Input<inputs.devtest.ScheduleWeeklyRecurrence>;
+    timeZoneId: pulumi.Input<string>;
+    weeklyRecurrence?: pulumi.Input<inputs.devtest.ScheduleWeeklyRecurrence>;
 }

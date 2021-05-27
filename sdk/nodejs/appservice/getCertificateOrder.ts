@@ -42,11 +42,11 @@ export interface GetCertificateOrderArgs {
     /**
      * The name of the App Service.
      */
-    readonly name: string;
+    name: string;
     /**
      * The Name of the Resource Group where the App Service exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

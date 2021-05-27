@@ -159,39 +159,39 @@ export interface PointToPointVpnGatewayState {
     /**
      * A `connectionConfiguration` block as defined below.
      */
-    readonly connectionConfiguration?: pulumi.Input<inputs.network.PointToPointVpnGatewayConnectionConfiguration>;
+    connectionConfiguration?: pulumi.Input<inputs.network.PointToPointVpnGatewayConnectionConfiguration>;
     /**
      * A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
      */
-    readonly dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * The Scale Unit for this Point-to-Site VPN Gateway.
      */
-    readonly scaleUnit?: pulumi.Input<number>;
+    scaleUnit?: pulumi.Input<number>;
     /**
      * A mapping of tags to assign to the Point-to-Site VPN Gateway.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Virtual Hub where this Point-to-Site VPN Gateway should exist. Changing this forces a new resource to be created.
      */
-    readonly virtualHubId?: pulumi.Input<string>;
+    virtualHubId?: pulumi.Input<string>;
     /**
      * The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created.
      */
-    readonly vpnServerConfigurationId?: pulumi.Input<string>;
+    vpnServerConfigurationId?: pulumi.Input<string>;
 }
 
 /**
@@ -201,37 +201,37 @@ export interface PointToPointVpnGatewayArgs {
     /**
      * A `connectionConfiguration` block as defined below.
      */
-    readonly connectionConfiguration: pulumi.Input<inputs.network.PointToPointVpnGatewayConnectionConfiguration>;
+    connectionConfiguration: pulumi.Input<inputs.network.PointToPointVpnGatewayConnectionConfiguration>;
     /**
      * A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
      */
-    readonly dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * The Scale Unit for this Point-to-Site VPN Gateway.
      */
-    readonly scaleUnit: pulumi.Input<number>;
+    scaleUnit: pulumi.Input<number>;
     /**
      * A mapping of tags to assign to the Point-to-Site VPN Gateway.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Virtual Hub where this Point-to-Site VPN Gateway should exist. Changing this forces a new resource to be created.
      */
-    readonly virtualHubId: pulumi.Input<string>;
+    virtualHubId: pulumi.Input<string>;
     /**
      * The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created.
      */
-    readonly vpnServerConfigurationId: pulumi.Input<string>;
+    vpnServerConfigurationId: pulumi.Input<string>;
 }

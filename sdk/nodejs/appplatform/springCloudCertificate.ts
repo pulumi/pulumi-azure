@@ -204,23 +204,23 @@ export interface SpringCloudCertificateState {
     /**
      * Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
      */
-    readonly keyVaultCertificateId?: pulumi.Input<string>;
+    keyVaultCertificateId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the resource group in which to create the Spring Cloud Certificate. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
      */
-    readonly serviceName?: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string>;
     /**
      * The thumbprint of the Spring Cloud certificate.
      */
-    readonly thumbprint?: pulumi.Input<string>;
+    thumbprint?: pulumi.Input<string>;
 }
 
 /**
@@ -230,17 +230,17 @@ export interface SpringCloudCertificateArgs {
     /**
      * Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
      */
-    readonly keyVaultCertificateId: pulumi.Input<string>;
+    keyVaultCertificateId: pulumi.Input<string>;
     /**
      * Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the name of the resource group in which to create the Spring Cloud Certificate. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
 }

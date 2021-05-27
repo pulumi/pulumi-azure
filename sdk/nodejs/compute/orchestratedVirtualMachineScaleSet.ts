@@ -153,39 +153,39 @@ export interface OrchestratedVirtualMachineScaleSetState {
     /**
      * The Azure location where the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
      */
-    readonly platformFaultDomainCount?: pulumi.Input<number>;
+    platformFaultDomainCount?: pulumi.Input<number>;
     /**
      * The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
      */
-    readonly proximityPlacementGroupId?: pulumi.Input<string>;
+    proximityPlacementGroupId?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Should the Orchestrated Virtual Machine Scale Set use single placement group? Defaults to `false`.
      */
-    readonly singlePlacementGroup?: pulumi.Input<boolean>;
+    singlePlacementGroup?: pulumi.Input<boolean>;
     /**
      * A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Unique ID for the Orchestrated Virtual Machine Scale Set.
      */
-    readonly uniqueId?: pulumi.Input<string>;
+    uniqueId?: pulumi.Input<string>;
     /**
      * A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
      */
-    readonly zones?: pulumi.Input<string>;
+    zones?: pulumi.Input<string>;
 }
 
 /**
@@ -195,33 +195,33 @@ export interface OrchestratedVirtualMachineScaleSetArgs {
     /**
      * The Azure location where the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the number of fault domains that are used by this Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
      */
-    readonly platformFaultDomainCount: pulumi.Input<number>;
+    platformFaultDomainCount: pulumi.Input<number>;
     /**
      * The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
      */
-    readonly proximityPlacementGroupId?: pulumi.Input<string>;
+    proximityPlacementGroupId?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Should the Orchestrated Virtual Machine Scale Set use single placement group? Defaults to `false`.
      */
-    readonly singlePlacementGroup?: pulumi.Input<boolean>;
+    singlePlacementGroup?: pulumi.Input<boolean>;
     /**
      * A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of Availability Zones in which the Virtual Machines in this Scale Set should be created in. Changing this forces a new resource to be created.
      */
-    readonly zones?: pulumi.Input<string>;
+    zones?: pulumi.Input<string>;
 }

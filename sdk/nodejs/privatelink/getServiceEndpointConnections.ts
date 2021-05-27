@@ -42,11 +42,11 @@ export interface GetServiceEndpointConnectionsArgs {
     /**
      * The name of the resource group in which the private link service resides.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
     /**
      * The resource ID of the private link service.
      */
-    readonly serviceId: string;
+    serviceId: string;
 }
 
 /**

@@ -42,11 +42,11 @@ export interface GetAccountArgs {
     /**
      * The name of the Automation Account.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies the name of the Resource Group where the Automation Account exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**

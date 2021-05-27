@@ -176,57 +176,57 @@ export interface InsightsState {
     /**
      * The App ID associated with this Application Insights component.
      */
-    readonly appId?: pulumi.Input<string>;
+    appId?: pulumi.Input<string>;
     /**
      * Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
      */
-    readonly applicationType?: pulumi.Input<string>;
+    applicationType?: pulumi.Input<string>;
     /**
      * The Connection String for this Application Insights component. (Sensitive)
      */
-    readonly connectionString?: pulumi.Input<string>;
+    connectionString?: pulumi.Input<string>;
     /**
      * Specifies the Application Insights component daily data volume cap in GB.
      */
-    readonly dailyDataCapInGb?: pulumi.Input<number>;
+    dailyDataCapInGb?: pulumi.Input<number>;
     /**
      * Specifies if a notification email will be send when the daily data volume cap is met.
      */
-    readonly dailyDataCapNotificationsDisabled?: pulumi.Input<boolean>;
+    dailyDataCapNotificationsDisabled?: pulumi.Input<boolean>;
     /**
      * By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
      */
-    readonly disableIpMasking?: pulumi.Input<boolean>;
+    disableIpMasking?: pulumi.Input<boolean>;
     /**
      * The Instrumentation Key for this Application Insights component.
      */
-    readonly instrumentationKey?: pulumi.Input<string>;
+    instrumentationKey?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Application Insights component. Changing this forces a
      * new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to
      * create the Application Insights component.
      */
-    readonly resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string>;
     /**
      * Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
      */
-    readonly retentionInDays?: pulumi.Input<number>;
+    retentionInDays?: pulumi.Input<number>;
     /**
      * Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
      */
-    readonly samplingPercentage?: pulumi.Input<number>;
+    samplingPercentage?: pulumi.Input<number>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -236,43 +236,43 @@ export interface InsightsArgs {
     /**
      * Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
      */
-    readonly applicationType: pulumi.Input<string>;
+    applicationType: pulumi.Input<string>;
     /**
      * Specifies the Application Insights component daily data volume cap in GB.
      */
-    readonly dailyDataCapInGb?: pulumi.Input<number>;
+    dailyDataCapInGb?: pulumi.Input<number>;
     /**
      * Specifies if a notification email will be send when the daily data volume cap is met.
      */
-    readonly dailyDataCapNotificationsDisabled?: pulumi.Input<boolean>;
+    dailyDataCapNotificationsDisabled?: pulumi.Input<boolean>;
     /**
      * By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
      */
-    readonly disableIpMasking?: pulumi.Input<boolean>;
+    disableIpMasking?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Application Insights component. Changing this forces a
      * new resource to be created.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to
      * create the Application Insights component.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
      */
-    readonly retentionInDays?: pulumi.Input<number>;
+    retentionInDays?: pulumi.Input<number>;
     /**
      * Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry.
      */
-    readonly samplingPercentage?: pulumi.Input<number>;
+    samplingPercentage?: pulumi.Input<number>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

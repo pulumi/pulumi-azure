@@ -48,15 +48,15 @@ export interface GetLBRuleArgs {
     /**
      * The ID of the Load Balancer Rule.
      */
-    readonly loadbalancerId: string;
+    loadbalancerId: string;
     /**
      * The name of this Load Balancer Rule.
      */
-    readonly name: string;
+    name: string;
     /**
      * The name of the Resource Group where the Load Balancer Rule exists.
      */
-    readonly resourceGroupName: string;
+    resourceGroupName: string;
 }
 
 /**
