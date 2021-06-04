@@ -41,6 +41,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EncryptionScope{}
 	case "azure:storage/managementPolicy:ManagementPolicy":
 		r = &ManagementPolicy{}
+	case "azure:storage/objectReplication:ObjectReplication":
+		r = &ObjectReplication{}
 	case "azure:storage/queue:Queue":
 		r = &Queue{}
 	case "azure:storage/share:Share":
@@ -122,6 +124,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"storage/managementPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"storage/objectReplication",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

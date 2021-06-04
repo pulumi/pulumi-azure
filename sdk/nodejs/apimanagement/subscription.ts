@@ -77,6 +77,10 @@ export class Subscription extends pulumi.CustomResource {
      */
     public readonly allowTracing!: pulumi.Output<boolean | undefined>;
     /**
+     * The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
+     */
+    public readonly apiId!: pulumi.Output<string | undefined>;
+    /**
      * The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
      */
     public readonly apiManagementName!: pulumi.Output<string>;
@@ -121,6 +125,7 @@ export class Subscription extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SubscriptionState | undefined;
             inputs["allowTracing"] = state ? state.allowTracing : undefined;
+            inputs["apiId"] = state ? state.apiId : undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
             inputs["primaryKey"] = state ? state.primaryKey : undefined;
@@ -142,6 +147,7 @@ export class Subscription extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["allowTracing"] = args ? args.allowTracing : undefined;
+            inputs["apiId"] = args ? args.apiId : undefined;
             inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["primaryKey"] = args ? args.primaryKey : undefined;
@@ -167,6 +173,10 @@ export interface SubscriptionState {
      * Determines whether tracing can be enabled.  Defaults to `true`.
      */
     allowTracing?: pulumi.Input<boolean>;
+    /**
+     * The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
+     */
+    apiId?: pulumi.Input<string>;
     /**
      * The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
      */
@@ -207,6 +217,10 @@ export interface SubscriptionArgs {
      * Determines whether tracing can be enabled.  Defaults to `true`.
      */
     allowTracing?: pulumi.Input<boolean>;
+    /**
+     * The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
+     */
+    apiId?: pulumi.Input<string>;
     /**
      * The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
      */

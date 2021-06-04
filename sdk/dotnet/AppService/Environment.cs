@@ -108,6 +108,12 @@ namespace Pulumi.Azure.AppService
         public Output<int?> FrontEndScaleFactor { get; private set; } = null!;
 
         /// <summary>
+        /// IP address of internal load balancer of the App Service Environment.
+        /// </summary>
+        [Output("internalIpAddress")]
+        public Output<string> InternalIpAddress { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
         /// </summary>
         [Output("internalLoadBalancingMode")]
@@ -126,6 +132,12 @@ namespace Pulumi.Azure.AppService
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// List of outbound IP addresses of the App Service Environment.
+        /// </summary>
+        [Output("outboundIpAddresses")]
+        public Output<ImmutableArray<string>> OutboundIpAddresses { get; private set; } = null!;
+
+        /// <summary>
         /// Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.
         /// </summary>
         [Output("pricingTier")]
@@ -136,6 +148,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// IP address of service endpoint of the App Service Environment.
+        /// </summary>
+        [Output("serviceIpAddress")]
+        public Output<string> ServiceIpAddress { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
@@ -317,6 +335,12 @@ namespace Pulumi.Azure.AppService
         public Input<int>? FrontEndScaleFactor { get; set; }
 
         /// <summary>
+        /// IP address of internal load balancer of the App Service Environment.
+        /// </summary>
+        [Input("internalIpAddress")]
+        public Input<string>? InternalIpAddress { get; set; }
+
+        /// <summary>
         /// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
         /// </summary>
         [Input("internalLoadBalancingMode")]
@@ -334,6 +358,18 @@ namespace Pulumi.Azure.AppService
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("outboundIpAddresses")]
+        private InputList<string>? _outboundIpAddresses;
+
+        /// <summary>
+        /// List of outbound IP addresses of the App Service Environment.
+        /// </summary>
+        public InputList<string> OutboundIpAddresses
+        {
+            get => _outboundIpAddresses ?? (_outboundIpAddresses = new InputList<string>());
+            set => _outboundIpAddresses = value;
+        }
+
         /// <summary>
         /// Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.
         /// </summary>
@@ -345,6 +381,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// IP address of service endpoint of the App Service Environment.
+        /// </summary>
+        [Input("serviceIpAddress")]
+        public Input<string>? ServiceIpAddress { get; set; }
 
         /// <summary>
         /// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.

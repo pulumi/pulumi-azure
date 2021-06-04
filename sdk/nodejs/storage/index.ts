@@ -25,6 +25,7 @@ export * from "./getSync";
 export * from "./getSyncGroup";
 export * from "./getTableEntity";
 export * from "./managementPolicy";
+export * from "./objectReplication";
 export * from "./queue";
 export * from "./share";
 export * from "./shareDirectory";
@@ -48,6 +49,7 @@ import { DataLakeGen2Filesystem } from "./dataLakeGen2Filesystem";
 import { DataLakeGen2Path } from "./dataLakeGen2Path";
 import { EncryptionScope } from "./encryptionScope";
 import { ManagementPolicy } from "./managementPolicy";
+import { ObjectReplication } from "./objectReplication";
 import { Queue } from "./queue";
 import { Share } from "./share";
 import { ShareDirectory } from "./shareDirectory";
@@ -83,6 +85,8 @@ const _module = {
                 return new EncryptionScope(name, <any>undefined, { urn })
             case "azure:storage/managementPolicy:ManagementPolicy":
                 return new ManagementPolicy(name, <any>undefined, { urn })
+            case "azure:storage/objectReplication:ObjectReplication":
+                return new ObjectReplication(name, <any>undefined, { urn })
             case "azure:storage/queue:Queue":
                 return new Queue(name, <any>undefined, { urn })
             case "azure:storage/share:Share":
@@ -118,6 +122,7 @@ pulumi.runtime.registerResourceModule("azure", "storage/dataLakeGen2Filesystem",
 pulumi.runtime.registerResourceModule("azure", "storage/dataLakeGen2Path", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/encryptionScope", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/managementPolicy", _module)
+pulumi.runtime.registerResourceModule("azure", "storage/objectReplication", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/queue", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/share", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/shareDirectory", _module)

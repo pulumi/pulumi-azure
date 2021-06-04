@@ -84,7 +84,7 @@ export class Insights extends pulumi.CustomResource {
      */
     public readonly disableIpMasking!: pulumi.Output<boolean | undefined>;
     /**
-     * The Instrumentation Key for this Application Insights component.
+     * The Instrumentation Key for this Application Insights component. (Sensitive)
      */
     public /*out*/ readonly instrumentationKey!: pulumi.Output<string>;
     /**
@@ -198,7 +198,7 @@ export interface InsightsState {
      */
     disableIpMasking?: pulumi.Input<boolean>;
     /**
-     * The Instrumentation Key for this Application Insights component.
+     * The Instrumentation Key for this Application Insights component. (Sensitive)
      */
     instrumentationKey?: pulumi.Input<string>;
     /**

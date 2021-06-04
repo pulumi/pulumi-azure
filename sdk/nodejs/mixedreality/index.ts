@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./getSpatialAnchorsAccount";
 export * from "./spatialAnchorsAccount";
 
 // Import resources to register:

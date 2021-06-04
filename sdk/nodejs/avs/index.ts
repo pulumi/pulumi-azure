@@ -6,11 +6,13 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./cluster";
+export * from "./expressRouteAuthorization";
 export * from "./getPrivateCloud";
 export * from "./privateCloud";
 
 // Import resources to register:
 import { Cluster } from "./cluster";
+import { ExpressRouteAuthorization } from "./expressRouteAuthorization";
 import { PrivateCloud } from "./privateCloud";
 
 const _module = {
@@ -19,6 +21,8 @@ const _module = {
         switch (type) {
             case "azure:avs/cluster:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
+            case "azure:avs/expressRouteAuthorization:ExpressRouteAuthorization":
+                return new ExpressRouteAuthorization(name, <any>undefined, { urn })
             case "azure:avs/privateCloud:PrivateCloud":
                 return new PrivateCloud(name, <any>undefined, { urn })
             default:
@@ -27,4 +31,5 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "avs/cluster", _module)
+pulumi.runtime.registerResourceModule("azure", "avs/expressRouteAuthorization", _module)
 pulumi.runtime.registerResourceModule("azure", "avs/privateCloud", _module)

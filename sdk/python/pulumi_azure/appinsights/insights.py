@@ -204,7 +204,7 @@ class _InsightsState:
         :param pulumi.Input[float] daily_data_cap_in_gb: Specifies the Application Insights component daily data volume cap in GB.
         :param pulumi.Input[bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be send when the daily data volume cap is met.
         :param pulumi.Input[bool] disable_ip_masking: By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
-        :param pulumi.Input[str] instrumentation_key: The Instrumentation Key for this Application Insights component.
+        :param pulumi.Input[str] instrumentation_key: The Instrumentation Key for this Application Insights component. (Sensitive)
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Application Insights component. Changing this forces a
                new resource to be created.
@@ -317,7 +317,7 @@ class _InsightsState:
     @pulumi.getter(name="instrumentationKey")
     def instrumentation_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The Instrumentation Key for this Application Insights component.
+        The Instrumentation Key for this Application Insights component. (Sensitive)
         """
         return pulumi.get(self, "instrumentation_key")
 
@@ -579,7 +579,7 @@ class Insights(pulumi.CustomResource):
         :param pulumi.Input[float] daily_data_cap_in_gb: Specifies the Application Insights component daily data volume cap in GB.
         :param pulumi.Input[bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be send when the daily data volume cap is met.
         :param pulumi.Input[bool] disable_ip_masking: By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
-        :param pulumi.Input[str] instrumentation_key: The Instrumentation Key for this Application Insights component.
+        :param pulumi.Input[str] instrumentation_key: The Instrumentation Key for this Application Insights component. (Sensitive)
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Application Insights component. Changing this forces a
                new resource to be created.
@@ -660,7 +660,7 @@ class Insights(pulumi.CustomResource):
     @pulumi.getter(name="instrumentationKey")
     def instrumentation_key(self) -> pulumi.Output[str]:
         """
-        The Instrumentation Key for this Application Insights component.
+        The Instrumentation Key for this Application Insights component. (Sensitive)
         """
         return pulumi.get(self, "instrumentation_key")
 

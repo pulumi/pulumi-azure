@@ -13,22 +13,34 @@ namespace Pulumi.Azure.MachineLearning.Inputs
     public sealed class InferenceClusterSslGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The certificate for the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+        /// The certificate for the ssl configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
         /// </summary>
         [Input("cert")]
         public Input<string>? Cert { get; set; }
 
         /// <summary>
-        /// The cname of the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+        /// The cname of the ssl configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
         /// </summary>
         [Input("cname")]
         public Input<string>? Cname { get; set; }
 
         /// <summary>
-        /// The key content for the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+        /// The key content for the ssl configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
+
+        /// <summary>
+        /// The leaf domain label for the ssl configuration. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname`. Changing this forces a new Machine Learning Inference Cluster to be created.
+        /// </summary>
+        [Input("leafDomainLabel")]
+        public Input<string>? LeafDomainLabel { get; set; }
+
+        /// <summary>
+        /// Whether or not to overwrite existing leaf domain. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname` Changing this forces a new Machine Learning Inference Cluster to be created.
+        /// </summary>
+        [Input("overwriteExistingDomain")]
+        public Input<bool>? OverwriteExistingDomain { get; set; }
 
         public InferenceClusterSslGetArgs()
         {

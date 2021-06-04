@@ -127,7 +127,7 @@ export class InferenceCluster extends pulumi.CustomResource {
      */
     public readonly clusterPurpose!: pulumi.Output<string | undefined>;
     /**
-     * The description of the Machine Learning compute.
+     * The description of the Machine Learning compute. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -147,7 +147,7 @@ export class InferenceCluster extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A `ssl` block as defined below.
+     * A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
     public readonly ssl!: pulumi.Output<outputs.machinelearning.InferenceClusterSsl | undefined>;
     /**
@@ -209,7 +209,7 @@ export interface InferenceClusterState {
      */
     clusterPurpose?: pulumi.Input<string>;
     /**
-     * The description of the Machine Learning compute.
+     * The description of the Machine Learning compute. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
     description?: pulumi.Input<string>;
     /**
@@ -229,7 +229,7 @@ export interface InferenceClusterState {
      */
     name?: pulumi.Input<string>;
     /**
-     * A `ssl` block as defined below.
+     * A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
     ssl?: pulumi.Input<inputs.machinelearning.InferenceClusterSsl>;
     /**
@@ -247,7 +247,7 @@ export interface InferenceClusterArgs {
      */
     clusterPurpose?: pulumi.Input<string>;
     /**
-     * The description of the Machine Learning compute.
+     * The description of the Machine Learning compute. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
     description?: pulumi.Input<string>;
     /**
@@ -267,7 +267,7 @@ export interface InferenceClusterArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A `ssl` block as defined below.
+     * A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
     ssl?: pulumi.Input<inputs.machinelearning.InferenceClusterSsl>;
     /**

@@ -69,7 +69,7 @@ type Insights struct {
 	DailyDataCapNotificationsDisabled pulumi.BoolOutput `pulumi:"dailyDataCapNotificationsDisabled"`
 	// By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
 	DisableIpMasking pulumi.BoolPtrOutput `pulumi:"disableIpMasking"`
-	// The Instrumentation Key for this Application Insights component.
+	// The Instrumentation Key for this Application Insights component. (Sensitive)
 	InstrumentationKey pulumi.StringOutput `pulumi:"instrumentationKey"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -134,7 +134,7 @@ type insightsState struct {
 	DailyDataCapNotificationsDisabled *bool `pulumi:"dailyDataCapNotificationsDisabled"`
 	// By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
 	DisableIpMasking *bool `pulumi:"disableIpMasking"`
-	// The Instrumentation Key for this Application Insights component.
+	// The Instrumentation Key for this Application Insights component. (Sensitive)
 	InstrumentationKey *string `pulumi:"instrumentationKey"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -165,7 +165,7 @@ type InsightsState struct {
 	DailyDataCapNotificationsDisabled pulumi.BoolPtrInput
 	// By default the real client ip is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client ip. Defaults to `false`.
 	DisableIpMasking pulumi.BoolPtrInput
-	// The Instrumentation Key for this Application Insights component.
+	// The Instrumentation Key for this Application Insights component. (Sensitive)
 	InstrumentationKey pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput

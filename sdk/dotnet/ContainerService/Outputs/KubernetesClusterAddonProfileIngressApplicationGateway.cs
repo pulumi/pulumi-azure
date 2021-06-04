@@ -26,6 +26,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? GatewayId;
         /// <summary>
+        /// The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+        /// </summary>
+        public readonly string? GatewayName;
+        /// <summary>
         /// An `ingress_application_gateway_identity` block is exported. The exported attributes are defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity> IngressApplicationGatewayIdentities;
@@ -46,6 +50,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             string? gatewayId,
 
+            string? gatewayName,
+
             ImmutableArray<Outputs.KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity> ingressApplicationGatewayIdentities,
 
             string? subnetCidr,
@@ -55,6 +61,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             EffectiveGatewayId = effectiveGatewayId;
             Enabled = enabled;
             GatewayId = gatewayId;
+            GatewayName = gatewayName;
             IngressApplicationGatewayIdentities = ingressApplicationGatewayIdentities;
             SubnetCidr = subnetCidr;
             SubnetId = subnetId;

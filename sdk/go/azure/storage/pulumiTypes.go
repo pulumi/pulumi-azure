@@ -4433,6 +4433,136 @@ func (o ManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput) Index(i pulumi.
 	}).(ManagementPolicyRuleFiltersMatchBlobIndexTagOutput)
 }
 
+type ObjectReplicationRule struct {
+	// The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`.
+	CopyBlobsCreatedAfter *string `pulumi:"copyBlobsCreatedAfter"`
+	// The destination storage container name. Changing this forces a new Storage Object Replication to be created.
+	DestinationContainerName string `pulumi:"destinationContainerName"`
+	// Specifies a list of filters prefixes, the blobs whose names begin with which will be replicated.
+	FilterOutBlobsWithPrefixes []string `pulumi:"filterOutBlobsWithPrefixes"`
+	Name                       *string  `pulumi:"name"`
+	// The source storage container name. Changing this forces a new Storage Object Replication to be created.
+	SourceContainerName string `pulumi:"sourceContainerName"`
+}
+
+// ObjectReplicationRuleInput is an input type that accepts ObjectReplicationRuleArgs and ObjectReplicationRuleOutput values.
+// You can construct a concrete instance of `ObjectReplicationRuleInput` via:
+//
+//          ObjectReplicationRuleArgs{...}
+type ObjectReplicationRuleInput interface {
+	pulumi.Input
+
+	ToObjectReplicationRuleOutput() ObjectReplicationRuleOutput
+	ToObjectReplicationRuleOutputWithContext(context.Context) ObjectReplicationRuleOutput
+}
+
+type ObjectReplicationRuleArgs struct {
+	// The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`.
+	CopyBlobsCreatedAfter pulumi.StringPtrInput `pulumi:"copyBlobsCreatedAfter"`
+	// The destination storage container name. Changing this forces a new Storage Object Replication to be created.
+	DestinationContainerName pulumi.StringInput `pulumi:"destinationContainerName"`
+	// Specifies a list of filters prefixes, the blobs whose names begin with which will be replicated.
+	FilterOutBlobsWithPrefixes pulumi.StringArrayInput `pulumi:"filterOutBlobsWithPrefixes"`
+	Name                       pulumi.StringPtrInput   `pulumi:"name"`
+	// The source storage container name. Changing this forces a new Storage Object Replication to be created.
+	SourceContainerName pulumi.StringInput `pulumi:"sourceContainerName"`
+}
+
+func (ObjectReplicationRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectReplicationRule)(nil)).Elem()
+}
+
+func (i ObjectReplicationRuleArgs) ToObjectReplicationRuleOutput() ObjectReplicationRuleOutput {
+	return i.ToObjectReplicationRuleOutputWithContext(context.Background())
+}
+
+func (i ObjectReplicationRuleArgs) ToObjectReplicationRuleOutputWithContext(ctx context.Context) ObjectReplicationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectReplicationRuleOutput)
+}
+
+// ObjectReplicationRuleArrayInput is an input type that accepts ObjectReplicationRuleArray and ObjectReplicationRuleArrayOutput values.
+// You can construct a concrete instance of `ObjectReplicationRuleArrayInput` via:
+//
+//          ObjectReplicationRuleArray{ ObjectReplicationRuleArgs{...} }
+type ObjectReplicationRuleArrayInput interface {
+	pulumi.Input
+
+	ToObjectReplicationRuleArrayOutput() ObjectReplicationRuleArrayOutput
+	ToObjectReplicationRuleArrayOutputWithContext(context.Context) ObjectReplicationRuleArrayOutput
+}
+
+type ObjectReplicationRuleArray []ObjectReplicationRuleInput
+
+func (ObjectReplicationRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ObjectReplicationRule)(nil)).Elem()
+}
+
+func (i ObjectReplicationRuleArray) ToObjectReplicationRuleArrayOutput() ObjectReplicationRuleArrayOutput {
+	return i.ToObjectReplicationRuleArrayOutputWithContext(context.Background())
+}
+
+func (i ObjectReplicationRuleArray) ToObjectReplicationRuleArrayOutputWithContext(ctx context.Context) ObjectReplicationRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectReplicationRuleArrayOutput)
+}
+
+type ObjectReplicationRuleOutput struct{ *pulumi.OutputState }
+
+func (ObjectReplicationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectReplicationRule)(nil)).Elem()
+}
+
+func (o ObjectReplicationRuleOutput) ToObjectReplicationRuleOutput() ObjectReplicationRuleOutput {
+	return o
+}
+
+func (o ObjectReplicationRuleOutput) ToObjectReplicationRuleOutputWithContext(ctx context.Context) ObjectReplicationRuleOutput {
+	return o
+}
+
+// The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`.
+func (o ObjectReplicationRuleOutput) CopyBlobsCreatedAfter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObjectReplicationRule) *string { return v.CopyBlobsCreatedAfter }).(pulumi.StringPtrOutput)
+}
+
+// The destination storage container name. Changing this forces a new Storage Object Replication to be created.
+func (o ObjectReplicationRuleOutput) DestinationContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v ObjectReplicationRule) string { return v.DestinationContainerName }).(pulumi.StringOutput)
+}
+
+// Specifies a list of filters prefixes, the blobs whose names begin with which will be replicated.
+func (o ObjectReplicationRuleOutput) FilterOutBlobsWithPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ObjectReplicationRule) []string { return v.FilterOutBlobsWithPrefixes }).(pulumi.StringArrayOutput)
+}
+
+func (o ObjectReplicationRuleOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObjectReplicationRule) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The source storage container name. Changing this forces a new Storage Object Replication to be created.
+func (o ObjectReplicationRuleOutput) SourceContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v ObjectReplicationRule) string { return v.SourceContainerName }).(pulumi.StringOutput)
+}
+
+type ObjectReplicationRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (ObjectReplicationRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ObjectReplicationRule)(nil)).Elem()
+}
+
+func (o ObjectReplicationRuleArrayOutput) ToObjectReplicationRuleArrayOutput() ObjectReplicationRuleArrayOutput {
+	return o
+}
+
+func (o ObjectReplicationRuleArrayOutput) ToObjectReplicationRuleArrayOutputWithContext(ctx context.Context) ObjectReplicationRuleArrayOutput {
+	return o
+}
+
+func (o ObjectReplicationRuleArrayOutput) Index(i pulumi.IntInput) ObjectReplicationRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ObjectReplicationRule {
+		return vs[0].([]ObjectReplicationRule)[vs[1].(int)]
+	}).(ObjectReplicationRuleOutput)
+}
+
 type ShareAcl struct {
 	// An `accessPolicy` block as defined below.
 	AccessPolicies []ShareAclAccessPolicy `pulumi:"accessPolicies"`
@@ -6207,6 +6337,8 @@ func init() {
 	pulumi.RegisterOutputType(ManagementPolicyRuleFiltersPtrOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyRuleFiltersMatchBlobIndexTagOutput{})
 	pulumi.RegisterOutputType(ManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput{})
+	pulumi.RegisterOutputType(ObjectReplicationRuleOutput{})
+	pulumi.RegisterOutputType(ObjectReplicationRuleArrayOutput{})
 	pulumi.RegisterOutputType(ShareAclOutput{})
 	pulumi.RegisterOutputType(ShareAclArrayOutput{})
 	pulumi.RegisterOutputType(ShareAclAccessPolicyOutput{})

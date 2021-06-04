@@ -3072,6 +3072,8 @@ type KubernetesClusterAddonProfileIngressApplicationGateway struct {
 	Enabled bool `pulumi:"enabled"`
 	// The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
 	GatewayId *string `pulumi:"gatewayId"`
+	// The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+	GatewayName *string `pulumi:"gatewayName"`
 	// An `ingressApplicationGatewayIdentity` block is exported. The exported attributes are defined below.
 	IngressApplicationGatewayIdentities []KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity `pulumi:"ingressApplicationGatewayIdentities"`
 	// The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
@@ -3098,6 +3100,8 @@ type KubernetesClusterAddonProfileIngressApplicationGatewayArgs struct {
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
 	GatewayId pulumi.StringPtrInput `pulumi:"gatewayId"`
+	// The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+	GatewayName pulumi.StringPtrInput `pulumi:"gatewayName"`
 	// An `ingressApplicationGatewayIdentity` block is exported. The exported attributes are defined below.
 	IngressApplicationGatewayIdentities KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayInput `pulumi:"ingressApplicationGatewayIdentities"`
 	// The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
@@ -3198,6 +3202,11 @@ func (o KubernetesClusterAddonProfileIngressApplicationGatewayOutput) GatewayId(
 	return o.ApplyT(func(v KubernetesClusterAddonProfileIngressApplicationGateway) *string { return v.GatewayId }).(pulumi.StringPtrOutput)
 }
 
+// The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+func (o KubernetesClusterAddonProfileIngressApplicationGatewayOutput) GatewayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterAddonProfileIngressApplicationGateway) *string { return v.GatewayName }).(pulumi.StringPtrOutput)
+}
+
 // An `ingressApplicationGatewayIdentity` block is exported. The exported attributes are defined below.
 func (o KubernetesClusterAddonProfileIngressApplicationGatewayOutput) IngressApplicationGatewayIdentities() KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterAddonProfileIngressApplicationGateway) []KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity {
@@ -3262,6 +3271,16 @@ func (o KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) Gateway
 			return nil
 		}
 		return v.GatewayId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+func (o KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) GatewayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterAddonProfileIngressApplicationGateway) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GatewayName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4277,7 +4296,7 @@ type KubernetesClusterDefaultNodePool struct {
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
 	// Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
 	EnableHostEncryption *bool `pulumi:"enableHostEncryption"`
-	// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
+	// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
 	// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
 	MaxCount *int `pulumi:"maxCount"`
@@ -4291,7 +4310,9 @@ type KubernetesClusterDefaultNodePool struct {
 	NodeCount *int `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
-	NodeTaints []string          `pulumi:"nodeTaints"`
+	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
+	NodePublicIpPrefixId *string  `pulumi:"nodePublicIpPrefixId"`
+	NodeTaints           []string `pulumi:"nodeTaints"`
 	// Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
 	OnlyCriticalAddonsEnabled *bool `pulumi:"onlyCriticalAddonsEnabled"`
 	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
@@ -4331,7 +4352,7 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	EnableAutoScaling pulumi.BoolPtrInput `pulumi:"enableAutoScaling"`
 	// Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
 	EnableHostEncryption pulumi.BoolPtrInput `pulumi:"enableHostEncryption"`
-	// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
+	// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
 	EnableNodePublicIp pulumi.BoolPtrInput `pulumi:"enableNodePublicIp"`
 	// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
 	MaxCount pulumi.IntPtrInput `pulumi:"maxCount"`
@@ -4344,8 +4365,10 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `minCount` and `maxCount`.
 	NodeCount pulumi.IntPtrInput `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
-	NodeLabels pulumi.StringMapInput   `pulumi:"nodeLabels"`
-	NodeTaints pulumi.StringArrayInput `pulumi:"nodeTaints"`
+	NodeLabels pulumi.StringMapInput `pulumi:"nodeLabels"`
+	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
+	NodePublicIpPrefixId pulumi.StringPtrInput   `pulumi:"nodePublicIpPrefixId"`
+	NodeTaints           pulumi.StringArrayInput `pulumi:"nodeTaints"`
 	// Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
 	OnlyCriticalAddonsEnabled pulumi.BoolPtrInput `pulumi:"onlyCriticalAddonsEnabled"`
 	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
@@ -4459,7 +4482,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) EnableHostEncryption() pulumi.Bo
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.EnableHostEncryption }).(pulumi.BoolPtrOutput)
 }
 
-// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
+// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) EnableNodePublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.EnableNodePublicIp }).(pulumi.BoolPtrOutput)
 }
@@ -4492,6 +4515,11 @@ func (o KubernetesClusterDefaultNodePoolOutput) NodeCount() pulumi.IntPtrOutput 
 // A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) NodeLabels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) map[string]string { return v.NodeLabels }).(pulumi.StringMapOutput)
+}
+
+// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolOutput) NodePublicIpPrefixId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.NodePublicIpPrefixId }).(pulumi.StringPtrOutput)
 }
 
 func (o KubernetesClusterDefaultNodePoolOutput) NodeTaints() pulumi.StringArrayOutput {
@@ -4597,7 +4625,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) EnableHostEncryption() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
+// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) EnableNodePublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
 		if v == nil {
@@ -4665,6 +4693,16 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeLabels() pulumi.StringMap
 		}
 		return v.NodeLabels
 	}).(pulumi.StringMapOutput)
+}
+
+// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolPtrOutput) NodePublicIpPrefixId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NodePublicIpPrefixId
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeTaints() pulumi.StringArrayOutput {
@@ -6594,7 +6632,7 @@ func (o KubernetesClusterRoleBasedAccessControlPtrOutput) Enabled() pulumi.BoolP
 type KubernetesClusterRoleBasedAccessControlAzureActiveDirectory struct {
 	// A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
 	AdminGroupObjectIds []string `pulumi:"adminGroupObjectIds"`
-	// Is Role Based Access Control based on Azure AD enabled? Changing this forces a new resource to be created.
+	// Is Role Based Access Control based on Azure AD enabled?
 	AzureRbacEnabled *bool `pulumi:"azureRbacEnabled"`
 	// The Client ID of an Azure Active Directory Application.
 	ClientAppId *string `pulumi:"clientAppId"`
@@ -6622,7 +6660,7 @@ type KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryInput interface 
 type KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs struct {
 	// A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
 	AdminGroupObjectIds pulumi.StringArrayInput `pulumi:"adminGroupObjectIds"`
-	// Is Role Based Access Control based on Azure AD enabled? Changing this forces a new resource to be created.
+	// Is Role Based Access Control based on Azure AD enabled?
 	AzureRbacEnabled pulumi.BoolPtrInput `pulumi:"azureRbacEnabled"`
 	// The Client ID of an Azure Active Directory Application.
 	ClientAppId pulumi.StringPtrInput `pulumi:"clientAppId"`
@@ -6720,7 +6758,7 @@ func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) Admin
 	}).(pulumi.StringArrayOutput)
 }
 
-// Is Role Based Access Control based on Azure AD enabled? Changing this forces a new resource to be created.
+// Is Role Based Access Control based on Azure AD enabled?
 func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryOutput) AzureRbacEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *bool { return v.AzureRbacEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -6780,7 +6818,7 @@ func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) Ad
 	}).(pulumi.StringArrayOutput)
 }
 
-// Is Role Based Access Control based on Azure AD enabled? Changing this forces a new resource to be created.
+// Is Role Based Access Control based on Azure AD enabled?
 func (o KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryPtrOutput) AzureRbacEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterRoleBasedAccessControlAzureActiveDirectory) *bool {
 		if v == nil {
@@ -9289,7 +9327,8 @@ type GetKubernetesClusterAgentPoolProfile struct {
 	// The number of Agents (VM's) in the Pool.
 	Count int `pulumi:"count"`
 	// If the auto-scaler is enabled.
-	EnableAutoScaling  bool `pulumi:"enableAutoScaling"`
+	EnableAutoScaling bool `pulumi:"enableAutoScaling"`
+	// If the Public IPs for the nodes in this Agent Pool are enabled.
 	EnableNodePublicIp bool `pulumi:"enableNodePublicIp"`
 	// Maximum number of nodes for auto-scaling
 	MaxCount int `pulumi:"maxCount"`
@@ -9300,7 +9339,9 @@ type GetKubernetesClusterAgentPoolProfile struct {
 	// The name of the managed Kubernetes Cluster.
 	Name       string            `pulumi:"name"`
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
-	NodeTaints []string          `pulumi:"nodeTaints"`
+	// Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.
+	NodePublicIpPrefixId string   `pulumi:"nodePublicIpPrefixId"`
+	NodeTaints           []string `pulumi:"nodeTaints"`
 	// Kubernetes version used for the Agents.
 	OrchestratorVersion string `pulumi:"orchestratorVersion"`
 	// The size of the Agent VM's Operating System Disk in GB.
@@ -9336,7 +9377,8 @@ type GetKubernetesClusterAgentPoolProfileArgs struct {
 	// The number of Agents (VM's) in the Pool.
 	Count pulumi.IntInput `pulumi:"count"`
 	// If the auto-scaler is enabled.
-	EnableAutoScaling  pulumi.BoolInput `pulumi:"enableAutoScaling"`
+	EnableAutoScaling pulumi.BoolInput `pulumi:"enableAutoScaling"`
+	// If the Public IPs for the nodes in this Agent Pool are enabled.
 	EnableNodePublicIp pulumi.BoolInput `pulumi:"enableNodePublicIp"`
 	// Maximum number of nodes for auto-scaling
 	MaxCount pulumi.IntInput `pulumi:"maxCount"`
@@ -9345,9 +9387,11 @@ type GetKubernetesClusterAgentPoolProfileArgs struct {
 	// Minimum number of nodes for auto-scaling
 	MinCount pulumi.IntInput `pulumi:"minCount"`
 	// The name of the managed Kubernetes Cluster.
-	Name       pulumi.StringInput      `pulumi:"name"`
-	NodeLabels pulumi.StringMapInput   `pulumi:"nodeLabels"`
-	NodeTaints pulumi.StringArrayInput `pulumi:"nodeTaints"`
+	Name       pulumi.StringInput    `pulumi:"name"`
+	NodeLabels pulumi.StringMapInput `pulumi:"nodeLabels"`
+	// Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.
+	NodePublicIpPrefixId pulumi.StringInput      `pulumi:"nodePublicIpPrefixId"`
+	NodeTaints           pulumi.StringArrayInput `pulumi:"nodeTaints"`
 	// Kubernetes version used for the Agents.
 	OrchestratorVersion pulumi.StringInput `pulumi:"orchestratorVersion"`
 	// The size of the Agent VM's Operating System Disk in GB.
@@ -9432,6 +9476,7 @@ func (o GetKubernetesClusterAgentPoolProfileOutput) EnableAutoScaling() pulumi.B
 	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) bool { return v.EnableAutoScaling }).(pulumi.BoolOutput)
 }
 
+// If the Public IPs for the nodes in this Agent Pool are enabled.
 func (o GetKubernetesClusterAgentPoolProfileOutput) EnableNodePublicIp() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) bool { return v.EnableNodePublicIp }).(pulumi.BoolOutput)
 }
@@ -9458,6 +9503,11 @@ func (o GetKubernetesClusterAgentPoolProfileOutput) Name() pulumi.StringOutput {
 
 func (o GetKubernetesClusterAgentPoolProfileOutput) NodeLabels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) map[string]string { return v.NodeLabels }).(pulumi.StringMapOutput)
+}
+
+// Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.
+func (o GetKubernetesClusterAgentPoolProfileOutput) NodePublicIpPrefixId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) string { return v.NodePublicIpPrefixId }).(pulumi.StringOutput)
 }
 
 func (o GetKubernetesClusterAgentPoolProfileOutput) NodeTaints() pulumi.StringArrayOutput {

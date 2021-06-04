@@ -75,6 +75,8 @@ type Subscription struct {
 
 	// Determines whether tracing can be enabled.  Defaults to `true`.
 	AllowTracing pulumi.BoolPtrOutput `pulumi:"allowTracing"`
+	// The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
+	ApiId pulumi.StringPtrOutput `pulumi:"apiId"`
 	// The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
 	// The display name of this Subscription.
@@ -133,6 +135,8 @@ func GetSubscription(ctx *pulumi.Context,
 type subscriptionState struct {
 	// Determines whether tracing can be enabled.  Defaults to `true`.
 	AllowTracing *bool `pulumi:"allowTracing"`
+	// The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
+	ApiId *string `pulumi:"apiId"`
 	// The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
 	ApiManagementName *string `pulumi:"apiManagementName"`
 	// The display name of this Subscription.
@@ -154,6 +158,8 @@ type subscriptionState struct {
 type SubscriptionState struct {
 	// Determines whether tracing can be enabled.  Defaults to `true`.
 	AllowTracing pulumi.BoolPtrInput
+	// The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
+	ApiId pulumi.StringPtrInput
 	// The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringPtrInput
 	// The display name of this Subscription.
@@ -179,6 +185,8 @@ func (SubscriptionState) ElementType() reflect.Type {
 type subscriptionArgs struct {
 	// Determines whether tracing can be enabled.  Defaults to `true`.
 	AllowTracing *bool `pulumi:"allowTracing"`
+	// The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
+	ApiId *string `pulumi:"apiId"`
 	// The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
 	ApiManagementName string `pulumi:"apiManagementName"`
 	// The display name of this Subscription.
@@ -201,6 +209,8 @@ type subscriptionArgs struct {
 type SubscriptionArgs struct {
 	// Determines whether tracing can be enabled.  Defaults to `true`.
 	AllowTracing pulumi.BoolPtrInput
+	// The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
+	ApiId pulumi.StringPtrInput
 	// The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringInput
 	// The display name of this Subscription.

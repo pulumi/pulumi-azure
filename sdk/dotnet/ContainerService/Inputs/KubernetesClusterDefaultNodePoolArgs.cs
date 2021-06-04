@@ -37,7 +37,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<bool>? EnableHostEncryption { get; set; }
 
         /// <summary>
-        /// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
+        /// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("enableNodePublicIp")]
         public Input<bool>? EnableNodePublicIp { get; set; }
@@ -83,6 +83,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
             get => _nodeLabels ?? (_nodeLabels = new InputMap<string>());
             set => _nodeLabels = value;
         }
+
+        /// <summary>
+        /// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("nodePublicIpPrefixId")]
+        public Input<string>? NodePublicIpPrefixId { get; set; }
 
         [Input("nodeTaints")]
         private InputList<string>? _nodeTaints;

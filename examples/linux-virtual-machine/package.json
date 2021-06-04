@@ -1,11 +1,6 @@
 {
     "name": "azure-linux-virtual-machine",
     "version": "0.1.0",
-    "main": "bin/index.js",
-    "typings": "bin/index.d.ts",
-    "scripts": {
-        "build": "tsc"
-    },
     "dependencies": {
         "@pulumi/pulumi": "^3.0.0",
         "mime-types": "^2.1.19",

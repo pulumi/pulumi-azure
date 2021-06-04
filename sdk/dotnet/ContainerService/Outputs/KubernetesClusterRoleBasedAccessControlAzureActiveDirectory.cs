@@ -18,7 +18,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AdminGroupObjectIds;
         /// <summary>
-        /// Is Role Based Access Control based on Azure AD enabled? Changing this forces a new resource to be created.
+        /// Is Role Based Access Control based on Azure AD enabled?
         /// </summary>
         public readonly bool? AzureRbacEnabled;
         /// <summary>

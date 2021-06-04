@@ -843,6 +843,8 @@ github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210521104707-5870f8fc11
 github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210521104707-5870f8fc118f/go.mod h1:aUm3FXe6zebkz/xfIUrXnc2uKVnRU8iLCPmubub0CV8=
 github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210527153949-74dbe5e5c7cb h1:V6EW9BAUbDAKQcQ1WLFGwRf8/0KKgl8FfkYUp7lLNnM=
 github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210527153949-74dbe5e5c7cb/go.mod h1:mLXdj4yholCrPI0hzf0iB/xUpmgafUPVN92EQexWEvg=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210604103450-bcc4a8c058be h1:DX8gBkhJdj3bdGqYm9xR7a+evySBkh4edHLFLAt+xck=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210604103450-bcc4a8c058be/go.mod h1:i287M3kCucz4RWUjIr9tRnJ50AMITzn+UyRk1v3q6jw=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9 h1:czJCcoUR3FMpHnRQow2E84H/0CPrX1fMAGn9HugzyI4=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9/go.mod h1:L8WrssTzvgYw34/Ppa0JpJfI7KKXZ2cVGI6Djt0brUU=
 github.com/rickb777/plural v1.2.0 h1:5tvEc7UBCZ7l8h/2UeybSkt/uu1DQsZFOFdNevmUhlE=

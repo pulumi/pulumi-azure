@@ -95,6 +95,10 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly frontEndScaleFactor!: pulumi.Output<number | undefined>;
     /**
+     * IP address of internal load balancer of the App Service Environment.
+     */
+    public /*out*/ readonly internalIpAddress!: pulumi.Output<string>;
+    /**
      * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
      */
     public readonly internalLoadBalancingMode!: pulumi.Output<string | undefined>;
@@ -107,6 +111,10 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * List of outbound IP addresses of the App Service Environment.
+     */
+    public /*out*/ readonly outboundIpAddresses!: pulumi.Output<string[]>;
+    /**
      * Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.
      */
     public readonly pricingTier!: pulumi.Output<string | undefined>;
@@ -114,6 +122,10 @@ export class Environment extends pulumi.CustomResource {
      * The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`).
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * IP address of service endpoint of the App Service Environment.
+     */
+    public /*out*/ readonly serviceIpAddress!: pulumi.Output<string>;
     /**
      * The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
      */
@@ -143,11 +155,14 @@ export class Environment extends pulumi.CustomResource {
             inputs["allowedUserIpCidrs"] = state ? state.allowedUserIpCidrs : undefined;
             inputs["clusterSettings"] = state ? state.clusterSettings : undefined;
             inputs["frontEndScaleFactor"] = state ? state.frontEndScaleFactor : undefined;
+            inputs["internalIpAddress"] = state ? state.internalIpAddress : undefined;
             inputs["internalLoadBalancingMode"] = state ? state.internalLoadBalancingMode : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["outboundIpAddresses"] = state ? state.outboundIpAddresses : undefined;
             inputs["pricingTier"] = state ? state.pricingTier : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["serviceIpAddress"] = state ? state.serviceIpAddress : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["userWhitelistedIpRanges"] = state ? state.userWhitelistedIpRanges : undefined;
@@ -166,7 +181,10 @@ export class Environment extends pulumi.CustomResource {
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["userWhitelistedIpRanges"] = args ? args.userWhitelistedIpRanges : undefined;
+            inputs["internalIpAddress"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["outboundIpAddresses"] = undefined /*out*/;
+            inputs["serviceIpAddress"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -192,6 +210,10 @@ export interface EnvironmentState {
      */
     frontEndScaleFactor?: pulumi.Input<number>;
     /**
+     * IP address of internal load balancer of the App Service Environment.
+     */
+    internalIpAddress?: pulumi.Input<string>;
+    /**
      * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
      */
     internalLoadBalancingMode?: pulumi.Input<string>;
@@ -204,6 +226,10 @@ export interface EnvironmentState {
      */
     name?: pulumi.Input<string>;
     /**
+     * List of outbound IP addresses of the App Service Environment.
+     */
+    outboundIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.
      */
     pricingTier?: pulumi.Input<string>;
@@ -211,6 +237,10 @@ export interface EnvironmentState {
      * The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`).
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * IP address of service endpoint of the App Service Environment.
+     */
+    serviceIpAddress?: pulumi.Input<string>;
     /**
      * The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
      */

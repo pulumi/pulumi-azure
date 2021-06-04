@@ -79,6 +79,8 @@ type GetClusterNodePoolResult struct {
 	NodeCount int `pulumi:"nodeCount"`
 	// A map of Kubernetes Labels applied to each Node in this Node Pool.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
+	// Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.
+	NodePublicIpPrefixId string `pulumi:"nodePublicIpPrefixId"`
 	// A map of Kubernetes Taints applied to each Node in this Node Pool.
 	NodeTaints []string `pulumi:"nodeTaints"`
 	// The version of Kubernetes configured on each Node in this Node Pool.

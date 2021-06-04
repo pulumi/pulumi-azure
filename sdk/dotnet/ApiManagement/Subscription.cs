@@ -80,6 +80,12 @@ namespace Pulumi.Azure.ApiManagement
         public Output<bool?> AllowTracing { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("apiId")]
+        public Output<string?> ApiId { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("apiManagementName")]
@@ -180,6 +186,12 @@ namespace Pulumi.Azure.ApiManagement
         public Input<bool>? AllowTracing { get; set; }
 
         /// <summary>
+        /// The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("apiId")]
+        public Input<string>? ApiId { get; set; }
+
+        /// <summary>
         /// The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("apiManagementName", required: true)]
@@ -239,6 +251,12 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Input("allowTracing")]
         public Input<bool>? AllowTracing { get; set; }
+
+        /// <summary>
+        /// The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("apiId")]
+        public Input<string>? ApiId { get; set; }
 
         /// <summary>
         /// The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.

@@ -217,7 +217,7 @@ import (
 //  $ pulumi import azure:role/assignment:Assignment example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000
 // ```
 //
-//  - for scope `Subscription`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000` - for scope `Resource Group`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000`
+//  - for scope `Subscription`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000` - for scope `Resource Group`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000` /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000
 //
 // Deprecated: azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment
 type Assignment struct {
@@ -227,6 +227,8 @@ type Assignment struct {
 	Condition pulumi.StringPtrOutput `pulumi:"condition"`
 	// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
 	ConditionVersion pulumi.StringPtrOutput `pulumi:"conditionVersion"`
+	// The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
+	DelegatedManagedIdentityResourceId pulumi.StringPtrOutput `pulumi:"delegatedManagedIdentityResourceId"`
 	// The description for this Role Assignment. Changing this forces a new resource to be created.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
@@ -284,6 +286,8 @@ type assignmentState struct {
 	Condition *string `pulumi:"condition"`
 	// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
 	ConditionVersion *string `pulumi:"conditionVersion"`
+	// The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
+	DelegatedManagedIdentityResourceId *string `pulumi:"delegatedManagedIdentityResourceId"`
 	// The description for this Role Assignment. Changing this forces a new resource to be created.
 	Description *string `pulumi:"description"`
 	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
@@ -307,6 +311,8 @@ type AssignmentState struct {
 	Condition pulumi.StringPtrInput
 	// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
 	ConditionVersion pulumi.StringPtrInput
+	// The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
+	DelegatedManagedIdentityResourceId pulumi.StringPtrInput
 	// The description for this Role Assignment. Changing this forces a new resource to be created.
 	Description pulumi.StringPtrInput
 	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
@@ -334,6 +340,8 @@ type assignmentArgs struct {
 	Condition *string `pulumi:"condition"`
 	// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
 	ConditionVersion *string `pulumi:"conditionVersion"`
+	// The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
+	DelegatedManagedIdentityResourceId *string `pulumi:"delegatedManagedIdentityResourceId"`
 	// The description for this Role Assignment. Changing this forces a new resource to be created.
 	Description *string `pulumi:"description"`
 	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
@@ -356,6 +364,8 @@ type AssignmentArgs struct {
 	Condition pulumi.StringPtrInput
 	// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
 	ConditionVersion pulumi.StringPtrInput
+	// The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
+	DelegatedManagedIdentityResourceId pulumi.StringPtrInput
 	// The description for this Role Assignment. Changing this forces a new resource to be created.
 	Description pulumi.StringPtrInput
 	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.

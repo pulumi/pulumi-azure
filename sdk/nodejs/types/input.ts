@@ -6816,6 +6816,10 @@ export namespace containerservice {
          */
         gatewayId?: pulumi.Input<string>;
         /**
+         * The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+         */
+        gatewayName?: pulumi.Input<string>;
+        /**
          * An `ingressApplicationGatewayIdentity` block is exported. The exported attributes are defined below.
          */
         ingressApplicationGatewayIdentities?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity>[]>;
@@ -6966,7 +6970,7 @@ export namespace containerservice {
          */
         enableHostEncryption?: pulumi.Input<boolean>;
         /**
-         * Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
+         * Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
          */
         enableNodePublicIp?: pulumi.Input<boolean>;
         /**
@@ -6993,6 +6997,10 @@ export namespace containerservice {
          * A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
          */
         nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
+         */
+        nodePublicIpPrefixId?: pulumi.Input<string>;
         nodeTaints?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
@@ -7240,7 +7248,7 @@ export namespace containerservice {
          */
         adminGroupObjectIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Is Role Based Access Control based on Azure AD enabled? Changing this forces a new resource to be created.
+         * Is Role Based Access Control based on Azure AD enabled?
          */
         azureRbacEnabled?: pulumi.Input<boolean>;
         /**
@@ -8510,6 +8518,23 @@ export namespace datafactory {
          * Specifies the secret name in Azure Key Vault that stores Synapse password.
          */
         secretName: pulumi.Input<string>;
+    }
+}
+
+export namespace dataprotection {
+    export interface BackupVaultIdentity {
+        /**
+         * The Principal ID for the Service Principal associated with the Identity of this Backup Vault.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID for the Service Principal associated with the Identity of this Backup Vault.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the identity type of the Backup Vault. Possible value is `SystemAssigned`.
+         */
+        type?: pulumi.Input<string>;
     }
 }
 
@@ -13716,17 +13741,25 @@ export namespace logicapps {
 export namespace machinelearning {
     export interface InferenceClusterSsl {
         /**
-         * The certificate for the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+         * The certificate for the ssl configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
          */
         cert?: pulumi.Input<string>;
         /**
-         * The cname of the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+         * The cname of the ssl configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
          */
         cname?: pulumi.Input<string>;
         /**
-         * The key content for the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+         * The key content for the ssl configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
          */
         key?: pulumi.Input<string>;
+        /**
+         * The leaf domain label for the ssl configuration. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname`. Changing this forces a new Machine Learning Inference Cluster to be created.
+         */
+        leafDomainLabel?: pulumi.Input<string>;
+        /**
+         * Whether or not to overwrite existing leaf domain. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname` Changing this forces a new Machine Learning Inference Cluster to be created.
+         */
+        overwriteExistingDomain?: pulumi.Input<boolean>;
     }
 
     export interface WorkspaceIdentity {
@@ -16594,7 +16627,6 @@ export namespace network {
         ruleSequence: pulumi.Input<number>;
         /**
          * One `url` block as defined above
-         * ---
          */
         url?: pulumi.Input<inputs.network.ApplicationGatewayRewriteRuleSetRewriteRuleUrl>;
     }
@@ -20650,6 +20682,26 @@ export namespace storage {
          * The filter tag value used for tag based filtering for blob objects.
          */
         value: pulumi.Input<string>;
+    }
+
+    export interface ObjectReplicationRule {
+        /**
+         * The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`.
+         */
+        copyBlobsCreatedAfter?: pulumi.Input<string>;
+        /**
+         * The destination storage container name. Changing this forces a new Storage Object Replication to be created.
+         */
+        destinationContainerName: pulumi.Input<string>;
+        /**
+         * Specifies a list of filters prefixes, the blobs whose names begin with which will be replicated.
+         */
+        filterOutBlobsWithPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+        name?: pulumi.Input<string>;
+        /**
+         * The source storage container name. Changing this forces a new Storage Object Replication to be created.
+         */
+        sourceContainerName: pulumi.Input<string>;
     }
 
     export interface ShareAcl {

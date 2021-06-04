@@ -29,6 +29,7 @@ class KubernetesClusterNodePoolArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
                  os_disk_size_gb: Optional[pulumi.Input[int]] = None,
@@ -47,7 +48,7 @@ class KubernetesClusterNodePoolArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
         :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
-        :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Defaults to `false`.
+        :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
@@ -56,6 +57,7 @@ class KubernetesClusterNodePoolArgs:
         :param pulumi.Input[str] name: The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[int] node_count: The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be a value in the range `min_count` - `max_count`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
         :param pulumi.Input[str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
         :param pulumi.Input[int] os_disk_size_gb: The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
@@ -94,6 +96,8 @@ class KubernetesClusterNodePoolArgs:
             pulumi.set(__self__, "node_count", node_count)
         if node_labels is not None:
             pulumi.set(__self__, "node_labels", node_labels)
+        if node_public_ip_prefix_id is not None:
+            pulumi.set(__self__, "node_public_ip_prefix_id", node_public_ip_prefix_id)
         if node_taints is not None:
             pulumi.set(__self__, "node_taints", node_taints)
         if orchestrator_version is not None:
@@ -181,7 +185,7 @@ class KubernetesClusterNodePoolArgs:
     @pulumi.getter(name="enableNodePublicIp")
     def enable_node_public_ip(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should each node have a Public IP Address? Defaults to `false`.
+        Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "enable_node_public_ip")
 
@@ -284,6 +288,18 @@ class KubernetesClusterNodePoolArgs:
     @node_labels.setter
     def node_labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "node_labels", value)
+
+    @property
+    @pulumi.getter(name="nodePublicIpPrefixId")
+    def node_public_ip_prefix_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "node_public_ip_prefix_id")
+
+    @node_public_ip_prefix_id.setter
+    def node_public_ip_prefix_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "node_public_ip_prefix_id", value)
 
     @property
     @pulumi.getter(name="nodeTaints")
@@ -434,6 +450,7 @@ class _KubernetesClusterNodePoolState:
                  name: Optional[pulumi.Input[str]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
                  os_disk_size_gb: Optional[pulumi.Input[int]] = None,
@@ -451,7 +468,7 @@ class _KubernetesClusterNodePoolState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
         :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
-        :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Defaults to `false`.
+        :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
@@ -461,6 +478,7 @@ class _KubernetesClusterNodePoolState:
         :param pulumi.Input[str] name: The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[int] node_count: The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be a value in the range `min_count` - `max_count`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
         :param pulumi.Input[str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
         :param pulumi.Input[int] os_disk_size_gb: The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
@@ -500,6 +518,8 @@ class _KubernetesClusterNodePoolState:
             pulumi.set(__self__, "node_count", node_count)
         if node_labels is not None:
             pulumi.set(__self__, "node_labels", node_labels)
+        if node_public_ip_prefix_id is not None:
+            pulumi.set(__self__, "node_public_ip_prefix_id", node_public_ip_prefix_id)
         if node_taints is not None:
             pulumi.set(__self__, "node_taints", node_taints)
         if orchestrator_version is not None:
@@ -565,7 +585,7 @@ class _KubernetesClusterNodePoolState:
     @pulumi.getter(name="enableNodePublicIp")
     def enable_node_public_ip(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should each node have a Public IP Address? Defaults to `false`.
+        Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "enable_node_public_ip")
 
@@ -680,6 +700,18 @@ class _KubernetesClusterNodePoolState:
     @node_labels.setter
     def node_labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "node_labels", value)
+
+    @property
+    @pulumi.getter(name="nodePublicIpPrefixId")
+    def node_public_ip_prefix_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "node_public_ip_prefix_id")
+
+    @node_public_ip_prefix_id.setter
+    def node_public_ip_prefix_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "node_public_ip_prefix_id", value)
 
     @property
     @pulumi.getter(name="nodeTaints")
@@ -844,6 +876,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
                  os_disk_size_gb: Optional[pulumi.Input[int]] = None,
@@ -871,7 +904,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
         :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
-        :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Defaults to `false`.
+        :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
@@ -881,6 +914,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[int] node_count: The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be a value in the range `min_count` - `max_count`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
         :param pulumi.Input[str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
         :param pulumi.Input[int] os_disk_size_gb: The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
@@ -937,6 +971,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
                  os_disk_size_gb: Optional[pulumi.Input[int]] = None,
@@ -976,6 +1011,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["node_count"] = node_count
             __props__.__dict__["node_labels"] = node_labels
+            __props__.__dict__["node_public_ip_prefix_id"] = node_public_ip_prefix_id
             __props__.__dict__["node_taints"] = node_taints
             __props__.__dict__["orchestrator_version"] = orchestrator_version
             __props__.__dict__["os_disk_size_gb"] = os_disk_size_gb
@@ -1013,6 +1049,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             node_count: Optional[pulumi.Input[int]] = None,
             node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
             node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             orchestrator_version: Optional[pulumi.Input[str]] = None,
             os_disk_size_gb: Optional[pulumi.Input[int]] = None,
@@ -1035,7 +1072,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of Availability Zones where the Nodes in this Node Pool should be created in. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable [auto-scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler). Defaults to `false`.
         :param pulumi.Input[bool] enable_host_encryption: Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
-        :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Defaults to `false`.
+        :param pulumi.Input[bool] enable_node_public_ip: Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] eviction_policy: The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
@@ -1045,6 +1082,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[int] node_count: The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be a value in the range `min_count` - `max_count`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
         :param pulumi.Input[str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
         :param pulumi.Input[int] os_disk_size_gb: The Agent Operating System disk size in GB. Changing this forces a new resource to be created.
@@ -1075,6 +1113,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["node_count"] = node_count
         __props__.__dict__["node_labels"] = node_labels
+        __props__.__dict__["node_public_ip_prefix_id"] = node_public_ip_prefix_id
         __props__.__dict__["node_taints"] = node_taints
         __props__.__dict__["orchestrator_version"] = orchestrator_version
         __props__.__dict__["os_disk_size_gb"] = os_disk_size_gb
@@ -1117,7 +1156,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     @pulumi.getter(name="enableNodePublicIp")
     def enable_node_public_ip(self) -> pulumi.Output[Optional[bool]]:
         """
-        Should each node have a Public IP Address? Defaults to `false`.
+        Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "enable_node_public_ip")
 
@@ -1192,6 +1231,14 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "node_labels")
+
+    @property
+    @pulumi.getter(name="nodePublicIpPrefixId")
+    def node_public_ip_prefix_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "node_public_ip_prefix_id")
 
     @property
     @pulumi.getter(name="nodeTaints")

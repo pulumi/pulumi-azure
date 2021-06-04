@@ -1341,6 +1341,8 @@ class KubernetesClusterAddonProfileIngressApplicationGateway(dict):
             suggest = "effective_gateway_id"
         elif key == "gatewayId":
             suggest = "gateway_id"
+        elif key == "gatewayName":
+            suggest = "gateway_name"
         elif key == "ingressApplicationGatewayIdentities":
             suggest = "ingress_application_gateway_identities"
         elif key == "subnetCidr":
@@ -1363,6 +1365,7 @@ class KubernetesClusterAddonProfileIngressApplicationGateway(dict):
                  enabled: bool,
                  effective_gateway_id: Optional[str] = None,
                  gateway_id: Optional[str] = None,
+                 gateway_name: Optional[str] = None,
                  ingress_application_gateway_identities: Optional[Sequence['outputs.KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity']] = None,
                  subnet_cidr: Optional[str] = None,
                  subnet_id: Optional[str] = None):
@@ -1370,6 +1373,7 @@ class KubernetesClusterAddonProfileIngressApplicationGateway(dict):
         :param bool enabled: Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster?
         :param str effective_gateway_id: The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
         :param str gateway_id: The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
+        :param str gateway_name: The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
         :param Sequence['KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs'] ingress_application_gateway_identities: An `ingress_application_gateway_identity` block is exported. The exported attributes are defined below.
         :param str subnet_cidr: The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
         :param str subnet_id: The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
@@ -1379,6 +1383,8 @@ class KubernetesClusterAddonProfileIngressApplicationGateway(dict):
             pulumi.set(__self__, "effective_gateway_id", effective_gateway_id)
         if gateway_id is not None:
             pulumi.set(__self__, "gateway_id", gateway_id)
+        if gateway_name is not None:
+            pulumi.set(__self__, "gateway_name", gateway_name)
         if ingress_application_gateway_identities is not None:
             pulumi.set(__self__, "ingress_application_gateway_identities", ingress_application_gateway_identities)
         if subnet_cidr is not None:
@@ -1409,6 +1415,14 @@ class KubernetesClusterAddonProfileIngressApplicationGateway(dict):
         The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
         """
         return pulumi.get(self, "gateway_id")
+
+    @property
+    @pulumi.getter(name="gatewayName")
+    def gateway_name(self) -> Optional[str]:
+        """
+        The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+        """
+        return pulumi.get(self, "gateway_name")
 
     @property
     @pulumi.getter(name="ingressApplicationGatewayIdentities")
@@ -1925,6 +1939,8 @@ class KubernetesClusterDefaultNodePool(dict):
             suggest = "node_count"
         elif key == "nodeLabels":
             suggest = "node_labels"
+        elif key == "nodePublicIpPrefixId":
+            suggest = "node_public_ip_prefix_id"
         elif key == "nodeTaints":
             suggest = "node_taints"
         elif key == "onlyCriticalAddonsEnabled":
@@ -1965,6 +1981,7 @@ class KubernetesClusterDefaultNodePool(dict):
                  min_count: Optional[int] = None,
                  node_count: Optional[int] = None,
                  node_labels: Optional[Mapping[str, str]] = None,
+                 node_public_ip_prefix_id: Optional[str] = None,
                  node_taints: Optional[Sequence[str]] = None,
                  only_critical_addons_enabled: Optional[bool] = None,
                  orchestrator_version: Optional[str] = None,
@@ -1981,12 +1998,13 @@ class KubernetesClusterDefaultNodePool(dict):
         :param Sequence[str] availability_zones: A list of Availability Zones across which the Node Pool should be spread. Changing this forces a new resource to be created.
         :param bool enable_auto_scaling: Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
         :param bool enable_host_encryption: Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
-        :param bool enable_node_public_ip: Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
+        :param bool enable_node_public_ip: Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
         :param int max_count: The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         :param int max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
         :param int min_count: The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         :param int node_count: The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
         :param Mapping[str, str] node_labels: A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
+        :param str node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
         :param bool only_critical_addons_enabled: Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
         :param str orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
         :param int os_disk_size_gb: The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
@@ -2016,6 +2034,8 @@ class KubernetesClusterDefaultNodePool(dict):
             pulumi.set(__self__, "node_count", node_count)
         if node_labels is not None:
             pulumi.set(__self__, "node_labels", node_labels)
+        if node_public_ip_prefix_id is not None:
+            pulumi.set(__self__, "node_public_ip_prefix_id", node_public_ip_prefix_id)
         if node_taints is not None:
             pulumi.set(__self__, "node_taints", node_taints)
         if only_critical_addons_enabled is not None:
@@ -2081,7 +2101,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="enableNodePublicIp")
     def enable_node_public_ip(self) -> Optional[bool]:
         """
-        Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
+        Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "enable_node_public_ip")
 
@@ -2124,6 +2144,14 @@ class KubernetesClusterDefaultNodePool(dict):
         A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "node_labels")
+
+    @property
+    @pulumi.getter(name="nodePublicIpPrefixId")
+    def node_public_ip_prefix_id(self) -> Optional[str]:
+        """
+        Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "node_public_ip_prefix_id")
 
     @property
     @pulumi.getter(name="nodeTaints")
@@ -3045,7 +3073,7 @@ class KubernetesClusterRoleBasedAccessControlAzureActiveDirectory(dict):
                  tenant_id: Optional[str] = None):
         """
         :param Sequence[str] admin_group_object_ids: A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
-        :param bool azure_rbac_enabled: Is Role Based Access Control based on Azure AD enabled? Changing this forces a new resource to be created.
+        :param bool azure_rbac_enabled: Is Role Based Access Control based on Azure AD enabled?
         :param str client_app_id: The Client ID of an Azure Active Directory Application.
         :param bool managed: Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
         :param str server_app_id: The Server ID of an Azure Active Directory Application.
@@ -3079,7 +3107,7 @@ class KubernetesClusterRoleBasedAccessControlAzureActiveDirectory(dict):
     @pulumi.getter(name="azureRbacEnabled")
     def azure_rbac_enabled(self) -> Optional[bool]:
         """
-        Is Role Based Access Control based on Azure AD enabled? Changing this forces a new resource to be created.
+        Is Role Based Access Control based on Azure AD enabled?
         """
         return pulumi.get(self, "azure_rbac_enabled")
 
@@ -3924,6 +3952,7 @@ class GetKubernetesClusterAgentPoolProfileResult(dict):
                  min_count: int,
                  name: str,
                  node_labels: Mapping[str, str],
+                 node_public_ip_prefix_id: str,
                  node_taints: Sequence[str],
                  orchestrator_version: str,
                  os_disk_size_gb: int,
@@ -3937,10 +3966,12 @@ class GetKubernetesClusterAgentPoolProfileResult(dict):
         :param Sequence[str] availability_zones: The availability zones used for the nodes.
         :param int count: The number of Agents (VM's) in the Pool.
         :param bool enable_auto_scaling: If the auto-scaler is enabled.
+        :param bool enable_node_public_ip: If the Public IPs for the nodes in this Agent Pool are enabled.
         :param int max_count: Maximum number of nodes for auto-scaling
         :param int max_pods: The maximum number of pods that can run on each agent.
         :param int min_count: Minimum number of nodes for auto-scaling
         :param str name: The name of the managed Kubernetes Cluster.
+        :param str node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.
         :param str orchestrator_version: Kubernetes version used for the Agents.
         :param int os_disk_size_gb: The size of the Agent VM's Operating System Disk in GB.
         :param str os_type: The Operating System used for the Agents.
@@ -3959,6 +3990,7 @@ class GetKubernetesClusterAgentPoolProfileResult(dict):
         pulumi.set(__self__, "min_count", min_count)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "node_labels", node_labels)
+        pulumi.set(__self__, "node_public_ip_prefix_id", node_public_ip_prefix_id)
         pulumi.set(__self__, "node_taints", node_taints)
         pulumi.set(__self__, "orchestrator_version", orchestrator_version)
         pulumi.set(__self__, "os_disk_size_gb", os_disk_size_gb)
@@ -3996,6 +4028,9 @@ class GetKubernetesClusterAgentPoolProfileResult(dict):
     @property
     @pulumi.getter(name="enableNodePublicIp")
     def enable_node_public_ip(self) -> bool:
+        """
+        If the Public IPs for the nodes in this Agent Pool are enabled.
+        """
         return pulumi.get(self, "enable_node_public_ip")
 
     @property
@@ -4034,6 +4069,14 @@ class GetKubernetesClusterAgentPoolProfileResult(dict):
     @pulumi.getter(name="nodeLabels")
     def node_labels(self) -> Mapping[str, str]:
         return pulumi.get(self, "node_labels")
+
+    @property
+    @pulumi.getter(name="nodePublicIpPrefixId")
+    def node_public_ip_prefix_id(self) -> str:
+        """
+        Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.
+        """
+        return pulumi.get(self, "node_public_ip_prefix_id")
 
     @property
     @pulumi.getter(name="nodeTaints")

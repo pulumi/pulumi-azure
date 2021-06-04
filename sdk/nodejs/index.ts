@@ -42,6 +42,7 @@ import * as databoxedge from "./databoxedge";
 import * as databricks from "./databricks";
 import * as datafactory from "./datafactory";
 import * as datalake from "./datalake";
+import * as dataprotection from "./dataprotection";
 import * as datashare from "./datashare";
 import * as desktopvirtualization from "./desktopvirtualization";
 import * as devspace from "./devspace";
@@ -143,6 +144,7 @@ export {
     databricks,
     datafactory,
     datalake,
+    dataprotection,
     datashare,
     desktopvirtualization,
     devspace,

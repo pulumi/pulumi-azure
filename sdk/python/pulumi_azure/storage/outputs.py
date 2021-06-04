@@ -39,6 +39,7 @@ __all__ = [
     'ManagementPolicyRuleActionsVersion',
     'ManagementPolicyRuleFilters',
     'ManagementPolicyRuleFiltersMatchBlobIndexTag',
+    'ObjectReplicationRule',
     'ShareAcl',
     'ShareAclAccessPolicy',
     'TableAcl',
@@ -1870,6 +1871,90 @@ class ManagementPolicyRuleFiltersMatchBlobIndexTag(dict):
         The comparison operator which is used for object comparison and filtering. Possible value is `==`. Defaults to `==`.
         """
         return pulumi.get(self, "operation")
+
+
+@pulumi.output_type
+class ObjectReplicationRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationContainerName":
+            suggest = "destination_container_name"
+        elif key == "sourceContainerName":
+            suggest = "source_container_name"
+        elif key == "copyBlobsCreatedAfter":
+            suggest = "copy_blobs_created_after"
+        elif key == "filterOutBlobsWithPrefixes":
+            suggest = "filter_out_blobs_with_prefixes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObjectReplicationRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObjectReplicationRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObjectReplicationRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_container_name: str,
+                 source_container_name: str,
+                 copy_blobs_created_after: Optional[str] = None,
+                 filter_out_blobs_with_prefixes: Optional[Sequence[str]] = None,
+                 name: Optional[str] = None):
+        """
+        :param str destination_container_name: The destination storage container name. Changing this forces a new Storage Object Replication to be created.
+        :param str source_container_name: The source storage container name. Changing this forces a new Storage Object Replication to be created.
+        :param str copy_blobs_created_after: The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`.
+        :param Sequence[str] filter_out_blobs_with_prefixes: Specifies a list of filters prefixes, the blobs whose names begin with which will be replicated.
+        """
+        pulumi.set(__self__, "destination_container_name", destination_container_name)
+        pulumi.set(__self__, "source_container_name", source_container_name)
+        if copy_blobs_created_after is not None:
+            pulumi.set(__self__, "copy_blobs_created_after", copy_blobs_created_after)
+        if filter_out_blobs_with_prefixes is not None:
+            pulumi.set(__self__, "filter_out_blobs_with_prefixes", filter_out_blobs_with_prefixes)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="destinationContainerName")
+    def destination_container_name(self) -> str:
+        """
+        The destination storage container name. Changing this forces a new Storage Object Replication to be created.
+        """
+        return pulumi.get(self, "destination_container_name")
+
+    @property
+    @pulumi.getter(name="sourceContainerName")
+    def source_container_name(self) -> str:
+        """
+        The source storage container name. Changing this forces a new Storage Object Replication to be created.
+        """
+        return pulumi.get(self, "source_container_name")
+
+    @property
+    @pulumi.getter(name="copyBlobsCreatedAfter")
+    def copy_blobs_created_after(self) -> Optional[str]:
+        """
+        The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`.
+        """
+        return pulumi.get(self, "copy_blobs_created_after")
+
+    @property
+    @pulumi.getter(name="filterOutBlobsWithPrefixes")
+    def filter_out_blobs_with_prefixes(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of filters prefixes, the blobs whose names begin with which will be replicated.
+        """
+        return pulumi.get(self, "filter_out_blobs_with_prefixes")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

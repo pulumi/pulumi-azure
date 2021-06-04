@@ -26,7 +26,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly bool? EnableHostEncryption;
         /// <summary>
-        /// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
+        /// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly bool? EnableNodePublicIp;
         /// <summary>
@@ -53,6 +53,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? NodeLabels;
+        /// <summary>
+        /// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string? NodePublicIpPrefixId;
         public readonly ImmutableArray<string> NodeTaints;
         /// <summary>
         /// Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
@@ -114,6 +118,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             ImmutableDictionary<string, string>? nodeLabels,
 
+            string? nodePublicIpPrefixId,
+
             ImmutableArray<string> nodeTaints,
 
             bool? onlyCriticalAddonsEnabled,
@@ -146,6 +152,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             Name = name;
             NodeCount = nodeCount;
             NodeLabels = nodeLabels;
+            NodePublicIpPrefixId = nodePublicIpPrefixId;
             NodeTaints = nodeTaints;
             OnlyCriticalAddonsEnabled = onlyCriticalAddonsEnabled;
             OrchestratorVersion = orchestratorVersion;

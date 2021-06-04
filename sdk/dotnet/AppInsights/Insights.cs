@@ -91,7 +91,7 @@ namespace Pulumi.Azure.AppInsights
         public Output<bool?> DisableIpMasking { get; private set; } = null!;
 
         /// <summary>
-        /// The Instrumentation Key for this Application Insights component.
+        /// The Instrumentation Key for this Application Insights component. (Sensitive)
         /// </summary>
         [Output("instrumentationKey")]
         public Output<string> InstrumentationKey { get; private set; } = null!;
@@ -292,7 +292,7 @@ namespace Pulumi.Azure.AppInsights
         public Input<bool>? DisableIpMasking { get; set; }
 
         /// <summary>
-        /// The Instrumentation Key for this Application Insights component.
+        /// The Instrumentation Key for this Application Insights component. (Sensitive)
         /// </summary>
         [Input("instrumentationKey")]
         public Input<string>? InstrumentationKey { get; set; }

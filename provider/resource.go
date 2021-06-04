@@ -75,6 +75,7 @@ const (
 	azureDataboxEdge           = "DataboxEdge"           // Databox Edge
 	azureDataFactory           = "DataFactory"           // Data Factory
 	azureDatalake              = "DataLake"              // Data Lake
+	azureDataProtection        = "DataProtection"        // Data Protection
 	azureDataShare             = "DataShare"             // DataShare
 	azureDataBricks            = "DataBricks"            // DataBricks
 	azureDesktopVirtualization = "DesktopVirtualization" // Desktop Virtualization
@@ -789,6 +790,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_lake_store_firewall_rule":        {Tok: azureResource(azureDatalake, "StoreFirewallRule")},
 			"azurerm_data_lake_store_virtual_network_rule": {Tok: azureResource(azureDatalake, "StoreVirtualNetworkRule")},
 
+			// Data Protection
+			"azurerm_data_protection_backup_vault": {Tok: azureResource(azureDataProtection, "BackupVault")},
+
 			// DataShare
 			"azurerm_data_share_account": {Tok: azureResource(azureDataShare, "Account")},
 			"azurerm_data_share":         {Tok: azureResource(azureDataShare, "Share")},
@@ -1163,6 +1167,9 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: azureResource(azurePostgresql, "ActiveDirectoryAdministrator"),
 			},
 			"azurerm_postgresql_flexible_server": {Tok: azureResource(azurePostgresql, "FlexibleServer")},
+			"azurerm_postgresql_flexible_server_firewall_rule": {
+				Tok: azureResource(azurePostgresql, "FlexibleServerFirewallRule"),
+			},
 
 			// Policy
 			"azurerm_policy_assignment":     {Tok: azureResource(azurePolicy, "Assignment")},
@@ -1538,6 +1545,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_storage_share_file":                   {Tok: azureResource(azureStorage, "ShareFile")},
 			"azurerm_storage_sync_cloud_endpoint":          {Tok: azureResource(azureStorage, "SyncCloudEndpoint")},
 			"azurerm_storage_blob_inventory_policy":        {Tok: azureResource(azureStorage, "BlobInventoryPolicy")},
+			"azurerm_storage_object_replication": {
+				Tok: azureResource(azureStorage, "ObjectReplication"),
+			},
 
 			//StreamAnalytics
 			"azurerm_stream_analytics_function_javascript_udf": {
@@ -1797,6 +1807,9 @@ func Provider() tfbridge.ProviderInfo {
 			// VMWare
 			"azurerm_vmware_private_cloud": {Tok: azureResource(azureAvs, "PrivateCloud")},
 			"azurerm_vmware_cluster":       {Tok: azureResource(azureAvs, "Cluster")},
+			"azurerm_vmware_express_route_authorization": {
+				Tok: azureResource(azureAvs, "ExpressRouteAuthorization"),
+			},
 
 			// Purview
 			"azurerm_purview_account": {Tok: azureResource(azurePurview, "Account")},
@@ -2113,6 +2126,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_billing_enrollment_account_scope": {Tok: azureDataSource(azureBilling, "getEnrollmentAccountScope")},
 			"azurerm_billing_mca_account_scope":        {Tok: azureDataSource(azureBilling, "getMcaAccountScope")},
 			"azurerm_eventhub_cluster":                 {Tok: azureDataSource(azureEventHub, "getCluster")},
+			"azurerm_spatial_anchors_account":          {Tok: azureDataSource(azureMixedReality, "getSpatialAnchorsAccount")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{

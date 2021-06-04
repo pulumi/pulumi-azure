@@ -184,11 +184,14 @@ class _EnvironmentState:
                  allowed_user_ip_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentClusterSettingArgs']]]] = None,
                  front_end_scale_factor: Optional[pulumi.Input[int]] = None,
+                 internal_ip_address: Optional[pulumi.Input[str]] = None,
                  internal_load_balancing_mode: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  pricing_tier: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 service_ip_address: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_whitelisted_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -197,11 +200,14 @@ class _EnvironmentState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_user_ip_cidrs: Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentClusterSettingArgs']]] cluster_settings: Zero or more `cluster_setting` blocks as defined below.
         :param pulumi.Input[int] front_end_scale_factor: Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
+        :param pulumi.Input[str] internal_ip_address: IP address of internal load balancer of the App Service Environment.
         :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
         :param pulumi.Input[str] location: The location where the App Service Environment exists.
         :param pulumi.Input[str] name: The name of the App Service Environment. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_addresses: List of outbound IP addresses of the App Service Environment.
         :param pulumi.Input[str] pricing_tier: Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`).
+        :param pulumi.Input[str] service_ip_address: IP address of service endpoint of the App Service Environment.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         """
@@ -211,16 +217,22 @@ class _EnvironmentState:
             pulumi.set(__self__, "cluster_settings", cluster_settings)
         if front_end_scale_factor is not None:
             pulumi.set(__self__, "front_end_scale_factor", front_end_scale_factor)
+        if internal_ip_address is not None:
+            pulumi.set(__self__, "internal_ip_address", internal_ip_address)
         if internal_load_balancing_mode is not None:
             pulumi.set(__self__, "internal_load_balancing_mode", internal_load_balancing_mode)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if outbound_ip_addresses is not None:
+            pulumi.set(__self__, "outbound_ip_addresses", outbound_ip_addresses)
         if pricing_tier is not None:
             pulumi.set(__self__, "pricing_tier", pricing_tier)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if service_ip_address is not None:
+            pulumi.set(__self__, "service_ip_address", service_ip_address)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
@@ -268,6 +280,18 @@ class _EnvironmentState:
         pulumi.set(self, "front_end_scale_factor", value)
 
     @property
+    @pulumi.getter(name="internalIpAddress")
+    def internal_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        IP address of internal load balancer of the App Service Environment.
+        """
+        return pulumi.get(self, "internal_ip_address")
+
+    @internal_ip_address.setter
+    def internal_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "internal_ip_address", value)
+
+    @property
     @pulumi.getter(name="internalLoadBalancingMode")
     def internal_load_balancing_mode(self) -> Optional[pulumi.Input[str]]:
         """
@@ -304,6 +328,18 @@ class _EnvironmentState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="outboundIpAddresses")
+    def outbound_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of outbound IP addresses of the App Service Environment.
+        """
+        return pulumi.get(self, "outbound_ip_addresses")
+
+    @outbound_ip_addresses.setter
+    def outbound_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "outbound_ip_addresses", value)
+
+    @property
     @pulumi.getter(name="pricingTier")
     def pricing_tier(self) -> Optional[pulumi.Input[str]]:
         """
@@ -326,6 +362,18 @@ class _EnvironmentState:
     @resource_group_name.setter
     def resource_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="serviceIpAddress")
+    def service_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        IP address of service endpoint of the App Service Environment.
+        """
+        return pulumi.get(self, "service_ip_address")
+
+    @service_ip_address.setter
+    def service_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_ip_address", value)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -537,7 +585,10 @@ class Environment(pulumi.CustomResource):
                 warnings.warn("""this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format""", DeprecationWarning)
                 pulumi.log.warn("""user_whitelisted_ip_ranges is deprecated: this property has been renamed to `allowed_user_ip_cidrs` better reflect the expected ip range format""")
             __props__.__dict__["user_whitelisted_ip_ranges"] = user_whitelisted_ip_ranges
+            __props__.__dict__["internal_ip_address"] = None
             __props__.__dict__["location"] = None
+            __props__.__dict__["outbound_ip_addresses"] = None
+            __props__.__dict__["service_ip_address"] = None
         super(Environment, __self__).__init__(
             'azure:appservice/environment:Environment',
             resource_name,
@@ -551,11 +602,14 @@ class Environment(pulumi.CustomResource):
             allowed_user_ip_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentClusterSettingArgs']]]]] = None,
             front_end_scale_factor: Optional[pulumi.Input[int]] = None,
+            internal_ip_address: Optional[pulumi.Input[str]] = None,
             internal_load_balancing_mode: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             pricing_tier: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            service_ip_address: Optional[pulumi.Input[str]] = None,
             subnet_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             user_whitelisted_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Environment':
@@ -569,11 +623,14 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_user_ip_cidrs: Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentClusterSettingArgs']]]] cluster_settings: Zero or more `cluster_setting` blocks as defined below.
         :param pulumi.Input[int] front_end_scale_factor: Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
+        :param pulumi.Input[str] internal_ip_address: IP address of internal load balancer of the App Service Environment.
         :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
         :param pulumi.Input[str] location: The location where the App Service Environment exists.
         :param pulumi.Input[str] name: The name of the App Service Environment. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_addresses: List of outbound IP addresses of the App Service Environment.
         :param pulumi.Input[str] pricing_tier: Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`).
+        :param pulumi.Input[str] service_ip_address: IP address of service endpoint of the App Service Environment.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         """
@@ -584,11 +641,14 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["allowed_user_ip_cidrs"] = allowed_user_ip_cidrs
         __props__.__dict__["cluster_settings"] = cluster_settings
         __props__.__dict__["front_end_scale_factor"] = front_end_scale_factor
+        __props__.__dict__["internal_ip_address"] = internal_ip_address
         __props__.__dict__["internal_load_balancing_mode"] = internal_load_balancing_mode
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["outbound_ip_addresses"] = outbound_ip_addresses
         __props__.__dict__["pricing_tier"] = pricing_tier
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["service_ip_address"] = service_ip_address
         __props__.__dict__["subnet_id"] = subnet_id
         __props__.__dict__["tags"] = tags
         __props__.__dict__["user_whitelisted_ip_ranges"] = user_whitelisted_ip_ranges
@@ -619,6 +679,14 @@ class Environment(pulumi.CustomResource):
         return pulumi.get(self, "front_end_scale_factor")
 
     @property
+    @pulumi.getter(name="internalIpAddress")
+    def internal_ip_address(self) -> pulumi.Output[str]:
+        """
+        IP address of internal load balancer of the App Service Environment.
+        """
+        return pulumi.get(self, "internal_ip_address")
+
+    @property
     @pulumi.getter(name="internalLoadBalancingMode")
     def internal_load_balancing_mode(self) -> pulumi.Output[Optional[str]]:
         """
@@ -643,6 +711,14 @@ class Environment(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="outboundIpAddresses")
+    def outbound_ip_addresses(self) -> pulumi.Output[Sequence[str]]:
+        """
+        List of outbound IP addresses of the App Service Environment.
+        """
+        return pulumi.get(self, "outbound_ip_addresses")
+
+    @property
     @pulumi.getter(name="pricingTier")
     def pricing_tier(self) -> pulumi.Output[Optional[str]]:
         """
@@ -657,6 +733,14 @@ class Environment(pulumi.CustomResource):
         The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`).
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="serviceIpAddress")
+    def service_ip_address(self) -> pulumi.Output[str]:
+        """
+        IP address of service endpoint of the App Service Environment.
+        """
+        return pulumi.get(self, "service_ip_address")
 
     @property
     @pulumi.getter(name="subnetId")

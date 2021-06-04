@@ -35,7 +35,6 @@ namespace Pulumi.Azure.Network.Outputs
         public readonly int RuleSequence;
         /// <summary>
         /// One `url` block as defined above
-        /// ---
         /// </summary>
         public readonly Outputs.ApplicationGatewayRewriteRuleSetRewriteRuleUrl? Url;
 
