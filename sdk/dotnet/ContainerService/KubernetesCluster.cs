@@ -128,7 +128,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> Fqdn { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new resource to be created.
+        /// An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.KubernetesClusterIdentity?> Identity { get; private set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<ImmutableArray<Outputs.KubernetesClusterKubeConfig>> KubeConfigs { get; private set; } = null!;
 
         /// <summary>
-        /// A `kubelet_identity` block as defined below.
+        /// A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("kubeletIdentities")]
         public Output<ImmutableArray<Outputs.KubernetesClusterKubeletIdentity>> KubeletIdentities { get; private set; } = null!;
@@ -233,7 +233,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterRoleBasedAccessControl> RoleBasedAccessControl { get; private set; } = null!;
 
         /// <summary>
-        /// A `service_principal` block as documented below.
+        /// A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         /// </summary>
         [Output("servicePrincipal")]
         public Output<Outputs.KubernetesClusterServicePrincipal?> ServicePrincipal { get; private set; } = null!;
@@ -360,10 +360,22 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? EnablePodSecurityPolicy { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new resource to be created.
+        /// An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.KubernetesClusterIdentityArgs>? Identity { get; set; }
+
+        [Input("kubeletIdentities")]
+        private InputList<Inputs.KubernetesClusterKubeletIdentityArgs>? _kubeletIdentities;
+
+        /// <summary>
+        /// A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        public InputList<Inputs.KubernetesClusterKubeletIdentityArgs> KubeletIdentities
+        {
+            get => _kubeletIdentities ?? (_kubeletIdentities = new InputList<Inputs.KubernetesClusterKubeletIdentityArgs>());
+            set => _kubeletIdentities = value;
+        }
 
         /// <summary>
         /// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
@@ -429,7 +441,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterRoleBasedAccessControlArgs>? RoleBasedAccessControl { get; set; }
 
         /// <summary>
-        /// A `service_principal` block as documented below.
+        /// A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         /// </summary>
         [Input("servicePrincipal")]
         public Input<Inputs.KubernetesClusterServicePrincipalArgs>? ServicePrincipal { get; set; }
@@ -529,7 +541,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? Fqdn { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new resource to be created.
+        /// An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.KubernetesClusterIdentityGetArgs>? Identity { get; set; }
@@ -574,7 +586,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<Inputs.KubernetesClusterKubeletIdentityGetArgs>? _kubeletIdentities;
 
         /// <summary>
-        /// A `kubelet_identity` block as defined below.
+        /// A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.KubernetesClusterKubeletIdentityGetArgs> KubeletIdentities
         {
@@ -652,7 +664,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterRoleBasedAccessControlGetArgs>? RoleBasedAccessControl { get; set; }
 
         /// <summary>
-        /// A `service_principal` block as documented below.
+        /// A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         /// </summary>
         [Input("servicePrincipal")]
         public Input<Inputs.KubernetesClusterServicePrincipalGetArgs>? ServicePrincipal { get; set; }

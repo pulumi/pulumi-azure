@@ -58,6 +58,8 @@ import (
 type PublicIpPrefix struct {
 	pulumi.CustomResourceState
 
+	// The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
 	// The IP address prefix value that was allocated.
 	IpPrefix pulumi.StringOutput `pulumi:"ipPrefix"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -72,8 +74,8 @@ type PublicIpPrefix struct {
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A collection containing the availability zone to allocate the Public IP Prefix in.
-	Zones pulumi.StringPtrOutput `pulumi:"zones"`
+	// Deprecated: This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/
+	Zones pulumi.StringOutput `pulumi:"zones"`
 }
 
 // NewPublicIpPrefix registers a new resource with the given unique name, arguments, and options.
@@ -108,6 +110,8 @@ func GetPublicIpPrefix(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PublicIpPrefix resources.
 type publicIpPrefixState struct {
+	// The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// The IP address prefix value that was allocated.
 	IpPrefix *string `pulumi:"ipPrefix"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -122,11 +126,13 @@ type publicIpPrefixState struct {
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A collection containing the availability zone to allocate the Public IP Prefix in.
+	// Deprecated: This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/
 	Zones *string `pulumi:"zones"`
 }
 
 type PublicIpPrefixState struct {
+	// The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+	AvailabilityZone pulumi.StringPtrInput
 	// The IP address prefix value that was allocated.
 	IpPrefix pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -141,7 +147,7 @@ type PublicIpPrefixState struct {
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// A collection containing the availability zone to allocate the Public IP Prefix in.
+	// Deprecated: This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/
 	Zones pulumi.StringPtrInput
 }
 
@@ -150,6 +156,8 @@ func (PublicIpPrefixState) ElementType() reflect.Type {
 }
 
 type publicIpPrefixArgs struct {
+	// The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
@@ -162,12 +170,14 @@ type publicIpPrefixArgs struct {
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A collection containing the availability zone to allocate the Public IP Prefix in.
+	// Deprecated: This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/
 	Zones *string `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a PublicIpPrefix resource.
 type PublicIpPrefixArgs struct {
+	// The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+	AvailabilityZone pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
@@ -180,7 +190,7 @@ type PublicIpPrefixArgs struct {
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// A collection containing the availability zone to allocate the Public IP Prefix in.
+	// Deprecated: This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/
 	Zones pulumi.StringPtrInput
 }
 

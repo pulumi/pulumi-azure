@@ -89,7 +89,11 @@ export class DatasetDelimitedText extends pulumi.CustomResource {
      */
     public readonly annotations!: pulumi.Output<string[] | undefined>;
     /**
-     * A `azureBlobStorageLocation` block as defined below.
+     * An `azureBlobFsLocation` block as defined below.
+     */
+    public readonly azureBlobFsLocation!: pulumi.Output<outputs.datafactory.DatasetDelimitedTextAzureBlobFsLocation | undefined>;
+    /**
+     * An `azureBlobStorageLocation` block as defined below.
      */
     public readonly azureBlobStorageLocation!: pulumi.Output<outputs.datafactory.DatasetDelimitedTextAzureBlobStorageLocation | undefined>;
     /**
@@ -180,6 +184,7 @@ export class DatasetDelimitedText extends pulumi.CustomResource {
             const state = argsOrState as DatasetDelimitedTextState | undefined;
             inputs["additionalProperties"] = state ? state.additionalProperties : undefined;
             inputs["annotations"] = state ? state.annotations : undefined;
+            inputs["azureBlobFsLocation"] = state ? state.azureBlobFsLocation : undefined;
             inputs["azureBlobStorageLocation"] = state ? state.azureBlobStorageLocation : undefined;
             inputs["columnDelimiter"] = state ? state.columnDelimiter : undefined;
             inputs["compressionCodec"] = state ? state.compressionCodec : undefined;
@@ -212,6 +217,7 @@ export class DatasetDelimitedText extends pulumi.CustomResource {
             }
             inputs["additionalProperties"] = args ? args.additionalProperties : undefined;
             inputs["annotations"] = args ? args.annotations : undefined;
+            inputs["azureBlobFsLocation"] = args ? args.azureBlobFsLocation : undefined;
             inputs["azureBlobStorageLocation"] = args ? args.azureBlobStorageLocation : undefined;
             inputs["columnDelimiter"] = args ? args.columnDelimiter : undefined;
             inputs["compressionCodec"] = args ? args.compressionCodec : undefined;
@@ -252,7 +258,11 @@ export interface DatasetDelimitedTextState {
      */
     annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A `azureBlobStorageLocation` block as defined below.
+     * An `azureBlobFsLocation` block as defined below.
+     */
+    azureBlobFsLocation?: pulumi.Input<inputs.datafactory.DatasetDelimitedTextAzureBlobFsLocation>;
+    /**
+     * An `azureBlobStorageLocation` block as defined below.
      */
     azureBlobStorageLocation?: pulumi.Input<inputs.datafactory.DatasetDelimitedTextAzureBlobStorageLocation>;
     /**
@@ -342,7 +352,11 @@ export interface DatasetDelimitedTextArgs {
      */
     annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A `azureBlobStorageLocation` block as defined below.
+     * An `azureBlobFsLocation` block as defined below.
+     */
+    azureBlobFsLocation?: pulumi.Input<inputs.datafactory.DatasetDelimitedTextAzureBlobFsLocation>;
+    /**
+     * An `azureBlobStorageLocation` block as defined below.
      */
     azureBlobStorageLocation?: pulumi.Input<inputs.datafactory.DatasetDelimitedTextAzureBlobStorageLocation>;
     /**

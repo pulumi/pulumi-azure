@@ -7625,7 +7625,7 @@ export namespace consumption {
 
     export interface BudgetResourceGroupFilterDimension {
         /**
-         * The name of the column to use for the filter. The allowed values are
+         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
          */
         name: string;
         /**
@@ -7633,7 +7633,7 @@ export namespace consumption {
          */
         operator?: string;
         /**
-         * Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+         * Specifies a list of values for the column.
          */
         values: string[];
     }
@@ -7651,7 +7651,7 @@ export namespace consumption {
 
     export interface BudgetResourceGroupFilterNotDimension {
         /**
-         * The name of the column to use for the filter. The allowed values are
+         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
          */
         name: string;
         /**
@@ -7659,7 +7659,7 @@ export namespace consumption {
          */
         operator?: string;
         /**
-         * Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+         * Specifies a list of values for the column.
          */
         values: string[];
     }
@@ -7749,7 +7749,7 @@ export namespace consumption {
 
     export interface BudgetSubscriptionFilterDimension {
         /**
-         * The name of the column to use for the filter. The allowed values are
+         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
          */
         name: string;
         /**
@@ -7757,7 +7757,7 @@ export namespace consumption {
          */
         operator?: string;
         /**
-         * Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+         * Specifies a list of values for the column.
          */
         values: string[];
     }
@@ -7775,7 +7775,7 @@ export namespace consumption {
 
     export interface BudgetSubscriptionFilterNotDimension {
         /**
-         * The name of the column to use for the filter. The allowed values are
+         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
          */
         name: string;
         /**
@@ -7783,7 +7783,7 @@ export namespace consumption {
          */
         operator?: string;
         /**
-         * Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+         * Specifies a list of values for the column.
          */
         values: string[];
     }
@@ -8634,11 +8634,11 @@ export namespace containerservice {
 
     export interface KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity {
         /**
-         * The Client ID for the Service Principal.
+         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
          */
         clientId: string;
         /**
-         * The Object ID of the user-defined Managed Identity used by the OMS Agents.
+         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
          */
         objectId: string;
         /**
@@ -8671,11 +8671,11 @@ export namespace containerservice {
 
     export interface KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity {
         /**
-         * The Client ID for the Service Principal.
+         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
          */
         clientId: string;
         /**
-         * The Object ID of the user-defined Managed Identity used by the OMS Agents.
+         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
          */
         objectId: string;
         /**
@@ -8922,15 +8922,15 @@ export namespace containerservice {
 
     export interface KubernetesClusterKubeletIdentity {
         /**
-         * The Client ID for the Service Principal.
+         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
          */
         clientId: string;
         /**
-         * The Object ID of the user-defined Managed Identity used by the OMS Agents.
+         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
          */
         objectId: string;
         /**
-         * The ID of a user assigned identity.
+         * The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
          */
         userAssignedIdentityId: string;
     }
@@ -9531,17 +9531,39 @@ export namespace cosmosdb {
          */
         automatic?: boolean;
         /**
+         * One or more `compositeIndex` blocks as defined below.
+         */
+        compositeIndices?: outputs.cosmosdb.GremlinGraphIndexPolicyCompositeIndex[];
+        /**
          * List of paths to exclude from indexing. Required if `indexingMode` is `Consistent` or `Lazy`.
          */
-        excludedPaths?: string[];
+        excludedPaths: string[];
         /**
          * List of paths to include in the indexing. Required if `indexingMode` is `Consistent` or `Lazy`.
          */
-        includedPaths?: string[];
+        includedPaths: string[];
         /**
          * Indicates the indexing mode. Possible values include: `Consistent`, `Lazy`, `None`.
          */
         indexingMode: string;
+    }
+
+    export interface GremlinGraphIndexPolicyCompositeIndex {
+        /**
+         * One or more `index` blocks as defined below.
+         */
+        indices: outputs.cosmosdb.GremlinGraphIndexPolicyCompositeIndexIndex[];
+    }
+
+    export interface GremlinGraphIndexPolicyCompositeIndexIndex {
+        /**
+         * Order of the index. Possible values are `Ascending` or `Descending`.
+         */
+        order: string;
+        /**
+         * Path for which the indexing behaviour applies to.
+         */
+        path: string;
     }
 
     export interface GremlinGraphUniqueKey {
@@ -9925,17 +9947,32 @@ export namespace datafactory {
         type?: string;
     }
 
+    export interface DatasetDelimitedTextAzureBlobFsLocation {
+        /**
+         * The storage data lake gen2 file system on the Azure Blob Storage Account hosting the file.
+         */
+        fileSystem: string;
+        /**
+         * The filename of the file.
+         */
+        filename?: string;
+        /**
+         * The folder path to the file.
+         */
+        path?: string;
+    }
+
     export interface DatasetDelimitedTextAzureBlobStorageLocation {
         /**
          * The container on the Azure Blob Storage Account hosting the file.
          */
         container: string;
         /**
-         * The filename of the file on the web server.
+         * The filename of the file.
          */
         filename: string;
         /**
-         * The folder path to the file on the web server.
+         * The folder path to the file.
          */
         path: string;
     }
@@ -10443,6 +10480,17 @@ export namespace datafactory {
         secretName: string;
     }
 
+    export interface LinkedServiceAzureSqlDatabaseKeyVaultConnectionString {
+        /**
+         * Specifies the name of an existing Key Vault Data Factory Linked Service.
+         */
+        linkedServiceName: string;
+        /**
+         * Specifies the secret name in Azure Key Vault that stores SQL Server connection string.
+         */
+        secretName: string;
+    }
+
     export interface LinkedServiceAzureSqlDatabaseKeyVaultPassword {
         /**
          * Specifies the name of an existing Key Vault Data Factory Linked Service.
@@ -10461,6 +10509,17 @@ export namespace datafactory {
         linkedServiceName: string;
         /**
          * Specifies the secret name in Azure Key Vault that stores Snowflake password.
+         */
+        secretName: string;
+    }
+
+    export interface LinkedServiceSqlServerKeyVaultConnectionString {
+        /**
+         * Specifies the name of an existing Key Vault Data Factory Linked Service.
+         */
+        linkedServiceName: string;
+        /**
+         * Specifies the secret name in Azure Key Vault that stores SQL Server connection string.
          */
         secretName: string;
     }
@@ -15979,7 +16038,7 @@ export namespace lb {
         /**
          * The version of IP that the Private IP Address is. Possible values are `IPv4` or `IPv6`.
          */
-        privateIpAddressVersion?: string;
+        privateIpAddressVersion: string;
         /**
          * The ID of a Public IP Address which should be associated with the Load Balancer.
          */
@@ -23791,6 +23850,10 @@ export namespace storage {
 
     export interface AccountIdentity {
         /**
+         * A list of IDs for User Assigned Managed Identity resources to be assigned.
+         */
+        identityIds?: string[];
+        /**
          * The Principal ID for the Service Principal associated with the Identity of this Storage Account.
          */
         principalId: string;
@@ -23799,7 +23862,7 @@ export namespace storage {
          */
         tenantId: string;
         /**
-         * Specifies the identity type of the Storage Account. At this time the only allowed value is `SystemAssigned`.
+         * Specifies the identity type of the Storage Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned,UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -24596,6 +24659,21 @@ export namespace streamanalytics {
 }
 
 export namespace synapse {
+    export interface GetWorkspaceIdentity {
+        /**
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
+         */
+        tenantId: string;
+        /**
+         * The Identity Type for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
+         */
+        type: string;
+    }
+
     export interface SparkPoolAutoPause {
         /**
          * Number of minutes of idle time before the Spark Pool is automatically paused. Must be between `5` and `10080`.

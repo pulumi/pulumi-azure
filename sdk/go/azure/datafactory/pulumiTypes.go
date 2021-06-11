@@ -240,12 +240,181 @@ func (o DatasetCosmosDBApiSchemaColumnArrayOutput) Index(i pulumi.IntInput) Data
 	}).(DatasetCosmosDBApiSchemaColumnOutput)
 }
 
+type DatasetDelimitedTextAzureBlobFsLocation struct {
+	// The storage data lake gen2 file system on the Azure Blob Storage Account hosting the file.
+	FileSystem string `pulumi:"fileSystem"`
+	// The filename of the file.
+	Filename *string `pulumi:"filename"`
+	// The folder path to the file.
+	Path *string `pulumi:"path"`
+}
+
+// DatasetDelimitedTextAzureBlobFsLocationInput is an input type that accepts DatasetDelimitedTextAzureBlobFsLocationArgs and DatasetDelimitedTextAzureBlobFsLocationOutput values.
+// You can construct a concrete instance of `DatasetDelimitedTextAzureBlobFsLocationInput` via:
+//
+//          DatasetDelimitedTextAzureBlobFsLocationArgs{...}
+type DatasetDelimitedTextAzureBlobFsLocationInput interface {
+	pulumi.Input
+
+	ToDatasetDelimitedTextAzureBlobFsLocationOutput() DatasetDelimitedTextAzureBlobFsLocationOutput
+	ToDatasetDelimitedTextAzureBlobFsLocationOutputWithContext(context.Context) DatasetDelimitedTextAzureBlobFsLocationOutput
+}
+
+type DatasetDelimitedTextAzureBlobFsLocationArgs struct {
+	// The storage data lake gen2 file system on the Azure Blob Storage Account hosting the file.
+	FileSystem pulumi.StringInput `pulumi:"fileSystem"`
+	// The filename of the file.
+	Filename pulumi.StringPtrInput `pulumi:"filename"`
+	// The folder path to the file.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (DatasetDelimitedTextAzureBlobFsLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetDelimitedTextAzureBlobFsLocation)(nil)).Elem()
+}
+
+func (i DatasetDelimitedTextAzureBlobFsLocationArgs) ToDatasetDelimitedTextAzureBlobFsLocationOutput() DatasetDelimitedTextAzureBlobFsLocationOutput {
+	return i.ToDatasetDelimitedTextAzureBlobFsLocationOutputWithContext(context.Background())
+}
+
+func (i DatasetDelimitedTextAzureBlobFsLocationArgs) ToDatasetDelimitedTextAzureBlobFsLocationOutputWithContext(ctx context.Context) DatasetDelimitedTextAzureBlobFsLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetDelimitedTextAzureBlobFsLocationOutput)
+}
+
+func (i DatasetDelimitedTextAzureBlobFsLocationArgs) ToDatasetDelimitedTextAzureBlobFsLocationPtrOutput() DatasetDelimitedTextAzureBlobFsLocationPtrOutput {
+	return i.ToDatasetDelimitedTextAzureBlobFsLocationPtrOutputWithContext(context.Background())
+}
+
+func (i DatasetDelimitedTextAzureBlobFsLocationArgs) ToDatasetDelimitedTextAzureBlobFsLocationPtrOutputWithContext(ctx context.Context) DatasetDelimitedTextAzureBlobFsLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetDelimitedTextAzureBlobFsLocationOutput).ToDatasetDelimitedTextAzureBlobFsLocationPtrOutputWithContext(ctx)
+}
+
+// DatasetDelimitedTextAzureBlobFsLocationPtrInput is an input type that accepts DatasetDelimitedTextAzureBlobFsLocationArgs, DatasetDelimitedTextAzureBlobFsLocationPtr and DatasetDelimitedTextAzureBlobFsLocationPtrOutput values.
+// You can construct a concrete instance of `DatasetDelimitedTextAzureBlobFsLocationPtrInput` via:
+//
+//          DatasetDelimitedTextAzureBlobFsLocationArgs{...}
+//
+//  or:
+//
+//          nil
+type DatasetDelimitedTextAzureBlobFsLocationPtrInput interface {
+	pulumi.Input
+
+	ToDatasetDelimitedTextAzureBlobFsLocationPtrOutput() DatasetDelimitedTextAzureBlobFsLocationPtrOutput
+	ToDatasetDelimitedTextAzureBlobFsLocationPtrOutputWithContext(context.Context) DatasetDelimitedTextAzureBlobFsLocationPtrOutput
+}
+
+type datasetDelimitedTextAzureBlobFsLocationPtrType DatasetDelimitedTextAzureBlobFsLocationArgs
+
+func DatasetDelimitedTextAzureBlobFsLocationPtr(v *DatasetDelimitedTextAzureBlobFsLocationArgs) DatasetDelimitedTextAzureBlobFsLocationPtrInput {
+	return (*datasetDelimitedTextAzureBlobFsLocationPtrType)(v)
+}
+
+func (*datasetDelimitedTextAzureBlobFsLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetDelimitedTextAzureBlobFsLocation)(nil)).Elem()
+}
+
+func (i *datasetDelimitedTextAzureBlobFsLocationPtrType) ToDatasetDelimitedTextAzureBlobFsLocationPtrOutput() DatasetDelimitedTextAzureBlobFsLocationPtrOutput {
+	return i.ToDatasetDelimitedTextAzureBlobFsLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *datasetDelimitedTextAzureBlobFsLocationPtrType) ToDatasetDelimitedTextAzureBlobFsLocationPtrOutputWithContext(ctx context.Context) DatasetDelimitedTextAzureBlobFsLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetDelimitedTextAzureBlobFsLocationPtrOutput)
+}
+
+type DatasetDelimitedTextAzureBlobFsLocationOutput struct{ *pulumi.OutputState }
+
+func (DatasetDelimitedTextAzureBlobFsLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetDelimitedTextAzureBlobFsLocation)(nil)).Elem()
+}
+
+func (o DatasetDelimitedTextAzureBlobFsLocationOutput) ToDatasetDelimitedTextAzureBlobFsLocationOutput() DatasetDelimitedTextAzureBlobFsLocationOutput {
+	return o
+}
+
+func (o DatasetDelimitedTextAzureBlobFsLocationOutput) ToDatasetDelimitedTextAzureBlobFsLocationOutputWithContext(ctx context.Context) DatasetDelimitedTextAzureBlobFsLocationOutput {
+	return o
+}
+
+func (o DatasetDelimitedTextAzureBlobFsLocationOutput) ToDatasetDelimitedTextAzureBlobFsLocationPtrOutput() DatasetDelimitedTextAzureBlobFsLocationPtrOutput {
+	return o.ToDatasetDelimitedTextAzureBlobFsLocationPtrOutputWithContext(context.Background())
+}
+
+func (o DatasetDelimitedTextAzureBlobFsLocationOutput) ToDatasetDelimitedTextAzureBlobFsLocationPtrOutputWithContext(ctx context.Context) DatasetDelimitedTextAzureBlobFsLocationPtrOutput {
+	return o.ApplyT(func(v DatasetDelimitedTextAzureBlobFsLocation) *DatasetDelimitedTextAzureBlobFsLocation {
+		return &v
+	}).(DatasetDelimitedTextAzureBlobFsLocationPtrOutput)
+}
+
+// The storage data lake gen2 file system on the Azure Blob Storage Account hosting the file.
+func (o DatasetDelimitedTextAzureBlobFsLocationOutput) FileSystem() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetDelimitedTextAzureBlobFsLocation) string { return v.FileSystem }).(pulumi.StringOutput)
+}
+
+// The filename of the file.
+func (o DatasetDelimitedTextAzureBlobFsLocationOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetDelimitedTextAzureBlobFsLocation) *string { return v.Filename }).(pulumi.StringPtrOutput)
+}
+
+// The folder path to the file.
+func (o DatasetDelimitedTextAzureBlobFsLocationOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasetDelimitedTextAzureBlobFsLocation) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type DatasetDelimitedTextAzureBlobFsLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasetDelimitedTextAzureBlobFsLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasetDelimitedTextAzureBlobFsLocation)(nil)).Elem()
+}
+
+func (o DatasetDelimitedTextAzureBlobFsLocationPtrOutput) ToDatasetDelimitedTextAzureBlobFsLocationPtrOutput() DatasetDelimitedTextAzureBlobFsLocationPtrOutput {
+	return o
+}
+
+func (o DatasetDelimitedTextAzureBlobFsLocationPtrOutput) ToDatasetDelimitedTextAzureBlobFsLocationPtrOutputWithContext(ctx context.Context) DatasetDelimitedTextAzureBlobFsLocationPtrOutput {
+	return o
+}
+
+func (o DatasetDelimitedTextAzureBlobFsLocationPtrOutput) Elem() DatasetDelimitedTextAzureBlobFsLocationOutput {
+	return o.ApplyT(func(v *DatasetDelimitedTextAzureBlobFsLocation) DatasetDelimitedTextAzureBlobFsLocation { return *v }).(DatasetDelimitedTextAzureBlobFsLocationOutput)
+}
+
+// The storage data lake gen2 file system on the Azure Blob Storage Account hosting the file.
+func (o DatasetDelimitedTextAzureBlobFsLocationPtrOutput) FileSystem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetDelimitedTextAzureBlobFsLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FileSystem
+	}).(pulumi.StringPtrOutput)
+}
+
+// The filename of the file.
+func (o DatasetDelimitedTextAzureBlobFsLocationPtrOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetDelimitedTextAzureBlobFsLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Filename
+	}).(pulumi.StringPtrOutput)
+}
+
+// The folder path to the file.
+func (o DatasetDelimitedTextAzureBlobFsLocationPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasetDelimitedTextAzureBlobFsLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
 type DatasetDelimitedTextAzureBlobStorageLocation struct {
 	// The container on the Azure Blob Storage Account hosting the file.
 	Container string `pulumi:"container"`
-	// The filename of the file on the web server.
+	// The filename of the file.
 	Filename string `pulumi:"filename"`
-	// The folder path to the file on the web server.
+	// The folder path to the file.
 	Path string `pulumi:"path"`
 }
 
@@ -263,9 +432,9 @@ type DatasetDelimitedTextAzureBlobStorageLocationInput interface {
 type DatasetDelimitedTextAzureBlobStorageLocationArgs struct {
 	// The container on the Azure Blob Storage Account hosting the file.
 	Container pulumi.StringInput `pulumi:"container"`
-	// The filename of the file on the web server.
+	// The filename of the file.
 	Filename pulumi.StringInput `pulumi:"filename"`
-	// The folder path to the file on the web server.
+	// The folder path to the file.
 	Path pulumi.StringInput `pulumi:"path"`
 }
 
@@ -351,12 +520,12 @@ func (o DatasetDelimitedTextAzureBlobStorageLocationOutput) Container() pulumi.S
 	return o.ApplyT(func(v DatasetDelimitedTextAzureBlobStorageLocation) string { return v.Container }).(pulumi.StringOutput)
 }
 
-// The filename of the file on the web server.
+// The filename of the file.
 func (o DatasetDelimitedTextAzureBlobStorageLocationOutput) Filename() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetDelimitedTextAzureBlobStorageLocation) string { return v.Filename }).(pulumi.StringOutput)
 }
 
-// The folder path to the file on the web server.
+// The folder path to the file.
 func (o DatasetDelimitedTextAzureBlobStorageLocationOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetDelimitedTextAzureBlobStorageLocation) string { return v.Path }).(pulumi.StringOutput)
 }
@@ -391,7 +560,7 @@ func (o DatasetDelimitedTextAzureBlobStorageLocationPtrOutput) Container() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The filename of the file on the web server.
+// The filename of the file.
 func (o DatasetDelimitedTextAzureBlobStorageLocationPtrOutput) Filename() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetDelimitedTextAzureBlobStorageLocation) *string {
 		if v == nil {
@@ -401,7 +570,7 @@ func (o DatasetDelimitedTextAzureBlobStorageLocationPtrOutput) Filename() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The folder path to the file on the web server.
+// The folder path to the file.
 func (o DatasetDelimitedTextAzureBlobStorageLocationPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetDelimitedTextAzureBlobStorageLocation) *string {
 		if v == nil {
@@ -4670,6 +4839,158 @@ func (o LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput) SecretName() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+type LinkedServiceAzureSqlDatabaseKeyVaultConnectionString struct {
+	// Specifies the name of an existing Key Vault Data Factory Linked Service.
+	LinkedServiceName string `pulumi:"linkedServiceName"`
+	// Specifies the secret name in Azure Key Vault that stores SQL Server connection string.
+	SecretName string `pulumi:"secretName"`
+}
+
+// LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringInput is an input type that accepts LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs and LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutput values.
+// You can construct a concrete instance of `LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringInput` via:
+//
+//          LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs{...}
+type LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringInput interface {
+	pulumi.Input
+
+	ToLinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutput() LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutput
+	ToLinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutputWithContext(context.Context) LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutput
+}
+
+type LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs struct {
+	// Specifies the name of an existing Key Vault Data Factory Linked Service.
+	LinkedServiceName pulumi.StringInput `pulumi:"linkedServiceName"`
+	// Specifies the secret name in Azure Key Vault that stores SQL Server connection string.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+}
+
+func (LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceAzureSqlDatabaseKeyVaultConnectionString)(nil)).Elem()
+}
+
+func (i LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs) ToLinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutput() LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutput {
+	return i.ToLinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs) ToLinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutputWithContext(ctx context.Context) LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutput)
+}
+
+func (i LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs) ToLinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput() LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput {
+	return i.ToLinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs) ToLinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutputWithContext(ctx context.Context) LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutput).ToLinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutputWithContext(ctx)
+}
+
+// LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrInput is an input type that accepts LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs, LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtr and LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput values.
+// You can construct a concrete instance of `LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrInput` via:
+//
+//          LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs{...}
+//
+//  or:
+//
+//          nil
+type LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrInput interface {
+	pulumi.Input
+
+	ToLinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput() LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput
+	ToLinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutputWithContext(context.Context) LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput
+}
+
+type linkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrType LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs
+
+func LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtr(v *LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs) LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrInput {
+	return (*linkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrType)(v)
+}
+
+func (*linkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceAzureSqlDatabaseKeyVaultConnectionString)(nil)).Elem()
+}
+
+func (i *linkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrType) ToLinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput() LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput {
+	return i.ToLinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutputWithContext(context.Background())
+}
+
+func (i *linkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrType) ToLinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutputWithContext(ctx context.Context) LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput)
+}
+
+type LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceAzureSqlDatabaseKeyVaultConnectionString)(nil)).Elem()
+}
+
+func (o LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutput) ToLinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutput() LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutput {
+	return o
+}
+
+func (o LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutput) ToLinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutputWithContext(ctx context.Context) LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutput {
+	return o
+}
+
+func (o LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutput) ToLinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput() LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput {
+	return o.ToLinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutputWithContext(context.Background())
+}
+
+func (o LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutput) ToLinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutputWithContext(ctx context.Context) LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput {
+	return o.ApplyT(func(v LinkedServiceAzureSqlDatabaseKeyVaultConnectionString) *LinkedServiceAzureSqlDatabaseKeyVaultConnectionString {
+		return &v
+	}).(LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput)
+}
+
+// Specifies the name of an existing Key Vault Data Factory Linked Service.
+func (o LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutput) LinkedServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceAzureSqlDatabaseKeyVaultConnectionString) string { return v.LinkedServiceName }).(pulumi.StringOutput)
+}
+
+// Specifies the secret name in Azure Key Vault that stores SQL Server connection string.
+func (o LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceAzureSqlDatabaseKeyVaultConnectionString) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+type LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceAzureSqlDatabaseKeyVaultConnectionString)(nil)).Elem()
+}
+
+func (o LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput) ToLinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput() LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput {
+	return o
+}
+
+func (o LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput) ToLinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutputWithContext(ctx context.Context) LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput {
+	return o
+}
+
+func (o LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput) Elem() LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureSqlDatabaseKeyVaultConnectionString) LinkedServiceAzureSqlDatabaseKeyVaultConnectionString {
+		return *v
+	}).(LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutput)
+}
+
+// Specifies the name of an existing Key Vault Data Factory Linked Service.
+func (o LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput) LinkedServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureSqlDatabaseKeyVaultConnectionString) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LinkedServiceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the secret name in Azure Key Vault that stores SQL Server connection string.
+func (o LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureSqlDatabaseKeyVaultConnectionString) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretName
+	}).(pulumi.StringPtrOutput)
+}
+
 type LinkedServiceAzureSqlDatabaseKeyVaultPassword struct {
 	// Specifies the name of an existing Key Vault Data Factory Linked Service.
 	LinkedServiceName string `pulumi:"linkedServiceName"`
@@ -4965,6 +5286,158 @@ func (o LinkedServiceSnowflakeKeyVaultPasswordPtrOutput) LinkedServiceName() pul
 // Specifies the secret name in Azure Key Vault that stores Snowflake password.
 func (o LinkedServiceSnowflakeKeyVaultPasswordPtrOutput) SecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkedServiceSnowflakeKeyVaultPassword) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretName
+	}).(pulumi.StringPtrOutput)
+}
+
+type LinkedServiceSqlServerKeyVaultConnectionString struct {
+	// Specifies the name of an existing Key Vault Data Factory Linked Service.
+	LinkedServiceName string `pulumi:"linkedServiceName"`
+	// Specifies the secret name in Azure Key Vault that stores SQL Server connection string.
+	SecretName string `pulumi:"secretName"`
+}
+
+// LinkedServiceSqlServerKeyVaultConnectionStringInput is an input type that accepts LinkedServiceSqlServerKeyVaultConnectionStringArgs and LinkedServiceSqlServerKeyVaultConnectionStringOutput values.
+// You can construct a concrete instance of `LinkedServiceSqlServerKeyVaultConnectionStringInput` via:
+//
+//          LinkedServiceSqlServerKeyVaultConnectionStringArgs{...}
+type LinkedServiceSqlServerKeyVaultConnectionStringInput interface {
+	pulumi.Input
+
+	ToLinkedServiceSqlServerKeyVaultConnectionStringOutput() LinkedServiceSqlServerKeyVaultConnectionStringOutput
+	ToLinkedServiceSqlServerKeyVaultConnectionStringOutputWithContext(context.Context) LinkedServiceSqlServerKeyVaultConnectionStringOutput
+}
+
+type LinkedServiceSqlServerKeyVaultConnectionStringArgs struct {
+	// Specifies the name of an existing Key Vault Data Factory Linked Service.
+	LinkedServiceName pulumi.StringInput `pulumi:"linkedServiceName"`
+	// Specifies the secret name in Azure Key Vault that stores SQL Server connection string.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+}
+
+func (LinkedServiceSqlServerKeyVaultConnectionStringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceSqlServerKeyVaultConnectionString)(nil)).Elem()
+}
+
+func (i LinkedServiceSqlServerKeyVaultConnectionStringArgs) ToLinkedServiceSqlServerKeyVaultConnectionStringOutput() LinkedServiceSqlServerKeyVaultConnectionStringOutput {
+	return i.ToLinkedServiceSqlServerKeyVaultConnectionStringOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceSqlServerKeyVaultConnectionStringArgs) ToLinkedServiceSqlServerKeyVaultConnectionStringOutputWithContext(ctx context.Context) LinkedServiceSqlServerKeyVaultConnectionStringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSqlServerKeyVaultConnectionStringOutput)
+}
+
+func (i LinkedServiceSqlServerKeyVaultConnectionStringArgs) ToLinkedServiceSqlServerKeyVaultConnectionStringPtrOutput() LinkedServiceSqlServerKeyVaultConnectionStringPtrOutput {
+	return i.ToLinkedServiceSqlServerKeyVaultConnectionStringPtrOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceSqlServerKeyVaultConnectionStringArgs) ToLinkedServiceSqlServerKeyVaultConnectionStringPtrOutputWithContext(ctx context.Context) LinkedServiceSqlServerKeyVaultConnectionStringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSqlServerKeyVaultConnectionStringOutput).ToLinkedServiceSqlServerKeyVaultConnectionStringPtrOutputWithContext(ctx)
+}
+
+// LinkedServiceSqlServerKeyVaultConnectionStringPtrInput is an input type that accepts LinkedServiceSqlServerKeyVaultConnectionStringArgs, LinkedServiceSqlServerKeyVaultConnectionStringPtr and LinkedServiceSqlServerKeyVaultConnectionStringPtrOutput values.
+// You can construct a concrete instance of `LinkedServiceSqlServerKeyVaultConnectionStringPtrInput` via:
+//
+//          LinkedServiceSqlServerKeyVaultConnectionStringArgs{...}
+//
+//  or:
+//
+//          nil
+type LinkedServiceSqlServerKeyVaultConnectionStringPtrInput interface {
+	pulumi.Input
+
+	ToLinkedServiceSqlServerKeyVaultConnectionStringPtrOutput() LinkedServiceSqlServerKeyVaultConnectionStringPtrOutput
+	ToLinkedServiceSqlServerKeyVaultConnectionStringPtrOutputWithContext(context.Context) LinkedServiceSqlServerKeyVaultConnectionStringPtrOutput
+}
+
+type linkedServiceSqlServerKeyVaultConnectionStringPtrType LinkedServiceSqlServerKeyVaultConnectionStringArgs
+
+func LinkedServiceSqlServerKeyVaultConnectionStringPtr(v *LinkedServiceSqlServerKeyVaultConnectionStringArgs) LinkedServiceSqlServerKeyVaultConnectionStringPtrInput {
+	return (*linkedServiceSqlServerKeyVaultConnectionStringPtrType)(v)
+}
+
+func (*linkedServiceSqlServerKeyVaultConnectionStringPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceSqlServerKeyVaultConnectionString)(nil)).Elem()
+}
+
+func (i *linkedServiceSqlServerKeyVaultConnectionStringPtrType) ToLinkedServiceSqlServerKeyVaultConnectionStringPtrOutput() LinkedServiceSqlServerKeyVaultConnectionStringPtrOutput {
+	return i.ToLinkedServiceSqlServerKeyVaultConnectionStringPtrOutputWithContext(context.Background())
+}
+
+func (i *linkedServiceSqlServerKeyVaultConnectionStringPtrType) ToLinkedServiceSqlServerKeyVaultConnectionStringPtrOutputWithContext(ctx context.Context) LinkedServiceSqlServerKeyVaultConnectionStringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSqlServerKeyVaultConnectionStringPtrOutput)
+}
+
+type LinkedServiceSqlServerKeyVaultConnectionStringOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceSqlServerKeyVaultConnectionStringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceSqlServerKeyVaultConnectionString)(nil)).Elem()
+}
+
+func (o LinkedServiceSqlServerKeyVaultConnectionStringOutput) ToLinkedServiceSqlServerKeyVaultConnectionStringOutput() LinkedServiceSqlServerKeyVaultConnectionStringOutput {
+	return o
+}
+
+func (o LinkedServiceSqlServerKeyVaultConnectionStringOutput) ToLinkedServiceSqlServerKeyVaultConnectionStringOutputWithContext(ctx context.Context) LinkedServiceSqlServerKeyVaultConnectionStringOutput {
+	return o
+}
+
+func (o LinkedServiceSqlServerKeyVaultConnectionStringOutput) ToLinkedServiceSqlServerKeyVaultConnectionStringPtrOutput() LinkedServiceSqlServerKeyVaultConnectionStringPtrOutput {
+	return o.ToLinkedServiceSqlServerKeyVaultConnectionStringPtrOutputWithContext(context.Background())
+}
+
+func (o LinkedServiceSqlServerKeyVaultConnectionStringOutput) ToLinkedServiceSqlServerKeyVaultConnectionStringPtrOutputWithContext(ctx context.Context) LinkedServiceSqlServerKeyVaultConnectionStringPtrOutput {
+	return o.ApplyT(func(v LinkedServiceSqlServerKeyVaultConnectionString) *LinkedServiceSqlServerKeyVaultConnectionString {
+		return &v
+	}).(LinkedServiceSqlServerKeyVaultConnectionStringPtrOutput)
+}
+
+// Specifies the name of an existing Key Vault Data Factory Linked Service.
+func (o LinkedServiceSqlServerKeyVaultConnectionStringOutput) LinkedServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceSqlServerKeyVaultConnectionString) string { return v.LinkedServiceName }).(pulumi.StringOutput)
+}
+
+// Specifies the secret name in Azure Key Vault that stores SQL Server connection string.
+func (o LinkedServiceSqlServerKeyVaultConnectionStringOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceSqlServerKeyVaultConnectionString) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+type LinkedServiceSqlServerKeyVaultConnectionStringPtrOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceSqlServerKeyVaultConnectionStringPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceSqlServerKeyVaultConnectionString)(nil)).Elem()
+}
+
+func (o LinkedServiceSqlServerKeyVaultConnectionStringPtrOutput) ToLinkedServiceSqlServerKeyVaultConnectionStringPtrOutput() LinkedServiceSqlServerKeyVaultConnectionStringPtrOutput {
+	return o
+}
+
+func (o LinkedServiceSqlServerKeyVaultConnectionStringPtrOutput) ToLinkedServiceSqlServerKeyVaultConnectionStringPtrOutputWithContext(ctx context.Context) LinkedServiceSqlServerKeyVaultConnectionStringPtrOutput {
+	return o
+}
+
+func (o LinkedServiceSqlServerKeyVaultConnectionStringPtrOutput) Elem() LinkedServiceSqlServerKeyVaultConnectionStringOutput {
+	return o.ApplyT(func(v *LinkedServiceSqlServerKeyVaultConnectionString) LinkedServiceSqlServerKeyVaultConnectionString {
+		return *v
+	}).(LinkedServiceSqlServerKeyVaultConnectionStringOutput)
+}
+
+// Specifies the name of an existing Key Vault Data Factory Linked Service.
+func (o LinkedServiceSqlServerKeyVaultConnectionStringPtrOutput) LinkedServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceSqlServerKeyVaultConnectionString) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LinkedServiceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the secret name in Azure Key Vault that stores SQL Server connection string.
+func (o LinkedServiceSqlServerKeyVaultConnectionStringPtrOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceSqlServerKeyVaultConnectionString) *string {
 		if v == nil {
 			return nil
 		}
@@ -5673,6 +6146,8 @@ func init() {
 	pulumi.RegisterOutputType(DatasetAzureBlobSchemaColumnArrayOutput{})
 	pulumi.RegisterOutputType(DatasetCosmosDBApiSchemaColumnOutput{})
 	pulumi.RegisterOutputType(DatasetCosmosDBApiSchemaColumnArrayOutput{})
+	pulumi.RegisterOutputType(DatasetDelimitedTextAzureBlobFsLocationOutput{})
+	pulumi.RegisterOutputType(DatasetDelimitedTextAzureBlobFsLocationPtrOutput{})
 	pulumi.RegisterOutputType(DatasetDelimitedTextAzureBlobStorageLocationOutput{})
 	pulumi.RegisterOutputType(DatasetDelimitedTextAzureBlobStorageLocationPtrOutput{})
 	pulumi.RegisterOutputType(DatasetDelimitedTextHttpServerLocationOutput{})
@@ -5729,10 +6204,14 @@ func init() {
 	pulumi.RegisterOutputType(LinkedServiceAzureDatabricksNewClusterConfigPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureFileStorageKeyVaultPasswordOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureFileStorageKeyVaultPasswordPtrOutput{})
+	pulumi.RegisterOutputType(LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringOutput{})
+	pulumi.RegisterOutputType(LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureSqlDatabaseKeyVaultPasswordOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSnowflakeKeyVaultPasswordOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSnowflakeKeyVaultPasswordPtrOutput{})
+	pulumi.RegisterOutputType(LinkedServiceSqlServerKeyVaultConnectionStringOutput{})
+	pulumi.RegisterOutputType(LinkedServiceSqlServerKeyVaultConnectionStringPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSqlServerKeyVaultPasswordOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSqlServerKeyVaultPasswordPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSynapseKeyVaultPasswordOutput{})

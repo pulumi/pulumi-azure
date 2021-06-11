@@ -16,18 +16,22 @@ class ClusterCustomerManagedKeyArgs:
                  cluster_id: pulumi.Input[str],
                  key_name: pulumi.Input[str],
                  key_vault_id: pulumi.Input[str],
-                 key_version: pulumi.Input[str]):
+                 key_version: pulumi.Input[str],
+                 user_identity: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ClusterCustomerManagedKey resource.
         :param pulumi.Input[str] cluster_id: The ID of the Kusto Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_name: The name of Key Vault Key.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_version: The version of Key Vault Key.
+        :param pulumi.Input[str] user_identity: The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
         """
         pulumi.set(__self__, "cluster_id", cluster_id)
         pulumi.set(__self__, "key_name", key_name)
         pulumi.set(__self__, "key_vault_id", key_vault_id)
         pulumi.set(__self__, "key_version", key_version)
+        if user_identity is not None:
+            pulumi.set(__self__, "user_identity", user_identity)
 
     @property
     @pulumi.getter(name="clusterId")
@@ -77,6 +81,18 @@ class ClusterCustomerManagedKeyArgs:
     def key_version(self, value: pulumi.Input[str]):
         pulumi.set(self, "key_version", value)
 
+    @property
+    @pulumi.getter(name="userIdentity")
+    def user_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
+        """
+        return pulumi.get(self, "user_identity")
+
+    @user_identity.setter
+    def user_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_identity", value)
+
 
 @pulumi.input_type
 class _ClusterCustomerManagedKeyState:
@@ -84,13 +100,15 @@ class _ClusterCustomerManagedKeyState:
                  cluster_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_vault_id: Optional[pulumi.Input[str]] = None,
-                 key_version: Optional[pulumi.Input[str]] = None):
+                 key_version: Optional[pulumi.Input[str]] = None,
+                 user_identity: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ClusterCustomerManagedKey resources.
         :param pulumi.Input[str] cluster_id: The ID of the Kusto Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_name: The name of Key Vault Key.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_version: The version of Key Vault Key.
+        :param pulumi.Input[str] user_identity: The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
         """
         if cluster_id is not None:
             pulumi.set(__self__, "cluster_id", cluster_id)
@@ -100,6 +118,8 @@ class _ClusterCustomerManagedKeyState:
             pulumi.set(__self__, "key_vault_id", key_vault_id)
         if key_version is not None:
             pulumi.set(__self__, "key_version", key_version)
+        if user_identity is not None:
+            pulumi.set(__self__, "user_identity", user_identity)
 
     @property
     @pulumi.getter(name="clusterId")
@@ -149,6 +169,18 @@ class _ClusterCustomerManagedKeyState:
     def key_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_version", value)
 
+    @property
+    @pulumi.getter(name="userIdentity")
+    def user_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
+        """
+        return pulumi.get(self, "user_identity")
+
+    @user_identity.setter
+    def user_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_identity", value)
+
 
 class ClusterCustomerManagedKey(pulumi.CustomResource):
     @overload
@@ -159,6 +191,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  key_version: Optional[pulumi.Input[str]] = None,
+                 user_identity: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a Customer Managed Key for a Kusto Cluster.
@@ -177,6 +210,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         :param pulumi.Input[str] key_name: The name of Key Vault Key.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_version: The version of Key Vault Key.
+        :param pulumi.Input[str] user_identity: The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
         """
         ...
     @overload
@@ -214,6 +248,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  key_version: Optional[pulumi.Input[str]] = None,
+                 user_identity: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -238,6 +273,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
             if key_version is None and not opts.urn:
                 raise TypeError("Missing required property 'key_version'")
             __props__.__dict__["key_version"] = key_version
+            __props__.__dict__["user_identity"] = user_identity
         super(ClusterCustomerManagedKey, __self__).__init__(
             'azure:kusto/clusterCustomerManagedKey:ClusterCustomerManagedKey',
             resource_name,
@@ -251,7 +287,8 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
             cluster_id: Optional[pulumi.Input[str]] = None,
             key_name: Optional[pulumi.Input[str]] = None,
             key_vault_id: Optional[pulumi.Input[str]] = None,
-            key_version: Optional[pulumi.Input[str]] = None) -> 'ClusterCustomerManagedKey':
+            key_version: Optional[pulumi.Input[str]] = None,
+            user_identity: Optional[pulumi.Input[str]] = None) -> 'ClusterCustomerManagedKey':
         """
         Get an existing ClusterCustomerManagedKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -263,6 +300,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         :param pulumi.Input[str] key_name: The name of Key Vault Key.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_version: The version of Key Vault Key.
+        :param pulumi.Input[str] user_identity: The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -272,6 +310,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         __props__.__dict__["key_name"] = key_name
         __props__.__dict__["key_vault_id"] = key_vault_id
         __props__.__dict__["key_version"] = key_version
+        __props__.__dict__["user_identity"] = user_identity
         return ClusterCustomerManagedKey(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -305,4 +344,12 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         The version of Key Vault Key.
         """
         return pulumi.get(self, "key_version")
+
+    @property
+    @pulumi.getter(name="userIdentity")
+    def user_identity(self) -> pulumi.Output[Optional[str]]:
+        """
+        The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
+        """
+        return pulumi.get(self, "user_identity")
 

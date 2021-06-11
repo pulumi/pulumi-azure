@@ -59,6 +59,10 @@ export class ClusterCustomerManagedKey extends pulumi.CustomResource {
      * The version of Key Vault Key.
      */
     public readonly keyVersion!: pulumi.Output<string>;
+    /**
+     * The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
+     */
+    public readonly userIdentity!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ClusterCustomerManagedKey resource with the given unique name, arguments, and options.
@@ -77,6 +81,7 @@ export class ClusterCustomerManagedKey extends pulumi.CustomResource {
             inputs["keyName"] = state ? state.keyName : undefined;
             inputs["keyVaultId"] = state ? state.keyVaultId : undefined;
             inputs["keyVersion"] = state ? state.keyVersion : undefined;
+            inputs["userIdentity"] = state ? state.userIdentity : undefined;
         } else {
             const args = argsOrState as ClusterCustomerManagedKeyArgs | undefined;
             if ((!args || args.clusterId === undefined) && !opts.urn) {
@@ -95,6 +100,7 @@ export class ClusterCustomerManagedKey extends pulumi.CustomResource {
             inputs["keyName"] = args ? args.keyName : undefined;
             inputs["keyVaultId"] = args ? args.keyVaultId : undefined;
             inputs["keyVersion"] = args ? args.keyVersion : undefined;
+            inputs["userIdentity"] = args ? args.userIdentity : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -123,6 +129,10 @@ export interface ClusterCustomerManagedKeyState {
      * The version of Key Vault Key.
      */
     keyVersion?: pulumi.Input<string>;
+    /**
+     * The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
+     */
+    userIdentity?: pulumi.Input<string>;
 }
 
 /**
@@ -145,4 +155,8 @@ export interface ClusterCustomerManagedKeyArgs {
      * The version of Key Vault Key.
      */
     keyVersion: pulumi.Input<string>;
+    /**
+     * The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
+     */
+    userIdentity?: pulumi.Input<string>;
 }

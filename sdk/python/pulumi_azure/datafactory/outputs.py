@@ -11,6 +11,7 @@ from .. import _utilities
 __all__ = [
     'DatasetAzureBlobSchemaColumn',
     'DatasetCosmosDBApiSchemaColumn',
+    'DatasetDelimitedTextAzureBlobFsLocation',
     'DatasetDelimitedTextAzureBlobStorageLocation',
     'DatasetDelimitedTextHttpServerLocation',
     'DatasetDelimitedTextSchemaColumn',
@@ -39,8 +40,10 @@ __all__ = [
     'LinkedServiceAzureDatabricksKeyVaultPassword',
     'LinkedServiceAzureDatabricksNewClusterConfig',
     'LinkedServiceAzureFileStorageKeyVaultPassword',
+    'LinkedServiceAzureSqlDatabaseKeyVaultConnectionString',
     'LinkedServiceAzureSqlDatabaseKeyVaultPassword',
     'LinkedServiceSnowflakeKeyVaultPassword',
+    'LinkedServiceSqlServerKeyVaultConnectionString',
     'LinkedServiceSqlServerKeyVaultPassword',
     'LinkedServiceSynapseKeyVaultPassword',
     'GetFactoryGithubConfigurationResult',
@@ -133,6 +136,65 @@ class DatasetCosmosDBApiSchemaColumn(dict):
 
 
 @pulumi.output_type
+class DatasetDelimitedTextAzureBlobFsLocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileSystem":
+            suggest = "file_system"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatasetDelimitedTextAzureBlobFsLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatasetDelimitedTextAzureBlobFsLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatasetDelimitedTextAzureBlobFsLocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file_system: str,
+                 filename: Optional[str] = None,
+                 path: Optional[str] = None):
+        """
+        :param str file_system: The storage data lake gen2 file system on the Azure Blob Storage Account hosting the file.
+        :param str filename: The filename of the file.
+        :param str path: The folder path to the file.
+        """
+        pulumi.set(__self__, "file_system", file_system)
+        if filename is not None:
+            pulumi.set(__self__, "filename", filename)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter(name="fileSystem")
+    def file_system(self) -> str:
+        """
+        The storage data lake gen2 file system on the Azure Blob Storage Account hosting the file.
+        """
+        return pulumi.get(self, "file_system")
+
+    @property
+    @pulumi.getter
+    def filename(self) -> Optional[str]:
+        """
+        The filename of the file.
+        """
+        return pulumi.get(self, "filename")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        The folder path to the file.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
 class DatasetDelimitedTextAzureBlobStorageLocation(dict):
     def __init__(__self__, *,
                  container: str,
@@ -140,8 +202,8 @@ class DatasetDelimitedTextAzureBlobStorageLocation(dict):
                  path: str):
         """
         :param str container: The container on the Azure Blob Storage Account hosting the file.
-        :param str filename: The filename of the file on the web server.
-        :param str path: The folder path to the file on the web server.
+        :param str filename: The filename of the file.
+        :param str path: The folder path to the file.
         """
         pulumi.set(__self__, "container", container)
         pulumi.set(__self__, "filename", filename)
@@ -159,7 +221,7 @@ class DatasetDelimitedTextAzureBlobStorageLocation(dict):
     @pulumi.getter
     def filename(self) -> str:
         """
-        The filename of the file on the web server.
+        The filename of the file.
         """
         return pulumi.get(self, "filename")
 
@@ -167,7 +229,7 @@ class DatasetDelimitedTextAzureBlobStorageLocation(dict):
     @pulumi.getter
     def path(self) -> str:
         """
-        The folder path to the file on the web server.
+        The folder path to the file.
         """
         return pulumi.get(self, "path")
 
@@ -1735,6 +1797,54 @@ class LinkedServiceAzureFileStorageKeyVaultPassword(dict):
 
 
 @pulumi.output_type
+class LinkedServiceAzureSqlDatabaseKeyVaultConnectionString(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "secretName":
+            suggest = "secret_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkedServiceAzureSqlDatabaseKeyVaultConnectionString. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkedServiceAzureSqlDatabaseKeyVaultConnectionString.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkedServiceAzureSqlDatabaseKeyVaultConnectionString.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 linked_service_name: str,
+                 secret_name: str):
+        """
+        :param str linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
+        :param str secret_name: Specifies the secret name in Azure Key Vault that stores SQL Server connection string.
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> str:
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        Specifies the secret name in Azure Key Vault that stores SQL Server connection string.
+        """
+        return pulumi.get(self, "secret_name")
+
+
+@pulumi.output_type
 class LinkedServiceAzureSqlDatabaseKeyVaultPassword(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1826,6 +1936,54 @@ class LinkedServiceSnowflakeKeyVaultPassword(dict):
     def secret_name(self) -> str:
         """
         Specifies the secret name in Azure Key Vault that stores Snowflake password.
+        """
+        return pulumi.get(self, "secret_name")
+
+
+@pulumi.output_type
+class LinkedServiceSqlServerKeyVaultConnectionString(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "secretName":
+            suggest = "secret_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkedServiceSqlServerKeyVaultConnectionString. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkedServiceSqlServerKeyVaultConnectionString.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkedServiceSqlServerKeyVaultConnectionString.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 linked_service_name: str,
+                 secret_name: str):
+        """
+        :param str linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
+        :param str secret_name: Specifies the secret name in Azure Key Vault that stores SQL Server connection string.
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> str:
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        Specifies the secret name in Azure Key Vault that stores SQL Server connection string.
         """
         return pulumi.get(self, "secret_name")
 

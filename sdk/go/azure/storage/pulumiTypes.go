@@ -1192,11 +1192,13 @@ func (o AccountCustomDomainPtrOutput) UseSubdomain() pulumi.BoolPtrOutput {
 }
 
 type AccountIdentity struct {
+	// A list of IDs for User Assigned Managed Identity resources to be assigned.
+	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Identity of this Storage Account.
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the identity type of the Storage Account. At this time the only allowed value is `SystemAssigned`.
+	// Specifies the identity type of the Storage Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned,UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
 }
 
@@ -1212,11 +1214,13 @@ type AccountIdentityInput interface {
 }
 
 type AccountIdentityArgs struct {
+	// A list of IDs for User Assigned Managed Identity resources to be assigned.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Identity of this Storage Account.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the identity type of the Storage Account. At this time the only allowed value is `SystemAssigned`.
+	// Specifies the identity type of the Storage Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned,UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1297,6 +1301,11 @@ func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context
 	}).(AccountIdentityPtrOutput)
 }
 
+// A list of IDs for User Assigned Managed Identity resources to be assigned.
+func (o AccountIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccountIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
 // The Principal ID for the Service Principal associated with the Identity of this Storage Account.
 func (o AccountIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
@@ -1307,7 +1316,7 @@ func (o AccountIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of the Storage Account. At this time the only allowed value is `SystemAssigned`.
+// Specifies the identity type of the Storage Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned,UserAssigned` (to enable both).
 func (o AccountIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1330,6 +1339,16 @@ func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
 	return o.ApplyT(func(v *AccountIdentity) AccountIdentity { return *v }).(AccountIdentityOutput)
 }
 
+// A list of IDs for User Assigned Managed Identity resources to be assigned.
+func (o AccountIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccountIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
 // The Principal ID for the Service Principal associated with the Identity of this Storage Account.
 func (o AccountIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountIdentity) *string {
@@ -1350,7 +1369,7 @@ func (o AccountIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of the Storage Account. At this time the only allowed value is `SystemAssigned`.
+// Specifies the identity type of the Storage Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned,UserAssigned` (to enable both).
 func (o AccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountIdentity) *string {
 		if v == nil {

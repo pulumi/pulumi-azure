@@ -65,6 +65,10 @@ export class PublicIp extends pulumi.CustomResource {
      */
     public readonly allocationMethod!: pulumi.Output<string>;
     /**
+     * The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+     */
+    public readonly availabilityZone!: pulumi.Output<string>;
+    /**
      * Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
      */
     public readonly domainNameLabel!: pulumi.Output<string | undefined>;
@@ -119,9 +123,9 @@ export class PublicIp extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A collection containing the availability zone to allocate the Public IP in.
+     * @deprecated This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/
      */
-    public readonly zones!: pulumi.Output<string | undefined>;
+    public readonly zones!: pulumi.Output<string>;
 
     /**
      * Create a PublicIp resource with the given unique name, arguments, and options.
@@ -137,6 +141,7 @@ export class PublicIp extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as PublicIpState | undefined;
             inputs["allocationMethod"] = state ? state.allocationMethod : undefined;
+            inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["domainNameLabel"] = state ? state.domainNameLabel : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
             inputs["idleTimeoutInMinutes"] = state ? state.idleTimeoutInMinutes : undefined;
@@ -160,6 +165,7 @@ export class PublicIp extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["allocationMethod"] = args ? args.allocationMethod : undefined;
+            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             inputs["domainNameLabel"] = args ? args.domainNameLabel : undefined;
             inputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
             inputs["ipTags"] = args ? args.ipTags : undefined;
@@ -190,6 +196,10 @@ export interface PublicIpState {
      * Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
      */
     allocationMethod?: pulumi.Input<string>;
+    /**
+     * The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+     */
+    availabilityZone?: pulumi.Input<string>;
     /**
      * Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
      */
@@ -245,7 +255,7 @@ export interface PublicIpState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A collection containing the availability zone to allocate the Public IP in.
+     * @deprecated This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/
      */
     zones?: pulumi.Input<string>;
 }
@@ -258,6 +268,10 @@ export interface PublicIpArgs {
      * Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
      */
     allocationMethod: pulumi.Input<string>;
+    /**
+     * The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+     */
+    availabilityZone?: pulumi.Input<string>;
     /**
      * Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
      */
@@ -305,7 +319,7 @@ export interface PublicIpArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A collection containing the availability zone to allocate the Public IP in.
+     * @deprecated This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/
      */
     zones?: pulumi.Input<string>;
 }

@@ -485,6 +485,8 @@ github.com/hashicorp/go-azure-helpers v0.15.0 h1:mwfzqEYtjH7fz9Pur6qhQMnkxH8uFb3
 github.com/hashicorp/go-azure-helpers v0.15.0/go.mod h1:kR7+sTDEb9TOp/O80ss1UEJg1t4/BHLD/U8wHLS4BGQ=
 github.com/hashicorp/go-azure-helpers v0.16.3 h1:zzlT0looBZpG301Rbrxw+yRjGPb90m2ZvERSQq68+pc=
 github.com/hashicorp/go-azure-helpers v0.16.3/go.mod h1:kR7+sTDEb9TOp/O80ss1UEJg1t4/BHLD/U8wHLS4BGQ=
+github.com/hashicorp/go-azure-helpers v0.16.5 h1:rhcpg2Nk1Li6173KTHNnj/i+MGXYNjvYKIdNlg6q3RU=
+github.com/hashicorp/go-azure-helpers v0.16.5/go.mod h1:kR7+sTDEb9TOp/O80ss1UEJg1t4/BHLD/U8wHLS4BGQ=
 github.com/hashicorp/go-checkpoint v0.5.0 h1:MFYpPZCnQqQTE18jFwSII6eUQrD/oxMFp3mlgcqk5mU=
 github.com/hashicorp/go-checkpoint v0.5.0/go.mod h1:7nfLNL10NsxqO4iWuW6tWW0HjZuDrwkBuEQsVcpCOgg=
 github.com/hashicorp/go-cleanhttp v0.5.0/go.mod h1:JpRdi6/HCYpAwUzNwuwqhbovhLtngrth3wmdIIUrZ80=
@@ -845,6 +847,8 @@ github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210527153949-74dbe5e5c7
 github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210527153949-74dbe5e5c7cb/go.mod h1:mLXdj4yholCrPI0hzf0iB/xUpmgafUPVN92EQexWEvg=
 github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210604103450-bcc4a8c058be h1:DX8gBkhJdj3bdGqYm9xR7a+evySBkh4edHLFLAt+xck=
 github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210604103450-bcc4a8c058be/go.mod h1:i287M3kCucz4RWUjIr9tRnJ50AMITzn+UyRk1v3q6jw=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210611122641-6df5bc02c470 h1:xU0w3IHgwSjnz/Q5Ektn4yNOySLeNTAzJbeMkNMTyLM=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20210611122641-6df5bc02c470/go.mod h1:MGkgt9CjI9kY2JOJgv1uQJbvxWrPSyESttsIEWvxcJ4=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9 h1:czJCcoUR3FMpHnRQow2E84H/0CPrX1fMAGn9HugzyI4=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9/go.mod h1:L8WrssTzvgYw34/Ppa0JpJfI7KKXZ2cVGI6Djt0brUU=
 github.com/rickb777/plural v1.2.0 h1:5tvEc7UBCZ7l8h/2UeybSkt/uu1DQsZFOFdNevmUhlE=

@@ -88,6 +88,9 @@ export class Subscription extends pulumi.CustomResource {
      * The display name of this Subscription.
      */
     public readonly displayName!: pulumi.Output<string>;
+    /**
+     * The primary subscription key to use for the subscription.
+     */
     public readonly primaryKey!: pulumi.Output<string>;
     /**
      * The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
@@ -97,6 +100,9 @@ export class Subscription extends pulumi.CustomResource {
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * The secondary subscription key to use for the subscription.
+     */
     public readonly secondaryKey!: pulumi.Output<string>;
     /**
      * The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
@@ -185,6 +191,9 @@ export interface SubscriptionState {
      * The display name of this Subscription.
      */
     displayName?: pulumi.Input<string>;
+    /**
+     * The primary subscription key to use for the subscription.
+     */
     primaryKey?: pulumi.Input<string>;
     /**
      * The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
@@ -194,6 +203,9 @@ export interface SubscriptionState {
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * The secondary subscription key to use for the subscription.
+     */
     secondaryKey?: pulumi.Input<string>;
     /**
      * The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
@@ -229,6 +241,9 @@ export interface SubscriptionArgs {
      * The display name of this Subscription.
      */
     displayName: pulumi.Input<string>;
+    /**
+     * The primary subscription key to use for the subscription.
+     */
     primaryKey?: pulumi.Input<string>;
     /**
      * The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
@@ -238,6 +253,9 @@ export interface SubscriptionArgs {
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The secondary subscription key to use for the subscription.
+     */
     secondaryKey?: pulumi.Input<string>;
     /**
      * The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.

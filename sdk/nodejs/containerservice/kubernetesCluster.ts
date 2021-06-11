@@ -111,7 +111,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
-     * An `identity` block as defined below. Changing this forces a new resource to be created.
+     * An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
      */
     public readonly identity!: pulumi.Output<outputs.containerservice.KubernetesClusterIdentity | undefined>;
     /**
@@ -131,9 +131,9 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly kubeConfigs!: pulumi.Output<outputs.containerservice.KubernetesClusterKubeConfig[]>;
     /**
-     * A `kubeletIdentity` block as defined below.
+     * A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
      */
-    public /*out*/ readonly kubeletIdentities!: pulumi.Output<outputs.containerservice.KubernetesClusterKubeletIdentity[]>;
+    public readonly kubeletIdentities!: pulumi.Output<outputs.containerservice.KubernetesClusterKubeletIdentity[]>;
     /**
      * Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
      */
@@ -183,7 +183,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly roleBasedAccessControl!: pulumi.Output<outputs.containerservice.KubernetesClusterRoleBasedAccessControl>;
     /**
-     * A `servicePrincipal` block as documented below.
+     * A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
      */
     public readonly servicePrincipal!: pulumi.Output<outputs.containerservice.KubernetesClusterServicePrincipal | undefined>;
     /**
@@ -262,6 +262,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["dnsPrefixPrivateCluster"] = args ? args.dnsPrefixPrivateCluster : undefined;
             inputs["enablePodSecurityPolicy"] = args ? args.enablePodSecurityPolicy : undefined;
             inputs["identity"] = args ? args.identity : undefined;
+            inputs["kubeletIdentities"] = args ? args.kubeletIdentities : undefined;
             inputs["kubernetesVersion"] = args ? args.kubernetesVersion : undefined;
             inputs["linuxProfile"] = args ? args.linuxProfile : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -282,7 +283,6 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["kubeAdminConfigs"] = undefined /*out*/;
             inputs["kubeConfigRaw"] = undefined /*out*/;
             inputs["kubeConfigs"] = undefined /*out*/;
-            inputs["kubeletIdentities"] = undefined /*out*/;
             inputs["privateFqdn"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -334,7 +334,7 @@ export interface KubernetesClusterState {
      */
     fqdn?: pulumi.Input<string>;
     /**
-     * An `identity` block as defined below. Changing this forces a new resource to be created.
+     * An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
      */
     identity?: pulumi.Input<inputs.containerservice.KubernetesClusterIdentity>;
     /**
@@ -354,7 +354,7 @@ export interface KubernetesClusterState {
      */
     kubeConfigs?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterKubeConfig>[]>;
     /**
-     * A `kubeletIdentity` block as defined below.
+     * A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
      */
     kubeletIdentities?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterKubeletIdentity>[]>;
     /**
@@ -406,7 +406,7 @@ export interface KubernetesClusterState {
      */
     roleBasedAccessControl?: pulumi.Input<inputs.containerservice.KubernetesClusterRoleBasedAccessControl>;
     /**
-     * A `servicePrincipal` block as documented below.
+     * A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
      */
     servicePrincipal?: pulumi.Input<inputs.containerservice.KubernetesClusterServicePrincipal>;
     /**
@@ -461,9 +461,13 @@ export interface KubernetesClusterArgs {
     dnsPrefixPrivateCluster?: pulumi.Input<string>;
     enablePodSecurityPolicy?: pulumi.Input<boolean>;
     /**
-     * An `identity` block as defined below. Changing this forces a new resource to be created.
+     * An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
      */
     identity?: pulumi.Input<inputs.containerservice.KubernetesClusterIdentity>;
+    /**
+     * A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
+     */
+    kubeletIdentities?: pulumi.Input<pulumi.Input<inputs.containerservice.KubernetesClusterKubeletIdentity>[]>;
     /**
      * Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
      */
@@ -509,7 +513,7 @@ export interface KubernetesClusterArgs {
      */
     roleBasedAccessControl?: pulumi.Input<inputs.containerservice.KubernetesClusterRoleBasedAccessControl>;
     /**
-     * A `servicePrincipal` block as documented below.
+     * A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
      */
     servicePrincipal?: pulumi.Input<inputs.containerservice.KubernetesClusterServicePrincipal>;
     /**

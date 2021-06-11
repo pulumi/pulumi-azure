@@ -87,7 +87,9 @@ type DatasetDelimitedText struct {
 	AdditionalProperties pulumi.StringMapOutput `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
-	// A `azureBlobStorageLocation` block as defined below.
+	// An `azureBlobFsLocation` block as defined below.
+	AzureBlobFsLocation DatasetDelimitedTextAzureBlobFsLocationPtrOutput `pulumi:"azureBlobFsLocation"`
+	// An `azureBlobStorageLocation` block as defined below.
 	AzureBlobStorageLocation DatasetDelimitedTextAzureBlobStorageLocationPtrOutput `pulumi:"azureBlobStorageLocation"`
 	// The column delimiter.
 	ColumnDelimiter pulumi.StringPtrOutput `pulumi:"columnDelimiter"`
@@ -169,7 +171,9 @@ type datasetDelimitedTextState struct {
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations []string `pulumi:"annotations"`
-	// A `azureBlobStorageLocation` block as defined below.
+	// An `azureBlobFsLocation` block as defined below.
+	AzureBlobFsLocation *DatasetDelimitedTextAzureBlobFsLocation `pulumi:"azureBlobFsLocation"`
+	// An `azureBlobStorageLocation` block as defined below.
 	AzureBlobStorageLocation *DatasetDelimitedTextAzureBlobStorageLocation `pulumi:"azureBlobStorageLocation"`
 	// The column delimiter.
 	ColumnDelimiter *string `pulumi:"columnDelimiter"`
@@ -214,7 +218,9 @@ type DatasetDelimitedTextState struct {
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations pulumi.StringArrayInput
-	// A `azureBlobStorageLocation` block as defined below.
+	// An `azureBlobFsLocation` block as defined below.
+	AzureBlobFsLocation DatasetDelimitedTextAzureBlobFsLocationPtrInput
+	// An `azureBlobStorageLocation` block as defined below.
 	AzureBlobStorageLocation DatasetDelimitedTextAzureBlobStorageLocationPtrInput
 	// The column delimiter.
 	ColumnDelimiter pulumi.StringPtrInput
@@ -263,7 +269,9 @@ type datasetDelimitedTextArgs struct {
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations []string `pulumi:"annotations"`
-	// A `azureBlobStorageLocation` block as defined below.
+	// An `azureBlobFsLocation` block as defined below.
+	AzureBlobFsLocation *DatasetDelimitedTextAzureBlobFsLocation `pulumi:"azureBlobFsLocation"`
+	// An `azureBlobStorageLocation` block as defined below.
 	AzureBlobStorageLocation *DatasetDelimitedTextAzureBlobStorageLocation `pulumi:"azureBlobStorageLocation"`
 	// The column delimiter.
 	ColumnDelimiter *string `pulumi:"columnDelimiter"`
@@ -309,7 +317,9 @@ type DatasetDelimitedTextArgs struct {
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Dataset.
 	Annotations pulumi.StringArrayInput
-	// A `azureBlobStorageLocation` block as defined below.
+	// An `azureBlobFsLocation` block as defined below.
+	AzureBlobFsLocation DatasetDelimitedTextAzureBlobFsLocationPtrInput
+	// An `azureBlobStorageLocation` block as defined below.
 	AzureBlobStorageLocation DatasetDelimitedTextAzureBlobStorageLocationPtrInput
 	// The column delimiter.
 	ColumnDelimiter pulumi.StringPtrInput

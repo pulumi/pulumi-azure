@@ -24,8 +24,8 @@ import * as utilities from "../utilities";
  *     amount: 1000,
  *     timeGrain: "Monthly",
  *     timePeriod: {
- *         startDate: "2020-11-01T00:00:00Z",
- *         endDate: "2020-12-01T00:00:00Z",
+ *         startDate: "2022-06-01T00:00:00Z",
+ *         endDate: "2022-07-01T00:00:00Z",
  *     },
  *     filter: {
  *         dimensions: [{

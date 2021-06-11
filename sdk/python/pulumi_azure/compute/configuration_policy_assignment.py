@@ -167,6 +167,86 @@ class ConfigurationPolicyAssignment(pulumi.CustomResource):
         """
         Applies a Configuration Policy to a Virtual Machine.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            address_spaces=["10.0.0.0/16"])
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+                name="internal",
+                subnet_id=example_subnet.id,
+                private_ip_address_allocation="Dynamic",
+            )])
+        example_windows_virtual_machine = azure.compute.WindowsVirtualMachine("exampleWindowsVirtualMachine",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            size="Standard_F2",
+            admin_username="adminuser",
+            admin_password="P@$$w0rd1234!",
+            network_interface_ids=[example_network_interface.id],
+            identity=azure.compute.WindowsVirtualMachineIdentityArgs(
+                type="SystemAssigned",
+            ),
+            os_disk=azure.compute.WindowsVirtualMachineOsDiskArgs(
+                caching="ReadWrite",
+                storage_account_type="Standard_LRS",
+            ),
+            source_image_reference=azure.compute.WindowsVirtualMachineSourceImageReferenceArgs(
+                publisher="MicrosoftWindowsServer",
+                offer="WindowsServer",
+                sku="2019-Datacenter",
+                version="latest",
+            ))
+        example_extension = azure.compute.Extension("exampleExtension",
+            virtual_machine_id=example_windows_virtual_machine.id,
+            publisher="Microsoft.GuestConfiguration",
+            type="ConfigurationforWindows",
+            type_handler_version="1.0",
+            auto_upgrade_minor_version=True)
+        example_configuration_policy_assignment = azure.compute.ConfigurationPolicyAssignment("exampleConfigurationPolicyAssignment",
+            location=example_windows_virtual_machine.location,
+            virtual_machine_id=example_windows_virtual_machine.id,
+            configuration=azure.compute.ConfigurationPolicyAssignmentConfigurationArgs(
+                name="AzureWindowsBaseline",
+                version="1.*",
+                parameters=[
+                    azure.compute.ConfigurationPolicyAssignmentConfigurationParameterArgs(
+                        name="Minimum Password Length;ExpectedValue",
+                        value="16",
+                    ),
+                    azure.compute.ConfigurationPolicyAssignmentConfigurationParameterArgs(
+                        name="Minimum Password Age;ExpectedValue",
+                        value="0",
+                    ),
+                    azure.compute.ConfigurationPolicyAssignmentConfigurationParameterArgs(
+                        name="Maximum Password Age;ExpectedValue",
+                        value="30,45",
+                    ),
+                    azure.compute.ConfigurationPolicyAssignmentConfigurationParameterArgs(
+                        name="Enforce Password History;ExpectedValue",
+                        value="10",
+                    ),
+                    azure.compute.ConfigurationPolicyAssignmentConfigurationParameterArgs(
+                        name="Password Must Meet Complexity Requirements;ExpectedValue",
+                        value="1",
+                    ),
+                ],
+            ))
+        ```
+
         ## Import
 
         Virtual Machine Configuration Policy Assignments can be imported using the `resource id`, e.g.
@@ -190,6 +270,86 @@ class ConfigurationPolicyAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Applies a Configuration Policy to a Virtual Machine.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            address_spaces=["10.0.0.0/16"])
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+                name="internal",
+                subnet_id=example_subnet.id,
+                private_ip_address_allocation="Dynamic",
+            )])
+        example_windows_virtual_machine = azure.compute.WindowsVirtualMachine("exampleWindowsVirtualMachine",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            size="Standard_F2",
+            admin_username="adminuser",
+            admin_password="P@$$w0rd1234!",
+            network_interface_ids=[example_network_interface.id],
+            identity=azure.compute.WindowsVirtualMachineIdentityArgs(
+                type="SystemAssigned",
+            ),
+            os_disk=azure.compute.WindowsVirtualMachineOsDiskArgs(
+                caching="ReadWrite",
+                storage_account_type="Standard_LRS",
+            ),
+            source_image_reference=azure.compute.WindowsVirtualMachineSourceImageReferenceArgs(
+                publisher="MicrosoftWindowsServer",
+                offer="WindowsServer",
+                sku="2019-Datacenter",
+                version="latest",
+            ))
+        example_extension = azure.compute.Extension("exampleExtension",
+            virtual_machine_id=example_windows_virtual_machine.id,
+            publisher="Microsoft.GuestConfiguration",
+            type="ConfigurationforWindows",
+            type_handler_version="1.0",
+            auto_upgrade_minor_version=True)
+        example_configuration_policy_assignment = azure.compute.ConfigurationPolicyAssignment("exampleConfigurationPolicyAssignment",
+            location=example_windows_virtual_machine.location,
+            virtual_machine_id=example_windows_virtual_machine.id,
+            configuration=azure.compute.ConfigurationPolicyAssignmentConfigurationArgs(
+                name="AzureWindowsBaseline",
+                version="1.*",
+                parameters=[
+                    azure.compute.ConfigurationPolicyAssignmentConfigurationParameterArgs(
+                        name="Minimum Password Length;ExpectedValue",
+                        value="16",
+                    ),
+                    azure.compute.ConfigurationPolicyAssignmentConfigurationParameterArgs(
+                        name="Minimum Password Age;ExpectedValue",
+                        value="0",
+                    ),
+                    azure.compute.ConfigurationPolicyAssignmentConfigurationParameterArgs(
+                        name="Maximum Password Age;ExpectedValue",
+                        value="30,45",
+                    ),
+                    azure.compute.ConfigurationPolicyAssignmentConfigurationParameterArgs(
+                        name="Enforce Password History;ExpectedValue",
+                        value="10",
+                    ),
+                    azure.compute.ConfigurationPolicyAssignmentConfigurationParameterArgs(
+                        name="Password Must Meet Complexity Requirements;ExpectedValue",
+                        value="1",
+                    ),
+                ],
+            ))
+        ```
 
         ## Import
 

@@ -139,13 +139,19 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> PartitionKeyPath { get; private set; } = null!;
 
         /// <summary>
+        /// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
+        /// </summary>
+        [Output("partitionKeyVersion")]
+        public Output<int?> PartitionKeyVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply.
+        /// The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
         /// </summary>
         [Output("throughput")]
         public Output<int> Throughput { get; private set; } = null!;
@@ -235,7 +241,7 @@ namespace Pulumi.Azure.CosmosDB
         [Input("defaultTtl")]
         public Input<int>? DefaultTtl { get; set; }
 
-        [Input("indexPolicies", required: true)]
+        [Input("indexPolicies")]
         private InputList<Inputs.GremlinGraphIndexPolicyArgs>? _indexPolicies;
 
         /// <summary>
@@ -260,13 +266,19 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string> PartitionKeyPath { get; set; } = null!;
 
         /// <summary>
+        /// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
+        /// </summary>
+        [Input("partitionKeyVersion")]
+        public Input<int>? PartitionKeyVersion { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply.
+        /// The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
         /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
@@ -348,13 +360,19 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? PartitionKeyPath { get; set; }
 
         /// <summary>
+        /// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
+        /// </summary>
+        [Input("partitionKeyVersion")]
+        public Input<int>? PartitionKeyVersion { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply.
+        /// The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
         /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }

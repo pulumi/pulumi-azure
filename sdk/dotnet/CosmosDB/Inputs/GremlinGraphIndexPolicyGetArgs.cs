@@ -18,6 +18,18 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         [Input("automatic")]
         public Input<bool>? Automatic { get; set; }
 
+        [Input("compositeIndices")]
+        private InputList<Inputs.GremlinGraphIndexPolicyCompositeIndexGetArgs>? _compositeIndices;
+
+        /// <summary>
+        /// One or more `composite_index` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.GremlinGraphIndexPolicyCompositeIndexGetArgs> CompositeIndices
+        {
+            get => _compositeIndices ?? (_compositeIndices = new InputList<Inputs.GremlinGraphIndexPolicyCompositeIndexGetArgs>());
+            set => _compositeIndices = value;
+        }
+
         [Input("excludedPaths")]
         private InputList<string>? _excludedPaths;
 

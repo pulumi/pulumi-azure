@@ -97,6 +97,9 @@ namespace Pulumi.Azure.ApiManagement
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
+        /// <summary>
+        /// The primary subscription key to use for the subscription.
+        /// </summary>
         [Output("primaryKey")]
         public Output<string> PrimaryKey { get; private set; } = null!;
 
@@ -112,6 +115,9 @@ namespace Pulumi.Azure.ApiManagement
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// The secondary subscription key to use for the subscription.
+        /// </summary>
         [Output("secondaryKey")]
         public Output<string> SecondaryKey { get; private set; } = null!;
 
@@ -203,6 +209,9 @@ namespace Pulumi.Azure.ApiManagement
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
+        /// <summary>
+        /// The primary subscription key to use for the subscription.
+        /// </summary>
         [Input("primaryKey")]
         public Input<string>? PrimaryKey { get; set; }
 
@@ -218,6 +227,9 @@ namespace Pulumi.Azure.ApiManagement
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The secondary subscription key to use for the subscription.
+        /// </summary>
         [Input("secondaryKey")]
         public Input<string>? SecondaryKey { get; set; }
 
@@ -270,6 +282,9 @@ namespace Pulumi.Azure.ApiManagement
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
+        /// <summary>
+        /// The primary subscription key to use for the subscription.
+        /// </summary>
         [Input("primaryKey")]
         public Input<string>? PrimaryKey { get; set; }
 
@@ -285,6 +300,9 @@ namespace Pulumi.Azure.ApiManagement
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        /// <summary>
+        /// The secondary subscription key to use for the subscription.
+        /// </summary>
         [Input("secondaryKey")]
         public Input<string>? SecondaryKey { get; set; }
 

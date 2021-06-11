@@ -14,6 +14,7 @@ __all__ = ['PublicIpPrefixArgs', 'PublicIpPrefix']
 class PublicIpPrefixArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 availability_zone: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  prefix_length: Optional[pulumi.Input[int]] = None,
@@ -23,14 +24,16 @@ class PublicIpPrefixArgs:
         """
         The set of arguments for constructing a PublicIpPrefix resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Public IP Prefix.
+        :param pulumi.Input[str] availability_zone: The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
         :param pulumi.Input[int] prefix_length: Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] zones: A collection containing the availability zone to allocate the Public IP Prefix in.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -41,6 +44,9 @@ class PublicIpPrefixArgs:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if zones is not None:
+            warnings.warn("""This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/""", DeprecationWarning)
+            pulumi.log.warn("""zones is deprecated: This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/""")
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
 
@@ -55,6 +61,18 @@ class PublicIpPrefixArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone", value)
 
     @property
     @pulumi.getter
@@ -119,9 +137,6 @@ class PublicIpPrefixArgs:
     @property
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[str]]:
-        """
-        A collection containing the availability zone to allocate the Public IP Prefix in.
-        """
         return pulumi.get(self, "zones")
 
     @zones.setter
@@ -132,6 +147,7 @@ class PublicIpPrefixArgs:
 @pulumi.input_type
 class _PublicIpPrefixState:
     def __init__(__self__, *,
+                 availability_zone: Optional[pulumi.Input[str]] = None,
                  ip_prefix: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -142,6 +158,7 @@ class _PublicIpPrefixState:
                  zones: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PublicIpPrefix resources.
+        :param pulumi.Input[str] availability_zone: The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
         :param pulumi.Input[str] ip_prefix: The IP address prefix value that was allocated.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
@@ -149,8 +166,9 @@ class _PublicIpPrefixState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Public IP Prefix.
         :param pulumi.Input[str] sku: The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] zones: A collection containing the availability zone to allocate the Public IP Prefix in.
         """
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
         if ip_prefix is not None:
             pulumi.set(__self__, "ip_prefix", ip_prefix)
         if location is not None:
@@ -166,7 +184,22 @@ class _PublicIpPrefixState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if zones is not None:
+            warnings.warn("""This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/""", DeprecationWarning)
+            pulumi.log.warn("""zones is deprecated: This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/""")
+        if zones is not None:
             pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone", value)
 
     @property
     @pulumi.getter(name="ipPrefix")
@@ -255,9 +288,6 @@ class _PublicIpPrefixState:
     @property
     @pulumi.getter
     def zones(self) -> Optional[pulumi.Input[str]]:
-        """
-        A collection containing the availability zone to allocate the Public IP Prefix in.
-        """
         return pulumi.get(self, "zones")
 
     @zones.setter
@@ -270,6 +300,7 @@ class PublicIpPrefix(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 availability_zone: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  prefix_length: Optional[pulumi.Input[int]] = None,
@@ -307,13 +338,13 @@ class PublicIpPrefix(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] availability_zone: The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
         :param pulumi.Input[int] prefix_length: Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Public IP Prefix.
         :param pulumi.Input[str] sku: The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] zones: A collection containing the availability zone to allocate the Public IP Prefix in.
         """
         ...
     @overload
@@ -363,6 +394,7 @@ class PublicIpPrefix(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 availability_zone: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  prefix_length: Optional[pulumi.Input[int]] = None,
@@ -382,6 +414,7 @@ class PublicIpPrefix(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PublicIpPrefixArgs.__new__(PublicIpPrefixArgs)
 
+            __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["prefix_length"] = prefix_length
@@ -390,6 +423,9 @@ class PublicIpPrefix(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            if zones is not None and not opts.urn:
+                warnings.warn("""This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/""", DeprecationWarning)
+                pulumi.log.warn("""zones is deprecated: This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/""")
             __props__.__dict__["zones"] = zones
             __props__.__dict__["ip_prefix"] = None
         super(PublicIpPrefix, __self__).__init__(
@@ -402,6 +438,7 @@ class PublicIpPrefix(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            availability_zone: Optional[pulumi.Input[str]] = None,
             ip_prefix: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -417,6 +454,7 @@ class PublicIpPrefix(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] availability_zone: The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
         :param pulumi.Input[str] ip_prefix: The IP address prefix value that was allocated.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
@@ -424,12 +462,12 @@ class PublicIpPrefix(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Public IP Prefix.
         :param pulumi.Input[str] sku: The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] zones: A collection containing the availability zone to allocate the Public IP Prefix in.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _PublicIpPrefixState.__new__(_PublicIpPrefixState)
 
+        __props__.__dict__["availability_zone"] = availability_zone
         __props__.__dict__["ip_prefix"] = ip_prefix
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
@@ -439,6 +477,14 @@ class PublicIpPrefix(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["zones"] = zones
         return PublicIpPrefix(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> pulumi.Output[str]:
+        """
+        The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+        """
+        return pulumi.get(self, "availability_zone")
 
     @property
     @pulumi.getter(name="ipPrefix")
@@ -498,9 +544,6 @@ class PublicIpPrefix(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def zones(self) -> pulumi.Output[Optional[str]]:
-        """
-        A collection containing the availability zone to allocate the Public IP Prefix in.
-        """
+    def zones(self) -> pulumi.Output[str]:
         return pulumi.get(self, "zones")
 

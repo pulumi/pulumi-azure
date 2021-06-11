@@ -2186,6 +2186,8 @@ func (o GremlinGraphConflictResolutionPolicyArrayOutput) Index(i pulumi.IntInput
 type GremlinGraphIndexPolicy struct {
 	// Indicates if the indexing policy is automatic. Defaults to `true`.
 	Automatic *bool `pulumi:"automatic"`
+	// One or more `compositeIndex` blocks as defined below.
+	CompositeIndices []GremlinGraphIndexPolicyCompositeIndex `pulumi:"compositeIndices"`
 	// List of paths to exclude from indexing. Required if `indexingMode` is `Consistent` or `Lazy`.
 	ExcludedPaths []string `pulumi:"excludedPaths"`
 	// List of paths to include in the indexing. Required if `indexingMode` is `Consistent` or `Lazy`.
@@ -2208,6 +2210,8 @@ type GremlinGraphIndexPolicyInput interface {
 type GremlinGraphIndexPolicyArgs struct {
 	// Indicates if the indexing policy is automatic. Defaults to `true`.
 	Automatic pulumi.BoolPtrInput `pulumi:"automatic"`
+	// One or more `compositeIndex` blocks as defined below.
+	CompositeIndices GremlinGraphIndexPolicyCompositeIndexArrayInput `pulumi:"compositeIndices"`
 	// List of paths to exclude from indexing. Required if `indexingMode` is `Consistent` or `Lazy`.
 	ExcludedPaths pulumi.StringArrayInput `pulumi:"excludedPaths"`
 	// List of paths to include in the indexing. Required if `indexingMode` is `Consistent` or `Lazy`.
@@ -2272,6 +2276,11 @@ func (o GremlinGraphIndexPolicyOutput) Automatic() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GremlinGraphIndexPolicy) *bool { return v.Automatic }).(pulumi.BoolPtrOutput)
 }
 
+// One or more `compositeIndex` blocks as defined below.
+func (o GremlinGraphIndexPolicyOutput) CompositeIndices() GremlinGraphIndexPolicyCompositeIndexArrayOutput {
+	return o.ApplyT(func(v GremlinGraphIndexPolicy) []GremlinGraphIndexPolicyCompositeIndex { return v.CompositeIndices }).(GremlinGraphIndexPolicyCompositeIndexArrayOutput)
+}
+
 // List of paths to exclude from indexing. Required if `indexingMode` is `Consistent` or `Lazy`.
 func (o GremlinGraphIndexPolicyOutput) ExcludedPaths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GremlinGraphIndexPolicy) []string { return v.ExcludedPaths }).(pulumi.StringArrayOutput)
@@ -2305,6 +2314,211 @@ func (o GremlinGraphIndexPolicyArrayOutput) Index(i pulumi.IntInput) GremlinGrap
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GremlinGraphIndexPolicy {
 		return vs[0].([]GremlinGraphIndexPolicy)[vs[1].(int)]
 	}).(GremlinGraphIndexPolicyOutput)
+}
+
+type GremlinGraphIndexPolicyCompositeIndex struct {
+	// One or more `index` blocks as defined below.
+	Indices []GremlinGraphIndexPolicyCompositeIndexIndex `pulumi:"indices"`
+}
+
+// GremlinGraphIndexPolicyCompositeIndexInput is an input type that accepts GremlinGraphIndexPolicyCompositeIndexArgs and GremlinGraphIndexPolicyCompositeIndexOutput values.
+// You can construct a concrete instance of `GremlinGraphIndexPolicyCompositeIndexInput` via:
+//
+//          GremlinGraphIndexPolicyCompositeIndexArgs{...}
+type GremlinGraphIndexPolicyCompositeIndexInput interface {
+	pulumi.Input
+
+	ToGremlinGraphIndexPolicyCompositeIndexOutput() GremlinGraphIndexPolicyCompositeIndexOutput
+	ToGremlinGraphIndexPolicyCompositeIndexOutputWithContext(context.Context) GremlinGraphIndexPolicyCompositeIndexOutput
+}
+
+type GremlinGraphIndexPolicyCompositeIndexArgs struct {
+	// One or more `index` blocks as defined below.
+	Indices GremlinGraphIndexPolicyCompositeIndexIndexArrayInput `pulumi:"indices"`
+}
+
+func (GremlinGraphIndexPolicyCompositeIndexArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinGraphIndexPolicyCompositeIndex)(nil)).Elem()
+}
+
+func (i GremlinGraphIndexPolicyCompositeIndexArgs) ToGremlinGraphIndexPolicyCompositeIndexOutput() GremlinGraphIndexPolicyCompositeIndexOutput {
+	return i.ToGremlinGraphIndexPolicyCompositeIndexOutputWithContext(context.Background())
+}
+
+func (i GremlinGraphIndexPolicyCompositeIndexArgs) ToGremlinGraphIndexPolicyCompositeIndexOutputWithContext(ctx context.Context) GremlinGraphIndexPolicyCompositeIndexOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinGraphIndexPolicyCompositeIndexOutput)
+}
+
+// GremlinGraphIndexPolicyCompositeIndexArrayInput is an input type that accepts GremlinGraphIndexPolicyCompositeIndexArray and GremlinGraphIndexPolicyCompositeIndexArrayOutput values.
+// You can construct a concrete instance of `GremlinGraphIndexPolicyCompositeIndexArrayInput` via:
+//
+//          GremlinGraphIndexPolicyCompositeIndexArray{ GremlinGraphIndexPolicyCompositeIndexArgs{...} }
+type GremlinGraphIndexPolicyCompositeIndexArrayInput interface {
+	pulumi.Input
+
+	ToGremlinGraphIndexPolicyCompositeIndexArrayOutput() GremlinGraphIndexPolicyCompositeIndexArrayOutput
+	ToGremlinGraphIndexPolicyCompositeIndexArrayOutputWithContext(context.Context) GremlinGraphIndexPolicyCompositeIndexArrayOutput
+}
+
+type GremlinGraphIndexPolicyCompositeIndexArray []GremlinGraphIndexPolicyCompositeIndexInput
+
+func (GremlinGraphIndexPolicyCompositeIndexArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GremlinGraphIndexPolicyCompositeIndex)(nil)).Elem()
+}
+
+func (i GremlinGraphIndexPolicyCompositeIndexArray) ToGremlinGraphIndexPolicyCompositeIndexArrayOutput() GremlinGraphIndexPolicyCompositeIndexArrayOutput {
+	return i.ToGremlinGraphIndexPolicyCompositeIndexArrayOutputWithContext(context.Background())
+}
+
+func (i GremlinGraphIndexPolicyCompositeIndexArray) ToGremlinGraphIndexPolicyCompositeIndexArrayOutputWithContext(ctx context.Context) GremlinGraphIndexPolicyCompositeIndexArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinGraphIndexPolicyCompositeIndexArrayOutput)
+}
+
+type GremlinGraphIndexPolicyCompositeIndexOutput struct{ *pulumi.OutputState }
+
+func (GremlinGraphIndexPolicyCompositeIndexOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinGraphIndexPolicyCompositeIndex)(nil)).Elem()
+}
+
+func (o GremlinGraphIndexPolicyCompositeIndexOutput) ToGremlinGraphIndexPolicyCompositeIndexOutput() GremlinGraphIndexPolicyCompositeIndexOutput {
+	return o
+}
+
+func (o GremlinGraphIndexPolicyCompositeIndexOutput) ToGremlinGraphIndexPolicyCompositeIndexOutputWithContext(ctx context.Context) GremlinGraphIndexPolicyCompositeIndexOutput {
+	return o
+}
+
+// One or more `index` blocks as defined below.
+func (o GremlinGraphIndexPolicyCompositeIndexOutput) Indices() GremlinGraphIndexPolicyCompositeIndexIndexArrayOutput {
+	return o.ApplyT(func(v GremlinGraphIndexPolicyCompositeIndex) []GremlinGraphIndexPolicyCompositeIndexIndex {
+		return v.Indices
+	}).(GremlinGraphIndexPolicyCompositeIndexIndexArrayOutput)
+}
+
+type GremlinGraphIndexPolicyCompositeIndexArrayOutput struct{ *pulumi.OutputState }
+
+func (GremlinGraphIndexPolicyCompositeIndexArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GremlinGraphIndexPolicyCompositeIndex)(nil)).Elem()
+}
+
+func (o GremlinGraphIndexPolicyCompositeIndexArrayOutput) ToGremlinGraphIndexPolicyCompositeIndexArrayOutput() GremlinGraphIndexPolicyCompositeIndexArrayOutput {
+	return o
+}
+
+func (o GremlinGraphIndexPolicyCompositeIndexArrayOutput) ToGremlinGraphIndexPolicyCompositeIndexArrayOutputWithContext(ctx context.Context) GremlinGraphIndexPolicyCompositeIndexArrayOutput {
+	return o
+}
+
+func (o GremlinGraphIndexPolicyCompositeIndexArrayOutput) Index(i pulumi.IntInput) GremlinGraphIndexPolicyCompositeIndexOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GremlinGraphIndexPolicyCompositeIndex {
+		return vs[0].([]GremlinGraphIndexPolicyCompositeIndex)[vs[1].(int)]
+	}).(GremlinGraphIndexPolicyCompositeIndexOutput)
+}
+
+type GremlinGraphIndexPolicyCompositeIndexIndex struct {
+	// Order of the index. Possible values are `Ascending` or `Descending`.
+	Order string `pulumi:"order"`
+	// Path for which the indexing behaviour applies to.
+	Path string `pulumi:"path"`
+}
+
+// GremlinGraphIndexPolicyCompositeIndexIndexInput is an input type that accepts GremlinGraphIndexPolicyCompositeIndexIndexArgs and GremlinGraphIndexPolicyCompositeIndexIndexOutput values.
+// You can construct a concrete instance of `GremlinGraphIndexPolicyCompositeIndexIndexInput` via:
+//
+//          GremlinGraphIndexPolicyCompositeIndexIndexArgs{...}
+type GremlinGraphIndexPolicyCompositeIndexIndexInput interface {
+	pulumi.Input
+
+	ToGremlinGraphIndexPolicyCompositeIndexIndexOutput() GremlinGraphIndexPolicyCompositeIndexIndexOutput
+	ToGremlinGraphIndexPolicyCompositeIndexIndexOutputWithContext(context.Context) GremlinGraphIndexPolicyCompositeIndexIndexOutput
+}
+
+type GremlinGraphIndexPolicyCompositeIndexIndexArgs struct {
+	// Order of the index. Possible values are `Ascending` or `Descending`.
+	Order pulumi.StringInput `pulumi:"order"`
+	// Path for which the indexing behaviour applies to.
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (GremlinGraphIndexPolicyCompositeIndexIndexArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinGraphIndexPolicyCompositeIndexIndex)(nil)).Elem()
+}
+
+func (i GremlinGraphIndexPolicyCompositeIndexIndexArgs) ToGremlinGraphIndexPolicyCompositeIndexIndexOutput() GremlinGraphIndexPolicyCompositeIndexIndexOutput {
+	return i.ToGremlinGraphIndexPolicyCompositeIndexIndexOutputWithContext(context.Background())
+}
+
+func (i GremlinGraphIndexPolicyCompositeIndexIndexArgs) ToGremlinGraphIndexPolicyCompositeIndexIndexOutputWithContext(ctx context.Context) GremlinGraphIndexPolicyCompositeIndexIndexOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinGraphIndexPolicyCompositeIndexIndexOutput)
+}
+
+// GremlinGraphIndexPolicyCompositeIndexIndexArrayInput is an input type that accepts GremlinGraphIndexPolicyCompositeIndexIndexArray and GremlinGraphIndexPolicyCompositeIndexIndexArrayOutput values.
+// You can construct a concrete instance of `GremlinGraphIndexPolicyCompositeIndexIndexArrayInput` via:
+//
+//          GremlinGraphIndexPolicyCompositeIndexIndexArray{ GremlinGraphIndexPolicyCompositeIndexIndexArgs{...} }
+type GremlinGraphIndexPolicyCompositeIndexIndexArrayInput interface {
+	pulumi.Input
+
+	ToGremlinGraphIndexPolicyCompositeIndexIndexArrayOutput() GremlinGraphIndexPolicyCompositeIndexIndexArrayOutput
+	ToGremlinGraphIndexPolicyCompositeIndexIndexArrayOutputWithContext(context.Context) GremlinGraphIndexPolicyCompositeIndexIndexArrayOutput
+}
+
+type GremlinGraphIndexPolicyCompositeIndexIndexArray []GremlinGraphIndexPolicyCompositeIndexIndexInput
+
+func (GremlinGraphIndexPolicyCompositeIndexIndexArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GremlinGraphIndexPolicyCompositeIndexIndex)(nil)).Elem()
+}
+
+func (i GremlinGraphIndexPolicyCompositeIndexIndexArray) ToGremlinGraphIndexPolicyCompositeIndexIndexArrayOutput() GremlinGraphIndexPolicyCompositeIndexIndexArrayOutput {
+	return i.ToGremlinGraphIndexPolicyCompositeIndexIndexArrayOutputWithContext(context.Background())
+}
+
+func (i GremlinGraphIndexPolicyCompositeIndexIndexArray) ToGremlinGraphIndexPolicyCompositeIndexIndexArrayOutputWithContext(ctx context.Context) GremlinGraphIndexPolicyCompositeIndexIndexArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinGraphIndexPolicyCompositeIndexIndexArrayOutput)
+}
+
+type GremlinGraphIndexPolicyCompositeIndexIndexOutput struct{ *pulumi.OutputState }
+
+func (GremlinGraphIndexPolicyCompositeIndexIndexOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinGraphIndexPolicyCompositeIndexIndex)(nil)).Elem()
+}
+
+func (o GremlinGraphIndexPolicyCompositeIndexIndexOutput) ToGremlinGraphIndexPolicyCompositeIndexIndexOutput() GremlinGraphIndexPolicyCompositeIndexIndexOutput {
+	return o
+}
+
+func (o GremlinGraphIndexPolicyCompositeIndexIndexOutput) ToGremlinGraphIndexPolicyCompositeIndexIndexOutputWithContext(ctx context.Context) GremlinGraphIndexPolicyCompositeIndexIndexOutput {
+	return o
+}
+
+// Order of the index. Possible values are `Ascending` or `Descending`.
+func (o GremlinGraphIndexPolicyCompositeIndexIndexOutput) Order() pulumi.StringOutput {
+	return o.ApplyT(func(v GremlinGraphIndexPolicyCompositeIndexIndex) string { return v.Order }).(pulumi.StringOutput)
+}
+
+// Path for which the indexing behaviour applies to.
+func (o GremlinGraphIndexPolicyCompositeIndexIndexOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GremlinGraphIndexPolicyCompositeIndexIndex) string { return v.Path }).(pulumi.StringOutput)
+}
+
+type GremlinGraphIndexPolicyCompositeIndexIndexArrayOutput struct{ *pulumi.OutputState }
+
+func (GremlinGraphIndexPolicyCompositeIndexIndexArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GremlinGraphIndexPolicyCompositeIndexIndex)(nil)).Elem()
+}
+
+func (o GremlinGraphIndexPolicyCompositeIndexIndexArrayOutput) ToGremlinGraphIndexPolicyCompositeIndexIndexArrayOutput() GremlinGraphIndexPolicyCompositeIndexIndexArrayOutput {
+	return o
+}
+
+func (o GremlinGraphIndexPolicyCompositeIndexIndexArrayOutput) ToGremlinGraphIndexPolicyCompositeIndexIndexArrayOutputWithContext(ctx context.Context) GremlinGraphIndexPolicyCompositeIndexIndexArrayOutput {
+	return o
+}
+
+func (o GremlinGraphIndexPolicyCompositeIndexIndexArrayOutput) Index(i pulumi.IntInput) GremlinGraphIndexPolicyCompositeIndexIndexOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GremlinGraphIndexPolicyCompositeIndexIndex {
+		return vs[0].([]GremlinGraphIndexPolicyCompositeIndexIndex)[vs[1].(int)]
+	}).(GremlinGraphIndexPolicyCompositeIndexIndexOutput)
 }
 
 type GremlinGraphUniqueKey struct {
@@ -4582,6 +4796,10 @@ func init() {
 	pulumi.RegisterOutputType(GremlinGraphConflictResolutionPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GremlinGraphIndexPolicyOutput{})
 	pulumi.RegisterOutputType(GremlinGraphIndexPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GremlinGraphIndexPolicyCompositeIndexOutput{})
+	pulumi.RegisterOutputType(GremlinGraphIndexPolicyCompositeIndexArrayOutput{})
+	pulumi.RegisterOutputType(GremlinGraphIndexPolicyCompositeIndexIndexOutput{})
+	pulumi.RegisterOutputType(GremlinGraphIndexPolicyCompositeIndexIndexArrayOutput{})
 	pulumi.RegisterOutputType(GremlinGraphUniqueKeyOutput{})
 	pulumi.RegisterOutputType(GremlinGraphUniqueKeyArrayOutput{})
 	pulumi.RegisterOutputType(MongoCollectionAutoscaleSettingsOutput{})

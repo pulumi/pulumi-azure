@@ -25,11 +25,13 @@ from .linked_service_azure_blob_storage import *
 from .linked_service_azure_databricks import *
 from .linked_service_azure_file_storage import *
 from .linked_service_azure_function import *
+from .linked_service_azure_search import *
 from .linked_service_azure_sql_database import *
 from .linked_service_azure_table_storage import *
 from .linked_service_cosmos_db import *
 from .linked_service_data_lake_storage_gen2 import *
 from .linked_service_key_vault import *
+from .linked_service_kusto import *
 from .linked_service_mysql import *
 from .linked_service_postgresql import *
 from .linked_service_sftp import *

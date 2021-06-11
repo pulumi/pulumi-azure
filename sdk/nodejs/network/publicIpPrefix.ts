@@ -61,6 +61,10 @@ export class PublicIpPrefix extends pulumi.CustomResource {
     }
 
     /**
+     * The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+     */
+    public readonly availabilityZone!: pulumi.Output<string>;
+    /**
      * The IP address prefix value that was allocated.
      */
     public /*out*/ readonly ipPrefix!: pulumi.Output<string>;
@@ -89,9 +93,9 @@ export class PublicIpPrefix extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A collection containing the availability zone to allocate the Public IP Prefix in.
+     * @deprecated This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/
      */
-    public readonly zones!: pulumi.Output<string | undefined>;
+    public readonly zones!: pulumi.Output<string>;
 
     /**
      * Create a PublicIpPrefix resource with the given unique name, arguments, and options.
@@ -106,6 +110,7 @@ export class PublicIpPrefix extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PublicIpPrefixState | undefined;
+            inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["ipPrefix"] = state ? state.ipPrefix : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -119,6 +124,7 @@ export class PublicIpPrefix extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["prefixLength"] = args ? args.prefixLength : undefined;
@@ -139,6 +145,10 @@ export class PublicIpPrefix extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PublicIpPrefix resources.
  */
 export interface PublicIpPrefixState {
+    /**
+     * The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+     */
+    availabilityZone?: pulumi.Input<string>;
     /**
      * The IP address prefix value that was allocated.
      */
@@ -168,7 +178,7 @@ export interface PublicIpPrefixState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A collection containing the availability zone to allocate the Public IP Prefix in.
+     * @deprecated This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/
      */
     zones?: pulumi.Input<string>;
 }
@@ -177,6 +187,10 @@ export interface PublicIpPrefixState {
  * The set of arguments for constructing a PublicIpPrefix resource.
  */
 export interface PublicIpPrefixArgs {
+    /**
+     * The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+     */
+    availabilityZone?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -202,7 +216,7 @@ export interface PublicIpPrefixArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A collection containing the availability zone to allocate the Public IP Prefix in.
+     * @deprecated This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/
      */
     zones?: pulumi.Input<string>;
 }

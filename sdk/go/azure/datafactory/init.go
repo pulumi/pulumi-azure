@@ -59,6 +59,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LinkedServiceAzureFileStorage{}
 	case "azure:datafactory/linkedServiceAzureFunction:LinkedServiceAzureFunction":
 		r = &LinkedServiceAzureFunction{}
+	case "azure:datafactory/linkedServiceAzureSearch:LinkedServiceAzureSearch":
+		r = &LinkedServiceAzureSearch{}
 	case "azure:datafactory/linkedServiceAzureSqlDatabase:LinkedServiceAzureSqlDatabase":
 		r = &LinkedServiceAzureSqlDatabase{}
 	case "azure:datafactory/linkedServiceAzureTableStorage:LinkedServiceAzureTableStorage":
@@ -69,6 +71,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LinkedServiceDataLakeStorageGen2{}
 	case "azure:datafactory/linkedServiceKeyVault:LinkedServiceKeyVault":
 		r = &LinkedServiceKeyVault{}
+	case "azure:datafactory/linkedServiceKusto:LinkedServiceKusto":
+		r = &LinkedServiceKusto{}
 	case "azure:datafactory/linkedServiceMysql:LinkedServiceMysql":
 		r = &LinkedServiceMysql{}
 	case "azure:datafactory/linkedServicePostgresql:LinkedServicePostgresql":
@@ -197,6 +201,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"datafactory/linkedServiceAzureSearch",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"datafactory/linkedServiceAzureSqlDatabase",
 		&module{version},
 	)
@@ -218,6 +227,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"datafactory/linkedServiceKeyVault",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"datafactory/linkedServiceKusto",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

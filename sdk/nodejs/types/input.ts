@@ -6215,7 +6215,7 @@ export namespace consumption {
 
     export interface BudgetResourceGroupFilterDimension {
         /**
-         * The name of the column to use for the filter. The allowed values are
+         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
          */
         name: pulumi.Input<string>;
         /**
@@ -6223,7 +6223,7 @@ export namespace consumption {
          */
         operator?: pulumi.Input<string>;
         /**
-         * Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+         * Specifies a list of values for the column.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -6241,7 +6241,7 @@ export namespace consumption {
 
     export interface BudgetResourceGroupFilterNotDimension {
         /**
-         * The name of the column to use for the filter. The allowed values are
+         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
          */
         name: pulumi.Input<string>;
         /**
@@ -6249,7 +6249,7 @@ export namespace consumption {
          */
         operator?: pulumi.Input<string>;
         /**
-         * Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+         * Specifies a list of values for the column.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -6339,7 +6339,7 @@ export namespace consumption {
 
     export interface BudgetSubscriptionFilterDimension {
         /**
-         * The name of the column to use for the filter. The allowed values are
+         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
          */
         name: pulumi.Input<string>;
         /**
@@ -6347,7 +6347,7 @@ export namespace consumption {
          */
         operator?: pulumi.Input<string>;
         /**
-         * Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+         * Specifies a list of values for the column.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -6365,7 +6365,7 @@ export namespace consumption {
 
     export interface BudgetSubscriptionFilterNotDimension {
         /**
-         * The name of the column to use for the filter. The allowed values are
+         * The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
          */
         name: pulumi.Input<string>;
         /**
@@ -6373,7 +6373,7 @@ export namespace consumption {
          */
         operator?: pulumi.Input<string>;
         /**
-         * Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+         * Specifies a list of values for the column.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -6835,11 +6835,11 @@ export namespace containerservice {
 
     export interface KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity {
         /**
-         * The Client ID for the Service Principal.
+         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
          */
         clientId?: pulumi.Input<string>;
         /**
-         * The Object ID of the user-defined Managed Identity used by the OMS Agents.
+         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
          */
         objectId?: pulumi.Input<string>;
         /**
@@ -6872,11 +6872,11 @@ export namespace containerservice {
 
     export interface KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity {
         /**
-         * The Client ID for the Service Principal.
+         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
          */
         clientId?: pulumi.Input<string>;
         /**
-         * The Object ID of the user-defined Managed Identity used by the OMS Agents.
+         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
          */
         objectId?: pulumi.Input<string>;
         /**
@@ -7123,15 +7123,15 @@ export namespace containerservice {
 
     export interface KubernetesClusterKubeletIdentity {
         /**
-         * The Client ID for the Service Principal.
+         * The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
          */
         clientId?: pulumi.Input<string>;
         /**
-         * The Object ID of the user-defined Managed Identity used by the OMS Agents.
+         * The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
          */
         objectId?: pulumi.Input<string>;
         /**
-         * The ID of a user assigned identity.
+         * The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
          */
         userAssignedIdentityId?: pulumi.Input<string>;
     }
@@ -7630,6 +7630,10 @@ export namespace cosmosdb {
          */
         automatic?: pulumi.Input<boolean>;
         /**
+         * One or more `compositeIndex` blocks as defined below.
+         */
+        compositeIndices?: pulumi.Input<pulumi.Input<inputs.cosmosdb.GremlinGraphIndexPolicyCompositeIndex>[]>;
+        /**
          * List of paths to exclude from indexing. Required if `indexingMode` is `Consistent` or `Lazy`.
          */
         excludedPaths?: pulumi.Input<pulumi.Input<string>[]>;
@@ -7641,6 +7645,24 @@ export namespace cosmosdb {
          * Indicates the indexing mode. Possible values include: `Consistent`, `Lazy`, `None`.
          */
         indexingMode: pulumi.Input<string>;
+    }
+
+    export interface GremlinGraphIndexPolicyCompositeIndex {
+        /**
+         * One or more `index` blocks as defined below.
+         */
+        indices: pulumi.Input<pulumi.Input<inputs.cosmosdb.GremlinGraphIndexPolicyCompositeIndexIndex>[]>;
+    }
+
+    export interface GremlinGraphIndexPolicyCompositeIndexIndex {
+        /**
+         * Order of the index. Possible values are `Ascending` or `Descending`.
+         */
+        order: pulumi.Input<string>;
+        /**
+         * Path for which the indexing behaviour applies to.
+         */
+        path: pulumi.Input<string>;
     }
 
     export interface GremlinGraphUniqueKey {
@@ -8024,17 +8046,32 @@ export namespace datafactory {
         type?: pulumi.Input<string>;
     }
 
+    export interface DatasetDelimitedTextAzureBlobFsLocation {
+        /**
+         * The storage data lake gen2 file system on the Azure Blob Storage Account hosting the file.
+         */
+        fileSystem: pulumi.Input<string>;
+        /**
+         * The filename of the file.
+         */
+        filename?: pulumi.Input<string>;
+        /**
+         * The folder path to the file.
+         */
+        path?: pulumi.Input<string>;
+    }
+
     export interface DatasetDelimitedTextAzureBlobStorageLocation {
         /**
          * The container on the Azure Blob Storage Account hosting the file.
          */
         container: pulumi.Input<string>;
         /**
-         * The filename of the file on the web server.
+         * The filename of the file.
          */
         filename: pulumi.Input<string>;
         /**
-         * The folder path to the file on the web server.
+         * The folder path to the file.
          */
         path: pulumi.Input<string>;
     }
@@ -8476,6 +8513,17 @@ export namespace datafactory {
         secretName: pulumi.Input<string>;
     }
 
+    export interface LinkedServiceAzureSqlDatabaseKeyVaultConnectionString {
+        /**
+         * Specifies the name of an existing Key Vault Data Factory Linked Service.
+         */
+        linkedServiceName: pulumi.Input<string>;
+        /**
+         * Specifies the secret name in Azure Key Vault that stores SQL Server connection string.
+         */
+        secretName: pulumi.Input<string>;
+    }
+
     export interface LinkedServiceAzureSqlDatabaseKeyVaultPassword {
         /**
          * Specifies the name of an existing Key Vault Data Factory Linked Service.
@@ -8494,6 +8542,17 @@ export namespace datafactory {
         linkedServiceName: pulumi.Input<string>;
         /**
          * Specifies the secret name in Azure Key Vault that stores Snowflake password.
+         */
+        secretName: pulumi.Input<string>;
+    }
+
+    export interface LinkedServiceSqlServerKeyVaultConnectionString {
+        /**
+         * Specifies the name of an existing Key Vault Data Factory Linked Service.
+         */
+        linkedServiceName: pulumi.Input<string>;
+        /**
+         * Specifies the secret name in Azure Key Vault that stores SQL Server connection string.
          */
         secretName: pulumi.Input<string>;
     }
@@ -20222,6 +20281,10 @@ export namespace storage {
 
     export interface AccountIdentity {
         /**
+         * A list of IDs for User Assigned Managed Identity resources to be assigned.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * The Principal ID for the Service Principal associated with the Identity of this Storage Account.
          */
         principalId?: pulumi.Input<string>;
@@ -20230,7 +20293,7 @@ export namespace storage {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the identity type of the Storage Account. At this time the only allowed value is `SystemAssigned`.
+         * Specifies the identity type of the Storage Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned,UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }

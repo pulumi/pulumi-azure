@@ -1768,6 +1768,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "datafactory/linkedServiceAzureSearch",
+  "fqn": "pulumi_azure.datafactory",
+  "classes": {
+   "azure:datafactory/linkedServiceAzureSearch:LinkedServiceAzureSearch": "LinkedServiceAzureSearch"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "datafactory/linkedServiceAzureSqlDatabase",
   "fqn": "pulumi_azure.datafactory",
   "classes": {
@@ -1804,6 +1812,14 @@ _utilities.register(
   "fqn": "pulumi_azure.datafactory",
   "classes": {
    "azure:datafactory/linkedServiceKeyVault:LinkedServiceKeyVault": "LinkedServiceKeyVault"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "datafactory/linkedServiceKusto",
+  "fqn": "pulumi_azure.datafactory",
+  "classes": {
+   "azure:datafactory/linkedServiceKusto:LinkedServiceKusto": "LinkedServiceKusto"
   }
  },
  {

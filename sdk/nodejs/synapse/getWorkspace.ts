@@ -62,6 +62,10 @@ export interface GetWorkspaceResult {
      */
     readonly id: string;
     /**
+     * An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
+     */
+    readonly identities: outputs.synapse.GetWorkspaceIdentity[];
+    /**
      * The Azure location where the Synapse Workspace exists.
      */
     readonly location: string;

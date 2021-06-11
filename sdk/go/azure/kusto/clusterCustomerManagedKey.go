@@ -31,6 +31,8 @@ type ClusterCustomerManagedKey struct {
 	KeyVaultId pulumi.StringOutput `pulumi:"keyVaultId"`
 	// The version of Key Vault Key.
 	KeyVersion pulumi.StringOutput `pulumi:"keyVersion"`
+	// The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
+	UserIdentity pulumi.StringPtrOutput `pulumi:"userIdentity"`
 }
 
 // NewClusterCustomerManagedKey registers a new resource with the given unique name, arguments, and options.
@@ -82,6 +84,8 @@ type clusterCustomerManagedKeyState struct {
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// The version of Key Vault Key.
 	KeyVersion *string `pulumi:"keyVersion"`
+	// The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
+	UserIdentity *string `pulumi:"userIdentity"`
 }
 
 type ClusterCustomerManagedKeyState struct {
@@ -93,6 +97,8 @@ type ClusterCustomerManagedKeyState struct {
 	KeyVaultId pulumi.StringPtrInput
 	// The version of Key Vault Key.
 	KeyVersion pulumi.StringPtrInput
+	// The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
+	UserIdentity pulumi.StringPtrInput
 }
 
 func (ClusterCustomerManagedKeyState) ElementType() reflect.Type {
@@ -108,6 +114,8 @@ type clusterCustomerManagedKeyArgs struct {
 	KeyVaultId string `pulumi:"keyVaultId"`
 	// The version of Key Vault Key.
 	KeyVersion string `pulumi:"keyVersion"`
+	// The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
+	UserIdentity *string `pulumi:"userIdentity"`
 }
 
 // The set of arguments for constructing a ClusterCustomerManagedKey resource.
@@ -120,6 +128,8 @@ type ClusterCustomerManagedKeyArgs struct {
 	KeyVaultId pulumi.StringInput
 	// The version of Key Vault Key.
 	KeyVersion pulumi.StringInput
+	// The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
+	UserIdentity pulumi.StringPtrInput
 }
 
 func (ClusterCustomerManagedKeyArgs) ElementType() reflect.Type {

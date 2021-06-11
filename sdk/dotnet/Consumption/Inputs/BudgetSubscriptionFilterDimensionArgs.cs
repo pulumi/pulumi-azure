@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Consumption.Inputs
     public sealed class BudgetSubscriptionFilterDimensionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the column to use for the filter. The allowed values are
+        /// The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Consumption.Inputs
         private InputList<string>? _values;
 
         /// <summary>
-        /// Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+        /// Specifies a list of values for the column.
         /// </summary>
         public InputList<string> Values
         {

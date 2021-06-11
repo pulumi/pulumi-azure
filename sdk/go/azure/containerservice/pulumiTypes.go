@@ -3315,9 +3315,9 @@ func (o KubernetesClusterAddonProfileIngressApplicationGatewayPtrOutput) SubnetI
 }
 
 type KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity struct {
-	// The Client ID for the Service Principal.
+	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
 	ClientId *string `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity used by the OMS Agents.
+	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
 	ObjectId *string `pulumi:"objectId"`
 	// The ID of a user assigned identity.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
@@ -3335,9 +3335,9 @@ type KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGat
 }
 
 type KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs struct {
-	// The Client ID for the Service Principal.
+	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity used by the OMS Agents.
+	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
 	// The ID of a user assigned identity.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
@@ -3394,14 +3394,14 @@ func (o KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplication
 	return o
 }
 
-// The Client ID for the Service Principal.
+// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
 func (o KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity) *string {
 		return v.ClientId
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Object ID of the user-defined Managed Identity used by the OMS Agents.
+// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
 func (o KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentity) *string {
 		return v.ObjectId
@@ -3740,9 +3740,9 @@ func (o KubernetesClusterAddonProfileOmsAgentPtrOutput) OmsAgentIdentities() Kub
 }
 
 type KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity struct {
-	// The Client ID for the Service Principal.
+	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
 	ClientId *string `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity used by the OMS Agents.
+	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
 	ObjectId *string `pulumi:"objectId"`
 	// The ID of a user assigned identity.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
@@ -3760,9 +3760,9 @@ type KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityInput interface {
 }
 
 type KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs struct {
-	// The Client ID for the Service Principal.
+	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity used by the OMS Agents.
+	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
 	// The ID of a user assigned identity.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
@@ -3819,12 +3819,12 @@ func (o KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput) ToKubernete
 	return o
 }
 
-// The Client ID for the Service Principal.
+// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
 func (o KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// The Object ID of the user-defined Managed Identity used by the OMS Agents.
+// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
 func (o KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAddonProfileOmsAgentOmsAgentIdentity) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
@@ -5419,11 +5419,11 @@ func (o KubernetesClusterKubeConfigArrayOutput) Index(i pulumi.IntInput) Kuberne
 }
 
 type KubernetesClusterKubeletIdentity struct {
-	// The Client ID for the Service Principal.
+	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
 	ClientId *string `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity used by the OMS Agents.
+	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
 	ObjectId *string `pulumi:"objectId"`
-	// The ID of a user assigned identity.
+	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
@@ -5439,11 +5439,11 @@ type KubernetesClusterKubeletIdentityInput interface {
 }
 
 type KubernetesClusterKubeletIdentityArgs struct {
-	// The Client ID for the Service Principal.
+	// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The Object ID of the user-defined Managed Identity used by the OMS Agents.
+	// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	// The ID of a user assigned identity.
+	// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
@@ -5498,17 +5498,17 @@ func (o KubernetesClusterKubeletIdentityOutput) ToKubernetesClusterKubeletIdenti
 	return o
 }
 
-// The Client ID for the Service Principal.
+// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
 func (o KubernetesClusterKubeletIdentityOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterKubeletIdentity) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// The Object ID of the user-defined Managed Identity used by the OMS Agents.
+// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
 func (o KubernetesClusterKubeletIdentityOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterKubeletIdentity) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of a user assigned identity.
+// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
 func (o KubernetesClusterKubeletIdentityOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterKubeletIdentity) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }

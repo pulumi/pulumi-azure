@@ -1493,8 +1493,8 @@ class KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGa
                  object_id: Optional[pulumi.Input[str]] = None,
                  user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] client_id: The Client ID for the Service Principal.
-        :param pulumi.Input[str] object_id: The Object ID of the user-defined Managed Identity used by the OMS Agents.
+        :param pulumi.Input[str] client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+        :param pulumi.Input[str] object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
         :param pulumi.Input[str] user_assigned_identity_id: The ID of a user assigned identity.
         """
         if client_id is not None:
@@ -1508,7 +1508,7 @@ class KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGa
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Client ID for the Service Principal.
+        The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
         """
         return pulumi.get(self, "client_id")
 
@@ -1520,7 +1520,7 @@ class KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGa
     @pulumi.getter(name="objectId")
     def object_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Object ID of the user-defined Managed Identity used by the OMS Agents.
+        The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
         """
         return pulumi.get(self, "object_id")
 
@@ -1624,8 +1624,8 @@ class KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs:
                  object_id: Optional[pulumi.Input[str]] = None,
                  user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] client_id: The Client ID for the Service Principal.
-        :param pulumi.Input[str] object_id: The Object ID of the user-defined Managed Identity used by the OMS Agents.
+        :param pulumi.Input[str] client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+        :param pulumi.Input[str] object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
         :param pulumi.Input[str] user_assigned_identity_id: The ID of a user assigned identity.
         """
         if client_id is not None:
@@ -1639,7 +1639,7 @@ class KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs:
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Client ID for the Service Principal.
+        The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
         """
         return pulumi.get(self, "client_id")
 
@@ -1651,7 +1651,7 @@ class KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs:
     @pulumi.getter(name="objectId")
     def object_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Object ID of the user-defined Managed Identity used by the OMS Agents.
+        The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
         """
         return pulumi.get(self, "object_id")
 
@@ -2605,9 +2605,9 @@ class KubernetesClusterKubeletIdentityArgs:
                  object_id: Optional[pulumi.Input[str]] = None,
                  user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] client_id: The Client ID for the Service Principal.
-        :param pulumi.Input[str] object_id: The Object ID of the user-defined Managed Identity used by the OMS Agents.
-        :param pulumi.Input[str] user_assigned_identity_id: The ID of a user assigned identity.
+        :param pulumi.Input[str] client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+        :param pulumi.Input[str] object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+        :param pulumi.Input[str] user_assigned_identity_id: The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -2620,7 +2620,7 @@ class KubernetesClusterKubeletIdentityArgs:
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Client ID for the Service Principal.
+        The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
         """
         return pulumi.get(self, "client_id")
 
@@ -2632,7 +2632,7 @@ class KubernetesClusterKubeletIdentityArgs:
     @pulumi.getter(name="objectId")
     def object_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Object ID of the user-defined Managed Identity used by the OMS Agents.
+        The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
         """
         return pulumi.get(self, "object_id")
 
@@ -2644,7 +2644,7 @@ class KubernetesClusterKubeletIdentityArgs:
     @pulumi.getter(name="userAssignedIdentityId")
     def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of a user assigned identity.
+        The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 

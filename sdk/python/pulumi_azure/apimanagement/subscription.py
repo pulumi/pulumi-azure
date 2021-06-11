@@ -31,7 +31,9 @@ class SubscriptionArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] allow_tracing: Determines whether tracing can be enabled.  Defaults to `true`.
         :param pulumi.Input[str] api_id: The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] primary_key: The primary subscription key to use for the subscription.
         :param pulumi.Input[str] product_id: The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] secondary_key: The secondary subscription key to use for the subscription.
         :param pulumi.Input[str] state: The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
         :param pulumi.Input[str] subscription_id: An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_id: The ID of the User which should be assigned to this Subscription. Changing this forces a new resource to be created.
@@ -119,6 +121,9 @@ class SubscriptionArgs:
     @property
     @pulumi.getter(name="primaryKey")
     def primary_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The primary subscription key to use for the subscription.
+        """
         return pulumi.get(self, "primary_key")
 
     @primary_key.setter
@@ -140,6 +145,9 @@ class SubscriptionArgs:
     @property
     @pulumi.getter(name="secondaryKey")
     def secondary_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The secondary subscription key to use for the subscription.
+        """
         return pulumi.get(self, "secondary_key")
 
     @secondary_key.setter
@@ -203,8 +211,10 @@ class _SubscriptionState:
         :param pulumi.Input[str] api_id: The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[str] api_management_name: The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] display_name: The display name of this Subscription.
+        :param pulumi.Input[str] primary_key: The primary subscription key to use for the subscription.
         :param pulumi.Input[str] product_id: The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] secondary_key: The secondary subscription key to use for the subscription.
         :param pulumi.Input[str] state: The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
         :param pulumi.Input[str] subscription_id: An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_id: The ID of the User which should be assigned to this Subscription. Changing this forces a new resource to be created.
@@ -283,6 +293,9 @@ class _SubscriptionState:
     @property
     @pulumi.getter(name="primaryKey")
     def primary_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The primary subscription key to use for the subscription.
+        """
         return pulumi.get(self, "primary_key")
 
     @primary_key.setter
@@ -316,6 +329,9 @@ class _SubscriptionState:
     @property
     @pulumi.getter(name="secondaryKey")
     def secondary_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The secondary subscription key to use for the subscription.
+        """
         return pulumi.get(self, "secondary_key")
 
     @secondary_key.setter
@@ -415,8 +431,10 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[str] api_id: The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[str] api_management_name: The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] display_name: The display name of this Subscription.
+        :param pulumi.Input[str] primary_key: The primary subscription key to use for the subscription.
         :param pulumi.Input[str] product_id: The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] secondary_key: The secondary subscription key to use for the subscription.
         :param pulumi.Input[str] state: The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
         :param pulumi.Input[str] subscription_id: An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_id: The ID of the User which should be assigned to this Subscription. Changing this forces a new resource to be created.
@@ -547,8 +565,10 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[str] api_id: The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[str] api_management_name: The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] display_name: The display name of this Subscription.
+        :param pulumi.Input[str] primary_key: The primary subscription key to use for the subscription.
         :param pulumi.Input[str] product_id: The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] secondary_key: The secondary subscription key to use for the subscription.
         :param pulumi.Input[str] state: The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
         :param pulumi.Input[str] subscription_id: An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_id: The ID of the User which should be assigned to this Subscription. Changing this forces a new resource to be created.
@@ -605,6 +625,9 @@ class Subscription(pulumi.CustomResource):
     @property
     @pulumi.getter(name="primaryKey")
     def primary_key(self) -> pulumi.Output[str]:
+        """
+        The primary subscription key to use for the subscription.
+        """
         return pulumi.get(self, "primary_key")
 
     @property
@@ -626,6 +649,9 @@ class Subscription(pulumi.CustomResource):
     @property
     @pulumi.getter(name="secondaryKey")
     def secondary_key(self) -> pulumi.Output[str]:
+        """
+        The secondary subscription key to use for the subscription.
+        """
         return pulumi.get(self, "secondary_key")
 
     @property

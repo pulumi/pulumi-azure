@@ -25,11 +25,13 @@ export * from "./linkedServiceAzureBlobStorage";
 export * from "./linkedServiceAzureDatabricks";
 export * from "./linkedServiceAzureFileStorage";
 export * from "./linkedServiceAzureFunction";
+export * from "./linkedServiceAzureSearch";
 export * from "./linkedServiceAzureSqlDatabase";
 export * from "./linkedServiceAzureTableStorage";
 export * from "./linkedServiceCosmosDb";
 export * from "./linkedServiceDataLakeStorageGen2";
 export * from "./linkedServiceKeyVault";
+export * from "./linkedServiceKusto";
 export * from "./linkedServiceMysql";
 export * from "./linkedServicePostgresql";
 export * from "./linkedServiceSftp";
@@ -60,11 +62,13 @@ import { LinkedServiceAzureBlobStorage } from "./linkedServiceAzureBlobStorage";
 import { LinkedServiceAzureDatabricks } from "./linkedServiceAzureDatabricks";
 import { LinkedServiceAzureFileStorage } from "./linkedServiceAzureFileStorage";
 import { LinkedServiceAzureFunction } from "./linkedServiceAzureFunction";
+import { LinkedServiceAzureSearch } from "./linkedServiceAzureSearch";
 import { LinkedServiceAzureSqlDatabase } from "./linkedServiceAzureSqlDatabase";
 import { LinkedServiceAzureTableStorage } from "./linkedServiceAzureTableStorage";
 import { LinkedServiceCosmosDb } from "./linkedServiceCosmosDb";
 import { LinkedServiceDataLakeStorageGen2 } from "./linkedServiceDataLakeStorageGen2";
 import { LinkedServiceKeyVault } from "./linkedServiceKeyVault";
+import { LinkedServiceKusto } from "./linkedServiceKusto";
 import { LinkedServiceMysql } from "./linkedServiceMysql";
 import { LinkedServicePostgresql } from "./linkedServicePostgresql";
 import { LinkedServiceSftp } from "./linkedServiceSftp";
@@ -117,6 +121,8 @@ const _module = {
                 return new LinkedServiceAzureFileStorage(name, <any>undefined, { urn })
             case "azure:datafactory/linkedServiceAzureFunction:LinkedServiceAzureFunction":
                 return new LinkedServiceAzureFunction(name, <any>undefined, { urn })
+            case "azure:datafactory/linkedServiceAzureSearch:LinkedServiceAzureSearch":
+                return new LinkedServiceAzureSearch(name, <any>undefined, { urn })
             case "azure:datafactory/linkedServiceAzureSqlDatabase:LinkedServiceAzureSqlDatabase":
                 return new LinkedServiceAzureSqlDatabase(name, <any>undefined, { urn })
             case "azure:datafactory/linkedServiceAzureTableStorage:LinkedServiceAzureTableStorage":
@@ -127,6 +133,8 @@ const _module = {
                 return new LinkedServiceDataLakeStorageGen2(name, <any>undefined, { urn })
             case "azure:datafactory/linkedServiceKeyVault:LinkedServiceKeyVault":
                 return new LinkedServiceKeyVault(name, <any>undefined, { urn })
+            case "azure:datafactory/linkedServiceKusto:LinkedServiceKusto":
+                return new LinkedServiceKusto(name, <any>undefined, { urn })
             case "azure:datafactory/linkedServiceMysql:LinkedServiceMysql":
                 return new LinkedServiceMysql(name, <any>undefined, { urn })
             case "azure:datafactory/linkedServicePostgresql:LinkedServicePostgresql":
@@ -169,11 +177,13 @@ pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceAzureBl
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceAzureDatabricks", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceAzureFileStorage", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceAzureFunction", _module)
+pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceAzureSearch", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceAzureSqlDatabase", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceAzureTableStorage", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceCosmosDb", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceDataLakeStorageGen2", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceKeyVault", _module)
+pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceKusto", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceMysql", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServicePostgresql", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/linkedServiceSftp", _module)

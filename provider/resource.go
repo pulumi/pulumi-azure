@@ -548,6 +548,10 @@ func Provider() tfbridge.ProviderInfo {
 					"addon_profile": {
 						SuppressEmptyMapElements: boolRef(true),
 					},
+					"kubelet_identity": {
+						Name:        "kubeletIdentities",
+						MaxItemsOne: tfbridge.False(),
+					},
 				},
 			},
 			"azurerm_kubernetes_cluster_node_pool": {
@@ -781,6 +785,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_factory_dataset_parquet":                 {Tok: azureResource(azureDataFactory, "DatasetParquet")},
 			"azurerm_data_factory_linked_service_azure_databricks": {Tok: azureResource(azureDataFactory, "LinkedServiceAzureDatabricks")},
 			"azurerm_data_factory_dataset_snowflake":               {Tok: azureResource(azureDataFactory, "DatasetSnowflake")},
+			"azurerm_data_factory_linked_service_azure_search":     {Tok: azureResource(azureDataFactory, "LinkedServiceAzureSearch")},
+			"azurerm_data_factory_linked_service_kusto":            {Tok: azureResource(azureDataFactory, "LinkedServiceKusto")},
 
 			// Data Lake
 			"azurerm_data_lake_analytics_account":          {Tok: azureResource(azureDatalake, "AnalyticsAccount")},
@@ -1042,6 +1048,10 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"conflict_resolution_policy": {
 						Name:        "conflictResolutionPolicies",
+						MaxItemsOne: tfbridge.False(),
+					},
+					"index_policy": {
+						Name:        "indexPolicies",
 						MaxItemsOne: tfbridge.False(),
 					},
 				},
@@ -1401,10 +1411,17 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_virtual_hub_bgp_connection":             {Tok: azureResource(azureNetwork, "BgpConnection")},
 			"azurerm_vpn_gateway":                            {Tok: azureResource(azureNetwork, "VpnGateway")},
 			"azurerm_vpn_gateway_connection":                 {Tok: azureResource(azureNetwork, "VpnGatewayConnection")},
-			"azurerm_vpn_server_configuration":               {Tok: azureResource(azureNetwork, "VpnServerConfiguration")},
-			"azurerm_ip_group":                               {Tok: azureResource(azureNetwork, "IPGroup")},
-			"azurerm_vpn_site":                               {Tok: azureResource(azureNetwork, "VpnSite")},
-			"azurerm_express_route_port":                     {Tok: azureResource(azureNetwork, "ExpressRoutePort")},
+			"azurerm_vpn_server_configuration": {
+				Tok: azureResource(azureNetwork, "VpnServerConfiguration"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"vpn_authentication_types": {
+						MaxItemsOne: tfbridge.True(),
+					},
+				},
+			},
+			"azurerm_ip_group":           {Tok: azureResource(azureNetwork, "IPGroup")},
+			"azurerm_vpn_site":           {Tok: azureResource(azureNetwork, "VpnSite")},
+			"azurerm_express_route_port": {Tok: azureResource(azureNetwork, "ExpressRoutePort")},
 
 			// Redis
 			"azurerm_redis_cache":               {Tok: azureResource(azureRedis, "Cache")},

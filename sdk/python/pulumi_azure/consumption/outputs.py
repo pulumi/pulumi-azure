@@ -95,8 +95,8 @@ class BudgetResourceGroupFilterDimension(dict):
                  values: Sequence[str],
                  operator: Optional[str] = None):
         """
-        :param str name: The name of the column to use for the filter. The allowed values are
-        :param Sequence[str] values: Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+        :param str name: The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+        :param Sequence[str] values: Specifies a list of values for the column.
         :param str operator: The operator to use for comparison. The allowed values are `In`.
         """
         pulumi.set(__self__, "name", name)
@@ -108,7 +108,7 @@ class BudgetResourceGroupFilterDimension(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the column to use for the filter. The allowed values are
+        The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
         """
         return pulumi.get(self, "name")
 
@@ -116,7 +116,7 @@ class BudgetResourceGroupFilterDimension(dict):
     @pulumi.getter
     def values(self) -> Sequence[str]:
         """
-        Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+        Specifies a list of values for the column.
         """
         return pulumi.get(self, "values")
 
@@ -167,8 +167,8 @@ class BudgetResourceGroupFilterNotDimension(dict):
                  values: Sequence[str],
                  operator: Optional[str] = None):
         """
-        :param str name: The name of the column to use for the filter. The allowed values are
-        :param Sequence[str] values: Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+        :param str name: The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+        :param Sequence[str] values: Specifies a list of values for the column.
         :param str operator: The operator to use for comparison. The allowed values are `In`.
         """
         pulumi.set(__self__, "name", name)
@@ -180,7 +180,7 @@ class BudgetResourceGroupFilterNotDimension(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the column to use for the filter. The allowed values are
+        The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
         """
         return pulumi.get(self, "name")
 
@@ -188,7 +188,7 @@ class BudgetResourceGroupFilterNotDimension(dict):
     @pulumi.getter
     def values(self) -> Sequence[str]:
         """
-        Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+        Specifies a list of values for the column.
         """
         return pulumi.get(self, "values")
 
@@ -497,8 +497,8 @@ class BudgetSubscriptionFilterDimension(dict):
                  values: Sequence[str],
                  operator: Optional[str] = None):
         """
-        :param str name: The name of the column to use for the filter. The allowed values are
-        :param Sequence[str] values: Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+        :param str name: The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+        :param Sequence[str] values: Specifies a list of values for the column.
         :param str operator: The operator to use for comparison. The allowed values are `In`.
         """
         pulumi.set(__self__, "name", name)
@@ -510,7 +510,7 @@ class BudgetSubscriptionFilterDimension(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the column to use for the filter. The allowed values are
+        The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
         """
         return pulumi.get(self, "name")
 
@@ -518,7 +518,7 @@ class BudgetSubscriptionFilterDimension(dict):
     @pulumi.getter
     def values(self) -> Sequence[str]:
         """
-        Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+        Specifies a list of values for the column.
         """
         return pulumi.get(self, "values")
 
@@ -569,8 +569,8 @@ class BudgetSubscriptionFilterNotDimension(dict):
                  values: Sequence[str],
                  operator: Optional[str] = None):
         """
-        :param str name: The name of the column to use for the filter. The allowed values are
-        :param Sequence[str] values: Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+        :param str name: The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+        :param Sequence[str] values: Specifies a list of values for the column.
         :param str operator: The operator to use for comparison. The allowed values are `In`.
         """
         pulumi.set(__self__, "name", name)
@@ -582,7 +582,7 @@ class BudgetSubscriptionFilterNotDimension(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the column to use for the filter. The allowed values are
+        The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
         """
         return pulumi.get(self, "name")
 
@@ -590,7 +590,7 @@ class BudgetSubscriptionFilterNotDimension(dict):
     @pulumi.getter
     def values(self) -> Sequence[str]:
         """
-        Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+        Specifies a list of values for the column.
         """
         return pulumi.get(self, "values")
 

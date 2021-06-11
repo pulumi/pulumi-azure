@@ -95,6 +95,12 @@ namespace Pulumi.Azure.Network
         public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
+        /// The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
+        /// </summary>
+        [Output("location")]
+        public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
         /// </summary>
         [Output("networkSecurityGroupId")]
@@ -123,6 +129,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Output("storageAccountId")]
         public Output<string> StorageAccountId { get; private set; } = null!;
+
+        /// <summary>
+        /// A mapping of tags which should be assigned to the Network Watcher Flow Log.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// A `traffic_analytics` block as documented below.
@@ -189,6 +201,12 @@ namespace Pulumi.Azure.Network
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
+        /// The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
+        /// <summary>
         /// The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
         /// </summary>
         [Input("networkSecurityGroupId", required: true)]
@@ -218,6 +236,18 @@ namespace Pulumi.Azure.Network
         [Input("storageAccountId", required: true)]
         public Input<string> StorageAccountId { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags which should be assigned to the Network Watcher Flow Log.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// A `traffic_analytics` block as documented below.
         /// </summary>
@@ -242,6 +272,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
@@ -272,6 +308,18 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags which should be assigned to the Network Watcher Flow Log.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// A `traffic_analytics` block as documented below.

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Consumption.Outputs
     public sealed class BudgetResourceGroupFilterNotDimension
     {
         /// <summary>
-        /// The name of the column to use for the filter. The allowed values are
+        /// The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Consumption.Outputs
         /// </summary>
         public readonly string? Operator;
         /// <summary>
-        /// Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+        /// Specifies a list of values for the column.
         /// </summary>
         public readonly ImmutableArray<string> Values;
 

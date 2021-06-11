@@ -60,6 +60,8 @@ type PublicIp struct {
 
 	// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
 	AllocationMethod pulumi.StringOutput `pulumi:"allocationMethod"`
+	// The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
 	// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 	DomainNameLabel pulumi.StringPtrOutput `pulumi:"domainNameLabel"`
 	// Fully qualified domain name of the A DNS record associated with the public IP. `domainNameLabel` must be specified to get the `fqdn`. This is the concatenation of the `domainNameLabel` and the regionalized DNS zone
@@ -88,8 +90,8 @@ type PublicIp struct {
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A collection containing the availability zone to allocate the Public IP in.
-	Zones pulumi.StringPtrOutput `pulumi:"zones"`
+	// Deprecated: This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/
+	Zones pulumi.StringOutput `pulumi:"zones"`
 }
 
 // NewPublicIp registers a new resource with the given unique name, arguments, and options.
@@ -129,6 +131,8 @@ func GetPublicIp(ctx *pulumi.Context,
 type publicIpState struct {
 	// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
 	AllocationMethod *string `pulumi:"allocationMethod"`
+	// The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 	DomainNameLabel *string `pulumi:"domainNameLabel"`
 	// Fully qualified domain name of the A DNS record associated with the public IP. `domainNameLabel` must be specified to get the `fqdn`. This is the concatenation of the `domainNameLabel` and the regionalized DNS zone
@@ -157,13 +161,15 @@ type publicIpState struct {
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A collection containing the availability zone to allocate the Public IP in.
+	// Deprecated: This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/
 	Zones *string `pulumi:"zones"`
 }
 
 type PublicIpState struct {
 	// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
 	AllocationMethod pulumi.StringPtrInput
+	// The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+	AvailabilityZone pulumi.StringPtrInput
 	// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 	DomainNameLabel pulumi.StringPtrInput
 	// Fully qualified domain name of the A DNS record associated with the public IP. `domainNameLabel` must be specified to get the `fqdn`. This is the concatenation of the `domainNameLabel` and the regionalized DNS zone
@@ -192,7 +198,7 @@ type PublicIpState struct {
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// A collection containing the availability zone to allocate the Public IP in.
+	// Deprecated: This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/
 	Zones pulumi.StringPtrInput
 }
 
@@ -203,6 +209,8 @@ func (PublicIpState) ElementType() reflect.Type {
 type publicIpArgs struct {
 	// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
 	AllocationMethod string `pulumi:"allocationMethod"`
+	// The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 	DomainNameLabel *string `pulumi:"domainNameLabel"`
 	// Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
@@ -227,7 +235,7 @@ type publicIpArgs struct {
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A collection containing the availability zone to allocate the Public IP in.
+	// Deprecated: This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/
 	Zones *string `pulumi:"zones"`
 }
 
@@ -235,6 +243,8 @@ type publicIpArgs struct {
 type PublicIpArgs struct {
 	// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
 	AllocationMethod pulumi.StringInput
+	// The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+	AvailabilityZone pulumi.StringPtrInput
 	// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 	DomainNameLabel pulumi.StringPtrInput
 	// Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
@@ -259,7 +269,7 @@ type PublicIpArgs struct {
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// A collection containing the availability zone to allocate the Public IP in.
+	// Deprecated: This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/
 	Zones pulumi.StringPtrInput
 }
 
