@@ -71,9 +71,9 @@ export class LinkedServiceAzureSqlDatabase extends pulumi.CustomResource {
      */
     public readonly annotations!: pulumi.Output<string[] | undefined>;
     /**
-     * The connection string in which to authenticate with Azure SQL Database.
+     * The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
      */
-    public readonly connectionString!: pulumi.Output<string>;
+    public readonly connectionString!: pulumi.Output<string | undefined>;
     /**
      * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource to be created.
      */
@@ -86,6 +86,10 @@ export class LinkedServiceAzureSqlDatabase extends pulumi.CustomResource {
      * The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
      */
     public readonly integrationRuntimeName!: pulumi.Output<string | undefined>;
+    /**
+     * A `keyVaultConnectionString` block as defined below. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
+     */
+    public readonly keyVaultConnectionString!: pulumi.Output<outputs.datafactory.LinkedServiceAzureSqlDatabaseKeyVaultConnectionString | undefined>;
     /**
      * A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      */
@@ -139,6 +143,7 @@ export class LinkedServiceAzureSqlDatabase extends pulumi.CustomResource {
             inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
+            inputs["keyVaultConnectionString"] = state ? state.keyVaultConnectionString : undefined;
             inputs["keyVaultPassword"] = state ? state.keyVaultPassword : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["parameters"] = state ? state.parameters : undefined;
@@ -149,9 +154,6 @@ export class LinkedServiceAzureSqlDatabase extends pulumi.CustomResource {
             inputs["useManagedIdentity"] = state ? state.useManagedIdentity : undefined;
         } else {
             const args = argsOrState as LinkedServiceAzureSqlDatabaseArgs | undefined;
-            if ((!args || args.connectionString === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'connectionString'");
-            }
             if ((!args || args.dataFactoryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryName'");
             }
@@ -164,6 +166,7 @@ export class LinkedServiceAzureSqlDatabase extends pulumi.CustomResource {
             inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
+            inputs["keyVaultConnectionString"] = args ? args.keyVaultConnectionString : undefined;
             inputs["keyVaultPassword"] = args ? args.keyVaultPassword : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
@@ -193,7 +196,7 @@ export interface LinkedServiceAzureSqlDatabaseState {
      */
     annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The connection string in which to authenticate with Azure SQL Database.
+     * The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
      */
     connectionString?: pulumi.Input<string>;
     /**
@@ -208,6 +211,10 @@ export interface LinkedServiceAzureSqlDatabaseState {
      * The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
      */
     integrationRuntimeName?: pulumi.Input<string>;
+    /**
+     * A `keyVaultConnectionString` block as defined below. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
+     */
+    keyVaultConnectionString?: pulumi.Input<inputs.datafactory.LinkedServiceAzureSqlDatabaseKeyVaultConnectionString>;
     /**
      * A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      */
@@ -256,9 +263,9 @@ export interface LinkedServiceAzureSqlDatabaseArgs {
      */
     annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The connection string in which to authenticate with Azure SQL Database.
+     * The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
      */
-    connectionString: pulumi.Input<string>;
+    connectionString?: pulumi.Input<string>;
     /**
      * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource to be created.
      */
@@ -271,6 +278,10 @@ export interface LinkedServiceAzureSqlDatabaseArgs {
      * The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
      */
     integrationRuntimeName?: pulumi.Input<string>;
+    /**
+     * A `keyVaultConnectionString` block as defined below. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
+     */
+    keyVaultConnectionString?: pulumi.Input<inputs.datafactory.LinkedServiceAzureSqlDatabaseKeyVaultConnectionString>;
     /**
      * A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      */

@@ -80,6 +80,12 @@ namespace Pulumi.Azure.ApiManagement
         public Output<bool?> AllowTracing { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("apiId")]
+        public Output<string?> ApiId { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("apiManagementName")]
@@ -91,6 +97,9 @@ namespace Pulumi.Azure.ApiManagement
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
+        /// <summary>
+        /// The primary subscription key to use for the subscription.
+        /// </summary>
         [Output("primaryKey")]
         public Output<string> PrimaryKey { get; private set; } = null!;
 
@@ -106,6 +115,9 @@ namespace Pulumi.Azure.ApiManagement
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// The secondary subscription key to use for the subscription.
+        /// </summary>
         [Output("secondaryKey")]
         public Output<string> SecondaryKey { get; private set; } = null!;
 
@@ -180,6 +192,12 @@ namespace Pulumi.Azure.ApiManagement
         public Input<bool>? AllowTracing { get; set; }
 
         /// <summary>
+        /// The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("apiId")]
+        public Input<string>? ApiId { get; set; }
+
+        /// <summary>
         /// The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("apiManagementName", required: true)]
@@ -191,6 +209,9 @@ namespace Pulumi.Azure.ApiManagement
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
+        /// <summary>
+        /// The primary subscription key to use for the subscription.
+        /// </summary>
         [Input("primaryKey")]
         public Input<string>? PrimaryKey { get; set; }
 
@@ -206,6 +227,9 @@ namespace Pulumi.Azure.ApiManagement
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The secondary subscription key to use for the subscription.
+        /// </summary>
         [Input("secondaryKey")]
         public Input<string>? SecondaryKey { get; set; }
 
@@ -241,6 +265,12 @@ namespace Pulumi.Azure.ApiManagement
         public Input<bool>? AllowTracing { get; set; }
 
         /// <summary>
+        /// The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("apiId")]
+        public Input<string>? ApiId { get; set; }
+
+        /// <summary>
         /// The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("apiManagementName")]
@@ -252,6 +282,9 @@ namespace Pulumi.Azure.ApiManagement
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
+        /// <summary>
+        /// The primary subscription key to use for the subscription.
+        /// </summary>
         [Input("primaryKey")]
         public Input<string>? PrimaryKey { get; set; }
 
@@ -267,6 +300,9 @@ namespace Pulumi.Azure.ApiManagement
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        /// <summary>
+        /// The secondary subscription key to use for the subscription.
+        /// </summary>
         [Input("secondaryKey")]
         public Input<string>? SecondaryKey { get; set; }
 

@@ -77,6 +77,10 @@ export class Subscription extends pulumi.CustomResource {
      */
     public readonly allowTracing!: pulumi.Output<boolean | undefined>;
     /**
+     * The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
+     */
+    public readonly apiId!: pulumi.Output<string | undefined>;
+    /**
      * The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
      */
     public readonly apiManagementName!: pulumi.Output<string>;
@@ -84,6 +88,9 @@ export class Subscription extends pulumi.CustomResource {
      * The display name of this Subscription.
      */
     public readonly displayName!: pulumi.Output<string>;
+    /**
+     * The primary subscription key to use for the subscription.
+     */
     public readonly primaryKey!: pulumi.Output<string>;
     /**
      * The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
@@ -93,6 +100,9 @@ export class Subscription extends pulumi.CustomResource {
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * The secondary subscription key to use for the subscription.
+     */
     public readonly secondaryKey!: pulumi.Output<string>;
     /**
      * The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
@@ -121,6 +131,7 @@ export class Subscription extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SubscriptionState | undefined;
             inputs["allowTracing"] = state ? state.allowTracing : undefined;
+            inputs["apiId"] = state ? state.apiId : undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
             inputs["primaryKey"] = state ? state.primaryKey : undefined;
@@ -142,6 +153,7 @@ export class Subscription extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["allowTracing"] = args ? args.allowTracing : undefined;
+            inputs["apiId"] = args ? args.apiId : undefined;
             inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["primaryKey"] = args ? args.primaryKey : undefined;
@@ -168,6 +180,10 @@ export interface SubscriptionState {
      */
     allowTracing?: pulumi.Input<boolean>;
     /**
+     * The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
+     */
+    apiId?: pulumi.Input<string>;
+    /**
      * The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
      */
     apiManagementName?: pulumi.Input<string>;
@@ -175,6 +191,9 @@ export interface SubscriptionState {
      * The display name of this Subscription.
      */
     displayName?: pulumi.Input<string>;
+    /**
+     * The primary subscription key to use for the subscription.
+     */
     primaryKey?: pulumi.Input<string>;
     /**
      * The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
@@ -184,6 +203,9 @@ export interface SubscriptionState {
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * The secondary subscription key to use for the subscription.
+     */
     secondaryKey?: pulumi.Input<string>;
     /**
      * The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
@@ -208,6 +230,10 @@ export interface SubscriptionArgs {
      */
     allowTracing?: pulumi.Input<boolean>;
     /**
+     * The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
+     */
+    apiId?: pulumi.Input<string>;
+    /**
      * The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
      */
     apiManagementName: pulumi.Input<string>;
@@ -215,6 +241,9 @@ export interface SubscriptionArgs {
      * The display name of this Subscription.
      */
     displayName: pulumi.Input<string>;
+    /**
+     * The primary subscription key to use for the subscription.
+     */
     primaryKey?: pulumi.Input<string>;
     /**
      * The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
@@ -224,6 +253,9 @@ export interface SubscriptionArgs {
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The secondary subscription key to use for the subscription.
+     */
     secondaryKey?: pulumi.Input<string>;
     /**
      * The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.

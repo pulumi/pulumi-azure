@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class AccountIdentity
     {
         /// <summary>
+        /// A list of IDs for User Assigned Managed Identity resources to be assigned.
+        /// </summary>
+        public readonly ImmutableArray<string> IdentityIds;
+        /// <summary>
         /// The Principal ID for the Service Principal associated with the Identity of this Storage Account.
         /// </summary>
         public readonly string? PrincipalId;
@@ -22,18 +26,21 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// Specifies the identity type of the Storage Account. At this time the only allowed value is `SystemAssigned`.
+        /// Specifies the identity type of the Storage Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned,UserAssigned` (to enable both).
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private AccountIdentity(
+            ImmutableArray<string> identityIds,
+
             string? principalId,
 
             string? tenantId,
 
             string type)
         {
+            IdentityIds = identityIds;
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;

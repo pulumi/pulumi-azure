@@ -20,6 +20,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     friendlyName: "pooleddepthfirst",
  *     validateEnvironment: true,
+ *     startVmOnConnect: true,
  *     customRdpProperties: "audiocapturemode:i:1;audiomode:i:0;",
  *     description: "Acceptance Test: A pooled host pool - pooleddepthfirst",
  *     type: "Pooled",
@@ -118,6 +119,10 @@ export class HostPool extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * Enables or disables the Start VM on Connection Feature. Defaults to `false`.
+     */
+    public readonly startVmOnConnect!: pulumi.Output<boolean | undefined>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -155,6 +160,7 @@ export class HostPool extends pulumi.CustomResource {
             inputs["preferredAppGroupType"] = state ? state.preferredAppGroupType : undefined;
             inputs["registrationInfo"] = state ? state.registrationInfo : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["startVmOnConnect"] = state ? state.startVmOnConnect : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["type"] = state ? state.type : undefined;
             inputs["validateEnvironment"] = state ? state.validateEnvironment : undefined;
@@ -180,6 +186,7 @@ export class HostPool extends pulumi.CustomResource {
             inputs["preferredAppGroupType"] = args ? args.preferredAppGroupType : undefined;
             inputs["registrationInfo"] = args ? args.registrationInfo : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["startVmOnConnect"] = args ? args.startVmOnConnect : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["validateEnvironment"] = args ? args.validateEnvironment : undefined;
@@ -248,6 +255,10 @@ export interface HostPoolState {
      * a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * Enables or disables the Start VM on Connection Feature. Defaults to `false`.
+     */
+    startVmOnConnect?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -320,6 +331,10 @@ export interface HostPoolArgs {
      * a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Enables or disables the Start VM on Connection Feature. Defaults to `false`.
+     */
+    startVmOnConnect?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the resource.
      */

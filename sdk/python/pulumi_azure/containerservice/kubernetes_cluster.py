@@ -26,6 +26,7 @@ class KubernetesClusterArgs:
                  dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
                  enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['KubernetesClusterIdentityArgs']] = None,
+                 kubelet_identities: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeletIdentityArgs']]]] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
                  linux_profile: Optional[pulumi.Input['KubernetesClusterLinuxProfileArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -51,7 +52,8 @@ class KubernetesClusterArgs:
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix_private_cluster: Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterIdentityArgs'] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
+        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeletIdentityArgs']]] kubelet_identities: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
         :param pulumi.Input['KubernetesClusterLinuxProfileArgs'] linux_profile: A `linux_profile` block as defined below.
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
@@ -61,7 +63,7 @@ class KubernetesClusterArgs:
         :param pulumi.Input[bool] private_cluster_enabled: Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning.
         :param pulumi.Input['KubernetesClusterRoleBasedAccessControlArgs'] role_based_access_control: A `role_based_access_control` block. Changing this forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterServicePrincipalArgs'] service_principal: A `service_principal` block as documented below.
+        :param pulumi.Input['KubernetesClusterServicePrincipalArgs'] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['KubernetesClusterWindowsProfileArgs'] windows_profile: A `windows_profile` block as defined below.
@@ -86,6 +88,8 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "enable_pod_security_policy", enable_pod_security_policy)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if kubelet_identities is not None:
+            pulumi.set(__self__, "kubelet_identities", kubelet_identities)
         if kubernetes_version is not None:
             pulumi.set(__self__, "kubernetes_version", kubernetes_version)
         if linux_profile is not None:
@@ -239,13 +243,25 @@ class KubernetesClusterArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['KubernetesClusterIdentityArgs']]:
         """
-        An `identity` block as defined below. Changing this forces a new resource to be created.
+        An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['KubernetesClusterIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="kubeletIdentities")
+    def kubelet_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeletIdentityArgs']]]]:
+        """
+        A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "kubelet_identities")
+
+    @kubelet_identities.setter
+    def kubelet_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeletIdentityArgs']]]]):
+        pulumi.set(self, "kubelet_identities", value)
 
     @property
     @pulumi.getter(name="kubernetesVersion")
@@ -368,7 +384,7 @@ class KubernetesClusterArgs:
     @pulumi.getter(name="servicePrincipal")
     def service_principal(self) -> Optional[pulumi.Input['KubernetesClusterServicePrincipalArgs']]:
         """
-        A `service_principal` block as documented below.
+        A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         """
         return pulumi.get(self, "service_principal")
 
@@ -459,12 +475,12 @@ class _KubernetesClusterState:
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix_private_cluster: Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The FQDN of the Azure Kubernetes Managed Cluster.
-        :param pulumi.Input['KubernetesClusterIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterIdentityArgs'] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[str] kube_admin_config_raw: Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeAdminConfigArgs']]] kube_admin_configs: A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
         :param pulumi.Input[str] kube_config_raw: Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeConfigArgs']]] kube_configs: A `kube_config` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeletIdentityArgs']]] kubelet_identities: A `kubelet_identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeletIdentityArgs']]] kubelet_identities: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
         :param pulumi.Input['KubernetesClusterLinuxProfileArgs'] linux_profile: A `linux_profile` block as defined below.
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
@@ -476,7 +492,7 @@ class _KubernetesClusterState:
         :param pulumi.Input[str] private_fqdn: The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterRoleBasedAccessControlArgs'] role_based_access_control: A `role_based_access_control` block. Changing this forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterServicePrincipalArgs'] service_principal: A `service_principal` block as documented below.
+        :param pulumi.Input['KubernetesClusterServicePrincipalArgs'] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['KubernetesClusterWindowsProfileArgs'] windows_profile: A `windows_profile` block as defined below.
@@ -670,7 +686,7 @@ class _KubernetesClusterState:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['KubernetesClusterIdentityArgs']]:
         """
-        An `identity` block as defined below. Changing this forces a new resource to be created.
+        An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
         """
         return pulumi.get(self, "identity")
 
@@ -730,7 +746,7 @@ class _KubernetesClusterState:
     @pulumi.getter(name="kubeletIdentities")
     def kubelet_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeletIdentityArgs']]]]:
         """
-        A `kubelet_identity` block as defined below.
+        A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "kubelet_identities")
 
@@ -883,7 +899,7 @@ class _KubernetesClusterState:
     @pulumi.getter(name="servicePrincipal")
     def service_principal(self) -> Optional[pulumi.Input['KubernetesClusterServicePrincipalArgs']]:
         """
-        A `service_principal` block as documented below.
+        A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         """
         return pulumi.get(self, "service_principal")
 
@@ -943,6 +959,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
                  enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']]] = None,
+                 kubelet_identities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']]]]] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
                  linux_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -1008,7 +1025,8 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/en-us/azure/aks/azure-disk-customer-managed-keys).
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix_private_cluster: Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']]]] kubelet_identities: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
         :param pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArgs']] linux_profile: A `linux_profile` block as defined below.
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
@@ -1019,7 +1037,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise cluster will have issues after provisioning.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterRoleBasedAccessControlArgs']] role_based_access_control: A `role_based_access_control` block. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']] service_principal: A `service_principal` block as documented below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']] windows_profile: A `windows_profile` block as defined below.
@@ -1094,6 +1112,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
                  enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']]] = None,
+                 kubelet_identities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']]]]] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
                  linux_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -1133,6 +1152,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["dns_prefix_private_cluster"] = dns_prefix_private_cluster
             __props__.__dict__["enable_pod_security_policy"] = enable_pod_security_policy
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["kubelet_identities"] = kubelet_identities
             __props__.__dict__["kubernetes_version"] = kubernetes_version
             __props__.__dict__["linux_profile"] = linux_profile
             __props__.__dict__["location"] = location
@@ -1158,7 +1178,6 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["kube_admin_configs"] = None
             __props__.__dict__["kube_config_raw"] = None
             __props__.__dict__["kube_configs"] = None
-            __props__.__dict__["kubelet_identities"] = None
             __props__.__dict__["private_fqdn"] = None
         super(KubernetesCluster, __self__).__init__(
             'azure:containerservice/kubernetesCluster:KubernetesCluster',
@@ -1218,12 +1237,12 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix_private_cluster: Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The FQDN of the Azure Kubernetes Managed Cluster.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[str] kube_admin_config_raw: Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeAdminConfigArgs']]]] kube_admin_configs: A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
         :param pulumi.Input[str] kube_config_raw: Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeConfigArgs']]]] kube_configs: A `kube_config` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']]]] kubelet_identities: A `kubelet_identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesClusterKubeletIdentityArgs']]]] kubelet_identities: A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
         :param pulumi.Input[pulumi.InputType['KubernetesClusterLinuxProfileArgs']] linux_profile: A `linux_profile` block as defined below.
         :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
@@ -1235,7 +1254,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] private_fqdn: The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterRoleBasedAccessControlArgs']] role_based_access_control: A `role_based_access_control` block. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']] service_principal: A `service_principal` block as documented below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterServicePrincipalArgs']] service_principal: A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         :param pulumi.Input[str] sku_tier: The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']] windows_profile: A `windows_profile` block as defined below.
@@ -1359,7 +1378,7 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.KubernetesClusterIdentity']]:
         """
-        An `identity` block as defined below. Changing this forces a new resource to be created.
+        An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
         """
         return pulumi.get(self, "identity")
 
@@ -1399,7 +1418,7 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="kubeletIdentities")
     def kubelet_identities(self) -> pulumi.Output[Sequence['outputs.KubernetesClusterKubeletIdentity']]:
         """
-        A `kubelet_identity` block as defined below.
+        A `kubelet_identity` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "kubelet_identities")
 
@@ -1500,7 +1519,7 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="servicePrincipal")
     def service_principal(self) -> pulumi.Output[Optional['outputs.KubernetesClusterServicePrincipal']]:
         """
-        A `service_principal` block as documented below.
+        A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         """
         return pulumi.get(self, "service_principal")
 

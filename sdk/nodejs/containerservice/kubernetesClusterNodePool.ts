@@ -55,7 +55,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly enableHostEncryption!: pulumi.Output<boolean | undefined>;
     /**
-     * Should each node have a Public IP Address? Defaults to `false`.
+     * Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
      */
     public readonly enableNodePublicIp!: pulumi.Output<boolean | undefined>;
     /**
@@ -94,6 +94,10 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      * A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
      */
     public readonly nodeLabels!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
+     */
+    public readonly nodePublicIpPrefixId!: pulumi.Output<string | undefined>;
     /**
      * A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
      */
@@ -169,6 +173,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["nodeCount"] = state ? state.nodeCount : undefined;
             inputs["nodeLabels"] = state ? state.nodeLabels : undefined;
+            inputs["nodePublicIpPrefixId"] = state ? state.nodePublicIpPrefixId : undefined;
             inputs["nodeTaints"] = state ? state.nodeTaints : undefined;
             inputs["orchestratorVersion"] = state ? state.orchestratorVersion : undefined;
             inputs["osDiskSizeGb"] = state ? state.osDiskSizeGb : undefined;
@@ -202,6 +207,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["nodeCount"] = args ? args.nodeCount : undefined;
             inputs["nodeLabels"] = args ? args.nodeLabels : undefined;
+            inputs["nodePublicIpPrefixId"] = args ? args.nodePublicIpPrefixId : undefined;
             inputs["nodeTaints"] = args ? args.nodeTaints : undefined;
             inputs["orchestratorVersion"] = args ? args.orchestratorVersion : undefined;
             inputs["osDiskSizeGb"] = args ? args.osDiskSizeGb : undefined;
@@ -239,7 +245,7 @@ export interface KubernetesClusterNodePoolState {
      */
     enableHostEncryption?: pulumi.Input<boolean>;
     /**
-     * Should each node have a Public IP Address? Defaults to `false`.
+     * Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
      */
     enableNodePublicIp?: pulumi.Input<boolean>;
     /**
@@ -278,6 +284,10 @@ export interface KubernetesClusterNodePoolState {
      * A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
      */
     nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
+     */
+    nodePublicIpPrefixId?: pulumi.Input<string>;
     /**
      * A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
      */
@@ -345,7 +355,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     enableHostEncryption?: pulumi.Input<boolean>;
     /**
-     * Should each node have a Public IP Address? Defaults to `false`.
+     * Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
      */
     enableNodePublicIp?: pulumi.Input<boolean>;
     /**
@@ -384,6 +394,10 @@ export interface KubernetesClusterNodePoolArgs {
      * A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
      */
     nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
+     */
+    nodePublicIpPrefixId?: pulumi.Input<string>;
     /**
      * A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
      */

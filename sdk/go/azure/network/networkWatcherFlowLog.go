@@ -105,6 +105,8 @@ type NetworkWatcherFlowLog struct {
 
 	// Boolean flag to enable/disable traffic analytics.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+	// The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
+	Location pulumi.StringOutput `pulumi:"location"`
 	// The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
 	NetworkSecurityGroupId pulumi.StringOutput `pulumi:"networkSecurityGroupId"`
 	// The name of the Network Watcher. Changing this forces a new resource to be created.
@@ -115,6 +117,8 @@ type NetworkWatcherFlowLog struct {
 	RetentionPolicy NetworkWatcherFlowLogRetentionPolicyOutput `pulumi:"retentionPolicy"`
 	// The ID of the Storage Account where flow logs are stored.
 	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
+	// A mapping of tags which should be assigned to the Network Watcher Flow Log.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A `trafficAnalytics` block as documented below.
 	TrafficAnalytics NetworkWatcherFlowLogTrafficAnalyticsPtrOutput `pulumi:"trafficAnalytics"`
 	// The version (revision) of the flow log. Possible values are `1` and `2`.
@@ -170,6 +174,8 @@ func GetNetworkWatcherFlowLog(ctx *pulumi.Context,
 type networkWatcherFlowLogState struct {
 	// Boolean flag to enable/disable traffic analytics.
 	Enabled *bool `pulumi:"enabled"`
+	// The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
+	Location *string `pulumi:"location"`
 	// The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
 	NetworkSecurityGroupId *string `pulumi:"networkSecurityGroupId"`
 	// The name of the Network Watcher. Changing this forces a new resource to be created.
@@ -180,6 +186,8 @@ type networkWatcherFlowLogState struct {
 	RetentionPolicy *NetworkWatcherFlowLogRetentionPolicy `pulumi:"retentionPolicy"`
 	// The ID of the Storage Account where flow logs are stored.
 	StorageAccountId *string `pulumi:"storageAccountId"`
+	// A mapping of tags which should be assigned to the Network Watcher Flow Log.
+	Tags map[string]string `pulumi:"tags"`
 	// A `trafficAnalytics` block as documented below.
 	TrafficAnalytics *NetworkWatcherFlowLogTrafficAnalytics `pulumi:"trafficAnalytics"`
 	// The version (revision) of the flow log. Possible values are `1` and `2`.
@@ -189,6 +197,8 @@ type networkWatcherFlowLogState struct {
 type NetworkWatcherFlowLogState struct {
 	// Boolean flag to enable/disable traffic analytics.
 	Enabled pulumi.BoolPtrInput
+	// The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
+	Location pulumi.StringPtrInput
 	// The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
 	NetworkSecurityGroupId pulumi.StringPtrInput
 	// The name of the Network Watcher. Changing this forces a new resource to be created.
@@ -199,6 +209,8 @@ type NetworkWatcherFlowLogState struct {
 	RetentionPolicy NetworkWatcherFlowLogRetentionPolicyPtrInput
 	// The ID of the Storage Account where flow logs are stored.
 	StorageAccountId pulumi.StringPtrInput
+	// A mapping of tags which should be assigned to the Network Watcher Flow Log.
+	Tags pulumi.StringMapInput
 	// A `trafficAnalytics` block as documented below.
 	TrafficAnalytics NetworkWatcherFlowLogTrafficAnalyticsPtrInput
 	// The version (revision) of the flow log. Possible values are `1` and `2`.
@@ -212,6 +224,8 @@ func (NetworkWatcherFlowLogState) ElementType() reflect.Type {
 type networkWatcherFlowLogArgs struct {
 	// Boolean flag to enable/disable traffic analytics.
 	Enabled bool `pulumi:"enabled"`
+	// The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
+	Location *string `pulumi:"location"`
 	// The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
 	NetworkSecurityGroupId string `pulumi:"networkSecurityGroupId"`
 	// The name of the Network Watcher. Changing this forces a new resource to be created.
@@ -222,6 +236,8 @@ type networkWatcherFlowLogArgs struct {
 	RetentionPolicy NetworkWatcherFlowLogRetentionPolicy `pulumi:"retentionPolicy"`
 	// The ID of the Storage Account where flow logs are stored.
 	StorageAccountId string `pulumi:"storageAccountId"`
+	// A mapping of tags which should be assigned to the Network Watcher Flow Log.
+	Tags map[string]string `pulumi:"tags"`
 	// A `trafficAnalytics` block as documented below.
 	TrafficAnalytics *NetworkWatcherFlowLogTrafficAnalytics `pulumi:"trafficAnalytics"`
 	// The version (revision) of the flow log. Possible values are `1` and `2`.
@@ -232,6 +248,8 @@ type networkWatcherFlowLogArgs struct {
 type NetworkWatcherFlowLogArgs struct {
 	// Boolean flag to enable/disable traffic analytics.
 	Enabled pulumi.BoolInput
+	// The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
+	Location pulumi.StringPtrInput
 	// The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
 	NetworkSecurityGroupId pulumi.StringInput
 	// The name of the Network Watcher. Changing this forces a new resource to be created.
@@ -242,6 +260,8 @@ type NetworkWatcherFlowLogArgs struct {
 	RetentionPolicy NetworkWatcherFlowLogRetentionPolicyInput
 	// The ID of the Storage Account where flow logs are stored.
 	StorageAccountId pulumi.StringInput
+	// A mapping of tags which should be assigned to the Network Watcher Flow Log.
+	Tags pulumi.StringMapInput
 	// A `trafficAnalytics` block as documented below.
 	TrafficAnalytics NetworkWatcherFlowLogTrafficAnalyticsPtrInput
 	// The version (revision) of the flow log. Possible values are `1` and `2`.

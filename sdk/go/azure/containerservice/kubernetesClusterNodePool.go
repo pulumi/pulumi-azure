@@ -27,7 +27,7 @@ type KubernetesClusterNodePool struct {
 	EnableAutoScaling pulumi.BoolPtrOutput `pulumi:"enableAutoScaling"`
 	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
 	EnableHostEncryption pulumi.BoolPtrOutput `pulumi:"enableHostEncryption"`
-	// Should each node have a Public IP Address? Defaults to `false`.
+	// Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
 	EnableNodePublicIp pulumi.BoolPtrOutput `pulumi:"enableNodePublicIp"`
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
@@ -47,6 +47,8 @@ type KubernetesClusterNodePool struct {
 	NodeCount pulumi.IntOutput `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
 	NodeLabels pulumi.StringMapOutput `pulumi:"nodeLabels"`
+	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
+	NodePublicIpPrefixId pulumi.StringPtrOutput `pulumi:"nodePublicIpPrefixId"`
 	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
 	NodeTaints pulumi.StringArrayOutput `pulumi:"nodeTaints"`
 	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
@@ -114,7 +116,7 @@ type kubernetesClusterNodePoolState struct {
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
 	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
 	EnableHostEncryption *bool `pulumi:"enableHostEncryption"`
-	// Should each node have a Public IP Address? Defaults to `false`.
+	// Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
@@ -134,6 +136,8 @@ type kubernetesClusterNodePoolState struct {
 	NodeCount *int `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
+	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
+	NodePublicIpPrefixId *string `pulumi:"nodePublicIpPrefixId"`
 	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
 	NodeTaints []string `pulumi:"nodeTaints"`
 	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
@@ -167,7 +171,7 @@ type KubernetesClusterNodePoolState struct {
 	EnableAutoScaling pulumi.BoolPtrInput
 	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
 	EnableHostEncryption pulumi.BoolPtrInput
-	// Should each node have a Public IP Address? Defaults to `false`.
+	// Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
 	EnableNodePublicIp pulumi.BoolPtrInput
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
@@ -187,6 +191,8 @@ type KubernetesClusterNodePoolState struct {
 	NodeCount pulumi.IntPtrInput
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
 	NodeLabels pulumi.StringMapInput
+	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
+	NodePublicIpPrefixId pulumi.StringPtrInput
 	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
 	NodeTaints pulumi.StringArrayInput
 	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
@@ -224,7 +230,7 @@ type kubernetesClusterNodePoolArgs struct {
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
 	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
 	EnableHostEncryption *bool `pulumi:"enableHostEncryption"`
-	// Should each node have a Public IP Address? Defaults to `false`.
+	// Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
@@ -244,6 +250,8 @@ type kubernetesClusterNodePoolArgs struct {
 	NodeCount *int `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
 	NodeLabels map[string]string `pulumi:"nodeLabels"`
+	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
+	NodePublicIpPrefixId *string `pulumi:"nodePublicIpPrefixId"`
 	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
 	NodeTaints []string `pulumi:"nodeTaints"`
 	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
@@ -278,7 +286,7 @@ type KubernetesClusterNodePoolArgs struct {
 	EnableAutoScaling pulumi.BoolPtrInput
 	// Should the nodes in this Node Pool have host encryption enabled? Defaults to `false`.
 	EnableHostEncryption pulumi.BoolPtrInput
-	// Should each node have a Public IP Address? Defaults to `false`.
+	// Should each node have a Public IP Address? Defaults to `false`.  Changing this forces a new resource to be created.
 	EnableNodePublicIp pulumi.BoolPtrInput
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
@@ -298,6 +306,8 @@ type KubernetesClusterNodePoolArgs struct {
 	NodeCount pulumi.IntPtrInput
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool. Changing this forces a new resource to be created.
 	NodeLabels pulumi.StringMapInput
+	// Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enableNodePublicIp` should be `true`. Changing this forces a new resource to be created.
+	NodePublicIpPrefixId pulumi.StringPtrInput
 	// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
 	NodeTaints pulumi.StringArrayInput
 	// Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)

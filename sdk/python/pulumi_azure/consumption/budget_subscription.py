@@ -280,8 +280,8 @@ class BudgetSubscription(pulumi.CustomResource):
             amount=1000,
             time_grain="Monthly",
             time_period=azure.consumption.BudgetSubscriptionTimePeriodArgs(
-                start_date="2020-11-01T00:00:00Z",
-                end_date="2020-12-01T00:00:00Z",
+                start_date="2022-06-01T00:00:00Z",
+                end_date="2022-07-01T00:00:00Z",
             ),
             filter=azure.consumption.BudgetSubscriptionFilterArgs(
                 dimensions=[azure.consumption.BudgetSubscriptionFilterDimensionArgs(
@@ -363,8 +363,8 @@ class BudgetSubscription(pulumi.CustomResource):
             amount=1000,
             time_grain="Monthly",
             time_period=azure.consumption.BudgetSubscriptionTimePeriodArgs(
-                start_date="2020-11-01T00:00:00Z",
-                end_date="2020-12-01T00:00:00Z",
+                start_date="2022-06-01T00:00:00Z",
+                end_date="2022-07-01T00:00:00Z",
             ),
             filter=azure.consumption.BudgetSubscriptionFilterArgs(
                 dimensions=[azure.consumption.BudgetSubscriptionFilterDimensionArgs(

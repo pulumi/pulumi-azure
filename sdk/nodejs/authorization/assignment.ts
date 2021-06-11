@@ -104,7 +104,7 @@ import * as utilities from "../utilities";
  *  $ pulumi import azure:authorization/assignment:Assignment example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000
  * ```
  *
- *  - for scope `Subscription`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000` - for scope `Resource Group`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000`
+ *  - for scope `Subscription`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000` - for scope `Resource Group`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000` /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000
  */
 export class Assignment extends pulumi.CustomResource {
     /**
@@ -142,6 +142,10 @@ export class Assignment extends pulumi.CustomResource {
      * The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
      */
     public readonly conditionVersion!: pulumi.Output<string | undefined>;
+    /**
+     * The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
+     */
+    public readonly delegatedManagedIdentityResourceId!: pulumi.Output<string | undefined>;
     /**
      * The description for this Role Assignment. Changing this forces a new resource to be created.
      */
@@ -190,6 +194,7 @@ export class Assignment extends pulumi.CustomResource {
             const state = argsOrState as AssignmentState | undefined;
             inputs["condition"] = state ? state.condition : undefined;
             inputs["conditionVersion"] = state ? state.conditionVersion : undefined;
+            inputs["delegatedManagedIdentityResourceId"] = state ? state.delegatedManagedIdentityResourceId : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["principalId"] = state ? state.principalId : undefined;
@@ -208,6 +213,7 @@ export class Assignment extends pulumi.CustomResource {
             }
             inputs["condition"] = args ? args.condition : undefined;
             inputs["conditionVersion"] = args ? args.conditionVersion : undefined;
+            inputs["delegatedManagedIdentityResourceId"] = args ? args.delegatedManagedIdentityResourceId : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["principalId"] = args ? args.principalId : undefined;
@@ -238,6 +244,10 @@ export interface AssignmentState {
      * The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
      */
     conditionVersion?: pulumi.Input<string>;
+    /**
+     * The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
+     */
+    delegatedManagedIdentityResourceId?: pulumi.Input<string>;
     /**
      * The description for this Role Assignment. Changing this forces a new resource to be created.
      */
@@ -284,6 +294,10 @@ export interface AssignmentArgs {
      * The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
      */
     conditionVersion?: pulumi.Input<string>;
+    /**
+     * The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
+     */
+    delegatedManagedIdentityResourceId?: pulumi.Input<string>;
     /**
      * The description for this Role Assignment. Changing this forces a new resource to be created.
      */

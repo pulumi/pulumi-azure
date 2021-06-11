@@ -41,6 +41,9 @@ import * as utilities from "../utilities";
  *     adminUsername: "adminuser",
  *     adminPassword: `P@$$w0rd1234!`,
  *     networkInterfaceIds: [exampleNetworkInterface.id],
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     osDisk: {
  *         caching: "ReadWrite",
  *         storageAccountType: "Standard_LRS",
@@ -48,21 +51,46 @@ import * as utilities from "../utilities";
  *     sourceImageReference: {
  *         publisher: "MicrosoftWindowsServer",
  *         offer: "WindowsServer",
- *         sku: "2016-Datacenter",
+ *         sku: "2019-Datacenter",
  *         version: "latest",
  *     },
  * });
+ * const exampleExtension = new azure.compute.Extension("exampleExtension", {
+ *     virtualMachineId: exampleWindowsVirtualMachine.id,
+ *     publisher: "Microsoft.GuestConfiguration",
+ *     type: "ConfigurationforWindows",
+ *     typeHandlerVersion: "1.0",
+ *     autoUpgradeMinorVersion: "true",
+ * });
  * const exampleConfigurationPolicyAssignment = new azure.compute.ConfigurationPolicyAssignment("exampleConfigurationPolicyAssignment", {
- *     location: azurerm_linux_virtual_machine.example.id,
- *     virtualMachineId: azurerm_linux_virtual_machine.example.id,
- *     guestConfiguration: [{
- *         name: "WhitelistedApplication",
+ *     location: exampleWindowsVirtualMachine.location,
+ *     virtualMachineId: exampleWindowsVirtualMachine.id,
+ *     configuration: {
+ *         name: "AzureWindowsBaseline",
  *         version: "1.*",
- *         parameter: [{
- *             name: "[InstalledApplication]bwhitelistedapp;Name",
- *             value: "NotePad,sql",
- *         }],
- *     }],
+ *         parameters: [
+ *             {
+ *                 name: "Minimum Password Length;ExpectedValue",
+ *                 value: "16",
+ *             },
+ *             {
+ *                 name: "Minimum Password Age;ExpectedValue",
+ *                 value: "0",
+ *             },
+ *             {
+ *                 name: "Maximum Password Age;ExpectedValue",
+ *                 value: "30,45",
+ *             },
+ *             {
+ *                 name: "Enforce Password History;ExpectedValue",
+ *                 value: "10",
+ *             },
+ *             {
+ *                 name: "Password Must Meet Complexity Requirements;ExpectedValue",
+ *                 value: "1",
+ *             },
+ *         ],
+ *     },
  * });
  * ```
  *

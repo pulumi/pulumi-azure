@@ -180,11 +180,11 @@ func (o BudgetResourceGroupFilterPtrOutput) Tags() BudgetResourceGroupFilterTagA
 }
 
 type BudgetResourceGroupFilterDimension struct {
-	// The name of the column to use for the filter. The allowed values are
+	// The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
 	Name string `pulumi:"name"`
 	// The operator to use for comparison. The allowed values are `In`.
 	Operator *string `pulumi:"operator"`
-	// Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+	// Specifies a list of values for the column.
 	Values []string `pulumi:"values"`
 }
 
@@ -200,11 +200,11 @@ type BudgetResourceGroupFilterDimensionInput interface {
 }
 
 type BudgetResourceGroupFilterDimensionArgs struct {
-	// The name of the column to use for the filter. The allowed values are
+	// The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The operator to use for comparison. The allowed values are `In`.
 	Operator pulumi.StringPtrInput `pulumi:"operator"`
-	// Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+	// Specifies a list of values for the column.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -259,7 +259,7 @@ func (o BudgetResourceGroupFilterDimensionOutput) ToBudgetResourceGroupFilterDim
 	return o
 }
 
-// The name of the column to use for the filter. The allowed values are
+// The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
 func (o BudgetResourceGroupFilterDimensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetResourceGroupFilterDimension) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -269,7 +269,7 @@ func (o BudgetResourceGroupFilterDimensionOutput) Operator() pulumi.StringPtrOut
 	return o.ApplyT(func(v BudgetResourceGroupFilterDimension) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+// Specifies a list of values for the column.
 func (o BudgetResourceGroupFilterDimensionOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetResourceGroupFilterDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -445,11 +445,11 @@ func (o BudgetResourceGroupFilterNotPtrOutput) Tag() BudgetResourceGroupFilterNo
 }
 
 type BudgetResourceGroupFilterNotDimension struct {
-	// The name of the column to use for the filter. The allowed values are
+	// The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
 	Name string `pulumi:"name"`
 	// The operator to use for comparison. The allowed values are `In`.
 	Operator *string `pulumi:"operator"`
-	// Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+	// Specifies a list of values for the column.
 	Values []string `pulumi:"values"`
 }
 
@@ -465,11 +465,11 @@ type BudgetResourceGroupFilterNotDimensionInput interface {
 }
 
 type BudgetResourceGroupFilterNotDimensionArgs struct {
-	// The name of the column to use for the filter. The allowed values are
+	// The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The operator to use for comparison. The allowed values are `In`.
 	Operator pulumi.StringPtrInput `pulumi:"operator"`
-	// Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+	// Specifies a list of values for the column.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -550,7 +550,7 @@ func (o BudgetResourceGroupFilterNotDimensionOutput) ToBudgetResourceGroupFilter
 	}).(BudgetResourceGroupFilterNotDimensionPtrOutput)
 }
 
-// The name of the column to use for the filter. The allowed values are
+// The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
 func (o BudgetResourceGroupFilterNotDimensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetResourceGroupFilterNotDimension) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -560,7 +560,7 @@ func (o BudgetResourceGroupFilterNotDimensionOutput) Operator() pulumi.StringPtr
 	return o.ApplyT(func(v BudgetResourceGroupFilterNotDimension) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+// Specifies a list of values for the column.
 func (o BudgetResourceGroupFilterNotDimensionOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetResourceGroupFilterNotDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -583,7 +583,7 @@ func (o BudgetResourceGroupFilterNotDimensionPtrOutput) Elem() BudgetResourceGro
 	return o.ApplyT(func(v *BudgetResourceGroupFilterNotDimension) BudgetResourceGroupFilterNotDimension { return *v }).(BudgetResourceGroupFilterNotDimensionOutput)
 }
 
-// The name of the column to use for the filter. The allowed values are
+// The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
 func (o BudgetResourceGroupFilterNotDimensionPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetResourceGroupFilterNotDimension) *string {
 		if v == nil {
@@ -603,7 +603,7 @@ func (o BudgetResourceGroupFilterNotDimensionPtrOutput) Operator() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+// Specifies a list of values for the column.
 func (o BudgetResourceGroupFilterNotDimensionPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetResourceGroupFilterNotDimension) []string {
 		if v == nil {
@@ -1359,11 +1359,11 @@ func (o BudgetSubscriptionFilterPtrOutput) Tags() BudgetSubscriptionFilterTagArr
 }
 
 type BudgetSubscriptionFilterDimension struct {
-	// The name of the column to use for the filter. The allowed values are
+	// The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
 	Name string `pulumi:"name"`
 	// The operator to use for comparison. The allowed values are `In`.
 	Operator *string `pulumi:"operator"`
-	// Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+	// Specifies a list of values for the column.
 	Values []string `pulumi:"values"`
 }
 
@@ -1379,11 +1379,11 @@ type BudgetSubscriptionFilterDimensionInput interface {
 }
 
 type BudgetSubscriptionFilterDimensionArgs struct {
-	// The name of the column to use for the filter. The allowed values are
+	// The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The operator to use for comparison. The allowed values are `In`.
 	Operator pulumi.StringPtrInput `pulumi:"operator"`
-	// Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+	// Specifies a list of values for the column.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -1438,7 +1438,7 @@ func (o BudgetSubscriptionFilterDimensionOutput) ToBudgetSubscriptionFilterDimen
 	return o
 }
 
-// The name of the column to use for the filter. The allowed values are
+// The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
 func (o BudgetSubscriptionFilterDimensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetSubscriptionFilterDimension) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1448,7 +1448,7 @@ func (o BudgetSubscriptionFilterDimensionOutput) Operator() pulumi.StringPtrOutp
 	return o.ApplyT(func(v BudgetSubscriptionFilterDimension) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+// Specifies a list of values for the column.
 func (o BudgetSubscriptionFilterDimensionOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetSubscriptionFilterDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -1624,11 +1624,11 @@ func (o BudgetSubscriptionFilterNotPtrOutput) Tag() BudgetSubscriptionFilterNotT
 }
 
 type BudgetSubscriptionFilterNotDimension struct {
-	// The name of the column to use for the filter. The allowed values are
+	// The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
 	Name string `pulumi:"name"`
 	// The operator to use for comparison. The allowed values are `In`.
 	Operator *string `pulumi:"operator"`
-	// Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+	// Specifies a list of values for the column.
 	Values []string `pulumi:"values"`
 }
 
@@ -1644,11 +1644,11 @@ type BudgetSubscriptionFilterNotDimensionInput interface {
 }
 
 type BudgetSubscriptionFilterNotDimensionArgs struct {
-	// The name of the column to use for the filter. The allowed values are
+	// The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The operator to use for comparison. The allowed values are `In`.
 	Operator pulumi.StringPtrInput `pulumi:"operator"`
-	// Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+	// Specifies a list of values for the column.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -1729,7 +1729,7 @@ func (o BudgetSubscriptionFilterNotDimensionOutput) ToBudgetSubscriptionFilterNo
 	}).(BudgetSubscriptionFilterNotDimensionPtrOutput)
 }
 
-// The name of the column to use for the filter. The allowed values are
+// The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
 func (o BudgetSubscriptionFilterNotDimensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetSubscriptionFilterNotDimension) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1739,7 +1739,7 @@ func (o BudgetSubscriptionFilterNotDimensionOutput) Operator() pulumi.StringPtrO
 	return o.ApplyT(func(v BudgetSubscriptionFilterNotDimension) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+// Specifies a list of values for the column.
 func (o BudgetSubscriptionFilterNotDimensionOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetSubscriptionFilterNotDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -1762,7 +1762,7 @@ func (o BudgetSubscriptionFilterNotDimensionPtrOutput) Elem() BudgetSubscription
 	return o.ApplyT(func(v *BudgetSubscriptionFilterNotDimension) BudgetSubscriptionFilterNotDimension { return *v }).(BudgetSubscriptionFilterNotDimensionOutput)
 }
 
-// The name of the column to use for the filter. The allowed values are
+// The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
 func (o BudgetSubscriptionFilterNotDimensionPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetSubscriptionFilterNotDimension) *string {
 		if v == nil {
@@ -1782,7 +1782,7 @@ func (o BudgetSubscriptionFilterNotDimensionPtrOutput) Operator() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies a list of values for the column. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `UnitOfMeasure`.
+// Specifies a list of values for the column.
 func (o BudgetSubscriptionFilterNotDimensionPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetSubscriptionFilterNotDimension) []string {
 		if v == nil {

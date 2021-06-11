@@ -56,6 +56,8 @@ type LookupWorkspaceResult struct {
 	ConnectivityEndpoints map[string]string `pulumi:"connectivityEndpoints"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
+	Identities []GetWorkspaceIdentity `pulumi:"identities"`
 	// The Azure location where the Synapse Workspace exists.
 	Location          string `pulumi:"location"`
 	Name              string `pulumi:"name"`

@@ -66,10 +66,10 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableArray<string>> Annotations { get; private set; } = null!;
 
         /// <summary>
-        /// The connection string in which to authenticate with Azure SQL Database.
+        /// The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
         /// </summary>
         [Output("connectionString")]
-        public Output<string> ConnectionString { get; private set; } = null!;
+        public Output<string?> ConnectionString { get; private set; } = null!;
 
         /// <summary>
         /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource to be created.
@@ -88,6 +88,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Output("integrationRuntimeName")]
         public Output<string?> IntegrationRuntimeName { get; private set; } = null!;
+
+        /// <summary>
+        /// A `key_vault_connection_string` block as defined below. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+        /// </summary>
+        [Output("keyVaultConnectionString")]
+        public Output<Outputs.LinkedServiceAzureSqlDatabaseKeyVaultConnectionString?> KeyVaultConnectionString { get; private set; } = null!;
 
         /// <summary>
         /// A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
@@ -209,10 +215,10 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// The connection string in which to authenticate with Azure SQL Database.
+        /// The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
         /// </summary>
-        [Input("connectionString", required: true)]
-        public Input<string> ConnectionString { get; set; } = null!;
+        [Input("connectionString")]
+        public Input<string>? ConnectionString { get; set; }
 
         /// <summary>
         /// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource to be created.
@@ -231,6 +237,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("integrationRuntimeName")]
         public Input<string>? IntegrationRuntimeName { get; set; }
+
+        /// <summary>
+        /// A `key_vault_connection_string` block as defined below. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+        /// </summary>
+        [Input("keyVaultConnectionString")]
+        public Input<Inputs.LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs>? KeyVaultConnectionString { get; set; }
 
         /// <summary>
         /// A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
@@ -319,7 +331,7 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// The connection string in which to authenticate with Azure SQL Database.
+        /// The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
         /// </summary>
         [Input("connectionString")]
         public Input<string>? ConnectionString { get; set; }
@@ -341,6 +353,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("integrationRuntimeName")]
         public Input<string>? IntegrationRuntimeName { get; set; }
+
+        /// <summary>
+        /// A `key_vault_connection_string` block as defined below. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+        /// </summary>
+        [Input("keyVaultConnectionString")]
+        public Input<Inputs.LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringGetArgs>? KeyVaultConnectionString { get; set; }
 
         /// <summary>
         /// A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.

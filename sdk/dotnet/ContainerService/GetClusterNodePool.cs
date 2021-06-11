@@ -123,6 +123,10 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         public readonly ImmutableDictionary<string, string> NodeLabels;
         /// <summary>
+        /// Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.
+        /// </summary>
+        public readonly string NodePublicIpPrefixId;
+        /// <summary>
         /// A map of Kubernetes Taints applied to each Node in this Node Pool.
         /// </summary>
         public readonly ImmutableArray<string> NodeTaints;
@@ -200,6 +204,8 @@ namespace Pulumi.Azure.ContainerService
 
             ImmutableDictionary<string, string> nodeLabels,
 
+            string nodePublicIpPrefixId,
+
             ImmutableArray<string> nodeTaints,
 
             string orchestratorVersion,
@@ -239,6 +245,7 @@ namespace Pulumi.Azure.ContainerService
             Name = name;
             NodeCount = nodeCount;
             NodeLabels = nodeLabels;
+            NodePublicIpPrefixId = nodePublicIpPrefixId;
             NodeTaints = nodeTaints;
             OrchestratorVersion = orchestratorVersion;
             OsDiskSizeGb = osDiskSizeGb;

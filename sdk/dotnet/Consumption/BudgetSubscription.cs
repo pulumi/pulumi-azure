@@ -39,8 +39,8 @@ namespace Pulumi.Azure.Consumption
     ///             TimeGrain = "Monthly",
     ///             TimePeriod = new Azure.Consumption.Inputs.BudgetSubscriptionTimePeriodArgs
     ///             {
-    ///                 StartDate = "2020-11-01T00:00:00Z",
-    ///                 EndDate = "2020-12-01T00:00:00Z",
+    ///                 StartDate = "2022-06-01T00:00:00Z",
+    ///                 EndDate = "2022-07-01T00:00:00Z",
     ///             },
     ///             Filter = new Azure.Consumption.Inputs.BudgetSubscriptionFilterArgs
     ///             {

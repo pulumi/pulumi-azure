@@ -115,11 +115,15 @@ export class GremlinGraph extends pulumi.CustomResource {
      */
     public readonly partitionKeyPath!: pulumi.Output<string>;
     /**
+     * Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
+     */
+    public readonly partitionKeyVersion!: pulumi.Output<number | undefined>;
+    /**
      * The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply.
+     * The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      */
     public readonly throughput!: pulumi.Output<number>;
     /**
@@ -148,6 +152,7 @@ export class GremlinGraph extends pulumi.CustomResource {
             inputs["indexPolicies"] = state ? state.indexPolicies : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["partitionKeyPath"] = state ? state.partitionKeyPath : undefined;
+            inputs["partitionKeyVersion"] = state ? state.partitionKeyVersion : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["throughput"] = state ? state.throughput : undefined;
             inputs["uniqueKeys"] = state ? state.uniqueKeys : undefined;
@@ -158,9 +163,6 @@ export class GremlinGraph extends pulumi.CustomResource {
             }
             if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
-            }
-            if ((!args || args.indexPolicies === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'indexPolicies'");
             }
             if ((!args || args.partitionKeyPath === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'partitionKeyPath'");
@@ -176,6 +178,7 @@ export class GremlinGraph extends pulumi.CustomResource {
             inputs["indexPolicies"] = args ? args.indexPolicies : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["partitionKeyPath"] = args ? args.partitionKeyPath : undefined;
+            inputs["partitionKeyVersion"] = args ? args.partitionKeyVersion : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["throughput"] = args ? args.throughput : undefined;
             inputs["uniqueKeys"] = args ? args.uniqueKeys : undefined;
@@ -221,11 +224,15 @@ export interface GremlinGraphState {
      */
     partitionKeyPath?: pulumi.Input<string>;
     /**
+     * Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
+     */
+    partitionKeyVersion?: pulumi.Input<number>;
+    /**
      * The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply.
+     * The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      */
     throughput?: pulumi.Input<number>;
     /**
@@ -258,7 +265,7 @@ export interface GremlinGraphArgs {
     /**
      * The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below. Changing this forces a new resource to be created.
      */
-    indexPolicies: pulumi.Input<pulumi.Input<inputs.cosmosdb.GremlinGraphIndexPolicy>[]>;
+    indexPolicies?: pulumi.Input<pulumi.Input<inputs.cosmosdb.GremlinGraphIndexPolicy>[]>;
     /**
      * Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
      */
@@ -268,11 +275,15 @@ export interface GremlinGraphArgs {
      */
     partitionKeyPath: pulumi.Input<string>;
     /**
+     * Define a partition key version. Changing this forces a new resource to be created. Possible values are `1 `and `2`. This should be set to `2` in order to use large partition keys.
+     */
+    partitionKeyVersion?: pulumi.Input<number>;
+    /**
      * The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual manual destroy-apply.
+     * The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      */
     throughput?: pulumi.Input<number>;
     /**

@@ -150,7 +150,7 @@ type InferenceCluster struct {
 
 	// The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
 	ClusterPurpose pulumi.StringPtrOutput `pulumi:"clusterPurpose"`
-	// The description of the Machine Learning compute.
+	// The description of the Machine Learning compute. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	KubernetesClusterId pulumi.StringOutput `pulumi:"kubernetesClusterId"`
@@ -160,7 +160,7 @@ type InferenceCluster struct {
 	MachineLearningWorkspaceId pulumi.StringOutput `pulumi:"machineLearningWorkspaceId"`
 	// The name which should be used for this Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A `ssl` block as defined below.
+	// A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Ssl InferenceClusterSslPtrOutput `pulumi:"ssl"`
 	// A mapping of tags which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -203,7 +203,7 @@ func GetInferenceCluster(ctx *pulumi.Context,
 type inferenceClusterState struct {
 	// The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
 	ClusterPurpose *string `pulumi:"clusterPurpose"`
-	// The description of the Machine Learning compute.
+	// The description of the Machine Learning compute. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Description *string `pulumi:"description"`
 	// The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	KubernetesClusterId *string `pulumi:"kubernetesClusterId"`
@@ -213,7 +213,7 @@ type inferenceClusterState struct {
 	MachineLearningWorkspaceId *string `pulumi:"machineLearningWorkspaceId"`
 	// The name which should be used for this Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Name *string `pulumi:"name"`
-	// A `ssl` block as defined below.
+	// A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Ssl *InferenceClusterSsl `pulumi:"ssl"`
 	// A mapping of tags which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Tags map[string]string `pulumi:"tags"`
@@ -222,7 +222,7 @@ type inferenceClusterState struct {
 type InferenceClusterState struct {
 	// The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
 	ClusterPurpose pulumi.StringPtrInput
-	// The description of the Machine Learning compute.
+	// The description of the Machine Learning compute. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Description pulumi.StringPtrInput
 	// The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	KubernetesClusterId pulumi.StringPtrInput
@@ -232,7 +232,7 @@ type InferenceClusterState struct {
 	MachineLearningWorkspaceId pulumi.StringPtrInput
 	// The name which should be used for this Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Name pulumi.StringPtrInput
-	// A `ssl` block as defined below.
+	// A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Ssl InferenceClusterSslPtrInput
 	// A mapping of tags which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Tags pulumi.StringMapInput
@@ -245,7 +245,7 @@ func (InferenceClusterState) ElementType() reflect.Type {
 type inferenceClusterArgs struct {
 	// The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
 	ClusterPurpose *string `pulumi:"clusterPurpose"`
-	// The description of the Machine Learning compute.
+	// The description of the Machine Learning compute. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Description *string `pulumi:"description"`
 	// The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	KubernetesClusterId string `pulumi:"kubernetesClusterId"`
@@ -255,7 +255,7 @@ type inferenceClusterArgs struct {
 	MachineLearningWorkspaceId string `pulumi:"machineLearningWorkspaceId"`
 	// The name which should be used for this Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Name *string `pulumi:"name"`
-	// A `ssl` block as defined below.
+	// A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Ssl *InferenceClusterSsl `pulumi:"ssl"`
 	// A mapping of tags which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Tags map[string]string `pulumi:"tags"`
@@ -265,7 +265,7 @@ type inferenceClusterArgs struct {
 type InferenceClusterArgs struct {
 	// The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
 	ClusterPurpose pulumi.StringPtrInput
-	// The description of the Machine Learning compute.
+	// The description of the Machine Learning compute. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Description pulumi.StringPtrInput
 	// The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	KubernetesClusterId pulumi.StringInput
@@ -275,7 +275,7 @@ type InferenceClusterArgs struct {
 	MachineLearningWorkspaceId pulumi.StringInput
 	// The name which should be used for this Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Name pulumi.StringPtrInput
-	// A `ssl` block as defined below.
+	// A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Ssl InferenceClusterSslPtrInput
 	// A mapping of tags which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Tags pulumi.StringMapInput

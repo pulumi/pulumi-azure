@@ -13,19 +13,19 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class KubernetesClusterKubeletIdentityGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Client ID for the Service Principal.
+        /// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
         /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
         /// <summary>
-        /// The Object ID of the user-defined Managed Identity used by the OMS Agents.
+        /// The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
         /// </summary>
         [Input("objectId")]
         public Input<string>? ObjectId { get; set; }
 
         /// <summary>
-        /// The ID of a user assigned identity.
+        /// The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
         /// </summary>
         [Input("userAssignedIdentityId")]
         public Input<string>? UserAssignedIdentityId { get; set; }

@@ -20,6 +20,7 @@ class DatasetDelimitedTextArgs:
                  resource_group_name: pulumi.Input[str],
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 azure_blob_fs_location: Optional[pulumi.Input['DatasetDelimitedTextAzureBlobFsLocationArgs']] = None,
                  azure_blob_storage_location: Optional[pulumi.Input['DatasetDelimitedTextAzureBlobStorageLocationArgs']] = None,
                  column_delimiter: Optional[pulumi.Input[str]] = None,
                  compression_codec: Optional[pulumi.Input[str]] = None,
@@ -43,7 +44,8 @@ class DatasetDelimitedTextArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Dataset. Changing this forces a new resource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
-        :param pulumi.Input['DatasetDelimitedTextAzureBlobStorageLocationArgs'] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
+        :param pulumi.Input['DatasetDelimitedTextAzureBlobFsLocationArgs'] azure_blob_fs_location: An `azure_blob_fs_location` block as defined below.
+        :param pulumi.Input['DatasetDelimitedTextAzureBlobStorageLocationArgs'] azure_blob_storage_location: An `azure_blob_storage_location` block as defined below.
         :param pulumi.Input[str] column_delimiter: The column delimiter.
         :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
         :param pulumi.Input[str] compression_level: The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
@@ -67,6 +69,8 @@ class DatasetDelimitedTextArgs:
             pulumi.set(__self__, "additional_properties", additional_properties)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if azure_blob_fs_location is not None:
+            pulumi.set(__self__, "azure_blob_fs_location", azure_blob_fs_location)
         if azure_blob_storage_location is not None:
             pulumi.set(__self__, "azure_blob_storage_location", azure_blob_storage_location)
         if column_delimiter is not None:
@@ -161,10 +165,22 @@ class DatasetDelimitedTextArgs:
         pulumi.set(self, "annotations", value)
 
     @property
+    @pulumi.getter(name="azureBlobFsLocation")
+    def azure_blob_fs_location(self) -> Optional[pulumi.Input['DatasetDelimitedTextAzureBlobFsLocationArgs']]:
+        """
+        An `azure_blob_fs_location` block as defined below.
+        """
+        return pulumi.get(self, "azure_blob_fs_location")
+
+    @azure_blob_fs_location.setter
+    def azure_blob_fs_location(self, value: Optional[pulumi.Input['DatasetDelimitedTextAzureBlobFsLocationArgs']]):
+        pulumi.set(self, "azure_blob_fs_location", value)
+
+    @property
     @pulumi.getter(name="azureBlobStorageLocation")
     def azure_blob_storage_location(self) -> Optional[pulumi.Input['DatasetDelimitedTextAzureBlobStorageLocationArgs']]:
         """
-        A `azure_blob_storage_location` block as defined below.
+        An `azure_blob_storage_location` block as defined below.
         """
         return pulumi.get(self, "azure_blob_storage_location")
 
@@ -358,6 +374,7 @@ class _DatasetDelimitedTextState:
     def __init__(__self__, *,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 azure_blob_fs_location: Optional[pulumi.Input['DatasetDelimitedTextAzureBlobFsLocationArgs']] = None,
                  azure_blob_storage_location: Optional[pulumi.Input['DatasetDelimitedTextAzureBlobStorageLocationArgs']] = None,
                  column_delimiter: Optional[pulumi.Input[str]] = None,
                  compression_codec: Optional[pulumi.Input[str]] = None,
@@ -381,7 +398,8 @@ class _DatasetDelimitedTextState:
         Input properties used for looking up and filtering DatasetDelimitedText resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
-        :param pulumi.Input['DatasetDelimitedTextAzureBlobStorageLocationArgs'] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
+        :param pulumi.Input['DatasetDelimitedTextAzureBlobFsLocationArgs'] azure_blob_fs_location: An `azure_blob_fs_location` block as defined below.
+        :param pulumi.Input['DatasetDelimitedTextAzureBlobStorageLocationArgs'] azure_blob_storage_location: An `azure_blob_storage_location` block as defined below.
         :param pulumi.Input[str] column_delimiter: The column delimiter.
         :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
         :param pulumi.Input[str] compression_level: The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
@@ -405,6 +423,8 @@ class _DatasetDelimitedTextState:
             pulumi.set(__self__, "additional_properties", additional_properties)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if azure_blob_fs_location is not None:
+            pulumi.set(__self__, "azure_blob_fs_location", azure_blob_fs_location)
         if azure_blob_storage_location is not None:
             pulumi.set(__self__, "azure_blob_storage_location", azure_blob_storage_location)
         if column_delimiter is not None:
@@ -469,10 +489,22 @@ class _DatasetDelimitedTextState:
         pulumi.set(self, "annotations", value)
 
     @property
+    @pulumi.getter(name="azureBlobFsLocation")
+    def azure_blob_fs_location(self) -> Optional[pulumi.Input['DatasetDelimitedTextAzureBlobFsLocationArgs']]:
+        """
+        An `azure_blob_fs_location` block as defined below.
+        """
+        return pulumi.get(self, "azure_blob_fs_location")
+
+    @azure_blob_fs_location.setter
+    def azure_blob_fs_location(self, value: Optional[pulumi.Input['DatasetDelimitedTextAzureBlobFsLocationArgs']]):
+        pulumi.set(self, "azure_blob_fs_location", value)
+
+    @property
     @pulumi.getter(name="azureBlobStorageLocation")
     def azure_blob_storage_location(self) -> Optional[pulumi.Input['DatasetDelimitedTextAzureBlobStorageLocationArgs']]:
         """
-        A `azure_blob_storage_location` block as defined below.
+        An `azure_blob_storage_location` block as defined below.
         """
         return pulumi.get(self, "azure_blob_storage_location")
 
@@ -704,6 +736,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 azure_blob_fs_location: Optional[pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobFsLocationArgs']]] = None,
                  azure_blob_storage_location: Optional[pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobStorageLocationArgs']]] = None,
                  column_delimiter: Optional[pulumi.Input[str]] = None,
                  compression_codec: Optional[pulumi.Input[str]] = None,
@@ -772,7 +805,8 @@ class DatasetDelimitedText(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
-        :param pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobStorageLocationArgs']] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
+        :param pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobFsLocationArgs']] azure_blob_fs_location: An `azure_blob_fs_location` block as defined below.
+        :param pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobStorageLocationArgs']] azure_blob_storage_location: An `azure_blob_storage_location` block as defined below.
         :param pulumi.Input[str] column_delimiter: The column delimiter.
         :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
         :param pulumi.Input[str] compression_level: The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
@@ -859,6 +893,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 azure_blob_fs_location: Optional[pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobFsLocationArgs']]] = None,
                  azure_blob_storage_location: Optional[pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobStorageLocationArgs']]] = None,
                  column_delimiter: Optional[pulumi.Input[str]] = None,
                  compression_codec: Optional[pulumi.Input[str]] = None,
@@ -892,6 +927,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
 
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations
+            __props__.__dict__["azure_blob_fs_location"] = azure_blob_fs_location
             __props__.__dict__["azure_blob_storage_location"] = azure_blob_storage_location
             __props__.__dict__["column_delimiter"] = column_delimiter
             __props__.__dict__["compression_codec"] = compression_codec
@@ -929,6 +965,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            azure_blob_fs_location: Optional[pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobFsLocationArgs']]] = None,
             azure_blob_storage_location: Optional[pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobStorageLocationArgs']]] = None,
             column_delimiter: Optional[pulumi.Input[str]] = None,
             compression_codec: Optional[pulumi.Input[str]] = None,
@@ -957,7 +994,8 @@ class DatasetDelimitedText(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
-        :param pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobStorageLocationArgs']] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
+        :param pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobFsLocationArgs']] azure_blob_fs_location: An `azure_blob_fs_location` block as defined below.
+        :param pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobStorageLocationArgs']] azure_blob_storage_location: An `azure_blob_storage_location` block as defined below.
         :param pulumi.Input[str] column_delimiter: The column delimiter.
         :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case sensitive.
         :param pulumi.Input[str] compression_level: The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
@@ -983,6 +1021,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
 
         __props__.__dict__["additional_properties"] = additional_properties
         __props__.__dict__["annotations"] = annotations
+        __props__.__dict__["azure_blob_fs_location"] = azure_blob_fs_location
         __props__.__dict__["azure_blob_storage_location"] = azure_blob_storage_location
         __props__.__dict__["column_delimiter"] = column_delimiter
         __props__.__dict__["compression_codec"] = compression_codec
@@ -1021,10 +1060,18 @@ class DatasetDelimitedText(pulumi.CustomResource):
         return pulumi.get(self, "annotations")
 
     @property
+    @pulumi.getter(name="azureBlobFsLocation")
+    def azure_blob_fs_location(self) -> pulumi.Output[Optional['outputs.DatasetDelimitedTextAzureBlobFsLocation']]:
+        """
+        An `azure_blob_fs_location` block as defined below.
+        """
+        return pulumi.get(self, "azure_blob_fs_location")
+
+    @property
     @pulumi.getter(name="azureBlobStorageLocation")
     def azure_blob_storage_location(self) -> pulumi.Output[Optional['outputs.DatasetDelimitedTextAzureBlobStorageLocation']]:
         """
-        A `azure_blob_storage_location` block as defined below.
+        An `azure_blob_storage_location` block as defined below.
         """
         return pulumi.get(self, "azure_blob_storage_location")
 

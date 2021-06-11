@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:avs/cluster:Cluster":
 		r = &Cluster{}
+	case "azure:avs/expressRouteAuthorization:ExpressRouteAuthorization":
+		r = &ExpressRouteAuthorization{}
 	case "azure:avs/privateCloud:PrivateCloud":
 		r = &PrivateCloud{}
 	default:
@@ -41,6 +43,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"avs/cluster",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"avs/expressRouteAuthorization",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

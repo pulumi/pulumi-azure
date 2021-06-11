@@ -44,8 +44,11 @@ func TestAccLoadbalancer(t *testing.T) {
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "loadbalancer"),
-			RunUpdateTest: true,
+			Dir:                      filepath.Join(getCwd(t), "loadbalancer"),
+			RunUpdateTest:            true,
+			AllowEmptyPreviewChanges: true,
+			AllowEmptyUpdateChanges:  true,
+			// TO-DO: (@stack72) there is a strangeness with lb.Loadbalancer and the FrontendIpConfiguration
 		})
 
 	integration.ProgramTest(t, &test)

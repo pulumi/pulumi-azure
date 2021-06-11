@@ -18,11 +18,11 @@ namespace Pulumi.Azure.DataFactory.Outputs
         /// </summary>
         public readonly string Container;
         /// <summary>
-        /// The filename of the file on the web server.
+        /// The filename of the file.
         /// </summary>
         public readonly string Filename;
         /// <summary>
-        /// The folder path to the file on the web server.
+        /// The folder path to the file.
         /// </summary>
         public readonly string Path;
 

@@ -17,6 +17,7 @@ class AssignmentArgs:
                  scope: pulumi.Input[str],
                  condition: Optional[pulumi.Input[str]] = None,
                  condition_version: Optional[pulumi.Input[str]] = None,
+                 delegated_managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_definition_id: Optional[pulumi.Input[str]] = None,
@@ -28,6 +29,7 @@ class AssignmentArgs:
         :param pulumi.Input[str] scope: The scope at which the Role Assignment applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`, or `/providers/Microsoft.Management/managementGroups/myMG`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] condition: The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] condition_version: The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] delegated_managed_identity_resource_id: The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description for this Role Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] role_definition_id: The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
@@ -40,6 +42,8 @@ class AssignmentArgs:
             pulumi.set(__self__, "condition", condition)
         if condition_version is not None:
             pulumi.set(__self__, "condition_version", condition_version)
+        if delegated_managed_identity_resource_id is not None:
+            pulumi.set(__self__, "delegated_managed_identity_resource_id", delegated_managed_identity_resource_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -98,6 +102,18 @@ class AssignmentArgs:
     @condition_version.setter
     def condition_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "condition_version", value)
+
+    @property
+    @pulumi.getter(name="delegatedManagedIdentityResourceId")
+    def delegated_managed_identity_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "delegated_managed_identity_resource_id")
+
+    @delegated_managed_identity_resource_id.setter
+    def delegated_managed_identity_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delegated_managed_identity_resource_id", value)
 
     @property
     @pulumi.getter
@@ -165,6 +181,7 @@ class _AssignmentState:
     def __init__(__self__, *,
                  condition: Optional[pulumi.Input[str]] = None,
                  condition_version: Optional[pulumi.Input[str]] = None,
+                 delegated_managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
@@ -177,6 +194,7 @@ class _AssignmentState:
         Input properties used for looking up and filtering Assignment resources.
         :param pulumi.Input[str] condition: The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] condition_version: The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] delegated_managed_identity_resource_id: The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description for this Role Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
@@ -190,6 +208,8 @@ class _AssignmentState:
             pulumi.set(__self__, "condition", condition)
         if condition_version is not None:
             pulumi.set(__self__, "condition_version", condition_version)
+        if delegated_managed_identity_resource_id is not None:
+            pulumi.set(__self__, "delegated_managed_identity_resource_id", delegated_managed_identity_resource_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -230,6 +250,18 @@ class _AssignmentState:
     @condition_version.setter
     def condition_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "condition_version", value)
+
+    @property
+    @pulumi.getter(name="delegatedManagedIdentityResourceId")
+    def delegated_managed_identity_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "delegated_managed_identity_resource_id")
+
+    @delegated_managed_identity_resource_id.setter
+    def delegated_managed_identity_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delegated_managed_identity_resource_id", value)
 
     @property
     @pulumi.getter
@@ -335,6 +367,7 @@ class Assignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  condition: Optional[pulumi.Input[str]] = None,
                  condition_version: Optional[pulumi.Input[str]] = None,
+                 delegated_managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
@@ -436,12 +469,13 @@ class Assignment(pulumi.CustomResource):
          $ pulumi import azure:authorization/assignment:Assignment example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000
         ```
 
-         - for scope `Subscription`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000` - for scope `Resource Group`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000`
+         - for scope `Subscription`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000` - for scope `Resource Group`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000` /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] condition: The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] condition_version: The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] delegated_managed_identity_resource_id: The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description for this Role Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
@@ -549,7 +583,7 @@ class Assignment(pulumi.CustomResource):
          $ pulumi import azure:authorization/assignment:Assignment example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000
         ```
 
-         - for scope `Subscription`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000` - for scope `Resource Group`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000`
+         - for scope `Subscription`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000` - for scope `Resource Group`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000` /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000
 
         :param str resource_name: The name of the resource.
         :param AssignmentArgs args: The arguments to use to populate this resource's properties.
@@ -568,6 +602,7 @@ class Assignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  condition: Optional[pulumi.Input[str]] = None,
                  condition_version: Optional[pulumi.Input[str]] = None,
+                 delegated_managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
@@ -589,6 +624,7 @@ class Assignment(pulumi.CustomResource):
 
             __props__.__dict__["condition"] = condition
             __props__.__dict__["condition_version"] = condition_version
+            __props__.__dict__["delegated_managed_identity_resource_id"] = delegated_managed_identity_resource_id
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
             if principal_id is None and not opts.urn:
@@ -615,6 +651,7 @@ class Assignment(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             condition: Optional[pulumi.Input[str]] = None,
             condition_version: Optional[pulumi.Input[str]] = None,
+            delegated_managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             principal_id: Optional[pulumi.Input[str]] = None,
@@ -632,6 +669,7 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] condition: The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] condition_version: The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] delegated_managed_identity_resource_id: The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description for this Role Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
@@ -647,6 +685,7 @@ class Assignment(pulumi.CustomResource):
 
         __props__.__dict__["condition"] = condition
         __props__.__dict__["condition_version"] = condition_version
+        __props__.__dict__["delegated_managed_identity_resource_id"] = delegated_managed_identity_resource_id
         __props__.__dict__["description"] = description
         __props__.__dict__["name"] = name
         __props__.__dict__["principal_id"] = principal_id
@@ -672,6 +711,14 @@ class Assignment(pulumi.CustomResource):
         The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "condition_version")
+
+    @property
+    @pulumi.getter(name="delegatedManagedIdentityResourceId")
+    def delegated_managed_identity_resource_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "delegated_managed_identity_resource_id")
 
     @property
     @pulumi.getter

@@ -11,12 +11,16 @@ import (
 )
 
 type InferenceClusterSsl struct {
-	// The certificate for the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+	// The certificate for the ssl configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Cert *string `pulumi:"cert"`
-	// The cname of the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+	// The cname of the ssl configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Cname *string `pulumi:"cname"`
-	// The key content for the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+	// The key content for the ssl configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Key *string `pulumi:"key"`
+	// The leaf domain label for the ssl configuration. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname`. Changing this forces a new Machine Learning Inference Cluster to be created.
+	LeafDomainLabel *string `pulumi:"leafDomainLabel"`
+	// Whether or not to overwrite existing leaf domain. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname` Changing this forces a new Machine Learning Inference Cluster to be created.
+	OverwriteExistingDomain *bool `pulumi:"overwriteExistingDomain"`
 }
 
 // InferenceClusterSslInput is an input type that accepts InferenceClusterSslArgs and InferenceClusterSslOutput values.
@@ -31,12 +35,16 @@ type InferenceClusterSslInput interface {
 }
 
 type InferenceClusterSslArgs struct {
-	// The certificate for the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+	// The certificate for the ssl configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Cert pulumi.StringPtrInput `pulumi:"cert"`
-	// The cname of the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+	// The cname of the ssl configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Cname pulumi.StringPtrInput `pulumi:"cname"`
-	// The key content for the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+	// The key content for the ssl configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
 	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The leaf domain label for the ssl configuration. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname`. Changing this forces a new Machine Learning Inference Cluster to be created.
+	LeafDomainLabel pulumi.StringPtrInput `pulumi:"leafDomainLabel"`
+	// Whether or not to overwrite existing leaf domain. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname` Changing this forces a new Machine Learning Inference Cluster to be created.
+	OverwriteExistingDomain pulumi.BoolPtrInput `pulumi:"overwriteExistingDomain"`
 }
 
 func (InferenceClusterSslArgs) ElementType() reflect.Type {
@@ -116,19 +124,29 @@ func (o InferenceClusterSslOutput) ToInferenceClusterSslPtrOutputWithContext(ctx
 	}).(InferenceClusterSslPtrOutput)
 }
 
-// The certificate for the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+// The certificate for the ssl configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
 func (o InferenceClusterSslOutput) Cert() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InferenceClusterSsl) *string { return v.Cert }).(pulumi.StringPtrOutput)
 }
 
-// The cname of the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+// The cname of the ssl configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
 func (o InferenceClusterSslOutput) Cname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InferenceClusterSsl) *string { return v.Cname }).(pulumi.StringPtrOutput)
 }
 
-// The key content for the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+// The key content for the ssl configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
 func (o InferenceClusterSslOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InferenceClusterSsl) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// The leaf domain label for the ssl configuration. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname`. Changing this forces a new Machine Learning Inference Cluster to be created.
+func (o InferenceClusterSslOutput) LeafDomainLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InferenceClusterSsl) *string { return v.LeafDomainLabel }).(pulumi.StringPtrOutput)
+}
+
+// Whether or not to overwrite existing leaf domain. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname` Changing this forces a new Machine Learning Inference Cluster to be created.
+func (o InferenceClusterSslOutput) OverwriteExistingDomain() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InferenceClusterSsl) *bool { return v.OverwriteExistingDomain }).(pulumi.BoolPtrOutput)
 }
 
 type InferenceClusterSslPtrOutput struct{ *pulumi.OutputState }
@@ -149,7 +167,7 @@ func (o InferenceClusterSslPtrOutput) Elem() InferenceClusterSslOutput {
 	return o.ApplyT(func(v *InferenceClusterSsl) InferenceClusterSsl { return *v }).(InferenceClusterSslOutput)
 }
 
-// The certificate for the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+// The certificate for the ssl configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
 func (o InferenceClusterSslPtrOutput) Cert() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InferenceClusterSsl) *string {
 		if v == nil {
@@ -159,7 +177,7 @@ func (o InferenceClusterSslPtrOutput) Cert() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The cname of the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+// The cname of the ssl configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
 func (o InferenceClusterSslPtrOutput) Cname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InferenceClusterSsl) *string {
 		if v == nil {
@@ -169,7 +187,7 @@ func (o InferenceClusterSslPtrOutput) Cname() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The key content for the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+// The key content for the ssl configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
 func (o InferenceClusterSslPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InferenceClusterSsl) *string {
 		if v == nil {
@@ -177,6 +195,26 @@ func (o InferenceClusterSslPtrOutput) Key() pulumi.StringPtrOutput {
 		}
 		return v.Key
 	}).(pulumi.StringPtrOutput)
+}
+
+// The leaf domain label for the ssl configuration. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname`. Changing this forces a new Machine Learning Inference Cluster to be created.
+func (o InferenceClusterSslPtrOutput) LeafDomainLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceClusterSsl) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LeafDomainLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether or not to overwrite existing leaf domain. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname` Changing this forces a new Machine Learning Inference Cluster to be created.
+func (o InferenceClusterSslPtrOutput) OverwriteExistingDomain() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InferenceClusterSsl) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.OverwriteExistingDomain
+	}).(pulumi.BoolPtrOutput)
 }
 
 type WorkspaceIdentity struct {

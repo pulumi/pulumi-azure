@@ -97,6 +97,10 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean>;
     /**
+     * The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
+     */
+    public readonly location!: pulumi.Output<string>;
+    /**
      * The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
      */
     public readonly networkSecurityGroupId!: pulumi.Output<string>;
@@ -116,6 +120,10 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
      * The ID of the Storage Account where flow logs are stored.
      */
     public readonly storageAccountId!: pulumi.Output<string>;
+    /**
+     * A mapping of tags which should be assigned to the Network Watcher Flow Log.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A `trafficAnalytics` block as documented below.
      */
@@ -139,11 +147,13 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as NetworkWatcherFlowLogState | undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
+            inputs["location"] = state ? state.location : undefined;
             inputs["networkSecurityGroupId"] = state ? state.networkSecurityGroupId : undefined;
             inputs["networkWatcherName"] = state ? state.networkWatcherName : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["retentionPolicy"] = state ? state.retentionPolicy : undefined;
             inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["trafficAnalytics"] = state ? state.trafficAnalytics : undefined;
             inputs["version"] = state ? state.version : undefined;
         } else {
@@ -167,11 +177,13 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
                 throw new Error("Missing required property 'storageAccountId'");
             }
             inputs["enabled"] = args ? args.enabled : undefined;
+            inputs["location"] = args ? args.location : undefined;
             inputs["networkSecurityGroupId"] = args ? args.networkSecurityGroupId : undefined;
             inputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["retentionPolicy"] = args ? args.retentionPolicy : undefined;
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["trafficAnalytics"] = args ? args.trafficAnalytics : undefined;
             inputs["version"] = args ? args.version : undefined;
         }
@@ -190,6 +202,10 @@ export interface NetworkWatcherFlowLogState {
      * Boolean flag to enable/disable traffic analytics.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
+     */
+    location?: pulumi.Input<string>;
     /**
      * The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
      */
@@ -211,6 +227,10 @@ export interface NetworkWatcherFlowLogState {
      */
     storageAccountId?: pulumi.Input<string>;
     /**
+     * A mapping of tags which should be assigned to the Network Watcher Flow Log.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * A `trafficAnalytics` block as documented below.
      */
     trafficAnalytics?: pulumi.Input<inputs.network.NetworkWatcherFlowLogTrafficAnalytics>;
@@ -228,6 +248,10 @@ export interface NetworkWatcherFlowLogArgs {
      * Boolean flag to enable/disable traffic analytics.
      */
     enabled: pulumi.Input<boolean>;
+    /**
+     * The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
+     */
+    location?: pulumi.Input<string>;
     /**
      * The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created.
      */
@@ -248,6 +272,10 @@ export interface NetworkWatcherFlowLogArgs {
      * The ID of the Storage Account where flow logs are stored.
      */
     storageAccountId: pulumi.Input<string>;
+    /**
+     * A mapping of tags which should be assigned to the Network Watcher Flow Log.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `trafficAnalytics` block as documented below.
      */

@@ -140,7 +140,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A list of one of more Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
+        /// A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
         /// </summary>
         [Output("vpnAuthenticationTypes")]
         public Output<string> VpnAuthenticationTypes { get; private set; } = null!;
@@ -282,7 +282,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A list of one of more Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
+        /// A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
         /// </summary>
         [Input("vpnAuthenticationTypes", required: true)]
         public Input<string> VpnAuthenticationTypes { get; set; } = null!;
@@ -391,7 +391,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A list of one of more Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
+        /// A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
         /// </summary>
         [Input("vpnAuthenticationTypes")]
         public Input<string>? VpnAuthenticationTypes { get; set; }

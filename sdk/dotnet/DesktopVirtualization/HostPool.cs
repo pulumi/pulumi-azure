@@ -32,6 +32,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     ///             ResourceGroupName = exampleResourceGroup.Name,
     ///             FriendlyName = "pooleddepthfirst",
     ///             ValidateEnvironment = true,
+    ///             StartVmOnConnect = true,
     ///             CustomRdpProperties = "audiocapturemode:i:1;audiomode:i:0;",
     ///             Description = "Acceptance Test: A pooled host pool - pooleddepthfirst",
     ///             Type = "Pooled",
@@ -128,6 +129,12 @@ namespace Pulumi.Azure.DesktopVirtualization
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// Enables or disables the Start VM on Connection Feature. Defaults to `false`.
+        /// </summary>
+        [Output("startVmOnConnect")]
+        public Output<bool?> StartVmOnConnect { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -269,6 +276,12 @@ namespace Pulumi.Azure.DesktopVirtualization
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// Enables or disables the Start VM on Connection Feature. Defaults to `false`.
+        /// </summary>
+        [Input("startVmOnConnect")]
+        public Input<bool>? StartVmOnConnect { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -375,6 +388,12 @@ namespace Pulumi.Azure.DesktopVirtualization
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// Enables or disables the Start VM on Connection Feature. Defaults to `false`.
+        /// </summary>
+        [Input("startVmOnConnect")]
+        public Input<bool>? StartVmOnConnect { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

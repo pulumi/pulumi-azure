@@ -106,6 +106,10 @@ export interface GetClusterNodePoolResult {
      */
     readonly nodeLabels: {[key: string]: string};
     /**
+     * Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.
+     */
+    readonly nodePublicIpPrefixId: string;
+    /**
      * A map of Kubernetes Taints applied to each Node in this Node Pool.
      */
     readonly nodeTaints: string[];

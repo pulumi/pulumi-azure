@@ -66,14 +66,16 @@ type LinkedServiceAzureSqlDatabase struct {
 	AdditionalProperties pulumi.StringMapOutput `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service Azure SQL Database.
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
-	// The connection string in which to authenticate with Azure SQL Database.
-	ConnectionString pulumi.StringOutput `pulumi:"connectionString"`
+	// The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
+	ConnectionString pulumi.StringPtrOutput `pulumi:"connectionString"`
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource to be created.
 	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service Azure SQL Database.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
 	IntegrationRuntimeName pulumi.StringPtrOutput `pulumi:"integrationRuntimeName"`
+	// A `keyVaultConnectionString` block as defined below. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
+	KeyVaultConnectionString LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrOutput `pulumi:"keyVaultConnectionString"`
 	// A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
 	KeyVaultPassword LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrOutput `pulumi:"keyVaultPassword"`
 	// Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data
@@ -100,9 +102,6 @@ func NewLinkedServiceAzureSqlDatabase(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConnectionString == nil {
-		return nil, errors.New("invalid value for required argument 'ConnectionString'")
-	}
 	if args.DataFactoryName == nil {
 		return nil, errors.New("invalid value for required argument 'DataFactoryName'")
 	}
@@ -135,7 +134,7 @@ type linkedServiceAzureSqlDatabaseState struct {
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service Azure SQL Database.
 	Annotations []string `pulumi:"annotations"`
-	// The connection string in which to authenticate with Azure SQL Database.
+	// The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
 	ConnectionString *string `pulumi:"connectionString"`
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource to be created.
 	DataFactoryName *string `pulumi:"dataFactoryName"`
@@ -143,6 +142,8 @@ type linkedServiceAzureSqlDatabaseState struct {
 	Description *string `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
+	// A `keyVaultConnectionString` block as defined below. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
+	KeyVaultConnectionString *LinkedServiceAzureSqlDatabaseKeyVaultConnectionString `pulumi:"keyVaultConnectionString"`
 	// A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
 	KeyVaultPassword *LinkedServiceAzureSqlDatabaseKeyVaultPassword `pulumi:"keyVaultPassword"`
 	// Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data
@@ -167,7 +168,7 @@ type LinkedServiceAzureSqlDatabaseState struct {
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Linked Service Azure SQL Database.
 	Annotations pulumi.StringArrayInput
-	// The connection string in which to authenticate with Azure SQL Database.
+	// The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
 	ConnectionString pulumi.StringPtrInput
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource to be created.
 	DataFactoryName pulumi.StringPtrInput
@@ -175,6 +176,8 @@ type LinkedServiceAzureSqlDatabaseState struct {
 	Description pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
 	IntegrationRuntimeName pulumi.StringPtrInput
+	// A `keyVaultConnectionString` block as defined below. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
+	KeyVaultConnectionString LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrInput
 	// A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
 	KeyVaultPassword LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrInput
 	// Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data
@@ -203,14 +206,16 @@ type linkedServiceAzureSqlDatabaseArgs struct {
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service Azure SQL Database.
 	Annotations []string `pulumi:"annotations"`
-	// The connection string in which to authenticate with Azure SQL Database.
-	ConnectionString string `pulumi:"connectionString"`
+	// The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
+	ConnectionString *string `pulumi:"connectionString"`
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource to be created.
 	DataFactoryName string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service Azure SQL Database.
 	Description *string `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
+	// A `keyVaultConnectionString` block as defined below. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
+	KeyVaultConnectionString *LinkedServiceAzureSqlDatabaseKeyVaultConnectionString `pulumi:"keyVaultConnectionString"`
 	// A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
 	KeyVaultPassword *LinkedServiceAzureSqlDatabaseKeyVaultPassword `pulumi:"keyVaultPassword"`
 	// Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data
@@ -236,14 +241,16 @@ type LinkedServiceAzureSqlDatabaseArgs struct {
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Linked Service Azure SQL Database.
 	Annotations pulumi.StringArrayInput
-	// The connection string in which to authenticate with Azure SQL Database.
-	ConnectionString pulumi.StringInput
+	// The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
+	ConnectionString pulumi.StringPtrInput
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource to be created.
 	DataFactoryName pulumi.StringInput
 	// The description for the Data Factory Linked Service Azure SQL Database.
 	Description pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
 	IntegrationRuntimeName pulumi.StringPtrInput
+	// A `keyVaultConnectionString` block as defined below. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
+	KeyVaultConnectionString LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringPtrInput
 	// A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
 	KeyVaultPassword LinkedServiceAzureSqlDatabaseKeyVaultPasswordPtrInput
 	// Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data

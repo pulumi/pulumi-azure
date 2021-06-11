@@ -78,6 +78,10 @@ namespace Pulumi.Azure.Synapse
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// An `identity` block as defined below, which contains the Managed Service Identity information for this Synapse Workspace.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetWorkspaceIdentityResult> Identities;
+        /// <summary>
         /// The Azure location where the Synapse Workspace exists.
         /// </summary>
         public readonly string Location;
@@ -94,6 +98,8 @@ namespace Pulumi.Azure.Synapse
 
             string id,
 
+            ImmutableArray<Outputs.GetWorkspaceIdentityResult> identities,
+
             string location,
 
             string name,
@@ -104,6 +110,7 @@ namespace Pulumi.Azure.Synapse
         {
             ConnectivityEndpoints = connectivityEndpoints;
             Id = id;
+            Identities = identities;
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;

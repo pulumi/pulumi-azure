@@ -83,6 +83,10 @@ type DatasetAzureBlob struct {
 	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicFilenameEnabled pulumi.BoolPtrOutput `pulumi:"dynamicFilenameEnabled"`
+	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicPathEnabled pulumi.BoolPtrOutput `pulumi:"dynamicPathEnabled"`
 	// The filename of the Azure Blob.
 	Filename pulumi.StringPtrOutput `pulumi:"filename"`
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -147,6 +151,10 @@ type datasetAzureBlobState struct {
 	DataFactoryName *string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset.
 	Description *string `pulumi:"description"`
+	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicFilenameEnabled *bool `pulumi:"dynamicFilenameEnabled"`
+	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicPathEnabled *bool `pulumi:"dynamicPathEnabled"`
 	// The filename of the Azure Blob.
 	Filename *string `pulumi:"filename"`
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -174,6 +182,10 @@ type DatasetAzureBlobState struct {
 	DataFactoryName pulumi.StringPtrInput
 	// The description for the Data Factory Dataset.
 	Description pulumi.StringPtrInput
+	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicFilenameEnabled pulumi.BoolPtrInput
+	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicPathEnabled pulumi.BoolPtrInput
 	// The filename of the Azure Blob.
 	Filename pulumi.StringPtrInput
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -205,6 +217,10 @@ type datasetAzureBlobArgs struct {
 	DataFactoryName string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Dataset.
 	Description *string `pulumi:"description"`
+	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicFilenameEnabled *bool `pulumi:"dynamicFilenameEnabled"`
+	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicPathEnabled *bool `pulumi:"dynamicPathEnabled"`
 	// The filename of the Azure Blob.
 	Filename *string `pulumi:"filename"`
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
@@ -233,6 +249,10 @@ type DatasetAzureBlobArgs struct {
 	DataFactoryName pulumi.StringInput
 	// The description for the Data Factory Dataset.
 	Description pulumi.StringPtrInput
+	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicFilenameEnabled pulumi.BoolPtrInput
+	// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+	DynamicPathEnabled pulumi.BoolPtrInput
 	// The filename of the Azure Blob.
 	Filename pulumi.StringPtrInput
 	// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.

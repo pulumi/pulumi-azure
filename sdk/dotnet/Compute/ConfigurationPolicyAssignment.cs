@@ -12,6 +12,131 @@ namespace Pulumi.Azure.Compute
     /// <summary>
     /// Applies a Configuration Policy to a Virtual Machine.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         {
+    ///             Location = "West Europe",
+    ///         });
+    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///         {
+    ///             Location = exampleResourceGroup.Location,
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             AddressSpaces = 
+    ///             {
+    ///                 "10.0.0.0/16",
+    ///             },
+    ///         });
+    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///             AddressPrefixes = 
+    ///             {
+    ///                 "10.0.2.0/24",
+    ///             },
+    ///         });
+    ///         var exampleNetworkInterface = new Azure.Network.NetworkInterface("exampleNetworkInterface", new Azure.Network.NetworkInterfaceArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             IpConfigurations = 
+    ///             {
+    ///                 new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
+    ///                 {
+    ///                     Name = "internal",
+    ///                     SubnetId = exampleSubnet.Id,
+    ///                     PrivateIpAddressAllocation = "Dynamic",
+    ///                 },
+    ///             },
+    ///         });
+    ///         var exampleWindowsVirtualMachine = new Azure.Compute.WindowsVirtualMachine("exampleWindowsVirtualMachine", new Azure.Compute.WindowsVirtualMachineArgs
+    ///         {
+    ///             ResourceGroupName = exampleResourceGroup.Name,
+    ///             Location = exampleResourceGroup.Location,
+    ///             Size = "Standard_F2",
+    ///             AdminUsername = "adminuser",
+    ///             AdminPassword = "P@$$w0rd1234!",
+    ///             NetworkInterfaceIds = 
+    ///             {
+    ///                 exampleNetworkInterface.Id,
+    ///             },
+    ///             Identity = new Azure.Compute.Inputs.WindowsVirtualMachineIdentityArgs
+    ///             {
+    ///                 Type = "SystemAssigned",
+    ///             },
+    ///             OsDisk = new Azure.Compute.Inputs.WindowsVirtualMachineOsDiskArgs
+    ///             {
+    ///                 Caching = "ReadWrite",
+    ///                 StorageAccountType = "Standard_LRS",
+    ///             },
+    ///             SourceImageReference = new Azure.Compute.Inputs.WindowsVirtualMachineSourceImageReferenceArgs
+    ///             {
+    ///                 Publisher = "MicrosoftWindowsServer",
+    ///                 Offer = "WindowsServer",
+    ///                 Sku = "2019-Datacenter",
+    ///                 Version = "latest",
+    ///             },
+    ///         });
+    ///         var exampleExtension = new Azure.Compute.Extension("exampleExtension", new Azure.Compute.ExtensionArgs
+    ///         {
+    ///             VirtualMachineId = exampleWindowsVirtualMachine.Id,
+    ///             Publisher = "Microsoft.GuestConfiguration",
+    ///             Type = "ConfigurationforWindows",
+    ///             TypeHandlerVersion = "1.0",
+    ///             AutoUpgradeMinorVersion = true,
+    ///         });
+    ///         var exampleConfigurationPolicyAssignment = new Azure.Compute.ConfigurationPolicyAssignment("exampleConfigurationPolicyAssignment", new Azure.Compute.ConfigurationPolicyAssignmentArgs
+    ///         {
+    ///             Location = exampleWindowsVirtualMachine.Location,
+    ///             VirtualMachineId = exampleWindowsVirtualMachine.Id,
+    ///             Configuration = new Azure.Compute.Inputs.ConfigurationPolicyAssignmentConfigurationArgs
+    ///             {
+    ///                 Name = "AzureWindowsBaseline",
+    ///                 Version = "1.*",
+    ///                 Parameters = 
+    ///                 {
+    ///                     new Azure.Compute.Inputs.ConfigurationPolicyAssignmentConfigurationParameterArgs
+    ///                     {
+    ///                         Name = "Minimum Password Length;ExpectedValue",
+    ///                         Value = "16",
+    ///                     },
+    ///                     new Azure.Compute.Inputs.ConfigurationPolicyAssignmentConfigurationParameterArgs
+    ///                     {
+    ///                         Name = "Minimum Password Age;ExpectedValue",
+    ///                         Value = "0",
+    ///                     },
+    ///                     new Azure.Compute.Inputs.ConfigurationPolicyAssignmentConfigurationParameterArgs
+    ///                     {
+    ///                         Name = "Maximum Password Age;ExpectedValue",
+    ///                         Value = "30,45",
+    ///                     },
+    ///                     new Azure.Compute.Inputs.ConfigurationPolicyAssignmentConfigurationParameterArgs
+    ///                     {
+    ///                         Name = "Enforce Password History;ExpectedValue",
+    ///                         Value = "10",
+    ///                     },
+    ///                     new Azure.Compute.Inputs.ConfigurationPolicyAssignmentConfigurationParameterArgs
+    ///                     {
+    ///                         Name = "Password Must Meet Complexity Requirements;ExpectedValue",
+    ///                         Value = "1",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Virtual Machine Configuration Policy Assignments can be imported using the `resource id`, e.g.

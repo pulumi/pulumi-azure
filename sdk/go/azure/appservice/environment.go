@@ -103,16 +103,22 @@ type Environment struct {
 	ClusterSettings EnvironmentClusterSettingArrayOutput `pulumi:"clusterSettings"`
 	// Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
 	FrontEndScaleFactor pulumi.IntPtrOutput `pulumi:"frontEndScaleFactor"`
+	// IP address of internal load balancer of the App Service Environment.
+	InternalIpAddress pulumi.StringOutput `pulumi:"internalIpAddress"`
 	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
 	InternalLoadBalancingMode pulumi.StringPtrOutput `pulumi:"internalLoadBalancingMode"`
 	// The location where the App Service Environment exists.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the App Service Environment. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// List of outbound IP addresses of the App Service Environment.
+	OutboundIpAddresses pulumi.StringArrayOutput `pulumi:"outboundIpAddresses"`
 	// Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.
 	PricingTier pulumi.StringPtrOutput `pulumi:"pricingTier"`
 	// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`).
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// IP address of service endpoint of the App Service Environment.
+	ServiceIpAddress pulumi.StringOutput `pulumi:"serviceIpAddress"`
 	// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
@@ -159,16 +165,22 @@ type environmentState struct {
 	ClusterSettings []EnvironmentClusterSetting `pulumi:"clusterSettings"`
 	// Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
 	FrontEndScaleFactor *int `pulumi:"frontEndScaleFactor"`
+	// IP address of internal load balancer of the App Service Environment.
+	InternalIpAddress *string `pulumi:"internalIpAddress"`
 	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
 	InternalLoadBalancingMode *string `pulumi:"internalLoadBalancingMode"`
 	// The location where the App Service Environment exists.
 	Location *string `pulumi:"location"`
 	// The name of the App Service Environment. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// List of outbound IP addresses of the App Service Environment.
+	OutboundIpAddresses []string `pulumi:"outboundIpAddresses"`
 	// Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.
 	PricingTier *string `pulumi:"pricingTier"`
 	// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`).
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// IP address of service endpoint of the App Service Environment.
+	ServiceIpAddress *string `pulumi:"serviceIpAddress"`
 	// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
@@ -184,16 +196,22 @@ type EnvironmentState struct {
 	ClusterSettings EnvironmentClusterSettingArrayInput
 	// Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
 	FrontEndScaleFactor pulumi.IntPtrInput
+	// IP address of internal load balancer of the App Service Environment.
+	InternalIpAddress pulumi.StringPtrInput
 	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`.
 	InternalLoadBalancingMode pulumi.StringPtrInput
 	// The location where the App Service Environment exists.
 	Location pulumi.StringPtrInput
 	// The name of the App Service Environment. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// List of outbound IP addresses of the App Service Environment.
+	OutboundIpAddresses pulumi.StringArrayInput
 	// Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.
 	PricingTier pulumi.StringPtrInput
 	// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`).
 	ResourceGroupName pulumi.StringPtrInput
+	// IP address of service endpoint of the App Service Environment.
+	ServiceIpAddress pulumi.StringPtrInput
 	// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.

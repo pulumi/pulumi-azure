@@ -174,7 +174,7 @@ namespace Pulumi.Azure.Role
     ///  $ pulumi import azure:role/assignment:Assignment example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000
     /// ```
     /// 
-    ///  - for scope `Subscription`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000` - for scope `Resource Group`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000`
+    ///  - for scope `Subscription`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000` - for scope `Resource Group`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000` /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000
     /// </summary>
     [Obsolete(@"azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment")]
     [AzureResourceType("azure:role/assignment:Assignment")]
@@ -191,6 +191,12 @@ namespace Pulumi.Azure.Role
         /// </summary>
         [Output("conditionVersion")]
         public Output<string?> ConditionVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("delegatedManagedIdentityResourceId")]
+        public Output<string?> DelegatedManagedIdentityResourceId { get; private set; } = null!;
 
         /// <summary>
         /// The description for this Role Assignment. Changing this forces a new resource to be created.
@@ -299,6 +305,12 @@ namespace Pulumi.Azure.Role
         public Input<string>? ConditionVersion { get; set; }
 
         /// <summary>
+        /// The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("delegatedManagedIdentityResourceId")]
+        public Input<string>? DelegatedManagedIdentityResourceId { get; set; }
+
+        /// <summary>
         /// The description for this Role Assignment. Changing this forces a new resource to be created.
         /// </summary>
         [Input("description")]
@@ -358,6 +370,12 @@ namespace Pulumi.Azure.Role
         /// </summary>
         [Input("conditionVersion")]
         public Input<string>? ConditionVersion { get; set; }
+
+        /// <summary>
+        /// The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("delegatedManagedIdentityResourceId")]
+        public Input<string>? DelegatedManagedIdentityResourceId { get; set; }
 
         /// <summary>
         /// The description for this Role Assignment. Changing this forces a new resource to be created.

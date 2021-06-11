@@ -30,6 +30,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("gatewayId")]
         public Input<string>? GatewayId { get; set; }
 
+        /// <summary>
+        /// The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+        /// </summary>
+        [Input("gatewayName")]
+        public Input<string>? GatewayName { get; set; }
+
         [Input("ingressApplicationGatewayIdentities")]
         private InputList<Inputs.KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityGetArgs>? _ingressApplicationGatewayIdentities;
 

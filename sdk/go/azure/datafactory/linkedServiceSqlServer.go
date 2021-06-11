@@ -130,14 +130,16 @@ type LinkedServiceSqlServer struct {
 	AdditionalProperties pulumi.StringMapOutput `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service SQL Server.
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
-	// The connection string in which to authenticate with the SQL Server.
-	ConnectionString pulumi.StringOutput `pulumi:"connectionString"`
+	// The connection string in which to authenticate with the SQL Server. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
+	ConnectionString pulumi.StringPtrOutput `pulumi:"connectionString"`
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryName pulumi.StringOutput `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service SQL Server.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service SQL Server.
 	IntegrationRuntimeName pulumi.StringPtrOutput `pulumi:"integrationRuntimeName"`
+	// A `keyVaultConnectionString` block as defined below. Use this argument to store SQL Server connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
+	KeyVaultConnectionString LinkedServiceSqlServerKeyVaultConnectionStringPtrOutput `pulumi:"keyVaultConnectionString"`
 	// A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
 	KeyVaultPassword LinkedServiceSqlServerKeyVaultPasswordPtrOutput `pulumi:"keyVaultPassword"`
 	// Specifies the name of the Data Factory Linked Service SQL Server. Changing this forces a new resource to be created. Must be unique within a data
@@ -156,9 +158,6 @@ func NewLinkedServiceSqlServer(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConnectionString == nil {
-		return nil, errors.New("invalid value for required argument 'ConnectionString'")
-	}
 	if args.DataFactoryName == nil {
 		return nil, errors.New("invalid value for required argument 'DataFactoryName'")
 	}
@@ -191,7 +190,7 @@ type linkedServiceSqlServerState struct {
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service SQL Server.
 	Annotations []string `pulumi:"annotations"`
-	// The connection string in which to authenticate with the SQL Server.
+	// The connection string in which to authenticate with the SQL Server. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
 	ConnectionString *string `pulumi:"connectionString"`
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryName *string `pulumi:"dataFactoryName"`
@@ -199,6 +198,8 @@ type linkedServiceSqlServerState struct {
 	Description *string `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service SQL Server.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
+	// A `keyVaultConnectionString` block as defined below. Use this argument to store SQL Server connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
+	KeyVaultConnectionString *LinkedServiceSqlServerKeyVaultConnectionString `pulumi:"keyVaultConnectionString"`
 	// A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
 	KeyVaultPassword *LinkedServiceSqlServerKeyVaultPassword `pulumi:"keyVaultPassword"`
 	// Specifies the name of the Data Factory Linked Service SQL Server. Changing this forces a new resource to be created. Must be unique within a data
@@ -215,7 +216,7 @@ type LinkedServiceSqlServerState struct {
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Linked Service SQL Server.
 	Annotations pulumi.StringArrayInput
-	// The connection string in which to authenticate with the SQL Server.
+	// The connection string in which to authenticate with the SQL Server. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
 	ConnectionString pulumi.StringPtrInput
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryName pulumi.StringPtrInput
@@ -223,6 +224,8 @@ type LinkedServiceSqlServerState struct {
 	Description pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service SQL Server.
 	IntegrationRuntimeName pulumi.StringPtrInput
+	// A `keyVaultConnectionString` block as defined below. Use this argument to store SQL Server connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
+	KeyVaultConnectionString LinkedServiceSqlServerKeyVaultConnectionStringPtrInput
 	// A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
 	KeyVaultPassword LinkedServiceSqlServerKeyVaultPasswordPtrInput
 	// Specifies the name of the Data Factory Linked Service SQL Server. Changing this forces a new resource to be created. Must be unique within a data
@@ -243,14 +246,16 @@ type linkedServiceSqlServerArgs struct {
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service SQL Server.
 	Annotations []string `pulumi:"annotations"`
-	// The connection string in which to authenticate with the SQL Server.
-	ConnectionString string `pulumi:"connectionString"`
+	// The connection string in which to authenticate with the SQL Server. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
+	ConnectionString *string `pulumi:"connectionString"`
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryName string `pulumi:"dataFactoryName"`
 	// The description for the Data Factory Linked Service SQL Server.
 	Description *string `pulumi:"description"`
 	// The integration runtime reference to associate with the Data Factory Linked Service SQL Server.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
+	// A `keyVaultConnectionString` block as defined below. Use this argument to store SQL Server connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
+	KeyVaultConnectionString *LinkedServiceSqlServerKeyVaultConnectionString `pulumi:"keyVaultConnectionString"`
 	// A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
 	KeyVaultPassword *LinkedServiceSqlServerKeyVaultPassword `pulumi:"keyVaultPassword"`
 	// Specifies the name of the Data Factory Linked Service SQL Server. Changing this forces a new resource to be created. Must be unique within a data
@@ -268,14 +273,16 @@ type LinkedServiceSqlServerArgs struct {
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Linked Service SQL Server.
 	Annotations pulumi.StringArrayInput
-	// The connection string in which to authenticate with the SQL Server.
-	ConnectionString pulumi.StringInput
+	// The connection string in which to authenticate with the SQL Server. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
+	ConnectionString pulumi.StringPtrInput
 	// The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryName pulumi.StringInput
 	// The description for the Data Factory Linked Service SQL Server.
 	Description pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service SQL Server.
 	IntegrationRuntimeName pulumi.StringPtrInput
+	// A `keyVaultConnectionString` block as defined below. Use this argument to store SQL Server connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
+	KeyVaultConnectionString LinkedServiceSqlServerKeyVaultConnectionStringPtrInput
 	// A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
 	KeyVaultPassword LinkedServiceSqlServerKeyVaultPasswordPtrInput
 	// Specifies the name of the Data Factory Linked Service SQL Server. Changing this forces a new resource to be created. Must be unique within a data

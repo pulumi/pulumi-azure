@@ -59,6 +59,12 @@ namespace Pulumi.Azure.Network
         public Output<string> AllocationMethod { get; private set; } = null!;
 
         /// <summary>
+        /// The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+        /// </summary>
+        [Output("availabilityZone")]
+        public Output<string> AvailabilityZone { get; private set; } = null!;
+
+        /// <summary>
         /// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
         /// </summary>
         [Output("domainNameLabel")]
@@ -138,11 +144,8 @@ namespace Pulumi.Azure.Network
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// A collection containing the availability zone to allocate the Public IP in.
-        /// </summary>
         [Output("zones")]
-        public Output<string?> Zones { get; private set; } = null!;
+        public Output<string> Zones { get; private set; } = null!;
 
 
         /// <summary>
@@ -195,6 +198,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("allocationMethod", required: true)]
         public Input<string> AllocationMethod { get; set; } = null!;
+
+        /// <summary>
+        /// The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+        /// </summary>
+        [Input("availabilityZone")]
+        public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
         /// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
@@ -276,9 +285,6 @@ namespace Pulumi.Azure.Network
             set => _tags = value;
         }
 
-        /// <summary>
-        /// A collection containing the availability zone to allocate the Public IP in.
-        /// </summary>
         [Input("zones")]
         public Input<string>? Zones { get; set; }
 
@@ -294,6 +300,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("allocationMethod")]
         public Input<string>? AllocationMethod { get; set; }
+
+        /// <summary>
+        /// The availability zone to allocate the Public IP in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+        /// </summary>
+        [Input("availabilityZone")]
+        public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
         /// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
@@ -387,9 +399,6 @@ namespace Pulumi.Azure.Network
             set => _tags = value;
         }
 
-        /// <summary>
-        /// A collection containing the availability zone to allocate the Public IP in.
-        /// </summary>
         [Input("zones")]
         public Input<string>? Zones { get; set; }
 

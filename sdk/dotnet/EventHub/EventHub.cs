@@ -102,6 +102,12 @@ namespace Pulumi.Azure.EventHub
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
+        /// </summary>
+        [Output("status")]
+        public Output<string?> Status { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a EventHub resource with the given unique name, arguments, and options.
@@ -184,6 +190,12 @@ namespace Pulumi.Azure.EventHub
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
+
         public EventHubArgs()
         {
         }
@@ -238,6 +250,12 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
 
         public EventHubState()
         {

@@ -1374,6 +1374,7 @@ class KubernetesClusterAddonProfileIngressApplicationGatewayArgs:
                  enabled: pulumi.Input[bool],
                  effective_gateway_id: Optional[pulumi.Input[str]] = None,
                  gateway_id: Optional[pulumi.Input[str]] = None,
+                 gateway_name: Optional[pulumi.Input[str]] = None,
                  ingress_application_gateway_identities: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs']]]] = None,
                  subnet_cidr: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None):
@@ -1381,6 +1382,7 @@ class KubernetesClusterAddonProfileIngressApplicationGatewayArgs:
         :param pulumi.Input[bool] enabled: Whether to deploy the Application Gateway ingress controller to this Kubernetes Cluster?
         :param pulumi.Input[str] effective_gateway_id: The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
         :param pulumi.Input[str] gateway_id: The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
+        :param pulumi.Input[str] gateway_name: The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGatewayIdentityArgs']]] ingress_application_gateway_identities: An `ingress_application_gateway_identity` block is exported. The exported attributes are defined below.
         :param pulumi.Input[str] subnet_cidr: The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
         :param pulumi.Input[str] subnet_id: The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
@@ -1390,6 +1392,8 @@ class KubernetesClusterAddonProfileIngressApplicationGatewayArgs:
             pulumi.set(__self__, "effective_gateway_id", effective_gateway_id)
         if gateway_id is not None:
             pulumi.set(__self__, "gateway_id", gateway_id)
+        if gateway_name is not None:
+            pulumi.set(__self__, "gateway_name", gateway_name)
         if ingress_application_gateway_identities is not None:
             pulumi.set(__self__, "ingress_application_gateway_identities", ingress_application_gateway_identities)
         if subnet_cidr is not None:
@@ -1432,6 +1436,18 @@ class KubernetesClusterAddonProfileIngressApplicationGatewayArgs:
     @gateway_id.setter
     def gateway_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "gateway_id", value)
+
+    @property
+    @pulumi.getter(name="gatewayName")
+    def gateway_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+        """
+        return pulumi.get(self, "gateway_name")
+
+    @gateway_name.setter
+    def gateway_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gateway_name", value)
 
     @property
     @pulumi.getter(name="ingressApplicationGatewayIdentities")
@@ -1477,8 +1493,8 @@ class KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGa
                  object_id: Optional[pulumi.Input[str]] = None,
                  user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] client_id: The Client ID for the Service Principal.
-        :param pulumi.Input[str] object_id: The Object ID of the user-defined Managed Identity used by the OMS Agents.
+        :param pulumi.Input[str] client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+        :param pulumi.Input[str] object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
         :param pulumi.Input[str] user_assigned_identity_id: The ID of a user assigned identity.
         """
         if client_id is not None:
@@ -1492,7 +1508,7 @@ class KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGa
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Client ID for the Service Principal.
+        The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
         """
         return pulumi.get(self, "client_id")
 
@@ -1504,7 +1520,7 @@ class KubernetesClusterAddonProfileIngressApplicationGatewayIngressApplicationGa
     @pulumi.getter(name="objectId")
     def object_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Object ID of the user-defined Managed Identity used by the OMS Agents.
+        The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
         """
         return pulumi.get(self, "object_id")
 
@@ -1608,8 +1624,8 @@ class KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs:
                  object_id: Optional[pulumi.Input[str]] = None,
                  user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] client_id: The Client ID for the Service Principal.
-        :param pulumi.Input[str] object_id: The Object ID of the user-defined Managed Identity used by the OMS Agents.
+        :param pulumi.Input[str] client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+        :param pulumi.Input[str] object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
         :param pulumi.Input[str] user_assigned_identity_id: The ID of a user assigned identity.
         """
         if client_id is not None:
@@ -1623,7 +1639,7 @@ class KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs:
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Client ID for the Service Principal.
+        The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
         """
         return pulumi.get(self, "client_id")
 
@@ -1635,7 +1651,7 @@ class KubernetesClusterAddonProfileOmsAgentOmsAgentIdentityArgs:
     @pulumi.getter(name="objectId")
     def object_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Object ID of the user-defined Managed Identity used by the OMS Agents.
+        The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
         """
         return pulumi.get(self, "object_id")
 
@@ -1949,6 +1965,7 @@ class KubernetesClusterDefaultNodePoolArgs:
                  min_count: Optional[pulumi.Input[int]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  only_critical_addons_enabled: Optional[pulumi.Input[bool]] = None,
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
@@ -1965,12 +1982,13 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of Availability Zones across which the Node Pool should be spread. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_auto_scaling: Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
         :param pulumi.Input[bool] enable_host_encryption: Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
-        :param pulumi.Input[bool] enable_node_public_ip: Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
+        :param pulumi.Input[bool] enable_node_public_ip: Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_count: The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
         :param pulumi.Input[int] min_count: The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         :param pulumi.Input[int] node_count: The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] only_critical_addons_enabled: Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade)
         :param pulumi.Input[int] os_disk_size_gb: The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
@@ -2000,6 +2018,8 @@ class KubernetesClusterDefaultNodePoolArgs:
             pulumi.set(__self__, "node_count", node_count)
         if node_labels is not None:
             pulumi.set(__self__, "node_labels", node_labels)
+        if node_public_ip_prefix_id is not None:
+            pulumi.set(__self__, "node_public_ip_prefix_id", node_public_ip_prefix_id)
         if node_taints is not None:
             pulumi.set(__self__, "node_taints", node_taints)
         if only_critical_addons_enabled is not None:
@@ -2085,7 +2105,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter(name="enableNodePublicIp")
     def enable_node_public_ip(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should nodes in this Node Pool have a Public IP Address? Defaults to `false`.
+        Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "enable_node_public_ip")
 
@@ -2152,6 +2172,18 @@ class KubernetesClusterDefaultNodePoolArgs:
     @node_labels.setter
     def node_labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "node_labels", value)
+
+    @property
+    @pulumi.getter(name="nodePublicIpPrefixId")
+    def node_public_ip_prefix_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "node_public_ip_prefix_id")
+
+    @node_public_ip_prefix_id.setter
+    def node_public_ip_prefix_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "node_public_ip_prefix_id", value)
 
     @property
     @pulumi.getter(name="nodeTaints")
@@ -2573,9 +2605,9 @@ class KubernetesClusterKubeletIdentityArgs:
                  object_id: Optional[pulumi.Input[str]] = None,
                  user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] client_id: The Client ID for the Service Principal.
-        :param pulumi.Input[str] object_id: The Object ID of the user-defined Managed Identity used by the OMS Agents.
-        :param pulumi.Input[str] user_assigned_identity_id: The ID of a user assigned identity.
+        :param pulumi.Input[str] client_id: The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
+        :param pulumi.Input[str] object_id: The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
+        :param pulumi.Input[str] user_assigned_identity_id: The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -2588,7 +2620,7 @@ class KubernetesClusterKubeletIdentityArgs:
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Client ID for the Service Principal.
+        The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
         """
         return pulumi.get(self, "client_id")
 
@@ -2600,7 +2632,7 @@ class KubernetesClusterKubeletIdentityArgs:
     @pulumi.getter(name="objectId")
     def object_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Object ID of the user-defined Managed Identity used by the OMS Agents.
+        The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
         """
         return pulumi.get(self, "object_id")
 
@@ -2612,7 +2644,7 @@ class KubernetesClusterKubeletIdentityArgs:
     @pulumi.getter(name="userAssignedIdentityId")
     def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of a user assigned identity.
+        The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
@@ -3021,7 +3053,7 @@ class KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs:
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_group_object_ids: A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
-        :param pulumi.Input[bool] azure_rbac_enabled: Is Role Based Access Control based on Azure AD enabled? Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] azure_rbac_enabled: Is Role Based Access Control based on Azure AD enabled?
         :param pulumi.Input[str] client_app_id: The Client ID of an Azure Active Directory Application.
         :param pulumi.Input[bool] managed: Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
         :param pulumi.Input[str] server_app_id: The Server ID of an Azure Active Directory Application.
@@ -3059,7 +3091,7 @@ class KubernetesClusterRoleBasedAccessControlAzureActiveDirectoryArgs:
     @pulumi.getter(name="azureRbacEnabled")
     def azure_rbac_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is Role Based Access Control based on Azure AD enabled? Changing this forces a new resource to be created.
+        Is Role Based Access Control based on Azure AD enabled?
         """
         return pulumi.get(self, "azure_rbac_enabled")
 

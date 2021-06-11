@@ -21,6 +21,8 @@ class DatasetAzureBlobArgs:
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
+                 dynamic_path_enabled: Optional[pulumi.Input[bool]] = None,
                  filename: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -35,6 +37,8 @@ class DatasetAzureBlobArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
+        :param pulumi.Input[bool] dynamic_filename_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[str] filename: The filename of the Azure Blob.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
@@ -51,6 +55,10 @@ class DatasetAzureBlobArgs:
             pulumi.set(__self__, "annotations", annotations)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if dynamic_filename_enabled is not None:
+            pulumi.set(__self__, "dynamic_filename_enabled", dynamic_filename_enabled)
+        if dynamic_path_enabled is not None:
+            pulumi.set(__self__, "dynamic_path_enabled", dynamic_path_enabled)
         if filename is not None:
             pulumi.set(__self__, "filename", filename)
         if folder is not None:
@@ -137,6 +145,30 @@ class DatasetAzureBlobArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="dynamicFilenameEnabled")
+    def dynamic_filename_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_filename_enabled")
+
+    @dynamic_filename_enabled.setter
+    def dynamic_filename_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_filename_enabled", value)
+
+    @property
+    @pulumi.getter(name="dynamicPathEnabled")
+    def dynamic_path_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_path_enabled")
+
+    @dynamic_path_enabled.setter
+    def dynamic_path_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_path_enabled", value)
+
+    @property
     @pulumi.getter
     def filename(self) -> Optional[pulumi.Input[str]]:
         """
@@ -216,6 +248,8 @@ class _DatasetAzureBlobState:
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
+                 dynamic_path_enabled: Optional[pulumi.Input[bool]] = None,
                  filename: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
                  linked_service_name: Optional[pulumi.Input[str]] = None,
@@ -230,6 +264,8 @@ class _DatasetAzureBlobState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
+        :param pulumi.Input[bool] dynamic_filename_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[str] filename: The filename of the Azure Blob.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
@@ -247,6 +283,10 @@ class _DatasetAzureBlobState:
             pulumi.set(__self__, "data_factory_name", data_factory_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if dynamic_filename_enabled is not None:
+            pulumi.set(__self__, "dynamic_filename_enabled", dynamic_filename_enabled)
+        if dynamic_path_enabled is not None:
+            pulumi.set(__self__, "dynamic_path_enabled", dynamic_path_enabled)
         if filename is not None:
             pulumi.set(__self__, "filename", filename)
         if folder is not None:
@@ -311,6 +351,30 @@ class _DatasetAzureBlobState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="dynamicFilenameEnabled")
+    def dynamic_filename_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_filename_enabled")
+
+    @dynamic_filename_enabled.setter
+    def dynamic_filename_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_filename_enabled", value)
+
+    @property
+    @pulumi.getter(name="dynamicPathEnabled")
+    def dynamic_path_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_path_enabled")
+
+    @dynamic_path_enabled.setter
+    def dynamic_path_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_path_enabled", value)
 
     @property
     @pulumi.getter
@@ -418,6 +482,8 @@ class DatasetAzureBlob(pulumi.CustomResource):
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
+                 dynamic_path_enabled: Optional[pulumi.Input[bool]] = None,
                  filename: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
                  linked_service_name: Optional[pulumi.Input[str]] = None,
@@ -468,6 +534,8 @@ class DatasetAzureBlob(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
+        :param pulumi.Input[bool] dynamic_filename_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[str] filename: The filename of the Azure Blob.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
@@ -537,6 +605,8 @@ class DatasetAzureBlob(pulumi.CustomResource):
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  data_factory_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
+                 dynamic_path_enabled: Optional[pulumi.Input[bool]] = None,
                  filename: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
                  linked_service_name: Optional[pulumi.Input[str]] = None,
@@ -563,6 +633,8 @@ class DatasetAzureBlob(pulumi.CustomResource):
                 raise TypeError("Missing required property 'data_factory_name'")
             __props__.__dict__["data_factory_name"] = data_factory_name
             __props__.__dict__["description"] = description
+            __props__.__dict__["dynamic_filename_enabled"] = dynamic_filename_enabled
+            __props__.__dict__["dynamic_path_enabled"] = dynamic_path_enabled
             __props__.__dict__["filename"] = filename
             __props__.__dict__["folder"] = folder
             if linked_service_name is None and not opts.urn:
@@ -589,6 +661,8 @@ class DatasetAzureBlob(pulumi.CustomResource):
             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             data_factory_name: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
+            dynamic_path_enabled: Optional[pulumi.Input[bool]] = None,
             filename: Optional[pulumi.Input[str]] = None,
             folder: Optional[pulumi.Input[str]] = None,
             linked_service_name: Optional[pulumi.Input[str]] = None,
@@ -608,6 +682,8 @@ class DatasetAzureBlob(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
+        :param pulumi.Input[bool] dynamic_filename_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[str] filename: The filename of the Azure Blob.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
@@ -625,6 +701,8 @@ class DatasetAzureBlob(pulumi.CustomResource):
         __props__.__dict__["annotations"] = annotations
         __props__.__dict__["data_factory_name"] = data_factory_name
         __props__.__dict__["description"] = description
+        __props__.__dict__["dynamic_filename_enabled"] = dynamic_filename_enabled
+        __props__.__dict__["dynamic_path_enabled"] = dynamic_path_enabled
         __props__.__dict__["filename"] = filename
         __props__.__dict__["folder"] = folder
         __props__.__dict__["linked_service_name"] = linked_service_name
@@ -666,6 +744,22 @@ class DatasetAzureBlob(pulumi.CustomResource):
         The description for the Data Factory Dataset.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="dynamicFilenameEnabled")
+    def dynamic_filename_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_filename_enabled")
+
+    @property
+    @pulumi.getter(name="dynamicPathEnabled")
+    def dynamic_path_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        return pulumi.get(self, "dynamic_path_enabled")
 
     @property
     @pulumi.getter

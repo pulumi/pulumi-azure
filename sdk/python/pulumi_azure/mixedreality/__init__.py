@@ -5,4 +5,5 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .get_spatial_anchors_account import *
 from .spatial_anchors_account import *

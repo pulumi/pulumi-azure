@@ -47,6 +47,12 @@ namespace Pulumi.Azure.Kusto
         [Output("keyVersion")]
         public Output<string> KeyVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
+        /// </summary>
+        [Output("userIdentity")]
+        public Output<string?> UserIdentity { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ClusterCustomerManagedKey resource with the given unique name, arguments, and options.
@@ -117,6 +123,12 @@ namespace Pulumi.Azure.Kusto
         [Input("keyVersion", required: true)]
         public Input<string> KeyVersion { get; set; } = null!;
 
+        /// <summary>
+        /// The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
+        /// </summary>
+        [Input("userIdentity")]
+        public Input<string>? UserIdentity { get; set; }
+
         public ClusterCustomerManagedKeyArgs()
         {
         }
@@ -147,6 +159,12 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("keyVersion")]
         public Input<string>? KeyVersion { get; set; }
+
+        /// <summary>
+        /// The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
+        /// </summary>
+        [Input("userIdentity")]
+        public Input<string>? UserIdentity { get; set; }
 
         public ClusterCustomerManagedKeyState()
         {

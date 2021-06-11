@@ -96,6 +96,10 @@ export class EventHub extends pulumi.CustomResource {
      * The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
+     */
+    public readonly status!: pulumi.Output<string | undefined>;
 
     /**
      * Create a EventHub resource with the given unique name, arguments, and options.
@@ -117,6 +121,7 @@ export class EventHub extends pulumi.CustomResource {
             inputs["partitionCount"] = state ? state.partitionCount : undefined;
             inputs["partitionIds"] = state ? state.partitionIds : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as EventHubArgs | undefined;
             if ((!args || args.messageRetention === undefined) && !opts.urn) {
@@ -137,6 +142,7 @@ export class EventHub extends pulumi.CustomResource {
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["partitionCount"] = args ? args.partitionCount : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["status"] = args ? args.status : undefined;
             inputs["partitionIds"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -178,6 +184,10 @@ export interface EventHubState {
      * The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
+     */
+    status?: pulumi.Input<string>;
 }
 
 /**
@@ -208,4 +218,8 @@ export interface EventHubArgs {
      * The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
+     */
+    status?: pulumi.Input<string>;
 }

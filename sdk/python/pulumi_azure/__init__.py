@@ -43,6 +43,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure.databricks as databricks
     import pulumi_azure.datafactory as datafactory
     import pulumi_azure.datalake as datalake
+    import pulumi_azure.dataprotection as dataprotection
     import pulumi_azure.datashare as datashare
     import pulumi_azure.desktopvirtualization as desktopvirtualization
     import pulumi_azure.devspace as devspace
@@ -142,6 +143,7 @@ else:
     databricks = _utilities.lazy_import('pulumi_azure.databricks')
     datafactory = _utilities.lazy_import('pulumi_azure.datafactory')
     datalake = _utilities.lazy_import('pulumi_azure.datalake')
+    dataprotection = _utilities.lazy_import('pulumi_azure.dataprotection')
     datashare = _utilities.lazy_import('pulumi_azure.datashare')
     desktopvirtualization = _utilities.lazy_import('pulumi_azure.desktopvirtualization')
     devspace = _utilities.lazy_import('pulumi_azure.devspace')
@@ -922,6 +924,14 @@ _utilities.register(
   "fqn": "pulumi_azure.avs",
   "classes": {
    "azure:avs/cluster:Cluster": "Cluster"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "avs/expressRouteAuthorization",
+  "fqn": "pulumi_azure.avs",
+  "classes": {
+   "azure:avs/expressRouteAuthorization:ExpressRouteAuthorization": "ExpressRouteAuthorization"
   }
  },
  {
@@ -1758,6 +1768,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "datafactory/linkedServiceAzureSearch",
+  "fqn": "pulumi_azure.datafactory",
+  "classes": {
+   "azure:datafactory/linkedServiceAzureSearch:LinkedServiceAzureSearch": "LinkedServiceAzureSearch"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "datafactory/linkedServiceAzureSqlDatabase",
   "fqn": "pulumi_azure.datafactory",
   "classes": {
@@ -1794,6 +1812,14 @@ _utilities.register(
   "fqn": "pulumi_azure.datafactory",
   "classes": {
    "azure:datafactory/linkedServiceKeyVault:LinkedServiceKeyVault": "LinkedServiceKeyVault"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "datafactory/linkedServiceKusto",
+  "fqn": "pulumi_azure.datafactory",
+  "classes": {
+   "azure:datafactory/linkedServiceKusto:LinkedServiceKusto": "LinkedServiceKusto"
   }
  },
  {
@@ -1914,6 +1940,14 @@ _utilities.register(
   "fqn": "pulumi_azure.datalake",
   "classes": {
    "azure:datalake/storeVirtualNetworkRule:StoreVirtualNetworkRule": "StoreVirtualNetworkRule"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "dataprotection/backupVault",
+  "fqn": "pulumi_azure.dataprotection",
+  "classes": {
+   "azure:dataprotection/backupVault:BackupVault": "BackupVault"
   }
  },
  {
@@ -4222,6 +4256,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "postgresql/flexibleServerFirewallRule",
+  "fqn": "pulumi_azure.postgresql",
+  "classes": {
+   "azure:postgresql/flexibleServerFirewallRule:FlexibleServerFirewallRule": "FlexibleServerFirewallRule"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "postgresql/server",
   "fqn": "pulumi_azure.postgresql",
   "classes": {
@@ -4946,6 +4988,14 @@ _utilities.register(
   "fqn": "pulumi_azure.storage",
   "classes": {
    "azure:storage/managementPolicy:ManagementPolicy": "ManagementPolicy"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "storage/objectReplication",
+  "fqn": "pulumi_azure.storage",
+  "classes": {
+   "azure:storage/objectReplication:ObjectReplication": "ObjectReplication"
   }
  },
  {

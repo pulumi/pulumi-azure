@@ -132,7 +132,7 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string?> ClusterPurpose { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the Machine Learning compute.
+        /// The description of the Machine Learning compute. Changing this forces a new Machine Learning Inference Cluster to be created.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `ssl` block as defined below.
+        /// A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         /// </summary>
         [Output("ssl")]
         public Output<Outputs.InferenceClusterSsl?> Ssl { get; private set; } = null!;
@@ -226,7 +226,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? ClusterPurpose { get; set; }
 
         /// <summary>
-        /// The description of the Machine Learning compute.
+        /// The description of the Machine Learning compute. Changing this forces a new Machine Learning Inference Cluster to be created.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -256,7 +256,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `ssl` block as defined below.
+        /// A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         /// </summary>
         [Input("ssl")]
         public Input<Inputs.InferenceClusterSslArgs>? Ssl { get; set; }
@@ -287,7 +287,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? ClusterPurpose { get; set; }
 
         /// <summary>
-        /// The description of the Machine Learning compute.
+        /// The description of the Machine Learning compute. Changing this forces a new Machine Learning Inference Cluster to be created.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -317,7 +317,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `ssl` block as defined below.
+        /// A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         /// </summary>
         [Input("ssl")]
         public Input<Inputs.InferenceClusterSslGetArgs>? Ssl { get; set; }

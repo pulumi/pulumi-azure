@@ -82,6 +82,8 @@ type EventHub struct {
 	PartitionIds pulumi.StringArrayOutput `pulumi:"partitionIds"`
 	// The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 }
 
 // NewEventHub registers a new resource with the given unique name, arguments, and options.
@@ -139,6 +141,8 @@ type eventHubState struct {
 	PartitionIds []string `pulumi:"partitionIds"`
 	// The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
+	Status *string `pulumi:"status"`
 }
 
 type EventHubState struct {
@@ -156,6 +160,8 @@ type EventHubState struct {
 	PartitionIds pulumi.StringArrayInput
 	// The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
+	Status pulumi.StringPtrInput
 }
 
 func (EventHubState) ElementType() reflect.Type {
@@ -175,6 +181,8 @@ type eventHubArgs struct {
 	PartitionCount int `pulumi:"partitionCount"`
 	// The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
+	Status *string `pulumi:"status"`
 }
 
 // The set of arguments for constructing a EventHub resource.
@@ -191,6 +199,8 @@ type EventHubArgs struct {
 	PartitionCount pulumi.IntInput
 	// The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
+	Status pulumi.StringPtrInput
 }
 
 func (EventHubArgs) ElementType() reflect.Type {

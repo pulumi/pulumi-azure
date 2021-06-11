@@ -26,6 +26,8 @@ __all__ = [
     'GremlinGraphAutoscaleSettingsArgs',
     'GremlinGraphConflictResolutionPolicyArgs',
     'GremlinGraphIndexPolicyArgs',
+    'GremlinGraphIndexPolicyCompositeIndexArgs',
+    'GremlinGraphIndexPolicyCompositeIndexIndexArgs',
     'GremlinGraphUniqueKeyArgs',
     'MongoCollectionAutoscaleSettingsArgs',
     'MongoCollectionIndexArgs',
@@ -735,17 +737,21 @@ class GremlinGraphIndexPolicyArgs:
     def __init__(__self__, *,
                  indexing_mode: pulumi.Input[str],
                  automatic: Optional[pulumi.Input[bool]] = None,
+                 composite_indices: Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexArgs']]]] = None,
                  excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] indexing_mode: Indicates the indexing mode. Possible values include: `Consistent`, `Lazy`, `None`.
         :param pulumi.Input[bool] automatic: Indicates if the indexing policy is automatic. Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexArgs']]] composite_indices: One or more `composite_index` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_paths: List of paths to exclude from indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] included_paths: List of paths to include in the indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
         """
         pulumi.set(__self__, "indexing_mode", indexing_mode)
         if automatic is not None:
             pulumi.set(__self__, "automatic", automatic)
+        if composite_indices is not None:
+            pulumi.set(__self__, "composite_indices", composite_indices)
         if excluded_paths is not None:
             pulumi.set(__self__, "excluded_paths", excluded_paths)
         if included_paths is not None:
@@ -776,6 +782,18 @@ class GremlinGraphIndexPolicyArgs:
         pulumi.set(self, "automatic", value)
 
     @property
+    @pulumi.getter(name="compositeIndices")
+    def composite_indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexArgs']]]]:
+        """
+        One or more `composite_index` blocks as defined below.
+        """
+        return pulumi.get(self, "composite_indices")
+
+    @composite_indices.setter
+    def composite_indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexArgs']]]]):
+        pulumi.set(self, "composite_indices", value)
+
+    @property
     @pulumi.getter(name="excludedPaths")
     def excluded_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -798,6 +816,65 @@ class GremlinGraphIndexPolicyArgs:
     @included_paths.setter
     def included_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "included_paths", value)
+
+
+@pulumi.input_type
+class GremlinGraphIndexPolicyCompositeIndexArgs:
+    def __init__(__self__, *,
+                 indices: pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexIndexArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexIndexArgs']]] indices: One or more `index` blocks as defined below.
+        """
+        pulumi.set(__self__, "indices", indices)
+
+    @property
+    @pulumi.getter
+    def indices(self) -> pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexIndexArgs']]]:
+        """
+        One or more `index` blocks as defined below.
+        """
+        return pulumi.get(self, "indices")
+
+    @indices.setter
+    def indices(self, value: pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexIndexArgs']]]):
+        pulumi.set(self, "indices", value)
+
+
+@pulumi.input_type
+class GremlinGraphIndexPolicyCompositeIndexIndexArgs:
+    def __init__(__self__, *,
+                 order: pulumi.Input[str],
+                 path: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] order: Order of the index. Possible values are `Ascending` or `Descending`.
+        :param pulumi.Input[str] path: Path for which the indexing behaviour applies to.
+        """
+        pulumi.set(__self__, "order", order)
+        pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def order(self) -> pulumi.Input[str]:
+        """
+        Order of the index. Possible values are `Ascending` or `Descending`.
+        """
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: pulumi.Input[str]):
+        pulumi.set(self, "order", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        Path for which the indexing behaviour applies to.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
 
 
 @pulumi.input_type

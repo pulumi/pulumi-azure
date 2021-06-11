@@ -91,6 +91,18 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        /// </summary>
+        [Output("dynamicFilenameEnabled")]
+        public Output<bool?> DynamicFilenameEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        /// </summary>
+        [Output("dynamicPathEnabled")]
+        public Output<bool?> DynamicPathEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The filename of the Azure Blob.
         /// </summary>
         [Output("filename")]
@@ -221,6 +233,18 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        /// </summary>
+        [Input("dynamicFilenameEnabled")]
+        public Input<bool>? DynamicFilenameEnabled { get; set; }
+
+        /// <summary>
+        /// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        /// </summary>
+        [Input("dynamicPathEnabled")]
+        public Input<bool>? DynamicPathEnabled { get; set; }
+
+        /// <summary>
         /// The filename of the Azure Blob.
         /// </summary>
         [Input("filename")]
@@ -322,6 +346,18 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        /// </summary>
+        [Input("dynamicFilenameEnabled")]
+        public Input<bool>? DynamicFilenameEnabled { get; set; }
+
+        /// <summary>
+        /// Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        /// </summary>
+        [Input("dynamicPathEnabled")]
+        public Input<bool>? DynamicPathEnabled { get; set; }
 
         /// <summary>
         /// The filename of the Azure Blob.

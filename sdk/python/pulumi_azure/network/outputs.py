@@ -1852,7 +1852,6 @@ class ApplicationGatewayRewriteRuleSetRewriteRule(dict):
         :param Sequence['ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs'] request_header_configurations: One or more `request_header_configuration` blocks as defined above.
         :param Sequence['ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs'] response_header_configurations: One or more `response_header_configuration` blocks as defined above.
         :param 'ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs' url: One `url` block as defined above
-               ---
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "rule_sequence", rule_sequence)
@@ -1910,7 +1909,6 @@ class ApplicationGatewayRewriteRuleSetRewriteRule(dict):
     def url(self) -> Optional['outputs.ApplicationGatewayRewriteRuleSetRewriteRuleUrl']:
         """
         One `url` block as defined above
-        ---
         """
         return pulumi.get(self, "url")
 

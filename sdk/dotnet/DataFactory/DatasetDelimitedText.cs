@@ -86,7 +86,13 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableArray<string>> Annotations { get; private set; } = null!;
 
         /// <summary>
-        /// A `azure_blob_storage_location` block as defined below.
+        /// An `azure_blob_fs_location` block as defined below.
+        /// </summary>
+        [Output("azureBlobFsLocation")]
+        public Output<Outputs.DatasetDelimitedTextAzureBlobFsLocation?> AzureBlobFsLocation { get; private set; } = null!;
+
+        /// <summary>
+        /// An `azure_blob_storage_location` block as defined below.
         /// </summary>
         [Output("azureBlobStorageLocation")]
         public Output<Outputs.DatasetDelimitedTextAzureBlobStorageLocation?> AzureBlobStorageLocation { get; private set; } = null!;
@@ -270,7 +276,13 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// A `azure_blob_storage_location` block as defined below.
+        /// An `azure_blob_fs_location` block as defined below.
+        /// </summary>
+        [Input("azureBlobFsLocation")]
+        public Input<Inputs.DatasetDelimitedTextAzureBlobFsLocationArgs>? AzureBlobFsLocation { get; set; }
+
+        /// <summary>
+        /// An `azure_blob_storage_location` block as defined below.
         /// </summary>
         [Input("azureBlobStorageLocation")]
         public Input<Inputs.DatasetDelimitedTextAzureBlobStorageLocationArgs>? AzureBlobStorageLocation { get; set; }
@@ -427,7 +439,13 @@ namespace Pulumi.Azure.DataFactory
         }
 
         /// <summary>
-        /// A `azure_blob_storage_location` block as defined below.
+        /// An `azure_blob_fs_location` block as defined below.
+        /// </summary>
+        [Input("azureBlobFsLocation")]
+        public Input<Inputs.DatasetDelimitedTextAzureBlobFsLocationGetArgs>? AzureBlobFsLocation { get; set; }
+
+        /// <summary>
+        /// An `azure_blob_storage_location` block as defined below.
         /// </summary>
         [Input("azureBlobStorageLocation")]
         public Input<Inputs.DatasetDelimitedTextAzureBlobStorageLocationGetArgs>? AzureBlobStorageLocation { get; set; }

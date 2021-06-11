@@ -25,6 +25,9 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// If the auto-scaler is enabled.
         /// </summary>
         public readonly bool EnableAutoScaling;
+        /// <summary>
+        /// If the Public IPs for the nodes in this Agent Pool are enabled.
+        /// </summary>
         public readonly bool EnableNodePublicIp;
         /// <summary>
         /// Maximum number of nodes for auto-scaling
@@ -43,6 +46,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string Name;
         public readonly ImmutableDictionary<string, string> NodeLabels;
+        /// <summary>
+        /// Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.
+        /// </summary>
+        public readonly string NodePublicIpPrefixId;
         public readonly ImmutableArray<string> NodeTaints;
         /// <summary>
         /// Kubernetes version used for the Agents.
@@ -97,6 +104,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             ImmutableDictionary<string, string> nodeLabels,
 
+            string nodePublicIpPrefixId,
+
             ImmutableArray<string> nodeTaints,
 
             string orchestratorVersion,
@@ -124,6 +133,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             MinCount = minCount;
             Name = name;
             NodeLabels = nodeLabels;
+            NodePublicIpPrefixId = nodePublicIpPrefixId;
             NodeTaints = nodeTaints;
             OrchestratorVersion = orchestratorVersion;
             OsDiskSizeGb = osDiskSizeGb;

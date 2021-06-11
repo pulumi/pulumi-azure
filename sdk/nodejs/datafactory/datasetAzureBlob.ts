@@ -90,6 +90,14 @@ export class DatasetAzureBlob extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+     */
+    public readonly dynamicFilenameEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+     */
+    public readonly dynamicPathEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The filename of the Azure Blob.
      */
     public readonly filename!: pulumi.Output<string | undefined>;
@@ -139,6 +147,8 @@ export class DatasetAzureBlob extends pulumi.CustomResource {
             inputs["annotations"] = state ? state.annotations : undefined;
             inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             inputs["description"] = state ? state.description : undefined;
+            inputs["dynamicFilenameEnabled"] = state ? state.dynamicFilenameEnabled : undefined;
+            inputs["dynamicPathEnabled"] = state ? state.dynamicPathEnabled : undefined;
             inputs["filename"] = state ? state.filename : undefined;
             inputs["folder"] = state ? state.folder : undefined;
             inputs["linkedServiceName"] = state ? state.linkedServiceName : undefined;
@@ -162,6 +172,8 @@ export class DatasetAzureBlob extends pulumi.CustomResource {
             inputs["annotations"] = args ? args.annotations : undefined;
             inputs["dataFactoryName"] = args ? args.dataFactoryName : undefined;
             inputs["description"] = args ? args.description : undefined;
+            inputs["dynamicFilenameEnabled"] = args ? args.dynamicFilenameEnabled : undefined;
+            inputs["dynamicPathEnabled"] = args ? args.dynamicPathEnabled : undefined;
             inputs["filename"] = args ? args.filename : undefined;
             inputs["folder"] = args ? args.folder : undefined;
             inputs["linkedServiceName"] = args ? args.linkedServiceName : undefined;
@@ -198,6 +210,14 @@ export interface DatasetAzureBlobState {
      * The description for the Data Factory Dataset.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+     */
+    dynamicFilenameEnabled?: pulumi.Input<boolean>;
+    /**
+     * Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+     */
+    dynamicPathEnabled?: pulumi.Input<boolean>;
     /**
      * The filename of the Azure Blob.
      */
@@ -252,6 +272,14 @@ export interface DatasetAzureBlobArgs {
      * The description for the Data Factory Dataset.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+     */
+    dynamicFilenameEnabled?: pulumi.Input<boolean>;
+    /**
+     * Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+     */
+    dynamicPathEnabled?: pulumi.Input<boolean>;
     /**
      * The filename of the Azure Blob.
      */

@@ -14,17 +14,25 @@ namespace Pulumi.Azure.MachineLearning.Outputs
     public sealed class InferenceClusterSsl
     {
         /// <summary>
-        /// The certificate for the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+        /// The certificate for the ssl configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
         /// </summary>
         public readonly string? Cert;
         /// <summary>
-        /// The cname of the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+        /// The cname of the ssl configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
         /// </summary>
         public readonly string? Cname;
         /// <summary>
-        /// The key content for the ssl configuration. Changing this forces a new Machine Learning Inference Cluster to be created.
+        /// The key content for the ssl configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
         /// </summary>
         public readonly string? Key;
+        /// <summary>
+        /// The leaf domain label for the ssl configuration. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname`. Changing this forces a new Machine Learning Inference Cluster to be created.
+        /// </summary>
+        public readonly string? LeafDomainLabel;
+        /// <summary>
+        /// Whether or not to overwrite existing leaf domain. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname` Changing this forces a new Machine Learning Inference Cluster to be created.
+        /// </summary>
+        public readonly bool? OverwriteExistingDomain;
 
         [OutputConstructor]
         private InferenceClusterSsl(
@@ -32,11 +40,17 @@ namespace Pulumi.Azure.MachineLearning.Outputs
 
             string? cname,
 
-            string? key)
+            string? key,
+
+            string? leafDomainLabel,
+
+            bool? overwriteExistingDomain)
         {
             Cert = cert;
             Cname = cname;
             Key = key;
+            LeafDomainLabel = leafDomainLabel;
+            OverwriteExistingDomain = overwriteExistingDomain;
         }
     }
 }

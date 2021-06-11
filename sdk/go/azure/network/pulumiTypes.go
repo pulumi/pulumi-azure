@@ -2707,7 +2707,6 @@ type ApplicationGatewayRewriteRuleSetRewriteRule struct {
 	// Rule sequence of the rewrite rule that determines the order of execution in a set.
 	RuleSequence int `pulumi:"ruleSequence"`
 	// One `url` block as defined above
-	// ---
 	Url *ApplicationGatewayRewriteRuleSetRewriteRuleUrl `pulumi:"url"`
 }
 
@@ -2734,7 +2733,6 @@ type ApplicationGatewayRewriteRuleSetRewriteRuleArgs struct {
 	// Rule sequence of the rewrite rule that determines the order of execution in a set.
 	RuleSequence pulumi.IntInput `pulumi:"ruleSequence"`
 	// One `url` block as defined above
-	// ---
 	Url ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrInput `pulumi:"url"`
 }
 
@@ -2821,7 +2819,6 @@ func (o ApplicationGatewayRewriteRuleSetRewriteRuleOutput) RuleSequence() pulumi
 }
 
 // One `url` block as defined above
-// ---
 func (o ApplicationGatewayRewriteRuleSetRewriteRuleOutput) Url() ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRewriteRuleSetRewriteRule) *ApplicationGatewayRewriteRuleSetRewriteRuleUrl {
 		return v.Url

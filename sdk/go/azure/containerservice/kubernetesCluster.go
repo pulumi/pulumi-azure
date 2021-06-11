@@ -91,7 +91,7 @@ type KubernetesCluster struct {
 	EnablePodSecurityPolicy pulumi.BoolPtrOutput   `pulumi:"enablePodSecurityPolicy"`
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
-	// An `identity` block as defined below. Changing this forces a new resource to be created.
+	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
 	Identity KubernetesClusterIdentityPtrOutput `pulumi:"identity"`
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
 	KubeAdminConfigRaw pulumi.StringOutput `pulumi:"kubeAdminConfigRaw"`
@@ -101,7 +101,7 @@ type KubernetesCluster struct {
 	KubeConfigRaw pulumi.StringOutput `pulumi:"kubeConfigRaw"`
 	// A `kubeConfig` block as defined below.
 	KubeConfigs KubernetesClusterKubeConfigArrayOutput `pulumi:"kubeConfigs"`
-	// A `kubeletIdentity` block as defined below.
+	// A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
 	KubeletIdentities KubernetesClusterKubeletIdentityArrayOutput `pulumi:"kubeletIdentities"`
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
 	KubernetesVersion pulumi.StringOutput `pulumi:"kubernetesVersion"`
@@ -127,7 +127,7 @@ type KubernetesCluster struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `roleBasedAccessControl` block. Changing this forces a new resource to be created.
 	RoleBasedAccessControl KubernetesClusterRoleBasedAccessControlOutput `pulumi:"roleBasedAccessControl"`
-	// A `servicePrincipal` block as documented below.
+	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	ServicePrincipal KubernetesClusterServicePrincipalPtrOutput `pulumi:"servicePrincipal"`
 	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
 	SkuTier pulumi.StringPtrOutput `pulumi:"skuTier"`
@@ -191,7 +191,7 @@ type kubernetesClusterState struct {
 	EnablePodSecurityPolicy *bool   `pulumi:"enablePodSecurityPolicy"`
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn *string `pulumi:"fqdn"`
-	// An `identity` block as defined below. Changing this forces a new resource to be created.
+	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
 	Identity *KubernetesClusterIdentity `pulumi:"identity"`
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
 	KubeAdminConfigRaw *string `pulumi:"kubeAdminConfigRaw"`
@@ -201,7 +201,7 @@ type kubernetesClusterState struct {
 	KubeConfigRaw *string `pulumi:"kubeConfigRaw"`
 	// A `kubeConfig` block as defined below.
 	KubeConfigs []KubernetesClusterKubeConfig `pulumi:"kubeConfigs"`
-	// A `kubeletIdentity` block as defined below.
+	// A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
 	KubeletIdentities []KubernetesClusterKubeletIdentity `pulumi:"kubeletIdentities"`
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
@@ -227,7 +227,7 @@ type kubernetesClusterState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `roleBasedAccessControl` block. Changing this forces a new resource to be created.
 	RoleBasedAccessControl *KubernetesClusterRoleBasedAccessControl `pulumi:"roleBasedAccessControl"`
-	// A `servicePrincipal` block as documented below.
+	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	ServicePrincipal *KubernetesClusterServicePrincipal `pulumi:"servicePrincipal"`
 	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
 	SkuTier *string `pulumi:"skuTier"`
@@ -257,7 +257,7 @@ type KubernetesClusterState struct {
 	EnablePodSecurityPolicy pulumi.BoolPtrInput
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn pulumi.StringPtrInput
-	// An `identity` block as defined below. Changing this forces a new resource to be created.
+	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
 	Identity KubernetesClusterIdentityPtrInput
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
 	KubeAdminConfigRaw pulumi.StringPtrInput
@@ -267,7 +267,7 @@ type KubernetesClusterState struct {
 	KubeConfigRaw pulumi.StringPtrInput
 	// A `kubeConfig` block as defined below.
 	KubeConfigs KubernetesClusterKubeConfigArrayInput
-	// A `kubeletIdentity` block as defined below.
+	// A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
 	KubeletIdentities KubernetesClusterKubeletIdentityArrayInput
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
 	KubernetesVersion pulumi.StringPtrInput
@@ -293,7 +293,7 @@ type KubernetesClusterState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A `roleBasedAccessControl` block. Changing this forces a new resource to be created.
 	RoleBasedAccessControl KubernetesClusterRoleBasedAccessControlPtrInput
-	// A `servicePrincipal` block as documented below.
+	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	ServicePrincipal KubernetesClusterServicePrincipalPtrInput
 	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
 	SkuTier pulumi.StringPtrInput
@@ -325,8 +325,10 @@ type kubernetesClusterArgs struct {
 	// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
 	DnsPrefixPrivateCluster *string `pulumi:"dnsPrefixPrivateCluster"`
 	EnablePodSecurityPolicy *bool   `pulumi:"enablePodSecurityPolicy"`
-	// An `identity` block as defined below. Changing this forces a new resource to be created.
+	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
 	Identity *KubernetesClusterIdentity `pulumi:"identity"`
+	// A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
+	KubeletIdentities []KubernetesClusterKubeletIdentity `pulumi:"kubeletIdentities"`
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
 	// A `linuxProfile` block as defined below.
@@ -349,7 +351,7 @@ type kubernetesClusterArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `roleBasedAccessControl` block. Changing this forces a new resource to be created.
 	RoleBasedAccessControl *KubernetesClusterRoleBasedAccessControl `pulumi:"roleBasedAccessControl"`
-	// A `servicePrincipal` block as documented below.
+	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	ServicePrincipal *KubernetesClusterServicePrincipal `pulumi:"servicePrincipal"`
 	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
 	SkuTier *string `pulumi:"skuTier"`
@@ -378,8 +380,10 @@ type KubernetesClusterArgs struct {
 	// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
 	DnsPrefixPrivateCluster pulumi.StringPtrInput
 	EnablePodSecurityPolicy pulumi.BoolPtrInput
-	// An `identity` block as defined below. Changing this forces a new resource to be created.
+	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
 	Identity KubernetesClusterIdentityPtrInput
+	// A `kubeletIdentity` block as defined below. Changing this forces a new resource to be created.
+	KubeletIdentities KubernetesClusterKubeletIdentityArrayInput
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
 	KubernetesVersion pulumi.StringPtrInput
 	// A `linuxProfile` block as defined below.
@@ -402,7 +406,7 @@ type KubernetesClusterArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A `roleBasedAccessControl` block. Changing this forces a new resource to be created.
 	RoleBasedAccessControl KubernetesClusterRoleBasedAccessControlPtrInput
-	// A `servicePrincipal` block as documented below.
+	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	ServicePrincipal KubernetesClusterServicePrincipalPtrInput
 	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free` and `Paid` (which includes the Uptime SLA). Defaults to `Free`.
 	SkuTier pulumi.StringPtrInput

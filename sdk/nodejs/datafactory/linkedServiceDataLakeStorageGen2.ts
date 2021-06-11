@@ -107,6 +107,10 @@ export class LinkedServiceDataLakeStorageGen2 extends pulumi.CustomResource {
      */
     public readonly servicePrincipalKey!: pulumi.Output<string | undefined>;
     /**
+     * The Storage Account Key in which to authenticate against the Azure Data Lake Storage Gen2 account.
+     */
+    public readonly storageAccountKey!: pulumi.Output<string | undefined>;
+    /**
      * The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
      */
     public readonly tenant!: pulumi.Output<string | undefined>;
@@ -142,6 +146,7 @@ export class LinkedServiceDataLakeStorageGen2 extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["servicePrincipalId"] = state ? state.servicePrincipalId : undefined;
             inputs["servicePrincipalKey"] = state ? state.servicePrincipalKey : undefined;
+            inputs["storageAccountKey"] = state ? state.storageAccountKey : undefined;
             inputs["tenant"] = state ? state.tenant : undefined;
             inputs["url"] = state ? state.url : undefined;
             inputs["useManagedIdentity"] = state ? state.useManagedIdentity : undefined;
@@ -166,6 +171,7 @@ export class LinkedServiceDataLakeStorageGen2 extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["servicePrincipalId"] = args ? args.servicePrincipalId : undefined;
             inputs["servicePrincipalKey"] = args ? args.servicePrincipalKey : undefined;
+            inputs["storageAccountKey"] = args ? args.storageAccountKey : undefined;
             inputs["tenant"] = args ? args.tenant : undefined;
             inputs["url"] = args ? args.url : undefined;
             inputs["useManagedIdentity"] = args ? args.useManagedIdentity : undefined;
@@ -222,6 +228,10 @@ export interface LinkedServiceDataLakeStorageGen2State {
      * The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
      */
     servicePrincipalKey?: pulumi.Input<string>;
+    /**
+     * The Storage Account Key in which to authenticate against the Azure Data Lake Storage Gen2 account.
+     */
+    storageAccountKey?: pulumi.Input<string>;
     /**
      * The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
      */
@@ -281,6 +291,10 @@ export interface LinkedServiceDataLakeStorageGen2Args {
      * The service principal key in which to authenticate against the Azure Data Lake Storage Gen2 account.
      */
     servicePrincipalKey?: pulumi.Input<string>;
+    /**
+     * The Storage Account Key in which to authenticate against the Azure Data Lake Storage Gen2 account.
+     */
+    storageAccountKey?: pulumi.Input<string>;
     /**
      * The tenant id or name in which to authenticate against the Azure Data Lake Storage Gen2 account.
      */

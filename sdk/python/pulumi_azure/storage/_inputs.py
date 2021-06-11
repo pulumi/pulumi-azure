@@ -38,6 +38,7 @@ __all__ = [
     'ManagementPolicyRuleActionsVersionArgs',
     'ManagementPolicyRuleFiltersArgs',
     'ManagementPolicyRuleFiltersMatchBlobIndexTagArgs',
+    'ObjectReplicationRuleArgs',
     'ShareAclArgs',
     'ShareAclAccessPolicyArgs',
     'TableAclArgs',
@@ -474,14 +475,18 @@ class AccountCustomDomainArgs:
 class AccountIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: Specifies the identity type of the Storage Account. At this time the only allowed value is `SystemAssigned`.
+        :param pulumi.Input[str] type: Specifies the identity type of the Storage Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned,UserAssigned` (to enable both).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of IDs for User Assigned Managed Identity resources to be assigned.
         :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Identity of this Storage Account.
         :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
         """
         pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
         if tenant_id is not None:
@@ -491,13 +496,25 @@ class AccountIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Specifies the identity type of the Storage Account. At this time the only allowed value is `SystemAssigned`.
+        Specifies the identity type of the Storage Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned,UserAssigned` (to enable both).
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of IDs for User Assigned Managed Identity resources to be assigned.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_ids", value)
 
     @property
     @pulumi.getter(name="principalId")
@@ -1797,6 +1814,87 @@ class ManagementPolicyRuleFiltersMatchBlobIndexTagArgs:
     @operation.setter
     def operation(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "operation", value)
+
+
+@pulumi.input_type
+class ObjectReplicationRuleArgs:
+    def __init__(__self__, *,
+                 destination_container_name: pulumi.Input[str],
+                 source_container_name: pulumi.Input[str],
+                 copy_blobs_created_after: Optional[pulumi.Input[str]] = None,
+                 filter_out_blobs_with_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] destination_container_name: The destination storage container name. Changing this forces a new Storage Object Replication to be created.
+        :param pulumi.Input[str] source_container_name: The source storage container name. Changing this forces a new Storage Object Replication to be created.
+        :param pulumi.Input[str] copy_blobs_created_after: The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] filter_out_blobs_with_prefixes: Specifies a list of filters prefixes, the blobs whose names begin with which will be replicated.
+        """
+        pulumi.set(__self__, "destination_container_name", destination_container_name)
+        pulumi.set(__self__, "source_container_name", source_container_name)
+        if copy_blobs_created_after is not None:
+            pulumi.set(__self__, "copy_blobs_created_after", copy_blobs_created_after)
+        if filter_out_blobs_with_prefixes is not None:
+            pulumi.set(__self__, "filter_out_blobs_with_prefixes", filter_out_blobs_with_prefixes)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="destinationContainerName")
+    def destination_container_name(self) -> pulumi.Input[str]:
+        """
+        The destination storage container name. Changing this forces a new Storage Object Replication to be created.
+        """
+        return pulumi.get(self, "destination_container_name")
+
+    @destination_container_name.setter
+    def destination_container_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "destination_container_name", value)
+
+    @property
+    @pulumi.getter(name="sourceContainerName")
+    def source_container_name(self) -> pulumi.Input[str]:
+        """
+        The source storage container name. Changing this forces a new Storage Object Replication to be created.
+        """
+        return pulumi.get(self, "source_container_name")
+
+    @source_container_name.setter
+    def source_container_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_container_name", value)
+
+    @property
+    @pulumi.getter(name="copyBlobsCreatedAfter")
+    def copy_blobs_created_after(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`.
+        """
+        return pulumi.get(self, "copy_blobs_created_after")
+
+    @copy_blobs_created_after.setter
+    def copy_blobs_created_after(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "copy_blobs_created_after", value)
+
+    @property
+    @pulumi.getter(name="filterOutBlobsWithPrefixes")
+    def filter_out_blobs_with_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of filters prefixes, the blobs whose names begin with which will be replicated.
+        """
+        return pulumi.get(self, "filter_out_blobs_with_prefixes")
+
+    @filter_out_blobs_with_prefixes.setter
+    def filter_out_blobs_with_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "filter_out_blobs_with_prefixes", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type

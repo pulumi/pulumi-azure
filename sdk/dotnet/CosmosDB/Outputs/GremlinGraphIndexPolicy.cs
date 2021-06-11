@@ -18,6 +18,10 @@ namespace Pulumi.Azure.CosmosDB.Outputs
         /// </summary>
         public readonly bool? Automatic;
         /// <summary>
+        /// One or more `composite_index` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GremlinGraphIndexPolicyCompositeIndex> CompositeIndices;
+        /// <summary>
         /// List of paths to exclude from indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
         /// </summary>
         public readonly ImmutableArray<string> ExcludedPaths;
@@ -34,6 +38,8 @@ namespace Pulumi.Azure.CosmosDB.Outputs
         private GremlinGraphIndexPolicy(
             bool? automatic,
 
+            ImmutableArray<Outputs.GremlinGraphIndexPolicyCompositeIndex> compositeIndices,
+
             ImmutableArray<string> excludedPaths,
 
             ImmutableArray<string> includedPaths,
@@ -41,6 +47,7 @@ namespace Pulumi.Azure.CosmosDB.Outputs
             string indexingMode)
         {
             Automatic = automatic;
+            CompositeIndices = compositeIndices;
             ExcludedPaths = excludedPaths;
             IncludedPaths = includedPaths;
             IndexingMode = indexingMode;

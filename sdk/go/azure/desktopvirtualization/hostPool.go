@@ -37,6 +37,7 @@ import (
 // 			ResourceGroupName:      exampleResourceGroup.Name,
 // 			FriendlyName:           pulumi.String("pooleddepthfirst"),
 // 			ValidateEnvironment:    pulumi.Bool(true),
+// 			StartVmOnConnect:       pulumi.Bool(true),
 // 			CustomRdpProperties:    pulumi.String("audiocapturemode:i:1;audiomode:i:0;"),
 // 			Description:            pulumi.String("Acceptance Test: A pooled host pool - pooleddepthfirst"),
 // 			Type:                   pulumi.String("Pooled"),
@@ -92,6 +93,8 @@ type HostPool struct {
 	// create the Virtual Desktop Host Pool. Changing the resource group name forces
 	// a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// Enables or disables the Start VM on Connection Feature. Defaults to `false`.
+	StartVmOnConnect pulumi.BoolPtrOutput `pulumi:"startVmOnConnect"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the Virtual Desktop Host Pool. Valid options are
@@ -170,6 +173,8 @@ type hostPoolState struct {
 	// create the Virtual Desktop Host Pool. Changing the resource group name forces
 	// a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// Enables or disables the Start VM on Connection Feature. Defaults to `false`.
+	StartVmOnConnect *bool `pulumi:"startVmOnConnect"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the Virtual Desktop Host Pool. Valid options are
@@ -211,6 +216,8 @@ type HostPoolState struct {
 	// create the Virtual Desktop Host Pool. Changing the resource group name forces
 	// a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// Enables or disables the Start VM on Connection Feature. Defaults to `false`.
+	StartVmOnConnect pulumi.BoolPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The type of the Virtual Desktop Host Pool. Valid options are
@@ -256,6 +263,8 @@ type hostPoolArgs struct {
 	// create the Virtual Desktop Host Pool. Changing the resource group name forces
 	// a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Enables or disables the Start VM on Connection Feature. Defaults to `false`.
+	StartVmOnConnect *bool `pulumi:"startVmOnConnect"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the Virtual Desktop Host Pool. Valid options are
@@ -298,6 +307,8 @@ type HostPoolArgs struct {
 	// create the Virtual Desktop Host Pool. Changing the resource group name forces
 	// a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// Enables or disables the Start VM on Connection Feature. Defaults to `false`.
+	StartVmOnConnect pulumi.BoolPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The type of the Virtual Desktop Host Pool. Valid options are
