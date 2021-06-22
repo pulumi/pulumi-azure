@@ -31,7 +31,7 @@ namespace Pulumi.Azure.CosmosDB
         ///             Name = "tfex-cosmosdb-account",
         ///             ResourceGroupName = "tfex-cosmosdb-account-rg",
         ///         }));
-        ///         this.CosmosdbAccountEndpoint = data.Azurerm_cosmosdb_account.Jobs.Endpoint;
+        ///         this.CosmosdbAccountEndpoint = example.Apply(example =&gt; example.Endpoint);
         ///     }
         /// 
         ///     [Output("cosmosdbAccountEndpoint")]

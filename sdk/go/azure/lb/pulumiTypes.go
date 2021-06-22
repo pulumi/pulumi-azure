@@ -120,6 +120,9 @@ func (o BackendAddressPoolBackendAddressArrayOutput) Index(i pulumi.IntInput) Ba
 }
 
 type LoadBalancerFrontendIpConfiguration struct {
+	// A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+	// `No-Zones` - A `non-zonal` resource will be created and the resource will not be replicated or distributed to any Availability Zones.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// The id of the Frontend IP Configuration.
 	Id *string `pulumi:"id"`
 	// The list of IDs of inbound rules that use this frontend IP.
@@ -142,7 +145,7 @@ type LoadBalancerFrontendIpConfiguration struct {
 	PublicIpPrefixId *string `pulumi:"publicIpPrefixId"`
 	// The ID of the Subnet which should be associated with the IP Configuration.
 	SubnetId *string `pulumi:"subnetId"`
-	// A list of Availability Zones which the Load Balancer's IP Addresses should be created in.
+	// Deprecated: This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/
 	Zones *string `pulumi:"zones"`
 }
 
@@ -158,6 +161,9 @@ type LoadBalancerFrontendIpConfigurationInput interface {
 }
 
 type LoadBalancerFrontendIpConfigurationArgs struct {
+	// A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+	// `No-Zones` - A `non-zonal` resource will be created and the resource will not be replicated or distributed to any Availability Zones.
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
 	// The id of the Frontend IP Configuration.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The list of IDs of inbound rules that use this frontend IP.
@@ -180,7 +186,7 @@ type LoadBalancerFrontendIpConfigurationArgs struct {
 	PublicIpPrefixId pulumi.StringPtrInput `pulumi:"publicIpPrefixId"`
 	// The ID of the Subnet which should be associated with the IP Configuration.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	// A list of Availability Zones which the Load Balancer's IP Addresses should be created in.
+	// Deprecated: This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/
 	Zones pulumi.StringPtrInput `pulumi:"zones"`
 }
 
@@ -233,6 +239,12 @@ func (o LoadBalancerFrontendIpConfigurationOutput) ToLoadBalancerFrontendIpConfi
 
 func (o LoadBalancerFrontendIpConfigurationOutput) ToLoadBalancerFrontendIpConfigurationOutputWithContext(ctx context.Context) LoadBalancerFrontendIpConfigurationOutput {
 	return o
+}
+
+// A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+// `No-Zones` - A `non-zonal` resource will be created and the resource will not be replicated or distributed to any Availability Zones.
+func (o LoadBalancerFrontendIpConfigurationOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
 // The id of the Frontend IP Configuration.
@@ -290,7 +302,7 @@ func (o LoadBalancerFrontendIpConfigurationOutput) SubnetId() pulumi.StringPtrOu
 	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
-// A list of Availability Zones which the Load Balancer's IP Addresses should be created in.
+// Deprecated: This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/
 func (o LoadBalancerFrontendIpConfigurationOutput) Zones() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerFrontendIpConfiguration) *string { return v.Zones }).(pulumi.StringPtrOutput)
 }

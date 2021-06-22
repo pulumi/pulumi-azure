@@ -232,7 +232,8 @@ type Account struct {
 	// The endpoint URL for web storage in the secondary location.
 	SecondaryWebEndpoint pulumi.StringOutput `pulumi:"secondaryWebEndpoint"`
 	// The hostname with port if applicable for web storage in the secondary location.
-	SecondaryWebHost pulumi.StringOutput `pulumi:"secondaryWebHost"`
+	SecondaryWebHost pulumi.StringOutput          `pulumi:"secondaryWebHost"`
+	ShareProperties  AccountSharePropertiesOutput `pulumi:"shareProperties"`
 	// A `staticWebsite` block as defined below.
 	StaticWebsite AccountStaticWebsitePtrOutput `pulumi:"staticWebsite"`
 	// A mapping of tags to assign to the resource.
@@ -381,7 +382,8 @@ type accountState struct {
 	// The endpoint URL for web storage in the secondary location.
 	SecondaryWebEndpoint *string `pulumi:"secondaryWebEndpoint"`
 	// The hostname with port if applicable for web storage in the secondary location.
-	SecondaryWebHost *string `pulumi:"secondaryWebHost"`
+	SecondaryWebHost *string                 `pulumi:"secondaryWebHost"`
+	ShareProperties  *AccountShareProperties `pulumi:"shareProperties"`
 	// A `staticWebsite` block as defined below.
 	StaticWebsite *AccountStaticWebsite `pulumi:"staticWebsite"`
 	// A mapping of tags to assign to the resource.
@@ -494,6 +496,7 @@ type AccountState struct {
 	SecondaryWebEndpoint pulumi.StringPtrInput
 	// The hostname with port if applicable for web storage in the secondary location.
 	SecondaryWebHost pulumi.StringPtrInput
+	ShareProperties  AccountSharePropertiesPtrInput
 	// A `staticWebsite` block as defined below.
 	StaticWebsite AccountStaticWebsitePtrInput
 	// A mapping of tags to assign to the resource.
@@ -545,7 +548,8 @@ type accountArgs struct {
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `routing` block as defined below.
-	Routing *AccountRouting `pulumi:"routing"`
+	Routing         *AccountRouting         `pulumi:"routing"`
+	ShareProperties *AccountShareProperties `pulumi:"shareProperties"`
 	// A `staticWebsite` block as defined below.
 	StaticWebsite *AccountStaticWebsite `pulumi:"staticWebsite"`
 	// A mapping of tags to assign to the resource.
@@ -594,7 +598,8 @@ type AccountArgs struct {
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `routing` block as defined below.
-	Routing AccountRoutingPtrInput
+	Routing         AccountRoutingPtrInput
+	ShareProperties AccountSharePropertiesPtrInput
 	// A `staticWebsite` block as defined below.
 	StaticWebsite AccountStaticWebsitePtrInput
 	// A mapping of tags to assign to the resource.

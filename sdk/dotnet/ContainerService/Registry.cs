@@ -216,6 +216,12 @@ namespace Pulumi.Azure.ContainerService
         [Output("trustPolicy")]
         public Output<Outputs.RegistryTrustPolicy> TrustPolicy { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
+        /// </summary>
+        [Output("zoneRedundancyEnabled")]
+        public Output<bool?> ZoneRedundancyEnabled { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Registry resource with the given unique name, arguments, and options.
@@ -377,6 +383,12 @@ namespace Pulumi.Azure.ContainerService
         [Input("trustPolicy")]
         public Input<Inputs.RegistryTrustPolicyArgs>? TrustPolicy { get; set; }
 
+        /// <summary>
+        /// Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
+        /// </summary>
+        [Input("zoneRedundancyEnabled")]
+        public Input<bool>? ZoneRedundancyEnabled { get; set; }
+
         public RegistryArgs()
         {
         }
@@ -516,6 +528,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("trustPolicy")]
         public Input<Inputs.RegistryTrustPolicyGetArgs>? TrustPolicy { get; set; }
+
+        /// <summary>
+        /// Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
+        /// </summary>
+        [Input("zoneRedundancyEnabled")]
+        public Input<bool>? ZoneRedundancyEnabled { get; set; }
 
         public RegistryState()
         {

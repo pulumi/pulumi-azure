@@ -154,7 +154,7 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly version!: pulumi.Output<string>;
     /**
-     * The availability Zone of the PostgreSQL Flexible Server. Possible values are  `none`, `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The availability zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     public readonly zone!: pulumi.Output<string>;
 
@@ -299,7 +299,7 @@ export interface FlexibleServerState {
      */
     version?: pulumi.Input<string>;
     /**
-     * The availability Zone of the PostgreSQL Flexible Server. Possible values are  `none`, `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The availability zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     zone?: pulumi.Input<string>;
 }
@@ -369,7 +369,7 @@ export interface FlexibleServerArgs {
      */
     version?: pulumi.Input<string>;
     /**
-     * The availability Zone of the PostgreSQL Flexible Server. Possible values are  `none`, `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The availability zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     zone?: pulumi.Input<string>;
 }

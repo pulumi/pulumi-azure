@@ -158,6 +158,8 @@ type Registry struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A `trustPolicy` block as documented below.
 	TrustPolicy RegistryTrustPolicyOutput `pulumi:"trustPolicy"`
+	// Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
+	ZoneRedundancyEnabled pulumi.BoolPtrOutput `pulumi:"zoneRedundancyEnabled"`
 }
 
 // NewRegistry registers a new resource with the given unique name, arguments, and options.
@@ -232,6 +234,8 @@ type registryState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A `trustPolicy` block as documented below.
 	TrustPolicy *RegistryTrustPolicy `pulumi:"trustPolicy"`
+	// Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
+	ZoneRedundancyEnabled *bool `pulumi:"zoneRedundancyEnabled"`
 }
 
 type RegistryState struct {
@@ -275,6 +279,8 @@ type RegistryState struct {
 	Tags pulumi.StringMapInput
 	// A `trustPolicy` block as documented below.
 	TrustPolicy RegistryTrustPolicyPtrInput
+	// Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
+	ZoneRedundancyEnabled pulumi.BoolPtrInput
 }
 
 func (RegistryState) ElementType() reflect.Type {
@@ -316,6 +322,8 @@ type registryArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A `trustPolicy` block as documented below.
 	TrustPolicy *RegistryTrustPolicy `pulumi:"trustPolicy"`
+	// Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
+	ZoneRedundancyEnabled *bool `pulumi:"zoneRedundancyEnabled"`
 }
 
 // The set of arguments for constructing a Registry resource.
@@ -354,6 +362,8 @@ type RegistryArgs struct {
 	Tags pulumi.StringMapInput
 	// A `trustPolicy` block as documented below.
 	TrustPolicy RegistryTrustPolicyPtrInput
+	// Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
+	ZoneRedundancyEnabled pulumi.BoolPtrInput
 }
 
 func (RegistryArgs) ElementType() reflect.Type {

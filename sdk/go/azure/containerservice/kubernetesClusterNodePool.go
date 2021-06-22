@@ -31,8 +31,12 @@ type KubernetesClusterNodePool struct {
 	EnableNodePublicIp pulumi.BoolPtrOutput `pulumi:"enableNodePublicIp"`
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
+	// A `kubeletConfig` block as defined below.
+	KubeletConfig KubernetesClusterNodePoolKubeletConfigPtrOutput `pulumi:"kubeletConfig"`
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	KubernetesClusterId pulumi.StringOutput `pulumi:"kubernetesClusterId"`
+	// A `linuxOsConfig` block as defined below.
+	LinuxOsConfig KubernetesClusterNodePoolLinuxOsConfigPtrOutput `pulumi:"linuxOsConfig"`
 	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `minCount`.
 	MaxCount pulumi.IntPtrOutput `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
@@ -120,8 +124,12 @@ type kubernetesClusterNodePoolState struct {
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
+	// A `kubeletConfig` block as defined below.
+	KubeletConfig *KubernetesClusterNodePoolKubeletConfig `pulumi:"kubeletConfig"`
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	KubernetesClusterId *string `pulumi:"kubernetesClusterId"`
+	// A `linuxOsConfig` block as defined below.
+	LinuxOsConfig *KubernetesClusterNodePoolLinuxOsConfig `pulumi:"linuxOsConfig"`
 	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `minCount`.
 	MaxCount *int `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
@@ -175,8 +183,12 @@ type KubernetesClusterNodePoolState struct {
 	EnableNodePublicIp pulumi.BoolPtrInput
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
+	// A `kubeletConfig` block as defined below.
+	KubeletConfig KubernetesClusterNodePoolKubeletConfigPtrInput
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	KubernetesClusterId pulumi.StringPtrInput
+	// A `linuxOsConfig` block as defined below.
+	LinuxOsConfig KubernetesClusterNodePoolLinuxOsConfigPtrInput
 	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `minCount`.
 	MaxCount pulumi.IntPtrInput
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
@@ -234,8 +246,12 @@ type kubernetesClusterNodePoolArgs struct {
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
+	// A `kubeletConfig` block as defined below.
+	KubeletConfig *KubernetesClusterNodePoolKubeletConfig `pulumi:"kubeletConfig"`
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	KubernetesClusterId string `pulumi:"kubernetesClusterId"`
+	// A `linuxOsConfig` block as defined below.
+	LinuxOsConfig *KubernetesClusterNodePoolLinuxOsConfig `pulumi:"linuxOsConfig"`
 	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `minCount`.
 	MaxCount *int `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
@@ -290,8 +306,12 @@ type KubernetesClusterNodePoolArgs struct {
 	EnableNodePublicIp pulumi.BoolPtrInput
 	// The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
+	// A `kubeletConfig` block as defined below.
+	KubeletConfig KubernetesClusterNodePoolKubeletConfigPtrInput
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	KubernetesClusterId pulumi.StringInput
+	// A `linuxOsConfig` block as defined below.
+	LinuxOsConfig KubernetesClusterNodePoolLinuxOsConfigPtrInput
 	// The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `minCount`.
 	MaxCount pulumi.IntPtrInput
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.

@@ -28,6 +28,7 @@ __all__ = [
     'GremlinGraphIndexPolicyArgs',
     'GremlinGraphIndexPolicyCompositeIndexArgs',
     'GremlinGraphIndexPolicyCompositeIndexIndexArgs',
+    'GremlinGraphIndexPolicySpatialIndexArgs',
     'GremlinGraphUniqueKeyArgs',
     'MongoCollectionAutoscaleSettingsArgs',
     'MongoCollectionIndexArgs',
@@ -40,6 +41,7 @@ __all__ = [
     'SqlContainerIndexingPolicyCompositeIndexIndexArgs',
     'SqlContainerIndexingPolicyExcludedPathArgs',
     'SqlContainerIndexingPolicyIncludedPathArgs',
+    'SqlContainerIndexingPolicySpatialIndexArgs',
     'SqlContainerUniqueKeyArgs',
     'SqlDatabaseAutoscaleSettingsArgs',
     'TableAutoscaleSettingsArgs',
@@ -739,13 +741,15 @@ class GremlinGraphIndexPolicyArgs:
                  automatic: Optional[pulumi.Input[bool]] = None,
                  composite_indices: Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexArgs']]]] = None,
                  excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 spatial_indices: Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicySpatialIndexArgs']]]] = None):
         """
         :param pulumi.Input[str] indexing_mode: Indicates the indexing mode. Possible values include: `Consistent`, `Lazy`, `None`.
         :param pulumi.Input[bool] automatic: Indicates if the indexing policy is automatic. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexArgs']]] composite_indices: One or more `composite_index` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_paths: List of paths to exclude from indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] included_paths: List of paths to include in the indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
+        :param pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicySpatialIndexArgs']]] spatial_indices: One or more `spatial_index` blocks as defined below.
         """
         pulumi.set(__self__, "indexing_mode", indexing_mode)
         if automatic is not None:
@@ -756,6 +760,8 @@ class GremlinGraphIndexPolicyArgs:
             pulumi.set(__self__, "excluded_paths", excluded_paths)
         if included_paths is not None:
             pulumi.set(__self__, "included_paths", included_paths)
+        if spatial_indices is not None:
+            pulumi.set(__self__, "spatial_indices", spatial_indices)
 
     @property
     @pulumi.getter(name="indexingMode")
@@ -817,6 +823,18 @@ class GremlinGraphIndexPolicyArgs:
     def included_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "included_paths", value)
 
+    @property
+    @pulumi.getter(name="spatialIndices")
+    def spatial_indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicySpatialIndexArgs']]]]:
+        """
+        One or more `spatial_index` blocks as defined below.
+        """
+        return pulumi.get(self, "spatial_indices")
+
+    @spatial_indices.setter
+    def spatial_indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphIndexPolicySpatialIndexArgs']]]]):
+        pulumi.set(self, "spatial_indices", value)
+
 
 @pulumi.input_type
 class GremlinGraphIndexPolicyCompositeIndexArgs:
@@ -875,6 +893,40 @@ class GremlinGraphIndexPolicyCompositeIndexIndexArgs:
     @path.setter
     def path(self, value: pulumi.Input[str]):
         pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class GremlinGraphIndexPolicySpatialIndexArgs:
+    def __init__(__self__, *,
+                 path: pulumi.Input[str],
+                 types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] path: Path for which the indexing behaviour applies to. According to the service design, all spatial types including `LineString`, `MultiPolygon`, `Point`, and `Polygon` will be applied to the path.
+        """
+        pulumi.set(__self__, "path", path)
+        if types is not None:
+            pulumi.set(__self__, "types", types)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        Path for which the indexing behaviour applies to. According to the service design, all spatial types including `LineString`, `MultiPolygon`, `Point`, and `Polygon` will be applied to the path.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "types")
+
+    @types.setter
+    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "types", value)
 
 
 @pulumi.input_type
@@ -1105,12 +1157,14 @@ class SqlContainerIndexingPolicyArgs:
                  composite_indices: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexArgs']]]] = None,
                  excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgs']]]] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgs']]]] = None,
-                 indexing_mode: Optional[pulumi.Input[str]] = None):
+                 indexing_mode: Optional[pulumi.Input[str]] = None,
+                 spatial_indices: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicySpatialIndexArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexArgs']]] composite_indices: One or more `composite_index` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgs']]] excluded_paths: One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
         :param pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgs']]] included_paths: One or more `included_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
         :param pulumi.Input[str] indexing_mode: Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
+        :param pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicySpatialIndexArgs']]] spatial_indices: One or more `spatial_index` blocks as defined below.
         """
         if composite_indices is not None:
             pulumi.set(__self__, "composite_indices", composite_indices)
@@ -1120,6 +1174,8 @@ class SqlContainerIndexingPolicyArgs:
             pulumi.set(__self__, "included_paths", included_paths)
         if indexing_mode is not None:
             pulumi.set(__self__, "indexing_mode", indexing_mode)
+        if spatial_indices is not None:
+            pulumi.set(__self__, "spatial_indices", spatial_indices)
 
     @property
     @pulumi.getter(name="compositeIndices")
@@ -1168,6 +1224,18 @@ class SqlContainerIndexingPolicyArgs:
     @indexing_mode.setter
     def indexing_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "indexing_mode", value)
+
+    @property
+    @pulumi.getter(name="spatialIndices")
+    def spatial_indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicySpatialIndexArgs']]]]:
+        """
+        One or more `spatial_index` blocks as defined below.
+        """
+        return pulumi.get(self, "spatial_indices")
+
+    @spatial_indices.setter
+    def spatial_indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicySpatialIndexArgs']]]]):
+        pulumi.set(self, "spatial_indices", value)
 
 
 @pulumi.input_type
@@ -1271,6 +1339,44 @@ class SqlContainerIndexingPolicyIncludedPathArgs:
     @path.setter
     def path(self, value: pulumi.Input[str]):
         pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class SqlContainerIndexingPolicySpatialIndexArgs:
+    def __init__(__self__, *,
+                 path: pulumi.Input[str],
+                 types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] path: Path for which the indexing behaviour applies to. According to the service design, all spatial types including `LineString`, `MultiPolygon`, `Point`, and `Polygon` will be applied to the path.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] types: A set of spatial types of the path.
+        """
+        pulumi.set(__self__, "path", path)
+        if types is not None:
+            pulumi.set(__self__, "types", types)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        Path for which the indexing behaviour applies to. According to the service design, all spatial types including `LineString`, `MultiPolygon`, `Point`, and `Polygon` will be applied to the path.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A set of spatial types of the path.
+        """
+        return pulumi.get(self, "types")
+
+    @types.setter
+    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "types", value)
 
 
 @pulumi.input_type

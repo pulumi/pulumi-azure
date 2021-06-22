@@ -43,6 +43,18 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<bool>? EnableNodePublicIp { get; set; }
 
         /// <summary>
+        /// A `kubelet_config` block as defined below.
+        /// </summary>
+        [Input("kubeletConfig")]
+        public Input<Inputs.KubernetesClusterDefaultNodePoolKubeletConfigGetArgs>? KubeletConfig { get; set; }
+
+        /// <summary>
+        /// A `linux_os_config` block as defined below.
+        /// </summary>
+        [Input("linuxOsConfig")]
+        public Input<Inputs.KubernetesClusterDefaultNodePoolLinuxOsConfigGetArgs>? LinuxOsConfig { get; set; }
+
+        /// <summary>
         /// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         /// </summary>
         [Input("maxCount")]

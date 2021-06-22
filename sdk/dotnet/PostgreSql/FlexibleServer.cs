@@ -199,7 +199,7 @@ namespace Pulumi.Azure.PostgreSql
         public Output<string> Version { get; private set; } = null!;
 
         /// <summary>
-        /// The availability Zone of the PostgreSQL Flexible Server. Possible values are  `none`, `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The availability zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
         /// </summary>
         [Output("zone")]
         public Output<string> Zone { get; private set; } = null!;
@@ -347,7 +347,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? Version { get; set; }
 
         /// <summary>
-        /// The availability Zone of the PostgreSQL Flexible Server. Possible values are  `none`, `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The availability zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
         /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }
@@ -474,7 +474,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? Version { get; set; }
 
         /// <summary>
-        /// The availability Zone of the PostgreSQL Flexible Server. Possible values are  `none`, `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The availability zone of the PostgreSQL Flexible Server. Possible values are `1`, `2` and `3`. Changing this forces a new PostgreSQL Flexible Server to be created.
         /// </summary>
         [Input("zone")]
         public Input<string>? Zone { get; set; }

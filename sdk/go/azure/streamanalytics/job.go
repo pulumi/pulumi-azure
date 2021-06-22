@@ -77,6 +77,8 @@ type Job struct {
 	EventsOutOfOrderMaxDelayInSeconds pulumi.IntPtrOutput `pulumi:"eventsOutOfOrderMaxDelayInSeconds"`
 	// Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
 	EventsOutOfOrderPolicy pulumi.StringPtrOutput `pulumi:"eventsOutOfOrderPolicy"`
+	// An `identity` block as defined below.
+	Identity JobIdentityPtrOutput `pulumi:"identity"`
 	// The Job ID assigned by the Stream Analytics Job.
 	JobId pulumi.StringOutput `pulumi:"jobId"`
 	// The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
@@ -143,6 +145,8 @@ type jobState struct {
 	EventsOutOfOrderMaxDelayInSeconds *int `pulumi:"eventsOutOfOrderMaxDelayInSeconds"`
 	// Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
 	EventsOutOfOrderPolicy *string `pulumi:"eventsOutOfOrderPolicy"`
+	// An `identity` block as defined below.
+	Identity *JobIdentity `pulumi:"identity"`
 	// The Job ID assigned by the Stream Analytics Job.
 	JobId *string `pulumi:"jobId"`
 	// The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
@@ -172,6 +176,8 @@ type JobState struct {
 	EventsOutOfOrderMaxDelayInSeconds pulumi.IntPtrInput
 	// Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
 	EventsOutOfOrderPolicy pulumi.StringPtrInput
+	// An `identity` block as defined below.
+	Identity JobIdentityPtrInput
 	// The Job ID assigned by the Stream Analytics Job.
 	JobId pulumi.StringPtrInput
 	// The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
@@ -205,6 +211,8 @@ type jobArgs struct {
 	EventsOutOfOrderMaxDelayInSeconds *int `pulumi:"eventsOutOfOrderMaxDelayInSeconds"`
 	// Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
 	EventsOutOfOrderPolicy *string `pulumi:"eventsOutOfOrderPolicy"`
+	// An `identity` block as defined below.
+	Identity *JobIdentity `pulumi:"identity"`
 	// The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
@@ -233,6 +241,8 @@ type JobArgs struct {
 	EventsOutOfOrderMaxDelayInSeconds pulumi.IntPtrInput
 	// Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
 	EventsOutOfOrderPolicy pulumi.StringPtrInput
+	// An `identity` block as defined below.
+	Identity JobIdentityPtrInput
 	// The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.

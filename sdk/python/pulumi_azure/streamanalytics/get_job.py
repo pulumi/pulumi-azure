@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetJobResult',
@@ -19,7 +20,7 @@ class GetJobResult:
     """
     A collection of values returned by getJob.
     """
-    def __init__(__self__, compatibility_level=None, data_locale=None, events_late_arrival_max_delay_in_seconds=None, events_out_of_order_max_delay_in_seconds=None, events_out_of_order_policy=None, id=None, job_id=None, location=None, name=None, output_error_policy=None, resource_group_name=None, streaming_units=None, transformation_query=None):
+    def __init__(__self__, compatibility_level=None, data_locale=None, events_late_arrival_max_delay_in_seconds=None, events_out_of_order_max_delay_in_seconds=None, events_out_of_order_policy=None, id=None, identities=None, job_id=None, location=None, name=None, output_error_policy=None, resource_group_name=None, streaming_units=None, transformation_query=None):
         if compatibility_level and not isinstance(compatibility_level, str):
             raise TypeError("Expected argument 'compatibility_level' to be a str")
         pulumi.set(__self__, "compatibility_level", compatibility_level)
@@ -38,6 +39,9 @@ class GetJobResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identities and not isinstance(identities, list):
+            raise TypeError("Expected argument 'identities' to be a list")
+        pulumi.set(__self__, "identities", identities)
         if job_id and not isinstance(job_id, str):
             raise TypeError("Expected argument 'job_id' to be a str")
         pulumi.set(__self__, "job_id", job_id)
@@ -109,6 +113,14 @@ class GetJobResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def identities(self) -> Sequence['outputs.GetJobIdentityResult']:
+        """
+        (Optional) An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identities")
+
+    @property
     @pulumi.getter(name="jobId")
     def job_id(self) -> str:
         """
@@ -171,6 +183,7 @@ class AwaitableGetJobResult(GetJobResult):
             events_out_of_order_max_delay_in_seconds=self.events_out_of_order_max_delay_in_seconds,
             events_out_of_order_policy=self.events_out_of_order_policy,
             id=self.id,
+            identities=self.identities,
             job_id=self.job_id,
             location=self.location,
             name=self.name,
@@ -217,6 +230,7 @@ def get_job(name: Optional[str] = None,
         events_out_of_order_max_delay_in_seconds=__ret__.events_out_of_order_max_delay_in_seconds,
         events_out_of_order_policy=__ret__.events_out_of_order_policy,
         id=__ret__.id,
+        identities=__ret__.identities,
         job_id=__ret__.job_id,
         location=__ret__.location,
         name=__ret__.name,

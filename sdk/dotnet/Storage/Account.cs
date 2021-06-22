@@ -430,6 +430,9 @@ namespace Pulumi.Azure.Storage
         [Output("secondaryWebHost")]
         public Output<string> SecondaryWebHost { get; private set; } = null!;
 
+        [Output("shareProperties")]
+        public Output<Outputs.AccountShareProperties> ShareProperties { get; private set; } = null!;
+
         /// <summary>
         /// A `static_website` block as defined below.
         /// </summary>
@@ -608,6 +611,9 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("routing")]
         public Input<Inputs.AccountRoutingArgs>? Routing { get; set; }
+
+        [Input("shareProperties")]
+        public Input<Inputs.AccountSharePropertiesArgs>? ShareProperties { get; set; }
 
         /// <summary>
         /// A `static_website` block as defined below.
@@ -946,6 +952,9 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("secondaryWebHost")]
         public Input<string>? SecondaryWebHost { get; set; }
+
+        [Input("shareProperties")]
+        public Input<Inputs.AccountSharePropertiesGetArgs>? ShareProperties { get; set; }
 
         /// <summary>
         /// A `static_website` block as defined below.

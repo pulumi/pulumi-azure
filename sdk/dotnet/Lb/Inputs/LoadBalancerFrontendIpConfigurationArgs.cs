@@ -13,6 +13,13 @@ namespace Pulumi.Azure.Lb.Inputs
     public sealed class LoadBalancerFrontendIpConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+        /// `No-Zones` - A `non-zonal` resource will be created and the resource will not be replicated or distributed to any Availability Zones.
+        /// </summary>
+        [Input("availabilityZone")]
+        public Input<string>? AvailabilityZone { get; set; }
+
+        /// <summary>
         /// The id of the Frontend IP Configuration.
         /// </summary>
         [Input("id")]
@@ -96,9 +103,6 @@ namespace Pulumi.Azure.Lb.Inputs
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
-        /// <summary>
-        /// A list of Availability Zones which the Load Balancer's IP Addresses should be created in.
-        /// </summary>
         [Input("zones")]
         public Input<string>? Zones { get; set; }
 

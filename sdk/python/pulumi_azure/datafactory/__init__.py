@@ -33,6 +33,7 @@ from .linked_service_data_lake_storage_gen2 import *
 from .linked_service_key_vault import *
 from .linked_service_kusto import *
 from .linked_service_mysql import *
+from .linked_service_odata import *
 from .linked_service_postgresql import *
 from .linked_service_sftp import *
 from .linked_service_snowflake import *

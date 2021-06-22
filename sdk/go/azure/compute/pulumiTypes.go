@@ -1226,7 +1226,7 @@ func (o LinuxVirtualMachineAdminSshKeyArrayOutput) Index(i pulumi.IntInput) Linu
 }
 
 type LinuxVirtualMachineBootDiagnostics struct {
-	// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+	// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 	StorageAccountUri *string `pulumi:"storageAccountUri"`
 }
 
@@ -1242,7 +1242,7 @@ type LinuxVirtualMachineBootDiagnosticsInput interface {
 }
 
 type LinuxVirtualMachineBootDiagnosticsArgs struct {
-	// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+	// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 	StorageAccountUri pulumi.StringPtrInput `pulumi:"storageAccountUri"`
 }
 
@@ -1323,7 +1323,7 @@ func (o LinuxVirtualMachineBootDiagnosticsOutput) ToLinuxVirtualMachineBootDiagn
 	}).(LinuxVirtualMachineBootDiagnosticsPtrOutput)
 }
 
-// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 func (o LinuxVirtualMachineBootDiagnosticsOutput) StorageAccountUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineBootDiagnostics) *string { return v.StorageAccountUri }).(pulumi.StringPtrOutput)
 }
@@ -1346,7 +1346,7 @@ func (o LinuxVirtualMachineBootDiagnosticsPtrOutput) Elem() LinuxVirtualMachineB
 	return o.ApplyT(func(v *LinuxVirtualMachineBootDiagnostics) LinuxVirtualMachineBootDiagnostics { return *v }).(LinuxVirtualMachineBootDiagnosticsOutput)
 }
 
-// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 func (o LinuxVirtualMachineBootDiagnosticsPtrOutput) StorageAccountUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineBootDiagnostics) *string {
 		if v == nil {
@@ -2637,7 +2637,7 @@ func (o LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) EnableAuto
 }
 
 type LinuxVirtualMachineScaleSetBootDiagnostics struct {
-	// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+	// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 	StorageAccountUri *string `pulumi:"storageAccountUri"`
 }
 
@@ -2653,7 +2653,7 @@ type LinuxVirtualMachineScaleSetBootDiagnosticsInput interface {
 }
 
 type LinuxVirtualMachineScaleSetBootDiagnosticsArgs struct {
-	// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+	// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 	StorageAccountUri pulumi.StringPtrInput `pulumi:"storageAccountUri"`
 }
 
@@ -2734,7 +2734,7 @@ func (o LinuxVirtualMachineScaleSetBootDiagnosticsOutput) ToLinuxVirtualMachineS
 	}).(LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput)
 }
 
-// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 func (o LinuxVirtualMachineScaleSetBootDiagnosticsOutput) StorageAccountUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetBootDiagnostics) *string { return v.StorageAccountUri }).(pulumi.StringPtrOutput)
 }
@@ -2759,7 +2759,7 @@ func (o LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput) Elem() LinuxVirtual
 	}).(LinuxVirtualMachineScaleSetBootDiagnosticsOutput)
 }
 
-// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 func (o LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput) StorageAccountUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetBootDiagnostics) *string {
 		if v == nil {
@@ -12808,7 +12808,7 @@ func (o WindowsVirtualMachineAdditionalUnattendContentArrayOutput) Index(i pulum
 }
 
 type WindowsVirtualMachineBootDiagnostics struct {
-	// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+	// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 	StorageAccountUri *string `pulumi:"storageAccountUri"`
 }
 
@@ -12824,7 +12824,7 @@ type WindowsVirtualMachineBootDiagnosticsInput interface {
 }
 
 type WindowsVirtualMachineBootDiagnosticsArgs struct {
-	// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+	// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 	StorageAccountUri pulumi.StringPtrInput `pulumi:"storageAccountUri"`
 }
 
@@ -12905,7 +12905,7 @@ func (o WindowsVirtualMachineBootDiagnosticsOutput) ToWindowsVirtualMachineBootD
 	}).(WindowsVirtualMachineBootDiagnosticsPtrOutput)
 }
 
-// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 func (o WindowsVirtualMachineBootDiagnosticsOutput) StorageAccountUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineBootDiagnostics) *string { return v.StorageAccountUri }).(pulumi.StringPtrOutput)
 }
@@ -12928,7 +12928,7 @@ func (o WindowsVirtualMachineBootDiagnosticsPtrOutput) Elem() WindowsVirtualMach
 	return o.ApplyT(func(v *WindowsVirtualMachineBootDiagnostics) WindowsVirtualMachineBootDiagnostics { return *v }).(WindowsVirtualMachineBootDiagnosticsOutput)
 }
 
-// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 func (o WindowsVirtualMachineBootDiagnosticsPtrOutput) StorageAccountUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineBootDiagnostics) *string {
 		if v == nil {
@@ -14219,7 +14219,7 @@ func (o WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput) EnableAu
 }
 
 type WindowsVirtualMachineScaleSetBootDiagnostics struct {
-	// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+	// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 	StorageAccountUri *string `pulumi:"storageAccountUri"`
 }
 
@@ -14235,7 +14235,7 @@ type WindowsVirtualMachineScaleSetBootDiagnosticsInput interface {
 }
 
 type WindowsVirtualMachineScaleSetBootDiagnosticsArgs struct {
-	// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+	// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 	StorageAccountUri pulumi.StringPtrInput `pulumi:"storageAccountUri"`
 }
 
@@ -14316,7 +14316,7 @@ func (o WindowsVirtualMachineScaleSetBootDiagnosticsOutput) ToWindowsVirtualMach
 	}).(WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput)
 }
 
-// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 func (o WindowsVirtualMachineScaleSetBootDiagnosticsOutput) StorageAccountUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetBootDiagnostics) *string { return v.StorageAccountUri }).(pulumi.StringPtrOutput)
 }
@@ -14341,7 +14341,7 @@ func (o WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput) Elem() WindowsVir
 	}).(WindowsVirtualMachineScaleSetBootDiagnosticsOutput)
 }
 
-// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 func (o WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput) StorageAccountUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetBootDiagnostics) *string {
 		if v == nil {

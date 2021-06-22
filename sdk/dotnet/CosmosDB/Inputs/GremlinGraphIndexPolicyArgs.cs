@@ -60,6 +60,18 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         [Input("indexingMode", required: true)]
         public Input<string> IndexingMode { get; set; } = null!;
 
+        [Input("spatialIndices")]
+        private InputList<Inputs.GremlinGraphIndexPolicySpatialIndexArgs>? _spatialIndices;
+
+        /// <summary>
+        /// One or more `spatial_index` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.GremlinGraphIndexPolicySpatialIndexArgs> SpatialIndices
+        {
+            get => _spatialIndices ?? (_spatialIndices = new InputList<Inputs.GremlinGraphIndexPolicySpatialIndexArgs>());
+            set => _spatialIndices = value;
+        }
+
         public GremlinGraphIndexPolicyArgs()
         {
         }

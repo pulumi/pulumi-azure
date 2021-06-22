@@ -43,7 +43,7 @@ import (
 // 			ResourceGroupName: exampleResourceGroup.Name,
 // 			Location:          exampleResourceGroup.Location,
 // 			VirtualWanId:      exampleVirtualWan.ID(),
-// 			AddressPrefix:     pulumi.String("10.0.1.0/24"),
+// 			AddressPrefix:     pulumi.String("10.0.0.0/23"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -63,7 +63,7 @@ import (
 type VirtualHub struct {
 	pulumi.CustomResourceState
 
-	// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
+	// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
 	AddressPrefix pulumi.StringPtrOutput `pulumi:"addressPrefix"`
 	// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -113,7 +113,7 @@ func GetVirtualHub(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualHub resources.
 type virtualHubState struct {
-	// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
+	// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
 	AddressPrefix *string `pulumi:"addressPrefix"`
 	// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -132,7 +132,7 @@ type virtualHubState struct {
 }
 
 type VirtualHubState struct {
-	// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
+	// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
 	AddressPrefix pulumi.StringPtrInput
 	// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -155,7 +155,7 @@ func (VirtualHubState) ElementType() reflect.Type {
 }
 
 type virtualHubArgs struct {
-	// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
+	// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
 	AddressPrefix *string `pulumi:"addressPrefix"`
 	// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -175,7 +175,7 @@ type virtualHubArgs struct {
 
 // The set of arguments for constructing a VirtualHub resource.
 type VirtualHubArgs struct {
-	// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created.
+	// The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
 	AddressPrefix pulumi.StringPtrInput
 	// Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput

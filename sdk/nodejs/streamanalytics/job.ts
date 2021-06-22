@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -91,6 +92,10 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly eventsOutOfOrderPolicy!: pulumi.Output<string | undefined>;
     /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.streamanalytics.JobIdentity | undefined>;
+    /**
      * The Job ID assigned by the Stream Analytics Job.
      */
     public /*out*/ readonly jobId!: pulumi.Output<string>;
@@ -141,6 +146,7 @@ export class Job extends pulumi.CustomResource {
             inputs["eventsLateArrivalMaxDelayInSeconds"] = state ? state.eventsLateArrivalMaxDelayInSeconds : undefined;
             inputs["eventsOutOfOrderMaxDelayInSeconds"] = state ? state.eventsOutOfOrderMaxDelayInSeconds : undefined;
             inputs["eventsOutOfOrderPolicy"] = state ? state.eventsOutOfOrderPolicy : undefined;
+            inputs["identity"] = state ? state.identity : undefined;
             inputs["jobId"] = state ? state.jobId : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -165,6 +171,7 @@ export class Job extends pulumi.CustomResource {
             inputs["eventsLateArrivalMaxDelayInSeconds"] = args ? args.eventsLateArrivalMaxDelayInSeconds : undefined;
             inputs["eventsOutOfOrderMaxDelayInSeconds"] = args ? args.eventsOutOfOrderMaxDelayInSeconds : undefined;
             inputs["eventsOutOfOrderPolicy"] = args ? args.eventsOutOfOrderPolicy : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["outputErrorPolicy"] = args ? args.outputErrorPolicy : undefined;
@@ -205,6 +212,10 @@ export interface JobState {
      * Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
      */
     eventsOutOfOrderPolicy?: pulumi.Input<string>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.streamanalytics.JobIdentity>;
     /**
      * The Job ID assigned by the Stream Analytics Job.
      */
@@ -263,6 +274,10 @@ export interface JobArgs {
      * Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
      */
     eventsOutOfOrderPolicy?: pulumi.Input<string>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.streamanalytics.JobIdentity>;
     /**
      * The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
      */

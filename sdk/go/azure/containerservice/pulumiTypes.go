@@ -4298,6 +4298,10 @@ type KubernetesClusterDefaultNodePool struct {
 	EnableHostEncryption *bool `pulumi:"enableHostEncryption"`
 	// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
+	// A `kubeletConfig` block as defined below.
+	KubeletConfig *KubernetesClusterDefaultNodePoolKubeletConfig `pulumi:"kubeletConfig"`
+	// A `linuxOsConfig` block as defined below.
+	LinuxOsConfig *KubernetesClusterDefaultNodePoolLinuxOsConfig `pulumi:"linuxOsConfig"`
 	// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
 	MaxCount *int `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
@@ -4354,6 +4358,10 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	EnableHostEncryption pulumi.BoolPtrInput `pulumi:"enableHostEncryption"`
 	// Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
 	EnableNodePublicIp pulumi.BoolPtrInput `pulumi:"enableNodePublicIp"`
+	// A `kubeletConfig` block as defined below.
+	KubeletConfig KubernetesClusterDefaultNodePoolKubeletConfigPtrInput `pulumi:"kubeletConfig"`
+	// A `linuxOsConfig` block as defined below.
+	LinuxOsConfig KubernetesClusterDefaultNodePoolLinuxOsConfigPtrInput `pulumi:"linuxOsConfig"`
 	// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
 	MaxCount pulumi.IntPtrInput `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
@@ -4485,6 +4493,20 @@ func (o KubernetesClusterDefaultNodePoolOutput) EnableHostEncryption() pulumi.Bo
 // Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) EnableNodePublicIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.EnableNodePublicIp }).(pulumi.BoolPtrOutput)
+}
+
+// A `kubeletConfig` block as defined below.
+func (o KubernetesClusterDefaultNodePoolOutput) KubeletConfig() KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *KubernetesClusterDefaultNodePoolKubeletConfig {
+		return v.KubeletConfig
+	}).(KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput)
+}
+
+// A `linuxOsConfig` block as defined below.
+func (o KubernetesClusterDefaultNodePoolOutput) LinuxOsConfig() KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *KubernetesClusterDefaultNodePoolLinuxOsConfig {
+		return v.LinuxOsConfig
+	}).(KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput)
 }
 
 // The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
@@ -4633,6 +4655,26 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) EnableNodePublicIp() pulumi.B
 		}
 		return v.EnableNodePublicIp
 	}).(pulumi.BoolPtrOutput)
+}
+
+// A `kubeletConfig` block as defined below.
+func (o KubernetesClusterDefaultNodePoolPtrOutput) KubeletConfig() KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *KubernetesClusterDefaultNodePoolKubeletConfig {
+		if v == nil {
+			return nil
+		}
+		return v.KubeletConfig
+	}).(KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput)
+}
+
+// A `linuxOsConfig` block as defined below.
+func (o KubernetesClusterDefaultNodePoolPtrOutput) LinuxOsConfig() KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *KubernetesClusterDefaultNodePoolLinuxOsConfig {
+		if v == nil {
+			return nil
+		}
+		return v.LinuxOsConfig
+	}).(KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput)
 }
 
 // The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
@@ -4811,6 +4853,1195 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) VnetSubnetId() pulumi.StringP
 		}
 		return v.VnetSubnetId
 	}).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterDefaultNodePoolKubeletConfig struct {
+	// Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
+	AllowedUnsafeSysctls []string `pulumi:"allowedUnsafeSysctls"`
+	// Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
+	ContainerLogMaxLine *int `pulumi:"containerLogMaxLine"`
+	// Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
+	ContainerLogMaxSizeMb *int `pulumi:"containerLogMaxSizeMb"`
+	// Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created.
+	CpuCfsQuotaEnabled *bool `pulumi:"cpuCfsQuotaEnabled"`
+	// Specifies the CPU CFS quota period value. Changing this forces a new resource to be created.
+	CpuCfsQuotaPeriod *string `pulumi:"cpuCfsQuotaPeriod"`
+	// Specifies the CPU Manager policy to use. Possible values are `none` and `static`, Changing this forces a new resource to be created.
+	CpuManagerPolicy *string `pulumi:"cpuManagerPolicy"`
+	// Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+	ImageGcHighThreshold *int `pulumi:"imageGcHighThreshold"`
+	// Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+	ImageGcLowThreshold *int `pulumi:"imageGcLowThreshold"`
+	// Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
+	PodMaxPid *int `pulumi:"podMaxPid"`
+	// Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
+	TopologyManagerPolicy *string `pulumi:"topologyManagerPolicy"`
+}
+
+// KubernetesClusterDefaultNodePoolKubeletConfigInput is an input type that accepts KubernetesClusterDefaultNodePoolKubeletConfigArgs and KubernetesClusterDefaultNodePoolKubeletConfigOutput values.
+// You can construct a concrete instance of `KubernetesClusterDefaultNodePoolKubeletConfigInput` via:
+//
+//          KubernetesClusterDefaultNodePoolKubeletConfigArgs{...}
+type KubernetesClusterDefaultNodePoolKubeletConfigInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterDefaultNodePoolKubeletConfigOutput() KubernetesClusterDefaultNodePoolKubeletConfigOutput
+	ToKubernetesClusterDefaultNodePoolKubeletConfigOutputWithContext(context.Context) KubernetesClusterDefaultNodePoolKubeletConfigOutput
+}
+
+type KubernetesClusterDefaultNodePoolKubeletConfigArgs struct {
+	// Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
+	AllowedUnsafeSysctls pulumi.StringArrayInput `pulumi:"allowedUnsafeSysctls"`
+	// Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
+	ContainerLogMaxLine pulumi.IntPtrInput `pulumi:"containerLogMaxLine"`
+	// Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
+	ContainerLogMaxSizeMb pulumi.IntPtrInput `pulumi:"containerLogMaxSizeMb"`
+	// Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created.
+	CpuCfsQuotaEnabled pulumi.BoolPtrInput `pulumi:"cpuCfsQuotaEnabled"`
+	// Specifies the CPU CFS quota period value. Changing this forces a new resource to be created.
+	CpuCfsQuotaPeriod pulumi.StringPtrInput `pulumi:"cpuCfsQuotaPeriod"`
+	// Specifies the CPU Manager policy to use. Possible values are `none` and `static`, Changing this forces a new resource to be created.
+	CpuManagerPolicy pulumi.StringPtrInput `pulumi:"cpuManagerPolicy"`
+	// Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+	ImageGcHighThreshold pulumi.IntPtrInput `pulumi:"imageGcHighThreshold"`
+	// Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+	ImageGcLowThreshold pulumi.IntPtrInput `pulumi:"imageGcLowThreshold"`
+	// Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
+	PodMaxPid pulumi.IntPtrInput `pulumi:"podMaxPid"`
+	// Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
+	TopologyManagerPolicy pulumi.StringPtrInput `pulumi:"topologyManagerPolicy"`
+}
+
+func (KubernetesClusterDefaultNodePoolKubeletConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterDefaultNodePoolKubeletConfig)(nil)).Elem()
+}
+
+func (i KubernetesClusterDefaultNodePoolKubeletConfigArgs) ToKubernetesClusterDefaultNodePoolKubeletConfigOutput() KubernetesClusterDefaultNodePoolKubeletConfigOutput {
+	return i.ToKubernetesClusterDefaultNodePoolKubeletConfigOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterDefaultNodePoolKubeletConfigArgs) ToKubernetesClusterDefaultNodePoolKubeletConfigOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolKubeletConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolKubeletConfigOutput)
+}
+
+func (i KubernetesClusterDefaultNodePoolKubeletConfigArgs) ToKubernetesClusterDefaultNodePoolKubeletConfigPtrOutput() KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput {
+	return i.ToKubernetesClusterDefaultNodePoolKubeletConfigPtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterDefaultNodePoolKubeletConfigArgs) ToKubernetesClusterDefaultNodePoolKubeletConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolKubeletConfigOutput).ToKubernetesClusterDefaultNodePoolKubeletConfigPtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterDefaultNodePoolKubeletConfigPtrInput is an input type that accepts KubernetesClusterDefaultNodePoolKubeletConfigArgs, KubernetesClusterDefaultNodePoolKubeletConfigPtr and KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterDefaultNodePoolKubeletConfigPtrInput` via:
+//
+//          KubernetesClusterDefaultNodePoolKubeletConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type KubernetesClusterDefaultNodePoolKubeletConfigPtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterDefaultNodePoolKubeletConfigPtrOutput() KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput
+	ToKubernetesClusterDefaultNodePoolKubeletConfigPtrOutputWithContext(context.Context) KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput
+}
+
+type kubernetesClusterDefaultNodePoolKubeletConfigPtrType KubernetesClusterDefaultNodePoolKubeletConfigArgs
+
+func KubernetesClusterDefaultNodePoolKubeletConfigPtr(v *KubernetesClusterDefaultNodePoolKubeletConfigArgs) KubernetesClusterDefaultNodePoolKubeletConfigPtrInput {
+	return (*kubernetesClusterDefaultNodePoolKubeletConfigPtrType)(v)
+}
+
+func (*kubernetesClusterDefaultNodePoolKubeletConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterDefaultNodePoolKubeletConfig)(nil)).Elem()
+}
+
+func (i *kubernetesClusterDefaultNodePoolKubeletConfigPtrType) ToKubernetesClusterDefaultNodePoolKubeletConfigPtrOutput() KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput {
+	return i.ToKubernetesClusterDefaultNodePoolKubeletConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterDefaultNodePoolKubeletConfigPtrType) ToKubernetesClusterDefaultNodePoolKubeletConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput)
+}
+
+type KubernetesClusterDefaultNodePoolKubeletConfigOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterDefaultNodePoolKubeletConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterDefaultNodePoolKubeletConfig)(nil)).Elem()
+}
+
+func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) ToKubernetesClusterDefaultNodePoolKubeletConfigOutput() KubernetesClusterDefaultNodePoolKubeletConfigOutput {
+	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) ToKubernetesClusterDefaultNodePoolKubeletConfigOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolKubeletConfigOutput {
+	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) ToKubernetesClusterDefaultNodePoolKubeletConfigPtrOutput() KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput {
+	return o.ToKubernetesClusterDefaultNodePoolKubeletConfigPtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) ToKubernetesClusterDefaultNodePoolKubeletConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolKubeletConfig) *KubernetesClusterDefaultNodePoolKubeletConfig {
+		return &v
+	}).(KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput)
+}
+
+// Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) AllowedUnsafeSysctls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolKubeletConfig) []string { return v.AllowedUnsafeSysctls }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) ContainerLogMaxLine() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolKubeletConfig) *int { return v.ContainerLogMaxLine }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) ContainerLogMaxSizeMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolKubeletConfig) *int { return v.ContainerLogMaxSizeMb }).(pulumi.IntPtrOutput)
+}
+
+// Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) CpuCfsQuotaEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolKubeletConfig) *bool { return v.CpuCfsQuotaEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the CPU CFS quota period value. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) CpuCfsQuotaPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolKubeletConfig) *string { return v.CpuCfsQuotaPeriod }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the CPU Manager policy to use. Possible values are `none` and `static`, Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) CpuManagerPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolKubeletConfig) *string { return v.CpuManagerPolicy }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) ImageGcHighThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolKubeletConfig) *int { return v.ImageGcHighThreshold }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) ImageGcLowThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolKubeletConfig) *int { return v.ImageGcLowThreshold }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) PodMaxPid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolKubeletConfig) *int { return v.PodMaxPid }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) TopologyManagerPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolKubeletConfig) *string { return v.TopologyManagerPolicy }).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterDefaultNodePoolKubeletConfig)(nil)).Elem()
+}
+
+func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) ToKubernetesClusterDefaultNodePoolKubeletConfigPtrOutput() KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) ToKubernetesClusterDefaultNodePoolKubeletConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) Elem() KubernetesClusterDefaultNodePoolKubeletConfigOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolKubeletConfig) KubernetesClusterDefaultNodePoolKubeletConfig {
+		return *v
+	}).(KubernetesClusterDefaultNodePoolKubeletConfigOutput)
+}
+
+// Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) AllowedUnsafeSysctls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolKubeletConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedUnsafeSysctls
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) ContainerLogMaxLine() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolKubeletConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerLogMaxLine
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) ContainerLogMaxSizeMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolKubeletConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerLogMaxSizeMb
+	}).(pulumi.IntPtrOutput)
+}
+
+// Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) CpuCfsQuotaEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolKubeletConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CpuCfsQuotaEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the CPU CFS quota period value. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) CpuCfsQuotaPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolKubeletConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CpuCfsQuotaPeriod
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the CPU Manager policy to use. Possible values are `none` and `static`, Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) CpuManagerPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolKubeletConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CpuManagerPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) ImageGcHighThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolKubeletConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ImageGcHighThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) ImageGcLowThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolKubeletConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ImageGcLowThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) PodMaxPid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolKubeletConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PodMaxPid
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) TopologyManagerPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolKubeletConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TopologyManagerPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterDefaultNodePoolLinuxOsConfig struct {
+	// Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+	SwapFileSizeMb *int `pulumi:"swapFileSizeMb"`
+	// A `sysctlConfig` block as defined below. Changing this forces a new resource to be created.
+	SysctlConfig *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig `pulumi:"sysctlConfig"`
+	// specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
+	TransparentHugePageDefrag *string `pulumi:"transparentHugePageDefrag"`
+	// Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
+	TransparentHugePageEnabled *string `pulumi:"transparentHugePageEnabled"`
+}
+
+// KubernetesClusterDefaultNodePoolLinuxOsConfigInput is an input type that accepts KubernetesClusterDefaultNodePoolLinuxOsConfigArgs and KubernetesClusterDefaultNodePoolLinuxOsConfigOutput values.
+// You can construct a concrete instance of `KubernetesClusterDefaultNodePoolLinuxOsConfigInput` via:
+//
+//          KubernetesClusterDefaultNodePoolLinuxOsConfigArgs{...}
+type KubernetesClusterDefaultNodePoolLinuxOsConfigInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterDefaultNodePoolLinuxOsConfigOutput() KubernetesClusterDefaultNodePoolLinuxOsConfigOutput
+	ToKubernetesClusterDefaultNodePoolLinuxOsConfigOutputWithContext(context.Context) KubernetesClusterDefaultNodePoolLinuxOsConfigOutput
+}
+
+type KubernetesClusterDefaultNodePoolLinuxOsConfigArgs struct {
+	// Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+	SwapFileSizeMb pulumi.IntPtrInput `pulumi:"swapFileSizeMb"`
+	// A `sysctlConfig` block as defined below. Changing this forces a new resource to be created.
+	SysctlConfig KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrInput `pulumi:"sysctlConfig"`
+	// specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
+	TransparentHugePageDefrag pulumi.StringPtrInput `pulumi:"transparentHugePageDefrag"`
+	// Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
+	TransparentHugePageEnabled pulumi.StringPtrInput `pulumi:"transparentHugePageEnabled"`
+}
+
+func (KubernetesClusterDefaultNodePoolLinuxOsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterDefaultNodePoolLinuxOsConfig)(nil)).Elem()
+}
+
+func (i KubernetesClusterDefaultNodePoolLinuxOsConfigArgs) ToKubernetesClusterDefaultNodePoolLinuxOsConfigOutput() KubernetesClusterDefaultNodePoolLinuxOsConfigOutput {
+	return i.ToKubernetesClusterDefaultNodePoolLinuxOsConfigOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterDefaultNodePoolLinuxOsConfigArgs) ToKubernetesClusterDefaultNodePoolLinuxOsConfigOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolLinuxOsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolLinuxOsConfigOutput)
+}
+
+func (i KubernetesClusterDefaultNodePoolLinuxOsConfigArgs) ToKubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput() KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput {
+	return i.ToKubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterDefaultNodePoolLinuxOsConfigArgs) ToKubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolLinuxOsConfigOutput).ToKubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterDefaultNodePoolLinuxOsConfigPtrInput is an input type that accepts KubernetesClusterDefaultNodePoolLinuxOsConfigArgs, KubernetesClusterDefaultNodePoolLinuxOsConfigPtr and KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterDefaultNodePoolLinuxOsConfigPtrInput` via:
+//
+//          KubernetesClusterDefaultNodePoolLinuxOsConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type KubernetesClusterDefaultNodePoolLinuxOsConfigPtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput() KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput
+	ToKubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutputWithContext(context.Context) KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput
+}
+
+type kubernetesClusterDefaultNodePoolLinuxOsConfigPtrType KubernetesClusterDefaultNodePoolLinuxOsConfigArgs
+
+func KubernetesClusterDefaultNodePoolLinuxOsConfigPtr(v *KubernetesClusterDefaultNodePoolLinuxOsConfigArgs) KubernetesClusterDefaultNodePoolLinuxOsConfigPtrInput {
+	return (*kubernetesClusterDefaultNodePoolLinuxOsConfigPtrType)(v)
+}
+
+func (*kubernetesClusterDefaultNodePoolLinuxOsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterDefaultNodePoolLinuxOsConfig)(nil)).Elem()
+}
+
+func (i *kubernetesClusterDefaultNodePoolLinuxOsConfigPtrType) ToKubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput() KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput {
+	return i.ToKubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterDefaultNodePoolLinuxOsConfigPtrType) ToKubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput)
+}
+
+type KubernetesClusterDefaultNodePoolLinuxOsConfigOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterDefaultNodePoolLinuxOsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterDefaultNodePoolLinuxOsConfig)(nil)).Elem()
+}
+
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigOutput) ToKubernetesClusterDefaultNodePoolLinuxOsConfigOutput() KubernetesClusterDefaultNodePoolLinuxOsConfigOutput {
+	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigOutput) ToKubernetesClusterDefaultNodePoolLinuxOsConfigOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolLinuxOsConfigOutput {
+	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigOutput) ToKubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput() KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput {
+	return o.ToKubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigOutput) ToKubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfig) *KubernetesClusterDefaultNodePoolLinuxOsConfig {
+		return &v
+	}).(KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput)
+}
+
+// Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigOutput) SwapFileSizeMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfig) *int { return v.SwapFileSizeMb }).(pulumi.IntPtrOutput)
+}
+
+// A `sysctlConfig` block as defined below. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigOutput) SysctlConfig() KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfig) *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig {
+		return v.SysctlConfig
+	}).(KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput)
+}
+
+// specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigOutput) TransparentHugePageDefrag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfig) *string { return v.TransparentHugePageDefrag }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigOutput) TransparentHugePageEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfig) *string { return v.TransparentHugePageEnabled }).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterDefaultNodePoolLinuxOsConfig)(nil)).Elem()
+}
+
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput) ToKubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput() KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput) ToKubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput) Elem() KubernetesClusterDefaultNodePoolLinuxOsConfigOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfig) KubernetesClusterDefaultNodePoolLinuxOsConfig {
+		return *v
+	}).(KubernetesClusterDefaultNodePoolLinuxOsConfigOutput)
+}
+
+// Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput) SwapFileSizeMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SwapFileSizeMb
+	}).(pulumi.IntPtrOutput)
+}
+
+// A `sysctlConfig` block as defined below. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput) SysctlConfig() KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfig) *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig {
+		if v == nil {
+			return nil
+		}
+		return v.SysctlConfig
+	}).(KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput)
+}
+
+// specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput) TransparentHugePageDefrag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TransparentHugePageDefrag
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput) TransparentHugePageEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TransparentHugePageEnabled
+	}).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig struct {
+	// The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`. Changing this forces a new resource to be created.
+	FsAioMaxNr *int `pulumi:"fsAioMaxNr"`
+	// The sysctl setting fs.file-max. Must be between `8192` and `12000500`. Changing this forces a new resource to be created.
+	FsFileMax *int `pulumi:"fsFileMax"`
+	// The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`. Changing this forces a new resource to be created.
+	FsInotifyMaxUserWatches *int `pulumi:"fsInotifyMaxUserWatches"`
+	// The sysctl setting fs.nr_open. Must be between `8192` and `20000500`. Changing this forces a new resource to be created.
+	FsNrOpen *int `pulumi:"fsNrOpen"`
+	// The sysctl setting kernel.threads-max. Must be between `20` and `513785`. Changing this forces a new resource to be created.
+	KernelThreadsMax *int `pulumi:"kernelThreadsMax"`
+	// The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`. Changing this forces a new resource to be created.
+	NetCoreNetdevMaxBacklog *int `pulumi:"netCoreNetdevMaxBacklog"`
+	// The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`. Changing this forces a new resource to be created.
+	NetCoreOptmemMax *int `pulumi:"netCoreOptmemMax"`
+	// The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+	NetCoreRmemDefault *int `pulumi:"netCoreRmemDefault"`
+	// The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+	NetCoreRmemMax *int `pulumi:"netCoreRmemMax"`
+	// The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`. Changing this forces a new resource to be created.
+	NetCoreSomaxconn *int `pulumi:"netCoreSomaxconn"`
+	// The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+	NetCoreWmemDefault *int `pulumi:"netCoreWmemDefault"`
+	// The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+	NetCoreWmemMax *int `pulumi:"netCoreWmemMax"`
+	// The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+	NetIpv4IpLocalPortRangeMax *int `pulumi:"netIpv4IpLocalPortRangeMax"`
+	// The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+	NetIpv4IpLocalPortRangeMin *int `pulumi:"netIpv4IpLocalPortRangeMin"`
+	// The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`. Changing this forces a new resource to be created.
+	NetIpv4NeighDefaultGcThresh1 *int `pulumi:"netIpv4NeighDefaultGcThresh1"`
+	// The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`. Changing this forces a new resource to be created.
+	NetIpv4NeighDefaultGcThresh2 *int `pulumi:"netIpv4NeighDefaultGcThresh2"`
+	// The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`. Changing this forces a new resource to be created.
+	NetIpv4NeighDefaultGcThresh3 *int `pulumi:"netIpv4NeighDefaultGcThresh3"`
+	// The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`. Changing this forces a new resource to be created.
+	NetIpv4TcpFinTimeout *int `pulumi:"netIpv4TcpFinTimeout"`
+	// The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+	NetIpv4TcpKeepaliveIntvl *int `pulumi:"netIpv4TcpKeepaliveIntvl"`
+	// The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`. Changing this forces a new resource to be created.
+	NetIpv4TcpKeepaliveProbes *int `pulumi:"netIpv4TcpKeepaliveProbes"`
+	// The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`. Changing this forces a new resource to be created.
+	NetIpv4TcpKeepaliveTime *int `pulumi:"netIpv4TcpKeepaliveTime"`
+	// The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`. Changing this forces a new resource to be created.
+	NetIpv4TcpMaxSynBacklog *int `pulumi:"netIpv4TcpMaxSynBacklog"`
+	// The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`. Changing this forces a new resource to be created.
+	NetIpv4TcpMaxTwBuckets *int `pulumi:"netIpv4TcpMaxTwBuckets"`
+	// The sysctl setting net.ipv4.tcp_tw_reuse. Changing this forces a new resource to be created.
+	NetIpv4TcpTwReuse *bool `pulumi:"netIpv4TcpTwReuse"`
+	// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+	NetNetfilterNfConntrackBuckets *int `pulumi:"netNetfilterNfConntrackBuckets"`
+	// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `589824`. Changing this forces a new resource to be created.
+	NetNetfilterNfConntrackMax *int `pulumi:"netNetfilterNfConntrackMax"`
+	// The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
+	VmMaxMapCount *int `pulumi:"vmMaxMapCount"`
+	// The sysctl setting vm.swappiness. Must be between `0` and `100`. Changing this forces a new resource to be created.
+	VmSwappiness *int `pulumi:"vmSwappiness"`
+	// The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
+	VmVfsCachePressure *int `pulumi:"vmVfsCachePressure"`
+}
+
+// KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigInput is an input type that accepts KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs and KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput values.
+// You can construct a concrete instance of `KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigInput` via:
+//
+//          KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs{...}
+type KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput() KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput
+	ToKubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutputWithContext(context.Context) KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput
+}
+
+type KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs struct {
+	// The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`. Changing this forces a new resource to be created.
+	FsAioMaxNr pulumi.IntPtrInput `pulumi:"fsAioMaxNr"`
+	// The sysctl setting fs.file-max. Must be between `8192` and `12000500`. Changing this forces a new resource to be created.
+	FsFileMax pulumi.IntPtrInput `pulumi:"fsFileMax"`
+	// The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`. Changing this forces a new resource to be created.
+	FsInotifyMaxUserWatches pulumi.IntPtrInput `pulumi:"fsInotifyMaxUserWatches"`
+	// The sysctl setting fs.nr_open. Must be between `8192` and `20000500`. Changing this forces a new resource to be created.
+	FsNrOpen pulumi.IntPtrInput `pulumi:"fsNrOpen"`
+	// The sysctl setting kernel.threads-max. Must be between `20` and `513785`. Changing this forces a new resource to be created.
+	KernelThreadsMax pulumi.IntPtrInput `pulumi:"kernelThreadsMax"`
+	// The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`. Changing this forces a new resource to be created.
+	NetCoreNetdevMaxBacklog pulumi.IntPtrInput `pulumi:"netCoreNetdevMaxBacklog"`
+	// The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`. Changing this forces a new resource to be created.
+	NetCoreOptmemMax pulumi.IntPtrInput `pulumi:"netCoreOptmemMax"`
+	// The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+	NetCoreRmemDefault pulumi.IntPtrInput `pulumi:"netCoreRmemDefault"`
+	// The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+	NetCoreRmemMax pulumi.IntPtrInput `pulumi:"netCoreRmemMax"`
+	// The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`. Changing this forces a new resource to be created.
+	NetCoreSomaxconn pulumi.IntPtrInput `pulumi:"netCoreSomaxconn"`
+	// The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+	NetCoreWmemDefault pulumi.IntPtrInput `pulumi:"netCoreWmemDefault"`
+	// The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+	NetCoreWmemMax pulumi.IntPtrInput `pulumi:"netCoreWmemMax"`
+	// The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+	NetIpv4IpLocalPortRangeMax pulumi.IntPtrInput `pulumi:"netIpv4IpLocalPortRangeMax"`
+	// The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+	NetIpv4IpLocalPortRangeMin pulumi.IntPtrInput `pulumi:"netIpv4IpLocalPortRangeMin"`
+	// The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`. Changing this forces a new resource to be created.
+	NetIpv4NeighDefaultGcThresh1 pulumi.IntPtrInput `pulumi:"netIpv4NeighDefaultGcThresh1"`
+	// The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`. Changing this forces a new resource to be created.
+	NetIpv4NeighDefaultGcThresh2 pulumi.IntPtrInput `pulumi:"netIpv4NeighDefaultGcThresh2"`
+	// The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`. Changing this forces a new resource to be created.
+	NetIpv4NeighDefaultGcThresh3 pulumi.IntPtrInput `pulumi:"netIpv4NeighDefaultGcThresh3"`
+	// The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`. Changing this forces a new resource to be created.
+	NetIpv4TcpFinTimeout pulumi.IntPtrInput `pulumi:"netIpv4TcpFinTimeout"`
+	// The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+	NetIpv4TcpKeepaliveIntvl pulumi.IntPtrInput `pulumi:"netIpv4TcpKeepaliveIntvl"`
+	// The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`. Changing this forces a new resource to be created.
+	NetIpv4TcpKeepaliveProbes pulumi.IntPtrInput `pulumi:"netIpv4TcpKeepaliveProbes"`
+	// The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`. Changing this forces a new resource to be created.
+	NetIpv4TcpKeepaliveTime pulumi.IntPtrInput `pulumi:"netIpv4TcpKeepaliveTime"`
+	// The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`. Changing this forces a new resource to be created.
+	NetIpv4TcpMaxSynBacklog pulumi.IntPtrInput `pulumi:"netIpv4TcpMaxSynBacklog"`
+	// The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`. Changing this forces a new resource to be created.
+	NetIpv4TcpMaxTwBuckets pulumi.IntPtrInput `pulumi:"netIpv4TcpMaxTwBuckets"`
+	// The sysctl setting net.ipv4.tcp_tw_reuse. Changing this forces a new resource to be created.
+	NetIpv4TcpTwReuse pulumi.BoolPtrInput `pulumi:"netIpv4TcpTwReuse"`
+	// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+	NetNetfilterNfConntrackBuckets pulumi.IntPtrInput `pulumi:"netNetfilterNfConntrackBuckets"`
+	// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `589824`. Changing this forces a new resource to be created.
+	NetNetfilterNfConntrackMax pulumi.IntPtrInput `pulumi:"netNetfilterNfConntrackMax"`
+	// The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
+	VmMaxMapCount pulumi.IntPtrInput `pulumi:"vmMaxMapCount"`
+	// The sysctl setting vm.swappiness. Must be between `0` and `100`. Changing this forces a new resource to be created.
+	VmSwappiness pulumi.IntPtrInput `pulumi:"vmSwappiness"`
+	// The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
+	VmVfsCachePressure pulumi.IntPtrInput `pulumi:"vmVfsCachePressure"`
+}
+
+func (KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig)(nil)).Elem()
+}
+
+func (i KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs) ToKubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput() KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput {
+	return i.ToKubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs) ToKubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput)
+}
+
+func (i KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs) ToKubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput() KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput {
+	return i.ToKubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs) ToKubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput).ToKubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrInput is an input type that accepts KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs, KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtr and KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrInput` via:
+//
+//          KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput() KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput
+	ToKubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutputWithContext(context.Context) KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput
+}
+
+type kubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrType KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs
+
+func KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtr(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs) KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrInput {
+	return (*kubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrType)(v)
+}
+
+func (*kubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig)(nil)).Elem()
+}
+
+func (i *kubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrType) ToKubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput() KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput {
+	return i.ToKubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrType) ToKubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput)
+}
+
+type KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig)(nil)).Elem()
+}
+
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) ToKubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput() KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput {
+	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) ToKubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput {
+	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) ToKubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput() KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput {
+	return o.ToKubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) ToKubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig {
+		return &v
+	}).(KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput)
+}
+
+// The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) FsAioMaxNr() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int { return v.FsAioMaxNr }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting fs.file-max. Must be between `8192` and `12000500`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) FsFileMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int { return v.FsFileMax }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) FsInotifyMaxUserWatches() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		return v.FsInotifyMaxUserWatches
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting fs.nr_open. Must be between `8192` and `20000500`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) FsNrOpen() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int { return v.FsNrOpen }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting kernel.threads-max. Must be between `20` and `513785`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) KernelThreadsMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int { return v.KernelThreadsMax }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) NetCoreNetdevMaxBacklog() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		return v.NetCoreNetdevMaxBacklog
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) NetCoreOptmemMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetCoreOptmemMax }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) NetCoreRmemDefault() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetCoreRmemDefault }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) NetCoreRmemMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetCoreRmemMax }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) NetCoreSomaxconn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetCoreSomaxconn }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) NetCoreWmemDefault() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetCoreWmemDefault }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) NetCoreWmemMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetCoreWmemMax }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4IpLocalPortRangeMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		return v.NetIpv4IpLocalPortRangeMax
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4IpLocalPortRangeMin() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		return v.NetIpv4IpLocalPortRangeMin
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4NeighDefaultGcThresh1() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		return v.NetIpv4NeighDefaultGcThresh1
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4NeighDefaultGcThresh2() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		return v.NetIpv4NeighDefaultGcThresh2
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4NeighDefaultGcThresh3() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		return v.NetIpv4NeighDefaultGcThresh3
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4TcpFinTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetIpv4TcpFinTimeout }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4TcpKeepaliveIntvl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		return v.NetIpv4TcpKeepaliveIntvl
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4TcpKeepaliveProbes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		return v.NetIpv4TcpKeepaliveProbes
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4TcpKeepaliveTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		return v.NetIpv4TcpKeepaliveTime
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4TcpMaxSynBacklog() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		return v.NetIpv4TcpMaxSynBacklog
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4TcpMaxTwBuckets() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		return v.NetIpv4TcpMaxTwBuckets
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.tcp_tw_reuse. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4TcpTwReuse() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *bool { return v.NetIpv4TcpTwReuse }).(pulumi.BoolPtrOutput)
+}
+
+// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) NetNetfilterNfConntrackBuckets() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		return v.NetNetfilterNfConntrackBuckets
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `589824`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) NetNetfilterNfConntrackMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		return v.NetNetfilterNfConntrackMax
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) VmMaxMapCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int { return v.VmMaxMapCount }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting vm.swappiness. Must be between `0` and `100`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) VmSwappiness() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int { return v.VmSwappiness }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput) VmVfsCachePressure() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int { return v.VmVfsCachePressure }).(pulumi.IntPtrOutput)
+}
+
+type KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig)(nil)).Elem()
+}
+
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) ToKubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput() KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) ToKubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) Elem() KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig {
+		return *v
+	}).(KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput)
+}
+
+// The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) FsAioMaxNr() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FsAioMaxNr
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting fs.file-max. Must be between `8192` and `12000500`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) FsFileMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FsFileMax
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) FsInotifyMaxUserWatches() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FsInotifyMaxUserWatches
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting fs.nr_open. Must be between `8192` and `20000500`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) FsNrOpen() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FsNrOpen
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting kernel.threads-max. Must be between `20` and `513785`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) KernelThreadsMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.KernelThreadsMax
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetCoreNetdevMaxBacklog() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetCoreNetdevMaxBacklog
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetCoreOptmemMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetCoreOptmemMax
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetCoreRmemDefault() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetCoreRmemDefault
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetCoreRmemMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetCoreRmemMax
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetCoreSomaxconn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetCoreSomaxconn
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetCoreWmemDefault() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetCoreWmemDefault
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetCoreWmemMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetCoreWmemMax
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetIpv4IpLocalPortRangeMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4IpLocalPortRangeMax
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetIpv4IpLocalPortRangeMin() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4IpLocalPortRangeMin
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetIpv4NeighDefaultGcThresh1() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4NeighDefaultGcThresh1
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetIpv4NeighDefaultGcThresh2() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4NeighDefaultGcThresh2
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetIpv4NeighDefaultGcThresh3() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4NeighDefaultGcThresh3
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetIpv4TcpFinTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4TcpFinTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetIpv4TcpKeepaliveIntvl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4TcpKeepaliveIntvl
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetIpv4TcpKeepaliveProbes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4TcpKeepaliveProbes
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetIpv4TcpKeepaliveTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4TcpKeepaliveTime
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetIpv4TcpMaxSynBacklog() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4TcpMaxSynBacklog
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetIpv4TcpMaxTwBuckets() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4TcpMaxTwBuckets
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.tcp_tw_reuse. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetIpv4TcpTwReuse() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4TcpTwReuse
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetNetfilterNfConntrackBuckets() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetNetfilterNfConntrackBuckets
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `589824`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetNetfilterNfConntrackMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetNetfilterNfConntrackMax
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) VmMaxMapCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VmMaxMapCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting vm.swappiness. Must be between `0` and `100`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) VmSwappiness() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VmSwappiness
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) VmVfsCachePressure() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VmVfsCachePressure
+	}).(pulumi.IntPtrOutput)
 }
 
 type KubernetesClusterDefaultNodePoolUpgradeSettings struct {
@@ -6346,6 +7577,1161 @@ func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) OutboundPor
 	}).(pulumi.IntPtrOutput)
 }
 
+type KubernetesClusterNodePoolKubeletConfig struct {
+	// Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
+	AllowedUnsafeSysctls []string `pulumi:"allowedUnsafeSysctls"`
+	// Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
+	ContainerLogMaxLine *int `pulumi:"containerLogMaxLine"`
+	// Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
+	ContainerLogMaxSizeMb *int `pulumi:"containerLogMaxSizeMb"`
+	// Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created.
+	CpuCfsQuotaEnabled *bool `pulumi:"cpuCfsQuotaEnabled"`
+	// Specifies the CPU CFS quota period value. Changing this forces a new resource to be created.
+	CpuCfsQuotaPeriod *string `pulumi:"cpuCfsQuotaPeriod"`
+	// Specifies the CPU Manager policy to use. Possible values are `none` and `static`, Changing this forces a new resource to be created.
+	CpuManagerPolicy *string `pulumi:"cpuManagerPolicy"`
+	// Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+	ImageGcHighThreshold *int `pulumi:"imageGcHighThreshold"`
+	// Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+	ImageGcLowThreshold *int `pulumi:"imageGcLowThreshold"`
+	PodMaxPid           *int `pulumi:"podMaxPid"`
+	// Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
+	TopologyManagerPolicy *string `pulumi:"topologyManagerPolicy"`
+}
+
+// KubernetesClusterNodePoolKubeletConfigInput is an input type that accepts KubernetesClusterNodePoolKubeletConfigArgs and KubernetesClusterNodePoolKubeletConfigOutput values.
+// You can construct a concrete instance of `KubernetesClusterNodePoolKubeletConfigInput` via:
+//
+//          KubernetesClusterNodePoolKubeletConfigArgs{...}
+type KubernetesClusterNodePoolKubeletConfigInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterNodePoolKubeletConfigOutput() KubernetesClusterNodePoolKubeletConfigOutput
+	ToKubernetesClusterNodePoolKubeletConfigOutputWithContext(context.Context) KubernetesClusterNodePoolKubeletConfigOutput
+}
+
+type KubernetesClusterNodePoolKubeletConfigArgs struct {
+	// Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
+	AllowedUnsafeSysctls pulumi.StringArrayInput `pulumi:"allowedUnsafeSysctls"`
+	// Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
+	ContainerLogMaxLine pulumi.IntPtrInput `pulumi:"containerLogMaxLine"`
+	// Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
+	ContainerLogMaxSizeMb pulumi.IntPtrInput `pulumi:"containerLogMaxSizeMb"`
+	// Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created.
+	CpuCfsQuotaEnabled pulumi.BoolPtrInput `pulumi:"cpuCfsQuotaEnabled"`
+	// Specifies the CPU CFS quota period value. Changing this forces a new resource to be created.
+	CpuCfsQuotaPeriod pulumi.StringPtrInput `pulumi:"cpuCfsQuotaPeriod"`
+	// Specifies the CPU Manager policy to use. Possible values are `none` and `static`, Changing this forces a new resource to be created.
+	CpuManagerPolicy pulumi.StringPtrInput `pulumi:"cpuManagerPolicy"`
+	// Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+	ImageGcHighThreshold pulumi.IntPtrInput `pulumi:"imageGcHighThreshold"`
+	// Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+	ImageGcLowThreshold pulumi.IntPtrInput `pulumi:"imageGcLowThreshold"`
+	PodMaxPid           pulumi.IntPtrInput `pulumi:"podMaxPid"`
+	// Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
+	TopologyManagerPolicy pulumi.StringPtrInput `pulumi:"topologyManagerPolicy"`
+}
+
+func (KubernetesClusterNodePoolKubeletConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterNodePoolKubeletConfig)(nil)).Elem()
+}
+
+func (i KubernetesClusterNodePoolKubeletConfigArgs) ToKubernetesClusterNodePoolKubeletConfigOutput() KubernetesClusterNodePoolKubeletConfigOutput {
+	return i.ToKubernetesClusterNodePoolKubeletConfigOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterNodePoolKubeletConfigArgs) ToKubernetesClusterNodePoolKubeletConfigOutputWithContext(ctx context.Context) KubernetesClusterNodePoolKubeletConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolKubeletConfigOutput)
+}
+
+func (i KubernetesClusterNodePoolKubeletConfigArgs) ToKubernetesClusterNodePoolKubeletConfigPtrOutput() KubernetesClusterNodePoolKubeletConfigPtrOutput {
+	return i.ToKubernetesClusterNodePoolKubeletConfigPtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterNodePoolKubeletConfigArgs) ToKubernetesClusterNodePoolKubeletConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolKubeletConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolKubeletConfigOutput).ToKubernetesClusterNodePoolKubeletConfigPtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterNodePoolKubeletConfigPtrInput is an input type that accepts KubernetesClusterNodePoolKubeletConfigArgs, KubernetesClusterNodePoolKubeletConfigPtr and KubernetesClusterNodePoolKubeletConfigPtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterNodePoolKubeletConfigPtrInput` via:
+//
+//          KubernetesClusterNodePoolKubeletConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type KubernetesClusterNodePoolKubeletConfigPtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterNodePoolKubeletConfigPtrOutput() KubernetesClusterNodePoolKubeletConfigPtrOutput
+	ToKubernetesClusterNodePoolKubeletConfigPtrOutputWithContext(context.Context) KubernetesClusterNodePoolKubeletConfigPtrOutput
+}
+
+type kubernetesClusterNodePoolKubeletConfigPtrType KubernetesClusterNodePoolKubeletConfigArgs
+
+func KubernetesClusterNodePoolKubeletConfigPtr(v *KubernetesClusterNodePoolKubeletConfigArgs) KubernetesClusterNodePoolKubeletConfigPtrInput {
+	return (*kubernetesClusterNodePoolKubeletConfigPtrType)(v)
+}
+
+func (*kubernetesClusterNodePoolKubeletConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterNodePoolKubeletConfig)(nil)).Elem()
+}
+
+func (i *kubernetesClusterNodePoolKubeletConfigPtrType) ToKubernetesClusterNodePoolKubeletConfigPtrOutput() KubernetesClusterNodePoolKubeletConfigPtrOutput {
+	return i.ToKubernetesClusterNodePoolKubeletConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterNodePoolKubeletConfigPtrType) ToKubernetesClusterNodePoolKubeletConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolKubeletConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolKubeletConfigPtrOutput)
+}
+
+type KubernetesClusterNodePoolKubeletConfigOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterNodePoolKubeletConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterNodePoolKubeletConfig)(nil)).Elem()
+}
+
+func (o KubernetesClusterNodePoolKubeletConfigOutput) ToKubernetesClusterNodePoolKubeletConfigOutput() KubernetesClusterNodePoolKubeletConfigOutput {
+	return o
+}
+
+func (o KubernetesClusterNodePoolKubeletConfigOutput) ToKubernetesClusterNodePoolKubeletConfigOutputWithContext(ctx context.Context) KubernetesClusterNodePoolKubeletConfigOutput {
+	return o
+}
+
+func (o KubernetesClusterNodePoolKubeletConfigOutput) ToKubernetesClusterNodePoolKubeletConfigPtrOutput() KubernetesClusterNodePoolKubeletConfigPtrOutput {
+	return o.ToKubernetesClusterNodePoolKubeletConfigPtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterNodePoolKubeletConfigOutput) ToKubernetesClusterNodePoolKubeletConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolKubeletConfigPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolKubeletConfig) *KubernetesClusterNodePoolKubeletConfig {
+		return &v
+	}).(KubernetesClusterNodePoolKubeletConfigPtrOutput)
+}
+
+// Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolKubeletConfigOutput) AllowedUnsafeSysctls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolKubeletConfig) []string { return v.AllowedUnsafeSysctls }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolKubeletConfigOutput) ContainerLogMaxLine() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolKubeletConfig) *int { return v.ContainerLogMaxLine }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolKubeletConfigOutput) ContainerLogMaxSizeMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolKubeletConfig) *int { return v.ContainerLogMaxSizeMb }).(pulumi.IntPtrOutput)
+}
+
+// Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolKubeletConfigOutput) CpuCfsQuotaEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolKubeletConfig) *bool { return v.CpuCfsQuotaEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the CPU CFS quota period value. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolKubeletConfigOutput) CpuCfsQuotaPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolKubeletConfig) *string { return v.CpuCfsQuotaPeriod }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the CPU Manager policy to use. Possible values are `none` and `static`, Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolKubeletConfigOutput) CpuManagerPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolKubeletConfig) *string { return v.CpuManagerPolicy }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolKubeletConfigOutput) ImageGcHighThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolKubeletConfig) *int { return v.ImageGcHighThreshold }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolKubeletConfigOutput) ImageGcLowThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolKubeletConfig) *int { return v.ImageGcLowThreshold }).(pulumi.IntPtrOutput)
+}
+
+func (o KubernetesClusterNodePoolKubeletConfigOutput) PodMaxPid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolKubeletConfig) *int { return v.PodMaxPid }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolKubeletConfigOutput) TopologyManagerPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolKubeletConfig) *string { return v.TopologyManagerPolicy }).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterNodePoolKubeletConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterNodePoolKubeletConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterNodePoolKubeletConfig)(nil)).Elem()
+}
+
+func (o KubernetesClusterNodePoolKubeletConfigPtrOutput) ToKubernetesClusterNodePoolKubeletConfigPtrOutput() KubernetesClusterNodePoolKubeletConfigPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterNodePoolKubeletConfigPtrOutput) ToKubernetesClusterNodePoolKubeletConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolKubeletConfigPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterNodePoolKubeletConfigPtrOutput) Elem() KubernetesClusterNodePoolKubeletConfigOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolKubeletConfig) KubernetesClusterNodePoolKubeletConfig { return *v }).(KubernetesClusterNodePoolKubeletConfigOutput)
+}
+
+// Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolKubeletConfigPtrOutput) AllowedUnsafeSysctls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolKubeletConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedUnsafeSysctls
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolKubeletConfigPtrOutput) ContainerLogMaxLine() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolKubeletConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerLogMaxLine
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolKubeletConfigPtrOutput) ContainerLogMaxSizeMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolKubeletConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerLogMaxSizeMb
+	}).(pulumi.IntPtrOutput)
+}
+
+// Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolKubeletConfigPtrOutput) CpuCfsQuotaEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolKubeletConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CpuCfsQuotaEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the CPU CFS quota period value. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolKubeletConfigPtrOutput) CpuCfsQuotaPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolKubeletConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CpuCfsQuotaPeriod
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the CPU Manager policy to use. Possible values are `none` and `static`, Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolKubeletConfigPtrOutput) CpuManagerPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolKubeletConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CpuManagerPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolKubeletConfigPtrOutput) ImageGcHighThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolKubeletConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ImageGcHighThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolKubeletConfigPtrOutput) ImageGcLowThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolKubeletConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ImageGcLowThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o KubernetesClusterNodePoolKubeletConfigPtrOutput) PodMaxPid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolKubeletConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PodMaxPid
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolKubeletConfigPtrOutput) TopologyManagerPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolKubeletConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TopologyManagerPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterNodePoolLinuxOsConfig struct {
+	// Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+	SwapFileSizeMb *int `pulumi:"swapFileSizeMb"`
+	// A `sysctlConfig` block as defined below. Changing this forces a new resource to be created.
+	SysctlConfig *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig `pulumi:"sysctlConfig"`
+	// specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
+	TransparentHugePageDefrag *string `pulumi:"transparentHugePageDefrag"`
+	// Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
+	TransparentHugePageEnabled *string `pulumi:"transparentHugePageEnabled"`
+}
+
+// KubernetesClusterNodePoolLinuxOsConfigInput is an input type that accepts KubernetesClusterNodePoolLinuxOsConfigArgs and KubernetesClusterNodePoolLinuxOsConfigOutput values.
+// You can construct a concrete instance of `KubernetesClusterNodePoolLinuxOsConfigInput` via:
+//
+//          KubernetesClusterNodePoolLinuxOsConfigArgs{...}
+type KubernetesClusterNodePoolLinuxOsConfigInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterNodePoolLinuxOsConfigOutput() KubernetesClusterNodePoolLinuxOsConfigOutput
+	ToKubernetesClusterNodePoolLinuxOsConfigOutputWithContext(context.Context) KubernetesClusterNodePoolLinuxOsConfigOutput
+}
+
+type KubernetesClusterNodePoolLinuxOsConfigArgs struct {
+	// Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+	SwapFileSizeMb pulumi.IntPtrInput `pulumi:"swapFileSizeMb"`
+	// A `sysctlConfig` block as defined below. Changing this forces a new resource to be created.
+	SysctlConfig KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrInput `pulumi:"sysctlConfig"`
+	// specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
+	TransparentHugePageDefrag pulumi.StringPtrInput `pulumi:"transparentHugePageDefrag"`
+	// Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
+	TransparentHugePageEnabled pulumi.StringPtrInput `pulumi:"transparentHugePageEnabled"`
+}
+
+func (KubernetesClusterNodePoolLinuxOsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterNodePoolLinuxOsConfig)(nil)).Elem()
+}
+
+func (i KubernetesClusterNodePoolLinuxOsConfigArgs) ToKubernetesClusterNodePoolLinuxOsConfigOutput() KubernetesClusterNodePoolLinuxOsConfigOutput {
+	return i.ToKubernetesClusterNodePoolLinuxOsConfigOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterNodePoolLinuxOsConfigArgs) ToKubernetesClusterNodePoolLinuxOsConfigOutputWithContext(ctx context.Context) KubernetesClusterNodePoolLinuxOsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolLinuxOsConfigOutput)
+}
+
+func (i KubernetesClusterNodePoolLinuxOsConfigArgs) ToKubernetesClusterNodePoolLinuxOsConfigPtrOutput() KubernetesClusterNodePoolLinuxOsConfigPtrOutput {
+	return i.ToKubernetesClusterNodePoolLinuxOsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterNodePoolLinuxOsConfigArgs) ToKubernetesClusterNodePoolLinuxOsConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolLinuxOsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolLinuxOsConfigOutput).ToKubernetesClusterNodePoolLinuxOsConfigPtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterNodePoolLinuxOsConfigPtrInput is an input type that accepts KubernetesClusterNodePoolLinuxOsConfigArgs, KubernetesClusterNodePoolLinuxOsConfigPtr and KubernetesClusterNodePoolLinuxOsConfigPtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterNodePoolLinuxOsConfigPtrInput` via:
+//
+//          KubernetesClusterNodePoolLinuxOsConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type KubernetesClusterNodePoolLinuxOsConfigPtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterNodePoolLinuxOsConfigPtrOutput() KubernetesClusterNodePoolLinuxOsConfigPtrOutput
+	ToKubernetesClusterNodePoolLinuxOsConfigPtrOutputWithContext(context.Context) KubernetesClusterNodePoolLinuxOsConfigPtrOutput
+}
+
+type kubernetesClusterNodePoolLinuxOsConfigPtrType KubernetesClusterNodePoolLinuxOsConfigArgs
+
+func KubernetesClusterNodePoolLinuxOsConfigPtr(v *KubernetesClusterNodePoolLinuxOsConfigArgs) KubernetesClusterNodePoolLinuxOsConfigPtrInput {
+	return (*kubernetesClusterNodePoolLinuxOsConfigPtrType)(v)
+}
+
+func (*kubernetesClusterNodePoolLinuxOsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterNodePoolLinuxOsConfig)(nil)).Elem()
+}
+
+func (i *kubernetesClusterNodePoolLinuxOsConfigPtrType) ToKubernetesClusterNodePoolLinuxOsConfigPtrOutput() KubernetesClusterNodePoolLinuxOsConfigPtrOutput {
+	return i.ToKubernetesClusterNodePoolLinuxOsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterNodePoolLinuxOsConfigPtrType) ToKubernetesClusterNodePoolLinuxOsConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolLinuxOsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolLinuxOsConfigPtrOutput)
+}
+
+type KubernetesClusterNodePoolLinuxOsConfigOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterNodePoolLinuxOsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterNodePoolLinuxOsConfig)(nil)).Elem()
+}
+
+func (o KubernetesClusterNodePoolLinuxOsConfigOutput) ToKubernetesClusterNodePoolLinuxOsConfigOutput() KubernetesClusterNodePoolLinuxOsConfigOutput {
+	return o
+}
+
+func (o KubernetesClusterNodePoolLinuxOsConfigOutput) ToKubernetesClusterNodePoolLinuxOsConfigOutputWithContext(ctx context.Context) KubernetesClusterNodePoolLinuxOsConfigOutput {
+	return o
+}
+
+func (o KubernetesClusterNodePoolLinuxOsConfigOutput) ToKubernetesClusterNodePoolLinuxOsConfigPtrOutput() KubernetesClusterNodePoolLinuxOsConfigPtrOutput {
+	return o.ToKubernetesClusterNodePoolLinuxOsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterNodePoolLinuxOsConfigOutput) ToKubernetesClusterNodePoolLinuxOsConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolLinuxOsConfigPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfig) *KubernetesClusterNodePoolLinuxOsConfig {
+		return &v
+	}).(KubernetesClusterNodePoolLinuxOsConfigPtrOutput)
+}
+
+// Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigOutput) SwapFileSizeMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfig) *int { return v.SwapFileSizeMb }).(pulumi.IntPtrOutput)
+}
+
+// A `sysctlConfig` block as defined below. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigOutput) SysctlConfig() KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfig) *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig {
+		return v.SysctlConfig
+	}).(KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput)
+}
+
+// specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigOutput) TransparentHugePageDefrag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfig) *string { return v.TransparentHugePageDefrag }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigOutput) TransparentHugePageEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfig) *string { return v.TransparentHugePageEnabled }).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterNodePoolLinuxOsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterNodePoolLinuxOsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterNodePoolLinuxOsConfig)(nil)).Elem()
+}
+
+func (o KubernetesClusterNodePoolLinuxOsConfigPtrOutput) ToKubernetesClusterNodePoolLinuxOsConfigPtrOutput() KubernetesClusterNodePoolLinuxOsConfigPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterNodePoolLinuxOsConfigPtrOutput) ToKubernetesClusterNodePoolLinuxOsConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolLinuxOsConfigPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterNodePoolLinuxOsConfigPtrOutput) Elem() KubernetesClusterNodePoolLinuxOsConfigOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfig) KubernetesClusterNodePoolLinuxOsConfig { return *v }).(KubernetesClusterNodePoolLinuxOsConfigOutput)
+}
+
+// Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigPtrOutput) SwapFileSizeMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SwapFileSizeMb
+	}).(pulumi.IntPtrOutput)
+}
+
+// A `sysctlConfig` block as defined below. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigPtrOutput) SysctlConfig() KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfig) *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig {
+		if v == nil {
+			return nil
+		}
+		return v.SysctlConfig
+	}).(KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput)
+}
+
+// specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigPtrOutput) TransparentHugePageDefrag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TransparentHugePageDefrag
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigPtrOutput) TransparentHugePageEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TransparentHugePageEnabled
+	}).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterNodePoolLinuxOsConfigSysctlConfig struct {
+	// The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`. Changing this forces a new resource to be created.
+	FsAioMaxNr *int `pulumi:"fsAioMaxNr"`
+	// The sysctl setting fs.file-max. Must be between `8192` and `12000500`. Changing this forces a new resource to be created.
+	FsFileMax *int `pulumi:"fsFileMax"`
+	// The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`. Changing this forces a new resource to be created.
+	FsInotifyMaxUserWatches *int `pulumi:"fsInotifyMaxUserWatches"`
+	// The sysctl setting fs.nr_open. Must be between `8192` and `20000500`. Changing this forces a new resource to be created.
+	FsNrOpen *int `pulumi:"fsNrOpen"`
+	// The sysctl setting kernel.threads-max. Must be between `20` and `513785`. Changing this forces a new resource to be created.
+	KernelThreadsMax *int `pulumi:"kernelThreadsMax"`
+	// The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`. Changing this forces a new resource to be created.
+	NetCoreNetdevMaxBacklog *int `pulumi:"netCoreNetdevMaxBacklog"`
+	// The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`. Changing this forces a new resource to be created.
+	NetCoreOptmemMax *int `pulumi:"netCoreOptmemMax"`
+	// The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+	NetCoreRmemDefault *int `pulumi:"netCoreRmemDefault"`
+	// The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+	NetCoreRmemMax *int `pulumi:"netCoreRmemMax"`
+	// The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`. Changing this forces a new resource to be created.
+	NetCoreSomaxconn *int `pulumi:"netCoreSomaxconn"`
+	// The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+	NetCoreWmemDefault *int `pulumi:"netCoreWmemDefault"`
+	// The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+	NetCoreWmemMax *int `pulumi:"netCoreWmemMax"`
+	// The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+	NetIpv4IpLocalPortRangeMax *int `pulumi:"netIpv4IpLocalPortRangeMax"`
+	// The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+	NetIpv4IpLocalPortRangeMin *int `pulumi:"netIpv4IpLocalPortRangeMin"`
+	// The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`. Changing this forces a new resource to be created.
+	NetIpv4NeighDefaultGcThresh1 *int `pulumi:"netIpv4NeighDefaultGcThresh1"`
+	// The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`. Changing this forces a new resource to be created.
+	NetIpv4NeighDefaultGcThresh2 *int `pulumi:"netIpv4NeighDefaultGcThresh2"`
+	// The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`. Changing this forces a new resource to be created.
+	NetIpv4NeighDefaultGcThresh3 *int `pulumi:"netIpv4NeighDefaultGcThresh3"`
+	// The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`. Changing this forces a new resource to be created.
+	NetIpv4TcpFinTimeout *int `pulumi:"netIpv4TcpFinTimeout"`
+	// The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+	NetIpv4TcpKeepaliveIntvl *int `pulumi:"netIpv4TcpKeepaliveIntvl"`
+	// The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`. Changing this forces a new resource to be created.
+	NetIpv4TcpKeepaliveProbes *int `pulumi:"netIpv4TcpKeepaliveProbes"`
+	// The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`. Changing this forces a new resource to be created.
+	NetIpv4TcpKeepaliveTime *int `pulumi:"netIpv4TcpKeepaliveTime"`
+	// The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`. Changing this forces a new resource to be created.
+	NetIpv4TcpMaxSynBacklog *int `pulumi:"netIpv4TcpMaxSynBacklog"`
+	// The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`. Changing this forces a new resource to be created.
+	NetIpv4TcpMaxTwBuckets *int `pulumi:"netIpv4TcpMaxTwBuckets"`
+	// Is sysctl setting net.ipv4.tcp_tw_reuse enabled? Changing this forces a new resource to be created.
+	NetIpv4TcpTwReuse *bool `pulumi:"netIpv4TcpTwReuse"`
+	// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+	NetNetfilterNfConntrackBuckets *int `pulumi:"netNetfilterNfConntrackBuckets"`
+	// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `589824`. Changing this forces a new resource to be created.
+	NetNetfilterNfConntrackMax *int `pulumi:"netNetfilterNfConntrackMax"`
+	// The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
+	VmMaxMapCount *int `pulumi:"vmMaxMapCount"`
+	// The sysctl setting vm.swappiness. Must be between `0` and `100`. Changing this forces a new resource to be created.
+	VmSwappiness *int `pulumi:"vmSwappiness"`
+	// The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
+	VmVfsCachePressure *int `pulumi:"vmVfsCachePressure"`
+}
+
+// KubernetesClusterNodePoolLinuxOsConfigSysctlConfigInput is an input type that accepts KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs and KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput values.
+// You can construct a concrete instance of `KubernetesClusterNodePoolLinuxOsConfigSysctlConfigInput` via:
+//
+//          KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs{...}
+type KubernetesClusterNodePoolLinuxOsConfigSysctlConfigInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput() KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput
+	ToKubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutputWithContext(context.Context) KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput
+}
+
+type KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs struct {
+	// The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`. Changing this forces a new resource to be created.
+	FsAioMaxNr pulumi.IntPtrInput `pulumi:"fsAioMaxNr"`
+	// The sysctl setting fs.file-max. Must be between `8192` and `12000500`. Changing this forces a new resource to be created.
+	FsFileMax pulumi.IntPtrInput `pulumi:"fsFileMax"`
+	// The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`. Changing this forces a new resource to be created.
+	FsInotifyMaxUserWatches pulumi.IntPtrInput `pulumi:"fsInotifyMaxUserWatches"`
+	// The sysctl setting fs.nr_open. Must be between `8192` and `20000500`. Changing this forces a new resource to be created.
+	FsNrOpen pulumi.IntPtrInput `pulumi:"fsNrOpen"`
+	// The sysctl setting kernel.threads-max. Must be between `20` and `513785`. Changing this forces a new resource to be created.
+	KernelThreadsMax pulumi.IntPtrInput `pulumi:"kernelThreadsMax"`
+	// The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`. Changing this forces a new resource to be created.
+	NetCoreNetdevMaxBacklog pulumi.IntPtrInput `pulumi:"netCoreNetdevMaxBacklog"`
+	// The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`. Changing this forces a new resource to be created.
+	NetCoreOptmemMax pulumi.IntPtrInput `pulumi:"netCoreOptmemMax"`
+	// The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+	NetCoreRmemDefault pulumi.IntPtrInput `pulumi:"netCoreRmemDefault"`
+	// The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+	NetCoreRmemMax pulumi.IntPtrInput `pulumi:"netCoreRmemMax"`
+	// The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`. Changing this forces a new resource to be created.
+	NetCoreSomaxconn pulumi.IntPtrInput `pulumi:"netCoreSomaxconn"`
+	// The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+	NetCoreWmemDefault pulumi.IntPtrInput `pulumi:"netCoreWmemDefault"`
+	// The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+	NetCoreWmemMax pulumi.IntPtrInput `pulumi:"netCoreWmemMax"`
+	// The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+	NetIpv4IpLocalPortRangeMax pulumi.IntPtrInput `pulumi:"netIpv4IpLocalPortRangeMax"`
+	// The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+	NetIpv4IpLocalPortRangeMin pulumi.IntPtrInput `pulumi:"netIpv4IpLocalPortRangeMin"`
+	// The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`. Changing this forces a new resource to be created.
+	NetIpv4NeighDefaultGcThresh1 pulumi.IntPtrInput `pulumi:"netIpv4NeighDefaultGcThresh1"`
+	// The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`. Changing this forces a new resource to be created.
+	NetIpv4NeighDefaultGcThresh2 pulumi.IntPtrInput `pulumi:"netIpv4NeighDefaultGcThresh2"`
+	// The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`. Changing this forces a new resource to be created.
+	NetIpv4NeighDefaultGcThresh3 pulumi.IntPtrInput `pulumi:"netIpv4NeighDefaultGcThresh3"`
+	// The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`. Changing this forces a new resource to be created.
+	NetIpv4TcpFinTimeout pulumi.IntPtrInput `pulumi:"netIpv4TcpFinTimeout"`
+	// The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+	NetIpv4TcpKeepaliveIntvl pulumi.IntPtrInput `pulumi:"netIpv4TcpKeepaliveIntvl"`
+	// The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`. Changing this forces a new resource to be created.
+	NetIpv4TcpKeepaliveProbes pulumi.IntPtrInput `pulumi:"netIpv4TcpKeepaliveProbes"`
+	// The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`. Changing this forces a new resource to be created.
+	NetIpv4TcpKeepaliveTime pulumi.IntPtrInput `pulumi:"netIpv4TcpKeepaliveTime"`
+	// The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`. Changing this forces a new resource to be created.
+	NetIpv4TcpMaxSynBacklog pulumi.IntPtrInput `pulumi:"netIpv4TcpMaxSynBacklog"`
+	// The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`. Changing this forces a new resource to be created.
+	NetIpv4TcpMaxTwBuckets pulumi.IntPtrInput `pulumi:"netIpv4TcpMaxTwBuckets"`
+	// Is sysctl setting net.ipv4.tcp_tw_reuse enabled? Changing this forces a new resource to be created.
+	NetIpv4TcpTwReuse pulumi.BoolPtrInput `pulumi:"netIpv4TcpTwReuse"`
+	// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+	NetNetfilterNfConntrackBuckets pulumi.IntPtrInput `pulumi:"netNetfilterNfConntrackBuckets"`
+	// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `589824`. Changing this forces a new resource to be created.
+	NetNetfilterNfConntrackMax pulumi.IntPtrInput `pulumi:"netNetfilterNfConntrackMax"`
+	// The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
+	VmMaxMapCount pulumi.IntPtrInput `pulumi:"vmMaxMapCount"`
+	// The sysctl setting vm.swappiness. Must be between `0` and `100`. Changing this forces a new resource to be created.
+	VmSwappiness pulumi.IntPtrInput `pulumi:"vmSwappiness"`
+	// The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
+	VmVfsCachePressure pulumi.IntPtrInput `pulumi:"vmVfsCachePressure"`
+}
+
+func (KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterNodePoolLinuxOsConfigSysctlConfig)(nil)).Elem()
+}
+
+func (i KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs) ToKubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput() KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput {
+	return i.ToKubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs) ToKubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutputWithContext(ctx context.Context) KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput)
+}
+
+func (i KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs) ToKubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput() KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput {
+	return i.ToKubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs) ToKubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput).ToKubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrInput is an input type that accepts KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs, KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtr and KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrInput` via:
+//
+//          KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput() KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput
+	ToKubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutputWithContext(context.Context) KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput
+}
+
+type kubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrType KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs
+
+func KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtr(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs) KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrInput {
+	return (*kubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrType)(v)
+}
+
+func (*kubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterNodePoolLinuxOsConfigSysctlConfig)(nil)).Elem()
+}
+
+func (i *kubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrType) ToKubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput() KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput {
+	return i.ToKubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrType) ToKubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput)
+}
+
+type KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterNodePoolLinuxOsConfigSysctlConfig)(nil)).Elem()
+}
+
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) ToKubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput() KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput {
+	return o
+}
+
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) ToKubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutputWithContext(ctx context.Context) KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput {
+	return o
+}
+
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) ToKubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput() KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput {
+	return o.ToKubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) ToKubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig {
+		return &v
+	}).(KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput)
+}
+
+// The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) FsAioMaxNr() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.FsAioMaxNr }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting fs.file-max. Must be between `8192` and `12000500`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) FsFileMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.FsFileMax }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) FsInotifyMaxUserWatches() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.FsInotifyMaxUserWatches }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting fs.nr_open. Must be between `8192` and `20000500`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) FsNrOpen() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.FsNrOpen }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting kernel.threads-max. Must be between `20` and `513785`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) KernelThreadsMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.KernelThreadsMax }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) NetCoreNetdevMaxBacklog() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetCoreNetdevMaxBacklog }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) NetCoreOptmemMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetCoreOptmemMax }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) NetCoreRmemDefault() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetCoreRmemDefault }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) NetCoreRmemMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetCoreRmemMax }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) NetCoreSomaxconn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetCoreSomaxconn }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) NetCoreWmemDefault() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetCoreWmemDefault }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) NetCoreWmemMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetCoreWmemMax }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4IpLocalPortRangeMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetIpv4IpLocalPortRangeMax }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4IpLocalPortRangeMin() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetIpv4IpLocalPortRangeMin }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4NeighDefaultGcThresh1() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetIpv4NeighDefaultGcThresh1 }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4NeighDefaultGcThresh2() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetIpv4NeighDefaultGcThresh2 }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4NeighDefaultGcThresh3() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetIpv4NeighDefaultGcThresh3 }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4TcpFinTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetIpv4TcpFinTimeout }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4TcpKeepaliveIntvl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetIpv4TcpKeepaliveIntvl }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4TcpKeepaliveProbes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetIpv4TcpKeepaliveProbes }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4TcpKeepaliveTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetIpv4TcpKeepaliveTime }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4TcpMaxSynBacklog() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetIpv4TcpMaxSynBacklog }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4TcpMaxTwBuckets() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetIpv4TcpMaxTwBuckets }).(pulumi.IntPtrOutput)
+}
+
+// Is sysctl setting net.ipv4.tcp_tw_reuse enabled? Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) NetIpv4TcpTwReuse() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *bool { return v.NetIpv4TcpTwReuse }).(pulumi.BoolPtrOutput)
+}
+
+// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) NetNetfilterNfConntrackBuckets() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
+		return v.NetNetfilterNfConntrackBuckets
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `589824`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) NetNetfilterNfConntrackMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.NetNetfilterNfConntrackMax }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) VmMaxMapCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.VmMaxMapCount }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting vm.swappiness. Must be between `0` and `100`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) VmSwappiness() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.VmSwappiness }).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput) VmVfsCachePressure() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int { return v.VmVfsCachePressure }).(pulumi.IntPtrOutput)
+}
+
+type KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterNodePoolLinuxOsConfigSysctlConfig)(nil)).Elem()
+}
+
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) ToKubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput() KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) ToKubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutputWithContext(ctx context.Context) KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) Elem() KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) KubernetesClusterNodePoolLinuxOsConfigSysctlConfig {
+		return *v
+	}).(KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput)
+}
+
+// The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) FsAioMaxNr() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FsAioMaxNr
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting fs.file-max. Must be between `8192` and `12000500`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) FsFileMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FsFileMax
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) FsInotifyMaxUserWatches() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FsInotifyMaxUserWatches
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting fs.nr_open. Must be between `8192` and `20000500`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) FsNrOpen() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FsNrOpen
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting kernel.threads-max. Must be between `20` and `513785`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) KernelThreadsMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.KernelThreadsMax
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetCoreNetdevMaxBacklog() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetCoreNetdevMaxBacklog
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetCoreOptmemMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetCoreOptmemMax
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetCoreRmemDefault() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetCoreRmemDefault
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetCoreRmemMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetCoreRmemMax
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetCoreSomaxconn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetCoreSomaxconn
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetCoreWmemDefault() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetCoreWmemDefault
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetCoreWmemMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetCoreWmemMax
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetIpv4IpLocalPortRangeMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4IpLocalPortRangeMax
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetIpv4IpLocalPortRangeMin() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4IpLocalPortRangeMin
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetIpv4NeighDefaultGcThresh1() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4NeighDefaultGcThresh1
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetIpv4NeighDefaultGcThresh2() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4NeighDefaultGcThresh2
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetIpv4NeighDefaultGcThresh3() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4NeighDefaultGcThresh3
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetIpv4TcpFinTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4TcpFinTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetIpv4TcpKeepaliveIntvl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4TcpKeepaliveIntvl
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetIpv4TcpKeepaliveProbes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4TcpKeepaliveProbes
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetIpv4TcpKeepaliveTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4TcpKeepaliveTime
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetIpv4TcpMaxSynBacklog() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4TcpMaxSynBacklog
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetIpv4TcpMaxTwBuckets() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4TcpMaxTwBuckets
+	}).(pulumi.IntPtrOutput)
+}
+
+// Is sysctl setting net.ipv4.tcp_tw_reuse enabled? Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetIpv4TcpTwReuse() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NetIpv4TcpTwReuse
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetNetfilterNfConntrackBuckets() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetNetfilterNfConntrackBuckets
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `589824`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) NetNetfilterNfConntrackMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NetNetfilterNfConntrackMax
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) VmMaxMapCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VmMaxMapCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting vm.swappiness. Must be between `0` and `100`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) VmSwappiness() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VmSwappiness
+	}).(pulumi.IntPtrOutput)
+}
+
+// The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) VmVfsCachePressure() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfigSysctlConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VmVfsCachePressure
+	}).(pulumi.IntPtrOutput)
+}
+
 type KubernetesClusterNodePoolUpgradeSettings struct {
 	// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
 	MaxSurge string `pulumi:"maxSurge"`
@@ -7352,6 +9738,8 @@ type RegistryGeoreplication struct {
 	Location string `pulumi:"location"`
 	// A mapping of tags to assign to this replication location.
 	Tags map[string]string `pulumi:"tags"`
+	// Whether zone redundancy is enabled for this replication location? Defaults to `false`.
+	ZoneRedundancyEnabled *bool `pulumi:"zoneRedundancyEnabled"`
 }
 
 // RegistryGeoreplicationInput is an input type that accepts RegistryGeoreplicationArgs and RegistryGeoreplicationOutput values.
@@ -7370,6 +9758,8 @@ type RegistryGeoreplicationArgs struct {
 	Location pulumi.StringInput `pulumi:"location"`
 	// A mapping of tags to assign to this replication location.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Whether zone redundancy is enabled for this replication location? Defaults to `false`.
+	ZoneRedundancyEnabled pulumi.BoolPtrInput `pulumi:"zoneRedundancyEnabled"`
 }
 
 func (RegistryGeoreplicationArgs) ElementType() reflect.Type {
@@ -7431,6 +9821,11 @@ func (o RegistryGeoreplicationOutput) Location() pulumi.StringOutput {
 // A mapping of tags to assign to this replication location.
 func (o RegistryGeoreplicationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v RegistryGeoreplication) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Whether zone redundancy is enabled for this replication location? Defaults to `false`.
+func (o RegistryGeoreplicationOutput) ZoneRedundancyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RegistryGeoreplication) *bool { return v.ZoneRedundancyEnabled }).(pulumi.BoolPtrOutput)
 }
 
 type RegistryGeoreplicationArrayOutput struct{ *pulumi.OutputState }
@@ -11037,6 +13432,12 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterAutoScalerProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolKubeletConfigOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolLinuxOsConfigOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolUpgradeSettingsOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterIdentityOutput{})
@@ -11055,6 +13456,12 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterNetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNetworkProfileLoadBalancerProfileOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterNodePoolKubeletConfigOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterNodePoolKubeletConfigPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterNodePoolLinuxOsConfigOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterNodePoolLinuxOsConfigPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterNodePoolLinuxOsConfigSysctlConfigOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNodePoolUpgradeSettingsOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNodePoolUpgradeSettingsPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterRoleBasedAccessControlOutput{})

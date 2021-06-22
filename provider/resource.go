@@ -356,6 +356,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_api_management_policy":                      {Tok: azureResource(azureAPIManagement, "Policy")},
 			"azurerm_api_management_identity_provider_aadb2c":    {Tok: azureResource(azureAPIManagement, "IdentityProviderAadb2c")},
 			"azurerm_api_management_email_template":              {Tok: azureResource(azureAPIManagement, "EmailTemplate")},
+			"azurerm_api_management_redis_cache":                 {Tok: azureResource(azureAPIManagement, "RedisCache")},
 
 			// Analysis Services
 			"azurerm_analysis_services_server": {Tok: azureResource(azureAnalysisServices, "Server")},
@@ -787,6 +788,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_factory_dataset_snowflake":               {Tok: azureResource(azureDataFactory, "DatasetSnowflake")},
 			"azurerm_data_factory_linked_service_azure_search":     {Tok: azureResource(azureDataFactory, "LinkedServiceAzureSearch")},
 			"azurerm_data_factory_linked_service_kusto":            {Tok: azureResource(azureDataFactory, "LinkedServiceKusto")},
+			"azurerm_data_factory_linked_service_odata":            {Tok: azureResource(azureDataFactory, "LinkedServiceOdata")},
 
 			// Data Lake
 			"azurerm_data_lake_analytics_account":          {Tok: azureResource(azureDatalake, "AnalyticsAccount")},
@@ -797,7 +799,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_lake_store_virtual_network_rule": {Tok: azureResource(azureDatalake, "StoreVirtualNetworkRule")},
 
 			// Data Protection
-			"azurerm_data_protection_backup_vault": {Tok: azureResource(azureDataProtection, "BackupVault")},
+			"azurerm_data_protection_backup_vault":             {Tok: azureResource(azureDataProtection, "BackupVault")},
+			"azurerm_data_protection_backup_policy_postgresql": {Tok: azureResource(azureDataProtection, "BackupPolicyPostgresql")},
 
 			// DataShare
 			"azurerm_data_share_account": {Tok: azureResource(azureDataShare, "Account")},
@@ -866,7 +869,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_eventhub_namespace_disaster_recovery_config": {
 				Tok: azureResource(azureEventHub, "EventhubNamespaceDisasterRecoveryConfig"),
 			},
-			"azurerm_eventhub_cluster": {Tok: azureResource(azureEventHub, "Cluster")},
+			"azurerm_eventhub_cluster":                        {Tok: azureResource(azureEventHub, "Cluster")},
+			"azurerm_eventhub_namespace_customer_managed_key": {Tok: azureResource(azureEventHub, "NamespaceCustomerManagedKey")},
 
 			// Eventgrid
 			"azurerm_eventgrid_system_topic_event_subscription": {Tok: azureResource(azureEventGrid, "SystemTopicEventSubscription")},
@@ -1722,6 +1726,7 @@ func Provider() tfbridge.ProviderInfo {
 			// Machine Learning
 			"azurerm_machine_learning_workspace":         {Tok: azureResource(azureMachineLearning, "Workspace")},
 			"azurerm_machine_learning_inference_cluster": {Tok: azureResource(azureMachineLearning, "InferenceCluster")},
+			"azurerm_machine_learning_compute_cluster":   {Tok: azureResource(azureMachineLearning, "ComputeCluster")},
 
 			// Managed Applications
 			"azurerm_managed_application":            {Tok: azureResource(azureManagedApplication, "Application")},
@@ -1809,8 +1814,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_virtual_desktop_workspace_application_group_association": {
 				Tok: azureResource(azureDesktopVirtualization, "WorkspaceApplicationGroupAssociation"),
 			},
-			"azurerm_virtual_desktop_host_pool": {Tok: azureResource(azureDesktopVirtualization, "HostPool")},
-			"azurerm_virtual_desktop_workspace": {Tok: azureResource(azureDesktopVirtualization, "Workspace")},
+			"azurerm_virtual_desktop_host_pool":   {Tok: azureResource(azureDesktopVirtualization, "HostPool")},
+			"azurerm_virtual_desktop_workspace":   {Tok: azureResource(azureDesktopVirtualization, "Workspace")},
+			"azurerm_virtual_desktop_application": {Tok: azureResource(azureDesktopVirtualization, "Application")},
 
 			// DigitalTwins
 			"azurerm_digital_twins_instance":            {Tok: azureResource(azureDigitalTwins, "Instance")},
@@ -1965,6 +1971,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_key_vault_managed_hardware_security_module": {
 				Tok: azureDataSource(azureKeyVault, "getManagedHardwareSecurityModule"),
 			},
+			"azurerm_key_vault_secrets": {Tok: azureDataSource(azureKeyVault, "getSecrets")},
 			"azurerm_kubernetes_cluster": {
 				Tok: azureDataSource(azureContainerService, "getKubernetesCluster"),
 			},
@@ -2228,8 +2235,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		CSharp: &tfbridge.CSharpInfo{
 			PackageReferences: map[string]string{
-				"Pulumi":                       "3.*",
-				"System.Collections.Immutable": "1.6.0",
+				"Pulumi": "3.*",
 			},
 			Overlay: &tfbridge.OverlayInfo{
 				Modules: map[string]*tfbridge.OverlayInfo{

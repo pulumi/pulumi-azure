@@ -54,6 +54,18 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         [Input("indexingMode")]
         public Input<string>? IndexingMode { get; set; }
 
+        [Input("spatialIndices")]
+        private InputList<Inputs.SqlContainerIndexingPolicySpatialIndexGetArgs>? _spatialIndices;
+
+        /// <summary>
+        /// One or more `spatial_index` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.SqlContainerIndexingPolicySpatialIndexGetArgs> SpatialIndices
+        {
+            get => _spatialIndices ?? (_spatialIndices = new InputList<Inputs.SqlContainerIndexingPolicySpatialIndexGetArgs>());
+            set => _spatialIndices = value;
+        }
+
         public SqlContainerIndexingPolicyGetArgs()
         {
         }

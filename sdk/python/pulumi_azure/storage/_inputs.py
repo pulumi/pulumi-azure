@@ -26,6 +26,10 @@ __all__ = [
     'AccountQueuePropertiesLoggingArgs',
     'AccountQueuePropertiesMinuteMetricsArgs',
     'AccountRoutingArgs',
+    'AccountSharePropertiesArgs',
+    'AccountSharePropertiesCorsRuleArgs',
+    'AccountSharePropertiesRetentionPolicyArgs',
+    'AccountSharePropertiesSmbArgs',
     'AccountStaticWebsiteArgs',
     'BlobInventoryPolicyRuleArgs',
     'BlobInventoryPolicyRuleFilterArgs',
@@ -1134,6 +1138,239 @@ class AccountRoutingArgs:
     @publish_microsoft_endpoints.setter
     def publish_microsoft_endpoints(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "publish_microsoft_endpoints", value)
+
+
+@pulumi.input_type
+class AccountSharePropertiesArgs:
+    def __init__(__self__, *,
+                 cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountSharePropertiesCorsRuleArgs']]]] = None,
+                 retention_policy: Optional[pulumi.Input['AccountSharePropertiesRetentionPolicyArgs']] = None,
+                 smb: Optional[pulumi.Input['AccountSharePropertiesSmbArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AccountSharePropertiesCorsRuleArgs']]] cors_rules: A `cors_rule` block as defined below.
+        :param pulumi.Input['AccountSharePropertiesRetentionPolicyArgs'] retention_policy: (Optional) A `retention_policy` block as defined below.
+        :param pulumi.Input['AccountSharePropertiesSmbArgs'] smb: (Optional) A `smb` block as defined below.
+        """
+        if cors_rules is not None:
+            pulumi.set(__self__, "cors_rules", cors_rules)
+        if retention_policy is not None:
+            pulumi.set(__self__, "retention_policy", retention_policy)
+        if smb is not None:
+            pulumi.set(__self__, "smb", smb)
+
+    @property
+    @pulumi.getter(name="corsRules")
+    def cors_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountSharePropertiesCorsRuleArgs']]]]:
+        """
+        A `cors_rule` block as defined below.
+        """
+        return pulumi.get(self, "cors_rules")
+
+    @cors_rules.setter
+    def cors_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountSharePropertiesCorsRuleArgs']]]]):
+        pulumi.set(self, "cors_rules", value)
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> Optional[pulumi.Input['AccountSharePropertiesRetentionPolicyArgs']]:
+        """
+        (Optional) A `retention_policy` block as defined below.
+        """
+        return pulumi.get(self, "retention_policy")
+
+    @retention_policy.setter
+    def retention_policy(self, value: Optional[pulumi.Input['AccountSharePropertiesRetentionPolicyArgs']]):
+        pulumi.set(self, "retention_policy", value)
+
+    @property
+    @pulumi.getter
+    def smb(self) -> Optional[pulumi.Input['AccountSharePropertiesSmbArgs']]:
+        """
+        (Optional) A `smb` block as defined below.
+        """
+        return pulumi.get(self, "smb")
+
+    @smb.setter
+    def smb(self, value: Optional[pulumi.Input['AccountSharePropertiesSmbArgs']]):
+        pulumi.set(self, "smb", value)
+
+
+@pulumi.input_type
+class AccountSharePropertiesCorsRuleArgs:
+    def __init__(__self__, *,
+                 allowed_headers: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 allowed_methods: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 exposed_headers: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 max_age_in_seconds: pulumi.Input[int]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_headers: A list of headers that are allowed to be a part of the cross-origin request.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_methods: A list of http headers that are allowed to be executed by the origin. Valid options are
+               `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: A list of origin domains that will be allowed by CORS.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exposed_headers: A list of response headers that are exposed to CORS clients.
+        :param pulumi.Input[int] max_age_in_seconds: The number of seconds the client should cache a preflight response.
+        """
+        pulumi.set(__self__, "allowed_headers", allowed_headers)
+        pulumi.set(__self__, "allowed_methods", allowed_methods)
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        pulumi.set(__self__, "exposed_headers", exposed_headers)
+        pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
+
+    @property
+    @pulumi.getter(name="allowedHeaders")
+    def allowed_headers(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of headers that are allowed to be a part of the cross-origin request.
+        """
+        return pulumi.get(self, "allowed_headers")
+
+    @allowed_headers.setter
+    def allowed_headers(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "allowed_headers", value)
+
+    @property
+    @pulumi.getter(name="allowedMethods")
+    def allowed_methods(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of http headers that are allowed to be executed by the origin. Valid options are
+        `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+        """
+        return pulumi.get(self, "allowed_methods")
+
+    @allowed_methods.setter
+    def allowed_methods(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "allowed_methods", value)
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of origin domains that will be allowed by CORS.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @allowed_origins.setter
+    def allowed_origins(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "allowed_origins", value)
+
+    @property
+    @pulumi.getter(name="exposedHeaders")
+    def exposed_headers(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of response headers that are exposed to CORS clients.
+        """
+        return pulumi.get(self, "exposed_headers")
+
+    @exposed_headers.setter
+    def exposed_headers(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "exposed_headers", value)
+
+    @property
+    @pulumi.getter(name="maxAgeInSeconds")
+    def max_age_in_seconds(self) -> pulumi.Input[int]:
+        """
+        The number of seconds the client should cache a preflight response.
+        """
+        return pulumi.get(self, "max_age_in_seconds")
+
+    @max_age_in_seconds.setter
+    def max_age_in_seconds(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_age_in_seconds", value)
+
+
+@pulumi.input_type
+class AccountSharePropertiesRetentionPolicyArgs:
+    def __init__(__self__, *,
+                 days: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] days: Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
+        """
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+
+    @property
+    @pulumi.getter
+    def days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
+        """
+        return pulumi.get(self, "days")
+
+    @days.setter
+    def days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "days", value)
+
+
+@pulumi.input_type
+class AccountSharePropertiesSmbArgs:
+    def __init__(__self__, *,
+                 authentication_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 channel_encryption_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 kerberos_ticket_encryption_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] authentication_types: (Optional) A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] channel_encryption_types: (Optional) A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] kerberos_ticket_encryption_types: (Optional) A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] versions: (Optional) A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
+        """
+        if authentication_types is not None:
+            pulumi.set(__self__, "authentication_types", authentication_types)
+        if channel_encryption_types is not None:
+            pulumi.set(__self__, "channel_encryption_types", channel_encryption_types)
+        if kerberos_ticket_encryption_types is not None:
+            pulumi.set(__self__, "kerberos_ticket_encryption_types", kerberos_ticket_encryption_types)
+        if versions is not None:
+            pulumi.set(__self__, "versions", versions)
+
+    @property
+    @pulumi.getter(name="authenticationTypes")
+    def authentication_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        (Optional) A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
+        """
+        return pulumi.get(self, "authentication_types")
+
+    @authentication_types.setter
+    def authentication_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "authentication_types", value)
+
+    @property
+    @pulumi.getter(name="channelEncryptionTypes")
+    def channel_encryption_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        (Optional) A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
+        """
+        return pulumi.get(self, "channel_encryption_types")
+
+    @channel_encryption_types.setter
+    def channel_encryption_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "channel_encryption_types", value)
+
+    @property
+    @pulumi.getter(name="kerberosTicketEncryptionTypes")
+    def kerberos_ticket_encryption_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        (Optional) A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
+        """
+        return pulumi.get(self, "kerberos_ticket_encryption_types")
+
+    @kerberos_ticket_encryption_types.setter
+    def kerberos_ticket_encryption_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "kerberos_ticket_encryption_types", value)
+
+    @property
+    @pulumi.getter
+    def versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        (Optional) A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
+        """
+        return pulumi.get(self, "versions")
+
+    @versions.setter
+    def versions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "versions", value)
 
 
 @pulumi.input_type

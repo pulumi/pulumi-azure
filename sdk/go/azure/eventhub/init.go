@@ -49,6 +49,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Namespace{}
 	case "azure:eventhub/namespaceAuthorizationRule:NamespaceAuthorizationRule":
 		r = &NamespaceAuthorizationRule{}
+	case "azure:eventhub/namespaceCustomerManagedKey:NamespaceCustomerManagedKey":
+		r = &NamespaceCustomerManagedKey{}
 	case "azure:eventhub/queue:Queue":
 		r = &Queue{}
 	case "azure:eventhub/queueAuthorizationRule:QueueAuthorizationRule":
@@ -142,6 +144,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"eventhub/namespaceAuthorizationRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"eventhub/namespaceCustomerManagedKey",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -78,6 +78,10 @@ export interface GetJobResult {
      */
     readonly id: string;
     /**
+     * (Optional) An `identity` block as defined below.
+     */
+    readonly identities: outputs.streamanalytics.GetJobIdentity[];
+    /**
      * The Job ID assigned by the Stream Analytics Job.
      */
     readonly jobId: string;

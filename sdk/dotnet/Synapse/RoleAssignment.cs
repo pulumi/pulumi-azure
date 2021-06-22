@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Synapse
 {
     /// <summary>
-    /// Allows you to Manages a Synapse Role Assignment.
+    /// Manages a Synapse Role Assignment.
     /// 
     /// ## Example Usage
     /// 
@@ -57,7 +57,7 @@ namespace Pulumi.Azure.Synapse
     ///         var exampleRoleAssignment = new Azure.Synapse.RoleAssignment("exampleRoleAssignment", new Azure.Synapse.RoleAssignmentArgs
     ///         {
     ///             SynapseWorkspaceId = exampleWorkspace.Id,
-    ///             RoleName = "Sql Admin",
+    ///             RoleName = "Synapse SQL Administrator",
     ///             PrincipalId = current.Apply(current =&gt; current.ObjectId),
     ///         }, new CustomResourceOptions
     ///         {
@@ -95,10 +95,16 @@ namespace Pulumi.Azure.Synapse
         public Output<string> RoleName { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Synapse Workspace on which to create the Role Assignment. Changing this forces a new resource to be created.
+        /// The Synapse Spark Pool which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("synapseSparkPoolId")]
+        public Output<string?> SynapseSparkPoolId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Synapse Workspace which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
         /// </summary>
         [Output("synapseWorkspaceId")]
-        public Output<string> SynapseWorkspaceId { get; private set; } = null!;
+        public Output<string?> SynapseWorkspaceId { get; private set; } = null!;
 
 
         /// <summary>
@@ -159,10 +165,16 @@ namespace Pulumi.Azure.Synapse
         public Input<string> RoleName { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Synapse Workspace on which to create the Role Assignment. Changing this forces a new resource to be created.
+        /// The Synapse Spark Pool which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("synapseWorkspaceId", required: true)]
-        public Input<string> SynapseWorkspaceId { get; set; } = null!;
+        [Input("synapseSparkPoolId")]
+        public Input<string>? SynapseSparkPoolId { get; set; }
+
+        /// <summary>
+        /// The Synapse Workspace which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("synapseWorkspaceId")]
+        public Input<string>? SynapseWorkspaceId { get; set; }
 
         public RoleAssignmentArgs()
         {
@@ -184,7 +196,13 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? RoleName { get; set; }
 
         /// <summary>
-        /// The ID of the Synapse Workspace on which to create the Role Assignment. Changing this forces a new resource to be created.
+        /// The Synapse Spark Pool which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("synapseSparkPoolId")]
+        public Input<string>? SynapseSparkPoolId { get; set; }
+
+        /// <summary>
+        /// The Synapse Workspace which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
         /// </summary>
         [Input("synapseWorkspaceId")]
         public Input<string>? SynapseWorkspaceId { get; set; }

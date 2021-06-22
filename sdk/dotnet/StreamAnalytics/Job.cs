@@ -93,6 +93,12 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string?> EventsOutOfOrderPolicy { get; private set; } = null!;
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.JobIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// The Job ID assigned by the Stream Analytics Job.
         /// </summary>
         [Output("jobId")]
@@ -217,6 +223,12 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? EventsOutOfOrderPolicy { get; set; }
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.JobIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -300,6 +312,12 @@ namespace Pulumi.Azure.StreamAnalytics
         /// </summary>
         [Input("eventsOutOfOrderPolicy")]
         public Input<string>? EventsOutOfOrderPolicy { get; set; }
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.JobIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// The Job ID assigned by the Stream Analytics Job.

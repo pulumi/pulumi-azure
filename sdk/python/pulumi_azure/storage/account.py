@@ -35,6 +35,7 @@ class AccountArgs:
                  nfsv3_enabled: Optional[pulumi.Input[bool]] = None,
                  queue_properties: Optional[pulumi.Input['AccountQueuePropertiesArgs']] = None,
                  routing: Optional[pulumi.Input['AccountRoutingArgs']] = None,
+                 share_properties: Optional[pulumi.Input['AccountSharePropertiesArgs']] = None,
                  static_website: Optional[pulumi.Input['AccountStaticWebsiteArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -100,6 +101,8 @@ class AccountArgs:
             pulumi.set(__self__, "queue_properties", queue_properties)
         if routing is not None:
             pulumi.set(__self__, "routing", routing)
+        if share_properties is not None:
+            pulumi.set(__self__, "share_properties", share_properties)
         if static_website is not None:
             pulumi.set(__self__, "static_website", static_website)
         if tags is not None:
@@ -347,6 +350,15 @@ class AccountArgs:
         pulumi.set(self, "routing", value)
 
     @property
+    @pulumi.getter(name="shareProperties")
+    def share_properties(self) -> Optional[pulumi.Input['AccountSharePropertiesArgs']]:
+        return pulumi.get(self, "share_properties")
+
+    @share_properties.setter
+    def share_properties(self, value: Optional[pulumi.Input['AccountSharePropertiesArgs']]):
+        pulumi.set(self, "share_properties", value)
+
+    @property
     @pulumi.getter(name="staticWebsite")
     def static_website(self) -> Optional[pulumi.Input['AccountStaticWebsiteArgs']]:
         """
@@ -426,6 +438,7 @@ class _AccountState:
                  secondary_table_host: Optional[pulumi.Input[str]] = None,
                  secondary_web_endpoint: Optional[pulumi.Input[str]] = None,
                  secondary_web_host: Optional[pulumi.Input[str]] = None,
+                 share_properties: Optional[pulumi.Input['AccountSharePropertiesArgs']] = None,
                  static_website: Optional[pulumi.Input['AccountStaticWebsiteArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -590,6 +603,8 @@ class _AccountState:
             pulumi.set(__self__, "secondary_web_endpoint", secondary_web_endpoint)
         if secondary_web_host is not None:
             pulumi.set(__self__, "secondary_web_host", secondary_web_host)
+        if share_properties is not None:
+            pulumi.set(__self__, "share_properties", share_properties)
         if static_website is not None:
             pulumi.set(__self__, "static_website", static_website)
         if tags is not None:
@@ -1221,6 +1236,15 @@ class _AccountState:
         pulumi.set(self, "secondary_web_host", value)
 
     @property
+    @pulumi.getter(name="shareProperties")
+    def share_properties(self) -> Optional[pulumi.Input['AccountSharePropertiesArgs']]:
+        return pulumi.get(self, "share_properties")
+
+    @share_properties.setter
+    def share_properties(self, value: Optional[pulumi.Input['AccountSharePropertiesArgs']]):
+        pulumi.set(self, "share_properties", value)
+
+    @property
     @pulumi.getter(name="staticWebsite")
     def static_website(self) -> Optional[pulumi.Input['AccountStaticWebsiteArgs']]:
         """
@@ -1270,6 +1294,7 @@ class Account(pulumi.CustomResource):
                  queue_properties: Optional[pulumi.Input[pulumi.InputType['AccountQueuePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routing: Optional[pulumi.Input[pulumi.InputType['AccountRoutingArgs']]] = None,
+                 share_properties: Optional[pulumi.Input[pulumi.InputType['AccountSharePropertiesArgs']]] = None,
                  static_website: Optional[pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -1462,6 +1487,7 @@ class Account(pulumi.CustomResource):
                  queue_properties: Optional[pulumi.Input[pulumi.InputType['AccountQueuePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  routing: Optional[pulumi.Input[pulumi.InputType['AccountRoutingArgs']]] = None,
+                 share_properties: Optional[pulumi.Input[pulumi.InputType['AccountSharePropertiesArgs']]] = None,
                  static_website: Optional[pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -1502,6 +1528,7 @@ class Account(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["routing"] = routing
+            __props__.__dict__["share_properties"] = share_properties
             __props__.__dict__["static_website"] = static_website
             __props__.__dict__["tags"] = tags
             __props__.__dict__["primary_access_key"] = None
@@ -1598,6 +1625,7 @@ class Account(pulumi.CustomResource):
             secondary_table_host: Optional[pulumi.Input[str]] = None,
             secondary_web_endpoint: Optional[pulumi.Input[str]] = None,
             secondary_web_host: Optional[pulumi.Input[str]] = None,
+            share_properties: Optional[pulumi.Input[pulumi.InputType['AccountSharePropertiesArgs']]] = None,
             static_website: Optional[pulumi.Input[pulumi.InputType['AccountStaticWebsiteArgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Account':
         """
@@ -1719,6 +1747,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["secondary_table_host"] = secondary_table_host
         __props__.__dict__["secondary_web_endpoint"] = secondary_web_endpoint
         __props__.__dict__["secondary_web_host"] = secondary_web_host
+        __props__.__dict__["share_properties"] = share_properties
         __props__.__dict__["static_website"] = static_website
         __props__.__dict__["tags"] = tags
         return Account(resource_name, opts=opts, __props__=__props__)
@@ -2139,6 +2168,11 @@ class Account(pulumi.CustomResource):
         The hostname with port if applicable for web storage in the secondary location.
         """
         return pulumi.get(self, "secondary_web_host")
+
+    @property
+    @pulumi.getter(name="shareProperties")
+    def share_properties(self) -> pulumi.Output['outputs.AccountShareProperties']:
+        return pulumi.get(self, "share_properties")
 
     @property
     @pulumi.getter(name="staticWebsite")

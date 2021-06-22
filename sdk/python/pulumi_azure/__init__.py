@@ -464,6 +464,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "apimanagement/redisCache",
+  "fqn": "pulumi_azure.apimanagement",
+  "classes": {
+   "azure:apimanagement/redisCache:RedisCache": "RedisCache"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "apimanagement/service",
   "fqn": "pulumi_azure.apimanagement",
   "classes": {
@@ -1832,6 +1840,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "datafactory/linkedServiceOdata",
+  "fqn": "pulumi_azure.datafactory",
+  "classes": {
+   "azure:datafactory/linkedServiceOdata:LinkedServiceOdata": "LinkedServiceOdata"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "datafactory/linkedServicePostgresql",
   "fqn": "pulumi_azure.datafactory",
   "classes": {
@@ -1944,6 +1960,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "dataprotection/backupPolicyPostgresql",
+  "fqn": "pulumi_azure.dataprotection",
+  "classes": {
+   "azure:dataprotection/backupPolicyPostgresql:BackupPolicyPostgresql": "BackupPolicyPostgresql"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "dataprotection/backupVault",
   "fqn": "pulumi_azure.dataprotection",
   "classes": {
@@ -2004,6 +2028,14 @@ _utilities.register(
   "fqn": "pulumi_azure.datashare",
   "classes": {
    "azure:datashare/share:Share": "Share"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "desktopvirtualization/application",
+  "fqn": "pulumi_azure.desktopvirtualization",
+  "classes": {
+   "azure:desktopvirtualization/application:Application": "Application"
   }
  },
  {
@@ -2380,6 +2412,14 @@ _utilities.register(
   "fqn": "pulumi_azure.eventhub",
   "classes": {
    "azure:eventhub/namespaceAuthorizationRule:NamespaceAuthorizationRule": "NamespaceAuthorizationRule"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "eventhub/namespaceCustomerManagedKey",
+  "fqn": "pulumi_azure.eventhub",
+  "classes": {
+   "azure:eventhub/namespaceCustomerManagedKey:NamespaceCustomerManagedKey": "NamespaceCustomerManagedKey"
   }
  },
  {
@@ -3092,6 +3132,14 @@ _utilities.register(
   "fqn": "pulumi_azure.logicapps",
   "classes": {
    "azure:logicapps/workflow:Workflow": "Workflow"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "machinelearning/computeCluster",
+  "fqn": "pulumi_azure.machinelearning",
+  "classes": {
+   "azure:machinelearning/computeCluster:ComputeCluster": "ComputeCluster"
   }
  },
  {

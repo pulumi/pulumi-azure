@@ -64,6 +64,8 @@ type LookupJobResult struct {
 	EventsOutOfOrderPolicy string `pulumi:"eventsOutOfOrderPolicy"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// (Optional) An `identity` block as defined below.
+	Identities []GetJobIdentity `pulumi:"identities"`
 	// The Job ID assigned by the Stream Analytics Job.
 	JobId string `pulumi:"jobId"`
 	// The Azure location where the Stream Analytics Job exists.

@@ -2878,6 +2878,630 @@ func (o AccountRoutingPtrOutput) PublishMicrosoftEndpoints() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
+type AccountShareProperties struct {
+	// A `corsRule` block as defined below.
+	CorsRules []AccountSharePropertiesCorsRule `pulumi:"corsRules"`
+	// (Optional) A `retentionPolicy` block as defined below.
+	RetentionPolicy *AccountSharePropertiesRetentionPolicy `pulumi:"retentionPolicy"`
+	// (Optional) A `smb` block as defined below.
+	Smb *AccountSharePropertiesSmb `pulumi:"smb"`
+}
+
+// AccountSharePropertiesInput is an input type that accepts AccountSharePropertiesArgs and AccountSharePropertiesOutput values.
+// You can construct a concrete instance of `AccountSharePropertiesInput` via:
+//
+//          AccountSharePropertiesArgs{...}
+type AccountSharePropertiesInput interface {
+	pulumi.Input
+
+	ToAccountSharePropertiesOutput() AccountSharePropertiesOutput
+	ToAccountSharePropertiesOutputWithContext(context.Context) AccountSharePropertiesOutput
+}
+
+type AccountSharePropertiesArgs struct {
+	// A `corsRule` block as defined below.
+	CorsRules AccountSharePropertiesCorsRuleArrayInput `pulumi:"corsRules"`
+	// (Optional) A `retentionPolicy` block as defined below.
+	RetentionPolicy AccountSharePropertiesRetentionPolicyPtrInput `pulumi:"retentionPolicy"`
+	// (Optional) A `smb` block as defined below.
+	Smb AccountSharePropertiesSmbPtrInput `pulumi:"smb"`
+}
+
+func (AccountSharePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountShareProperties)(nil)).Elem()
+}
+
+func (i AccountSharePropertiesArgs) ToAccountSharePropertiesOutput() AccountSharePropertiesOutput {
+	return i.ToAccountSharePropertiesOutputWithContext(context.Background())
+}
+
+func (i AccountSharePropertiesArgs) ToAccountSharePropertiesOutputWithContext(ctx context.Context) AccountSharePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountSharePropertiesOutput)
+}
+
+func (i AccountSharePropertiesArgs) ToAccountSharePropertiesPtrOutput() AccountSharePropertiesPtrOutput {
+	return i.ToAccountSharePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i AccountSharePropertiesArgs) ToAccountSharePropertiesPtrOutputWithContext(ctx context.Context) AccountSharePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountSharePropertiesOutput).ToAccountSharePropertiesPtrOutputWithContext(ctx)
+}
+
+// AccountSharePropertiesPtrInput is an input type that accepts AccountSharePropertiesArgs, AccountSharePropertiesPtr and AccountSharePropertiesPtrOutput values.
+// You can construct a concrete instance of `AccountSharePropertiesPtrInput` via:
+//
+//          AccountSharePropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type AccountSharePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToAccountSharePropertiesPtrOutput() AccountSharePropertiesPtrOutput
+	ToAccountSharePropertiesPtrOutputWithContext(context.Context) AccountSharePropertiesPtrOutput
+}
+
+type accountSharePropertiesPtrType AccountSharePropertiesArgs
+
+func AccountSharePropertiesPtr(v *AccountSharePropertiesArgs) AccountSharePropertiesPtrInput {
+	return (*accountSharePropertiesPtrType)(v)
+}
+
+func (*accountSharePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountShareProperties)(nil)).Elem()
+}
+
+func (i *accountSharePropertiesPtrType) ToAccountSharePropertiesPtrOutput() AccountSharePropertiesPtrOutput {
+	return i.ToAccountSharePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *accountSharePropertiesPtrType) ToAccountSharePropertiesPtrOutputWithContext(ctx context.Context) AccountSharePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountSharePropertiesPtrOutput)
+}
+
+type AccountSharePropertiesOutput struct{ *pulumi.OutputState }
+
+func (AccountSharePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountShareProperties)(nil)).Elem()
+}
+
+func (o AccountSharePropertiesOutput) ToAccountSharePropertiesOutput() AccountSharePropertiesOutput {
+	return o
+}
+
+func (o AccountSharePropertiesOutput) ToAccountSharePropertiesOutputWithContext(ctx context.Context) AccountSharePropertiesOutput {
+	return o
+}
+
+func (o AccountSharePropertiesOutput) ToAccountSharePropertiesPtrOutput() AccountSharePropertiesPtrOutput {
+	return o.ToAccountSharePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o AccountSharePropertiesOutput) ToAccountSharePropertiesPtrOutputWithContext(ctx context.Context) AccountSharePropertiesPtrOutput {
+	return o.ApplyT(func(v AccountShareProperties) *AccountShareProperties {
+		return &v
+	}).(AccountSharePropertiesPtrOutput)
+}
+
+// A `corsRule` block as defined below.
+func (o AccountSharePropertiesOutput) CorsRules() AccountSharePropertiesCorsRuleArrayOutput {
+	return o.ApplyT(func(v AccountShareProperties) []AccountSharePropertiesCorsRule { return v.CorsRules }).(AccountSharePropertiesCorsRuleArrayOutput)
+}
+
+// (Optional) A `retentionPolicy` block as defined below.
+func (o AccountSharePropertiesOutput) RetentionPolicy() AccountSharePropertiesRetentionPolicyPtrOutput {
+	return o.ApplyT(func(v AccountShareProperties) *AccountSharePropertiesRetentionPolicy { return v.RetentionPolicy }).(AccountSharePropertiesRetentionPolicyPtrOutput)
+}
+
+// (Optional) A `smb` block as defined below.
+func (o AccountSharePropertiesOutput) Smb() AccountSharePropertiesSmbPtrOutput {
+	return o.ApplyT(func(v AccountShareProperties) *AccountSharePropertiesSmb { return v.Smb }).(AccountSharePropertiesSmbPtrOutput)
+}
+
+type AccountSharePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountSharePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountShareProperties)(nil)).Elem()
+}
+
+func (o AccountSharePropertiesPtrOutput) ToAccountSharePropertiesPtrOutput() AccountSharePropertiesPtrOutput {
+	return o
+}
+
+func (o AccountSharePropertiesPtrOutput) ToAccountSharePropertiesPtrOutputWithContext(ctx context.Context) AccountSharePropertiesPtrOutput {
+	return o
+}
+
+func (o AccountSharePropertiesPtrOutput) Elem() AccountSharePropertiesOutput {
+	return o.ApplyT(func(v *AccountShareProperties) AccountShareProperties { return *v }).(AccountSharePropertiesOutput)
+}
+
+// A `corsRule` block as defined below.
+func (o AccountSharePropertiesPtrOutput) CorsRules() AccountSharePropertiesCorsRuleArrayOutput {
+	return o.ApplyT(func(v *AccountShareProperties) []AccountSharePropertiesCorsRule {
+		if v == nil {
+			return nil
+		}
+		return v.CorsRules
+	}).(AccountSharePropertiesCorsRuleArrayOutput)
+}
+
+// (Optional) A `retentionPolicy` block as defined below.
+func (o AccountSharePropertiesPtrOutput) RetentionPolicy() AccountSharePropertiesRetentionPolicyPtrOutput {
+	return o.ApplyT(func(v *AccountShareProperties) *AccountSharePropertiesRetentionPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionPolicy
+	}).(AccountSharePropertiesRetentionPolicyPtrOutput)
+}
+
+// (Optional) A `smb` block as defined below.
+func (o AccountSharePropertiesPtrOutput) Smb() AccountSharePropertiesSmbPtrOutput {
+	return o.ApplyT(func(v *AccountShareProperties) *AccountSharePropertiesSmb {
+		if v == nil {
+			return nil
+		}
+		return v.Smb
+	}).(AccountSharePropertiesSmbPtrOutput)
+}
+
+type AccountSharePropertiesCorsRule struct {
+	// A list of headers that are allowed to be a part of the cross-origin request.
+	AllowedHeaders []string `pulumi:"allowedHeaders"`
+	// A list of http headers that are allowed to be executed by the origin. Valid options are
+	// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+	AllowedMethods []string `pulumi:"allowedMethods"`
+	// A list of origin domains that will be allowed by CORS.
+	AllowedOrigins []string `pulumi:"allowedOrigins"`
+	// A list of response headers that are exposed to CORS clients.
+	ExposedHeaders []string `pulumi:"exposedHeaders"`
+	// The number of seconds the client should cache a preflight response.
+	MaxAgeInSeconds int `pulumi:"maxAgeInSeconds"`
+}
+
+// AccountSharePropertiesCorsRuleInput is an input type that accepts AccountSharePropertiesCorsRuleArgs and AccountSharePropertiesCorsRuleOutput values.
+// You can construct a concrete instance of `AccountSharePropertiesCorsRuleInput` via:
+//
+//          AccountSharePropertiesCorsRuleArgs{...}
+type AccountSharePropertiesCorsRuleInput interface {
+	pulumi.Input
+
+	ToAccountSharePropertiesCorsRuleOutput() AccountSharePropertiesCorsRuleOutput
+	ToAccountSharePropertiesCorsRuleOutputWithContext(context.Context) AccountSharePropertiesCorsRuleOutput
+}
+
+type AccountSharePropertiesCorsRuleArgs struct {
+	// A list of headers that are allowed to be a part of the cross-origin request.
+	AllowedHeaders pulumi.StringArrayInput `pulumi:"allowedHeaders"`
+	// A list of http headers that are allowed to be executed by the origin. Valid options are
+	// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
+	// A list of origin domains that will be allowed by CORS.
+	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
+	// A list of response headers that are exposed to CORS clients.
+	ExposedHeaders pulumi.StringArrayInput `pulumi:"exposedHeaders"`
+	// The number of seconds the client should cache a preflight response.
+	MaxAgeInSeconds pulumi.IntInput `pulumi:"maxAgeInSeconds"`
+}
+
+func (AccountSharePropertiesCorsRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountSharePropertiesCorsRule)(nil)).Elem()
+}
+
+func (i AccountSharePropertiesCorsRuleArgs) ToAccountSharePropertiesCorsRuleOutput() AccountSharePropertiesCorsRuleOutput {
+	return i.ToAccountSharePropertiesCorsRuleOutputWithContext(context.Background())
+}
+
+func (i AccountSharePropertiesCorsRuleArgs) ToAccountSharePropertiesCorsRuleOutputWithContext(ctx context.Context) AccountSharePropertiesCorsRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountSharePropertiesCorsRuleOutput)
+}
+
+// AccountSharePropertiesCorsRuleArrayInput is an input type that accepts AccountSharePropertiesCorsRuleArray and AccountSharePropertiesCorsRuleArrayOutput values.
+// You can construct a concrete instance of `AccountSharePropertiesCorsRuleArrayInput` via:
+//
+//          AccountSharePropertiesCorsRuleArray{ AccountSharePropertiesCorsRuleArgs{...} }
+type AccountSharePropertiesCorsRuleArrayInput interface {
+	pulumi.Input
+
+	ToAccountSharePropertiesCorsRuleArrayOutput() AccountSharePropertiesCorsRuleArrayOutput
+	ToAccountSharePropertiesCorsRuleArrayOutputWithContext(context.Context) AccountSharePropertiesCorsRuleArrayOutput
+}
+
+type AccountSharePropertiesCorsRuleArray []AccountSharePropertiesCorsRuleInput
+
+func (AccountSharePropertiesCorsRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountSharePropertiesCorsRule)(nil)).Elem()
+}
+
+func (i AccountSharePropertiesCorsRuleArray) ToAccountSharePropertiesCorsRuleArrayOutput() AccountSharePropertiesCorsRuleArrayOutput {
+	return i.ToAccountSharePropertiesCorsRuleArrayOutputWithContext(context.Background())
+}
+
+func (i AccountSharePropertiesCorsRuleArray) ToAccountSharePropertiesCorsRuleArrayOutputWithContext(ctx context.Context) AccountSharePropertiesCorsRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountSharePropertiesCorsRuleArrayOutput)
+}
+
+type AccountSharePropertiesCorsRuleOutput struct{ *pulumi.OutputState }
+
+func (AccountSharePropertiesCorsRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountSharePropertiesCorsRule)(nil)).Elem()
+}
+
+func (o AccountSharePropertiesCorsRuleOutput) ToAccountSharePropertiesCorsRuleOutput() AccountSharePropertiesCorsRuleOutput {
+	return o
+}
+
+func (o AccountSharePropertiesCorsRuleOutput) ToAccountSharePropertiesCorsRuleOutputWithContext(ctx context.Context) AccountSharePropertiesCorsRuleOutput {
+	return o
+}
+
+// A list of headers that are allowed to be a part of the cross-origin request.
+func (o AccountSharePropertiesCorsRuleOutput) AllowedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccountSharePropertiesCorsRule) []string { return v.AllowedHeaders }).(pulumi.StringArrayOutput)
+}
+
+// A list of http headers that are allowed to be executed by the origin. Valid options are
+// `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+func (o AccountSharePropertiesCorsRuleOutput) AllowedMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccountSharePropertiesCorsRule) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
+}
+
+// A list of origin domains that will be allowed by CORS.
+func (o AccountSharePropertiesCorsRuleOutput) AllowedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccountSharePropertiesCorsRule) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
+}
+
+// A list of response headers that are exposed to CORS clients.
+func (o AccountSharePropertiesCorsRuleOutput) ExposedHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccountSharePropertiesCorsRule) []string { return v.ExposedHeaders }).(pulumi.StringArrayOutput)
+}
+
+// The number of seconds the client should cache a preflight response.
+func (o AccountSharePropertiesCorsRuleOutput) MaxAgeInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v AccountSharePropertiesCorsRule) int { return v.MaxAgeInSeconds }).(pulumi.IntOutput)
+}
+
+type AccountSharePropertiesCorsRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (AccountSharePropertiesCorsRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountSharePropertiesCorsRule)(nil)).Elem()
+}
+
+func (o AccountSharePropertiesCorsRuleArrayOutput) ToAccountSharePropertiesCorsRuleArrayOutput() AccountSharePropertiesCorsRuleArrayOutput {
+	return o
+}
+
+func (o AccountSharePropertiesCorsRuleArrayOutput) ToAccountSharePropertiesCorsRuleArrayOutputWithContext(ctx context.Context) AccountSharePropertiesCorsRuleArrayOutput {
+	return o
+}
+
+func (o AccountSharePropertiesCorsRuleArrayOutput) Index(i pulumi.IntInput) AccountSharePropertiesCorsRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountSharePropertiesCorsRule {
+		return vs[0].([]AccountSharePropertiesCorsRule)[vs[1].(int)]
+	}).(AccountSharePropertiesCorsRuleOutput)
+}
+
+type AccountSharePropertiesRetentionPolicy struct {
+	// Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
+	Days *int `pulumi:"days"`
+}
+
+// AccountSharePropertiesRetentionPolicyInput is an input type that accepts AccountSharePropertiesRetentionPolicyArgs and AccountSharePropertiesRetentionPolicyOutput values.
+// You can construct a concrete instance of `AccountSharePropertiesRetentionPolicyInput` via:
+//
+//          AccountSharePropertiesRetentionPolicyArgs{...}
+type AccountSharePropertiesRetentionPolicyInput interface {
+	pulumi.Input
+
+	ToAccountSharePropertiesRetentionPolicyOutput() AccountSharePropertiesRetentionPolicyOutput
+	ToAccountSharePropertiesRetentionPolicyOutputWithContext(context.Context) AccountSharePropertiesRetentionPolicyOutput
+}
+
+type AccountSharePropertiesRetentionPolicyArgs struct {
+	// Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
+	Days pulumi.IntPtrInput `pulumi:"days"`
+}
+
+func (AccountSharePropertiesRetentionPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountSharePropertiesRetentionPolicy)(nil)).Elem()
+}
+
+func (i AccountSharePropertiesRetentionPolicyArgs) ToAccountSharePropertiesRetentionPolicyOutput() AccountSharePropertiesRetentionPolicyOutput {
+	return i.ToAccountSharePropertiesRetentionPolicyOutputWithContext(context.Background())
+}
+
+func (i AccountSharePropertiesRetentionPolicyArgs) ToAccountSharePropertiesRetentionPolicyOutputWithContext(ctx context.Context) AccountSharePropertiesRetentionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountSharePropertiesRetentionPolicyOutput)
+}
+
+func (i AccountSharePropertiesRetentionPolicyArgs) ToAccountSharePropertiesRetentionPolicyPtrOutput() AccountSharePropertiesRetentionPolicyPtrOutput {
+	return i.ToAccountSharePropertiesRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i AccountSharePropertiesRetentionPolicyArgs) ToAccountSharePropertiesRetentionPolicyPtrOutputWithContext(ctx context.Context) AccountSharePropertiesRetentionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountSharePropertiesRetentionPolicyOutput).ToAccountSharePropertiesRetentionPolicyPtrOutputWithContext(ctx)
+}
+
+// AccountSharePropertiesRetentionPolicyPtrInput is an input type that accepts AccountSharePropertiesRetentionPolicyArgs, AccountSharePropertiesRetentionPolicyPtr and AccountSharePropertiesRetentionPolicyPtrOutput values.
+// You can construct a concrete instance of `AccountSharePropertiesRetentionPolicyPtrInput` via:
+//
+//          AccountSharePropertiesRetentionPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type AccountSharePropertiesRetentionPolicyPtrInput interface {
+	pulumi.Input
+
+	ToAccountSharePropertiesRetentionPolicyPtrOutput() AccountSharePropertiesRetentionPolicyPtrOutput
+	ToAccountSharePropertiesRetentionPolicyPtrOutputWithContext(context.Context) AccountSharePropertiesRetentionPolicyPtrOutput
+}
+
+type accountSharePropertiesRetentionPolicyPtrType AccountSharePropertiesRetentionPolicyArgs
+
+func AccountSharePropertiesRetentionPolicyPtr(v *AccountSharePropertiesRetentionPolicyArgs) AccountSharePropertiesRetentionPolicyPtrInput {
+	return (*accountSharePropertiesRetentionPolicyPtrType)(v)
+}
+
+func (*accountSharePropertiesRetentionPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountSharePropertiesRetentionPolicy)(nil)).Elem()
+}
+
+func (i *accountSharePropertiesRetentionPolicyPtrType) ToAccountSharePropertiesRetentionPolicyPtrOutput() AccountSharePropertiesRetentionPolicyPtrOutput {
+	return i.ToAccountSharePropertiesRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *accountSharePropertiesRetentionPolicyPtrType) ToAccountSharePropertiesRetentionPolicyPtrOutputWithContext(ctx context.Context) AccountSharePropertiesRetentionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountSharePropertiesRetentionPolicyPtrOutput)
+}
+
+type AccountSharePropertiesRetentionPolicyOutput struct{ *pulumi.OutputState }
+
+func (AccountSharePropertiesRetentionPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountSharePropertiesRetentionPolicy)(nil)).Elem()
+}
+
+func (o AccountSharePropertiesRetentionPolicyOutput) ToAccountSharePropertiesRetentionPolicyOutput() AccountSharePropertiesRetentionPolicyOutput {
+	return o
+}
+
+func (o AccountSharePropertiesRetentionPolicyOutput) ToAccountSharePropertiesRetentionPolicyOutputWithContext(ctx context.Context) AccountSharePropertiesRetentionPolicyOutput {
+	return o
+}
+
+func (o AccountSharePropertiesRetentionPolicyOutput) ToAccountSharePropertiesRetentionPolicyPtrOutput() AccountSharePropertiesRetentionPolicyPtrOutput {
+	return o.ToAccountSharePropertiesRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o AccountSharePropertiesRetentionPolicyOutput) ToAccountSharePropertiesRetentionPolicyPtrOutputWithContext(ctx context.Context) AccountSharePropertiesRetentionPolicyPtrOutput {
+	return o.ApplyT(func(v AccountSharePropertiesRetentionPolicy) *AccountSharePropertiesRetentionPolicy {
+		return &v
+	}).(AccountSharePropertiesRetentionPolicyPtrOutput)
+}
+
+// Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
+func (o AccountSharePropertiesRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AccountSharePropertiesRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
+}
+
+type AccountSharePropertiesRetentionPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountSharePropertiesRetentionPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountSharePropertiesRetentionPolicy)(nil)).Elem()
+}
+
+func (o AccountSharePropertiesRetentionPolicyPtrOutput) ToAccountSharePropertiesRetentionPolicyPtrOutput() AccountSharePropertiesRetentionPolicyPtrOutput {
+	return o
+}
+
+func (o AccountSharePropertiesRetentionPolicyPtrOutput) ToAccountSharePropertiesRetentionPolicyPtrOutputWithContext(ctx context.Context) AccountSharePropertiesRetentionPolicyPtrOutput {
+	return o
+}
+
+func (o AccountSharePropertiesRetentionPolicyPtrOutput) Elem() AccountSharePropertiesRetentionPolicyOutput {
+	return o.ApplyT(func(v *AccountSharePropertiesRetentionPolicy) AccountSharePropertiesRetentionPolicy { return *v }).(AccountSharePropertiesRetentionPolicyOutput)
+}
+
+// Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
+func (o AccountSharePropertiesRetentionPolicyPtrOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AccountSharePropertiesRetentionPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Days
+	}).(pulumi.IntPtrOutput)
+}
+
+type AccountSharePropertiesSmb struct {
+	// (Optional) A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
+	AuthenticationTypes []string `pulumi:"authenticationTypes"`
+	// (Optional) A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
+	ChannelEncryptionTypes []string `pulumi:"channelEncryptionTypes"`
+	// (Optional) A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
+	KerberosTicketEncryptionTypes []string `pulumi:"kerberosTicketEncryptionTypes"`
+	// (Optional) A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
+	Versions []string `pulumi:"versions"`
+}
+
+// AccountSharePropertiesSmbInput is an input type that accepts AccountSharePropertiesSmbArgs and AccountSharePropertiesSmbOutput values.
+// You can construct a concrete instance of `AccountSharePropertiesSmbInput` via:
+//
+//          AccountSharePropertiesSmbArgs{...}
+type AccountSharePropertiesSmbInput interface {
+	pulumi.Input
+
+	ToAccountSharePropertiesSmbOutput() AccountSharePropertiesSmbOutput
+	ToAccountSharePropertiesSmbOutputWithContext(context.Context) AccountSharePropertiesSmbOutput
+}
+
+type AccountSharePropertiesSmbArgs struct {
+	// (Optional) A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
+	AuthenticationTypes pulumi.StringArrayInput `pulumi:"authenticationTypes"`
+	// (Optional) A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
+	ChannelEncryptionTypes pulumi.StringArrayInput `pulumi:"channelEncryptionTypes"`
+	// (Optional) A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
+	KerberosTicketEncryptionTypes pulumi.StringArrayInput `pulumi:"kerberosTicketEncryptionTypes"`
+	// (Optional) A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
+	Versions pulumi.StringArrayInput `pulumi:"versions"`
+}
+
+func (AccountSharePropertiesSmbArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountSharePropertiesSmb)(nil)).Elem()
+}
+
+func (i AccountSharePropertiesSmbArgs) ToAccountSharePropertiesSmbOutput() AccountSharePropertiesSmbOutput {
+	return i.ToAccountSharePropertiesSmbOutputWithContext(context.Background())
+}
+
+func (i AccountSharePropertiesSmbArgs) ToAccountSharePropertiesSmbOutputWithContext(ctx context.Context) AccountSharePropertiesSmbOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountSharePropertiesSmbOutput)
+}
+
+func (i AccountSharePropertiesSmbArgs) ToAccountSharePropertiesSmbPtrOutput() AccountSharePropertiesSmbPtrOutput {
+	return i.ToAccountSharePropertiesSmbPtrOutputWithContext(context.Background())
+}
+
+func (i AccountSharePropertiesSmbArgs) ToAccountSharePropertiesSmbPtrOutputWithContext(ctx context.Context) AccountSharePropertiesSmbPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountSharePropertiesSmbOutput).ToAccountSharePropertiesSmbPtrOutputWithContext(ctx)
+}
+
+// AccountSharePropertiesSmbPtrInput is an input type that accepts AccountSharePropertiesSmbArgs, AccountSharePropertiesSmbPtr and AccountSharePropertiesSmbPtrOutput values.
+// You can construct a concrete instance of `AccountSharePropertiesSmbPtrInput` via:
+//
+//          AccountSharePropertiesSmbArgs{...}
+//
+//  or:
+//
+//          nil
+type AccountSharePropertiesSmbPtrInput interface {
+	pulumi.Input
+
+	ToAccountSharePropertiesSmbPtrOutput() AccountSharePropertiesSmbPtrOutput
+	ToAccountSharePropertiesSmbPtrOutputWithContext(context.Context) AccountSharePropertiesSmbPtrOutput
+}
+
+type accountSharePropertiesSmbPtrType AccountSharePropertiesSmbArgs
+
+func AccountSharePropertiesSmbPtr(v *AccountSharePropertiesSmbArgs) AccountSharePropertiesSmbPtrInput {
+	return (*accountSharePropertiesSmbPtrType)(v)
+}
+
+func (*accountSharePropertiesSmbPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountSharePropertiesSmb)(nil)).Elem()
+}
+
+func (i *accountSharePropertiesSmbPtrType) ToAccountSharePropertiesSmbPtrOutput() AccountSharePropertiesSmbPtrOutput {
+	return i.ToAccountSharePropertiesSmbPtrOutputWithContext(context.Background())
+}
+
+func (i *accountSharePropertiesSmbPtrType) ToAccountSharePropertiesSmbPtrOutputWithContext(ctx context.Context) AccountSharePropertiesSmbPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountSharePropertiesSmbPtrOutput)
+}
+
+type AccountSharePropertiesSmbOutput struct{ *pulumi.OutputState }
+
+func (AccountSharePropertiesSmbOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountSharePropertiesSmb)(nil)).Elem()
+}
+
+func (o AccountSharePropertiesSmbOutput) ToAccountSharePropertiesSmbOutput() AccountSharePropertiesSmbOutput {
+	return o
+}
+
+func (o AccountSharePropertiesSmbOutput) ToAccountSharePropertiesSmbOutputWithContext(ctx context.Context) AccountSharePropertiesSmbOutput {
+	return o
+}
+
+func (o AccountSharePropertiesSmbOutput) ToAccountSharePropertiesSmbPtrOutput() AccountSharePropertiesSmbPtrOutput {
+	return o.ToAccountSharePropertiesSmbPtrOutputWithContext(context.Background())
+}
+
+func (o AccountSharePropertiesSmbOutput) ToAccountSharePropertiesSmbPtrOutputWithContext(ctx context.Context) AccountSharePropertiesSmbPtrOutput {
+	return o.ApplyT(func(v AccountSharePropertiesSmb) *AccountSharePropertiesSmb {
+		return &v
+	}).(AccountSharePropertiesSmbPtrOutput)
+}
+
+// (Optional) A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
+func (o AccountSharePropertiesSmbOutput) AuthenticationTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccountSharePropertiesSmb) []string { return v.AuthenticationTypes }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
+func (o AccountSharePropertiesSmbOutput) ChannelEncryptionTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccountSharePropertiesSmb) []string { return v.ChannelEncryptionTypes }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
+func (o AccountSharePropertiesSmbOutput) KerberosTicketEncryptionTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccountSharePropertiesSmb) []string { return v.KerberosTicketEncryptionTypes }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
+func (o AccountSharePropertiesSmbOutput) Versions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccountSharePropertiesSmb) []string { return v.Versions }).(pulumi.StringArrayOutput)
+}
+
+type AccountSharePropertiesSmbPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountSharePropertiesSmbPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountSharePropertiesSmb)(nil)).Elem()
+}
+
+func (o AccountSharePropertiesSmbPtrOutput) ToAccountSharePropertiesSmbPtrOutput() AccountSharePropertiesSmbPtrOutput {
+	return o
+}
+
+func (o AccountSharePropertiesSmbPtrOutput) ToAccountSharePropertiesSmbPtrOutputWithContext(ctx context.Context) AccountSharePropertiesSmbPtrOutput {
+	return o
+}
+
+func (o AccountSharePropertiesSmbPtrOutput) Elem() AccountSharePropertiesSmbOutput {
+	return o.ApplyT(func(v *AccountSharePropertiesSmb) AccountSharePropertiesSmb { return *v }).(AccountSharePropertiesSmbOutput)
+}
+
+// (Optional) A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
+func (o AccountSharePropertiesSmbPtrOutput) AuthenticationTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccountSharePropertiesSmb) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticationTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
+func (o AccountSharePropertiesSmbPtrOutput) ChannelEncryptionTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccountSharePropertiesSmb) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ChannelEncryptionTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
+func (o AccountSharePropertiesSmbPtrOutput) KerberosTicketEncryptionTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccountSharePropertiesSmb) []string {
+		if v == nil {
+			return nil
+		}
+		return v.KerberosTicketEncryptionTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
+func (o AccountSharePropertiesSmbPtrOutput) Versions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccountSharePropertiesSmb) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Versions
+	}).(pulumi.StringArrayOutput)
+}
+
 type AccountStaticWebsite struct {
 	// The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
 	Error404Document *string `pulumi:"error404Document"`
@@ -6334,6 +6958,14 @@ func init() {
 	pulumi.RegisterOutputType(AccountQueuePropertiesMinuteMetricsPtrOutput{})
 	pulumi.RegisterOutputType(AccountRoutingOutput{})
 	pulumi.RegisterOutputType(AccountRoutingPtrOutput{})
+	pulumi.RegisterOutputType(AccountSharePropertiesOutput{})
+	pulumi.RegisterOutputType(AccountSharePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AccountSharePropertiesCorsRuleOutput{})
+	pulumi.RegisterOutputType(AccountSharePropertiesCorsRuleArrayOutput{})
+	pulumi.RegisterOutputType(AccountSharePropertiesRetentionPolicyOutput{})
+	pulumi.RegisterOutputType(AccountSharePropertiesRetentionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(AccountSharePropertiesSmbOutput{})
+	pulumi.RegisterOutputType(AccountSharePropertiesSmbPtrOutput{})
 	pulumi.RegisterOutputType(AccountStaticWebsiteOutput{})
 	pulumi.RegisterOutputType(AccountStaticWebsitePtrOutput{})
 	pulumi.RegisterOutputType(BlobInventoryPolicyRuleOutput{})

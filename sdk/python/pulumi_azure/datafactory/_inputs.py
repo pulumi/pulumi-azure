@@ -27,6 +27,7 @@ __all__ = [
     'DatasetSnowflakeSchemaColumnArgs',
     'DatasetSqlServerTableSchemaColumnArgs',
     'FactoryGithubConfigurationArgs',
+    'FactoryGlobalParameterArgs',
     'FactoryIdentityArgs',
     'FactoryVstsConfigurationArgs',
     'IntegrationRuntimeManagedCatalogInfoArgs',
@@ -42,6 +43,7 @@ __all__ = [
     'LinkedServiceAzureFileStorageKeyVaultPasswordArgs',
     'LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs',
     'LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs',
+    'LinkedServiceOdataBasicAuthenticationArgs',
     'LinkedServiceSnowflakeKeyVaultPasswordArgs',
     'LinkedServiceSqlServerKeyVaultConnectionStringArgs',
     'LinkedServiceSqlServerKeyVaultPasswordArgs',
@@ -1037,6 +1039,58 @@ class FactoryGithubConfigurationArgs:
 
 
 @pulumi.input_type
+class FactoryGlobalParameterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: Specifies the global parameter name.
+        :param pulumi.Input[str] type: Specifies the global parameter type. Possible Values are `Array`, `Bool`, `Float`, `Int`, `Object` or `String`.
+        :param pulumi.Input[str] value: Specifies the global parameter value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Specifies the global parameter name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Specifies the global parameter type. Possible Values are `Array`, `Bool`, `Float`, `Int`, `Object` or `String`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Specifies the global parameter value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class FactoryIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
@@ -1893,6 +1947,43 @@ class LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs:
     @secret_name.setter
     def secret_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "secret_name", value)
+
+
+@pulumi.input_type
+class LinkedServiceOdataBasicAuthenticationArgs:
+    def __init__(__self__, *,
+                 password: pulumi.Input[str],
+                 username: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] password: The password associated with the username, which can be used to authenticate to the OData endpoint.
+        :param pulumi.Input[str] username: The username which can be used to authenticate to the OData endpoint.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[str]:
+        """
+        The password associated with the username, which can be used to authenticate to the OData endpoint.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[str]:
+        """
+        The username which can be used to authenticate to the OData endpoint.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "username", value)
 
 
 @pulumi.input_type

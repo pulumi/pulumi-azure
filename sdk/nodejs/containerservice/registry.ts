@@ -171,6 +171,10 @@ export class Registry extends pulumi.CustomResource {
      * A `trustPolicy` block as documented below.
      */
     public readonly trustPolicy!: pulumi.Output<outputs.containerservice.RegistryTrustPolicy>;
+    /**
+     * Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
+     */
+    public readonly zoneRedundancyEnabled!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Registry resource with the given unique name, arguments, and options.
@@ -204,6 +208,7 @@ export class Registry extends pulumi.CustomResource {
             inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["trustPolicy"] = state ? state.trustPolicy : undefined;
+            inputs["zoneRedundancyEnabled"] = state ? state.zoneRedundancyEnabled : undefined;
         } else {
             const args = argsOrState as RegistryArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -225,6 +230,7 @@ export class Registry extends pulumi.CustomResource {
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["trustPolicy"] = args ? args.trustPolicy : undefined;
+            inputs["zoneRedundancyEnabled"] = args ? args.zoneRedundancyEnabled : undefined;
             inputs["adminPassword"] = undefined /*out*/;
             inputs["adminUsername"] = undefined /*out*/;
             inputs["loginServer"] = undefined /*out*/;
@@ -318,6 +324,10 @@ export interface RegistryState {
      * A `trustPolicy` block as documented below.
      */
     trustPolicy?: pulumi.Input<inputs.containerservice.RegistryTrustPolicy>;
+    /**
+     * Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
+     */
+    zoneRedundancyEnabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -390,4 +400,8 @@ export interface RegistryArgs {
      * A `trustPolicy` block as documented below.
      */
     trustPolicy?: pulumi.Input<inputs.containerservice.RegistryTrustPolicy>;
+    /**
+     * Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
+     */
+    zoneRedundancyEnabled?: pulumi.Input<boolean>;
 }

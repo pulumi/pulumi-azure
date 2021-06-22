@@ -5,12 +5,14 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./application";
 export * from "./applicationGroup";
 export * from "./hostPool";
 export * from "./workspace";
 export * from "./workspaceApplicationGroupAssociation";
 
 // Import resources to register:
+import { Application } from "./application";
 import { ApplicationGroup } from "./applicationGroup";
 import { HostPool } from "./hostPool";
 import { Workspace } from "./workspace";
@@ -20,6 +22,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:desktopvirtualization/application:Application":
+                return new Application(name, <any>undefined, { urn })
             case "azure:desktopvirtualization/applicationGroup:ApplicationGroup":
                 return new ApplicationGroup(name, <any>undefined, { urn })
             case "azure:desktopvirtualization/hostPool:HostPool":
@@ -33,6 +37,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "desktopvirtualization/application", _module)
 pulumi.runtime.registerResourceModule("azure", "desktopvirtualization/applicationGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "desktopvirtualization/hostPool", _module)
 pulumi.runtime.registerResourceModule("azure", "desktopvirtualization/workspace", _module)

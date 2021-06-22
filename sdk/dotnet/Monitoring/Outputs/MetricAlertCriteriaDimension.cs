@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The dimension operator. Possible values are `Include` and `Exclude`.
+        /// The dimension operator. Possible values are `Include`, `Exclude` and `StartsWith`.
         /// </summary>
         public readonly string Operator;
         /// <summary>

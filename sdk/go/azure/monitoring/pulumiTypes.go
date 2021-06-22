@@ -7986,7 +7986,7 @@ func (o MetricAlertCriteriaArrayOutput) Index(i pulumi.IntInput) MetricAlertCrit
 type MetricAlertCriteriaDimension struct {
 	// One of the dimension names.
 	Name string `pulumi:"name"`
-	// The dimension operator. Possible values are `Include` and `Exclude`.
+	// The dimension operator. Possible values are `Include`, `Exclude` and `StartsWith`.
 	Operator string `pulumi:"operator"`
 	// The list of dimension values.
 	Values []string `pulumi:"values"`
@@ -8006,7 +8006,7 @@ type MetricAlertCriteriaDimensionInput interface {
 type MetricAlertCriteriaDimensionArgs struct {
 	// One of the dimension names.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The dimension operator. Possible values are `Include` and `Exclude`.
+	// The dimension operator. Possible values are `Include`, `Exclude` and `StartsWith`.
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// The list of dimension values.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -8068,7 +8068,7 @@ func (o MetricAlertCriteriaDimensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlertCriteriaDimension) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The dimension operator. Possible values are `Include` and `Exclude`.
+// The dimension operator. Possible values are `Include`, `Exclude` and `StartsWith`.
 func (o MetricAlertCriteriaDimensionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlertCriteriaDimension) string { return v.Operator }).(pulumi.StringOutput)
 }
@@ -8403,7 +8403,7 @@ func (o MetricAlertDynamicCriteriaPtrOutput) SkipMetricValidation() pulumi.BoolP
 type MetricAlertDynamicCriteriaDimension struct {
 	// One of the dimension names.
 	Name string `pulumi:"name"`
-	// The dimension operator. Possible values are `Include` and `Exclude`.
+	// The dimension operator. Possible values are `Include`, `Exclude` and `StartsWith`.
 	Operator string `pulumi:"operator"`
 	// The list of dimension values.
 	Values []string `pulumi:"values"`
@@ -8423,7 +8423,7 @@ type MetricAlertDynamicCriteriaDimensionInput interface {
 type MetricAlertDynamicCriteriaDimensionArgs struct {
 	// One of the dimension names.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The dimension operator. Possible values are `Include` and `Exclude`.
+	// The dimension operator. Possible values are `Include`, `Exclude` and `StartsWith`.
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// The list of dimension values.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -8485,7 +8485,7 @@ func (o MetricAlertDynamicCriteriaDimensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlertDynamicCriteriaDimension) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The dimension operator. Possible values are `Include` and `Exclude`.
+// The dimension operator. Possible values are `Include`, `Exclude` and `StartsWith`.
 func (o MetricAlertDynamicCriteriaDimensionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlertDynamicCriteriaDimension) string { return v.Operator }).(pulumi.StringOutput)
 }

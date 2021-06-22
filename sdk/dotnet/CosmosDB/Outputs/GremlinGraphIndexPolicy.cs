@@ -33,6 +33,10 @@ namespace Pulumi.Azure.CosmosDB.Outputs
         /// Indicates the indexing mode. Possible values include: `Consistent`, `Lazy`, `None`.
         /// </summary>
         public readonly string IndexingMode;
+        /// <summary>
+        /// One or more `spatial_index` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GremlinGraphIndexPolicySpatialIndex> SpatialIndices;
 
         [OutputConstructor]
         private GremlinGraphIndexPolicy(
@@ -44,13 +48,16 @@ namespace Pulumi.Azure.CosmosDB.Outputs
 
             ImmutableArray<string> includedPaths,
 
-            string indexingMode)
+            string indexingMode,
+
+            ImmutableArray<Outputs.GremlinGraphIndexPolicySpatialIndex> spatialIndices)
         {
             Automatic = automatic;
             CompositeIndices = compositeIndices;
             ExcludedPaths = excludedPaths;
             IncludedPaths = includedPaths;
             IndexingMode = indexingMode;
+            SpatialIndices = spatialIndices;
         }
     }
 }

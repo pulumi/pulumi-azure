@@ -4462,7 +4462,7 @@ export namespace compute {
 
     export interface LinuxVirtualMachineBootDiagnostics {
         /**
-         * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+         * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
          */
         storageAccountUri?: pulumi.Input<string>;
     }
@@ -4581,7 +4581,7 @@ export namespace compute {
 
     export interface LinuxVirtualMachineScaleSetBootDiagnostics {
         /**
-         * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+         * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
          */
         storageAccountUri?: pulumi.Input<string>;
     }
@@ -5695,7 +5695,7 @@ export namespace compute {
 
     export interface WindowsVirtualMachineBootDiagnostics {
         /**
-         * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+         * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
          */
         storageAccountUri?: pulumi.Input<string>;
     }
@@ -5814,7 +5814,7 @@ export namespace compute {
 
     export interface WindowsVirtualMachineScaleSetBootDiagnostics {
         /**
-         * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+         * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
          */
         storageAccountUri?: pulumi.Input<string>;
     }
@@ -6974,6 +6974,14 @@ export namespace containerservice {
          */
         enableNodePublicIp?: pulumi.Input<boolean>;
         /**
+         * A `kubeletConfig` block as defined below.
+         */
+        kubeletConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterDefaultNodePoolKubeletConfig>;
+        /**
+         * A `linuxOsConfig` block as defined below.
+         */
+        linuxOsConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterDefaultNodePoolLinuxOsConfig>;
+        /**
          * The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
          */
         maxCount?: pulumi.Input<number>;
@@ -7039,6 +7047,187 @@ export namespace containerservice {
          * The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
          */
         vnetSubnetId?: pulumi.Input<string>;
+    }
+
+    export interface KubernetesClusterDefaultNodePoolKubeletConfig {
+        /**
+         * Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
+         */
+        allowedUnsafeSysctls?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
+         */
+        containerLogMaxLine?: pulumi.Input<number>;
+        /**
+         * Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
+         */
+        containerLogMaxSizeMb?: pulumi.Input<number>;
+        /**
+         * Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created.
+         */
+        cpuCfsQuotaEnabled?: pulumi.Input<boolean>;
+        /**
+         * Specifies the CPU CFS quota period value. Changing this forces a new resource to be created.
+         */
+        cpuCfsQuotaPeriod?: pulumi.Input<string>;
+        /**
+         * Specifies the CPU Manager policy to use. Possible values are `none` and `static`, Changing this forces a new resource to be created.
+         */
+        cpuManagerPolicy?: pulumi.Input<string>;
+        /**
+         * Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+         */
+        imageGcHighThreshold?: pulumi.Input<number>;
+        /**
+         * Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+         */
+        imageGcLowThreshold?: pulumi.Input<number>;
+        /**
+         * Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
+         */
+        podMaxPid?: pulumi.Input<number>;
+        /**
+         * Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
+         */
+        topologyManagerPolicy?: pulumi.Input<string>;
+    }
+
+    export interface KubernetesClusterDefaultNodePoolLinuxOsConfig {
+        /**
+         * Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+         */
+        swapFileSizeMb?: pulumi.Input<number>;
+        /**
+         * A `sysctlConfig` block as defined below. Changing this forces a new resource to be created.
+         */
+        sysctlConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig>;
+        /**
+         * specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
+         */
+        transparentHugePageDefrag?: pulumi.Input<string>;
+        /**
+         * Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
+         */
+        transparentHugePageEnabled?: pulumi.Input<string>;
+    }
+
+    export interface KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig {
+        /**
+         * The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`. Changing this forces a new resource to be created.
+         */
+        fsAioMaxNr?: pulumi.Input<number>;
+        /**
+         * The sysctl setting fs.file-max. Must be between `8192` and `12000500`. Changing this forces a new resource to be created.
+         */
+        fsFileMax?: pulumi.Input<number>;
+        /**
+         * The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`. Changing this forces a new resource to be created.
+         */
+        fsInotifyMaxUserWatches?: pulumi.Input<number>;
+        /**
+         * The sysctl setting fs.nr_open. Must be between `8192` and `20000500`. Changing this forces a new resource to be created.
+         */
+        fsNrOpen?: pulumi.Input<number>;
+        /**
+         * The sysctl setting kernel.threads-max. Must be between `20` and `513785`. Changing this forces a new resource to be created.
+         */
+        kernelThreadsMax?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`. Changing this forces a new resource to be created.
+         */
+        netCoreNetdevMaxBacklog?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`. Changing this forces a new resource to be created.
+         */
+        netCoreOptmemMax?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+         */
+        netCoreRmemDefault?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+         */
+        netCoreRmemMax?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`. Changing this forces a new resource to be created.
+         */
+        netCoreSomaxconn?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+         */
+        netCoreWmemDefault?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+         */
+        netCoreWmemMax?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+         */
+        netIpv4IpLocalPortRangeMax?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+         */
+        netIpv4IpLocalPortRangeMin?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`. Changing this forces a new resource to be created.
+         */
+        netIpv4NeighDefaultGcThresh1?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`. Changing this forces a new resource to be created.
+         */
+        netIpv4NeighDefaultGcThresh2?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`. Changing this forces a new resource to be created.
+         */
+        netIpv4NeighDefaultGcThresh3?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`. Changing this forces a new resource to be created.
+         */
+        netIpv4TcpFinTimeout?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+         */
+        netIpv4TcpKeepaliveIntvl?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`. Changing this forces a new resource to be created.
+         */
+        netIpv4TcpKeepaliveProbes?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`. Changing this forces a new resource to be created.
+         */
+        netIpv4TcpKeepaliveTime?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`. Changing this forces a new resource to be created.
+         */
+        netIpv4TcpMaxSynBacklog?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`. Changing this forces a new resource to be created.
+         */
+        netIpv4TcpMaxTwBuckets?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.ipv4.tcp_tw_reuse. Changing this forces a new resource to be created.
+         */
+        netIpv4TcpTwReuse?: pulumi.Input<boolean>;
+        /**
+         * The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+         */
+        netNetfilterNfConntrackBuckets?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `589824`. Changing this forces a new resource to be created.
+         */
+        netNetfilterNfConntrackMax?: pulumi.Input<number>;
+        /**
+         * The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
+         */
+        vmMaxMapCount?: pulumi.Input<number>;
+        /**
+         * The sysctl setting vm.swappiness. Must be between `0` and `100`. Changing this forces a new resource to be created.
+         */
+        vmSwappiness?: pulumi.Input<number>;
+        /**
+         * The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
+         */
+        vmVfsCachePressure?: pulumi.Input<number>;
     }
 
     export interface KubernetesClusterDefaultNodePoolUpgradeSettings {
@@ -7224,6 +7413,184 @@ export namespace containerservice {
         outboundPortsAllocated?: pulumi.Input<number>;
     }
 
+    export interface KubernetesClusterNodePoolKubeletConfig {
+        /**
+         * Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
+         */
+        allowedUnsafeSysctls?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
+         */
+        containerLogMaxLine?: pulumi.Input<number>;
+        /**
+         * Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
+         */
+        containerLogMaxSizeMb?: pulumi.Input<number>;
+        /**
+         * Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created.
+         */
+        cpuCfsQuotaEnabled?: pulumi.Input<boolean>;
+        /**
+         * Specifies the CPU CFS quota period value. Changing this forces a new resource to be created.
+         */
+        cpuCfsQuotaPeriod?: pulumi.Input<string>;
+        /**
+         * Specifies the CPU Manager policy to use. Possible values are `none` and `static`, Changing this forces a new resource to be created.
+         */
+        cpuManagerPolicy?: pulumi.Input<string>;
+        /**
+         * Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+         */
+        imageGcHighThreshold?: pulumi.Input<number>;
+        /**
+         * Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+         */
+        imageGcLowThreshold?: pulumi.Input<number>;
+        podMaxPid?: pulumi.Input<number>;
+        /**
+         * Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
+         */
+        topologyManagerPolicy?: pulumi.Input<string>;
+    }
+
+    export interface KubernetesClusterNodePoolLinuxOsConfig {
+        /**
+         * Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+         */
+        swapFileSizeMb?: pulumi.Input<number>;
+        /**
+         * A `sysctlConfig` block as defined below. Changing this forces a new resource to be created.
+         */
+        sysctlConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolLinuxOsConfigSysctlConfig>;
+        /**
+         * specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
+         */
+        transparentHugePageDefrag?: pulumi.Input<string>;
+        /**
+         * Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
+         */
+        transparentHugePageEnabled?: pulumi.Input<string>;
+    }
+
+    export interface KubernetesClusterNodePoolLinuxOsConfigSysctlConfig {
+        /**
+         * The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`. Changing this forces a new resource to be created.
+         */
+        fsAioMaxNr?: pulumi.Input<number>;
+        /**
+         * The sysctl setting fs.file-max. Must be between `8192` and `12000500`. Changing this forces a new resource to be created.
+         */
+        fsFileMax?: pulumi.Input<number>;
+        /**
+         * The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`. Changing this forces a new resource to be created.
+         */
+        fsInotifyMaxUserWatches?: pulumi.Input<number>;
+        /**
+         * The sysctl setting fs.nr_open. Must be between `8192` and `20000500`. Changing this forces a new resource to be created.
+         */
+        fsNrOpen?: pulumi.Input<number>;
+        /**
+         * The sysctl setting kernel.threads-max. Must be between `20` and `513785`. Changing this forces a new resource to be created.
+         */
+        kernelThreadsMax?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`. Changing this forces a new resource to be created.
+         */
+        netCoreNetdevMaxBacklog?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`. Changing this forces a new resource to be created.
+         */
+        netCoreOptmemMax?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+         */
+        netCoreRmemDefault?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+         */
+        netCoreRmemMax?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`. Changing this forces a new resource to be created.
+         */
+        netCoreSomaxconn?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+         */
+        netCoreWmemDefault?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
+         */
+        netCoreWmemMax?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+         */
+        netIpv4IpLocalPortRangeMax?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
+         */
+        netIpv4IpLocalPortRangeMin?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`. Changing this forces a new resource to be created.
+         */
+        netIpv4NeighDefaultGcThresh1?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`. Changing this forces a new resource to be created.
+         */
+        netIpv4NeighDefaultGcThresh2?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`. Changing this forces a new resource to be created.
+         */
+        netIpv4NeighDefaultGcThresh3?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`. Changing this forces a new resource to be created.
+         */
+        netIpv4TcpFinTimeout?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
+         */
+        netIpv4TcpKeepaliveIntvl?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`. Changing this forces a new resource to be created.
+         */
+        netIpv4TcpKeepaliveProbes?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`. Changing this forces a new resource to be created.
+         */
+        netIpv4TcpKeepaliveTime?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`. Changing this forces a new resource to be created.
+         */
+        netIpv4TcpMaxSynBacklog?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`. Changing this forces a new resource to be created.
+         */
+        netIpv4TcpMaxTwBuckets?: pulumi.Input<number>;
+        /**
+         * Is sysctl setting net.ipv4.tcp_tw_reuse enabled? Changing this forces a new resource to be created.
+         */
+        netIpv4TcpTwReuse?: pulumi.Input<boolean>;
+        /**
+         * The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
+         */
+        netNetfilterNfConntrackBuckets?: pulumi.Input<number>;
+        /**
+         * The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `589824`. Changing this forces a new resource to be created.
+         */
+        netNetfilterNfConntrackMax?: pulumi.Input<number>;
+        /**
+         * The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
+         */
+        vmMaxMapCount?: pulumi.Input<number>;
+        /**
+         * The sysctl setting vm.swappiness. Must be between `0` and `100`. Changing this forces a new resource to be created.
+         */
+        vmSwappiness?: pulumi.Input<number>;
+        /**
+         * The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
+         */
+        vmVfsCachePressure?: pulumi.Input<number>;
+    }
+
     export interface KubernetesClusterNodePoolUpgradeSettings {
         /**
          * The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
@@ -7319,6 +7686,10 @@ export namespace containerservice {
          * A mapping of tags to assign to this replication location.
          */
         tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Whether zone redundancy is enabled for this replication location? Defaults to `false`.
+         */
+        zoneRedundancyEnabled?: pulumi.Input<boolean>;
     }
 
     export interface RegistryIdentity {
@@ -7645,6 +8016,10 @@ export namespace cosmosdb {
          * Indicates the indexing mode. Possible values include: `Consistent`, `Lazy`, `None`.
          */
         indexingMode: pulumi.Input<string>;
+        /**
+         * One or more `spatialIndex` blocks as defined below.
+         */
+        spatialIndices?: pulumi.Input<pulumi.Input<inputs.cosmosdb.GremlinGraphIndexPolicySpatialIndex>[]>;
     }
 
     export interface GremlinGraphIndexPolicyCompositeIndex {
@@ -7663,6 +8038,14 @@ export namespace cosmosdb {
          * Path for which the indexing behaviour applies to.
          */
         path: pulumi.Input<string>;
+    }
+
+    export interface GremlinGraphIndexPolicySpatialIndex {
+        /**
+         * Path for which the indexing behaviour applies to. According to the service design, all spatial types including `LineString`, `MultiPolygon`, `Point`, and `Polygon` will be applied to the path.
+         */
+        path: pulumi.Input<string>;
+        types?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GremlinGraphUniqueKey {
@@ -7747,6 +8130,10 @@ export namespace cosmosdb {
          * Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
          */
         indexingMode?: pulumi.Input<string>;
+        /**
+         * One or more `spatialIndex` blocks as defined below.
+         */
+        spatialIndices?: pulumi.Input<pulumi.Input<inputs.cosmosdb.SqlContainerIndexingPolicySpatialIndex>[]>;
     }
 
     export interface SqlContainerIndexingPolicyCompositeIndex {
@@ -7779,6 +8166,17 @@ export namespace cosmosdb {
          * Path for which the indexing behaviour applies to.
          */
         path: pulumi.Input<string>;
+    }
+
+    export interface SqlContainerIndexingPolicySpatialIndex {
+        /**
+         * Path for which the indexing behaviour applies to. According to the service design, all spatial types including `LineString`, `MultiPolygon`, `Point`, and `Polygon` will be applied to the path.
+         */
+        path: pulumi.Input<string>;
+        /**
+         * A set of spatial types of the path.
+         */
+        types?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface SqlContainerUniqueKey {
@@ -8294,6 +8692,21 @@ export namespace datafactory {
         rootFolder: pulumi.Input<string>;
     }
 
+    export interface FactoryGlobalParameter {
+        /**
+         * Specifies the global parameter name.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Specifies the global parameter type. Possible Values are `Array`, `Bool`, `Float`, `Int`, `Object` or `String`.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * Specifies the global parameter value.
+         */
+        value: pulumi.Input<string>;
+    }
+
     export interface FactoryIdentity {
         /**
          * Specifies the IDs of user assigned identities. Requiered if `UserAssigned` type is used.
@@ -8535,6 +8948,17 @@ export namespace datafactory {
         secretName: pulumi.Input<string>;
     }
 
+    export interface LinkedServiceOdataBasicAuthentication {
+        /**
+         * The password associated with the username, which can be used to authenticate to the OData endpoint.
+         */
+        password: pulumi.Input<string>;
+        /**
+         * The username which can be used to authenticate to the OData endpoint.
+         */
+        username: pulumi.Input<string>;
+    }
+
     export interface LinkedServiceSnowflakeKeyVaultPassword {
         /**
          * Specifies the name of an existing Key Vault Data Factory Linked Service.
@@ -8581,6 +9005,48 @@ export namespace datafactory {
 }
 
 export namespace dataprotection {
+    export interface BackupPolicyPostgresqlRetentionRule {
+        /**
+         * A `criteria` block as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
+         */
+        criteria: pulumi.Input<inputs.dataprotection.BackupPolicyPostgresqlRetentionRuleCriteria>;
+        /**
+         * Duration after which the backup is deleted. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy PostgreSQL to be created.
+         */
+        duration: pulumi.Input<string>;
+        /**
+         * The name which should be used for this retention rule. Changing this forces a new Backup Policy PostgreSQL to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new Backup Policy Postgre Sql to be created.
+         */
+        priority: pulumi.Input<number>;
+    }
+
+    export interface BackupPolicyPostgresqlRetentionRuleCriteria {
+        /**
+         * Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy PostgreSQL to be created.
+         */
+        absoluteCriteria?: pulumi.Input<string>;
+        /**
+         * Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new Backup Policy PostgreSQL to be created.
+         */
+        daysOfWeeks?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new Backup Policy PostgreSQL to be created.
+         */
+        monthsOfYears?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new Backup Policy Postgre Sql to be created.
+         */
+        scheduledBackupTimes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy PostgreSQL to be created.
+         */
+        weeksOfMonths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface BackupVaultIdentity {
         /**
          * The Principal ID for the Service Principal associated with the Identity of this Backup Vault.
@@ -13670,6 +14136,11 @@ export namespace lb {
 
     export interface LoadBalancerFrontendIpConfiguration {
         /**
+         * A list of Availability Zones which the Load Balancer's IP Addresses should be created in. Possible values are `Zone-Redundant`, `1`, `2`, `3`, and `No-Zone`. Defaults to `Zone-Redundant`.
+         * `No-Zones` - A `non-zonal` resource will be created and the resource will not be replicated or distributed to any Availability Zones.
+         */
+        availabilityZone?: pulumi.Input<string>;
+        /**
          * The id of the Frontend IP Configuration.
          */
         id?: pulumi.Input<string>;
@@ -13714,7 +14185,7 @@ export namespace lb {
          */
         subnetId?: pulumi.Input<string>;
         /**
-         * A list of Availability Zones which the Load Balancer's IP Addresses should be created in.
+         * @deprecated This property has been deprecated in favour of `availability_zone` due to a breaking behavioural change in Azure: https://azure.microsoft.com/en-us/updates/zone-behavior-change/
          */
         zones?: pulumi.Input<string>;
     }
@@ -13798,6 +14269,27 @@ export namespace logicapps {
 }
 
 export namespace machinelearning {
+    export interface ComputeClusterIdentity {
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The Type of Identity which should be used for this Disk Encryption Set. At this time the only possible value is SystemAssigned. Changing this forces a new Machine Learning Compute Cluster to be created.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface ComputeClusterScaleSettings {
+        /**
+         * Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+         */
+        maxNodeCount: pulumi.Input<number>;
+        /**
+         * Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+         */
+        minNodeCount: pulumi.Input<number>;
+        scaleDownNodesAfterIdleDuration: pulumi.Input<string>;
+    }
+
     export interface InferenceClusterSsl {
         /**
          * The certificate for the ssl configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
@@ -15553,7 +16045,7 @@ export namespace monitoring {
          */
         name: pulumi.Input<string>;
         /**
-         * The dimension operator. Possible values are `Include` and `Exclude`.
+         * The dimension operator. Possible values are `Include`, `Exclude` and `StartsWith`.
          */
         operator: pulumi.Input<string>;
         /**
@@ -15611,7 +16103,7 @@ export namespace monitoring {
          */
         name: pulumi.Input<string>;
         /**
-         * The dimension operator. Possible values are `Include` and `Exclude`.
+         * The dimension operator. Possible values are `Include`, `Exclude` and `StartsWith`.
          */
         operator: pulumi.Input<string>;
         /**
@@ -20463,6 +20955,71 @@ export namespace storage {
         publishMicrosoftEndpoints?: pulumi.Input<boolean>;
     }
 
+    export interface AccountShareProperties {
+        /**
+         * A `corsRule` block as defined below.
+         */
+        corsRules?: pulumi.Input<pulumi.Input<inputs.storage.AccountSharePropertiesCorsRule>[]>;
+        /**
+         * (Optional) A `retentionPolicy` block as defined below.
+         */
+        retentionPolicy?: pulumi.Input<inputs.storage.AccountSharePropertiesRetentionPolicy>;
+        /**
+         * (Optional) A `smb` block as defined below.
+         */
+        smb?: pulumi.Input<inputs.storage.AccountSharePropertiesSmb>;
+    }
+
+    export interface AccountSharePropertiesCorsRule {
+        /**
+         * A list of headers that are allowed to be a part of the cross-origin request.
+         */
+        allowedHeaders: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of http headers that are allowed to be executed by the origin. Valid options are
+         * `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+         */
+        allowedMethods: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of origin domains that will be allowed by CORS.
+         */
+        allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of response headers that are exposed to CORS clients.
+         */
+        exposedHeaders: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The number of seconds the client should cache a preflight response.
+         */
+        maxAgeInSeconds: pulumi.Input<number>;
+    }
+
+    export interface AccountSharePropertiesRetentionPolicy {
+        /**
+         * Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
+         */
+        days?: pulumi.Input<number>;
+    }
+
+    export interface AccountSharePropertiesSmb {
+        /**
+         * (Optional) A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
+         */
+        authenticationTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * (Optional) A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
+         */
+        channelEncryptionTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * (Optional) A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
+         */
+        kerberosTicketEncryptionTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * (Optional) A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
+         */
+        versions?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface AccountStaticWebsite {
         /**
          * The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
@@ -20831,6 +21388,21 @@ export namespace streamanalytics {
     export interface FunctionJavaScriptUDFOutput {
         /**
          * The Data Type output from this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface JobIdentity {
+        /**
+         * The ID of the Principal (Client) in Azure Active Directory.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The ID of the Azure Active Directory Tenant.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The type of identity used for the Stream Analytics Job. Possible values are `SystemAssigned`.
          */
         type: pulumi.Input<string>;
     }

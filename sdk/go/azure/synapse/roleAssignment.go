@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Allows you to Manages a Synapse Role Assignment.
+// Manages a Synapse Role Assignment.
 //
 // ## Example Usage
 //
@@ -74,7 +74,7 @@ import (
 // 		}
 // 		_, err = synapse.NewRoleAssignment(ctx, "exampleRoleAssignment", &synapse.RoleAssignmentArgs{
 // 			SynapseWorkspaceId: exampleWorkspace.ID(),
-// 			RoleName:           pulumi.String("Sql Admin"),
+// 			RoleName:           pulumi.String("Synapse SQL Administrator"),
 // 			PrincipalId:        pulumi.String(current.ObjectId),
 // 		}, pulumi.DependsOn([]pulumi.Resource{
 // 			exampleFirewallRule,
@@ -101,8 +101,10 @@ type RoleAssignment struct {
 	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
 	// The Role Name of the Synapse Built-In Role. Changing this forces a new resource to be created.
 	RoleName pulumi.StringOutput `pulumi:"roleName"`
-	// The ID of the Synapse Workspace on which to create the Role Assignment. Changing this forces a new resource to be created.
-	SynapseWorkspaceId pulumi.StringOutput `pulumi:"synapseWorkspaceId"`
+	// The Synapse Spark Pool which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
+	SynapseSparkPoolId pulumi.StringPtrOutput `pulumi:"synapseSparkPoolId"`
+	// The Synapse Workspace which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
+	SynapseWorkspaceId pulumi.StringPtrOutput `pulumi:"synapseWorkspaceId"`
 }
 
 // NewRoleAssignment registers a new resource with the given unique name, arguments, and options.
@@ -117,9 +119,6 @@ func NewRoleAssignment(ctx *pulumi.Context,
 	}
 	if args.RoleName == nil {
 		return nil, errors.New("invalid value for required argument 'RoleName'")
-	}
-	if args.SynapseWorkspaceId == nil {
-		return nil, errors.New("invalid value for required argument 'SynapseWorkspaceId'")
 	}
 	var resource RoleAssignment
 	err := ctx.RegisterResource("azure:synapse/roleAssignment:RoleAssignment", name, args, &resource, opts...)
@@ -147,7 +146,9 @@ type roleAssignmentState struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The Role Name of the Synapse Built-In Role. Changing this forces a new resource to be created.
 	RoleName *string `pulumi:"roleName"`
-	// The ID of the Synapse Workspace on which to create the Role Assignment. Changing this forces a new resource to be created.
+	// The Synapse Spark Pool which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
+	SynapseSparkPoolId *string `pulumi:"synapseSparkPoolId"`
+	// The Synapse Workspace which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
 	SynapseWorkspaceId *string `pulumi:"synapseWorkspaceId"`
 }
 
@@ -156,7 +157,9 @@ type RoleAssignmentState struct {
 	PrincipalId pulumi.StringPtrInput
 	// The Role Name of the Synapse Built-In Role. Changing this forces a new resource to be created.
 	RoleName pulumi.StringPtrInput
-	// The ID of the Synapse Workspace on which to create the Role Assignment. Changing this forces a new resource to be created.
+	// The Synapse Spark Pool which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
+	SynapseSparkPoolId pulumi.StringPtrInput
+	// The Synapse Workspace which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
 	SynapseWorkspaceId pulumi.StringPtrInput
 }
 
@@ -169,8 +172,10 @@ type roleAssignmentArgs struct {
 	PrincipalId string `pulumi:"principalId"`
 	// The Role Name of the Synapse Built-In Role. Changing this forces a new resource to be created.
 	RoleName string `pulumi:"roleName"`
-	// The ID of the Synapse Workspace on which to create the Role Assignment. Changing this forces a new resource to be created.
-	SynapseWorkspaceId string `pulumi:"synapseWorkspaceId"`
+	// The Synapse Spark Pool which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
+	SynapseSparkPoolId *string `pulumi:"synapseSparkPoolId"`
+	// The Synapse Workspace which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
+	SynapseWorkspaceId *string `pulumi:"synapseWorkspaceId"`
 }
 
 // The set of arguments for constructing a RoleAssignment resource.
@@ -179,8 +184,10 @@ type RoleAssignmentArgs struct {
 	PrincipalId pulumi.StringInput
 	// The Role Name of the Synapse Built-In Role. Changing this forces a new resource to be created.
 	RoleName pulumi.StringInput
-	// The ID of the Synapse Workspace on which to create the Role Assignment. Changing this forces a new resource to be created.
-	SynapseWorkspaceId pulumi.StringInput
+	// The Synapse Spark Pool which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
+	SynapseSparkPoolId pulumi.StringPtrInput
+	// The Synapse Workspace which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
+	SynapseWorkspaceId pulumi.StringPtrInput
 }
 
 func (RoleAssignmentArgs) ElementType() reflect.Type {

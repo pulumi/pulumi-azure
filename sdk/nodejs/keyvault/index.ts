@@ -17,6 +17,7 @@ export * from "./getKey";
 export * from "./getKeyVault";
 export * from "./getManagedHardwareSecurityModule";
 export * from "./getSecret";
+export * from "./getSecrets";
 export * from "./key";
 export * from "./keyVault";
 export * from "./managedHardwareSecurityModule";

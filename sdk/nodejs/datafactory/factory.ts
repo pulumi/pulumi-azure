@@ -66,6 +66,10 @@ export class Factory extends pulumi.CustomResource {
      */
     public readonly githubConfiguration!: pulumi.Output<outputs.datafactory.FactoryGithubConfiguration | undefined>;
     /**
+     * A list of `globalParameter` blocks as defined above.
+     */
+    public readonly globalParameters!: pulumi.Output<outputs.datafactory.FactoryGlobalParameter[] | undefined>;
+    /**
      * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.datafactory.FactoryIdentity>;
@@ -109,6 +113,7 @@ export class Factory extends pulumi.CustomResource {
             const state = argsOrState as FactoryState | undefined;
             inputs["customerManagedKeyId"] = state ? state.customerManagedKeyId : undefined;
             inputs["githubConfiguration"] = state ? state.githubConfiguration : undefined;
+            inputs["globalParameters"] = state ? state.globalParameters : undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -123,6 +128,7 @@ export class Factory extends pulumi.CustomResource {
             }
             inputs["customerManagedKeyId"] = args ? args.customerManagedKeyId : undefined;
             inputs["githubConfiguration"] = args ? args.githubConfiguration : undefined;
+            inputs["globalParameters"] = args ? args.globalParameters : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -150,6 +156,10 @@ export interface FactoryState {
      * A `githubConfiguration` block as defined below.
      */
     githubConfiguration?: pulumi.Input<inputs.datafactory.FactoryGithubConfiguration>;
+    /**
+     * A list of `globalParameter` blocks as defined above.
+     */
+    globalParameters?: pulumi.Input<pulumi.Input<inputs.datafactory.FactoryGlobalParameter>[]>;
     /**
      * An `identity` block as defined below.
      */
@@ -192,6 +202,10 @@ export interface FactoryArgs {
      * A `githubConfiguration` block as defined below.
      */
     githubConfiguration?: pulumi.Input<inputs.datafactory.FactoryGithubConfiguration>;
+    /**
+     * A list of `globalParameter` blocks as defined above.
+     */
+    globalParameters?: pulumi.Input<pulumi.Input<inputs.datafactory.FactoryGlobalParameter>[]>;
     /**
      * An `identity` block as defined below.
      */

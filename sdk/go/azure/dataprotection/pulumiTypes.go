@@ -10,6 +10,220 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type BackupPolicyPostgresqlRetentionRule struct {
+	// A `criteria` block as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
+	Criteria BackupPolicyPostgresqlRetentionRuleCriteria `pulumi:"criteria"`
+	// Duration after which the backup is deleted. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy PostgreSQL to be created.
+	Duration string `pulumi:"duration"`
+	// The name which should be used for this retention rule. Changing this forces a new Backup Policy PostgreSQL to be created.
+	Name string `pulumi:"name"`
+	// Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new Backup Policy Postgre Sql to be created.
+	Priority int `pulumi:"priority"`
+}
+
+// BackupPolicyPostgresqlRetentionRuleInput is an input type that accepts BackupPolicyPostgresqlRetentionRuleArgs and BackupPolicyPostgresqlRetentionRuleOutput values.
+// You can construct a concrete instance of `BackupPolicyPostgresqlRetentionRuleInput` via:
+//
+//          BackupPolicyPostgresqlRetentionRuleArgs{...}
+type BackupPolicyPostgresqlRetentionRuleInput interface {
+	pulumi.Input
+
+	ToBackupPolicyPostgresqlRetentionRuleOutput() BackupPolicyPostgresqlRetentionRuleOutput
+	ToBackupPolicyPostgresqlRetentionRuleOutputWithContext(context.Context) BackupPolicyPostgresqlRetentionRuleOutput
+}
+
+type BackupPolicyPostgresqlRetentionRuleArgs struct {
+	// A `criteria` block as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
+	Criteria BackupPolicyPostgresqlRetentionRuleCriteriaInput `pulumi:"criteria"`
+	// Duration after which the backup is deleted. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy PostgreSQL to be created.
+	Duration pulumi.StringInput `pulumi:"duration"`
+	// The name which should be used for this retention rule. Changing this forces a new Backup Policy PostgreSQL to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new Backup Policy Postgre Sql to be created.
+	Priority pulumi.IntInput `pulumi:"priority"`
+}
+
+func (BackupPolicyPostgresqlRetentionRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyPostgresqlRetentionRule)(nil)).Elem()
+}
+
+func (i BackupPolicyPostgresqlRetentionRuleArgs) ToBackupPolicyPostgresqlRetentionRuleOutput() BackupPolicyPostgresqlRetentionRuleOutput {
+	return i.ToBackupPolicyPostgresqlRetentionRuleOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyPostgresqlRetentionRuleArgs) ToBackupPolicyPostgresqlRetentionRuleOutputWithContext(ctx context.Context) BackupPolicyPostgresqlRetentionRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyPostgresqlRetentionRuleOutput)
+}
+
+// BackupPolicyPostgresqlRetentionRuleArrayInput is an input type that accepts BackupPolicyPostgresqlRetentionRuleArray and BackupPolicyPostgresqlRetentionRuleArrayOutput values.
+// You can construct a concrete instance of `BackupPolicyPostgresqlRetentionRuleArrayInput` via:
+//
+//          BackupPolicyPostgresqlRetentionRuleArray{ BackupPolicyPostgresqlRetentionRuleArgs{...} }
+type BackupPolicyPostgresqlRetentionRuleArrayInput interface {
+	pulumi.Input
+
+	ToBackupPolicyPostgresqlRetentionRuleArrayOutput() BackupPolicyPostgresqlRetentionRuleArrayOutput
+	ToBackupPolicyPostgresqlRetentionRuleArrayOutputWithContext(context.Context) BackupPolicyPostgresqlRetentionRuleArrayOutput
+}
+
+type BackupPolicyPostgresqlRetentionRuleArray []BackupPolicyPostgresqlRetentionRuleInput
+
+func (BackupPolicyPostgresqlRetentionRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPolicyPostgresqlRetentionRule)(nil)).Elem()
+}
+
+func (i BackupPolicyPostgresqlRetentionRuleArray) ToBackupPolicyPostgresqlRetentionRuleArrayOutput() BackupPolicyPostgresqlRetentionRuleArrayOutput {
+	return i.ToBackupPolicyPostgresqlRetentionRuleArrayOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyPostgresqlRetentionRuleArray) ToBackupPolicyPostgresqlRetentionRuleArrayOutputWithContext(ctx context.Context) BackupPolicyPostgresqlRetentionRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyPostgresqlRetentionRuleArrayOutput)
+}
+
+type BackupPolicyPostgresqlRetentionRuleOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyPostgresqlRetentionRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyPostgresqlRetentionRule)(nil)).Elem()
+}
+
+func (o BackupPolicyPostgresqlRetentionRuleOutput) ToBackupPolicyPostgresqlRetentionRuleOutput() BackupPolicyPostgresqlRetentionRuleOutput {
+	return o
+}
+
+func (o BackupPolicyPostgresqlRetentionRuleOutput) ToBackupPolicyPostgresqlRetentionRuleOutputWithContext(ctx context.Context) BackupPolicyPostgresqlRetentionRuleOutput {
+	return o
+}
+
+// A `criteria` block as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
+func (o BackupPolicyPostgresqlRetentionRuleOutput) Criteria() BackupPolicyPostgresqlRetentionRuleCriteriaOutput {
+	return o.ApplyT(func(v BackupPolicyPostgresqlRetentionRule) BackupPolicyPostgresqlRetentionRuleCriteria {
+		return v.Criteria
+	}).(BackupPolicyPostgresqlRetentionRuleCriteriaOutput)
+}
+
+// Duration after which the backup is deleted. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy PostgreSQL to be created.
+func (o BackupPolicyPostgresqlRetentionRuleOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPolicyPostgresqlRetentionRule) string { return v.Duration }).(pulumi.StringOutput)
+}
+
+// The name which should be used for this retention rule. Changing this forces a new Backup Policy PostgreSQL to be created.
+func (o BackupPolicyPostgresqlRetentionRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPolicyPostgresqlRetentionRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new Backup Policy Postgre Sql to be created.
+func (o BackupPolicyPostgresqlRetentionRuleOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v BackupPolicyPostgresqlRetentionRule) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+type BackupPolicyPostgresqlRetentionRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyPostgresqlRetentionRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPolicyPostgresqlRetentionRule)(nil)).Elem()
+}
+
+func (o BackupPolicyPostgresqlRetentionRuleArrayOutput) ToBackupPolicyPostgresqlRetentionRuleArrayOutput() BackupPolicyPostgresqlRetentionRuleArrayOutput {
+	return o
+}
+
+func (o BackupPolicyPostgresqlRetentionRuleArrayOutput) ToBackupPolicyPostgresqlRetentionRuleArrayOutputWithContext(ctx context.Context) BackupPolicyPostgresqlRetentionRuleArrayOutput {
+	return o
+}
+
+func (o BackupPolicyPostgresqlRetentionRuleArrayOutput) Index(i pulumi.IntInput) BackupPolicyPostgresqlRetentionRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BackupPolicyPostgresqlRetentionRule {
+		return vs[0].([]BackupPolicyPostgresqlRetentionRule)[vs[1].(int)]
+	}).(BackupPolicyPostgresqlRetentionRuleOutput)
+}
+
+type BackupPolicyPostgresqlRetentionRuleCriteria struct {
+	// Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy PostgreSQL to be created.
+	AbsoluteCriteria *string `pulumi:"absoluteCriteria"`
+	// Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new Backup Policy PostgreSQL to be created.
+	DaysOfWeeks []string `pulumi:"daysOfWeeks"`
+	// Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new Backup Policy PostgreSQL to be created.
+	MonthsOfYears []string `pulumi:"monthsOfYears"`
+	// Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new Backup Policy Postgre Sql to be created.
+	ScheduledBackupTimes []string `pulumi:"scheduledBackupTimes"`
+	// Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy PostgreSQL to be created.
+	WeeksOfMonths []string `pulumi:"weeksOfMonths"`
+}
+
+// BackupPolicyPostgresqlRetentionRuleCriteriaInput is an input type that accepts BackupPolicyPostgresqlRetentionRuleCriteriaArgs and BackupPolicyPostgresqlRetentionRuleCriteriaOutput values.
+// You can construct a concrete instance of `BackupPolicyPostgresqlRetentionRuleCriteriaInput` via:
+//
+//          BackupPolicyPostgresqlRetentionRuleCriteriaArgs{...}
+type BackupPolicyPostgresqlRetentionRuleCriteriaInput interface {
+	pulumi.Input
+
+	ToBackupPolicyPostgresqlRetentionRuleCriteriaOutput() BackupPolicyPostgresqlRetentionRuleCriteriaOutput
+	ToBackupPolicyPostgresqlRetentionRuleCriteriaOutputWithContext(context.Context) BackupPolicyPostgresqlRetentionRuleCriteriaOutput
+}
+
+type BackupPolicyPostgresqlRetentionRuleCriteriaArgs struct {
+	// Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy PostgreSQL to be created.
+	AbsoluteCriteria pulumi.StringPtrInput `pulumi:"absoluteCriteria"`
+	// Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new Backup Policy PostgreSQL to be created.
+	DaysOfWeeks pulumi.StringArrayInput `pulumi:"daysOfWeeks"`
+	// Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new Backup Policy PostgreSQL to be created.
+	MonthsOfYears pulumi.StringArrayInput `pulumi:"monthsOfYears"`
+	// Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new Backup Policy Postgre Sql to be created.
+	ScheduledBackupTimes pulumi.StringArrayInput `pulumi:"scheduledBackupTimes"`
+	// Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy PostgreSQL to be created.
+	WeeksOfMonths pulumi.StringArrayInput `pulumi:"weeksOfMonths"`
+}
+
+func (BackupPolicyPostgresqlRetentionRuleCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyPostgresqlRetentionRuleCriteria)(nil)).Elem()
+}
+
+func (i BackupPolicyPostgresqlRetentionRuleCriteriaArgs) ToBackupPolicyPostgresqlRetentionRuleCriteriaOutput() BackupPolicyPostgresqlRetentionRuleCriteriaOutput {
+	return i.ToBackupPolicyPostgresqlRetentionRuleCriteriaOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyPostgresqlRetentionRuleCriteriaArgs) ToBackupPolicyPostgresqlRetentionRuleCriteriaOutputWithContext(ctx context.Context) BackupPolicyPostgresqlRetentionRuleCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyPostgresqlRetentionRuleCriteriaOutput)
+}
+
+type BackupPolicyPostgresqlRetentionRuleCriteriaOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyPostgresqlRetentionRuleCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyPostgresqlRetentionRuleCriteria)(nil)).Elem()
+}
+
+func (o BackupPolicyPostgresqlRetentionRuleCriteriaOutput) ToBackupPolicyPostgresqlRetentionRuleCriteriaOutput() BackupPolicyPostgresqlRetentionRuleCriteriaOutput {
+	return o
+}
+
+func (o BackupPolicyPostgresqlRetentionRuleCriteriaOutput) ToBackupPolicyPostgresqlRetentionRuleCriteriaOutputWithContext(ctx context.Context) BackupPolicyPostgresqlRetentionRuleCriteriaOutput {
+	return o
+}
+
+// Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy PostgreSQL to be created.
+func (o BackupPolicyPostgresqlRetentionRuleCriteriaOutput) AbsoluteCriteria() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupPolicyPostgresqlRetentionRuleCriteria) *string { return v.AbsoluteCriteria }).(pulumi.StringPtrOutput)
+}
+
+// Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new Backup Policy PostgreSQL to be created.
+func (o BackupPolicyPostgresqlRetentionRuleCriteriaOutput) DaysOfWeeks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupPolicyPostgresqlRetentionRuleCriteria) []string { return v.DaysOfWeeks }).(pulumi.StringArrayOutput)
+}
+
+// Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new Backup Policy PostgreSQL to be created.
+func (o BackupPolicyPostgresqlRetentionRuleCriteriaOutput) MonthsOfYears() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupPolicyPostgresqlRetentionRuleCriteria) []string { return v.MonthsOfYears }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new Backup Policy Postgre Sql to be created.
+func (o BackupPolicyPostgresqlRetentionRuleCriteriaOutput) ScheduledBackupTimes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupPolicyPostgresqlRetentionRuleCriteria) []string { return v.ScheduledBackupTimes }).(pulumi.StringArrayOutput)
+}
+
+// Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy PostgreSQL to be created.
+func (o BackupPolicyPostgresqlRetentionRuleCriteriaOutput) WeeksOfMonths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupPolicyPostgresqlRetentionRuleCriteria) []string { return v.WeeksOfMonths }).(pulumi.StringArrayOutput)
+}
+
 type BackupVaultIdentity struct {
 	// The Principal ID for the Service Principal associated with the Identity of this Backup Vault.
 	PrincipalId *string `pulumi:"principalId"`
@@ -180,6 +394,9 @@ func (o BackupVaultIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(BackupPolicyPostgresqlRetentionRuleOutput{})
+	pulumi.RegisterOutputType(BackupPolicyPostgresqlRetentionRuleArrayOutput{})
+	pulumi.RegisterOutputType(BackupPolicyPostgresqlRetentionRuleCriteriaOutput{})
 	pulumi.RegisterOutputType(BackupVaultIdentityOutput{})
 	pulumi.RegisterOutputType(BackupVaultIdentityPtrOutput{})
 }

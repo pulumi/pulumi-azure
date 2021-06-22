@@ -82,9 +82,17 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly certificates!: pulumi.Output<outputs.apimanagement.ServiceCertificate[] | undefined>;
     /**
+     * Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+     */
+    public readonly clientCertificateEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The URL for the Developer Portal associated with this API Management service.
      */
     public /*out*/ readonly developerPortalUrl!: pulumi.Output<string>;
+    /**
+     * Disable the gateway in master region? This is only supported when `additionalLocation` is set.
+     */
+    public readonly gatewayDisabled!: pulumi.Output<boolean | undefined>;
     /**
      * The URL of the Regional Gateway for the API Management Service in the specified region.
      */
@@ -109,6 +117,10 @@ export class Service extends pulumi.CustomResource {
      * The URL for the Management API associated with this API Management service.
      */
     public /*out*/ readonly managementApiUrl!: pulumi.Output<string>;
+    /**
+     * The version which the control plane API calls to API Management service are limited with version equal to or newer than.
+     */
+    public readonly minApiVersion!: pulumi.Output<string | undefined>;
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
@@ -186,6 +198,10 @@ export class Service extends pulumi.CustomResource {
      * > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
      */
     public readonly virtualNetworkType!: pulumi.Output<string | undefined>;
+    /**
+     * A list of availability zones.
+     */
+    public readonly zones!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -202,13 +218,16 @@ export class Service extends pulumi.CustomResource {
             const state = argsOrState as ServiceState | undefined;
             inputs["additionalLocations"] = state ? state.additionalLocations : undefined;
             inputs["certificates"] = state ? state.certificates : undefined;
+            inputs["clientCertificateEnabled"] = state ? state.clientCertificateEnabled : undefined;
             inputs["developerPortalUrl"] = state ? state.developerPortalUrl : undefined;
+            inputs["gatewayDisabled"] = state ? state.gatewayDisabled : undefined;
             inputs["gatewayRegionalUrl"] = state ? state.gatewayRegionalUrl : undefined;
             inputs["gatewayUrl"] = state ? state.gatewayUrl : undefined;
             inputs["hostnameConfiguration"] = state ? state.hostnameConfiguration : undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["managementApiUrl"] = state ? state.managementApiUrl : undefined;
+            inputs["minApiVersion"] = state ? state.minApiVersion : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["notificationSenderEmail"] = state ? state.notificationSenderEmail : undefined;
             inputs["policy"] = state ? state.policy : undefined;
@@ -228,6 +247,7 @@ export class Service extends pulumi.CustomResource {
             inputs["tenantAccess"] = state ? state.tenantAccess : undefined;
             inputs["virtualNetworkConfiguration"] = state ? state.virtualNetworkConfiguration : undefined;
             inputs["virtualNetworkType"] = state ? state.virtualNetworkType : undefined;
+            inputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
             if ((!args || args.publisherEmail === undefined) && !opts.urn) {
@@ -244,9 +264,12 @@ export class Service extends pulumi.CustomResource {
             }
             inputs["additionalLocations"] = args ? args.additionalLocations : undefined;
             inputs["certificates"] = args ? args.certificates : undefined;
+            inputs["clientCertificateEnabled"] = args ? args.clientCertificateEnabled : undefined;
+            inputs["gatewayDisabled"] = args ? args.gatewayDisabled : undefined;
             inputs["hostnameConfiguration"] = args ? args.hostnameConfiguration : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["minApiVersion"] = args ? args.minApiVersion : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["notificationSenderEmail"] = args ? args.notificationSenderEmail : undefined;
             inputs["policy"] = args ? args.policy : undefined;
@@ -262,6 +285,7 @@ export class Service extends pulumi.CustomResource {
             inputs["tenantAccess"] = args ? args.tenantAccess : undefined;
             inputs["virtualNetworkConfiguration"] = args ? args.virtualNetworkConfiguration : undefined;
             inputs["virtualNetworkType"] = args ? args.virtualNetworkType : undefined;
+            inputs["zones"] = args ? args.zones : undefined;
             inputs["developerPortalUrl"] = undefined /*out*/;
             inputs["gatewayRegionalUrl"] = undefined /*out*/;
             inputs["gatewayUrl"] = undefined /*out*/;
@@ -291,9 +315,17 @@ export interface ServiceState {
      */
     certificates?: pulumi.Input<pulumi.Input<inputs.apimanagement.ServiceCertificate>[]>;
     /**
+     * Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+     */
+    clientCertificateEnabled?: pulumi.Input<boolean>;
+    /**
      * The URL for the Developer Portal associated with this API Management service.
      */
     developerPortalUrl?: pulumi.Input<string>;
+    /**
+     * Disable the gateway in master region? This is only supported when `additionalLocation` is set.
+     */
+    gatewayDisabled?: pulumi.Input<boolean>;
     /**
      * The URL of the Regional Gateway for the API Management Service in the specified region.
      */
@@ -318,6 +350,10 @@ export interface ServiceState {
      * The URL for the Management API associated with this API Management service.
      */
     managementApiUrl?: pulumi.Input<string>;
+    /**
+     * The version which the control plane API calls to API Management service are limited with version equal to or newer than.
+     */
+    minApiVersion?: pulumi.Input<string>;
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
@@ -395,6 +431,10 @@ export interface ServiceState {
      * > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
      */
     virtualNetworkType?: pulumi.Input<string>;
+    /**
+     * A list of availability zones.
+     */
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -410,6 +450,14 @@ export interface ServiceArgs {
      */
     certificates?: pulumi.Input<pulumi.Input<inputs.apimanagement.ServiceCertificate>[]>;
     /**
+     * Enforce a client certificate to be presented on each request to the gateway? This is only supported when sku type is `Consumption`.
+     */
+    clientCertificateEnabled?: pulumi.Input<boolean>;
+    /**
+     * Disable the gateway in master region? This is only supported when `additionalLocation` is set.
+     */
+    gatewayDisabled?: pulumi.Input<boolean>;
+    /**
      * A `hostnameConfiguration` block as defined below.
      */
     hostnameConfiguration?: pulumi.Input<inputs.apimanagement.ServiceHostnameConfiguration>;
@@ -421,6 +469,10 @@ export interface ServiceArgs {
      * The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * The version which the control plane API calls to API Management service are limited with version equal to or newer than.
+     */
+    minApiVersion?: pulumi.Input<string>;
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
@@ -482,4 +534,8 @@ export interface ServiceArgs {
      * > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues).
      */
     virtualNetworkType?: pulumi.Input<string>;
+    /**
+     * A list of availability zones.
+     */
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

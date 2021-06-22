@@ -98,6 +98,12 @@ namespace Pulumi.Azure.Synapse
         public Output<string?> CustomerManagedKeyVersionlessId { get; private set; } = null!;
 
         /// <summary>
+        /// Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("dataExfiltrationProtectionEnabled")]
+        public Output<bool?> DataExfiltrationProtectionEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// A `github_repo` block as defined below.
         /// </summary>
         [Output("githubRepo")]
@@ -234,6 +240,12 @@ namespace Pulumi.Azure.Synapse
         public Input<string>? CustomerManagedKeyVersionlessId { get; set; }
 
         /// <summary>
+        /// Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("dataExfiltrationProtectionEnabled")]
+        public Input<bool>? DataExfiltrationProtectionEnabled { get; set; }
+
+        /// <summary>
         /// A `github_repo` block as defined below.
         /// </summary>
         [Input("githubRepo")]
@@ -341,6 +353,12 @@ namespace Pulumi.Azure.Synapse
         /// </summary>
         [Input("customerManagedKeyVersionlessId")]
         public Input<string>? CustomerManagedKeyVersionlessId { get; set; }
+
+        /// <summary>
+        /// Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("dataExfiltrationProtectionEnabled")]
+        public Input<bool>? DataExfiltrationProtectionEnabled { get; set; }
 
         /// <summary>
         /// A `github_repo` block as defined below.
